@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bixjjksp3dphm"]
+
+[ext_resource type="Script" path="res://addons/save_components_system/components/master_save_component/master_save_component.gd" id="1_suje0"]
+
+[node name="MasterSaveComponent" type="Node" groups=["MasterSaveComponent"]]
+script = ExtResource("1_suje0")
+do_not_search_nodes = PackedStringArray("StateChart", "StateChartDebugger")

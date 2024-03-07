@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://coge3r6c3f044"]
+
+[ext_resource type="Script" path="res://nodes/components/two_point_5d_space_simulator/two_point_5d_space_simulator.gd" id="1_0fgw4"]
+
+[node name="TwoPoint5DSpaceSimulator" type="Node" node_paths=PackedStringArray("base_point", "point_a", "point_b") groups=["TwoPoint5DSpaceSimulator"]]
+script = ExtResource("1_0fgw4")
+base_point = NodePath("BasePoint")
+point_a = NodePath("BasePoint/PointA")
+point_b = NodePath("BasePoint/PointB")
+
+[node name="BasePoint" type="Marker2D" parent="."]
+
+[node name="PointA" type="Marker2D" parent="BasePoint"]
+
+[node name="PointB" type="Marker2D" parent="BasePoint"]

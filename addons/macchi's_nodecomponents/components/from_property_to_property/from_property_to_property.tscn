@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqrlnae6a0g64"]
+
+[ext_resource type="Script" path="res://addons/macchi's_nodecomponents/components/from_property_to_property/from_property_to_property.gd" id="1_lvs6u"]
+
+[node name="FromPropertyToProperty" type="Node"]
+script = ExtResource("1_lvs6u")

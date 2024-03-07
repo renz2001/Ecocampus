@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b82jqe82udel1"]
+
+[ext_resource type="Script" path="res://addons/save_components_system/components/follower_save_component/follower_save_component.gd" id="1_7ym31"]
+
+[node name="FollowerSaveComponent" type="Node" groups=["FollowerSaveComponent"]]
+script = ExtResource("1_7ym31")

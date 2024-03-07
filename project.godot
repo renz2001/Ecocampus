@@ -14,6 +14,24 @@ config/name="Ecocampus-freelance-"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+SaveManager="*res://addons/save_components_system/singletons/save_manager/save_manager.tscn"
+DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+GlobalVariables="*res://nodes/singletons/globals/global_variables.gd"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://addons/gdscript_datetime/plugin.cfg", "res://addons/godot_state_charts/plugin.cfg", "res://addons/macchi\'s_nodecomponents/plugin.cfg", "res://addons/save_components_system/plugin.cfg")
+
+[input]
+
+tap={
+"deadzone": 0.5,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(187, 15),"global_position":Vector2(191, 56),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
+]
+}
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

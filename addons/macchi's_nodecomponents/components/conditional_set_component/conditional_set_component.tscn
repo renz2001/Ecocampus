@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://g7mchgj54c12"]
+
+[ext_resource type="Script" path="res://addons/macchi's_nodecomponents/components/conditional_set_component/conditional_set_component.gd" id="1_8o43i"]
+
+
+[node name="ConditionalSetComponent" type="Node"]
+script = ExtResource("1_8o43i")

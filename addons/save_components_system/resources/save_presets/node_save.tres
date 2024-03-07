@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="PropertiesToSave" load_steps=2 format=3 uid="uid://y2q6mb27iyeu"]
+
+[ext_resource type="Script" path="res://addons/save_components_system/scripts/resources/properties_to_save.gd" id="1_sku61"]
+
+[resource]
+script = ExtResource("1_sku61")
+properties = PackedStringArray("position", "rotation", "visible", "scale")

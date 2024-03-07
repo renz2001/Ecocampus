@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6l0q5hhqq12m"]
+
+[ext_resource type="Script" path="res://nodes/components/two_point_5d_node_simulator/two_point_5d_node_simulator.gd" id="1_b5par"]
+
+[node name="TwoPoint5DNodeSimulator" type="Node"]
+script = ExtResource("1_b5par")

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5du1qww5qopg"]
+
+[ext_resource type="Script" path="res://addons/macchi's_nodecomponents/components/path_find_movement_component/path_find_movement_component.gd" id="1_mtrhu"]
+
+[node name="PathFindMovementComponent" type="Node" node_paths=PackedStringArray("movement")]
+script = ExtResource("1_mtrhu")
+movement = NodePath("")

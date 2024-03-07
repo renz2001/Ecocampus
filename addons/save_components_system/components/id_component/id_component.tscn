@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bf36nvt8j4eto"]
+
+[ext_resource type="Script" path="res://addons/save_components_system/components/id_component/id_component.gd" id="1_wwj6l"]
+
+[node name="IDComponent" type="Node"]
+script = ExtResource("1_wwj6l")

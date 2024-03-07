@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dcl4q5evy7cq1"]
+
+[ext_resource type="Script" path="res://addons/save_components_system/components/king_save_component/king_save_component.gd" id="1_4n3f6"]
+
+[node name="KingSaveComponent" type="Node" groups=["KingSaveComponent"]]
+script = ExtResource("1_4n3f6")

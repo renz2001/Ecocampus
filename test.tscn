@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://daqnjl2roa5vx"]
+
+[ext_resource type="Texture2D" uid="uid://bvf4phttgiyol" path="res://icon.svg" id="1_mv34e"]
+[ext_resource type="PackedScene" uid="uid://b6l0q5hhqq12m" path="res://nodes/components/two_point_5d_node_simulator/two_point_5d_node_simulator.tscn" id="2_870kw"]
+[ext_resource type="PackedScene" uid="uid://coge3r6c3f044" path="res://nodes/components/two_point_5d_space_simulator/two_point_5d_space_simulator.tscn" id="3_sf2w4"]
+
+[node name="Test" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(570, 625)
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("1_mv34e")
+
+[node name="TwoPoint5DNodeSimulator" parent="Sprite2D" node_paths=PackedStringArray("node", "space_simulator") instance=ExtResource("2_870kw")]
+node = NodePath("..")
+space_simulator = NodePath("../../TwoPoint5DSpaceSimulator")
+
+[node name="TwoPoint5DSpaceSimulator" parent="." instance=ExtResource("3_sf2w4")]
+
+[node name="BasePoint" parent="TwoPoint5DSpaceSimulator" index="0"]
+position = Vector2(0, 648)
+
+[node name="PointB" parent="TwoPoint5DSpaceSimulator/BasePoint" index="1"]
+position = Vector2(0, -241)
+
+[editable path="TwoPoint5DSpaceSimulator"]

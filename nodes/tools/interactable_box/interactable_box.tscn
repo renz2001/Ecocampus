@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://w717b0uhklq"]
+
+[ext_resource type="PackedScene" uid="uid://cf3hc58pq1vru" path="res://nodes/tools/hitbox/hitbox.tscn" id="1_kgiki"]
+[ext_resource type="Script" path="res://nodes/tools/interactable_box/interactable_box.gd" id="2_teues"]
+
+[node name="InteractableBox" instance=ExtResource("1_kgiki")]
+script = ExtResource("2_teues")

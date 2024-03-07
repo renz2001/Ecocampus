@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dcl4q5evy7cq1"]
+
+[ext_resource type="Script" path="res://addons/save_components_system/components/grand_master_component/grand_master_component.gd" id="1_867xo"]
+
+[node name="GrandMasterComponent" type="Node"]
+script = ExtResource("1_867xo")
