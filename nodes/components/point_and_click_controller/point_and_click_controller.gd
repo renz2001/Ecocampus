@@ -1,6 +1,7 @@
 extends NodeComponent
 class_name PointAndClickController
 
+signal tapped(mouse_position: Vector2)
 
 @export var node: Node2D
 @export var disabled: bool
@@ -21,6 +22,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		target.global_position = mouse_pos
 		get_tree().current_scene.add_child(target)
 		path_find_move_component.target = target
+		tapped.emit(mouse_pos)
 
 
 func _physics_process(delta: float) -> void: 

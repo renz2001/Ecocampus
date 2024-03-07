@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6naf25j7vwf2"]
+
+[ext_resource type="PackedScene" uid="uid://dml5uy4doh7s6" path="res://nodes/abstract_scenes/entity_node/entity_node.tscn" id="1_hfsjx"]
+
+[node name="NPCNode" groups=["NPC"] instance=ExtResource("1_hfsjx")]

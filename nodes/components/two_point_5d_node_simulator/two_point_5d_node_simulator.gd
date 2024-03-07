@@ -27,7 +27,7 @@ var weight: float:
 func _process(delta: float) -> void: 
 	if disabled || !node || !node.is_node_ready(): 
 		return
-	if !is_instance_valid(space_simulator) && !Engine.is_editor_hint(): 
+	if !is_instance_valid(space_simulator): 
 		space_simulator = get_tree().get_first_node_in_group("TwoPoint5DSpaceSimulator")
 	if !space_simulator:
 		return

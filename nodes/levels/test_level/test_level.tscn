@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8ts62hakxdh3"]
+
+[ext_resource type="PackedScene" uid="uid://cm6jeskbiise6" path="res://nodes/abstract_scenes/level_node/level_node.tscn" id="1_pvguk"]
+[ext_resource type="Texture2D" uid="uid://bb8wuo25lx7ap" path="res://assets/background/Pics/Location1.jpg" id="2_bj4v3"]
+[ext_resource type="PackedScene" uid="uid://8qsjsyglmgq4" path="res://nodes/entities/player_node/player_node.tscn" id="3_uej4m"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_oe50d"]
+vertices = PackedVector2Array(1245, 781, 1480, 783, 1479, 783, 328, 817, 327, 816, 395, 814, 475, 792, 474, 791, 664, 785, 642, 815, 1267, 808, 1724, 815, 1724, 1066, 185, 1067, 1261, 819, 181, 850, 648, 826)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 4, 5), PackedInt32Array(6, 7, 8, 9), PackedInt32Array(10, 0, 2), PackedInt32Array(2, 11, 12, 13, 14), PackedInt32Array(13, 15, 3, 5, 16), PackedInt32Array(14, 10, 2), PackedInt32Array(16, 14, 13), PackedInt32Array(16, 5, 6, 9)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(685, 775, 654, 816, 1255, 809, 1224, 771, 1480, 773, 1734, 807, 1734, 1076, 176, 1078, 171, 842, 326, 807, 393, 804, 472, 782)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+
+[node name="TestLevel" instance=ExtResource("1_pvguk")]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="NavigationRegion" index="0"]
+navigation_polygon = SubResource("NavigationPolygon_oe50d")
+
+[node name="Sprite2D" type="Sprite2D" parent="Background" index="0"]
+position = Vector2(954, 593)
+scale = Vector2(0.760166, 0.760166)
+texture = ExtResource("2_bj4v3")
+
+[node name="PlayerNode" parent="Entities/Living" index="0" instance=ExtResource("3_uej4m")]
+position = Vector2(1235, 955)
+scale = Vector2(1.08529, 1.08529)
+
+[node name="TwoPoint5DSpaceSimulator" parent="Scripts" index="0"]
+max_distance_offset = 200.0
+
+[node name="BasePoint" parent="Scripts/TwoPoint5DSpaceSimulator" index="0"]
+position = Vector2(990, 926)
+
+[node name="MaxDistance" parent="Scripts/TwoPoint5DSpaceSimulator/BasePoint" index="1"]
+position = Vector2(316, -140)
+
+[editable path="Scripts/TwoPoint5DSpaceSimulator"]

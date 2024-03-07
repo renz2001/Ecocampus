@@ -1,36 +1,33 @@
-[gd_scene load_steps=4 format=3 uid="uid://cm6jeskbiise6"]
+[gd_scene load_steps=2 format=3 uid="uid://cm6jeskbiise6"]
 
-[ext_resource type="PackedScene" uid="uid://8qsjsyglmgq4" path="res://nodes/entities/player_node/player_node.tscn" id="1_pqyx6"]
 [ext_resource type="PackedScene" uid="uid://coge3r6c3f044" path="res://nodes/components/two_point_5d_space_simulator/two_point_5d_space_simulator.tscn" id="2_lkpw8"]
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_uvi4y"]
-vertices = PackedVector2Array(1141, 20, 1140, 634, 15, 438, 13, 25, 562, 12)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(562, 2, 1152, 11, 1150, 647, 6, 447, 3, 16)])
-source_geometry_group_name = &"navigation_polygon_source_group"
-
 [node name="LevelNode" type="Node2D"]
+y_sort_enabled = true
 
 [node name="NavigationRegion" type="Node2D" parent="."]
+z_index = 2
+y_sort_enabled = true
 
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="NavigationRegion"]
-navigation_polygon = SubResource("NavigationPolygon_uvi4y")
+[node name="Background" type="Node2D" parent="."]
 
 [node name="Entities" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="Living" type="Node2D" parent="Entities"]
+y_sort_enabled = true
 
 [node name="NonLiving" type="Node2D" parent="Entities"]
+y_sort_enabled = true
 
-[node name="PlayerNode" parent="Entities/NonLiving" instance=ExtResource("1_pqyx6")]
-position = Vector2(549, 396)
+[node name="Scripts" type="Node" parent="."]
 
-[node name="TwoPoint5DSpaceSimulator" parent="." instance=ExtResource("2_lkpw8")]
+[node name="TwoPoint5DSpaceSimulator" parent="Scripts" instance=ExtResource("2_lkpw8")]
 
-[node name="BasePoint" parent="TwoPoint5DSpaceSimulator" index="0"]
-position = Vector2(0, 650)
+[node name="BasePoint" parent="Scripts/TwoPoint5DSpaceSimulator" index="0"]
+position = Vector2(0, 1079)
 
-[node name="MaxDistance" parent="TwoPoint5DSpaceSimulator/BasePoint" index="1"]
+[node name="MaxDistance" parent="Scripts/TwoPoint5DSpaceSimulator/BasePoint" index="1"]
 position = Vector2(0, -280)
 
-[editable path="TwoPoint5DSpaceSimulator"]
+[editable path="Scripts/TwoPoint5DSpaceSimulator"]
