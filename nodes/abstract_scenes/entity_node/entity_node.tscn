@@ -39,6 +39,27 @@ script = ExtResource("7_kiuy1")
 to = NodePath("../../Disabled")
 event = &"disabled"
 
+[node name="Animation" type="Node" parent="StateChart/Root/Enabled"]
+script = ExtResource("5_d0dfx")
+initial_state = NodePath("Right")
+
+[node name="Left" type="Node" parent="StateChart/Root/Enabled/Animation"]
+script = ExtResource("5_d0dfx")
+initial_state = NodePath("../AnimationPlayerState")
+
+[node name="OnRight" type="Node" parent="StateChart/Root/Enabled/Animation/Left"]
+script = ExtResource("7_kiuy1")
+to = NodePath("../../Right")
+event = &"left"
+
+[node name="Right" type="Node" parent="StateChart/Root/Enabled/Animation"]
+script = ExtResource("5_d0dfx")
+
+[node name="OnLeft" type="Node" parent="StateChart/Root/Enabled/Animation/Right"]
+script = ExtResource("7_kiuy1")
+to = NodePath("../../Left")
+event = &"right"
+
 [node name="Disabled" type="Node" parent="StateChart/Root"]
 script = ExtResource("8_ued26")
 
@@ -46,27 +67,6 @@ script = ExtResource("8_ued26")
 script = ExtResource("7_kiuy1")
 to = NodePath("../../Enabled")
 event = &"enabled"
-
-[node name="Animation" type="Node" parent="StateChart/Root"]
-script = ExtResource("5_d0dfx")
-initial_state = NodePath("Right")
-
-[node name="Left" type="Node" parent="StateChart/Root/Animation"]
-script = ExtResource("5_d0dfx")
-initial_state = NodePath("../AnimationPlayerState")
-
-[node name="OnRight" type="Node" parent="StateChart/Root/Animation/Left"]
-script = ExtResource("7_kiuy1")
-to = NodePath("../../Right")
-event = &"left"
-
-[node name="Right" type="Node" parent="StateChart/Root/Animation"]
-script = ExtResource("5_d0dfx")
-
-[node name="OnLeft" type="Node" parent="StateChart/Root/Animation/Right"]
-script = ExtResource("7_kiuy1")
-to = NodePath("../../Left")
-event = &"right"
 
 [node name="Components" type="Node" parent="."]
 

@@ -6,7 +6,9 @@ signal stopped
 signal direction_changed(previous_direction: Vector2, new_direction: Vector2)
 
 @export var body: Node
+
 @export var speed: float
+@export var y_speed_multiplier: float
 
 # This cannot be set to Vector2(0, 0) becuase this is used so that interact_cast works with it
 var previous_direction: Vector2 = Vector2(0, 1)
@@ -40,7 +42,7 @@ func move(_direction: Vector2) -> void:
 	# TODO: Be controlled by the animation player instead. 
 	#if move_audio_player: 
 		#move_audio_player.play()
-	set_velocity(direction * GlobalVariables.get_tile_scaled_speed(speed))
+	set_velocity((direction * GlobalVariables.get_tile_scaled_speed(speed) * y_speed_multiplier))
 
 
 func stop() -> void: 
@@ -57,6 +59,7 @@ func is_moving() -> bool:
 func set_velocity(velocity: Vector2) -> void: 
 	var node: Node = body
 	node.velocity = velocity
+	print(velocity)
 	node.move_and_slide() 
 
 

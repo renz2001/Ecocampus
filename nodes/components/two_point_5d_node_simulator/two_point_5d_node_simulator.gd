@@ -42,6 +42,7 @@ func _process(delta: float) -> void:
 	
 	#if movement && movement.direction.y != 0: 
 		#movement.speed = base_movement_speed * space_simulator.get_space_scale(node)
-	#elif movement: 
-		#movement.speed = base_movement_speed
+		
+	if movement: 
+		movement.y_speed_multiplier = base_movement_speed * space_simulator.get_space_scale(node)
 
