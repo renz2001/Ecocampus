@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://bwn0ec225xwd8"]
+
+[ext_resource type="Script" path="res://addons/world_event_manager/nodes/tools/world_event_handler/world_event_handler.gd" id="1_5whkd"]
+[ext_resource type="PackedScene" uid="uid://bink1hk2vfpun" path="res://addons/world_event_manager/nodes/tools/world_event/world_event.tscn" id="3_dltgi"]
+[ext_resource type="Script" path="res://addons/macchi's_nodecomponents/components/print_color.gd" id="4_ftrd1"]
+[ext_resource type="Script" path="res://levels/scenes/chapters/0_0_template/levels/00_test_level/stages/00_stage1/rooms/00_template_room/events/ready.gd" id="4_xoc73"]
+
+[node name="WorldEventHandler" type="Node" node_paths=PackedStringArray("generic_events", "specific_events", "task_events", "_print_color") groups=["WorldEventHandler"]]
+editor_description = "The child nodes of these should be an extension of WorldEvent
+"
+script = ExtResource("1_5whkd")
+generic_events = NodePath("GenericEvents")
+specific_events = NodePath("SpecificEvents")
+task_events = NodePath("TaskEvents")
+_print_color = NodePath("PrintColor")
+
+[node name="PrintColor" type="Node" parent="." node_paths=PackedStringArray("node")]
+script = ExtResource("4_ftrd1")
+node = NodePath("..")
+color = Color(0.768627, 0.690196, 1, 1)
+
+[node name="GenericEvents" type="Node" parent="."]
+
+[node name="SpecificEvents" type="Node" parent="."]
+
+[node name="Ready" parent="SpecificEvents" instance=ExtResource("3_dltgi")]
+script = ExtResource("4_xoc73")
+
+[node name="TaskEvents" type="Node" parent="."]

@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://ds15v40vf5hs6"]
+
+[ext_resource type="Script" path="res://addons/world_event_manager/nodes/components/call_event_from_event_component/call_event_from_event_component.gd" id="1_fgpk2"]
+[ext_resource type="PackedScene" uid="uid://c1fh46pweltjk" path="res://addons/world_event_manager/nodes/components/call_world_event_component/call_world_event_component.tscn" id="2_4w2fx"]
+[ext_resource type="PackedScene" uid="uid://extvndgbgjf5" path="res://addons/world_event_manager/nodes/components/world_event_listener/world_event_listener.tscn" id="3_kaqm5"]
+
+
+[node name="CallEventFromEventComponent" node_paths=PackedStringArray("listener") instance=ExtResource("2_4w2fx")]
+script = ExtResource("1_fgpk2")
+listener = NodePath("WorldEventListener")
+
+[node name="WorldEventListener" parent="." index="0" instance=ExtResource("3_kaqm5")]
+
+[connection signal="event_called" from="WorldEventListener" to="." method="_on_world_event_listener_event_called"]

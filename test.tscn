@@ -7,8 +7,7 @@
 [node name="Test" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(570, 625)
-scale = Vector2(1e-05, 1e-05)
+position = Vector2(668, 648)
 texture = ExtResource("1_mv34e")
 
 [node name="TwoPoint5DNodeSimulator" parent="Sprite2D" node_paths=PackedStringArray("node", "space_simulator") instance=ExtResource("2_870kw")]
@@ -18,9 +17,9 @@ space_simulator = NodePath("../../TwoPoint5DSpaceSimulator")
 [node name="TwoPoint5DSpaceSimulator" parent="." instance=ExtResource("3_sf2w4")]
 
 [node name="BasePoint" parent="TwoPoint5DSpaceSimulator" index="0"]
-position = Vector2(0, 648)
+position = Vector2(276, 648)
 
-[node name="PointB" parent="TwoPoint5DSpaceSimulator/BasePoint" index="1"]
-position = Vector2(0, -241)
+[node name="MaxDistance" parent="TwoPoint5DSpaceSimulator/BasePoint" index="1"]
+position = Vector2(0, -294)
 
 [editable path="TwoPoint5DSpaceSimulator"]

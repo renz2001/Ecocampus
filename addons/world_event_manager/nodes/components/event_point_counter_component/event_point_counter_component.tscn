@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://waqq7je5sbod"]
+
+[ext_resource type="PackedScene" uid="uid://d02dwov2yojbj" path="res://addons/macchi's_nodecomponents/components/point_counter_component/point_counter_component.tscn" id="1_8pk05"]
+[ext_resource type="PackedScene" uid="uid://extvndgbgjf5" path="res://addons/world_event_manager/nodes/components/world_event_listener/world_event_listener.tscn" id="2_cvs6p"]
+[ext_resource type="Script" path="res://addons/world_event_manager/nodes/components/event_point_counter_component/event_point_counter_component.gd" id="2_hegwj"]
+[ext_resource type="PackedScene" uid="uid://dcxiyfb4b0fki" path="res://addons/world_event_manager/nodes/components/call_world_event_from_signal_component/call_world_event_from_signal_component.tscn" id="4_73asw"]
+
+[node name="EventPointCounterComponent" node_paths=PackedStringArray("world_event_listener", "call_world_event_from_signal") instance=ExtResource("1_8pk05")]
+script = ExtResource("2_hegwj")
+event_listen = null
+call_event_from_signal = ""
+event_call = null
+world_event_listener = NodePath("WorldEventListener")
+call_world_event_from_signal = NodePath("CallWorldEventFromSignalComponent")
+
+[node name="WorldEventListener" parent="." index="0" instance=ExtResource("2_cvs6p")]
+
+[node name="CallWorldEventFromSignalComponent" parent="." index="1" node_paths=PackedStringArray("node") instance=ExtResource("4_73asw")]
+from_signal = "maximum_hit"
+from_variable = "points"
+node = NodePath("..")
+
+[connection signal="event_called" from="WorldEventListener" to="." method="_on_world_event_listener_event_called"]

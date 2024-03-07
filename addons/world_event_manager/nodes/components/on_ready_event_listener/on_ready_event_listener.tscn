@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctl0id16eln8v"]
+
+[ext_resource type="PackedScene" uid="uid://extvndgbgjf5" path="res://addons/world_event_manager/nodes/components/world_event_listener/world_event_listener.tscn" id="1_s61ex"]
+
+[node name="OnReadyEventListener" instance=ExtResource("1_s61ex")]
+event = "ready"
+listen_once = true

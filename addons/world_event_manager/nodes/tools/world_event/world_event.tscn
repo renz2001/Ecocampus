@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bink1hk2vfpun"]
+
+[ext_resource type="Script" path="res://addons/world_event_manager/nodes/tools/world_event/world_event.gd" id="1_qjyj3"]
+[ext_resource type="PackedScene" uid="uid://d02dwov2yojbj" path="res://addons/macchi's_nodecomponents/components/point_counter_component/point_counter_component.tscn" id="2_qd54t"]
+
+[node name="WorldEvent" type="Node" node_paths=PackedStringArray("times_called") groups=["WorldEvent"]]
+script = ExtResource("1_qjyj3")
+call_node_method = "call"
+times_called = NodePath("Components/TimesCalledCounter")
+
+[node name="Components" type="Node" parent="."]
+
+[node name="TimesCalledCounter" parent="Components" instance=ExtResource("2_qd54t")]

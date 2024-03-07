@@ -2,31 +2,28 @@
 extends NodeComponent
 class_name TwoPoint5DSpaceSimulator
 
+@export var max_distance_offset: float
+
 @export var base_point: Marker2D
-@export var point_a: Marker2D
-@export var point_b: Marker2D
+@export var middle_ground: Marker2D
+@export var max_distance: Marker2D
 
 
-func get_node_scale(node: Node2D) -> float: 
-	#var displacement: Vector2 = Vector2(point_b.position.x - point_a.position.x, point_b.position.y - point_a.position.y)
-	#var test = (displacement / point_b.position) + base_scale
-	#print(test) 
-	#var y_distance: float = - point_b.position.y - point_a.position.y 
-	var max: float = point_b.position.y
-	var y_base_point_distance: float = node.global_position.y / base_point.global_position.y
-	print(base_point.global_position.y / point_b.position.y)
-	#printerr(y_base_point_distance)
-	#var res = -(lerp(0.0, y_distance, y_base_point_distance) / point_b.position.y)
-	var res: float = 0
-	#print(y_base_point_distance / y_distance)
-	return res
+func get_space_scale(node: Node2D) -> float: 
+	var node_offset: float = middle_ground.global_position.y - node.global_position.y
+	#printerr(middle_ground.global_position.y, " ", node.global_position.y)
+	#print("offset ", node.global_position.y - max_distance.global_position.y)
+	var points_distance: float = max_distance.global_position.y - middle_ground.global_position.y
+	#print("max distance offset: ", -points_distance + max_distance_offset)
+	#printerr("node offset: ", node_offset)
+	#printerr("point distance: ", -points_distance)
+	var weight: float = node_offset / (-points_distance + max_distance_offset)
+	#printerr("weight: ", weight)
+	var current: float = lerp(max_distance.position.y, middle_ground.position.y, weight) 
+	var percent: float = current / max_distance.position.y
+	#printerr("percent: ", percent)
 	
-	
-#func get_weight(position: Vector2) -> float: 
-	#var weight: float = 0
-	#var distance: float = point_a.position.distance_to(point_b.position)
-	##weight = distance / point_b.position
-	#weight = Vector2(position.length(), distance).normalized().length()
-	#
-	#return weight
+	if percent == 0: 
+		return 0.1
+	return percent
 

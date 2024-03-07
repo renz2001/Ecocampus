@@ -19,10 +19,12 @@ config/icon="res://icon.svg"
 SaveManager="*res://addons/save_components_system/singletons/save_manager/save_manager.tscn"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 GlobalVariables="*res://nodes/singletons/globals/global_variables.gd"
+WorldEventManager="*res://addons/world_event_manager/nodes/singletons/world_event_manager/world_event_manager.tscn"
+QuestSystem="*res://addons/quest_system/quest_manager.gd"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://addons/gdscript_datetime/plugin.cfg", "res://addons/godot_state_charts/plugin.cfg", "res://addons/macchi\'s_nodecomponents/plugin.cfg", "res://addons/save_components_system/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://addons/gdscript_datetime/plugin.cfg", "res://addons/godot_state_charts/plugin.cfg", "res://addons/gui_manager/plugin.cfg", "res://addons/macchi\'s_nodecomponents/plugin.cfg", "res://addons/quest_system/plugin.cfg", "res://addons/save_components_system/plugin.cfg", "res://addons/world_event_manager/plugin.cfg")
 
 [input]
 

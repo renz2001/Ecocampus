@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcxiyfb4b0fki"]
+
+[ext_resource type="Script" path="res://addons/world_event_manager/nodes/components/call_world_event_from_signal_component/call_world_event_from_signal_component.gd" id="1_mc3y5"]
+[ext_resource type="PackedScene" uid="uid://c1fh46pweltjk" path="res://addons/world_event_manager/nodes/components/call_world_event_component/call_world_event_component.tscn" id="2_tucrv"]
+
+
+[node name="CallWorldEventFromSignalComponent" instance=ExtResource("2_tucrv")]
+script = ExtResource("1_mc3y5")
+from_signal = ""
+connect_flag = 0

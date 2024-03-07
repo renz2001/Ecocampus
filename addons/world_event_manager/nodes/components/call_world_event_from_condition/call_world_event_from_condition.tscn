@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://8414sd64ovbb"]
+
+[ext_resource type="Script" path="res://addons/world_event_manager/nodes/components/call_world_event_from_condition/call_world_event_from_condition.gd" id="1_2pt76"]
+[ext_resource type="PackedScene" uid="uid://g7mchgj54c12" path="res://addons/macchi's_nodecomponents/components/conditional_set_component/conditional_set_component.tscn" id="1_a7qxa"]
+[ext_resource type="PackedScene" uid="uid://c1fh46pweltjk" path="res://addons/world_event_manager/nodes/components/call_world_event_component/call_world_event_component.tscn" id="2_7ra7n"]
+[ext_resource type="PackedScene" uid="uid://ctl0id16eln8v" path="res://addons/world_event_manager/nodes/components/on_ready_event_listener/on_ready_event_listener.tscn" id="3_qrfg8"]
+[ext_resource type="Script" path="res://addons/macchi's_nodecomponents/components/print_color.gd" id="4_nvih0"]
+
+[node name="CallWorldEventFromCondition" node_paths=PackedStringArray("_call_event", "_print_color") instance=ExtResource("1_a7qxa")]
+script = ExtResource("1_2pt76")
+_call_event = NodePath("CallWorldEventComponent")
+_print_color = NodePath("PrintColor")
+
+[node name="CallWorldEventComponent" parent="." index="0" node_paths=PackedStringArray("node") instance=ExtResource("2_7ra7n")]
+node = NodePath("..")
+
+[node name="OnReadyEventListener" parent="." index="1" instance=ExtResource("3_qrfg8")]
+
+[node name="PrintColor" type="Node" parent="." index="2" node_paths=PackedStringArray("node")]
+script = ExtResource("4_nvih0")
+node = NodePath("..")
+color = Color(0.27451, 0.588235, 1, 1)
+node_name_color = Color(0.772549, 0.815686, 1, 1)
+use_spaces_for_node_name = true
+
+[connection signal="event_called" from="OnReadyEventListener" to="." method="_on_ready_event_listener_event_called"]

@@ -1,7 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://8qsjsyglmgq4"]
+[gd_scene load_steps=5 format=3 uid="uid://8qsjsyglmgq4"]
 
 [ext_resource type="PackedScene" uid="uid://dml5uy4doh7s6" path="res://nodes/abstract_scenes/entity_node/entity_node.tscn" id="1_m6q56"]
 [ext_resource type="Script" path="res://nodes/entities/player_node/player_node.gd" id="2_6c1ia"]
+[ext_resource type="PackedScene" uid="uid://dg5q85tiv0ibp" path="res://nodes/components/point_and_click_controller/point_and_click_controller.tscn" id="3_2ek1g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8fjj4"]
+size = Vector2(184, 20)
 
 [node name="PlayerNode" groups=["Player"] instance=ExtResource("1_m6q56")]
 script = ExtResource("2_6c1ia")
+
+[node name="PointAndClickController" parent="Components/Movement" index="2" node_paths=PackedStringArray("node", "path_find_move_component") instance=ExtResource("3_2ek1g")]
+node = NodePath("../../..")
+path_find_move_component = NodePath("../PathFindMovementComponent")
+
+[node name="NavigationAgent2D" parent="." index="6"]
+avoidance_enabled = true
+debug_enabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="7"]
+shape = SubResource("RectangleShape2D_8fjj4")
