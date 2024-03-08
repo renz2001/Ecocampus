@@ -13,9 +13,11 @@
 [ext_resource type="PackedScene" uid="uid://b6l0q5hhqq12m" path="res://nodes/components/two_point_5d_node_simulator/two_point_5d_node_simulator.tscn" id="11_sgbnk"]
 [ext_resource type="Texture2D" uid="uid://b2ptenvkaj5rw" path="res://assets/environment/shadow.png" id="12_qhkve"]
 
-[node name="EntityNode" type="CharacterBody2D" node_paths=PackedStringArray("state_chart", "hitbox") groups=["Entity"]]
+[node name="EntityNode" type="CharacterBody2D" node_paths=PackedStringArray("state_chart", "path_find", "walk", "hitbox") groups=["Entity"]]
 script = ExtResource("1_ljx5x")
 state_chart = NodePath("StateChart")
+path_find = NodePath("Components/Movement/PathFindMovementComponent")
+walk = NodePath("Components/Movement/Walk")
 hitbox = NodePath("Hitbox")
 
 [node name="PlayerDetector" type="Area2D" parent="."]
@@ -50,7 +52,7 @@ initial_state = NodePath("../AnimationPlayerState")
 [node name="OnRight" type="Node" parent="StateChart/Root/Enabled/Animation/Left"]
 script = ExtResource("7_kiuy1")
 to = NodePath("../../Right")
-event = &"left"
+event = &"right"
 
 [node name="Right" type="Node" parent="StateChart/Root/Enabled/Animation"]
 script = ExtResource("5_d0dfx")
@@ -58,7 +60,7 @@ script = ExtResource("5_d0dfx")
 [node name="OnLeft" type="Node" parent="StateChart/Root/Enabled/Animation/Right"]
 script = ExtResource("7_kiuy1")
 to = NodePath("../../Left")
-event = &"right"
+event = &"left"
 
 [node name="Disabled" type="Node" parent="StateChart/Root"]
 script = ExtResource("8_ued26")
@@ -75,14 +77,16 @@ event = &"enabled"
 [node name="Walk" parent="Components/Movement" node_paths=PackedStringArray("body") instance=ExtResource("4_wexpm")]
 body = NodePath("../../..")
 speed = 5.0
+curve_base_on_center_offset = true
 
 [node name="PathFindMovementComponent" parent="Components/Movement" node_paths=PackedStringArray("movement", "navigation_agent") instance=ExtResource("5_epl30")]
 movement = NodePath("../Walk")
 navigation_agent = NodePath("../../../NavigationAgent2D")
 
-[node name="TwoPoint5DNodeSimulator" parent="Components" node_paths=PackedStringArray("node", "movement") instance=ExtResource("11_sgbnk")]
+[node name="TwoPoint5DNodeSimulator" parent="Components" node_paths=PackedStringArray("node", "movement", "path_find") instance=ExtResource("11_sgbnk")]
 node = NodePath("../..")
 movement = NodePath("../Movement/Walk")
+path_find = NodePath("../Movement/PathFindMovementComponent")
 
 [node name="NodeVarietyManager" parent="Components" instance=ExtResource("11_a2123")]
 

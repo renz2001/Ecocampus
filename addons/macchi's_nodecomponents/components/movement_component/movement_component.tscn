@@ -10,6 +10,7 @@ properties = PackedStringArray("speed", "direction", "previous_direction")
 
 [node name="MovementComponent" type="Node"]
 script = ExtResource("1_84g7f")
+speed = 10.0
 
 [node name="SaveComponent" parent="." node_paths=PackedStringArray("node") instance=ExtResource("2_l5oj2")]
 node = NodePath("..")

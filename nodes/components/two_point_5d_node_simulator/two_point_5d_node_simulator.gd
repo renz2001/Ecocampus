@@ -10,8 +10,12 @@ class_name TwoPoint5DNodeSimulator
 @export var movement: MovementComponent: 
 	set(value): 
 		movement = value
-		base_movement_speed = movement.speed
+		if !movement.is_node_ready(): 
+			await movement.ready
+		base_movement_speed = movement.speed + 1
 		
+@export var path_find: PathFindMovementComponent
+
 @export var space_simulator: TwoPoint5DSpaceSimulator
 @export var disabled: bool
 
@@ -32,17 +36,20 @@ func _process(delta: float) -> void:
 	if !space_simulator:
 		return
 		
-	#print(space_simulator.get_weight(node.global_position))
-	#print(Vector2(node_base_scale.y * space_simulator.get_node_scale(node), node_base_scale.y * space_simulator.get_node_scale(node)))
-	#space_simulator.get_space_scale(node)
-	var new_scale = Vector2(node_base_scale.y * space_simulator.get_space_scale(node), node_base_scale.y * space_simulator.get_space_scale(node))
-	#print(new_scale)
-	node.scale = new_scale
-	#node.scale = node_base_scale * Vector2(space_simulator.get_space_scale(node.global_position.y).y, space_simulator.get_space_scale(node.global_position.y).y)
+	var space_scale: float = space_simulator.get_space_scale(node.global_position, base_movement_speed)
+	var new_scale = Vector2(node_base_scale.y * space_scale, node_base_scale.y * space_scale)
 	
-	#if movement && movement.direction.y != 0: 
-		#movement.speed = base_movement_speed * space_simulator.get_space_scale(node)
-		
+	node.scale = new_scale
+	
+	#printerr(node.global_position.x)
+	#space_simulator.get_offset_from_max_distance(node.global_position)
+	#if path_find: 
+		#if !Engine.is_editor_hint() && movement.is_moving() && is_instance_valid(path_find.target): 
+			#path_find.target.global_position.x *= space_simulator.get_offset_from_max_distance(node.global_position)
+	#print(space_simulator.get_offset_from_max_distance(node.global_position))
+	
 	if movement: 
-		movement.y_speed_multiplier = base_movement_speed * space_simulator.get_space_scale(node)
-
+		#print((space_scale / 3))
+		movement.y_speed_multiplier = base_movement_speed * (space_scale / base_movement_speed)
+	
+	

@@ -4,7 +4,8 @@ enum Directions {
 	DOWN, 
 	LEFT, 
 	UP, 
-	RIGHT
+	RIGHT, 
+	NEUTRAL
 }
 
 enum ScreenSizes {
@@ -13,31 +14,32 @@ enum ScreenSizes {
 	FOUR_THREE
 }
 
-enum AudioBusses {
-	MASTER, 
-	JUMP_SCARE_SFX, 
-	ENTITY_SFX, 
-	MAIN_MENU_MUSIC, 
-	AMBIENCE, 
-	ENVIRONMENT, 
-	BACKGROUND_MUSIC, 
-	SFX, 
-}
+#enum AudioBusses {
+	#MASTER, 
+	#JUMP_SCARE_SFX, 
+	#ENTITY_SFX, 
+	#MAIN_MENU_MUSIC, 
+	#AMBIENCE, 
+	#ENVIRONMENT, 
+	#BACKGROUND_MUSIC, 
+	#SFX, 
+#}
 
 const COLOR_EDITOR_RED = Color("ff7085")
 const COLOR_EDITOR_YELLOW = Color("fbe99f")
 const COLOR_EDITOR_GREEN = Color("42ffc2")
 const COLOR_ICON_BLUE = Color("6393ff")
 
-const screenshots: String = "user://screenshots/"
+#const screenshots: String = "user://screenshots/"
 
-const UNIT_SIZE: int = 64 
+@export var UNIT_SIZE: int = 64
 
-const BASE_SPEED: float = 1
+@export var BASE_SPEED: float = 1
 ## This is mainly use so that i can scale it with the AnimationPlayer speed
 ## Also called as the default speed for all characters
 ## 5 (entity scaled_move_speed) / SCALED_BASE_SPEED
-const SCALED_BASE_SPEED: float = BASE_SPEED * UNIT_SIZE
+
+var SCALED_BASE_SPEED: float = BASE_SPEED * UNIT_SIZE
 
 var viewport_size: Vector2: 
 	get: 
@@ -72,4 +74,16 @@ func get_enum_name(en, value) -> String:
 	return en.keys()[value]
 	
 	
-	
+func get_direction_vector(dir: Directions) -> Vector2: 
+	match dir: 
+		Directions.DOWN:
+			return Vector2.DOWN
+		Directions.LEFT: 
+			return Vector2.LEFT
+		Directions.UP:
+			return Vector2.UP
+		Directions.RIGHT:
+			return Vector2.RIGHT
+		Directions.NEUTRAL: 
+			return Vector2.ZERO
+	return Vector2.ZERO

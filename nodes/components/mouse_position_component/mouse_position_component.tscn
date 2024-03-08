@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://sf310cfhr818"]
+
+[ext_resource type="Script" path="res://nodes/components/mouse_position_component/mouse_position_component.gd" id="1_ubt61"]
+
+[node name="MousePositionComponent" type="Node"]
+script = ExtResource("1_ubt61")

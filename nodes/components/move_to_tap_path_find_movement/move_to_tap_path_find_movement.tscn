@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dg5q85tiv0ibp"]
+
+[ext_resource type="Script" path="res://nodes/components/move_to_tap_path_find_movement/move_to_tap_path_find_movement.gd" id="1_oicy2"]
+
+[node name="MoveToTapPathFindMovement" type="Node"]
+script = ExtResource("1_oicy2")
+disabled = null

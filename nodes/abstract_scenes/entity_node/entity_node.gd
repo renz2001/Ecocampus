@@ -2,6 +2,8 @@ extends CharacterBody2D
 class_name EntityNode
 
 @export var state_chart: StateChart
+@export var path_find: PathFindMovementComponent
+@export var walk: MovementComponent
 @export var hitbox: Hitbox
 
 

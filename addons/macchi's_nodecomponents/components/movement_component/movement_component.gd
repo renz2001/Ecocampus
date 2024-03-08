@@ -9,6 +9,7 @@ signal direction_changed(previous_direction: Vector2, new_direction: Vector2)
 
 @export var speed: float
 @export var y_speed_multiplier: float
+@export var curve_base_on_center_offset: bool
 
 # This cannot be set to Vector2(0, 0) becuase this is used so that interact_cast works with it
 var previous_direction: Vector2 = Vector2(0, 1)
@@ -42,7 +43,7 @@ func move(_direction: Vector2) -> void:
 	# TODO: Be controlled by the animation player instead. 
 	#if move_audio_player: 
 		#move_audio_player.play()
-	set_velocity((direction * GlobalVariables.get_tile_scaled_speed(speed) * y_speed_multiplier))
+	set_velocity(direction * GlobalVariables.get_tile_scaled_speed(speed))
 
 
 func stop() -> void: 
@@ -58,15 +59,24 @@ func is_moving() -> bool:
 
 func set_velocity(velocity: Vector2) -> void: 
 	var node: Node = body
-	node.velocity = velocity
-	print(velocity)
+	#if curve_base_on_center_offset: 
+		#node.velocity.x = velocity.x + get_node_offset_from_center()
+		#node.velocity.y = velocity.y
+		#printerr(get_node_offset_from_center())
+	#else:
+	#node.velocity = velocity
+	node.velocity.x = velocity.x
+	node.velocity.y = velocity.y * y_speed_multiplier
 	node.move_and_slide() 
 
 
-func load_data(data: Dictionary) -> void: 
-	var properties: PackedStringArray = data.keys()
-	for property in properties: 
-		#if property == "state_machine": 
-			#state_machine.load_data(data[property])
-			#continue
-		self.set(property, data[property])
+#func get_center() -> int: 
+	#return GlobalVariables.viewport_size.x / 2
+	#
+	#
+#func get_offsetted_center(offset: float = 0) -> int: 
+	#return get_center() + offset
+	#
+	#
+#func get_node_offset_from_center() -> int: 
+	#return get_offsetted_center(50) - body.global_position.x

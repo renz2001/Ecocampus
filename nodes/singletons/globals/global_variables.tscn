@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dd2mqab68chi7"]
+
+[ext_resource type="PackedScene" uid="uid://bimn44n0sil4f" path="res://addons/macchi's_nodecomponents/singletons/global_variables/global_variables.tscn" id="1_pjfa0"]
+
+[node name="GlobalVariables" instance=ExtResource("1_pjfa0")]

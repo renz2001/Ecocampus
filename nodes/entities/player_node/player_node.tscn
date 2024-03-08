@@ -1,17 +1,69 @@
-[gd_scene load_steps=17 format=3 uid="uid://8qsjsyglmgq4"]
+[gd_scene load_steps=18 format=3 uid="uid://8qsjsyglmgq4"]
 
 [ext_resource type="PackedScene" uid="uid://dml5uy4doh7s6" path="res://nodes/abstract_scenes/entity_node/entity_node.tscn" id="1_m6q56"]
 [ext_resource type="Script" path="res://nodes/entities/player_node/player_node.gd" id="2_6c1ia"]
-[ext_resource type="PackedScene" uid="uid://dg5q85tiv0ibp" path="res://nodes/components/point_and_click_controller/point_and_click_controller.tscn" id="3_2ek1g"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/animation_player_state.gd" id="3_gwwov"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="4_3xned"]
 [ext_resource type="Texture2D" uid="uid://dgc8hchc6dsps" path="res://assets/character/Player (Girl)/v2 girl.png" id="4_btkuj"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="5_44w7h"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="6_ae0yd"]
 [ext_resource type="PackedScene" uid="uid://dvrqbygr8xwlr" path="res://addons/macchi's_nodecomponents/components/node_variety_manager/node_variety/node_variety.tscn" id="6_kb0jf"]
+[ext_resource type="PackedScene" uid="uid://dg5q85tiv0ibp" path="res://nodes/components/move_to_tap_path_find_movement/move_to_tap_path_find_movement.tscn" id="7_jfgwu"]
+[ext_resource type="PackedScene" uid="uid://sf310cfhr818" path="res://nodes/components/mouse_position_component/mouse_position_component.tscn" id="8_t7gk8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8fjj4"]
 size = Vector2(84, 21)
+
+[sub_resource type="Animation" id="Animation_arqr4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprites/Girl/Default:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprites/Boy/Default:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprites/Boy/Default:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprites/Girl/Default:flip_h")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_cfboo"]
 resource_name = "idle_left"
@@ -65,8 +117,9 @@ tracks/3/keys = {
 "values": [false]
 }
 
-[sub_resource type="Animation" id="Animation_arqr4"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_4qspc"]
+resource_name = "idle_right"
+length = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -101,7 +154,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -113,7 +166,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_qm3ug"]
@@ -222,58 +275,6 @@ tracks/3/keys = {
 "values": [true]
 }
 
-[sub_resource type="Animation" id="Animation_4qspc"]
-resource_name = "idle_right"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprites/Girl/Default:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [1]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprites/Boy/Default:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprites/Boy/Default:flip_h")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Sprites/Girl/Default:flip_h")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tyrug"]
 _data = {
 "RESET": SubResource("Animation_arqr4"),
@@ -283,10 +284,12 @@ _data = {
 "walk_right": SubResource("Animation_ecnk0")
 }
 
-[node name="PlayerNode" groups=["Player"] instance=ExtResource("1_m6q56")]
+[node name="PlayerNode" node_paths=PackedStringArray("move_to_tap", "mouse_position") groups=["Player"] instance=ExtResource("1_m6q56")]
 collision_layer = 2
 collision_mask = 24
 script = ExtResource("2_6c1ia")
+move_to_tap = NodePath("Components/Movement/MoveToTapPathFindMovement")
+mouse_position = NodePath("Components/Movement/MousePositionComponent")
 
 [node name="Animation" parent="StateChart/Root/Enabled" index="1"]
 initial_state = NodePath("Left")
@@ -309,7 +312,7 @@ script = ExtResource("3_gwwov")
 animation_player = NodePath("../../../../../../AnimationPlayer")
 animation_name = &"walk_left"
 
-[node name="Idle" type="Node" parent="StateChart/Root/Enabled/Animation/Left/Walk" index="0"]
+[node name="OnIdle" type="Node" parent="StateChart/Root/Enabled/Animation/Left/Walk" index="0"]
 script = ExtResource("4_3xned")
 to = NodePath("../../Idle")
 event = &"idle"
@@ -332,7 +335,7 @@ script = ExtResource("3_gwwov")
 animation_player = NodePath("../../../../../../AnimationPlayer")
 animation_name = &"walk_right"
 
-[node name="Idle" type="Node" parent="StateChart/Root/Enabled/Animation/Right/Walk" index="0"]
+[node name="OnIdle" type="Node" parent="StateChart/Root/Enabled/Animation/Right/Walk" index="0"]
 script = ExtResource("4_3xned")
 to = NodePath("../../Idle")
 event = &"idle"
@@ -344,12 +347,28 @@ initial_state = NodePath("Idle")
 [node name="Idle" type="Node" parent="StateChart/Root/Enabled/Mobility" index="0"]
 script = ExtResource("6_ae0yd")
 
+[node name="OnWalk" type="Node" parent="StateChart/Root/Enabled/Mobility/Idle" index="0"]
+script = ExtResource("4_3xned")
+to = NodePath("../../Walk")
+event = &"walk"
+
 [node name="Walk" type="Node" parent="StateChart/Root/Enabled/Mobility" index="1"]
 script = ExtResource("6_ae0yd")
 
-[node name="PointAndClickController" parent="Components/Movement" index="2" node_paths=PackedStringArray("node", "path_find_move_component") instance=ExtResource("3_2ek1g")]
+[node name="Idle" type="Node" parent="StateChart/Root/Enabled/Mobility/Walk" index="0"]
+script = ExtResource("4_3xned")
+to = NodePath("../../Idle")
+event = &"idle"
+
+[node name="MoveToTapPathFindMovement" parent="Components/Movement" index="0" node_paths=PackedStringArray("node", "mouse_position", "path_find_move_component") instance=ExtResource("7_jfgwu")]
 node = NodePath("../../..")
+mouse_position = NodePath("../MousePositionComponent")
 path_find_move_component = NodePath("../PathFindMovementComponent")
+
+[node name="MousePositionComponent" parent="Components/Movement" index="1" instance=ExtResource("8_t7gk8")]
+
+[node name="Walk" parent="Components/Movement" index="2"]
+speed = 7.0
 
 [node name="NodeVarietyManager" parent="Components" index="2"]
 variety_name = "Girl"
@@ -392,5 +411,6 @@ libraries = {
 "": SubResource("AnimationLibrary_tyrug")
 }
 
+[connection signal="state_entered" from="StateChart/Root/Enabled/Mobility/Idle" to="." method="_on_idle_state_entered"]
+[connection signal="state_entered" from="StateChart/Root/Enabled/Mobility/Walk" to="." method="_on_walk_state_entered"]
 [connection signal="move_finished" from="Components/Movement/PathFindMovementComponent" to="." method="_on_path_find_movement_component_move_finished"]
-[connection signal="tapped" from="Components/Movement/PointAndClickController" to="." method="_on_point_and_click_controller_tapped"]

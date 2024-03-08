@@ -5,32 +5,57 @@
 [ext_resource type="PackedScene" uid="uid://8qsjsyglmgq4" path="res://nodes/entities/player_node/player_node.tscn" id="3_uej4m"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_oe50d"]
-vertices = PackedVector2Array(1245, 781, 1480, 783, 1479, 783, 328, 817, 327, 816, 395, 814, 475, 792, 474, 791, 664, 785, 642, 815, 1267, 808, 1724, 815, 1724, 1066, 185, 1067, 1261, 819, 181, 850, 648, 826)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 4, 5), PackedInt32Array(6, 7, 8, 9), PackedInt32Array(10, 0, 2), PackedInt32Array(2, 11, 12, 13, 14), PackedInt32Array(13, 15, 3, 5, 16), PackedInt32Array(14, 10, 2), PackedInt32Array(16, 14, 13), PackedInt32Array(16, 5, 6, 9)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(685, 775, 654, 816, 1255, 809, 1224, 771, 1480, 773, 1734, 807, 1734, 1076, 176, 1078, 171, 842, 326, 807, 393, 804, 472, 782)])
+vertices = PackedVector2Array(1342, 809, 1307, 789, 1590, 788, 328, 817, 327, 816, 395, 814, 579, 841, 474, 792, 596, 794, 1907, 848, 1909, 1270, 12, 1283, 1338, 824, 6, 888)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 4, 5, 6), PackedInt32Array(7, 8, 6, 5), PackedInt32Array(2, 9, 10, 11, 12), PackedInt32Array(11, 13, 3, 6), PackedInt32Array(12, 0, 2), PackedInt32Array(6, 12, 11)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(610, 785, 593, 831, 1330, 814, 1269, 780, 1592, 778, 1917, 840, 1920, 1280, 3, 1294, -4, 880, 326, 807, 393, 804, 472, 782)])
 source_geometry_group_name = &"navigation_polygon_source_group"
 
 [node name="TestLevel" instance=ExtResource("1_pvguk")]
+metadata/_edit_horizontal_guides_ = [1201.0]
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="NavigationRegion" index="0"]
+position = Vector2(0, -81)
 navigation_polygon = SubResource("NavigationPolygon_oe50d")
 
+[node name="Camera2D" parent="Cameras" index="0"]
+position = Vector2(1348, 738)
+scale = Vector2(0.769703, 0.769703)
+zoom = Vector2(1.2, 1.2)
+limit_bottom = 1200
+position_smoothing_speed = 10.0
+drag_horizontal_enabled = true
+drag_left_margin = 0.1
+drag_top_margin = 0.0
+drag_right_margin = 0.1
+drag_bottom_margin = 0.0
+editor_draw_drag_margin = true
+
 [node name="Sprite2D" type="Sprite2D" parent="Background" index="0"]
-position = Vector2(954, 593)
-scale = Vector2(0.760166, 0.760166)
+position = Vector2(960.476, 481)
+scale = Vector2(0.934106, 0.934106)
 texture = ExtResource("2_bj4v3")
 
 [node name="PlayerNode" parent="Entities/Living" index="0" instance=ExtResource("3_uej4m")]
-position = Vector2(1235, 955)
-scale = Vector2(1.08529, 1.08529)
+position = Vector2(1352, 836)
+scale = Vector2(0.769703, 0.769703)
+
+[node name="Marker2D" type="Marker2D" parent="Entities/Living/PlayerNode" index="9"]
+position = Vector2(-5.19686, -127.322)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Entities/Living/PlayerNode/Marker2D" index="0"]
+remote_path = NodePath("../../../../../Cameras/Camera2D")
 
 [node name="TwoPoint5DSpaceSimulator" parent="Scripts" index="0"]
-max_distance_offset = 200.0
+trans_type = 7
+ease_type = 0
 
 [node name="BasePoint" parent="Scripts/TwoPoint5DSpaceSimulator" index="0"]
-position = Vector2(990, 926)
+position = Vector2(953, 1199)
+
+[node name="MinimumDistance" parent="Scripts/TwoPoint5DSpaceSimulator/BasePoint" index="0"]
+position = Vector2(-1, -6)
 
 [node name="MaxDistance" parent="Scripts/TwoPoint5DSpaceSimulator/BasePoint" index="1"]
-position = Vector2(316, -140)
+position = Vector2(1, -499)
 
 [editable path="Scripts/TwoPoint5DSpaceSimulator"]

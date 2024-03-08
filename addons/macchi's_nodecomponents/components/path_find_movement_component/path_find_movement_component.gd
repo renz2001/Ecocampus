@@ -31,13 +31,17 @@ func _physics_process(_delta: float) -> void:
 	_is_setup = true
 
 
+func stop() -> void: 
+	target = null
+	move_finished.emit()
+	
+	
 ## Set the target first. 
 ## Put this in _physics_process. 
 func move() -> bool: 
 	if target && move_to_position(target.global_position, movement.speed): 
 		return true
 	target = null
-	move_finished.emit()
 	return false
 	
 	

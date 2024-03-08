@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dg5q85tiv0ibp"]
-
-[ext_resource type="Script" path="res://nodes/components/point_and_click_controller/point_and_click_controller.gd" id="1_ba4wu"]
-
-[node name="PointAndClickController" type="Node"]
-script = ExtResource("1_ba4wu")

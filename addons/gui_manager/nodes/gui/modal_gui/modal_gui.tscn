@@ -1,8 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://dr831257to4h"]
-
-[ext_resource type="PackedScene" uid="uid://hdksnn1gc6qq" path="res://addons/gui_manager/nodes/gui/dialog_gui/dialog_gui.tscn" id="1_fpmag"]
-[ext_resource type="Script" path="res://addons/gui_manager/nodes/gui/modal_gui/modal_gui.gd" id="2_7ffje"]
-
-
-[node name="ModalGUI" instance=ExtResource("1_fpmag")]
-script = ExtResource("2_7ffje")

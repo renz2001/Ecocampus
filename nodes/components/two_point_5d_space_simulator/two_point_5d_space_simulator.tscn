@@ -2,16 +2,16 @@
 
 [ext_resource type="Script" path="res://nodes/components/two_point_5d_space_simulator/two_point_5d_space_simulator.gd" id="1_0fgw4"]
 
-[node name="TwoPoint5DSpaceSimulator" type="Node" node_paths=PackedStringArray("base_point", "middle_ground", "max_distance") groups=["TwoPoint5DSpaceSimulator"]]
+[node name="TwoPoint5DSpaceSimulator" type="Node" node_paths=PackedStringArray("base_point", "minimum_distance", "max_distance") groups=["TwoPoint5DSpaceSimulator"]]
 script = ExtResource("1_0fgw4")
-max_distance_offset = 300.0
+max_distance_offset = 200.0
 base_point = NodePath("BasePoint")
-middle_ground = NodePath("BasePoint/MiddleGround")
+minimum_distance = NodePath("BasePoint/MinimumDistance")
 max_distance = NodePath("BasePoint/MaxDistance")
 
 [node name="BasePoint" type="Marker2D" parent="."]
 
-[node name="MiddleGround" type="Marker2D" parent="BasePoint"]
+[node name="MinimumDistance" type="Marker2D" parent="BasePoint"]
 gizmo_extents = 100.0
 
 [node name="MaxDistance" type="Marker2D" parent="BasePoint"]

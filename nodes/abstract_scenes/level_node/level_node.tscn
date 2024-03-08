@@ -9,6 +9,17 @@ y_sort_enabled = true
 z_index = 2
 y_sort_enabled = true
 
+[node name="Cameras" type="Node2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="Cameras"]
+zoom = Vector2(1.1, 1.1)
+limit_left = 0
+limit_top = 0
+limit_right = 1920
+limit_bottom = 1080
+position_smoothing_enabled = true
+editor_draw_limits = true
+
 [node name="Background" type="Node2D" parent="."]
 
 [node name="Entities" type="Node2D" parent="."]
@@ -23,6 +34,8 @@ y_sort_enabled = true
 [node name="Scripts" type="Node" parent="."]
 
 [node name="TwoPoint5DSpaceSimulator" parent="Scripts" instance=ExtResource("2_lkpw8")]
+trans_type = null
+ease_type = null
 
 [node name="BasePoint" parent="Scripts/TwoPoint5DSpaceSimulator" index="0"]
 position = Vector2(0, 1079)

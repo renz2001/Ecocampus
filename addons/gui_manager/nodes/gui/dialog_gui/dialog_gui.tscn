@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://hdksnn1gc6qq"]
-
-[ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/gui_manager/nodes/gui/gui/gui.tscn" id="1_wu7wh"]
-
-
-[node name="DialogGUI" instance=ExtResource("1_wu7wh")]
