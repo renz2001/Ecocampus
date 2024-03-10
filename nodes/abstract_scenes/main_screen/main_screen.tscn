@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://3miay8g4x6j3"]
+
+[ext_resource type="Script" path="res://nodes/abstract_scenes/main_screen/main_screen.gd" id="1_s8jdk"]
+
+[node name="MainScreen" type="CanvasLayer"]
+script = ExtResource("1_s8jdk")
+
+[node name="Root" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="Control" parent="Root"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="Root/Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

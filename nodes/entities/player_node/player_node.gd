@@ -7,7 +7,7 @@ class_name PlayerNode
 
 func _unhandled_input(event: InputEvent) -> void: 
 	if event.is_action_pressed("tap"): 
-		if mouse_position.get_position_direction_relative_to(global_position)[0] == GlobalVariables.Directions.LEFT: 
+		if mouse_position.get_position_direction_relative_to(global_position)[0] == BaseGlobalEnums.Directions.LEFT: 
 			state_chart.send_event("left")
 		else: 
 			state_chart.send_event("right")

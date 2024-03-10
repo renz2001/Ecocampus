@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://yya5uytkmfms"]
-
-[ext_resource type="Script" path="res://addons/macchi's_nodecomponents/components/input_direction/input_direction.gd" id="1_ted0v"]
-
-
-[node name="InputDirection" type="Node"]
-script = ExtResource("1_ted0v")

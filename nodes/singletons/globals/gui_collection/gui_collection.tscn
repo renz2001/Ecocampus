@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0ipd1mqphjju"]
+
+[ext_resource type="Script" path="res://nodes/singletons/globals/gui_collection/gui_collection.gd" id="1_c5gfh"]
+[ext_resource type="PackedScene" uid="uid://qfyxou4gfo7f" path="res://nodes/gui/interact_dialog/interact_dialog.tscn" id="2_7v1ee"]
+
+[node name="GUICollection" type="Node"]
+script = ExtResource("1_c5gfh")
+interact_dialogue = ExtResource("2_7v1ee")

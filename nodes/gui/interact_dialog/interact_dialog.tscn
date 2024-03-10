@@ -1,0 +1,72 @@
+[gd_scene load_steps=6 format=3 uid="uid://qfyxou4gfo7f"]
+
+[ext_resource type="PackedScene" uid="uid://hdksnn1gc6qq" path="res://addons/macchi's_gui_manager/nodes/gui/dialog_gui/dialog_gui.tscn" id="1_vqmba"]
+[ext_resource type="Script" path="res://nodes/gui/interact_dialog/interact_dialog.gd" id="2_5f634"]
+[ext_resource type="Texture2D" uid="uid://crum2o41ed4wp" path="res://assets/buttons/Board.png" id="3_0ji44"]
+[ext_resource type="PackedScene" uid="uid://dggdvwjvdrmkh" path="res://nodes/gui/buttons/medium_wooden_button/medium_wooden_button.tscn" id="3_2wovi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l0aej"]
+atlas = ExtResource("3_0ji44")
+region = Rect2(6, 27, 537, 396)
+
+[node name="InteractDialog" instance=ExtResource("1_vqmba")]
+custom_minimum_size = Vector2(15, 10)
+offset_right = 379.0
+offset_bottom = 250.0
+script = ExtResource("2_5f634")
+
+[node name="Body" type="TextureRect" parent="." index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 16.0
+offset_bottom = 41.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_l0aej")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Placeholder" type="ColorRect" parent="Body" index="0"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.580392, 0.580392, 0.580392, 1)
+
+[node name="MediumWoodenButton" parent="Body" index="1" instance=ExtResource("3_2wovi")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.860759
+anchor_top = 1.09966
+anchor_right = 0.76962
+anchor_bottom = 1.02062
+offset_left = -159.0
+offset_top = -98.0
+offset_right = 111.0
+offset_bottom = 0.0
+grow_horizontal = 0
+grow_vertical = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Body" index="2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Information" type="Label" parent="Body/MarginContainer" index="0"]
+layout_mode = 2
+size_flags_vertical = 1
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+text_overrun_behavior = 3
+
+[connection signal="pressed" from="Body/MediumWoodenButton" to="." method="_on_medium_wooden_button_pressed"]

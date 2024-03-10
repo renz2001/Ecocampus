@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dvrqbygr8xwlr"]
-
-[ext_resource type="Script" path="res://addons/macchi's_nodecomponents/components/node_variety_manager/node_variety/node_variety.gd" id="1_ihx5p"]
-
-[node name="NodeVariety" type="Node"]
-script = ExtResource("1_ihx5p")

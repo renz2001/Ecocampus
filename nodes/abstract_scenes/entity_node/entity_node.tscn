@@ -1,17 +1,27 @@
-[gd_scene load_steps=13 format=3 uid="uid://dml5uy4doh7s6"]
+[gd_scene load_steps=18 format=3 uid="uid://dml5uy4doh7s6"]
 
 [ext_resource type="Script" path="res://nodes/abstract_scenes/entity_node/entity_node.gd" id="1_ljx5x"]
 [ext_resource type="PackedScene" uid="uid://cf3hc58pq1vru" path="res://nodes/tools/hitbox/hitbox.tscn" id="2_qnb1g"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/state_chart.gd" id="3_pi3qr"]
-[ext_resource type="PackedScene" uid="uid://m4km4ixwc3e3" path="res://addons/macchi's_nodecomponents/components/movement_component/movement_component.tscn" id="4_wexpm"]
+[ext_resource type="PackedScene" uid="uid://m4km4ixwc3e3" path="res://addons/macchi's_node_components/nodes/components/movement_component/movement_component.tscn" id="4_wexpm"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="5_d0dfx"]
-[ext_resource type="PackedScene" uid="uid://b5du1qww5qopg" path="res://addons/macchi's_nodecomponents/components/path_find_movement_component/path_find_movement_component.tscn" id="5_epl30"]
+[ext_resource type="PackedScene" uid="uid://b5du1qww5qopg" path="res://addons/macchi's_node_components/nodes/components/path_find_movement_component/path_find_movement_component.tscn" id="5_epl30"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/parallel_state.gd" id="6_nd87m"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="7_kiuy1"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="8_ued26"]
-[ext_resource type="PackedScene" uid="uid://tvt1avle8hon" path="res://addons/macchi's_nodecomponents/components/node_variety_manager/node_variety_manager.tscn" id="11_a2123"]
+[ext_resource type="PackedScene" uid="uid://tvt1avle8hon" path="res://addons/macchi's_node_components/nodes/components/node_variety_manager/node_variety_manager.tscn" id="11_a2123"]
 [ext_resource type="PackedScene" uid="uid://b6l0q5hhqq12m" path="res://nodes/components/two_point_5d_node_simulator/two_point_5d_node_simulator.tscn" id="11_sgbnk"]
 [ext_resource type="Texture2D" uid="uid://b2ptenvkaj5rw" path="res://assets/environment/shadow.png" id="12_qhkve"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7egjd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1os15"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x6pic"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dswbv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nqe4d"]
 
 [node name="EntityNode" type="CharacterBody2D" node_paths=PackedStringArray("state_chart", "path_find", "walk", "hitbox") groups=["Entity"]]
 script = ExtResource("1_ljx5x")
@@ -20,9 +30,14 @@ path_find = NodePath("Components/Movement/PathFindMovementComponent")
 walk = NodePath("Components/Movement/Walk")
 hitbox = NodePath("Hitbox")
 
-[node name="PlayerDetector" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 2
+[node name="Button" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_7egjd")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_1os15")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_x6pic")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_dswbv")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nqe4d")
 
 [node name="Hitbox" parent="." instance=ExtResource("2_qnb1g")]
 
@@ -77,7 +92,6 @@ event = &"enabled"
 [node name="Walk" parent="Components/Movement" node_paths=PackedStringArray("body") instance=ExtResource("4_wexpm")]
 body = NodePath("../../..")
 speed = 5.0
-curve_base_on_center_offset = true
 
 [node name="PathFindMovementComponent" parent="Components/Movement" node_paths=PackedStringArray("movement", "navigation_agent") instance=ExtResource("5_epl30")]
 movement = NodePath("../Walk")
@@ -99,5 +113,5 @@ texture = ExtResource("12_qhkve")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 
-[connection signal="area_entered" from="PlayerDetector" to="." method="_on_player_detector_area_entered"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="velocity_computed" from="NavigationAgent2D" to="Components/Movement/PathFindMovementComponent" method="_on_navigation_agent_2d_velocity_computed"]

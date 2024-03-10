@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dg7xg0a4n3776"]
+
+[ext_resource type="PackedScene" uid="uid://i7q2pxetima5" path="res://addons/macchi's_node_components/nodes/components/conditional_set_property_component/conditional_set_property_component.tscn" id="1_r6u3p"]
+[ext_resource type="Script" path="res://addons/macchi's_node_components/nodes/components/autoload_condition_set_component/autoload_condition_set_component.gd" id="2_kttyu"]
+
+[node name="AutoloadConditionSetComponent" instance=ExtResource("1_r6u3p")]
+script = ExtResource("2_kttyu")
+autoload_conditions = Array[Resource("res://addons/macchi's_node_components/scripts/arguments/autoload_condition_set_autoload_condition.gd")]([])
+ready_value = ""
+property_or_method = ""

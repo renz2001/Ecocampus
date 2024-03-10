@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dn0hmrfmam4bl"]
+
+[ext_resource type="PackedScene" uid="uid://dup6nowsahsrg" path="res://addons/macchi's_gui_manager/nodes/singletons/gui_manager/gui_manager.tscn" id="1_fgil1"]
+[ext_resource type="Theme" uid="uid://cd55r8awc3jgy" path="res://themes/main_theme.tres" id="2_v1v03"]
+
+[node name="GUIManager" node_paths=PackedStringArray("playing", "instanced_uis", "dropdown_popup", "_print_color") instance=ExtResource("1_fgil1")]
+playing = NodePath("")
+instanced_uis = NodePath("")
+dropdown_popup = NodePath("")
+_print_color = NodePath("")
+
+[node name="Root" parent="." index="0"]
+theme = ExtResource("2_v1v03")

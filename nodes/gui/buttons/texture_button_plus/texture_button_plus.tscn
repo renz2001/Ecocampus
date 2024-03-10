@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://ba6uieidm61wl"]
+
+[ext_resource type="PackedScene" uid="uid://j60lt30xbjw6" path="res://addons/macchi's_audio_manager_and_plus/nodes/audio_players/button_audio_player/button_audio_player.tscn" id="1_w1ans"]
+
+[node name="TextureButtonPlus" type="TextureButton"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ButtonAudioPlayer" parent="." node_paths=PackedStringArray("button") instance=ExtResource("1_w1ans")]
+button = NodePath("..")

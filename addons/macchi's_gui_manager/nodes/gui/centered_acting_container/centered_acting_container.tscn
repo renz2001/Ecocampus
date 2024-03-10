@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://cter0vorqb1lu"]
+
+[ext_resource type="PackedScene" uid="uid://drqljvmqpitaj" path="res://addons/macchi's_gui_manager/nodes/gui/acting_container/acting_container.tscn" id="1_pn2dt"]
+[ext_resource type="Script" path="res://addons/macchi's_gui_manager/nodes/gui/centered_acting_container/centered_acting_container.gd" id="2_uuv47"]
+
+
+[node name="CenteredActingContainer" node_paths=PackedStringArray("center_container") instance=ExtResource("1_pn2dt")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_uuv47")
+center_container = NodePath("CenterContainer")
+inactive_on_ready = false
+
+[node name="CenterContainer" type="CenterContainer" parent="." index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

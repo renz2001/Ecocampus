@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://duid3jabr7xf4"]
+
+[ext_resource type="Script" path="res://addons/macchi's_audio_manager_and_plus/nodes/components/audio_stream_player_plus/audio_stream_player_plus.gd" id="1_4jpgo"]
+[ext_resource type="PackedScene" uid="uid://dew5mnml3ha1h" path="res://addons/macchi's_node_components/components/volume_slider_component/volume_slider_component.tscn" id="2_frgiv"]
+
+[node name="AudioStreamPlayerPlus" type="AudioStreamPlayer" node_paths=PackedStringArray("volume_slider")]
+script = ExtResource("1_4jpgo")
+volume_slider = NodePath("VolumeSliderComponent")
+
+[node name="VolumeSliderComponent" parent="." node_paths=PackedStringArray("audio_player") instance=ExtResource("2_frgiv")]
+audio_player = NodePath("..")

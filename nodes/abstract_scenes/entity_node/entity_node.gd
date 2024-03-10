@@ -6,7 +6,17 @@ class_name EntityNode
 @export var walk: MovementComponent
 @export var hitbox: Hitbox
 
+@export var display_interact_dialogue: bool
+@export var inventory: Inventory
 
-func _on_player_detector_area_entered(area: Area2D) -> void:
-	pass # Replace with function body.
 
+func _on_button_pressed() -> void: 
+	if display_interact_dialogue: 
+		InteractDialog.display(self, _interact)
+	else: 
+		_interact()
+
+
+## Virtual Function
+func _interact() -> void: 
+	pass

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://toh0omo27g8y"]
+
+[ext_resource type="PackedScene" uid="uid://boot2rcrsay35" path="res://nodes/abstract_scenes/item_node/item_node.tscn" id="1_accvq"]
+[ext_resource type="Texture2D" uid="uid://bd1l0lam720ha" path="res://placeholder_assets/plastic_bottle_trash.png" id="2_t5umu"]
+
+[node name="PlasticBottle" instance=ExtResource("1_accvq")]
+
+[node name="ShadowCircle" parent="Sprites" index="0"]
+visible = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprites" index="1"]
+position = Vector2(9, -59)
+rotation = 1.67131
+texture = ExtResource("2_t5umu")

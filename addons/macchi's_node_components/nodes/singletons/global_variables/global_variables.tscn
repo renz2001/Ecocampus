@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxcgjudd2nk6r"]
+
+[ext_resource type="Script" path="res://addons/macchi's_node_components/nodes/singletons/global_variables/global_variables.gd" id="1_60c5a"]
+
+[node name="GlobalVariables" type="Node"]
+script = ExtResource("1_60c5a")

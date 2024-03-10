@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfar0y53u8mql"]
+
+[ext_resource type="PackedScene" uid="uid://cl5a85fpc5bry" path="res://addons/macchi's_node_components/nodes/components/multiple_signals_listener/multiple_signals_listener.tscn" id="1_f6w1v"]
+[ext_resource type="Script" path="res://addons/macchi's_node_components/nodes/components/lerp_components/multiple_lerps_player/multiple_lerps_player.gd" id="2_3vnvn"]
+
+
+[node name="MultipleLerpsPlayer" instance=ExtResource("1_f6w1v")]
+script = ExtResource("2_3vnvn")
+percentage = 0.0
+signals = PackedStringArray("finished")

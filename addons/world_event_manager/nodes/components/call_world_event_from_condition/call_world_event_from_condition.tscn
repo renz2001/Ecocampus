@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://8414sd64ovbb"]
 
 [ext_resource type="Script" path="res://addons/world_event_manager/nodes/components/call_world_event_from_condition/call_world_event_from_condition.gd" id="1_2pt76"]
-[ext_resource type="PackedScene" uid="uid://g7mchgj54c12" path="res://addons/macchi's_nodecomponents/components/conditional_set_component/conditional_set_component.tscn" id="1_a7qxa"]
+[ext_resource type="PackedScene" uid="uid://g7mchgj54c12" path="res://addons/macchi's_node_components/components/conditional_set_component/conditional_set_component.tscn" id="1_a7qxa"]
 [ext_resource type="PackedScene" uid="uid://c1fh46pweltjk" path="res://addons/world_event_manager/nodes/components/call_world_event_component/call_world_event_component.tscn" id="2_7ra7n"]
 [ext_resource type="PackedScene" uid="uid://ctl0id16eln8v" path="res://addons/world_event_manager/nodes/components/on_ready_event_listener/on_ready_event_listener.tscn" id="3_qrfg8"]
 [ext_resource type="Script" path="res://addons/macchi's_nodecomponents/components/print_color.gd" id="4_nvih0"]

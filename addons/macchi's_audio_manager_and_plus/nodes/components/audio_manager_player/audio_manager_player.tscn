@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://7gri71kaffvv"]
+
+[ext_resource type="Script" path="res://addons/macchi's_audio_manager_and_plus/nodes/components/audio_manager_player/audio_manager_player.gd" id="1_1mjqi"]
+
+[node name="AudioManagerPlayer" type="Node"]
+script = ExtResource("1_1mjqi")

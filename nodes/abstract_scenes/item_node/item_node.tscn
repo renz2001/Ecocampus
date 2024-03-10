@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://boot2rcrsay35"]
+
+[ext_resource type="PackedScene" uid="uid://dml5uy4doh7s6" path="res://nodes/abstract_scenes/entity_node/entity_node.tscn" id="1_wdinh"]
+[ext_resource type="Script" path="res://nodes/abstract_scenes/item_node/item_node.gd" id="2_tv102"]
+
+[node name="ItemNode" instance=ExtResource("1_wdinh")]
+script = ExtResource("2_tv102")
+display_interact_dialogue = true
+
+[node name="ShadowCircle" parent="Sprites" index="0"]
+visible = false

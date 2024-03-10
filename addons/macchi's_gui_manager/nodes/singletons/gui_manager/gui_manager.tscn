@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=3 uid="uid://dup6nowsahsrg"]
+
+[ext_resource type="Script" path="res://addons/macchi's_gui_manager/nodes/singletons/gui_manager/gui_manager.gd" id="1_2bthb"]
+[ext_resource type="PackedScene" uid="uid://bcvs68txqwuwh" path="res://addons/macchi's_gui_manager/nodes/gui/alert_gui/alert_screen/alert_screen.tscn" id="2_10n8y"]
+[ext_resource type="PackedScene" uid="uid://cter0vorqb1lu" path="res://addons/macchi's_gui_manager/nodes/gui/centered_acting_container/centered_acting_container.tscn" id="3_3shfo"]
+[ext_resource type="PackedScene" uid="uid://b2oeadjalbr07" path="res://addons/macchi's_gui_manager/nodes/gui/exclusive_gui/exclusive_gui.tscn" id="4_wijjn"]
+[ext_resource type="PackedScene" uid="uid://biojbnlwffqny" path="res://addons/macchi's_gui_manager/nodes/gui/dropdown_popup/dropdown_popup.tscn" id="7_44ncd"]
+[ext_resource type="Script" path="res://addons/macchi's_node_components/nodes/components/print_color.gd" id="8_uggyv"]
+
+[node name="GUIManager" type="CanvasLayer" node_paths=PackedStringArray("playing", "instanced_uis", "dropdown_popup", "_print_color")]
+layer = 2
+script = ExtResource("1_2bthb")
+alert = ExtResource("2_10n8y")
+centered_acting_container = ExtResource("3_3shfo")
+exclusive_gui = ExtResource("4_wijjn")
+playing = NodePath("Root/Playing")
+instanced_uis = NodePath("Root/InstancedGUIs")
+dropdown_popup = NodePath("DropdownPopup")
+_print_color = NodePath("PrintColor")
+
+[node name="Root" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="Playing" type="Control" parent="Root"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="InstancedGUIs" type="Control" parent="Root"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DropdownPopup" parent="." instance=ExtResource("7_44ncd")]
+visible = false
+
+[node name="PrintColor" type="Node" parent="." node_paths=PackedStringArray("node")]
+script = ExtResource("8_uggyv")
+node = NodePath("..")
+color = Color(0, 1, 0, 1)

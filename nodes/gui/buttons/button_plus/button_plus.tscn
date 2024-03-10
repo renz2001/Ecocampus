@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bk4jnfmvdr6ud"]
+
+[ext_resource type="PackedScene" uid="uid://j60lt30xbjw6" path="res://addons/macchi's_audio_manager_and_plus/nodes/audio_players/button_audio_player/button_audio_player.tscn" id="1_unb35"]
+[ext_resource type="Theme" uid="uid://cd55r8awc3jgy" path="res://themes/main_theme.tres" id="1_xwxy1"]
+
+[node name="ButtonPlus" type="Button"]
+offset_right = 35.0
+offset_bottom = 24.0
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_xwxy1")
+
+[node name="ButtonAudioPlayer" parent="." node_paths=PackedStringArray("button") instance=ExtResource("1_unb35")]
+button = NodePath("..")

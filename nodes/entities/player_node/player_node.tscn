@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dgc8hchc6dsps" path="res://assets/character/Player (Girl)/v2 girl.png" id="4_btkuj"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="5_44w7h"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="6_ae0yd"]
-[ext_resource type="PackedScene" uid="uid://dvrqbygr8xwlr" path="res://addons/macchi's_nodecomponents/components/node_variety_manager/node_variety/node_variety.tscn" id="6_kb0jf"]
+[ext_resource type="PackedScene" uid="uid://dvrqbygr8xwlr" path="res://addons/macchi's_node_components/components/node_variety_manager/node_variety/node_variety.tscn" id="6_kb0jf"]
 [ext_resource type="PackedScene" uid="uid://dg5q85tiv0ibp" path="res://nodes/components/move_to_tap_path_find_movement/move_to_tap_path_find_movement.tscn" id="7_jfgwu"]
 [ext_resource type="PackedScene" uid="uid://sf310cfhr818" path="res://nodes/components/mouse_position_component/mouse_position_component.tscn" id="8_t7gk8"]
 
