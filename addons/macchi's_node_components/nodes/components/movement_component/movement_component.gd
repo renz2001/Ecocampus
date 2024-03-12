@@ -8,8 +8,8 @@ signal direction_changed(previous_direction: Vector2, new_direction: Vector2)
 # The type is Node instead of Node2D so that it is able to manipulate control nodes. 
 @export var body: Node
 @export var speed: float
-@export var x_speed_multiplier: float
-@export var y_speed_multiplier: float
+@export var x_speed_multiplier: float = 1
+@export var y_speed_multiplier: float = 1
 
 # This cannot be set to Vector2(0, 0) becuase this is used so that interact_cast works with it
 var previous_direction: Vector2 = Vector2(0, 1)
@@ -61,7 +61,9 @@ func set_velocity(velocity: Vector2) -> void:
 	var node: Node = body
 	node.velocity.x = velocity.x * x_speed_multiplier
 	node.velocity.y = velocity.y * y_speed_multiplier
-	node.move_and_slide() 
+	node.move_and_slide()
+	if velocity == Vector2.ZERO: 
+		stopped.emit()
 
 
 func load_data(data: Dictionary) -> void: 

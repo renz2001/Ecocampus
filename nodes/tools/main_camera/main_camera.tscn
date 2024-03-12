@@ -1,11 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://uumu0cyt08vn"]
 
 [ext_resource type="Script" path="res://nodes/tools/main_camera/main_camera.gd" id="1_ha8ve"]
-[ext_resource type="PackedScene" uid="uid://diw5na46cv8j6" path="res://addons/macchi's_node_components/components/follow_node_component/follow_node_component.tscn" id="2_loy48"]
+[ext_resource type="PackedScene" uid="uid://diw5na46cv8j6" path="res://addons/macchi's_node_components/nodes/components/follow_node_component/follow_node_component.tscn" id="2_loy48"]
 
-[node name="MainCamera" type="Camera2D"]
+[node name="MainCamera" type="Camera2D" node_paths=PackedStringArray("follow_node_component")]
 script = ExtResource("1_ha8ve")
+follow_node_component = NodePath("FollowNodeComponent")
 
-[node name="FollowNodeComponent" parent="." instance=ExtResource("2_loy48")]
-base_values = Object(Node,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","script":Resource("res://addons/macchi's_node_components/components/base_values_keeper/base_values_keeper.gd"),"node":null,"node_is_parent":false,"values_to_keep":PackedStringArray("global_position"),"values":{})
+[node name="FollowNodeComponent" parent="." node_paths=PackedStringArray("node") instance=ExtResource("2_loy48")]
+node = NodePath("..")
 
+[editable path="FollowNodeComponent"]

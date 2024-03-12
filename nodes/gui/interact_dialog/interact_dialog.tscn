@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://qfyxou4gfo7f"]
+[gd_scene load_steps=7 format=3 uid="uid://qfyxou4gfo7f"]
 
 [ext_resource type="PackedScene" uid="uid://hdksnn1gc6qq" path="res://addons/macchi's_gui_manager/nodes/gui/dialog_gui/dialog_gui.tscn" id="1_vqmba"]
 [ext_resource type="Script" path="res://nodes/gui/interact_dialog/interact_dialog.gd" id="2_5f634"]
@@ -9,19 +9,26 @@
 atlas = ExtResource("3_0ji44")
 region = Rect2(6, 27, 537, 396)
 
-[node name="InteractDialog" instance=ExtResource("1_vqmba")]
+[sub_resource type="LabelSettings" id="LabelSettings_2sqwb"]
+font_size = 40
+
+[node name="InteractDialog" node_paths=PackedStringArray("description_label") instance=ExtResource("1_vqmba")]
 custom_minimum_size = Vector2(15, 10)
 offset_right = 379.0
 offset_bottom = 250.0
 script = ExtResource("2_5f634")
+description_label = NodePath("Body/MarginContainer/Description")
+inactive_on_ready = false
 
 [node name="Body" type="TextureRect" parent="." index="0"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 16.0
-offset_bottom = 41.0
+offset_left = -430.0
+offset_top = -330.0
+offset_right = -414.0
+offset_bottom = -289.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("AtlasTexture_l0aej")
@@ -38,11 +45,19 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.580392, 0.580392, 0.580392, 1)
 
-[node name="MediumWoodenButton" parent="Body" index="1" instance=ExtResource("3_2wovi")]
+[node name="BodyStop" type="Control" parent="Body" index="1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MediumWoodenButton" parent="Body" index="2" instance=ExtResource("3_2wovi")]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.860759
-anchor_top = 1.09966
+anchor_left = 0.76962
+anchor_top = 1.02062
 anchor_right = 0.76962
 anchor_bottom = 1.02062
 offset_left = -159.0
@@ -53,17 +68,19 @@ grow_horizontal = 0
 grow_vertical = 0
 metadata/_edit_use_anchors_ = true
 
-[node name="MarginContainer" type="MarginContainer" parent="Body" index="2"]
+[node name="MarginContainer" type="MarginContainer" parent="Body" index="3"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
-[node name="Information" type="Label" parent="Body/MarginContainer" index="0"]
+[node name="Description" type="Label" parent="Body/MarginContainer" index="0"]
 layout_mode = 2
 size_flags_vertical = 1
+label_settings = SubResource("LabelSettings_2sqwb")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3

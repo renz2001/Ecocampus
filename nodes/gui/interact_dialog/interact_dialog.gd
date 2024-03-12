@@ -1,21 +1,34 @@
-extends GUI
+extends DialogGUI
 class_name InteractDialog
 
-@export var information_label: Label
+@export var description_label: Label
 
-var on_button_pressed: Callable
-var caller: Node
+var data: InteractDialogData
 
-
-static func display(_caller: Node, _on_button_pressed: Callable) -> InteractDialog: 
+static func display(args: InteractDialogData) -> InteractDialog: 
 	var gui: InteractDialog = GUICollection.interact_dialogue.instantiate()
-	GUIManager.add_gui(gui)
-	gui.on_button_pressed = _on_button_pressed
-	gui.caller = _caller
+	#print(_caller)
+	gui.data = args
+	gui.global_position = gui.data.gui_position
+	gui.description_label.text = gui.data.description
+	gui.data.caller.path_find.finished_navigation.connect(
+		func(): 
+			gui.data.caller.state_chart.send_event("cannot_tap")
+			GUIManager.add_gui(gui)
+	, CONNECT_ONE_SHOT
+	)
 	return gui
 
 
 func _on_medium_wooden_button_pressed() -> void:
-	on_button_pressed.call()
+	data.on_button_pressed.call()
+	_close()
 
 
+func _deactivated() -> void: 
+	_close()
+
+
+func _close() -> void: 
+	queue_free()
+	data.caller.state_chart.send_event("can_tap")

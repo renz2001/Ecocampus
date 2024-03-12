@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" path="res://nodes/components/mouse_position_component/mouse_position_component.gd" id="1_ubt61"]
 
-[node name="MousePositionComponent" type="Node"]
+[node name="MousePositionComponent" type="Node2D"]
 script = ExtResource("1_ubt61")

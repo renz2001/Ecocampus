@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://cm6jeskbiise6"]
+[gd_scene load_steps=3 format=3 uid="uid://cm6jeskbiise6"]
 
+[ext_resource type="PackedScene" uid="uid://uumu0cyt08vn" path="res://nodes/tools/main_camera/main_camera.tscn" id="1_7i7vm"]
 [ext_resource type="PackedScene" uid="uid://coge3r6c3f044" path="res://nodes/components/two_point_5d_space_simulator/two_point_5d_space_simulator.tscn" id="2_lkpw8"]
 
 [node name="LevelNode" type="Node2D"]
@@ -11,14 +12,13 @@ y_sort_enabled = true
 
 [node name="Cameras" type="Node2D" parent="."]
 
-[node name="Camera2D" type="Camera2D" parent="Cameras"]
-zoom = Vector2(1.1, 1.1)
+[node name="MainCamera" parent="Cameras" instance=ExtResource("1_7i7vm")]
+position = Vector2(1029, 579)
+zoom = Vector2(1.2, 1.2)
 limit_left = 0
 limit_top = 0
 limit_right = 1920
 limit_bottom = 1080
-position_smoothing_enabled = true
-editor_draw_limits = true
 
 [node name="Background" type="Node2D" parent="."]
 
@@ -34,8 +34,6 @@ y_sort_enabled = true
 [node name="Scripts" type="Node" parent="."]
 
 [node name="TwoPoint5DSpaceSimulator" parent="Scripts" instance=ExtResource("2_lkpw8")]
-trans_type = null
-ease_type = null
 
 [node name="BasePoint" parent="Scripts/TwoPoint5DSpaceSimulator" index="0"]
 position = Vector2(0, 1079)

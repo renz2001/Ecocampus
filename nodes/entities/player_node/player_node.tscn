@@ -1,15 +1,20 @@
-[gd_scene load_steps=18 format=3 uid="uid://8qsjsyglmgq4"]
+[gd_scene load_steps=20 format=3 uid="uid://8qsjsyglmgq4"]
 
 [ext_resource type="PackedScene" uid="uid://dml5uy4doh7s6" path="res://nodes/abstract_scenes/entity_node/entity_node.tscn" id="1_m6q56"]
 [ext_resource type="Script" path="res://nodes/entities/player_node/player_node.gd" id="2_6c1ia"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/animation_player_state.gd" id="3_gwwov"]
+[ext_resource type="Script" path="res://scripts/resources/inventory.gd" id="3_ip38p"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="4_3xned"]
 [ext_resource type="Texture2D" uid="uid://dgc8hchc6dsps" path="res://assets/character/Player (Girl)/v2 girl.png" id="4_btkuj"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="5_44w7h"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="6_ae0yd"]
-[ext_resource type="PackedScene" uid="uid://dvrqbygr8xwlr" path="res://addons/macchi's_node_components/components/node_variety_manager/node_variety/node_variety.tscn" id="6_kb0jf"]
+[ext_resource type="PackedScene" uid="uid://dvrqbygr8xwlr" path="res://addons/macchi's_node_components/nodes/components/node_variety_manager/node_variety/node_variety.tscn" id="6_kb0jf"]
 [ext_resource type="PackedScene" uid="uid://dg5q85tiv0ibp" path="res://nodes/components/move_to_tap_path_find_movement/move_to_tap_path_find_movement.tscn" id="7_jfgwu"]
 [ext_resource type="PackedScene" uid="uid://sf310cfhr818" path="res://nodes/components/mouse_position_component/mouse_position_component.tscn" id="8_t7gk8"]
+
+[sub_resource type="Resource" id="Resource_kvnmb"]
+script = ExtResource("3_ip38p")
+items = Array[Resource("res://scripts/resources/item_resource.gd")]([])
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8fjj4"]
 size = Vector2(84, 21)
@@ -290,6 +295,7 @@ collision_mask = 24
 script = ExtResource("2_6c1ia")
 move_to_tap = NodePath("Components/Movement/MoveToTapPathFindMovement")
 mouse_position = NodePath("Components/Movement/MousePositionComponent")
+inventory = SubResource("Resource_kvnmb")
 
 [node name="Animation" parent="StateChart/Root/Enabled" index="1"]
 initial_state = NodePath("Left")
@@ -360,8 +366,29 @@ script = ExtResource("4_3xned")
 to = NodePath("../../Idle")
 event = &"idle"
 
+[node name="TapState" type="Node" parent="StateChart/Root/Enabled" index="3"]
+script = ExtResource("5_44w7h")
+initial_state = NodePath("CanTap")
+
+[node name="CanTap" type="Node" parent="StateChart/Root/Enabled/TapState" index="0"]
+script = ExtResource("6_ae0yd")
+
+[node name="onCannotTap" type="Node" parent="StateChart/Root/Enabled/TapState/CanTap" index="0"]
+script = ExtResource("4_3xned")
+to = NodePath("../../CannotTap")
+event = &"cannot_tap"
+
+[node name="CannotTap" type="Node" parent="StateChart/Root/Enabled/TapState" index="1"]
+script = ExtResource("6_ae0yd")
+
+[node name="onCanTap" type="Node" parent="StateChart/Root/Enabled/TapState/CannotTap" index="0"]
+script = ExtResource("4_3xned")
+to = NodePath("../../CanTap")
+event = &"can_tap"
+
 [node name="MoveToTapPathFindMovement" parent="Components/Movement" index="0" node_paths=PackedStringArray("node", "mouse_position", "path_find_move_component") instance=ExtResource("7_jfgwu")]
 node = NodePath("../../..")
+disabled = false
 mouse_position = NodePath("../MousePositionComponent")
 path_find_move_component = NodePath("../PathFindMovementComponent")
 
@@ -413,4 +440,5 @@ libraries = {
 
 [connection signal="state_entered" from="StateChart/Root/Enabled/Mobility/Idle" to="." method="_on_idle_state_entered"]
 [connection signal="state_entered" from="StateChart/Root/Enabled/Mobility/Walk" to="." method="_on_walk_state_entered"]
-[connection signal="move_finished" from="Components/Movement/PathFindMovementComponent" to="." method="_on_path_find_movement_component_move_finished"]
+[connection signal="state_input" from="StateChart/Root/Enabled/TapState/CanTap" to="." method="_on_can_tap_state_input"]
+[connection signal="stopped" from="Components/Movement/Walk" to="." method="_on_walk_stopped"]

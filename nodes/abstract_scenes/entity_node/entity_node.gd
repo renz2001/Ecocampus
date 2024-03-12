@@ -9,14 +9,29 @@ class_name EntityNode
 @export var display_interact_dialogue: bool
 @export var inventory: Inventory
 
-
-func _on_button_pressed() -> void: 
-	if display_interact_dialogue: 
-		InteractDialog.display(self, _interact)
-	else: 
-		_interact()
-
+@export var entity_name: String
+@export var interact_description: String
 
 ## Virtual Function
 func _interact() -> void: 
 	pass
+
+
+func _on_button_pressed() -> void: 
+	#get_tree().get_first_node_in_group("Player"), get_global_mouse_position(), _interact
+	if display_interact_dialogue: 
+		show_interact_dialog(interact_description)
+	else: 
+		_interact()
+
+
+func show_interact_dialog(description: String) -> void: 
+	InteractDialog.display(
+		InteractDialogData.new()\
+			.set_caller(
+				GroupNodeFetcher.get_first_node(GroupNodeFetcher.player)
+			)\
+			.set_gui_position(get_global_mouse_position())\
+			.set_on_button_pressed(_interact)\
+			.set_description(interact_description)
+	)

@@ -99,4 +99,4 @@ func _activate_condition() -> bool:
 	
 func _deactivate_condition() -> bool: 
 	return true
-	
+

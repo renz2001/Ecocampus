@@ -69,7 +69,8 @@ func add_gui(gui: GUI, config: AddGUIConfig = null) -> void:
 			var exclusive: GUI = exclusive_gui.instantiate()
 			gui.add_child(exclusive)
 			gui.move_child(exclusive, 0) 
-			
+	else: 
+		instanced_uis.add_child(gui)
 	gui_added.emit(gui)
 	gui_changed.emit(gui)
 	

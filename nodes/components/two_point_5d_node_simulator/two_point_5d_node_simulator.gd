@@ -28,7 +28,7 @@ var weight: float:
 		return node.global_position.y
 
 
-func _process(delta: float) -> void: 
+func _process(_delta: float) -> void: 
 	if disabled || !node || !node.is_node_ready(): 
 		return
 	if !is_instance_valid(space_simulator): 

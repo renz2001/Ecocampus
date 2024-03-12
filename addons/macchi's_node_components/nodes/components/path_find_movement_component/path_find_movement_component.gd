@@ -2,7 +2,7 @@
 extends NodeComponent
 class_name PathFindMovementComponent
 
-signal move_finished
+signal finished_navigation
 
 @export var debug: bool = false
 @export var movement: MovementComponent
@@ -33,7 +33,6 @@ func _physics_process(_delta: float) -> void:
 
 func stop() -> void: 
 	target = null
-	move_finished.emit()
 	
 	
 ## Set the target first. 
@@ -41,7 +40,7 @@ func stop() -> void:
 func move() -> bool: 
 	if target && move_to_position(target.global_position, movement.speed): 
 		return true
-	#target = null
+	target = null
 	return false
 	
 	
@@ -55,10 +54,9 @@ func move_to_position(position: Vector2, speed: float) -> bool:
 	navigation_agent.target_position = position
 
 	if navigation_agent.is_navigation_finished(): 
-		move_finished.emit()
+		finished_navigation.emit()
 		return false
 	var next_path_position: Vector2 = navigation_agent.get_next_path_position()
-	
 	#if debug: 
 		#if !navigation_agent.get_current_navigation_path().is_empty(): 
 			#if !line: 

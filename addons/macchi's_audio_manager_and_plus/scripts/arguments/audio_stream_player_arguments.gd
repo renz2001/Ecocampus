@@ -6,7 +6,7 @@ class_name AudioStreamPlayerArguments
 @export var play_from_position: int = 0
 
 @export var pitch_scale: float = 1
-@export var bus: GlobalVariables.AudioBusses
+@export var bus: String
 
 
 func set_sound(s: AudioStream) -> AudioStreamPlayerArguments: 
@@ -24,7 +24,7 @@ func set_pitch_scale(pitch: float) -> AudioStreamPlayerArguments:
 	return self
 
 
-func set_bus(b: GlobalVariables.AudioBusses) -> AudioStreamPlayerArguments: 
+func set_bus(b: String) -> AudioStreamPlayerArguments: 
 	bus = b
 	return self
 	

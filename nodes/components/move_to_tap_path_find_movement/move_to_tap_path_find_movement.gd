@@ -16,17 +16,19 @@ func move() -> void:
 		#return
 		#
 	#if event.is_action_pressed("tap"): 
-	var mouse_pos: Vector2 = mouse_position.get_position()
+	var mouse_pos: Vector2 = node.get_global_mouse_position()
 	if is_instance_valid(target): 
 		target.queue_free()
 	target = Marker2D.new()
 	target.global_position = mouse_pos
+
+	#print(target.global_position)
 	get_tree().current_scene.add_child(target)
 	path_find_move_component.target = target
 	tapped.emit(mouse_pos)
 
 
-func _physics_process(delta: float) -> void: 
+func _physics_process(_delta: float) -> void: 
 	if is_instance_valid(target): 
 		var is_moving: bool = path_find_move_component.move()
 		#print(is_moving)

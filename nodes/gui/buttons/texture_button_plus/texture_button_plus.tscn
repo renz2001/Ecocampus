@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://ba6uieidm61wl"]
+[gd_scene load_steps=4 format=3 uid="uid://ba6uieidm61wl"]
 
 [ext_resource type="PackedScene" uid="uid://j60lt30xbjw6" path="res://addons/macchi's_audio_manager_and_plus/nodes/audio_players/button_audio_player/button_audio_player.tscn" id="1_w1ans"]
+[ext_resource type="Script" path="res://addons/macchi's_audio_manager_and_plus/scripts/resources/button_audio.gd" id="2_sptvq"]
+
+[sub_resource type="Resource" id="Resource_v52d4"]
+script = ExtResource("2_sptvq")
 
 [node name="TextureButtonPlus" type="TextureButton"]
 offset_right = 40.0
@@ -8,3 +12,4 @@ offset_bottom = 40.0
 
 [node name="ButtonAudioPlayer" parent="." node_paths=PackedStringArray("button") instance=ExtResource("1_w1ans")]
 button = NodePath("..")
+audio = SubResource("Resource_v52d4")

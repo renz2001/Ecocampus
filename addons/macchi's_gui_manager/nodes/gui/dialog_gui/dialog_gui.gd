@@ -1,5 +1,5 @@
 extends GUI
-class_name DialogueGUI 
+class_name DialogGUI 
 
 
 @export var close_when_clicked_outside: bool = true
@@ -8,7 +8,7 @@ var mouse_inside: bool
 
 
 func _deactivated() -> void: 
-	GUIManager.remove_gui(self)
+	queue_free()
 
 
 func _on_mouse_entered() -> void:
@@ -22,4 +22,4 @@ func _on_mouse_exited() -> void:
 func _unhandled_input(event: InputEvent) -> void: 
 	if event.is_action_pressed("tap"): 
 		if close_when_clicked_outside && mouse_inside == false: 
-			GUIManager.set_active(self, false)
+			GUIManager.set_gui_active(self, false)

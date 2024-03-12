@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cybtlcu820m27"]
+
+[ext_resource type="Script" path="res://nodes/singletons/globals/group_node_fetcher/group_node_fetcher.gd" id="1_v7bdo"]
+
+[node name="GroupNodeFetcher" type="Node"]
+script = ExtResource("1_v7bdo")

@@ -2,6 +2,5 @@
 
 [ext_resource type="Script" path="res://addons/macchi's_node_components/nodes/components/path_find_movement_component/path_find_movement_component.gd" id="1_mtrhu"]
 
-[node name="PathFindMovementComponent" type="Node" node_paths=PackedStringArray("movement")]
+[node name="PathFindMovementComponent" type="Node"]
 script = ExtResource("1_mtrhu")
-movement = NodePath("")
