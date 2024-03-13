@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=3 uid="uid://baxha8yav8g1m"]
+
+[ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/macchi's_gui_manager/nodes/gui/gui/gui.tscn" id="1_7uxku"]
+[ext_resource type="Script" path="res://nodes/gui/item_slot/item_slot.gd" id="2_8ywvp"]
+[ext_resource type="PackedScene" uid="uid://ba6uieidm61wl" path="res://nodes/gui/buttons/texture_button_plus/texture_button_plus.tscn" id="2_r6jqi"]
+[ext_resource type="Texture2D" uid="uid://cky3y3wryvefu" path="res://assets/buttons/Inventory-box.png" id="3_cyjce"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_784bb"]
+atlas = ExtResource("3_cyjce")
+region = Rect2(24, 84, 238, 247)
+
+[sub_resource type="LabelSettings" id="LabelSettings_5y876"]
+font_size = 40
+
+[node name="ItemSlot" node_paths=PackedStringArray("stack_label") instance=ExtResource("1_7uxku")]
+custom_minimum_size = Vector2(100, 100)
+script = ExtResource("2_8ywvp")
+stack_label = NodePath("StackLabel")
+item = null
+inactive_on_ready = false
+alias = ""
+
+[node name="TextureButtonPlus" parent="." index="0" instance=ExtResource("2_r6jqi")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = SubResource("AtlasTexture_784bb")
+
+[node name="MarginContainer" type="MarginContainer" parent="." index="1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer" index="0"]
+layout_mode = 2
+
+[node name="StackLabel" type="Label" parent="." index="2"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "1"
+label_settings = SubResource("LabelSettings_5y876")
+horizontal_alignment = 1
+vertical_alignment = 1

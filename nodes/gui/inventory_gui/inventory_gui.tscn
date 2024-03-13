@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://53yheb41dh24"]
+
+[ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/macchi's_gui_manager/nodes/gui/gui/gui.tscn" id="1_s4jvy"]
+[ext_resource type="Script" path="res://nodes/gui/inventory_gui/inventory_gui.gd" id="2_fclw4"]
+
+[node name="InventoryGUI" node_paths=PackedStringArray("item_slots") instance=ExtResource("1_s4jvy")]
+custom_minimum_size = Vector2(0, 100)
+script = ExtResource("2_fclw4")
+item_slots = NodePath("ItemSlots")
+inventory = null
+alias = ""
+
+[node name="ItemSlots" type="HBoxContainer" parent="." index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

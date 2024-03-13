@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://n1ca0tqy8k26"]
+
+[ext_resource type="PackedScene" uid="uid://blkclu0ewbpa" path="res://addons/dialogue_manager's_dialogue_gui_manager/nodes/singletons/managers/base_dialogue_gui_manager/base_dialogue_gui_manager.tscn" id="1_gr8rf"]
+[ext_resource type="PackedScene" uid="uid://drqljvmqpitaj" path="res://addons/macchi's_gui_manager/nodes/gui/acting_container/acting_container.tscn" id="2_0kfrd"]
+[ext_resource type="PackedScene" uid="uid://blx1a7x2yt18" path="res://nodes/gui/dialogue_guis/dialogue_box/dialogue_box.tscn" id="2_n6fh7"]
+
+[node name="DialogueGUIManager" instance=ExtResource("1_gr8rf")]
+alias = ""
+
+[node name="ActingContainer" parent="DialogueGUIs" index="1" node_paths=PackedStringArray("real_control") instance=ExtResource("2_0kfrd")]
+layout_mode = 2
+real_control = NodePath("MarginContainer/DialogueBox")
+alias = ""
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueGUIs/ActingContainer" index="0"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -180.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="DialogueBox" parent="DialogueGUIs/ActingContainer/MarginContainer" index="0" node_paths=PackedStringArray("acting_container") instance=ExtResource("2_n6fh7")]
+layout_mode = 2
+size_flags_horizontal = 1
+size_flags_vertical = 1
+acting_container = NodePath("../..")

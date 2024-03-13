@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://blkclu0ewbpa"]
+
+[ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/macchi's_gui_manager/nodes/gui/gui/gui.tscn" id="1_40vdn"]
+[ext_resource type="Script" path="res://addons/dialogue_manager's_dialogue_gui_manager/nodes/singletons/managers/base_dialogue_gui_manager/base_dialogue_gui_manager.gd" id="1_kblrj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ghxgd"]
+
+[node name="BaseDialogueGUIManager" node_paths=PackedStringArray("dialogue_guis") instance=ExtResource("1_40vdn")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kblrj")
+dialogue_guis = NodePath("DialogueGUIs")
+text_speed_multiplier = 5.0
+
+[node name="DialogueGUIs" type="TabContainer" parent="." index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ghxgd")
+tabs_visible = false

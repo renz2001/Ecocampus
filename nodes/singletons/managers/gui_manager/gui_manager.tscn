@@ -1,9 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://dn0hmrfmam4bl"]
+[gd_scene load_steps=4 format=3 uid="uid://dn0hmrfmam4bl"]
 
 [ext_resource type="PackedScene" uid="uid://dup6nowsahsrg" path="res://addons/macchi's_gui_manager/nodes/singletons/gui_manager/gui_manager.tscn" id="1_fgil1"]
 [ext_resource type="Theme" uid="uid://cd55r8awc3jgy" path="res://themes/main_theme.tres" id="2_v1v03"]
+[ext_resource type="PackedScene" uid="uid://n1ca0tqy8k26" path="res://nodes/singletons/managers/dialogue_gui_manager/dialogue_gui_manager.tscn" id="3_ew5n2"]
 
 [node name="GUIManager" instance=ExtResource("1_fgil1")]
 
 [node name="Root" parent="." index="0"]
 theme = ExtResource("2_v1v03")
+
+[node name="DialogueGUIManager" parent="Root/Playing" index="0" instance=ExtResource("3_ew5n2")]
+layout_mode = 1

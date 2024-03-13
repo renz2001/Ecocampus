@@ -8,11 +8,11 @@ class_name PrintColor
 @export var automatic_value_color: bool = true
 @export var use_spaces_for_node_name: bool
 
-var node: Node
+var owner: Object
 
 
-func _init(_node: Node) -> void: 
-	node = _node
+func _init(_node: Object) -> void: 
+	owner = _node
 
 
 func out(output: String) -> void: 
@@ -20,7 +20,7 @@ func out(output: String) -> void:
 	
 	
 func out_debug(output: String) -> void: 
-	var node_name: String = node.name
+	var node_name: String = owner.name
 	if use_spaces_for_node_name: 
 		node_name = node_name.capitalize()
 	print_rich("[color=%s]%s: [color=%s]%s" % [node_name_color.to_html(), node_name, color.to_html(), output])
