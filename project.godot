@@ -39,6 +39,12 @@ window/stretch/aspect="keep_height"
 
 enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://addons/gdscript_datetime/plugin.cfg", "res://addons/godot_state_charts/plugin.cfg", "res://addons/macchi\'s_audio_manager_and_plus/plugin.cfg", "res://addons/macchi\'s_gui_manager/plugin.cfg", "res://addons/macchi\'s_node_components/plugin.cfg", "res://addons/quest_system/plugin.cfg", "res://addons/save_components_system/plugin.cfg", "res://addons/world_event_manager/plugin.cfg")
 
+[file_customization]
+
+folder_colors={
+"res://addons/": "purple"
+}
+
 [input]
 
 tap={

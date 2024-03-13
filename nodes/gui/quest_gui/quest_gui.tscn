@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://e5fhbou72no3"]
+[gd_scene load_steps=3 format=3 uid="uid://e5fhbou72no3"]
 
 [ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/macchi's_gui_manager/nodes/gui/gui/gui.tscn" id="1_ufqi3"]
+[ext_resource type="Script" path="res://nodes/gui/quest_gui/quest_gui.gd" id="2_a3avm"]
 
 [node name="QuestGUI" instance=ExtResource("1_ufqi3")]
+script = ExtResource("2_a3avm")
+quest = null
 alias = ""

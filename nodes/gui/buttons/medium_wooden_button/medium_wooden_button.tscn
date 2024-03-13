@@ -7,5 +7,3 @@
 offset_right = 110.0
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("2_cmved")
-ignore_texture_size = true
-stretch_mode = 5

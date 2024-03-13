@@ -9,6 +9,8 @@ script = ExtResource("2_sptvq")
 [node name="TextureButtonPlus" type="TextureButton"]
 offset_right = 40.0
 offset_bottom = 40.0
+ignore_texture_size = true
+stretch_mode = 5
 
 [node name="ButtonAudioPlayer" parent="." node_paths=PackedStringArray("button") instance=ExtResource("1_w1ans")]
 button = NodePath("..")

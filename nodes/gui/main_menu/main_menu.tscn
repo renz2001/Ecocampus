@@ -1,5 +1,70 @@
-[gd_scene load_steps=2 format=3 uid="uid://glnb78ju8p8o"]
+[gd_scene load_steps=11 format=3 uid="uid://glnb78ju8p8o"]
 
 [ext_resource type="PackedScene" uid="uid://3miay8g4x6j3" path="res://nodes/abstract_scenes/main_screen/main_screen.tscn" id="1_c5phn"]
+[ext_resource type="PackedScene" uid="uid://dggdvwjvdrmkh" path="res://nodes/gui/buttons/medium_wooden_button/medium_wooden_button.tscn" id="2_5xhb2"]
+[ext_resource type="Theme" uid="uid://cd55r8awc3jgy" path="res://themes/main_theme.tres" id="2_gf28e"]
+[ext_resource type="Texture2D" uid="uid://b3hxtkgufbsdg" path="res://assets/buttons/Play.png" id="3_m1v58"]
+[ext_resource type="Texture2D" uid="uid://b4fijb1vufwm7" path="res://assets/buttons/Exit.png" id="4_cpr3a"]
+[ext_resource type="PackedScene" uid="uid://csp1aki3k6ecy" path="res://nodes/gui_components/on_pressed_components/on_pressed_play/on_pressed_play.tscn" id="5_k3spk"]
+[ext_resource type="PackedScene" uid="uid://cgy7njv5o7a0g" path="res://nodes/gui/buttons/small_wooden_button/small_wooden_button.tscn" id="5_mcgre"]
+[ext_resource type="PackedScene" uid="uid://cp41bsdgf5ftt" path="res://nodes/gui_components/on_pressed_components/on_pressed_exit/on_pressed_exit.tscn" id="6_f38ca"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pd6nm"]
+atlas = ExtResource("3_m1v58")
+region = Rect2(82, 144, 1403, 511)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ywn4y"]
+atlas = ExtResource("4_cpr3a")
+region = Rect2(82, 144, 1403, 511)
 
 [node name="MainMenu" instance=ExtResource("1_c5phn")]
+
+[node name="Root" parent="." index="0"]
+theme = ExtResource("2_gf28e")
+
+[node name="CenterContainer" type="CenterContainer" parent="Root" index="1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Root/CenterContainer" index="0"]
+layout_mode = 2
+
+[node name="Buttons" type="VBoxContainer" parent="Root/CenterContainer/VBoxContainer2" index="0"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="Play" parent="Root/CenterContainer/VBoxContainer2/Buttons" index="0" instance=ExtResource("2_5xhb2")]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_pd6nm")
+
+[node name="OnPressedPlay" parent="Root/CenterContainer/VBoxContainer2/Buttons/Play" index="1" node_paths=PackedStringArray("control") instance=ExtResource("5_k3spk")]
+control = NodePath("..")
+
+[node name="Exit" parent="Root/CenterContainer/VBoxContainer2/Buttons" index="1" instance=ExtResource("2_5xhb2")]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_ywn4y")
+
+[node name="OnPressedExit" parent="Root/CenterContainer/VBoxContainer2/Buttons/Exit" index="1" instance=ExtResource("6_f38ca")]
+
+[node name="MarginContainer" type="MarginContainer" parent="Root" index="2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Top" type="HBoxContainer" parent="Root/MarginContainer" index="0"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+alignment = 2
+
+[node name="TextureButtonPlus" parent="Root/MarginContainer/Top" index="0" instance=ExtResource("5_mcgre")]
+layout_mode = 2

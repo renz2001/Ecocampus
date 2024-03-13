@@ -16,13 +16,19 @@ signal item_removed(new_item: Item, removed_by: Node)
 
 @export var items: Array[Item] = []
 
+@export var max_items: int = -1
 
-func set_items(new_items: Array[Item]) -> void:
+
+func set_items(new_items: Array[Item]) -> void: 
+	if new_items.size() > max_items: 
+		return
 	items = new_items
 	items_set.emit(new_items)
 
 
-func add_items(new_items: Array[Item]) -> void:
+func add_items(new_items: Array[Item]) -> void: 
+	if new_items.size() > max_items: 
+		return
 	items.append_array(new_items)
 	items_added.emit(new_items)
 

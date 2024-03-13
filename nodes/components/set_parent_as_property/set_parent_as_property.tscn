@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d8hno8b2usfl"]
+
+[ext_resource type="Script" path="res://nodes/components/set_parent_as_property/set_parent_as_property.gd" id="1_g8scn"]
+
+[node name="SetParentAsProperty" type="Node"]
+script = ExtResource("1_g8scn")

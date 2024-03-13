@@ -1,13 +1,18 @@
-extends NodeComponent 
+extends Resource
 class_name PrintColor 
 
 
-@export var node: Node
 @export var color: Color
 @export var node_name_color: Color = Color("0000ff")
 @export var value_color: Color = Color("ff0000")
 @export var automatic_value_color: bool = true
 @export var use_spaces_for_node_name: bool
+
+var node: Node
+
+
+func _init(_node: Node) -> void: 
+	node = _node
 
 
 func out(output: String) -> void: 

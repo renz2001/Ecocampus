@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://da2nlvvpyaabx"]
+
+[ext_resource type="Script" path="res://nodes/gui_components/on_pressed/on_pressed.gd" id="1_rmj3v"]
+[ext_resource type="PackedScene" uid="uid://d8hno8b2usfl" path="res://nodes/components/set_parent_as_property/set_parent_as_property.tscn" id="2_1twol"]
+
+[node name="OnPressed" type="Node"]
+script = ExtResource("1_rmj3v")
+
+[node name="SetParentAsProperty" parent="." node_paths=PackedStringArray("node") instance=ExtResource("2_1twol")]
+node = NodePath("..")
+property = "control"
