@@ -5,6 +5,10 @@ class_name PlayerNode
 @export var mouse_position: MousePositionComponent
 
 
+func _ready() -> void: 
+	GlobalData.player_instanced.emit(self)
+	
+
 func _on_idle_state_entered() -> void:
 	path_find.stop()
 	

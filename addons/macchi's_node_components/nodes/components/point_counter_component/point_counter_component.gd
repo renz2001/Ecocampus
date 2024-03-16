@@ -1,4 +1,4 @@
-@icon("res://addons/easy_rpg_maker/class_icons/points-counter.png")
+@icon("res://addons/macchi's_node_components/class_icons/points-counter.png")
 extends NodeComponent
 class_name PointCounterComponent
 

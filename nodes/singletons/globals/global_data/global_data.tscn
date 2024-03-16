@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxs4tdbdcc6du"]
+
+[ext_resource type="Script" path="res://nodes/singletons/globals/global_data/global_data.gd" id="1_7pbvb"]
+[ext_resource type="PackedScene" uid="uid://jo332ksg44ul" path="res://nodes/singletons/globals/achievements_tracker/achievements_tracker.tscn" id="2_qyjt6"]
+
+[node name="GlobalData" type="Node" node_paths=PackedStringArray("achievements_tracker")]
+script = ExtResource("1_7pbvb")
+achievements_tracker = NodePath("AchievementsTracker")
+
+[node name="AchievementsTracker" parent="." instance=ExtResource("2_qyjt6")]
+
+[connection signal="player_instanced" from="." to="AchievementsTracker" method="_on_global_data_player_instanced"]

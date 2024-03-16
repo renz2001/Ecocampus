@@ -1,0 +1,58 @@
+[gd_scene load_steps=4 format=3 uid="uid://c584i6hhgux8p"]
+
+[ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/macchi's_gui_manager/nodes/gui/gui/gui.tscn" id="1_y7k5e"]
+[ext_resource type="PackedScene" uid="uid://dggdvwjvdrmkh" path="res://nodes/gui/buttons/medium_wooden_button/medium_wooden_button.tscn" id="2_thsxv"]
+[ext_resource type="Theme" uid="uid://cd55r8awc3jgy" path="res://themes/main_theme.tres" id="3_qkqff"]
+
+[node name="AchievementUnlockedGUI" instance=ExtResource("1_y7k5e")]
+offset_right = 439.0
+offset_bottom = 576.0
+alias = ""
+
+[node name="MarginContainer" type="MarginContainer" parent="." index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" index="0"]
+custom_minimum_size = Vector2(200, 500)
+layout_mode = 2
+alignment = 1
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer" index="0"]
+layout_mode = 2
+text = "Bottle Warrior!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer" index="1"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+
+[node name="Task" type="Label" parent="MarginContainer/VBoxContainer" index="2"]
+layout_mode = 2
+text = "(5 bottles collected)
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Congratulations" type="Label" parent="MarginContainer/VBoxContainer" index="3"]
+layout_mode = 2
+text = "Congratulations"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MediumWoodenButton" parent="MarginContainer/VBoxContainer" index="4" instance=ExtResource("2_thsxv")]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="." index="1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_qkqff")
