@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://y2iscrkvsonm"]
+
+[ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/macchi's_gui_manager/nodes/gui/gui/gui.tscn" id="1_jq4ma"]
+[ext_resource type="PackedScene" uid="uid://53yheb41dh24" path="res://nodes/gui/inventory_gui/inventory_gui.tscn" id="2_j6f2o"]
+
+[node name="PlayerHUD" instance=ExtResource("1_jq4ma")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+inactive_on_ready = false
+alias = ""
+
+[node name="MarginContainer" type="MarginContainer" parent="." index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 30
+
+[node name="InventoryGUI" parent="MarginContainer" index="0" instance=ExtResource("2_j6f2o")]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8

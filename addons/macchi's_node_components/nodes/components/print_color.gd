@@ -11,10 +11,6 @@ class_name PrintColor
 var owner: Object
 
 
-func _init(_node: Object) -> void: 
-	owner = _node
-
-
 func out(output: String) -> void: 
 	print_rich("[color=%s]%s" % [color.to_html(), output])
 	

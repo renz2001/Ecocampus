@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxw87na67md60"]
+
+[ext_resource type="Script" path="res://nodes/singletons/managers/transitions_manager/transition_gui/transition_gui.gd" id="1_5oud0"]
+[ext_resource type="PackedScene" uid="uid://cl5a85fpc5bry" path="res://addons/macchi's_node_components/nodes/components/multiple_signals_listener/multiple_signals_listener.tscn" id="2_ujyvj"]
+
+
+[node name="TransitionGUI" type="Control" node_paths=PackedStringArray("multiple_signals_listener")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5oud0")
+multiple_signals_listener = NodePath("AnimationsListener")
+
+[node name="AnimationsListener" parent="." instance=ExtResource("2_ujyvj")]
+signals = PackedStringArray("finished")
+
+[connection signal="all_conditions_met" from="AnimationsListener" to="." method="_on_animations_listener_all_conditions_met"]
+
+[editable path="AnimationsListener"]

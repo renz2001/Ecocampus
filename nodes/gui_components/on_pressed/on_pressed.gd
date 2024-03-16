@@ -1,11 +1,14 @@
 extends NodeComponent
 class_name OnPressedComponent
 
-@export var control: Control
+@export var control: BaseButton
 
-	
+
 func _ready() -> void: 
-	control.ready.connect(_on_pressed)
+	control.ready.connect(
+		func(): 
+			control.pressed.connect(_on_pressed)
+	)
 
 
 ## Virtual Function

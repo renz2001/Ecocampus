@@ -22,6 +22,7 @@ var _print_color: PrintColor
 var _max_items_error: Callable = func(val): _print_color.out_debug_wvalue("Cannot add more items since it has reached it's maximum. The new items", val)
 
 func _init() -> void: 
+	_print_color = PrintColor.new()
 	_print_color.owner = owner
 	_print_color.color = Color("b4ff00")
 

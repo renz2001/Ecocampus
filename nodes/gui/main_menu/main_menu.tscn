@@ -30,27 +30,28 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="Root/CenterContainer" index="0"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Root/CenterContainer" index="0"]
 layout_mode = 2
 
-[node name="Buttons" type="VBoxContainer" parent="Root/CenterContainer/VBoxContainer2" index="0"]
+[node name="Buttons" type="VBoxContainer" parent="Root/CenterContainer/VBoxContainer" index="0"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 
-[node name="Play" parent="Root/CenterContainer/VBoxContainer2/Buttons" index="0" instance=ExtResource("2_5xhb2")]
+[node name="Play" parent="Root/CenterContainer/VBoxContainer/Buttons" index="0" instance=ExtResource("2_5xhb2")]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 texture_normal = SubResource("AtlasTexture_pd6nm")
 
-[node name="OnPressedPlay" parent="Root/CenterContainer/VBoxContainer2/Buttons/Play" index="1" node_paths=PackedStringArray("control") instance=ExtResource("5_k3spk")]
+[node name="OnPressedPlay" parent="Root/CenterContainer/VBoxContainer/Buttons/Play" index="1" node_paths=PackedStringArray("control") instance=ExtResource("5_k3spk")]
 control = NodePath("..")
 
-[node name="Exit" parent="Root/CenterContainer/VBoxContainer2/Buttons" index="1" instance=ExtResource("2_5xhb2")]
+[node name="Exit" parent="Root/CenterContainer/VBoxContainer/Buttons" index="1" instance=ExtResource("2_5xhb2")]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 texture_normal = SubResource("AtlasTexture_ywn4y")
 
-[node name="OnPressedExit" parent="Root/CenterContainer/VBoxContainer2/Buttons/Exit" index="1" instance=ExtResource("6_f38ca")]
+[node name="OnPressedExit" parent="Root/CenterContainer/VBoxContainer/Buttons/Exit" index="1" node_paths=PackedStringArray("control") instance=ExtResource("6_f38ca")]
+control = NodePath("..")
 
 [node name="MarginContainer" type="MarginContainer" parent="Root" index="2"]
 layout_mode = 1
@@ -59,6 +60,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="Top" type="HBoxContainer" parent="Root/MarginContainer" index="0"]
 layout_mode = 2

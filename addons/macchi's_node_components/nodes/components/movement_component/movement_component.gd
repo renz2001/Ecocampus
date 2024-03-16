@@ -10,6 +10,7 @@ signal direction_changed(previous_direction: Vector2, new_direction: Vector2)
 @export var speed: float
 @export var x_speed_multiplier: float = 1
 @export var y_speed_multiplier: float = 1
+@export var base_values: BaseValuesKeeper
 
 # This cannot be set to Vector2(0, 0) becuase this is used so that interact_cast works with it
 var previous_direction: Vector2 = Vector2(0, 1)

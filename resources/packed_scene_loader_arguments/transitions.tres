@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="PackedSceneLoaderArguments" load_steps=3 format=3 uid="uid://ce7oekecdg5ml"]
+
+[ext_resource type="Resource" uid="uid://bmfktr33c6caq" path="res://nodes/transitions/fade_transition/fade_transition.tres" id="1_wkdww"]
+[ext_resource type="Script" path="res://scripts/arguments/packed_scene_loader_arguments.gd" id="1_yfu8u"]
+
+[resource]
+script = ExtResource("1_yfu8u")
+scenes = Array[PackedScene]([])
+resources = Array[Resource]([ExtResource("1_wkdww")])

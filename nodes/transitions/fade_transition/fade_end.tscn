@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfispiyjfq3oa"]
+
+[ext_resource type="PackedScene" uid="uid://ck7pft6wcl6rw" path="res://nodes/transitions/fade_transition/fade_start.tscn" id="1_jh2nl"]
+[ext_resource type="Script" path="res://nodes/singletons/managers/transitions_manager/end_transition/end_transition_gui.gd" id="2_dxnwu"]
+
+
+[node name="FadeEnd" instance=ExtResource("1_jh2nl")]
+script = ExtResource("2_dxnwu")
+
+[node name="ColorPropertyLerpComponent" parent="AnimationsListener/ChildrenNodes" index="0"]
+start_point = Color(1, 1, 1, 1)
+end_point = Color(1, 1, 1, 0)
+current = Color(1, 1, 1, 0.824768)
+
+[node name="Panel" parent="." index="1"]
+modulate = Color(1, 1, 1, 0.824768)
+
+[editable path="AnimationsListener"]

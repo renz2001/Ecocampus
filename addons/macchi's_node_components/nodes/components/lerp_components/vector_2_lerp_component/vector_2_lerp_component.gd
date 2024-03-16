@@ -43,7 +43,7 @@ func _physics_process(_delta: float) -> void:
 	if is_lerping(): 
 		update_current()
 		interpolated.emit(current)
-
+	
 
 func update_current() -> void: 
 	if _x_interpolate: 

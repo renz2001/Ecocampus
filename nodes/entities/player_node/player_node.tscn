@@ -14,7 +14,7 @@
 
 [sub_resource type="Resource" id="Resource_kvnmb"]
 script = ExtResource("3_ip38p")
-items = Array[Resource("res://scripts/resources/item_resource.gd")]([])
+items = Array[Resource("res://scripts/resources/item.gd")]([])
 max_items = -1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8fjj4"]
@@ -291,6 +291,7 @@ _data = {
 }
 
 [node name="PlayerNode" node_paths=PackedStringArray("move_to_tap", "mouse_position") groups=["Player"] instance=ExtResource("1_m6q56")]
+scale = Vector2(1.5, 1.5)
 collision_layer = 2
 collision_mask = 24
 script = ExtResource("2_6c1ia")
@@ -347,27 +348,7 @@ script = ExtResource("4_3xned")
 to = NodePath("../../Idle")
 event = &"idle"
 
-[node name="Mobility" type="Node" parent="StateChart/Root/Enabled" index="2"]
-script = ExtResource("5_44w7h")
-initial_state = NodePath("Idle")
-
-[node name="Idle" type="Node" parent="StateChart/Root/Enabled/Mobility" index="0"]
-script = ExtResource("6_ae0yd")
-
-[node name="OnWalk" type="Node" parent="StateChart/Root/Enabled/Mobility/Idle" index="0"]
-script = ExtResource("4_3xned")
-to = NodePath("../../Walk")
-event = &"walk"
-
-[node name="Walk" type="Node" parent="StateChart/Root/Enabled/Mobility" index="1"]
-script = ExtResource("6_ae0yd")
-
-[node name="Idle" type="Node" parent="StateChart/Root/Enabled/Mobility/Walk" index="0"]
-script = ExtResource("4_3xned")
-to = NodePath("../../Idle")
-event = &"idle"
-
-[node name="TapState" type="Node" parent="StateChart/Root/Enabled" index="3"]
+[node name="TapState" type="Node" parent="StateChart/Root/Enabled" index="2"]
 script = ExtResource("5_44w7h")
 initial_state = NodePath("CanTap")
 
@@ -387,6 +368,19 @@ script = ExtResource("4_3xned")
 to = NodePath("../../CanTap")
 event = &"can_tap"
 
+[node name="OnWalk" type="Node" parent="StateChart/Root/Enabled/Mobility/Idle" index="0"]
+script = ExtResource("4_3xned")
+to = NodePath("../../Walk")
+event = &"walk"
+
+[node name="Walk" type="Node" parent="StateChart/Root/Enabled/Mobility" index="1"]
+script = ExtResource("6_ae0yd")
+
+[node name="Idle" type="Node" parent="StateChart/Root/Enabled/Mobility/Walk" index="0"]
+script = ExtResource("4_3xned")
+to = NodePath("../../Idle")
+event = &"idle"
+
 [node name="MoveToTapPathFindMovement" parent="Components/Movement" index="0" node_paths=PackedStringArray("node", "mouse_position", "path_find_move_component") instance=ExtResource("7_jfgwu")]
 node = NodePath("../../..")
 disabled = false
@@ -397,6 +391,9 @@ path_find_move_component = NodePath("../PathFindMovementComponent")
 
 [node name="Walk" parent="Components/Movement" index="2"]
 speed = 7.0
+
+[node name="TwoPoint5DNodeSimulator" parent="Components" index="1"]
+node_base_scale = Vector2(1.5, 1.5)
 
 [node name="NodeVarietyManager" parent="Components" index="2"]
 variety_name = "Girl"
@@ -424,7 +421,6 @@ frame = 1
 
 [node name="ShadowCircle" parent="Sprites" index="2"]
 position = Vector2(0.5, -3)
-scale = Vector2(0.188571, 0.138365)
 
 [node name="NavigationAgent2D" parent="." index="6"]
 avoidance_enabled = true
@@ -439,7 +435,7 @@ libraries = {
 "": SubResource("AnimationLibrary_tyrug")
 }
 
+[connection signal="state_input" from="StateChart/Root/Enabled/TapState/CanTap" to="." method="_on_can_tap_state_input"]
 [connection signal="state_entered" from="StateChart/Root/Enabled/Mobility/Idle" to="." method="_on_idle_state_entered"]
 [connection signal="state_entered" from="StateChart/Root/Enabled/Mobility/Walk" to="." method="_on_walk_state_entered"]
-[connection signal="state_input" from="StateChart/Root/Enabled/TapState/CanTap" to="." method="_on_can_tap_state_input"]
 [connection signal="stopped" from="Components/Movement/Walk" to="." method="_on_walk_stopped"]

@@ -9,6 +9,7 @@ script = ExtResource("2_sptvq")
 [node name="TextureButtonPlus" type="TextureButton"]
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_default_cursor_shape = 2
 ignore_texture_size = true
 stretch_mode = 5
 

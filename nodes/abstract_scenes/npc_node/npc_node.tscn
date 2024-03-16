@@ -1,5 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://b6naf25j7vwf2"]
+[gd_scene load_steps=4 format=3 uid="uid://b6naf25j7vwf2"]
 
 [ext_resource type="PackedScene" uid="uid://dml5uy4doh7s6" path="res://nodes/abstract_scenes/entity_node/entity_node.tscn" id="1_hfsjx"]
+[ext_resource type="Script" path="res://nodes/abstract_scenes/npc_node/npc_node.gd" id="2_wilt8"]
+[ext_resource type="PackedScene" uid="uid://dblwtr7yj366" path="res://addons/dialogue_manager's_dialogue_gui_manager/nodes/components/dialogue_starter/dialogue_starter.tscn" id="3_vxlol"]
 
-[node name="NPCNode" groups=["NPC"] instance=ExtResource("1_hfsjx")]
+[node name="NPCNode" node_paths=PackedStringArray("dialogue_starter") groups=["NPC"] instance=ExtResource("1_hfsjx")]
+script = ExtResource("2_wilt8")
+on_interact_dialogue = null
+dialogue_starter = NodePath("Components/DialogueStarter")
+
+[node name="DialogueStarter" parent="Components" index="4" node_paths=PackedStringArray("extra_node_game_states") instance=ExtResource("3_vxlol")]
+extra_node_game_states = [NodePath("../..")]

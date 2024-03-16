@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dml5uy4doh7s6"]
+[gd_scene load_steps=19 format=3 uid="uid://dml5uy4doh7s6"]
 
 [ext_resource type="Script" path="res://nodes/abstract_scenes/entity_node/entity_node.gd" id="1_ljx5x"]
 [ext_resource type="PackedScene" uid="uid://cf3hc58pq1vru" path="res://nodes/tools/hitbox/hitbox.tscn" id="2_qnb1g"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="8_ued26"]
 [ext_resource type="PackedScene" uid="uid://tvt1avle8hon" path="res://addons/macchi's_node_components/nodes/components/node_variety_manager/node_variety_manager.tscn" id="11_a2123"]
 [ext_resource type="PackedScene" uid="uid://b6l0q5hhqq12m" path="res://nodes/components/two_point_5d_node_simulator/two_point_5d_node_simulator.tscn" id="11_sgbnk"]
+[ext_resource type="PackedScene" uid="uid://c2up8cal10ft5" path="res://addons/macchi's_node_components/nodes/components/base_values_keeper/base_values_keeper.tscn" id="12_q7foa"]
 [ext_resource type="Texture2D" uid="uid://b2ptenvkaj5rw" path="res://assets/environment/shadow.png" id="12_qhkve"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7egjd"]
@@ -78,6 +79,13 @@ script = ExtResource("7_kiuy1")
 to = NodePath("../../Left")
 event = &"left"
 
+[node name="Mobility" type="Node" parent="StateChart/Root/Enabled"]
+script = ExtResource("5_d0dfx")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateChart/Root/Enabled/Mobility"]
+script = ExtResource("8_ued26")
+
 [node name="Disabled" type="Node" parent="StateChart/Root"]
 script = ExtResource("8_ued26")
 
@@ -102,14 +110,20 @@ navigation_agent = NodePath("../../../NavigationAgent2D")
 node = NodePath("../..")
 movement = NodePath("../Movement/Walk")
 path_find = NodePath("../Movement/PathFindMovementComponent")
+node_base_scale = Vector2(1, 1)
 
 [node name="NodeVarietyManager" parent="Components" instance=ExtResource("11_a2123")]
+
+[node name="BaseValuesKeeper" parent="Components" node_paths=PackedStringArray("node") instance=ExtResource("12_q7foa")]
+node = NodePath("../..")
+values_to_keep = PackedStringArray("scale")
 
 [node name="Audio" type="Node2D" parent="."]
 
 [node name="Sprites" type="Node2D" parent="."]
 
 [node name="ShadowCircle" type="Sprite2D" parent="Sprites"]
+scale = Vector2(0.188571, 0.138365)
 texture = ExtResource("12_qhkve")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]

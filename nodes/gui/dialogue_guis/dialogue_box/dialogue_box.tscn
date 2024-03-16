@@ -18,7 +18,7 @@ character_label = NodePath("Balloon/Dialogue/VBoxContainer/CharacterLabel")
 responses_menu = NodePath("Balloon/Responses/ResponsesMenu")
 dialogue_label = NodePath("Balloon/Dialogue/VBoxContainer/DialogueLabel")
 
-[node name="Balloon" type="Button" parent="." index="0"]
+[node name="Balloon" type="Panel" parent="." index="0"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15

@@ -33,8 +33,8 @@ func update() -> void:
 		values[val] = node.get(val)
 
 
-func _get_configuration_warnings() -> PackedStringArray: 
-	var warnings: PackedStringArray = []
-	if node != get_parent() && node_is_parent: 
-		warnings.append("The node has to be the same as the parent. ")
-	return warnings
+#func _get_configuration_warnings() -> PackedStringArray: 
+	#var warnings: PackedStringArray = []
+	#if node != get_parent() && node_is_parent: 
+		#warnings.append("The node has to be the same as the parent. ")
+	#return warnings

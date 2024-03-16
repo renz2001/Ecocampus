@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://cabd2ijnqc8tu"]
+
+[ext_resource type="Script" path="res://nodes/singletons/loaders/scene_loader/scene_loader.gd" id="1_xsdnm"]
+[ext_resource type="PackedScene" uid="uid://4t0nh2yi1rm2" path="res://nodes/components/packed_scene_loader/packed_scene_loader.tscn" id="2_b20wm"]
+[ext_resource type="Script" path="res://addons/macchi's_node_components/nodes/components/print_color.gd" id="3_nlrs0"]
+
+[sub_resource type="Resource" id="Resource_q4uac"]
+script = ExtResource("3_nlrs0")
+color = Color(0.843137, 0.466667, 0, 1)
+node_name_color = Color(0, 0, 1, 1)
+value_color = Color(1, 0, 0, 1)
+automatic_value_color = true
+use_spaces_for_node_name = false
+
+[node name="SceneLoader" type="Node"]
+script = ExtResource("1_xsdnm")
+_print_color = SubResource("Resource_q4uac")
+
+[node name="LevelLoader" parent="." instance=ExtResource("2_b20wm")]
+start_at_ready = true
+packed_scene_loader_arguments = "res://resources/packed_scene_loader_arguments/levels.tres"
+disabled = true
+
+[node name="TransitionsLoader" parent="." instance=ExtResource("2_b20wm")]
+start_at_ready = true
+packed_scene_loader_arguments = "res://resources/packed_scene_loader/transitions.tres"

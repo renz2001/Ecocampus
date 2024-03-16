@@ -12,15 +12,13 @@ class_name TwoPoint5DNodeSimulator
 		movement = value
 		if !movement.is_node_ready(): 
 			await movement.ready
-		base_movement_speed = movement.speed + 1
 		
 @export var path_find: PathFindMovementComponent
 
 @export var space_simulator: TwoPoint5DSpaceSimulator
 @export var disabled: bool
 
-var node_base_scale: Vector2
-var base_movement_speed: float
+@export var node_base_scale: Vector2
 
 
 var weight: float: 
@@ -36,7 +34,13 @@ func _process(_delta: float) -> void:
 	if !space_simulator:
 		return
 		
-	var space_scale: float = space_simulator.get_space_scale(node.global_position, base_movement_speed)
+	var space_scale: float = 0
+	
+	if !Engine.is_editor_hint(): 
+		space_scale = space_simulator.get_space_scale(node.global_position, movement.base_values.values.speed)
+	else: 
+		space_scale = space_simulator.get_space_scale(node.global_position, movement.speed)
+		
 	var new_scale = Vector2(node_base_scale.y * space_scale, node_base_scale.y * space_scale)
 	
 	node.scale = new_scale
@@ -48,8 +52,8 @@ func _process(_delta: float) -> void:
 			#path_find.target.global_position.x *= space_simulator.get_offset_from_max_distance(node.global_position)
 	#print(space_simulator.get_offset_from_max_distance(node.global_position))
 	
-	if movement: 
+	if movement && !Engine.is_editor_hint(): 
 		#print((space_scale / 3))
-		movement.y_speed_multiplier = base_movement_speed * (space_scale / base_movement_speed)
+		movement.y_speed_multiplier = movement.base_values.values.speed * (space_scale / movement.base_values.values.speed)
 	
 	

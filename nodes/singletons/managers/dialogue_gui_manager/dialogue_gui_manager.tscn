@@ -4,7 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://drqljvmqpitaj" path="res://addons/macchi's_gui_manager/nodes/gui/acting_container/acting_container.tscn" id="2_0kfrd"]
 [ext_resource type="PackedScene" uid="uid://blx1a7x2yt18" path="res://nodes/gui/dialogue_guis/dialogue_box/dialogue_box.tscn" id="2_n6fh7"]
 
-[node name="DialogueGUIManager" instance=ExtResource("1_gr8rf")]
+[node name="DialogueGUIManager" node_paths=PackedStringArray("current_dialogue_gui") instance=ExtResource("1_gr8rf")]
+current_dialogue_gui = NodePath("DialogueGUIs/ActingContainer/MarginContainer/DialogueBox")
 alias = ""
 
 [node name="ActingContainer" parent="DialogueGUIs" index="1" node_paths=PackedStringArray("real_control") instance=ExtResource("2_0kfrd")]
@@ -30,4 +31,12 @@ theme_override_constants/margin_bottom = 100
 layout_mode = 2
 size_flags_horizontal = 1
 size_flags_vertical = 1
+dialogue_text_preset = "%s"
+hide_character_text = false
+character_text_preset = "%s"
+fast_forward_speed = 2.0
+inactive_on_ready = true
+active = true
+alias = ""
+disabled = false
 acting_container = NodePath("../..")

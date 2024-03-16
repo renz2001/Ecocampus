@@ -1,6 +1,9 @@
-[gd_resource type="Theme" format=3 uid="uid://cd55r8awc3jgy"]
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://cd55r8awc3jgy"]
+
+[ext_resource type="FontFile" uid="uid://bcrqct413atql" path="res://fonts/Goldman-Regular.ttf" id="1_r7cxn"]
 
 [resource]
+default_font = ExtResource("1_r7cxn")
 MarginContainer/constants/margin_bottom = 20
 MarginContainer/constants/margin_left = 20
 MarginContainer/constants/margin_right = 20

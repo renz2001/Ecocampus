@@ -1,13 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://53yheb41dh24"]
+[gd_scene load_steps=4 format=3 uid="uid://53yheb41dh24"]
 
 [ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/macchi's_gui_manager/nodes/gui/gui/gui.tscn" id="1_s4jvy"]
 [ext_resource type="Script" path="res://nodes/gui/inventory_gui/inventory_gui.gd" id="2_fclw4"]
+[ext_resource type="PackedScene" uid="uid://baxha8yav8g1m" path="res://nodes/gui/item_slot/item_slot.tscn" id="3_6rg13"]
 
 [node name="InventoryGUI" node_paths=PackedStringArray("item_slots") instance=ExtResource("1_s4jvy")]
-custom_minimum_size = Vector2(0, 100)
 script = ExtResource("2_fclw4")
 item_slots = NodePath("ItemSlots")
 inventory = null
+inactive_on_ready = false
 alias = ""
 
 [node name="ItemSlots" type="HBoxContainer" parent="." index="0"]
@@ -15,5 +16,29 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -98.0
+offset_right = 513.0
+offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 3
+
+[node name="ItemSlot" parent="ItemSlots" index="0" instance=ExtResource("3_6rg13")]
+layout_mode = 2
+
+[node name="ItemSlot2" parent="ItemSlots" index="1" node_paths=PackedStringArray("stack_label") instance=ExtResource("3_6rg13")]
+layout_mode = 2
+stack_label = NodePath("../ItemSlot/StackLabel")
+
+[node name="ItemSlot3" parent="ItemSlots" index="2" node_paths=PackedStringArray("stack_label") instance=ExtResource("3_6rg13")]
+layout_mode = 2
+stack_label = NodePath("../ItemSlot/StackLabel")
+
+[node name="ItemSlot4" parent="ItemSlots" index="3" node_paths=PackedStringArray("stack_label") instance=ExtResource("3_6rg13")]
+layout_mode = 2
+stack_label = NodePath("../ItemSlot/StackLabel")
+
+[node name="ItemSlot5" parent="ItemSlots" index="4" node_paths=PackedStringArray("stack_label") instance=ExtResource("3_6rg13")]
+layout_mode = 2
+stack_label = NodePath("../ItemSlot/StackLabel")

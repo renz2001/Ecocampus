@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5hllmohu7d8j"]
+
+[ext_resource type="Script" path="res://nodes/components/on_visible_do/on_visible_do.gd" id="1_a0cbr"]
+
+[node name="OnVisibleDo" type="Node"]
+script = ExtResource("1_a0cbr")

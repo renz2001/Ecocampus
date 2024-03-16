@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=3 uid="uid://b0uhkknx5mqy0"]
+
+[ext_resource type="PackedScene" uid="uid://b6naf25j7vwf2" path="res://nodes/abstract_scenes/npc_node/npc_node.tscn" id="1_t3km3"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/animation_player_state.gd" id="2_85lky"]
+[ext_resource type="Texture2D" uid="uid://b1rknuqtdxotq" path="res://assets/character/Player (Boy)/v2.png" id="2_d3kna"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_82sde"]
+atlas = ExtResource("2_d3kna")
+region = Rect2(176, 119, 140, 229)
+
+[sub_resource type="Animation" id="Animation_w6dbb"]
+resource_name = "idle_right"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ki2hi"]
+_data = {
+"idle_right": SubResource("Animation_w6dbb")
+}
+
+[node name="TestNPC" instance=ExtResource("1_t3km3")]
+scale = Vector2(1.5, 1.5)
+
+[node name="Button" parent="." index="0"]
+offset_left = -71.0
+offset_top = -243.0
+offset_right = 81.0
+offset_bottom = 1.0
+
+[node name="Right" parent="StateChart/Root/Enabled/Animation" index="1"]
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateChart/Root/Enabled/Animation/Right" index="1"]
+script = ExtResource("2_85lky")
+animation_player = NodePath("../../../../../../AnimationPlayer")
+animation_name = &"idle_right"
+
+[node name="Talk" type="Node" parent="StateChart/Root/Enabled/Animation/Right" index="2"]
+script = ExtResource("2_85lky")
+animation_player = NodePath("../../../../../../AnimationPlayer")
+animation_name = &"idle_right"
+
+[node name="TwoPoint5DNodeSimulator" parent="Components" index="1"]
+node_base_scale = Vector2(1.5, 1.5)
+
+[node name="ShadowCircle" parent="Sprites" index="0"]
+position = Vector2(0, -9)
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprites" index="1"]
+position = Vector2(6, -122)
+texture = SubResource("AtlasTexture_82sde")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="7"]
+libraries = {
+"": SubResource("AnimationLibrary_ki2hi")
+}

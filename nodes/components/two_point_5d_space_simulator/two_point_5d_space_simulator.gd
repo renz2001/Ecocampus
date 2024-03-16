@@ -31,7 +31,7 @@ class_name TwoPoint5DSpaceSimulator
 	#return percent
 
 
-func get_space_scale(global_position: Vector2, speed: float, trans: Tween.TransitionType = trans_type, ease_type: Tween.EaseType = ease_type) -> float: 
+func get_space_scale(global_position: Vector2, speed: float) -> float: 
 	var node_offset: float = minimum_distance.global_position.y - global_position.y
 	var points_distance: float = maximum_distance.global_position.y - minimum_distance.global_position.y
 	var elapsed_time: float = node_offset / speed
@@ -39,7 +39,7 @@ func get_space_scale(global_position: Vector2, speed: float, trans: Tween.Transi
 
 	var minimum: float = maximum_distance.position.y
 	var maximum: float = (minimum_distance.position.y) - minimum
-	var current: float = Tween.interpolate_value(maximum, minimum + max_distance_offset, elapsed_time, duration, trans, ease_type)
+	var current: float = Tween.interpolate_value(maximum, minimum + max_distance_offset, elapsed_time, duration, trans_type, ease_type)
 	var percent: float = current / maximum
 
 	if percent == 0: 

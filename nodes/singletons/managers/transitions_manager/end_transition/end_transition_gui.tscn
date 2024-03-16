@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwpusw6fkav56"]
+
+[ext_resource type="PackedScene" uid="uid://dxw87na67md60" path="res://nodes/singletons/managers/transitions_manager/transition_gui/transition_gui.tscn" id="1_k7mny"]
+[ext_resource type="Script" path="res://nodes/singletons/managers/transitions_manager/end_transition/end_transition_gui.gd" id="2_n1udv"]
+
+
+[node name="EndTransitionGUI" instance=ExtResource("1_k7mny")]
+script = ExtResource("2_n1udv")

@@ -8,7 +8,7 @@
 
 [sub_resource type="Resource" id="Resource_gkepi"]
 script = ExtResource("2_fpuxj")
-items = Array[Resource("res://scripts/resources/item_resource.gd")]([])
+items = Array[Resource("res://scripts/resources/item.gd")]([])
 
 [node name="PlasticBottle" instance=ExtResource("1_accvq")]
 inventory = SubResource("Resource_gkepi")

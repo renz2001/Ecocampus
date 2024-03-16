@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="PackedSceneLoaderArguments" load_steps=3 format=3 uid="uid://dpjj0fk2vpfco"]
+
+[ext_resource type="PackedScene" uid="uid://c8ts62hakxdh3" path="res://nodes/levels/test_level/test_level.tscn" id="1_o4wre"]
+[ext_resource type="Script" path="res://scripts/arguments/packed_scene_loader_arguments.gd" id="2_vljg7"]
+
+[resource]
+script = ExtResource("2_vljg7")
+scenes = Array[PackedScene]([ExtResource("1_o4wre")])
+resources = Array[Resource]([])

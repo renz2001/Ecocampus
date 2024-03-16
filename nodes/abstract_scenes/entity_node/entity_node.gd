@@ -6,11 +6,12 @@ class_name EntityNode
 @export var walk: MovementComponent
 @export var hitbox: Hitbox
 
-@export var display_interact_dialogue: bool
+@export var display_interact_dialog: bool = true
 @export var inventory: Inventory
 
 @export var entity_name: String
 @export var interact_description: String
+
 
 ## Virtual Function
 func _interact() -> void: 
@@ -19,7 +20,7 @@ func _interact() -> void:
 
 func _on_button_pressed() -> void: 
 	#get_tree().get_first_node_in_group("Player"), get_global_mouse_position(), _interact
-	if display_interact_dialogue: 
+	if display_interact_dialog: 
 		show_interact_dialog(interact_description)
 	else: 
 		_interact()

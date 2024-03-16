@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://bv8o3mlvgjwjq"]
+
+[ext_resource type="PackedScene" uid="uid://bvaaabgdnbhtc" path="res://addons/easy_rpg_maker/nodes/singletons/managers/transitions_manager/middle_transition/middle_transition_gui.tscn" id="1_t0nid"]
+
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kkvek"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="FadeMiddle" instance=ExtResource("1_t0nid")]
+
+[node name="Panel" type="Panel" parent="." index="2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_kkvek")
+
+[editable path="AnimationsListener"]

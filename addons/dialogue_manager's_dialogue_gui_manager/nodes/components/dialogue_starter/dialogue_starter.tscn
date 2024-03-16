@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dblwtr7yj366"]
+
+[ext_resource type="Script" path="res://addons/dialogue_manager's_dialogue_gui_manager/nodes/components/dialogue_starter/dialogue_starter.gd" id="1_prlmx"]
+[ext_resource type="PackedScene" uid="uid://d02dwov2yojbj" path="res://addons/macchi's_node_components/nodes/components/point_counter_component/point_counter_component.tscn" id="2_vb2ia"]
+
+[node name="DialogueStarter" type="Node" node_paths=PackedStringArray("title_variation_counter")]
+script = ExtResource("1_prlmx")
+title_variation_counter = NodePath("TitleVariationCount")
+
+[node name="TitleVariationCount" parent="." instance=ExtResource("2_vb2ia")]

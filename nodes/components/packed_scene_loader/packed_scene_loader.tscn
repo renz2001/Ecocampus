@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://4t0nh2yi1rm2"]
+
+[ext_resource type="Script" path="res://nodes/components/packed_scene_loader/packed_scene_loader.gd" id="1_78lej"]
+
+[node name="PackedSceneLoader" type="Node"]
+script = ExtResource("1_78lej")

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="GUITransition" load_steps=5 format=3 uid="uid://bmfktr33c6caq"]
+
+[ext_resource type="PackedScene" uid="uid://cfispiyjfq3oa" path="res://nodes/transitions/fade_transition/fade_end.tscn" id="1_gw7fw"]
+[ext_resource type="PackedScene" uid="uid://bv8o3mlvgjwjq" path="res://nodes/transitions/fade_transition/fade_middle.tscn" id="2_oa00u"]
+[ext_resource type="Script" path="res://scripts/resources/gui_transition.gd" id="3_b8am1"]
+[ext_resource type="PackedScene" uid="uid://ck7pft6wcl6rw" path="res://nodes/transitions/fade_transition/fade_start.tscn" id="4_v80lx"]
+
+
+[resource]
+script = ExtResource("3_b8am1")
+middle_transition = ExtResource("2_oa00u")
+start_transition = ExtResource("4_v80lx")
+end_transition = ExtResource("1_gw7fw")

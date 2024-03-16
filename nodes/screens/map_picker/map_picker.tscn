@@ -1,0 +1,21 @@
+[gd_scene load_steps=6 format=3 uid="uid://dcjxf25vgikeb"]
+
+[ext_resource type="PackedScene" uid="uid://3miay8g4x6j3" path="res://nodes/abstract_scenes/main_screen/main_screen.tscn" id="1_ethfg"]
+[ext_resource type="PackedScene" uid="uid://5npqpm4ofnr" path="res://nodes/gui/map_location_button/map_location_button.tscn" id="2_5f6v8"]
+[ext_resource type="Script" path="res://scripts/arguments/change_scene_arguments.gd" id="3_cuxqn"]
+[ext_resource type="Resource" uid="uid://bmfktr33c6caq" path="res://nodes/transitions/fade_transition/fade_transition.tres" id="4_w7e85"]
+
+[sub_resource type="Resource" id="Resource_82rwc"]
+script = ExtResource("3_cuxqn")
+scene = "res://nodes/levels/test_level/test_level.tscn"
+transition = ExtResource("4_w7e85")
+
+[node name="MapPicker" instance=ExtResource("1_ethfg")]
+
+[node name="MapLocationButton" parent="Root" index="1" instance=ExtResource("2_5f6v8")]
+layout_mode = 0
+offset_left = 646.0
+offset_top = 400.0
+offset_right = 867.0
+offset_bottom = 621.0
+change_scene = SubResource("Resource_82rwc")

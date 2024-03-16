@@ -19,7 +19,10 @@ signal gui_removed(gui: GUI)
 #@export var overlays_manager: OverlaysManager
 
 #@export var touch_screen_controls: GUI
-@export var _print_color: PrintColor
+@export var _print_color: PrintColor: 
+	set(value): 
+		_print_color = value
+		_print_color.owner = self
 
 # _ready doesn't exist in CanvasLayer lol
 #func _ready() -> void: 

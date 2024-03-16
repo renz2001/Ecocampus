@@ -1,8 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://daxlnabqn25ah"]
+[gd_scene load_steps=5 format=3 uid="uid://daxlnabqn25ah"]
 
 [ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/macchi's_gui_manager/nodes/gui/gui/gui.tscn" id="1_caolr"]
 [ext_resource type="Script" path="res://addons/dialogue_manager's_dialogue_gui_manager/nodes/gui/dialogue_gui/dialogue_gui.gd" id="1_omtw1"]
 [ext_resource type="Script" path="res://addons/macchi's_node_components/nodes/components/print_color.gd" id="5_r5f23"]
+
+[sub_resource type="Resource" id="Resource_05s4r"]
+script = ExtResource("5_r5f23")
+color = Color(0.360784, 0.682353, 1, 1)
+node_name_color = Color(0, 0, 1, 1)
+value_color = Color(1, 0, 0, 1)
+automatic_value_color = true
+use_spaces_for_node_name = false
 
 [node name="DialogueGUI" node_paths=PackedStringArray("talk_sound_1", "talk_sound_2") groups=["DialogueGUI"] instance=ExtResource("1_caolr")]
 anchors_preset = 15
@@ -15,7 +23,7 @@ dialogue_gui_alias = null
 dialogue_text_preset = null
 hide_character_text = null
 character_text_preset = null
-print_color = null
+print_color = SubResource("Resource_05s4r")
 fast_forward_speed = null
 talk_sound_1 = NodePath("Audio/TalkSound1")
 talk_sound_2 = NodePath("Audio/TalkSound2")
@@ -29,7 +37,3 @@ disabled = null
 [node name="TalkSound1" type="AudioStreamPlayer" parent="Audio" index="0"]
 
 [node name="TalkSound2" type="AudioStreamPlayer" parent="Audio" index="1"]
-
-[node name="PrintColor" type="Node" parent="." index="1"]
-script = ExtResource("5_r5f23")
-color = Color(0.219608, 0.678431, 0, 1)

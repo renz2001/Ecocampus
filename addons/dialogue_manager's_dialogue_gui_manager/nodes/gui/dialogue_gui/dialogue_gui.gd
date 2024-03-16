@@ -17,7 +17,10 @@ enum DialogueGUIAlias {
 @export var hide_character_text: bool
 @export var character_text_preset: String = "%s"
 
-@export var print_color: PrintColor
+@export var print_color: PrintColor: 
+	set(value): 
+		print_color = value
+		print_color.owner = self
 
 @export var fast_forward_speed: float = 2
 
@@ -157,7 +160,7 @@ func _on_balloon_gui_input(event: InputEvent) -> void:
 	#print(get_viewport().gui_get_focus_owner())
 	if event is InputEventMouseButton and event.is_pressed() and event.button_index == 1:
 		next(dialogue_line.next_id)
-	elif event.is_action_pressed("ui_accept") or event.is_action_pressed("interact") and get_viewport().gui_get_focus_owner() == self:
+	elif event.is_action_pressed("ui_accept") and get_viewport().gui_get_focus_owner() == self:
 		next(dialogue_line.next_id)
 		
 		

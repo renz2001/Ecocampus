@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Ecocampus-freelance-"
+run/main_scene="res://nodes/gui/main_menu/main_menu.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -25,6 +26,8 @@ GUICollection="*res://nodes/singletons/globals/gui_collection/gui_collection.tsc
 AudioManager="*res://addons/macchi's_audio_manager_and_plus/nodes/singletons/managers/audio_manager/audio_manager.tscn"
 GlobalVariables="*res://nodes/singletons/globals/global_variables.tscn"
 GroupNodeFetcher="*res://nodes/singletons/globals/group_node_fetcher/group_node_fetcher.tscn"
+GameManager="*res://nodes/singletons/managers/game_manager/game_manager.tscn"
+SceneLoader="*res://nodes/singletons/loaders/scene_loader/scene_loader.tscn"
 
 [display]
 
@@ -42,7 +45,8 @@ enabled=PackedStringArray("res://addons/dialogue_manager\'s_dialogue_gui_manager
 [file_customization]
 
 folder_colors={
-"res://addons/": "purple"
+"res://addons/": "purple",
+"res://resources/": "teal"
 }
 
 [input]
@@ -52,6 +56,10 @@ tap={
 "events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(187, 15),"global_position":Vector2(191, 56),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
 ]
 }
+
+[internationalization]
+
+locale/translations_pot_files=PackedStringArray("res://resources/dialogues/dialogues.dialogue")
 
 [layer_names]
 

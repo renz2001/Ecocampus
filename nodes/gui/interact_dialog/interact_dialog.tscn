@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://qfyxou4gfo7f"]
+[gd_scene load_steps=10 format=3 uid="uid://qfyxou4gfo7f"]
 
 [ext_resource type="PackedScene" uid="uid://hdksnn1gc6qq" path="res://addons/macchi's_gui_manager/nodes/gui/dialog_gui/dialog_gui.tscn" id="1_vqmba"]
 [ext_resource type="Script" path="res://nodes/gui/interact_dialog/interact_dialog.gd" id="2_5f634"]
 [ext_resource type="Texture2D" uid="uid://crum2o41ed4wp" path="res://assets/buttons/Board.png" id="3_0ji44"]
 [ext_resource type="PackedScene" uid="uid://dggdvwjvdrmkh" path="res://nodes/gui/buttons/medium_wooden_button/medium_wooden_button.tscn" id="3_2wovi"]
+[ext_resource type="PackedScene" uid="uid://cnsvmjc5ytto2" path="res://nodes/components/on_visible_then_scale/on_visible_then_scale.tscn" id="5_t4yxs"]
+[ext_resource type="Script" path="res://addons/macchi's_node_components/scripts/arguments/tween_arguments.gd" id="6_hyohs"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l0aej"]
 atlas = ExtResource("3_0ji44")
@@ -12,10 +14,18 @@ region = Rect2(6, 27, 537, 396)
 [sub_resource type="LabelSettings" id="LabelSettings_2sqwb"]
 font_size = 40
 
+[sub_resource type="Resource" id="Resource_x4ke4"]
+script = ExtResource("6_hyohs")
+transition_type = 4
+ease_type = 2
+duration = 2.0
+
 [node name="InteractDialog" node_paths=PackedStringArray("description_label") instance=ExtResource("1_vqmba")]
 custom_minimum_size = Vector2(15, 10)
-offset_right = 379.0
-offset_bottom = 250.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 380.0
+offset_bottom = 251.0
 script = ExtResource("2_5f634")
 description_label = NodePath("Body/MarginContainer/Description")
 inactive_on_ready = false
@@ -85,5 +95,18 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 text_overrun_behavior = 3
+
+[node name="OnVisibleThenScale" parent="." index="1" node_paths=PackedStringArray("starting_point", "ending_point", "node") instance=ExtResource("5_t4yxs")]
+tween = SubResource("Resource_x4ke4")
+start_scale = Vector2(0.1, 0.1)
+end_scale = Vector2(1, 1)
+percentage = 1.0
+starting_point = NodePath("Starting")
+ending_point = NodePath("Ending")
+node = NodePath("..")
+
+[node name="Starting" type="Marker2D" parent="OnVisibleThenScale" index="2"]
+
+[node name="Ending" type="Marker2D" parent="OnVisibleThenScale" index="3"]
 
 [connection signal="pressed" from="Body/MediumWoodenButton" to="." method="_on_medium_wooden_button_pressed"]

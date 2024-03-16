@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3sli5ikm37qo"]
+
+[ext_resource type="PackedScene" uid="uid://dxw87na67md60" path="res://nodes/singletons/managers/transitions_manager/transition_gui/transition_gui.tscn" id="1_syrtk"]
+[ext_resource type="Script" path="res://nodes/singletons/managers/transitions_manager/start_transition/start_transition_gui.gd" id="2_2i1kn"]
+
+
+[node name="StartTransitionGUI" instance=ExtResource("1_syrtk")]
+script = ExtResource("2_2i1kn")
+inactive_on_ready = true
+
+[editable path="AnimationsListener"]
