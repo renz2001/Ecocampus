@@ -7,9 +7,9 @@
 
 [sub_resource type="Resource" id="Resource_hhop0"]
 script = ExtResource("3_apbeb")
-transition_type = 4
-ease_type = 2
-duration = 0.2
+transition_type = 6
+ease_type = 1
+duration = 0.8
 
 [node name="OnVisibleThenScale" node_paths=PackedStringArray("scale_lerp") instance=ExtResource("1_o2op8")]
 script = ExtResource("2_262gx")

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhbj2x4qhgqe"]
+
+[ext_resource type="Script" path="res://nodes/singletons/globals/quiz_tracker/quiz_tracker.gd" id="1_8rc7c"]
+
+[node name="QuizTracker" type="Node"]
+script = ExtResource("1_8rc7c")

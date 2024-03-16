@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://bjsr1rnrk3ssi"]
+
+[ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/macchi's_gui_manager/nodes/gui/gui/gui.tscn" id="1_tkvea"]
+[ext_resource type="PackedScene" uid="uid://dyvkcprf58urk" path="res://addons/macchi's_gui_manager/nodes/gui/page_router_container/page_router_container.tscn" id="2_dmxuy"]
+[ext_resource type="Script" path="res://nodes/gui/quiz_attempt_gui/quiz_attempt_gui.gd" id="2_n2cxh"]
+[ext_resource type="Texture2D" uid="uid://crum2o41ed4wp" path="res://assets/buttons/Board.png" id="3_1ovje"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v16tb"]
+atlas = ExtResource("3_1ovje")
+region = Rect2(6, 27, 537, 396)
+
+[node name="QuizAttemptGUI" node_paths=PackedStringArray("pages", "problem_pages") instance=ExtResource("1_tkvea")]
+script = ExtResource("2_n2cxh")
+quiz = null
+pages = NodePath("Panel/MarginContainer/PageRouterContainer")
+problem_pages = NodePath("Panel/MarginContainer/PageRouterContainer/ProblemPages")
+alias = ""
+
+[node name="Panel" type="TextureRect" parent="." index="0"]
+layout_mode = 0
+offset_left = -525.0
+offset_top = -385.0
+offset_right = 523.0
+offset_bottom = 381.0
+texture = SubResource("AtlasTexture_v16tb")
+stretch_mode = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PageRouterContainer" parent="Panel/MarginContainer" index="0" instance=ExtResource("2_dmxuy")]
+layout_mode = 2
+
+[node name="FirstPage" type="Control" parent="Panel/MarginContainer/PageRouterContainer" index="1"]
+layout_mode = 2
+
+[node name="ProblemPages" parent="Panel/MarginContainer/PageRouterContainer" index="2" instance=ExtResource("2_dmxuy")]
+visible = false
+layout_mode = 2
+
+[node name="EndPage" type="Control" parent="Panel/MarginContainer/PageRouterContainer" index="3"]
+visible = false
+layout_mode = 2

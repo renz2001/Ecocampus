@@ -29,8 +29,6 @@ extends OnVisibleDo
 			await ready
 		scale_lerp.percentage = percentage
 	
-@export var starting_point: Marker2D
-@export var ending_point: Marker2D
 @export var scale_lerp: Vector2PropertyLerpComponent
 
 

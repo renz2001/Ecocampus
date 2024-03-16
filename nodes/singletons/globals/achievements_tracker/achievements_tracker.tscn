@@ -3,8 +3,11 @@
 [ext_resource type="PackedScene" uid="uid://d02dwov2yojbj" path="res://addons/macchi's_node_components/nodes/components/point_counter_component/point_counter_component.tscn" id="1_nqm7e"]
 [ext_resource type="Script" path="res://nodes/singletons/globals/achievements_tracker/achievements_tracker.gd" id="1_y316a"]
 
-[node name="AchievementsTracker" type="Node"]
+[node name="AchievementsTracker" type="Node" node_paths=PackedStringArray("achievements", "total_badges", "current_badges")]
 script = ExtResource("1_y316a")
+achievements = NodePath("Achievements")
+total_badges = NodePath("BadgesCount/TotalBadges")
+current_badges = NodePath("BadgesCount/CurrentBadges")
 
 [node name="BadgesCount" type="Node" parent="."]
 
