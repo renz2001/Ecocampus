@@ -1,7 +1,7 @@
 extends Resource
 class_name QuizProblem
 
-@export var problem: String
+@export var question: String
 
 @export var correct_answer: String
 

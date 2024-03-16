@@ -1,22 +1,27 @@
-[gd_scene load_steps=6 format=3 uid="uid://bjsr1rnrk3ssi"]
+[gd_scene load_steps=9 format=3 uid="uid://bjsr1rnrk3ssi"]
 
 [ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/macchi's_gui_manager/nodes/gui/gui/gui.tscn" id="1_tkvea"]
 [ext_resource type="PackedScene" uid="uid://dyvkcprf58urk" path="res://addons/macchi's_gui_manager/nodes/gui/page_router_container/page_router_container.tscn" id="2_dmxuy"]
 [ext_resource type="Script" path="res://nodes/gui/quiz_attempt_gui/quiz_attempt_gui.gd" id="2_n2cxh"]
 [ext_resource type="Texture2D" uid="uid://crum2o41ed4wp" path="res://assets/buttons/Board.png" id="3_1ovje"]
+[ext_resource type="PackedScene" uid="uid://dggdvwjvdrmkh" path="res://nodes/gui/buttons/medium_wooden_button/medium_wooden_button.tscn" id="5_lmvr6"]
+[ext_resource type="LabelSettings" uid="uid://b4jfqs4wewmec" path="res://resources/label_settings/font_sizes/quiz_attemp_title.tres" id="5_pby04"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v16tb"]
 atlas = ExtResource("3_1ovje")
 region = Rect2(6, 27, 537, 396)
 
+[sub_resource type="LabelSettings" id="LabelSettings_ffuf1"]
+font_size = 35
+
 [node name="QuizAttemptGUI" node_paths=PackedStringArray("pages", "problem_pages") instance=ExtResource("1_tkvea")]
 script = ExtResource("2_n2cxh")
 quiz = null
-pages = NodePath("Panel/MarginContainer/PageRouterContainer")
-problem_pages = NodePath("Panel/MarginContainer/PageRouterContainer/ProblemPages")
+pages = NodePath("Board/BoardMargin/PageRouterContainer")
+problem_pages = NodePath("Board/BoardMargin/PageRouterContainer/ProblemPages")
 alias = ""
 
-[node name="Panel" type="TextureRect" parent="." index="0"]
+[node name="Board" type="TextureRect" parent="." index="0"]
 layout_mode = 0
 offset_left = -525.0
 offset_top = -385.0
@@ -25,7 +30,27 @@ offset_bottom = 381.0
 texture = SubResource("AtlasTexture_v16tb")
 stretch_mode = 5
 
-[node name="MarginContainer" type="MarginContainer" parent="Panel" index="0"]
+[node name="BoardMargin" type="MarginContainer" parent="Board" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="PageRouterContainer" parent="Board/BoardMargin" index="0" instance=ExtResource("2_dmxuy")]
+layout_mode = 2
+current_tab = 1
+
+[node name="FirstPage" type="Control" parent="Board/BoardMargin/PageRouterContainer" index="1"]
+visible = false
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Board/BoardMargin/PageRouterContainer/FirstPage" index="0"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -33,16 +58,80 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PageRouterContainer" parent="Panel/MarginContainer" index="0" instance=ExtResource("2_dmxuy")]
+[node name="VBoxContainer" type="VBoxContainer" parent="Board/BoardMargin/PageRouterContainer/FirstPage/MarginContainer" index="0"]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Panel" type="PanelContainer" parent="Board/BoardMargin/PageRouterContainer/FirstPage/MarginContainer/VBoxContainer" index="0"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_type_variation = &"QuizAttemptPanel"
+
+[node name="MarginContainer" type="MarginContainer" parent="Board/BoardMargin/PageRouterContainer/FirstPage/MarginContainer/VBoxContainer/Panel" index="0"]
 layout_mode = 2
 
-[node name="FirstPage" type="Control" parent="Panel/MarginContainer/PageRouterContainer" index="1"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Board/BoardMargin/PageRouterContainer/FirstPage/MarginContainer/VBoxContainer/Panel/MarginContainer" index="0"]
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="Title" type="Label" parent="Board/BoardMargin/PageRouterContainer/FirstPage/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer" index="0"]
+layout_mode = 2
+text = "Title"
+label_settings = ExtResource("5_pby04")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Description" type="Label" parent="Board/BoardMargin/PageRouterContainer/FirstPage/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer" index="1"]
+layout_mode = 2
+text = "Clear this quiz to aqcuire this prize and if you don't complete it, something will happen. "
+label_settings = SubResource("LabelSettings_ffuf1")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Board/BoardMargin/PageRouterContainer/FirstPage/MarginContainer/VBoxContainer" index="1"]
 layout_mode = 2
 
-[node name="ProblemPages" parent="Panel/MarginContainer/PageRouterContainer" index="2" instance=ExtResource("2_dmxuy")]
-visible = false
+[node name="Play" parent="Board/BoardMargin/PageRouterContainer/FirstPage/MarginContainer/VBoxContainer/HBoxContainer" index="0" instance=ExtResource("5_lmvr6")]
+custom_minimum_size = Vector2(300, 100)
 layout_mode = 2
 
-[node name="EndPage" type="Control" parent="Panel/MarginContainer/PageRouterContainer" index="3"]
+[node name="Label" type="Label" parent="Board/BoardMargin/PageRouterContainer/FirstPage/MarginContainer/VBoxContainer/HBoxContainer/Play" index="1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Play"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ReferenceRect" type="ReferenceRect" parent="Board/BoardMargin/PageRouterContainer/FirstPage/MarginContainer/VBoxContainer/HBoxContainer" index="1"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Exit" parent="Board/BoardMargin/PageRouterContainer/FirstPage/MarginContainer/VBoxContainer/HBoxContainer" index="2" instance=ExtResource("5_lmvr6")]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Board/BoardMargin/PageRouterContainer/FirstPage/MarginContainer/VBoxContainer/HBoxContainer/Exit" index="1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Exit
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ProblemPages" parent="Board/BoardMargin/PageRouterContainer" index="2" instance=ExtResource("2_dmxuy")]
+layout_mode = 2
+
+[node name="EndPage" type="Control" parent="Board/BoardMargin/PageRouterContainer" index="3"]
 visible = false
 layout_mode = 2

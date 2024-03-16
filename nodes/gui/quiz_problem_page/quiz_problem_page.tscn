@@ -1,0 +1,75 @@
+[gd_scene load_steps=4 format=3 uid="uid://xg2ytqrjlg5u"]
+
+[ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/macchi's_gui_manager/nodes/gui/gui/gui.tscn" id="1_7kinb"]
+[ext_resource type="Script" path="res://nodes/gui/quiz_problem_page/quiz_problem_page.gd" id="2_034k8"]
+[ext_resource type="PackedScene" uid="uid://dggdvwjvdrmkh" path="res://nodes/gui/buttons/medium_wooden_button/medium_wooden_button.tscn" id="3_kno8c"]
+
+[node name="QuizProblemPage" node_paths=PackedStringArray("question_label", "answers", "answer_a", "answer_b", "answer_c", "answer_d") instance=ExtResource("1_7kinb")]
+offset_right = 1048.0
+offset_bottom = 766.0
+script = ExtResource("2_034k8")
+problem = null
+question_label = NodePath("MarginContainer/VBoxContainer/PanelContainer/Question")
+answers = NodePath("MarginContainer/VBoxContainer/MarginContainer/Answers")
+answer_a = NodePath("MarginContainer/VBoxContainer/MarginContainer/Answers/A")
+answer_b = NodePath("MarginContainer/VBoxContainer/MarginContainer/Answers/B")
+answer_c = NodePath("MarginContainer/VBoxContainer/MarginContainer/Answers/C")
+answer_d = NodePath("MarginContainer/VBoxContainer/MarginContainer/Answers/D")
+alias = ""
+
+[node name="MarginContainer" type="MarginContainer" parent="." index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" index="0"]
+layout_mode = 2
+alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer" index="0"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_type_variation = &"QuizAttemptPanel"
+
+[node name="Question" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer" index="0"]
+layout_mode = 2
+text = "1. ass"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer" index="1"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Answers" type="GridContainer" parent="MarginContainer/VBoxContainer/MarginContainer" index="0"]
+layout_mode = 2
+size_flags_vertical = 3
+columns = 2
+
+[node name="A" parent="MarginContainer/VBoxContainer/MarginContainer/Answers" index="0" instance=ExtResource("3_kno8c")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="C" parent="MarginContainer/VBoxContainer/MarginContainer/Answers" index="1" instance=ExtResource("3_kno8c")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="B" parent="MarginContainer/VBoxContainer/MarginContainer/Answers" index="2" instance=ExtResource("3_kno8c")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="D" parent="MarginContainer/VBoxContainer/MarginContainer/Answers" index="3" instance=ExtResource("3_kno8c")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
