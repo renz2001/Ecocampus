@@ -8,13 +8,13 @@ func _ready() -> void:
 	if !node.is_node_ready(): 
 		await node.ready
 	if node.visible: 
-		_on_visible(true)
+		_on_visible()
 	else: 
 		node.visibility_changed.connect(_on_visible)
 		
 		
 ## Virtual function
-func _on_visible(value: bool) -> void: 
+func _on_visible() -> void: 
 	pass
 
 

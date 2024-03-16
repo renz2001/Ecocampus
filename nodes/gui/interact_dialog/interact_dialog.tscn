@@ -16,12 +16,11 @@ font_size = 40
 
 [sub_resource type="Resource" id="Resource_x4ke4"]
 script = ExtResource("6_hyohs")
-transition_type = 4
-ease_type = 2
-duration = 2.0
+transition_type = 6
+ease_type = 1
+duration = 0.8
 
 [node name="InteractDialog" node_paths=PackedStringArray("description_label") instance=ExtResource("1_vqmba")]
-custom_minimum_size = Vector2(15, 10)
 offset_left = 1.0
 offset_top = 1.0
 offset_right = 380.0
@@ -98,15 +97,13 @@ text_overrun_behavior = 3
 
 [node name="OnVisibleThenScale" parent="." index="1" node_paths=PackedStringArray("starting_point", "ending_point", "node") instance=ExtResource("5_t4yxs")]
 tween = SubResource("Resource_x4ke4")
-start_scale = Vector2(0.1, 0.1)
-end_scale = Vector2(1, 1)
-percentage = 1.0
 starting_point = NodePath("Starting")
 ending_point = NodePath("Ending")
 node = NodePath("..")
 
-[node name="Starting" type="Marker2D" parent="OnVisibleThenScale" index="2"]
+[node name="Starting" type="Marker2D" parent="OnVisibleThenScale" index="1"]
 
-[node name="Ending" type="Marker2D" parent="OnVisibleThenScale" index="3"]
+[node name="Ending" type="Marker2D" parent="OnVisibleThenScale" index="2"]
 
+[connection signal="visibility_changed" from="." to="OnVisibleThenScale" method="_on_visible"]
 [connection signal="pressed" from="Body/MediumWoodenButton" to="." method="_on_medium_wooden_button_pressed"]

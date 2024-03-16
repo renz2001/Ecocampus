@@ -1,3 +1,4 @@
+@tool
 extends DialogGUI
 class_name InteractDialog
 
@@ -32,3 +33,5 @@ func _deactivated() -> void:
 func _close() -> void: 
 	queue_free()
 	data.caller.state_chart.send_event("can_tap")
+
+

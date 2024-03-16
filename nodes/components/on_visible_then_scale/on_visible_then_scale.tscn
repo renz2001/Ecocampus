@@ -11,21 +11,15 @@ transition_type = 4
 ease_type = 2
 duration = 0.2
 
-[node name="OnVisibleThenScale" node_paths=PackedStringArray("position_lerp", "scale_lerp") instance=ExtResource("1_o2op8")]
+[node name="OnVisibleThenScale" node_paths=PackedStringArray("scale_lerp") instance=ExtResource("1_o2op8")]
 script = ExtResource("2_262gx")
 tween = SubResource("Resource_hhop0")
 start_scale = Vector2(0, 0)
-end_scale = Vector2(0, 0)
+end_scale = Vector2(1, 1)
 percentage = 0.0
-position_lerp = NodePath("Position")
 scale_lerp = NodePath("Scale")
 
-[node name="Position" parent="." index="0" instance=ExtResource("3_j2soc")]
-properties = PackedStringArray("global_position")
-interpolation = SubResource("Resource_hhop0")
-
-[node name="Scale" parent="." index="1" node_paths=PackedStringArray("_x_interpolate", "_y_interpolate") instance=ExtResource("3_j2soc")]
+[node name="Scale" parent="." index="0" instance=ExtResource("3_j2soc")]
 properties = PackedStringArray("scale")
-_x_interpolate = NodePath("../Position/XLerpComponent")
-_y_interpolate = NodePath("../Position/YLerpComponent")
+end_point = Vector2(1, 1)
 interpolation = SubResource("Resource_hhop0")
