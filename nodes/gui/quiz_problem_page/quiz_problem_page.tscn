@@ -4,17 +4,13 @@
 [ext_resource type="Script" path="res://nodes/gui/quiz_problem_page/quiz_problem_page.gd" id="2_034k8"]
 [ext_resource type="PackedScene" uid="uid://dggdvwjvdrmkh" path="res://nodes/gui/buttons/medium_wooden_button/medium_wooden_button.tscn" id="3_kno8c"]
 
-[node name="QuizProblemPage" node_paths=PackedStringArray("question_label", "answers", "answer_a", "answer_b", "answer_c", "answer_d") instance=ExtResource("1_7kinb")]
+[node name="QuizProblemPage" node_paths=PackedStringArray("question_label", "answers") instance=ExtResource("1_7kinb")]
 offset_right = 1048.0
 offset_bottom = 766.0
 script = ExtResource("2_034k8")
-problem = null
+problem_attempt = null
 question_label = NodePath("MarginContainer/VBoxContainer/PanelContainer/Question")
 answers = NodePath("MarginContainer/VBoxContainer/MarginContainer/Answers")
-answer_a = NodePath("MarginContainer/VBoxContainer/MarginContainer/Answers/A")
-answer_b = NodePath("MarginContainer/VBoxContainer/MarginContainer/Answers/B")
-answer_c = NodePath("MarginContainer/VBoxContainer/MarginContainer/Answers/C")
-answer_d = NodePath("MarginContainer/VBoxContainer/MarginContainer/Answers/D")
 alias = ""
 
 [node name="MarginContainer" type="MarginContainer" parent="." index="0"]

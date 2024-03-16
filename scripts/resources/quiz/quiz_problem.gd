@@ -9,6 +9,13 @@ class_name QuizProblem
 
 @export var reward_points: int
 
+
+func attempt() -> QuizProblemAttempt: 
+	var attempt: QuizProblemAttempt = QuizProblemAttempt.new(self)
+	
+	return attempt
+
+
 func get_answers() -> PackedStringArray: 
 	var array: Array[String] = wrong_answers
 	array.append(correct_answer)

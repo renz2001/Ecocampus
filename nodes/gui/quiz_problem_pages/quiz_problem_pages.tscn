@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://cujk7bydqqbk0"]
+
+[ext_resource type="PackedScene" uid="uid://dyvkcprf58urk" path="res://addons/macchi's_gui_manager/nodes/gui/page_router_container/page_router_container.tscn" id="1_46t3a"]
+[ext_resource type="Script" path="res://nodes/gui/quiz_problem_pages/quiz_problem_pages.gd" id="2_1bhwk"]
+
+[node name="QuizProblemPages" instance=ExtResource("1_46t3a")]
+script = ExtResource("2_1bhwk")
+quiz = null

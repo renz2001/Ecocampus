@@ -98,7 +98,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(300, 100)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Board/BoardMargin/PageRouterContainer/FirstPage/MarginContainer/VBoxContainer/HBoxContainer/Play" index="1"]
+[node name="Label2" type="Label" parent="Board/BoardMargin/PageRouterContainer/FirstPage/MarginContainer/VBoxContainer/HBoxContainer/Play" index="1"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -117,7 +117,7 @@ size_flags_horizontal = 3
 custom_minimum_size = Vector2(300, 100)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Board/BoardMargin/PageRouterContainer/FirstPage/MarginContainer/VBoxContainer/HBoxContainer/Exit" index="1"]
+[node name="Label2" type="Label" parent="Board/BoardMargin/PageRouterContainer/FirstPage/MarginContainer/VBoxContainer/HBoxContainer/Exit" index="1"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
