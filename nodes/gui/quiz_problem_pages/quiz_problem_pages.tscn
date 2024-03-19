@@ -5,4 +5,4 @@
 
 [node name="QuizProblemPages" instance=ExtResource("1_46t3a")]
 script = ExtResource("2_1bhwk")
-quiz = null
+quiz_attempt = null

@@ -4,6 +4,7 @@ class_name PageRouterContainer
 signal page_changed(to: Control)
 signal page_back(page: Control)
 
+@export var parent_page_router_container: PageRouterContainer
 @export var back_notification: bool = true
 @export var back_key: String = "ui_cancel"
 
@@ -34,6 +35,13 @@ func go_at(node: Control) -> void:
 		current_tab = find(node)
 	page_changed.emit(node)
 	route.append(node)
+	
+	
+func go_at_next_index() -> void: 
+	if current_tab + 1 >= get_child_count(): 
+		parent_page_router_container.go_at_next_index()
+		return
+	current_tab += 1
 	
 	
 func find(node: Control) -> int: 

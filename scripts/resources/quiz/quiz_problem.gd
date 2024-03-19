@@ -12,11 +12,10 @@ class_name QuizProblem
 
 func attempt() -> QuizProblemAttempt: 
 	var attempt: QuizProblemAttempt = QuizProblemAttempt.new(self)
-	
 	return attempt
 
 
-func get_answers() -> PackedStringArray: 
+func get_answers() -> Array[String]: 
 	var array: Array[String] = wrong_answers
 	array.append(correct_answer)
 	array.shuffle()

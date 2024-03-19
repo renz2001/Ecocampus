@@ -4,15 +4,17 @@ class_name QuizAttempt
 
 @export var quiz: Quiz
 
-var problem_attempts: Array[QuizProblemAttempt]
+var problem_attempts: Array[QuizProblemAttempt] = []
 
 var score: int = 0
 
 var finished: bool = false
 
 
-func _init(_quiz: Quiz) -> void: 
-	quiz = _quiz
+static func from_quiz(quiz: Quiz) -> QuizAttempt: 
+	var attempt: QuizAttempt = QuizAttempt.new()
+	attempt.quiz = quiz
+	return attempt
 
 
 func start() -> void: 
@@ -37,5 +39,6 @@ func has_passed_attempt() -> bool:
 	
 	
 func finish() -> void: 
+	calculate_total_score()
 	finished = true
 

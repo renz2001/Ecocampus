@@ -11,8 +11,7 @@ class_name Quiz
 
 
 func attempt() -> QuizAttempt: 
-	var attempt: QuizAttempt = QuizAttempt.new(self)
-	
+	var attempt: QuizAttempt = QuizAttempt.from_quiz(self)
 	return attempt
 
 
