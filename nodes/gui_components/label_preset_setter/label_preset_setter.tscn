@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ciq54uqx2lta"]
+
+[ext_resource type="Script" path="res://nodes/gui_components/label_preset_setter/label_preset_setter.gd" id="1_5afn0"]
+
+[node name="LabelPresetSetter" type="Node"]
+script = ExtResource("1_5afn0")

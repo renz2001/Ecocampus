@@ -7,18 +7,22 @@ class_name Quiz
 @export var description: String
 @export var problems: Array[QuizProblem]
 
-@export var passing_score: int
+## Percentage of the passing score. 
+@export_range(0, 1) var passing_score_percentage: float = 0.7
 
+var maximum_score: int: 
+	get:
+		var count: int = 0
+		for problem: QuizProblem in problems: 
+			count += problem.reward_points
+		return count
+
+var passing_score: float: 
+	get: 
+		return maximum_score * passing_score_percentage
 
 func attempt() -> QuizAttempt: 
 	var attempt: QuizAttempt = QuizAttempt.from_quiz(self)
 	return attempt
-
-
-func get_total_score() -> int: 
-	var total: int = 0
-	for problem: QuizProblem in problems: 
-		total += problem.reward_points
-	return total
 	
 	

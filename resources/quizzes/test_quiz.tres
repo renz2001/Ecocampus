@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Quiz" load_steps=5 format=3 uid="uid://dan5dbax50rp0"]
+
+[ext_resource type="Script" path="res://scripts/resources/quiz/quiz_problem.gd" id="1_llgo4"]
+[ext_resource type="Script" path="res://scripts/resources/quiz/quiz.gd" id="2_uo3lp"]
+
+[sub_resource type="Resource" id="Resource_o4y3a"]
+script = ExtResource("1_llgo4")
+question = "Choose number"
+correct_answer = "2"
+wrong_answers = Array[String](["3", "4", "1"])
+reward_points = 1
+
+[sub_resource type="Resource" id="Resource_noj5v"]
+script = ExtResource("1_llgo4")
+question = "Jotaro's stand"
+correct_answer = "Star Platinum"
+wrong_answers = Array[String](["The World", "Esidisi", "King"])
+reward_points = 1
+
+[resource]
+script = ExtResource("2_uo3lp")
+title = "My Title"
+description = "Lorem Ipsum"
+problems = Array[ExtResource("1_llgo4")]([SubResource("Resource_o4y3a"), SubResource("Resource_noj5v")])
+passing_score_percentage = 0.0

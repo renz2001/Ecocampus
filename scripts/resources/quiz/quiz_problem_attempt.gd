@@ -1,9 +1,16 @@
 extends Resource
 class_name QuizProblemAttempt
 
+signal completed
+
 var problem: QuizProblem
 
-var completed: bool
+var is_completed: bool: 
+	set(value): 
+		is_completed = value
+		if is_completed: 
+			completed.emit()
+			
 var points: float
 
 
@@ -15,7 +22,7 @@ func submit_answer(ans: String) -> void:
 	if problem.is_correct_answer(ans): 
 		points = problem.reward_points
 		
-	completed = true
+	is_completed = true
 
 	
 	

@@ -1,41 +1,20 @@
-[gd_scene load_steps=18 format=3 uid="uid://bjsr1rnrk3ssi"]
+[gd_scene load_steps=15 format=3 uid="uid://bjsr1rnrk3ssi"]
 
 [ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/macchi's_gui_manager/nodes/gui/gui/gui.tscn" id="1_tkvea"]
 [ext_resource type="PackedScene" uid="uid://dyvkcprf58urk" path="res://addons/macchi's_gui_manager/nodes/gui/page_router_container/page_router_container.tscn" id="2_dmxuy"]
 [ext_resource type="Script" path="res://nodes/gui/quiz_attempt_gui/quiz_attempt_gui.gd" id="2_n2cxh"]
 [ext_resource type="Texture2D" uid="uid://crum2o41ed4wp" path="res://assets/buttons/Board.png" id="3_1ovje"]
-[ext_resource type="Script" path="res://scripts/resources/quiz/quiz_problem.gd" id="3_sq05y"]
-[ext_resource type="Script" path="res://scripts/resources/quiz/quiz.gd" id="4_r5qg3"]
+[ext_resource type="Resource" uid="uid://dan5dbax50rp0" path="res://resources/quizzes/test_quiz.tres" id="3_rhkgw"]
 [ext_resource type="Script" path="res://scripts/resources/quiz/quiz_attempt.gd" id="5_6v16n"]
 [ext_resource type="PackedScene" uid="uid://dggdvwjvdrmkh" path="res://nodes/gui/buttons/medium_wooden_button/medium_wooden_button.tscn" id="5_lmvr6"]
 [ext_resource type="LabelSettings" uid="uid://b4jfqs4wewmec" path="res://resources/label_settings/font_sizes/quiz_attemp_title.tres" id="5_pby04"]
 [ext_resource type="PackedScene" uid="uid://cujk7bydqqbk0" path="res://nodes/gui/quiz_problem_pages/quiz_problem_pages.tscn" id="7_sd45d"]
 [ext_resource type="PackedScene" uid="uid://dj23rqjh7m1r3" path="res://addons/macchi's_gui_manager/nodes/components/page_router/page_router.tscn" id="7_xwpdj"]
-
-[sub_resource type="Resource" id="Resource_o4y3a"]
-script = ExtResource("3_sq05y")
-question = "What"
-correct_answer = "2"
-wrong_answers = Array[String](["3", "4", "1"])
-reward_points = 0
-
-[sub_resource type="Resource" id="Resource_noj5v"]
-script = ExtResource("3_sq05y")
-question = "hmm"
-correct_answer = "2"
-wrong_answers = Array[String](["1", "3", "4"])
-reward_points = 0
-
-[sub_resource type="Resource" id="Resource_rjvnr"]
-script = ExtResource("4_r5qg3")
-title = "Ass quiz"
-description = "penis"
-problems = Array[ExtResource("3_sq05y")]([SubResource("Resource_o4y3a"), SubResource("Resource_noj5v")])
-passing_score = 0
+[ext_resource type="PackedScene" uid="uid://ciq54uqx2lta" path="res://nodes/gui_components/label_preset_setter/label_preset_setter.tscn" id="12_pcbp7"]
 
 [sub_resource type="Resource" id="Resource_p4emr"]
 script = ExtResource("5_6v16n")
-quiz = SubResource("Resource_rjvnr")
+quiz = ExtResource("3_rhkgw")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v16tb"]
 atlas = ExtResource("3_1ovje")
@@ -44,12 +23,18 @@ region = Rect2(6, 27, 537, 396)
 [sub_resource type="LabelSettings" id="LabelSettings_ffuf1"]
 font_size = 50
 
-[node name="QuizAttemptGUI" node_paths=PackedStringArray("problem_pages", "title", "description") instance=ExtResource("1_tkvea")]
+[node name="QuizAttemptGUI" node_paths=PackedStringArray("problem_pages", "title", "description", "score", "wrong") instance=ExtResource("1_tkvea")]
+offset_left = 875.0
+offset_top = 523.0
+offset_right = 875.0
+offset_bottom = 523.0
 script = ExtResource("2_n2cxh")
 quiz_attempt = SubResource("Resource_p4emr")
 problem_pages = NodePath("Board/BoardMargin/PageRouterContainer/QuizProblemPages")
 title = NodePath("Board/BoardMargin/PageRouterContainer/FirstPage/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/Title")
 description = NodePath("Board/BoardMargin/PageRouterContainer/FirstPage/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/Description")
+score = NodePath("Board/BoardMargin/PageRouterContainer/EndPage/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/Score/LabelPresetSetter")
+wrong = NodePath("Board/BoardMargin/PageRouterContainer/EndPage/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/Wrong")
 inactive_on_ready = false
 alias = ""
 
@@ -214,6 +199,9 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
+[node name="LabelPresetSetter" parent="Board/BoardMargin/PageRouterContainer/EndPage/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/Score" index="0" node_paths=PackedStringArray("label") instance=ExtResource("12_pcbp7")]
+label = NodePath("..")
+
 [node name="Wrong" type="Label" parent="Board/BoardMargin/PageRouterContainer/EndPage/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer" index="2"]
 layout_mode = 2
 text = "Score: no. 2"
@@ -230,18 +218,10 @@ custom_minimum_size = Vector2(300, 100)
 layout_mode = 2
 label = NodePath("../../../../../FirstPage/MarginContainer/VBoxContainer/HBoxContainer/Play/Label")
 
-[node name="Label2" type="Label" parent="Board/BoardMargin/PageRouterContainer/EndPage/MarginContainer/VBoxContainer/HBoxContainer/Again" index="1"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Label" parent="Board/BoardMargin/PageRouterContainer/EndPage/MarginContainer/VBoxContainer/HBoxContainer/Again" index="1"]
 text = "Again"
-horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="PageRouter" parent="Board/BoardMargin/PageRouterContainer/EndPage/MarginContainer/VBoxContainer/HBoxContainer/Again" index="3" node_paths=PackedStringArray("page_router_container", "button", "go_at") instance=ExtResource("7_xwpdj")]
+[node name="PageRouter" parent="Board/BoardMargin/PageRouterContainer/EndPage/MarginContainer/VBoxContainer/HBoxContainer/Again" index="2" node_paths=PackedStringArray("page_router_container", "button", "go_at") instance=ExtResource("7_xwpdj")]
 page_router_container = NodePath("../../../../../..")
 button = NodePath("..")
 go_at = NodePath("../../../../../../FirstPage")
@@ -255,19 +235,13 @@ custom_minimum_size = Vector2(300, 100)
 layout_mode = 2
 label = NodePath("../../../../../FirstPage/MarginContainer/VBoxContainer/HBoxContainer/Exit/Label")
 
-[node name="Label2" type="Label" parent="Board/BoardMargin/PageRouterContainer/EndPage/MarginContainer/VBoxContainer/HBoxContainer/Exit" index="1"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Exit
-"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="Label" parent="Board/BoardMargin/PageRouterContainer/EndPage/MarginContainer/VBoxContainer/HBoxContainer/Exit" index="1"]
+text = "Exit"
 
 [connection signal="pressed" from="Board/BoardMargin/PageRouterContainer/FirstPage/MarginContainer/VBoxContainer/HBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Board/BoardMargin/PageRouterContainer/FirstPage/MarginContainer/VBoxContainer/HBoxContainer/Exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="Board/BoardMargin/PageRouterContainer/EndPage/MarginContainer/VBoxContainer/HBoxContainer/Again" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Board/BoardMargin/PageRouterContainer/EndPage/MarginContainer/VBoxContainer/HBoxContainer/Exit" to="." method="_on_exit_pressed"]
+
+[editable path="Board/BoardMargin/PageRouterContainer/EndPage/MarginContainer/VBoxContainer/HBoxContainer/Again"]
+[editable path="Board/BoardMargin/PageRouterContainer/EndPage/MarginContainer/VBoxContainer/HBoxContainer/Exit"]
