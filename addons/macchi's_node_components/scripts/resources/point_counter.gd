@@ -112,8 +112,20 @@ func is_maximum() -> bool:
 
 
 func is_greater_than_minimum() -> bool: 
-	return current > 0
+	return current > minimum
 	
+	
+func is_less_than_maximum() -> bool: 
+	return current < maximum
+
+
+func has_exceeded_maximum() -> bool: 
+	return current > maximum
+	
+	
+func has_exceeded_minimum() -> bool: 
+	return current < minimum
+
 
 func reset() -> void: 
 	current = starting_value

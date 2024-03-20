@@ -2,9 +2,28 @@
 extends GUI
 class_name QuizProblemPage
 
+signal quiz_completed
 signal correctly_answered
 
-@export var problem_attempt: QuizProblemAttempt: 
+@export var quiz_attempt: QuizAttempt: 
+	set(value): 
+		quiz_attempt = value
+		if quiz_attempt == null: 
+			return
+		quiz_attempt.completed.connect(_on_quiz_completed, CONNECT_ONE_SHOT)
+		update()
+
+@export var question_label: Label
+
+@export var answers: GridContainer
+
+@export var answer_a: TextureButtonPlus
+@export var answer_b: TextureButtonPlus
+@export var answer_c: TextureButtonPlus
+@export var answer_d: TextureButtonPlus
+
+#@export var page_router: PageRouter
+var problem_attempt: QuizProblemAttempt: 
 	set(value): 
 		problem_attempt = value
 		if !is_node_ready(): 
@@ -20,23 +39,12 @@ signal correctly_answered
 		answer_c.label.text = p_answers[2]
 		answer_d.label.text = p_answers[3]
 
-@export var question_label: Label
 
-@export var answers: GridContainer
-
-@export var answer_a: TextureButtonPlus
-@export var answer_b: TextureButtonPlus
-@export var answer_c: TextureButtonPlus
-@export var answer_d: TextureButtonPlus
-
-@export var page_router: PageRouter
-
-
-static func create(parent: QuizProblemPages, problem_attempt: QuizProblemAttempt) -> QuizProblemPage: 
+static func create(parent: Control, problem_attempt: QuizProblemAttempt) -> QuizProblemPage: 
 	var gui: QuizProblemPage = GUICollection.quiz_problem_page.instantiate()
 	parent.add_child(gui)
 	gui.problem_attempt = problem_attempt
-	gui.page_router.page_router_container = parent
+	#gui.page_router.page_router_container = parent
 	return gui
 
 
@@ -47,5 +55,17 @@ func _ready() -> void:
 		
 func _on_answer_pressed(button: TextureButtonPlus) -> void: 
 	problem_attempt.submit_answer(button.label.text)
-	page_router.route()
+	quiz_attempt.next_problem()
+	#print(quiz_attempt.current_problem_index.current)
+	if !quiz_attempt.current_problem_index.has_exceeded_maximum(): 
+		update()
+	#page_router.route()
+
+
+func update() -> void: 
+	problem_attempt = quiz_attempt.get_current_problem()
+	
+	
+func _on_quiz_completed() -> void: 
+	quiz_completed.emit()
 

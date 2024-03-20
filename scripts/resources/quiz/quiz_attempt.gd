@@ -12,6 +12,9 @@ signal completed
 
 var problem_attempts: Array[QuizProblemAttempt] = []
 
+## The current problem
+var current_problem_index: PointCounter
+
 var score: int = 0: 
 	get: 
 		var count: int = 0
@@ -32,9 +35,19 @@ static func from_quiz(quiz: Quiz) -> QuizAttempt:
 	return attempt
 
 
+func _init() -> void: 
+	current_problem_index = PointCounter.new()
+	current_problem_index.minimum = 0
+	current_problem_index.starting_value = 0
+	current_problem_index.reset_after_maximum_exceeded = true
+	current_problem_index.reset_after_minimum_exceeded = true
+
+
 func start() -> void: 
 	is_completed = false
 	problem_attempts = _get_problem_attempts()
+	current_problem_index.reset()
+	current_problem_index.maximum = problem_attempts.size() - 1
 	started.emit()
 
 
@@ -74,3 +87,17 @@ func _on_problem_attempt_completed(attempt: QuizProblemAttempt) -> void:
 	if is_all_problems_completed(): 
 		complete()
 	problem_attempt_completed.emit(attempt)
+
+
+func get_current_problem() -> QuizProblemAttempt: 
+	return problem_attempts[current_problem_index.current]
+	
+	
+func next_problem() -> void: 
+	current_problem_index.increment()
+	
+	
+func previous_problem() -> void: 
+	current_problem_index.decrement()
+	
+	

@@ -8,8 +8,8 @@
 [ext_resource type="Script" path="res://scripts/resources/quiz/quiz_attempt.gd" id="5_6v16n"]
 [ext_resource type="PackedScene" uid="uid://dggdvwjvdrmkh" path="res://nodes/gui/buttons/medium_wooden_button/medium_wooden_button.tscn" id="5_lmvr6"]
 [ext_resource type="LabelSettings" uid="uid://b4jfqs4wewmec" path="res://resources/label_settings/font_sizes/quiz_attemp_title.tres" id="5_pby04"]
-[ext_resource type="PackedScene" uid="uid://cujk7bydqqbk0" path="res://nodes/gui/quiz_problem_pages/quiz_problem_pages.tscn" id="7_sd45d"]
 [ext_resource type="PackedScene" uid="uid://dj23rqjh7m1r3" path="res://addons/macchi's_gui_manager/nodes/components/page_router/page_router.tscn" id="7_xwpdj"]
+[ext_resource type="PackedScene" uid="uid://xg2ytqrjlg5u" path="res://nodes/gui/quiz_problem_page/quiz_problem_page.tscn" id="10_jfxo7"]
 [ext_resource type="PackedScene" uid="uid://ciq54uqx2lta" path="res://nodes/gui_components/label_preset_setter/label_preset_setter.tscn" id="12_pcbp7"]
 
 [sub_resource type="Resource" id="Resource_p4emr"]
@@ -23,18 +23,19 @@ region = Rect2(6, 27, 537, 396)
 [sub_resource type="LabelSettings" id="LabelSettings_ffuf1"]
 font_size = 50
 
-[node name="QuizAttemptGUI" node_paths=PackedStringArray("problem_pages", "title", "description", "score", "wrong") instance=ExtResource("1_tkvea")]
+[node name="QuizAttemptGUI" node_paths=PackedStringArray("problem_page", "title", "description", "score", "wrong", "problem_page_router") instance=ExtResource("1_tkvea")]
 offset_left = 875.0
 offset_top = 523.0
 offset_right = 875.0
 offset_bottom = 523.0
 script = ExtResource("2_n2cxh")
 quiz_attempt = SubResource("Resource_p4emr")
-problem_pages = NodePath("Board/BoardMargin/PageRouterContainer/QuizProblemPages")
+problem_page = NodePath("Board/BoardMargin/PageRouterContainer/QuizProblemPage")
 title = NodePath("Board/BoardMargin/PageRouterContainer/FirstPage/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/Title")
 description = NodePath("Board/BoardMargin/PageRouterContainer/FirstPage/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/Description")
 score = NodePath("Board/BoardMargin/PageRouterContainer/EndPage/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/Score/LabelPresetSetter")
 wrong = NodePath("Board/BoardMargin/PageRouterContainer/EndPage/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/Wrong")
+problem_page_router = NodePath("Board/BoardMargin/PageRouterContainer/QuizProblemPage/PageRouter")
 inactive_on_ready = false
 alias = ""
 
@@ -124,10 +125,10 @@ text = "Play"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PageRouter" parent="Board/BoardMargin/PageRouterContainer/FirstPage/MarginContainer/VBoxContainer/HBoxContainer/Play" index="3" node_paths=PackedStringArray("page_router_container", "button", "go_at") instance=ExtResource("7_xwpdj")]
+[node name="PageRouter" parent="Board/BoardMargin/PageRouterContainer/FirstPage/MarginContainer/VBoxContainer/HBoxContainer/Play" index="3" node_paths=PackedStringArray("page_router_container", "button") instance=ExtResource("7_xwpdj")]
 page_router_container = NodePath("../../../../../..")
+route_type = 2
 button = NodePath("..")
-go_at = NodePath("../../../../../../QuizProblemPages")
 
 [node name="ReferenceRect" type="ReferenceRect" parent="Board/BoardMargin/PageRouterContainer/FirstPage/MarginContainer/VBoxContainer/HBoxContainer" index="1"]
 layout_mode = 2
@@ -149,10 +150,13 @@ text = "Exit
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="QuizProblemPages" parent="Board/BoardMargin/PageRouterContainer" index="2" node_paths=PackedStringArray("parent_page_router_container") instance=ExtResource("7_sd45d")]
+[node name="QuizProblemPage" parent="Board/BoardMargin/PageRouterContainer" index="2" instance=ExtResource("10_jfxo7")]
 visible = false
 layout_mode = 2
-parent_page_router_container = NodePath("..")
+
+[node name="PageRouter" parent="Board/BoardMargin/PageRouterContainer/QuizProblemPage" index="1" node_paths=PackedStringArray("page_router_container") instance=ExtResource("7_xwpdj")]
+page_router_container = NodePath("../..")
+route_type = 2
 
 [node name="EndPage" type="Control" parent="Board/BoardMargin/PageRouterContainer" index="3"]
 visible = false
@@ -240,7 +244,7 @@ text = "Exit"
 
 [connection signal="pressed" from="Board/BoardMargin/PageRouterContainer/FirstPage/MarginContainer/VBoxContainer/HBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Board/BoardMargin/PageRouterContainer/FirstPage/MarginContainer/VBoxContainer/HBoxContainer/Exit" to="." method="_on_exit_pressed"]
-[connection signal="pressed" from="Board/BoardMargin/PageRouterContainer/EndPage/MarginContainer/VBoxContainer/HBoxContainer/Again" to="." method="_on_play_pressed"]
+[connection signal="quiz_completed" from="Board/BoardMargin/PageRouterContainer/QuizProblemPage" to="." method="_on_quiz_problem_page_quiz_completed"]
 [connection signal="pressed" from="Board/BoardMargin/PageRouterContainer/EndPage/MarginContainer/VBoxContainer/HBoxContainer/Exit" to="." method="_on_exit_pressed"]
 
 [editable path="Board/BoardMargin/PageRouterContainer/EndPage/MarginContainer/VBoxContainer/HBoxContainer/Again"]
