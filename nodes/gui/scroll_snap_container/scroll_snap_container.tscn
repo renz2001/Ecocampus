@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://dpfy7ia3raujh"]
+
+[ext_resource type="Script" path="res://nodes/gui/scroll_snap_container/scroll_snap_container.gd" id="1_fou41"]
+[ext_resource type="PackedScene" uid="uid://dpfdm0p27l7nx" path="res://addons/macchi's_node_components/nodes/components/lerp_components/float_property_lerp_component/float_property_lerp_component.tscn" id="1_mxp2s"]
+[ext_resource type="Script" path="res://addons/macchi's_node_components/scripts/arguments/tween_arguments.gd" id="2_4e6sg"]
+
+[sub_resource type="Resource" id="Resource_6mppe"]
+script = ExtResource("2_4e6sg")
+transition_type = 4
+ease_type = 2
+duration = 0.1
+
+[node name="ScrollSnapContainer" type="ScrollContainer" node_paths=PackedStringArray("scroll_horizontal_lerp", "scroll_vertical_lerp")]
+script = ExtResource("1_fou41")
+interpolation = SubResource("Resource_6mppe")
+scroll_horizontal_lerp = NodePath("ScrollHorizontalLerpComponent")
+scroll_vertical_lerp = NodePath("ScrollVerticalLerpComponent")
+
+[node name="ScrollHorizontalLerpComponent" parent="." node_paths=PackedStringArray("node") instance=ExtResource("1_mxp2s")]
+node = NodePath("..")
+properties = PackedStringArray("scroll_horizontal")
+reset_percentage_when_finished = true
+interpolation = SubResource("Resource_6mppe")
+
+[node name="ScrollVerticalLerpComponent" parent="." node_paths=PackedStringArray("node") instance=ExtResource("1_mxp2s")]
+node = NodePath("..")
+properties = PackedStringArray("scroll_vertical")
+interpolation = SubResource("Resource_6mppe")

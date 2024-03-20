@@ -24,10 +24,6 @@ region = Rect2(6, 27, 537, 396)
 font_size = 50
 
 [node name="QuizAttemptGUI" node_paths=PackedStringArray("problem_page", "title", "description", "score", "wrong", "problem_page_router") instance=ExtResource("1_tkvea")]
-offset_left = 875.0
-offset_top = 523.0
-offset_right = 875.0
-offset_bottom = 523.0
 script = ExtResource("2_n2cxh")
 quiz_attempt = SubResource("Resource_p4emr")
 problem_page = NodePath("Board/BoardMargin/PageRouterContainer/QuizProblemPage")

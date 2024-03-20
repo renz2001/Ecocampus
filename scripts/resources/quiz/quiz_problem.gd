@@ -17,9 +17,7 @@ func attempt() -> QuizProblemAttempt:
 
 func get_answers() -> Array[String]: 
 	var array: Array[String] = wrong_answers.duplicate()
-	printerr(wrong_answers)
 	array.append(correct_answer)
-	print(array)
 	array.shuffle()
 	return array
 	

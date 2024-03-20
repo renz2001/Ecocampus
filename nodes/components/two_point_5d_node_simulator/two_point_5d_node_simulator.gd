@@ -33,7 +33,7 @@ func _process(_delta: float) -> void:
 		space_simulator = get_tree().get_first_node_in_group("TwoPoint5DSpaceSimulator")
 	if !space_simulator:
 		return
-		
+	
 	var space_scale: float = 0
 	
 	if !Engine.is_editor_hint(): 

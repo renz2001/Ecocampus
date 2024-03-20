@@ -10,7 +10,6 @@ class_name QuizAttemptGUI
 			
 		quiz_attempt.completed.connect(
 			_on_quiz_attempt_completed
-		, CONNECT_ONE_SHOT
 		)
 		title.text = quiz_attempt.quiz.title
 		description.text = quiz_attempt.quiz.description
@@ -22,6 +21,7 @@ class_name QuizAttemptGUI
 @export var score: LabelPresetSetter
 @export var wrong: Label
 @export var problem_page_router: PageRouter
+
 
 func _on_quiz_attempt_completed() -> void: 
 	score.set_text([str(quiz_attempt.score), str(quiz_attempt.quiz.maximum_score)])

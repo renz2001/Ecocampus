@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2fqifa3ihc1f"]
+
+[ext_resource type="PackedScene" uid="uid://da2nlvvpyaabx" path="res://nodes/gui_components/on_pressed/on_pressed.tscn" id="1_pca33"]
+[ext_resource type="Script" path="res://nodes/gui_components/scroll_snap_controller/scroll_snap_controller.gd" id="2_gc5ld"]
+
+[node name="SnapScrollController" instance=ExtResource("1_pca33")]
+script = ExtResource("2_gc5ld")
+scroll_type = 0

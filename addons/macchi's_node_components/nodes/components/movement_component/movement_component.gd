@@ -66,11 +66,3 @@ func set_velocity(velocity: Vector2) -> void:
 	if velocity == Vector2.ZERO: 
 		stopped.emit()
 
-
-func load_data(data: Dictionary) -> void: 
-	var properties: PackedStringArray = data.keys()
-	for property in properties: 
-		#if property == "state_machine": 
-			#state_machine.load_data(data[property])
-			#continue
-		self.set(property, data[property])

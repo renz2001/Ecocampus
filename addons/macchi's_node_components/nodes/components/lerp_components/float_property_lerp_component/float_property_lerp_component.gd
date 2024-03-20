@@ -8,9 +8,7 @@ class_name FloatPropertyLerpComponent
 
 
 func _on_interpolated(value: Variant) -> void: 
-	print(node.get("modulate:a"))
 	for property: String in properties: 
-		printerr(node.get(property))
 		node.set(property, value)
 
 

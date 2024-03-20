@@ -8,7 +8,6 @@ class_name Item
 
 var stack: PointCounter
 
-
 func _init() -> void: 
 	stack = PointCounter.new()
 	stack.starting_value = 1

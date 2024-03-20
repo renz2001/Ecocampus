@@ -1,9 +1,9 @@
 extends EntityNode
 class_name PlayerNode
 
+@export var gender: GlobalEnums.Gender
 @export var move_to_tap: MoveToTapPathFindMovement
 @export var mouse_position: MousePositionComponent
-
 
 func _ready() -> void: 
 	GlobalData.player_instanced.emit(self)
