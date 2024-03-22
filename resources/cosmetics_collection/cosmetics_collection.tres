@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="CosmeticsCollection" load_steps=3 format=3 uid="uid://ohh3qdnbacsf"]
+
+[ext_resource type="Script" path="res://scripts/resources/cosmetics_collection.gd" id="1_16m7q"]
+[ext_resource type="Resource" uid="uid://ccu36slooej8y" path="res://resources/cosmetics/default.tres" id="1_tg31m"]
+
+[resource]
+script = ExtResource("1_16m7q")
+cosmetics = Array[Resource("res://scripts/resources/cosmetic.gd")]([ExtResource("1_tg31m")])

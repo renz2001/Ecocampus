@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bk4jnfmvdr6ud" path="res://nodes/gui/buttons/button_plus/button_plus.tscn" id="3_f8fm6"]
 
 [node name="CosmeticDisplayCard" node_paths=PackedStringArray("state_view", "cosmetic_icon", "locked_button_state_view") instance=ExtResource("1_gd4lf")]
+custom_minimum_size = Vector2(363, 528)
 offset_right = 333.0
 offset_bottom = 486.0
 script = ExtResource("2_4ppon")

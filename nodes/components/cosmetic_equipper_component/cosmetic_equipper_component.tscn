@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dop4lslntrlgb"]
+
+[ext_resource type="Script" path="res://nodes/components/cosmetic_equipper_component/cosmetic_equipper_component.gd" id="1_54xny"]
+
+[node name="CosmeticEquipperComponent" type="Node"]
+script = ExtResource("1_54xny")

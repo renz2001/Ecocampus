@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bsk5ukf1cjlio"]
+
+[ext_resource type="Script" path="res://addons/macchi's_node_components/scripts/classes/node_component.gd" id="1_qp6on"]
+
+[node name="GUISizeController" type="Node"]
+script = ExtResource("1_qp6on")

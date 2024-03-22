@@ -8,15 +8,19 @@
 [ext_resource type="PackedScene" uid="uid://b2fqifa3ihc1f" path="res://nodes/gui_components/scroll_snap_controller/scroll_snap_controller.tscn" id="6_yaduu"]
 
 [node name="CosmeticSelectCard" node_paths=PackedStringArray("player_gender_label") instance=ExtResource("1_cwby0")]
+custom_minimum_size = Vector2(363, 528)
 script = ExtResource("2_gjsv2")
 cosmetics = Array[Resource("res://scripts/resources/cosmetic.gd")]([])
 player_gender_label = NodePath("PanelContainer/MarginContainer/Select/PlayerGender")
 alias = ""
 
 [node name="PanelContainer" type="PanelContainer" parent="." index="0"]
-layout_mode = 0
-offset_right = 363.0
-offset_bottom = 528.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer" index="0"]
 layout_mode = 2
@@ -28,6 +32,7 @@ layout_mode = 2
 layout_mode = 1
 offset_right = 40.0
 offset_bottom = 60.0
+theme_override_font_sizes/font_size = 30
 text = "Female"
 
 [node name="ScrollSnapContainer" parent="PanelContainer/MarginContainer/Select" index="1" instance=ExtResource("3_j2gae")]

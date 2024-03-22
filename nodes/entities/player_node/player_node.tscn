@@ -1,16 +1,17 @@
-[gd_scene load_steps=20 format=3 uid="uid://8qsjsyglmgq4"]
+[gd_scene load_steps=21 format=3 uid="uid://8qsjsyglmgq4"]
 
 [ext_resource type="PackedScene" uid="uid://dml5uy4doh7s6" path="res://nodes/abstract_scenes/entity_node/entity_node.tscn" id="1_m6q56"]
 [ext_resource type="Script" path="res://nodes/entities/player_node/player_node.gd" id="2_6c1ia"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/animation_player_state.gd" id="3_gwwov"]
 [ext_resource type="Script" path="res://scripts/resources/inventory.gd" id="3_ip38p"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="4_3xned"]
-[ext_resource type="Texture2D" uid="uid://dgc8hchc6dsps" path="res://assets/character/Player (Girl)/v2 girl.png" id="4_btkuj"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="5_44w7h"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="6_ae0yd"]
 [ext_resource type="PackedScene" uid="uid://dvrqbygr8xwlr" path="res://addons/macchi's_node_components/nodes/components/node_variety_manager/node_variety/node_variety.tscn" id="6_kb0jf"]
 [ext_resource type="PackedScene" uid="uid://dg5q85tiv0ibp" path="res://nodes/components/move_to_tap_path_find_movement/move_to_tap_path_find_movement.tscn" id="7_jfgwu"]
 [ext_resource type="PackedScene" uid="uid://sf310cfhr818" path="res://nodes/components/mouse_position_component/mouse_position_component.tscn" id="8_t7gk8"]
+[ext_resource type="PackedScene" uid="uid://dop4lslntrlgb" path="res://nodes/components/cosmetic_equipper_component/cosmetic_equipper_component.tscn" id="10_qtam7"]
+[ext_resource type="Resource" uid="uid://ccu36slooej8y" path="res://resources/cosmetics/default.tres" id="11_die3w"]
 
 [sub_resource type="Resource" id="Resource_kvnmb"]
 script = ExtResource("3_ip38p")
@@ -396,7 +397,12 @@ speed = 7.0
 [node name="TwoPoint5DNodeSimulator" parent="Components" index="1"]
 node_base_scale = Vector2(1.5, 1.5)
 
-[node name="NodeVarietyManager" parent="Components" index="2"]
+[node name="CosmeticEquipperComponent" parent="Components" index="2" node_paths=PackedStringArray("male_sprite_node", "female_sprite_node") instance=ExtResource("10_qtam7")]
+default_cosmetic = ExtResource("11_die3w")
+male_sprite_node = NodePath("../../Sprites/Boy/Default")
+female_sprite_node = NodePath("../../Sprites/Girl/Default")
+
+[node name="NodeVarietyManager" parent="Components" index="3"]
 variety_name = "Girl"
 
 [node name="Girl" parent="Components/NodeVarietyManager" index="0" node_paths=PackedStringArray("nodes") instance=ExtResource("6_kb0jf")]
@@ -415,7 +421,6 @@ visible = false
 
 [node name="Default" type="Sprite2D" parent="Sprites/Girl" index="0"]
 position = Vector2(0.5, -119)
-texture = ExtResource("4_btkuj")
 hframes = 6
 vframes = 4
 frame = 1
