@@ -31,4 +31,5 @@ func _on_scroll_snap_finished_snap() -> void:
 	if !Engine.is_editor_hint() && PlayerManager.player:
 		var player: PlayerNode = PlayerManager.player
 		player.cosmetic_equipper_component.current_cosmetic = current_cosmetic
-	
+		player.data.speaker_sprite = current_cosmetic.get_icon(player.gender)
+

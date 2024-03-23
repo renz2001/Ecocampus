@@ -9,7 +9,7 @@ class_name EntityNode
 @export var display_interact_dialog: bool = true
 @export var inventory: Inventory
 
-@export var entity_name: String
+@export var data: Entity
 @export var interact_description: String
 
 

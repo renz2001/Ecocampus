@@ -57,7 +57,7 @@ static func move_collisions(from: Node, to: Node, duplicate_collisions: bool = f
 			
 			
 ## Returns an item from an array if the method returns true, else returns null. 
-## Method is func(item, index)
+## Method is func(item, index) -> bool
 static func get_item_from_array(array: Array, method: Callable): 
 	for i in array.size(): 
 		var item = array[i]
@@ -66,6 +66,8 @@ static func get_item_from_array(array: Array, method: Callable):
 			continue
 		return item
 	return null
+	
+	
 #func _get_all_save_components(parent: Node) -> Array[FollowerSaveComponent]: 
 	#var save_components_in_node: Array[FollowerSaveComponent] = []
 	#for child: Node in parent.get_children(): 

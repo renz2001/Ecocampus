@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwomglc1im0b1"
-path="res://.godot/imported/convo.png-b97b649bb889e38cf624de960ebc09d5.ctex"
+uid="uid://b6s8up1g0ajmb"
+path="res://.godot/imported/speaker_sprite.png-03f4eeade40fd7922d1f587b6af0c56b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/character/player_girl/convo.png"
-dest_files=["res://.godot/imported/convo.png-b97b649bb889e38cf624de960ebc09d5.ctex"]
+source_file="res://assets/character/player_boy/speaker_sprite.png"
+dest_files=["res://.godot/imported/speaker_sprite.png-03f4eeade40fd7922d1f587b6af0c56b.ctex"]
 
 [params]
 

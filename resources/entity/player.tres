@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Entity" load_steps=2 format=3 uid="uid://bhl7afn8ti7bs"]
+
+[ext_resource type="Script" path="res://scripts/resources/entity.gd" id="1_4bjuv"]
+
+[resource]
+script = ExtResource("1_4bjuv")
+name = "Player"

@@ -20,6 +20,6 @@ female_alias = "PE"
 unlock_points_requirement = 0
 male_icon = SubResource("AtlasTexture_05py8")
 female_icon = SubResource("AtlasTexture_d8bha")
-unlocked = false
+state = 0
 male_sprite = ExtResource("2_qqv4h")
 female_sprite = ExtResource("1_uoosn")

@@ -20,6 +20,6 @@ female_alias = "Hoodie"
 unlock_points_requirement = 0
 male_icon = SubResource("AtlasTexture_g337x")
 female_icon = SubResource("AtlasTexture_twxgr")
-unlocked = false
+state = 0
 male_sprite = ExtResource("2_nwlei")
 female_sprite = ExtResource("1_h3s1x")

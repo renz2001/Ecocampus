@@ -6,12 +6,10 @@
 
 [node name="DialogueGUIManager" node_paths=PackedStringArray("current_dialogue_gui") instance=ExtResource("1_gr8rf")]
 current_dialogue_gui = NodePath("DialogueGUIs/ActingContainer/MarginContainer/DialogueBox")
-alias = ""
 
 [node name="ActingContainer" parent="DialogueGUIs" index="1" node_paths=PackedStringArray("real_control") instance=ExtResource("2_0kfrd")]
 layout_mode = 2
 real_control = NodePath("MarginContainer/DialogueBox")
-alias = ""
 
 [node name="MarginContainer" type="MarginContainer" parent="DialogueGUIs/ActingContainer" index="0"]
 layout_mode = 1
