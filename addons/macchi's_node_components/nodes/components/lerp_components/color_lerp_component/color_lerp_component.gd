@@ -5,9 +5,8 @@ class_name ColorLerpComponent
 @export var start_point: Color = Color.WHITE: 
 	set(value): 
 		start_point = value 
-		if !Engine.is_editor_hint(): 
-			if !is_node_ready(): 
-				await ready
+		if !is_node_ready(): 
+			await ready
 		_r_lerp.start_point = start_point.r
 		_g_lerp.start_point = start_point.g
 		_b_lerp.start_point = start_point.b
@@ -17,9 +16,8 @@ class_name ColorLerpComponent
 @export var end_point: Color = Color.WHITE: 
 	set(value): 
 		end_point = value 
-		if !Engine.is_editor_hint(): 
-			if !is_node_ready(): 
-				await ready
+		if !is_node_ready(): 
+			await ready
 		_r_lerp.end_point = end_point.r
 		_g_lerp.end_point = end_point.g
 		_b_lerp.end_point = end_point.b

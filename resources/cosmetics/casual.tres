@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Cosmetic" load_steps=6 format=3 uid="uid://b8gphggcrlhf0"]
+
+[ext_resource type="Script" path="res://scripts/resources/cosmetic.gd" id="1_3j40y"]
+[ext_resource type="Texture2D" uid="uid://vi51k65t8cdf" path="res://assets/character/player_girl/sets/girl_with_casual.png" id="1_a1og7"]
+[ext_resource type="Texture2D" uid="uid://bkmnpfvxnxwfm" path="res://assets/character/player_boy/sets/boy_with_casual.png" id="2_f3kkr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8kp3s"]
+atlas = ExtResource("1_a1og7")
+region = Rect2(375, 53, 145, 228)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dh7aj"]
+atlas = ExtResource("2_f3kkr")
+region = Rect2(381, 52, 140, 229)
+
+[resource]
+script = ExtResource("1_3j40y")
+name = "Casual"
+male_alias = "Casual"
+female_alias = "Casual"
+unlock_points_requirement = 0
+male_icon = SubResource("AtlasTexture_dh7aj")
+female_icon = SubResource("AtlasTexture_8kp3s")
+unlocked = false
+male_sprite = ExtResource("2_f3kkr")
+female_sprite = ExtResource("1_a1og7")

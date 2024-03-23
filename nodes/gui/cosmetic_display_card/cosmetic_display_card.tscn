@@ -1,20 +1,27 @@
-[gd_scene load_steps=4 format=3 uid="uid://cijbhqkas6yol"]
+[gd_scene load_steps=5 format=3 uid="uid://cijbhqkas6yol"]
 
 [ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/macchi's_gui_manager/nodes/gui/gui/gui.tscn" id="1_gd4lf"]
 [ext_resource type="Script" path="res://nodes/gui/cosmetic_display_card/cosmetic_display_card.gd" id="2_4ppon"]
 [ext_resource type="PackedScene" uid="uid://bk4jnfmvdr6ud" path="res://nodes/gui/buttons/button_plus/button_plus.tscn" id="3_f8fm6"]
 
-[node name="CosmeticDisplayCard" node_paths=PackedStringArray("state_view", "cosmetic_icon", "locked_button_state_view") instance=ExtResource("1_gd4lf")]
-custom_minimum_size = Vector2(363, 528)
-offset_right = 333.0
-offset_bottom = 486.0
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i356o"]
+
+[node name="CosmeticDisplayCard" node_paths=PackedStringArray("state_view", "cosmetic_icon", "locked_button_state_view", "panel_container") instance=ExtResource("1_gd4lf")]
+custom_minimum_size = Vector2(363, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("2_4ppon")
+gender = 1
 cosmetic = null
 state = 0
 state_view = NodePath("PanelContainer/MarginContainer/StateView")
-cosmetic_icon = NodePath("PanelContainer/MarginContainer/StateView/CenterContainer/CosmeticIcon")
-locked_button_state_view = NodePath("PanelContainer/MarginContainer/StateView/VBoxContainer/LockedButtonStateView")
-alias = ""
+cosmetic_icon = NodePath("PanelContainer/MarginContainer/StateView/CosmeticIcon")
+locked_button_state_view = NodePath("PanelContainer/MarginContainer/StateView/LockedState/LockedButtonStateView")
+panel_container = NodePath("PanelContainer")
+inactive_on_ready = false
 
 [node name="PanelContainer" type="PanelContainer" parent="." index="0"]
 layout_mode = 1
@@ -29,32 +36,30 @@ layout_mode = 2
 
 [node name="StateView" type="TabContainer" parent="PanelContainer/MarginContainer" index="0"]
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_i356o")
 tabs_visible = false
 
-[node name="CenterContainer" type="CenterContainer" parent="PanelContainer/MarginContainer/StateView" index="1"]
-layout_mode = 2
-
-[node name="CosmeticIcon" type="TextureRect" parent="PanelContainer/MarginContainer/StateView/CenterContainer" index="0"]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/StateView" index="2"]
-visible = false
+[node name="LockedState" type="VBoxContainer" parent="PanelContainer/MarginContainer/StateView" index="1"]
 layout_mode = 2
 alignment = 1
 
-[node name="CenterContainer" type="CenterContainer" parent="PanelContainer/MarginContainer/StateView/VBoxContainer" index="0"]
+[node name="LockSprite" type="TextureRect" parent="PanelContainer/MarginContainer/StateView/LockedState" index="0"]
 layout_mode = 2
+size_flags_vertical = 3
+stretch_mode = 3
 
-[node name="LockedSprite" type="TextureRect" parent="PanelContainer/MarginContainer/StateView/VBoxContainer/CenterContainer" index="0"]
-layout_mode = 2
-
-[node name="LockedButtonStateView" type="TabContainer" parent="PanelContainer/MarginContainer/StateView/VBoxContainer" index="1"]
+[node name="LockedButtonStateView" type="TabContainer" parent="PanelContainer/MarginContainer/StateView/LockedState" index="1"]
 layout_mode = 2
 tabs_visible = false
 
-[node name="LockedButton" parent="PanelContainer/MarginContainer/StateView/VBoxContainer/LockedButtonStateView" index="1" instance=ExtResource("3_f8fm6")]
+[node name="LockedButton" parent="PanelContainer/MarginContainer/StateView/LockedState/LockedButtonStateView" index="1" instance=ExtResource("3_f8fm6")]
 layout_mode = 2
 
-[node name="UnlockButton" parent="PanelContainer/MarginContainer/StateView/VBoxContainer/LockedButtonStateView" index="2" instance=ExtResource("3_f8fm6")]
+[node name="UnlockButton" parent="PanelContainer/MarginContainer/StateView/LockedState/LockedButtonStateView" index="2" instance=ExtResource("3_f8fm6")]
 visible = false
 layout_mode = 2
+
+[node name="CosmeticIcon" type="TextureRect" parent="PanelContainer/MarginContainer/StateView" index="2"]
+visible = false
+layout_mode = 2
+stretch_mode = 3

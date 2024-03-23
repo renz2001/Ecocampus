@@ -19,7 +19,7 @@ var score: int = 0:
 	get: 
 		var count: int = 0
 		for attempt: QuizProblemAttempt in problem_attempts: 
-			count += attempt.points
+			count += int(attempt.points)
 		return count
 
 var is_completed: bool = false: 
@@ -29,9 +29,9 @@ var is_completed: bool = false:
 			completed.emit()
 
 
-static func from_quiz(quiz: Quiz) -> QuizAttempt: 
+static func from_quiz(_quiz: Quiz) -> QuizAttempt: 
 	var attempt: QuizAttempt = QuizAttempt.new()
-	attempt.quiz = quiz
+	attempt.quiz = _quiz
 	return attempt
 
 

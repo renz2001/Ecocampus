@@ -26,7 +26,6 @@ func _process(_delta: float) -> void:
 	#var current_scene: Node = get_tree().current_scene
 	#load_screen.load_progress = load_progress
 	load_status = ResourceLoader.load_threaded_get_status(_next_scene_path, load_progress)
-	#printerr(load_status)
 	match load_status: 
 		ResourceLoader.ThreadLoadStatus.THREAD_LOAD_INVALID_RESOURCE: 
 			set_process(false)
@@ -64,7 +63,7 @@ func load_file(args: ChangeSceneArguments) -> void:
 	
 	ResourceLoader.load_threaded_request(_next_scene_path)
 	_print_color.out_debug_wvalue("Started loading scene", _next_scene_path)
-	set_process(true)
+	set_process.call_deferred(true)
 	load_started.emit()
 
 

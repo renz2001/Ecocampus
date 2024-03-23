@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bg70bh8vbivny"]
+
+[ext_resource type="Script" path="res://nodes/gui/cosmetics_display_card_container/cosmetics_display_card_container.gd" id="1_fksfh"]
+
+[node name="CosmeticsDisplayCardContainer" type="HBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_fksfh")

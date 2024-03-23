@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Cosmetic" load_steps=6 format=3 uid="uid://c3yel6kxa5u65"]
+
+[ext_resource type="Texture2D" uid="uid://dt5vcqrr8le7" path="res://assets/character/player_girl/cosmetics/girl_with_shoes.png" id="1_1mtlw"]
+[ext_resource type="Script" path="res://scripts/resources/cosmetic.gd" id="1_6uvo3"]
+[ext_resource type="Texture2D" uid="uid://ktucnn65myis" path="res://assets/character/player_boy/cosmetics/boy_with_shoes.png" id="2_20qxn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wt4bh"]
+atlas = ExtResource("1_1mtlw")
+region = Rect2(375, 53, 145, 228)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_srq2d"]
+atlas = ExtResource("2_20qxn")
+region = Rect2(381, 52, 140, 229)
+
+[resource]
+script = ExtResource("1_6uvo3")
+name = "Shoes"
+male_alias = "Shoes"
+female_alias = "Shoes"
+unlock_points_requirement = 0
+male_icon = SubResource("AtlasTexture_srq2d")
+female_icon = SubResource("AtlasTexture_wt4bh")
+unlocked = false
+male_sprite = ExtResource("2_20qxn")
+female_sprite = ExtResource("1_1mtlw")

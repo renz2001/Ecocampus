@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Cosmetic" load_steps=6 format=3 uid="uid://bsl12iewdec1x"]
+
+[ext_resource type="Script" path="res://scripts/resources/cosmetic.gd" id="1_fp3h8"]
+[ext_resource type="Texture2D" uid="uid://bc03nsd73q25g" path="res://assets/character/player_girl/sets/girl_with_pe.png" id="1_uoosn"]
+[ext_resource type="Texture2D" uid="uid://bbu5ojufysx1v" path="res://assets/character/player_boy/sets/boy_with_pe.png" id="2_qqv4h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d8bha"]
+atlas = ExtResource("1_uoosn")
+region = Rect2(375, 53, 145, 228)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_05py8"]
+atlas = ExtResource("2_qqv4h")
+region = Rect2(381, 52, 140, 229)
+
+[resource]
+script = ExtResource("1_fp3h8")
+name = "PE"
+male_alias = "PE"
+female_alias = "PE"
+unlock_points_requirement = 0
+male_icon = SubResource("AtlasTexture_05py8")
+female_icon = SubResource("AtlasTexture_d8bha")
+unlocked = false
+male_sprite = ExtResource("2_qqv4h")
+female_sprite = ExtResource("1_uoosn")

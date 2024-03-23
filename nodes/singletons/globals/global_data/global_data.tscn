@@ -12,5 +12,3 @@ quiz_tracker = NodePath("QuizTracker")
 [node name="AchievementsTracker" parent="." instance=ExtResource("2_qyjt6")]
 
 [node name="QuizTracker" parent="." instance=ExtResource("3_eohke")]
-
-[connection signal="player_instanced" from="." to="AchievementsTracker" method="_on_global_data_player_instanced"]

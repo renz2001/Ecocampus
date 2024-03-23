@@ -11,8 +11,8 @@ class_name QuizProblem
 
 
 func attempt() -> QuizProblemAttempt: 
-	var attempt: QuizProblemAttempt = QuizProblemAttempt.new(self)
-	return attempt
+	var _attempt: QuizProblemAttempt = QuizProblemAttempt.new(self)
+	return _attempt
 
 
 func get_answers() -> Array[String]: 

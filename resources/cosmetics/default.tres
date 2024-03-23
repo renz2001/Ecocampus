@@ -6,15 +6,17 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7o8h3"]
 atlas = ExtResource("1_6ppir")
-region = Rect2(176, 22, 145, 228)
+region = Rect2(375, 53, 145, 228)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8oaj7"]
 atlas = ExtResource("2_wyoyn")
-region = Rect2(176, 119, 140, 229)
+region = Rect2(381, 52, 140, 229)
 
 [resource]
 script = ExtResource("1_hue7k")
 name = "Default"
+male_alias = "Default"
+female_alias = "Default"
 unlock_points_requirement = 0
 male_icon = SubResource("AtlasTexture_8oaj7")
 female_icon = SubResource("AtlasTexture_7o8h3")

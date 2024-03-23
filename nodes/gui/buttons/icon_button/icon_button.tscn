@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d4mqjvr57ok1h"]
+
+[ext_resource type="PackedScene" uid="uid://ba6uieidm61wl" path="res://nodes/gui/buttons/texture_button_plus/texture_button_plus.tscn" id="1_b442p"]
+
+[node name="IconButton" instance=ExtResource("1_b442p")]
+custom_minimum_size = Vector2(140, 140)

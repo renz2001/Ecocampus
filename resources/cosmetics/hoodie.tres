@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Cosmetic" load_steps=6 format=3 uid="uid://b1mpyn8ftntnv"]
+
+[ext_resource type="Script" path="res://scripts/resources/cosmetic.gd" id="1_2i4vr"]
+[ext_resource type="Texture2D" uid="uid://bx3ydfaf5csyj" path="res://assets/character/player_girl/sets/girl_with_hoodie.png" id="1_h3s1x"]
+[ext_resource type="Texture2D" uid="uid://df4y8ojr76srm" path="res://assets/character/player_boy/sets/boy_with_hoodie.png" id="2_nwlei"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_twxgr"]
+atlas = ExtResource("1_h3s1x")
+region = Rect2(375, 53, 145, 228)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g337x"]
+atlas = ExtResource("2_nwlei")
+region = Rect2(381, 52, 140, 229)
+
+[resource]
+script = ExtResource("1_2i4vr")
+name = "Hoodie"
+male_alias = "Hoodie"
+female_alias = "Hoodie"
+unlock_points_requirement = 0
+male_icon = SubResource("AtlasTexture_g337x")
+female_icon = SubResource("AtlasTexture_twxgr")
+unlocked = false
+male_sprite = ExtResource("2_nwlei")
+female_sprite = ExtResource("1_h3s1x")

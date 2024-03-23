@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0weuebbijrov"]
+
+[ext_resource type="Script" path="res://nodes/singletons/globals/global_shortcuts/global_shortcuts.gd" id="1_8a8g5"]
+
+[node name="GlobalShortcuts" type="Node"]
+script = ExtResource("1_8a8g5")

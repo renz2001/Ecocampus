@@ -1,6 +1,8 @@
-[gd_resource type="Theme" load_steps=4 format=3 uid="uid://cd55r8awc3jgy"]
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://cd55r8awc3jgy"]
 
 [ext_resource type="FontFile" uid="uid://bcrqct413atql" path="res://fonts/Goldman-Regular.ttf" id="1_r7cxn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tfy7q"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gd5xk"]
 bg_color = Color(0, 0, 0, 0.384314)
@@ -24,11 +26,11 @@ corner_radius_bottom_left = 40
 [resource]
 default_font = ExtResource("1_r7cxn")
 default_font_size = 50
+InvisiblePanel/base_type = &"PanelContainer"
+InvisiblePanel/styles/panel = SubResource("StyleBoxEmpty_tfy7q")
 MarginContainer/constants/margin_bottom = 20
 MarginContainer/constants/margin_left = 20
 MarginContainer/constants/margin_right = 20
 MarginContainer/constants/margin_top = 20
-QuizAttemptPanel/base_type = &"Panel"
 QuizAttemptPanel/styles/panel = SubResource("StyleBoxFlat_gd5xk")
-RoundedPanel/base_type = &"Panel"
 RoundedPanel/styles/panel = SubResource("StyleBoxFlat_p30aw")

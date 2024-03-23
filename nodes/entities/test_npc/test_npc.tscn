@@ -1,12 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://b0uhkknx5mqy0"]
+[gd_scene load_steps=6 format=3 uid="uid://b0uhkknx5mqy0"]
 
 [ext_resource type="PackedScene" uid="uid://b6naf25j7vwf2" path="res://nodes/abstract_scenes/npc_node/npc_node.tscn" id="1_t3km3"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/animation_player_state.gd" id="2_85lky"]
-[ext_resource type="Texture2D" uid="uid://b1rknuqtdxotq" path="res://assets/character/player_boy/boy.png" id="2_d3kna"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_82sde"]
-atlas = ExtResource("2_d3kna")
-region = Rect2(176, 119, 140, 229)
+[ext_resource type="Texture2D" uid="uid://dqshq874l3ic5" path="res://assets/character/player_boy/boy.png" id="2_d3kna"]
 
 [sub_resource type="Animation" id="Animation_w6dbb"]
 resource_name = "idle_right"
@@ -46,7 +42,9 @@ position = Vector2(0, -9)
 
 [node name="Sprite2D" type="Sprite2D" parent="Sprites" index="1"]
 position = Vector2(6, -122)
-texture = SubResource("AtlasTexture_82sde")
+texture = ExtResource("2_d3kna")
+hframes = 6
+frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="7"]
 libraries = {

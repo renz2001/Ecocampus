@@ -4,10 +4,12 @@ class_name PlayerNode
 @export var gender: GlobalEnums.Gender
 @export var move_to_tap: MoveToTapPathFindMovement
 @export var mouse_position: MousePositionComponent
+@export var cosmetic_equipper_component: CosmeticEquipperComponent
+
 
 func _ready() -> void: 
-	GlobalData.player_instanced.emit(self)
-	
+	PlayerManager.player_instanced.emit()
+
 
 func _on_idle_state_entered() -> void:
 	path_find.stop()

@@ -34,5 +34,5 @@ func show_interact_dialog(description: String) -> void:
 			)\
 			.set_gui_position(get_global_mouse_position())\
 			.set_on_button_pressed(_interact)\
-			.set_description(interact_description)
+			.set_description(description)
 	)

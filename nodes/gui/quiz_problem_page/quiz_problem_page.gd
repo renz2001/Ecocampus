@@ -40,10 +40,10 @@ var problem_attempt: QuizProblemAttempt:
 		answer_d.label.text = p_answers[3]
 
 
-static func create(parent: Control, problem_attempt: QuizProblemAttempt) -> QuizProblemPage: 
+static func create(parent: Control, _problem_attempt: QuizProblemAttempt) -> QuizProblemPage: 
 	var gui: QuizProblemPage = GUICollection.quiz_problem_page.instantiate()
 	parent.add_child(gui)
-	gui.problem_attempt = problem_attempt
+	gui.problem_attempt = _problem_attempt
 	#gui.page_router.page_router_container = parent
 	return gui
 

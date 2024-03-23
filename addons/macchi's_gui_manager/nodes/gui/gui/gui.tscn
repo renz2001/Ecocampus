@@ -9,4 +9,3 @@ anchors_preset = 0
 mouse_filter = 2
 theme = ExtResource("1_xdomf")
 script = ExtResource("1_gxwfc")
-alias = 0

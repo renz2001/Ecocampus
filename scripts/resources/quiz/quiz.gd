@@ -22,7 +22,7 @@ var passing_score: float:
 		return maximum_score * passing_score_percentage
 
 func attempt() -> QuizAttempt: 
-	var attempt: QuizAttempt = QuizAttempt.from_quiz(self)
-	return attempt
+	var _attempt: QuizAttempt = QuizAttempt.from_quiz(self)
+	return _attempt
 	
 	

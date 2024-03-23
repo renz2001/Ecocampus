@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Cosmetic" load_steps=6 format=3 uid="uid://l48abjddbjww"]
+
+[ext_resource type="Texture2D" uid="uid://bt5pej0ieq1ij" path="res://assets/character/player_girl/sets/girl_with_suit.png" id="1_li7kk"]
+[ext_resource type="Script" path="res://scripts/resources/cosmetic.gd" id="1_tiq5o"]
+[ext_resource type="Texture2D" uid="uid://bbugcjteorh2i" path="res://assets/character/player_boy/sets/boy_with_suit.png" id="2_47yvi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1bfrw"]
+atlas = ExtResource("1_li7kk")
+region = Rect2(375, 53, 145, 228)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_afkti"]
+atlas = ExtResource("2_47yvi")
+region = Rect2(377, 52, 144, 229)
+
+[resource]
+script = ExtResource("1_tiq5o")
+name = "Suit"
+male_alias = "Suit"
+female_alias = "Suit"
+unlock_points_requirement = 0
+male_icon = SubResource("AtlasTexture_afkti")
+female_icon = SubResource("AtlasTexture_1bfrw")
+unlocked = false
+male_sprite = ExtResource("2_47yvi")
+female_sprite = ExtResource("1_li7kk")

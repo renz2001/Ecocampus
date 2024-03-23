@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Cosmetic" load_steps=6 format=3 uid="uid://b8mfqmu5uee3a"]
+
+[ext_resource type="Script" path="res://scripts/resources/cosmetic.gd" id="1_antla"]
+[ext_resource type="Texture2D" uid="uid://bc5ghiqnqla8w" path="res://assets/character/player_girl/cosmetics/girl_with_crown.png" id="1_hjfoa"]
+[ext_resource type="Texture2D" uid="uid://c0dusgl71r1q3" path="res://assets/character/player_boy/cosmetics/boy_with_crown.png" id="2_385dh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p4tag"]
+atlas = ExtResource("1_hjfoa")
+region = Rect2(375, 49, 145, 232)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o0fev"]
+atlas = ExtResource("2_385dh")
+region = Rect2(381, 45, 140, 236)
+
+[resource]
+script = ExtResource("1_antla")
+name = "Crown"
+male_alias = "Crown"
+female_alias = "Crown"
+unlock_points_requirement = 0
+male_icon = SubResource("AtlasTexture_o0fev")
+female_icon = SubResource("AtlasTexture_p4tag")
+unlocked = false
+male_sprite = ExtResource("2_385dh")
+female_sprite = ExtResource("1_hjfoa")

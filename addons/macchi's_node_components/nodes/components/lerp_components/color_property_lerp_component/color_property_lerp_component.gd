@@ -1,6 +1,6 @@
 @tool
 extends ColorLerpComponent
-class_name ColorPropertyComponent
+class_name ColorPropertyLerpComponent
 
 @export var reset_node_when_finished: bool
 @export var node: Node

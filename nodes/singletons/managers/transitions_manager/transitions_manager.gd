@@ -18,7 +18,7 @@ var transitioning: bool
 
 func prepare_transition(transition: GUITransition) -> void: 
 	if transition == null: 
-		push_error("TransitionsMAnager: Cannot prepare transition if it is null. ")
+		#push_error("TransitionsMAnager: Cannot prepare transition if it is null. ")
 		return
 		
 	if transition.start_transition != null: 

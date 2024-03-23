@@ -1,18 +1,22 @@
-[gd_scene load_steps=7 format=3 uid="uid://bqny6jbecen3l"]
+[gd_scene load_steps=9 format=3 uid="uid://bqny6jbecen3l"]
 
 [ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/macchi's_gui_manager/nodes/gui/gui/gui.tscn" id="1_cwby0"]
 [ext_resource type="Script" path="res://nodes/gui/cosmetic_select_card/cosmetic_select_card.gd" id="2_gjsv2"]
 [ext_resource type="PackedScene" uid="uid://dpfy7ia3raujh" path="res://nodes/gui/scroll_snap_container/scroll_snap_container.tscn" id="3_j2gae"]
+[ext_resource type="Resource" uid="uid://ohh3qdnbacsf" path="res://resources/cosmetics_collection/cosmetics_collection.tres" id="3_w1swy"]
+[ext_resource type="PackedScene" uid="uid://bg70bh8vbivny" path="res://nodes/gui/cosmetics_display_card_container/cosmetics_display_card_container.tscn" id="4_v5q5i"]
 [ext_resource type="PackedScene" uid="uid://ba6uieidm61wl" path="res://nodes/gui/buttons/texture_button_plus/texture_button_plus.tscn" id="4_wqdmp"]
-[ext_resource type="Texture2D" uid="uid://yceeyoohpd0b" path="res://assets/buttons/play_arrow.svg" id="5_3gha7"]
+[ext_resource type="Texture2D" uid="uid://br2a12xqh0v10" path="res://assets/material_icons/play_arrow.png" id="6_a1me2"]
 [ext_resource type="PackedScene" uid="uid://b2fqifa3ihc1f" path="res://nodes/gui_components/scroll_snap_controller/scroll_snap_controller.tscn" id="6_yaduu"]
 
-[node name="CosmeticSelectCard" node_paths=PackedStringArray("player_gender_label") instance=ExtResource("1_cwby0")]
+[node name="CosmeticSelectCard" node_paths=PackedStringArray("player_gender_label", "scroll_snap_container", "cosmetics_display_container") instance=ExtResource("1_cwby0")]
 custom_minimum_size = Vector2(363, 528)
 script = ExtResource("2_gjsv2")
-cosmetics = Array[Resource("res://scripts/resources/cosmetic.gd")]([])
+cosmetics_collection = ExtResource("3_w1swy")
 player_gender_label = NodePath("PanelContainer/MarginContainer/Select/PlayerGender")
-alias = ""
+scroll_snap_container = NodePath("PanelContainer/MarginContainer/Select/ScrollSnapContainer")
+cosmetics_display_container = NodePath("PanelContainer/MarginContainer/Select/ScrollSnapContainer/CosmeticsDisplayCardContainer")
+inactive_on_ready = false
 
 [node name="PanelContainer" type="PanelContainer" parent="." index="0"]
 layout_mode = 1
@@ -40,8 +44,13 @@ layout_mode = 2
 offset_right = 323.0
 offset_bottom = 488.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/Select/ScrollSnapContainer" index="2"]
+[node name="CosmeticsDisplayCardContainer" parent="PanelContainer/MarginContainer/Select/ScrollSnapContainer" index="2" instance=ExtResource("4_v5q5i")]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+cosmetics_collection = ExtResource("3_w1swy")
+override_cosmetic_state = 3
+card_theme_type_variation = "InvisiblePanel"
 
 [node name="ArrowButtons" type="HBoxContainer" parent="PanelContainer/MarginContainer/Select" index="2"]
 layout_mode = 1
@@ -56,7 +65,7 @@ alignment = 1
 [node name="Back" parent="PanelContainer/MarginContainer/Select/ArrowButtons" index="0" instance=ExtResource("4_wqdmp")]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
-texture_normal = ExtResource("5_3gha7")
+texture_normal = ExtResource("6_a1me2")
 flip_h = true
 
 [node name="SnapScrollController" parent="PanelContainer/MarginContainer/Select/ArrowButtons/Back" index="2" node_paths=PackedStringArray("scroll_snap_container", "control") instance=ExtResource("6_yaduu")]
@@ -71,7 +80,7 @@ size_flags_horizontal = 3
 [node name="Next" parent="PanelContainer/MarginContainer/Select/ArrowButtons" index="2" instance=ExtResource("4_wqdmp")]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-texture_normal = ExtResource("5_3gha7")
+texture_normal = ExtResource("6_a1me2")
 
 [node name="SnapScrollController" parent="PanelContainer/MarginContainer/Select/ArrowButtons/Next" index="2" node_paths=PackedStringArray("scroll_snap_container", "control") instance=ExtResource("6_yaduu")]
 scroll_snap_container = NodePath("../../../ScrollSnapContainer")

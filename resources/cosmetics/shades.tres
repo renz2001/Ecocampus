@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Cosmetic" load_steps=6 format=3 uid="uid://dn3wv7d2ipslp"]
+
+[ext_resource type="Texture2D" uid="uid://cu8y1gbec7vki" path="res://assets/character/player_girl/cosmetics/girl_with_shades.png" id="1_cpq1h"]
+[ext_resource type="Script" path="res://scripts/resources/cosmetic.gd" id="1_u4mmd"]
+[ext_resource type="Texture2D" uid="uid://y0r0k3err2bu" path="res://assets/character/player_boy/cosmetics/boy_with_shades.png" id="2_0he4l"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b6qvv"]
+atlas = ExtResource("1_cpq1h")
+region = Rect2(375, 53, 145, 228)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u7fjy"]
+atlas = ExtResource("2_0he4l")
+region = Rect2(377, 52, 144, 229)
+
+[resource]
+script = ExtResource("1_u4mmd")
+name = "Shades"
+male_alias = "Shades"
+female_alias = "Shades"
+unlock_points_requirement = 0
+male_icon = SubResource("AtlasTexture_u7fjy")
+female_icon = SubResource("AtlasTexture_b6qvv")
+unlocked = false
+male_sprite = ExtResource("2_0he4l")
+female_sprite = ExtResource("1_cpq1h")

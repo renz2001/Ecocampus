@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1j5hhbaa24a8"]
+
+[ext_resource type="PackedScene" uid="uid://d4mqjvr57ok1h" path="res://nodes/gui/buttons/icon_button/icon_button.tscn" id="1_gx3qy"]
+
+[node name="AudioMuteButton" instance=ExtResource("1_gx3qy")]

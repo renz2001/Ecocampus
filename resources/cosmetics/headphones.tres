@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Cosmetic" load_steps=6 format=3 uid="uid://4bupuv1joo2s"]
+
+[ext_resource type="Script" path="res://scripts/resources/cosmetic.gd" id="1_antla"]
+[ext_resource type="Texture2D" uid="uid://baudkiqyh87fe" path="res://assets/character/player_girl/cosmetics/girl_with_headphones.png" id="1_qrxnw"]
+[ext_resource type="Texture2D" uid="uid://b2qkt4ynp56sw" path="res://assets/character/player_boy/cosmetics/boy_with_headphones.png" id="2_5a4ip"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_norjh"]
+atlas = ExtResource("1_qrxnw")
+region = Rect2(375, 53, 145, 228)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gx41s"]
+atlas = ExtResource("2_5a4ip")
+region = Rect2(381, 52, 140, 229)
+
+[resource]
+script = ExtResource("1_antla")
+name = "Headphones"
+male_alias = "Headphones"
+female_alias = "Headphones"
+unlock_points_requirement = 0
+male_icon = SubResource("AtlasTexture_gx41s")
+female_icon = SubResource("AtlasTexture_norjh")
+unlocked = false
+male_sprite = ExtResource("2_5a4ip")
+female_sprite = ExtResource("1_qrxnw")

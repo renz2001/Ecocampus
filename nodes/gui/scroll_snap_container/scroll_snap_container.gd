@@ -3,6 +3,8 @@
 extends ScrollContainer
 class_name ScrollSnapContainer
 
+signal finished_snap
+
 enum ScrollDirection {
 	HORIZONTAL, 
 	VERTICAL
@@ -16,7 +18,7 @@ enum ScrollDirection {
 
 @export var current_snap_index: int: 
 	set(value): 
-		current_snap_index = clamp(value, 0, get_scroll_children_size())
+		current_snap_index = clamp(value, 0, get_scroll_children_size() - 1)
 		if !is_node_ready(): 
 			await ready
 			
@@ -41,9 +43,22 @@ enum ScrollDirection {
 		scroll_horizontal_lerp.interpolation = interpolation
 		scroll_vertical_lerp.interpolation = interpolation
 
-
+@export_group("Dependencies")
 @export var scroll_horizontal_lerp: FloatPropertyLerpComponent
 @export var scroll_vertical_lerp: FloatPropertyLerpComponent
+
+
+func _ready() -> void: 
+	scroll_horizontal_lerp.finished.connect(_on_scroll_lerp_finished)
+	scroll_vertical_lerp.finished.connect(_on_scroll_lerp_finished)
+
+
+#func update() -> void: 
+	#pass
+	#
+
+func _on_scroll_lerp_finished() -> void: 
+	finished_snap.emit()
 
 
 func next() -> void: 

@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjcvqp7t237wt"]
+
+[ext_resource type="PackedScene" uid="uid://d4mqjvr57ok1h" path="res://nodes/gui/buttons/icon_button/icon_button.tscn" id="1_ijr7j"]
+[ext_resource type="Texture2D" uid="uid://dlxpdm6x44ylg" path="res://assets/buttons/setting_icon_button.png" id="2_lxa3n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bv56d"]
+atlas = ExtResource("2_lxa3n")
+region = Rect2(13, 50, 238, 247)
+
+[node name="SettingsButton" instance=ExtResource("1_ijr7j")]
+texture_normal = SubResource("AtlasTexture_bv56d")

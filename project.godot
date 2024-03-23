@@ -11,14 +11,13 @@ config_version=5
 [application]
 
 config/name="Ecocampus-freelance-"
-run/main_scene="res://nodes/gui/main_menu/main_menu.tscn"
+run/main_scene="res://app.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
 SaveManager="*res://addons/save_components_system/singletons/save_manager/save_manager.tscn"
-DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 WorldEventManager="*res://addons/world_event_manager/nodes/singletons/world_event_manager/world_event_manager.tscn"
 QuestSystem="*res://addons/quest_system/quest_manager.gd"
 GUIManager="*res://nodes/singletons/managers/gui_manager/gui_manager.tscn"
@@ -29,6 +28,9 @@ GroupNodeFetcher="*res://nodes/singletons/globals/group_node_fetcher/group_node_
 GameManager="*res://nodes/singletons/managers/game_manager/game_manager.tscn"
 SceneLoader="*res://nodes/singletons/loaders/scene_loader/scene_loader.tscn"
 GlobalData="*res://nodes/singletons/globals/global_data/global_data.tscn"
+PlayerManager="*res://nodes/singletons/managers/player_manager/player_manager.tscn"
+GlobalShortcuts="*res://nodes/singletons/globals/global_shortcuts/global_shortcuts.tscn"
+DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 
 [display]
 
@@ -55,6 +57,11 @@ folder_colors={
 tap={
 "deadzone": 0.5,
 "events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(187, 15),"global_position":Vector2(191, 56),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
+]
+}
+open_customize_character_screen={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194332,"key_label":0,"unicode":0,"echo":false,"script":null)
 ]
 }
 

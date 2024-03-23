@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5jgq22w5veia"]
+
+[ext_resource type="Script" path="res://nodes/singletons/managers/player_manager/player_manager.gd" id="1_lilca"]
+
+[node name="PlayerManager" type="Node"]
+script = ExtResource("1_lilca")

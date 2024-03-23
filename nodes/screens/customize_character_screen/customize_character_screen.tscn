@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://ctmxelmponiux"]
+
+[ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/macchi's_gui_manager/nodes/gui/gui/gui.tscn" id="1_xtv8e"]
+[ext_resource type="Script" path="res://nodes/screens/customize_character_screen/customize_character_screen.gd" id="2_o27bf"]
+[ext_resource type="PackedScene" uid="uid://bqny6jbecen3l" path="res://nodes/gui/cosmetic_select_card/cosmetic_select_card.tscn" id="3_efnlc"]
+[ext_resource type="Resource" uid="uid://ohh3qdnbacsf" path="res://resources/cosmetics_collection/cosmetics_collection.tres" id="3_v3djt"]
+[ext_resource type="PackedScene" uid="uid://bg70bh8vbivny" path="res://nodes/gui/cosmetics_display_card_container/cosmetics_display_card_container.tscn" id="4_0d1ie"]
+
+[node name="CustomizeCharacterScreen" node_paths=PackedStringArray("cosmetic_select_card", "cosmetic_display_card_container") instance=ExtResource("1_xtv8e")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_o27bf")
+cosmetics_collection = ExtResource("3_v3djt")
+cosmetic_select_card = NodePath("CenterContainer/HBoxContainer/CosmeticSelectCard")
+cosmetic_display_card_container = NodePath("CenterContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer")
+
+[node name="CenterContainer" type="CenterContainer" parent="." index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer" index="0"]
+custom_minimum_size = Vector2(1720, 528)
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="CosmeticSelectCard" parent="CenterContainer/HBoxContainer" index="0" instance=ExtResource("3_efnlc")]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CenterContainer/HBoxContainer" index="1"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CosmeticsDisplayCardContainer" parent="CenterContainer/HBoxContainer/ScrollContainer" index="0" instance=ExtResource("4_0d1ie")]
+layout_mode = 2
+size_flags_vertical = 3
+cosmetics_collection = ExtResource("3_v3djt")

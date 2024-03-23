@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvgmotvsixufi"]
+
+[ext_resource type="Script" path="res://app.gd" id="1_bk2hn"]
+[ext_resource type="PackedScene" uid="uid://nnpxfb02bn17" path="res://nodes/components/change_scene_component/change_scene_component.tscn" id="2_i1vnj"]
+
+[node name="App" type="Node" node_paths=PackedStringArray("main_scene")]
+script = ExtResource("1_bk2hn")
+main_scene = NodePath("MainScene")
+
+[node name="MainScene" parent="." instance=ExtResource("2_i1vnj")]
+to_scene = "res://nodes/gui/main_menu/main_menu.tscn"
+transition = null

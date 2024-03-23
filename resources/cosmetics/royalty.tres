@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Cosmetic" load_steps=6 format=3 uid="uid://do37so0kbmn3r"]
+
+[ext_resource type="Script" path="res://scripts/resources/cosmetic.gd" id="1_rfcgt"]
+[ext_resource type="Texture2D" uid="uid://cr6vae65mtj25" path="res://assets/character/player_girl/sets/girl_as_queen.png" id="1_vyspo"]
+[ext_resource type="Texture2D" uid="uid://cht5skdtape5d" path="res://assets/character/player_boy/sets/boy_as_king.png" id="2_sc2fe"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2c1uq"]
+atlas = ExtResource("1_vyspo")
+region = Rect2(375, 49, 145, 232)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ag6op"]
+atlas = ExtResource("2_sc2fe")
+region = Rect2(381, 45, 140, 236)
+
+[resource]
+script = ExtResource("1_rfcgt")
+name = "Royalty"
+male_alias = "King"
+female_alias = "Queen"
+unlock_points_requirement = 0
+male_icon = SubResource("AtlasTexture_ag6op")
+female_icon = SubResource("AtlasTexture_2c1uq")
+unlocked = false
+male_sprite = ExtResource("2_sc2fe")
+female_sprite = ExtResource("1_vyspo")

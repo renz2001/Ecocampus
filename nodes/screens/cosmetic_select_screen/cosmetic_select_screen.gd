@@ -1,2 +1,0 @@
-extends GUI
-class_name CustomizeCharacterScreen 
