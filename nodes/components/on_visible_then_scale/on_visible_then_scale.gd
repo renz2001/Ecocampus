@@ -37,7 +37,7 @@ func _on_visible() -> void:
 		await node.ready
 	if node.visible: 
 		play()
-		
+	
 	
 func play() -> void: 
 	percentage = 0

@@ -13,6 +13,9 @@ enum DialogueGUIAlias {
 @export var character_label: RichTextLabel
 @export var responses_menu: DialogueResponsesMenu
 @export var dialogue_label: DialogueLabel
+
+@export var speaker_sprites_switcher: SpeakerSpritesSwitcher
+
 @export var dialogue_text_preset: String = "%s"
 @export var hide_character_text: bool
 @export var character_text_preset: String = "%s"
@@ -60,6 +63,14 @@ var dialogue_line: DialogueLine:
 		is_waiting_for_input = false
 		dialogue_line = next_dialogue_line
 		speed_up_line(dialogue_line, text_speed_multiplier)
+		
+		## Sets the speaker icon. 
+		if speaker_sprites_switcher.is_main_speaker(dialogue_line.character): 
+			speaker_sprites_switcher.speaker = SpeakerSpritesSwitcher.Speaker.MAIN
+		else: 
+			speaker_sprites_switcher.speaker = SpeakerSpritesSwitcher.Speaker.SECONDARY
+		speaker_sprites_switcher.set_current_speaker_rect_texture(speaker_sprites_switcher.get_speaker_sprite(dialogue_line.character))
+		
 		next_dialogue_line.text = dialogue_text_preset % next_dialogue_line.text
 		#speed_up_line(dialogue_line, GUIManager.dialogue_gui_manager.text_speed_multiplier)
 		if character_label != null: 
@@ -117,6 +128,10 @@ func start(arguments: DialogueArguments, title_variation_counter: PointCounterCo
 	#var is_dialogue_game_state: bool = arguments.is_dialogue_game_state
 	
 	var plus_game_states: Array = [self] + extra_game_states
+	
+	## Speaker Sprites
+	speaker_sprites_switcher.main_speakers = arguments.main_speakers
+	
 	is_waiting_for_input = false
 	resource = dialogue_resource
 	# My implementation of title variety

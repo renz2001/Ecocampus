@@ -4,7 +4,8 @@ class_name DialogueArguments
 
 @export var dialogue_gui: DialogueGUI.DialogueGUIAlias
 @export var dialogue_resource: DialogueResource
-@export var title: String:
+@export var main_speakers: Array[Entity]
+@export var title: String: 
 	get: 
 		return title.to_snake_case()
 @export var extra_game_states: Array = []
@@ -14,6 +15,11 @@ class_name DialogueArguments
 @export var reset_when_title_variation_reached: bool = false
 
 @export var is_dialogue_game_state: bool = true 
+
+
+func set_main_speaker(value: Array[Entity]) -> DialogueArguments:
+	main_speakers = value
+	return self
 
 
 func set_dialogue_resource(value: DialogueResource) -> DialogueArguments:

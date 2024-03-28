@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://visuur1utug0"]
+
+[ext_resource type="Shader" path="res://resources/shaders/gaussian_blur.gdshader" id="1_3txw8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8broe"]
+shader = ExtResource("1_3txw8")
+shader_parameter/exclude_center = null
+shader_parameter/exclude_size = null
+shader_parameter/lod = 1.0
+
+[node name="GaussianBlur" type="ColorRect"]
+material = SubResource("ShaderMaterial_8broe")
+offset_right = 40.0
+offset_bottom = 40.0

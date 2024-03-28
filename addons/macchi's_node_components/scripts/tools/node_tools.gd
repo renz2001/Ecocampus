@@ -61,10 +61,8 @@ static func move_collisions(from: Node, to: Node, duplicate_collisions: bool = f
 static func get_item_from_array(array: Array, method: Callable): 
 	for i in array.size(): 
 		var item = array[i]
-		var method_return: bool = method.call(item, i)
-		if method_return: 
-			continue
-		return item
+		if method.call(item, i): 
+			return item
 	return null
 	
 	

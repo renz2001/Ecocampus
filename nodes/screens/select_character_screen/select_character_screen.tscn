@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://bow7b4s8p5vv7"]
+
+[ext_resource type="PackedScene" uid="uid://3miay8g4x6j3" path="res://nodes/abstract_scenes/main_screen/main_screen.tscn" id="1_fk4m0"]
+[ext_resource type="PackedScene" uid="uid://b6uuamc65bqup" path="res://nodes/gui/select_character_display/select_character_display.tscn" id="2_f7u8v"]
+
+[node name="SelectCharacterScreen" instance=ExtResource("1_fk4m0")]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Root" index="1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SelectCharacterDisplay" parent="Root/HBoxContainer" index="0" instance=ExtResource("2_f7u8v")]
+layout_mode = 2
+
+[node name="Control2" type="CenterContainer" parent="Root/HBoxContainer" index="1"]
+layout_mode = 2
+size_flags_horizontal = 3

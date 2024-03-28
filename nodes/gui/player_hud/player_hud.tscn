@@ -13,7 +13,6 @@ grow_vertical = 2
 script = ExtResource("2_3hk1a")
 inventory_gui = NodePath("MarginContainer/Control/InventoryGUI")
 inactive_on_ready = false
-alias = ""
 
 [node name="MarginContainer" type="MarginContainer" parent="." index="0"]
 layout_mode = 1
@@ -30,6 +29,7 @@ theme_override_constants/margin_bottom = 30
 
 [node name="Control" type="Control" parent="MarginContainer" index="0"]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="InventoryGUI" parent="MarginContainer/Control" index="0" instance=ExtResource("2_j6f2o")]
 layout_mode = 1

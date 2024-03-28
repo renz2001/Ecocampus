@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://n1ca0tqy8k26"]
+[gd_scene load_steps=7 format=3 uid="uid://n1ca0tqy8k26"]
 
 [ext_resource type="PackedScene" uid="uid://blkclu0ewbpa" path="res://addons/dialogue_manager's_dialogue_gui_manager/nodes/singletons/managers/base_dialogue_gui_manager/base_dialogue_gui_manager.tscn" id="1_gr8rf"]
 [ext_resource type="PackedScene" uid="uid://drqljvmqpitaj" path="res://addons/macchi's_gui_manager/nodes/gui/acting_container/acting_container.tscn" id="2_0kfrd"]
 [ext_resource type="PackedScene" uid="uid://blx1a7x2yt18" path="res://nodes/gui/dialogue_guis/dialogue_box/dialogue_box.tscn" id="2_n6fh7"]
+[ext_resource type="PackedScene" uid="uid://visuur1utug0" path="res://nodes/gui/gaussian_blur/gaussian_blur.tscn" id="4_5jmys"]
+[ext_resource type="PackedScene" uid="uid://bn7xar08yeuer" path="res://nodes/gui/invisible_button/invisible_button.tscn" id="4_kny8a"]
+[ext_resource type="PackedScene" uid="uid://dk3kni1sc6j0n" path="res://nodes/gui_components/on_pressed_components/on_pressed_set_active/on_pressed_set_active.tscn" id="4_ytjhj"]
 
 [node name="DialogueGUIManager" node_paths=PackedStringArray("current_dialogue_gui") instance=ExtResource("1_gr8rf")]
 current_dialogue_gui = NodePath("DialogueGUIs/ActingContainer/MarginContainer/DialogueBox")
@@ -11,7 +14,18 @@ current_dialogue_gui = NodePath("DialogueGUIs/ActingContainer/MarginContainer/Di
 layout_mode = 2
 real_control = NodePath("MarginContainer/DialogueBox")
 
-[node name="MarginContainer" type="MarginContainer" parent="DialogueGUIs/ActingContainer" index="0"]
+[node name="GaussianBlur" parent="DialogueGUIs/ActingContainer" index="0" instance=ExtResource("4_5jmys")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueGUIs/ActingContainer" index="1"]
+custom_minimum_size = Vector2(0, 360)
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -20,21 +34,25 @@ anchor_bottom = 1.0
 offset_top = -180.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_constants/margin_left = 100
+theme_override_constants/margin_left = 200
 theme_override_constants/margin_top = 100
-theme_override_constants/margin_right = 100
-theme_override_constants/margin_bottom = 100
+theme_override_constants/margin_right = 200
+theme_override_constants/margin_bottom = 50
 
 [node name="DialogueBox" parent="DialogueGUIs/ActingContainer/MarginContainer" index="0" node_paths=PackedStringArray("acting_container") instance=ExtResource("2_n6fh7")]
 layout_mode = 2
-size_flags_horizontal = 1
-size_flags_vertical = 1
-dialogue_text_preset = "%s"
-hide_character_text = false
-character_text_preset = "%s"
-fast_forward_speed = 2.0
-inactive_on_ready = true
-active = true
-alias = ""
-disabled = false
 acting_container = NodePath("../..")
+
+[node name="InvisibleButton" parent="DialogueGUIs/ActingContainer" index="2" instance=ExtResource("4_kny8a")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="OnPressedSetActive" parent="DialogueGUIs/ActingContainer/InvisibleButton" index="0" node_paths=PackedStringArray("target", "control") instance=ExtResource("4_ytjhj")]
+target = NodePath("../../../..")
+control = NodePath("..")

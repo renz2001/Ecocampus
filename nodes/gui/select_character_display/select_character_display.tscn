@@ -1,0 +1,55 @@
+[gd_scene load_steps=9 format=3 uid="uid://b6uuamc65bqup"]
+
+[ext_resource type="Texture2D" uid="uid://cn233vrb5i466" path="res://assets/character/player_girl/girl.png" id="1_3o5pj"]
+[ext_resource type="Theme" uid="uid://cd55r8awc3jgy" path="res://themes/main_theme.tres" id="1_n7hw7"]
+[ext_resource type="Script" path="res://nodes/gui/select_character_display/select_character_display.gd" id="1_wybeh"]
+[ext_resource type="Texture2D" uid="uid://dqshq874l3ic5" path="res://assets/character/player_boy/boy.png" id="3_io1tm"]
+[ext_resource type="PackedScene" uid="uid://id2l84q3tpk0" path="res://nodes/gui_components/on_control_tapped/on_control_tapped.tscn" id="4_4nsny"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6mofy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0sor3"]
+atlas = ExtResource("3_io1tm")
+region = Rect2(375, 53, 145, 228)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mcx0f"]
+atlas = ExtResource("1_3o5pj")
+region = Rect2(375, 53, 145, 228)
+
+[node name="SelectCharacterDisplay" type="CenterContainer"]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_n7hw7")
+script = ExtResource("1_wybeh")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="SpritesSwitcher" type="TabContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_6mofy")
+current_tab = 1
+clip_tabs = false
+tabs_visible = false
+
+[node name="Male" type="TextureRect" parent="VBoxContainer/SpritesSwitcher"]
+visible = false
+layout_mode = 2
+texture = SubResource("AtlasTexture_0sor3")
+stretch_mode = 3
+
+[node name="Female" type="TextureRect" parent="VBoxContainer/SpritesSwitcher"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_mcx0f")
+stretch_mode = 3
+flip_h = true
+
+[node name="GenderLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Male Character"
+horizontal_alignment = 1
+
+[node name="OnControlTapped" parent="VBoxContainer" node_paths=PackedStringArray("control") instance=ExtResource("4_4nsny")]
+control = NodePath("..")
+
+[connection signal="tapped" from="VBoxContainer/OnControlTapped" to="." method="_on_on_control_tapped"]

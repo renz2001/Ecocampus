@@ -9,6 +9,7 @@ signal speaker_sprite_changed
 		name = value
 		name_changed.emit()
 
+
 @export var speaker_sprite: Texture2D: 
 	set(value): 
 		speaker_sprite = value

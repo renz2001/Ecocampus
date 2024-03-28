@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmqsqud0vb7y4"]
+
+[ext_resource type="Script" path="res://nodes/gui/speaker_sprites_switcher/speaker_sprites_switcher.gd" id="1_kxbnt"]
+[ext_resource type="Resource" uid="uid://bhh3he63pm8w1" path="res://resources/entity_collection/entity_collection.tres" id="2_88j38"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2fts4"]
+
+[node name="SpeakerSpritesSwitcher" type="TabContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_2fts4")
+clip_tabs = false
+tabs_visible = false
+script = ExtResource("1_kxbnt")
+entities = ExtResource("2_88j38")

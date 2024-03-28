@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://hdksnn1gc6qq" path="res://addons/macchi's_gui_manager/nodes/gui/dialog_gui/dialog_gui.tscn" id="1_vqmba"]
 [ext_resource type="Script" path="res://nodes/gui/interact_dialog/interact_dialog.gd" id="2_5f634"]
-[ext_resource type="Texture2D" uid="uid://crum2o41ed4wp" path="res://assets/buttons/Board.png" id="3_0ji44"]
+[ext_resource type="Texture2D" uid="uid://crum2o41ed4wp" path="res://assets/buttons/board.png" id="3_0ji44"]
 [ext_resource type="PackedScene" uid="uid://dggdvwjvdrmkh" path="res://nodes/gui/buttons/medium_wooden_button/medium_wooden_button.tscn" id="3_2wovi"]
 [ext_resource type="PackedScene" uid="uid://cnsvmjc5ytto2" path="res://nodes/components/on_visible_then_scale/on_visible_then_scale.tscn" id="5_t4yxs"]
 [ext_resource type="Script" path="res://addons/macchi's_node_components/scripts/arguments/tween_arguments.gd" id="6_hyohs"]
@@ -95,10 +95,8 @@ vertical_alignment = 1
 autowrap_mode = 3
 text_overrun_behavior = 3
 
-[node name="OnVisibleThenScale" parent="." index="1" node_paths=PackedStringArray("starting_point", "ending_point", "node") instance=ExtResource("5_t4yxs")]
+[node name="OnVisibleThenScale" parent="." index="1" node_paths=PackedStringArray("node") instance=ExtResource("5_t4yxs")]
 tween = SubResource("Resource_x4ke4")
-starting_point = NodePath("Starting")
-ending_point = NodePath("Ending")
 node = NodePath("..")
 
 [node name="Starting" type="Marker2D" parent="OnVisibleThenScale" index="1"]

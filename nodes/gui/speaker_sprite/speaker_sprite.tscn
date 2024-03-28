@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://crt2vt3u0qp70"]
+
+[ext_resource type="Texture2D" uid="uid://cwomglc1im0b1" path="res://assets/character/player_girl/speaker_sprite.png" id="1_rgoar"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_opkum"]
+atlas = ExtResource("1_rgoar")
+region = Rect2(45, 1037, 1279, 1443)
+
+[node name="SpeakerSprite" type="TextureRect"]
+offset_right = 707.0
+offset_bottom = 797.0
+texture = SubResource("AtlasTexture_opkum")
+expand_mode = 1
+stretch_mode = 5

@@ -1,6 +1,17 @@
-[gd_resource type="Theme" load_steps=5 format=3 uid="uid://cd55r8awc3jgy"]
+[gd_resource type="Theme" load_steps=11 format=3 uid="uid://cd55r8awc3jgy"]
 
+[ext_resource type="StyleBox" uid="uid://dwn5sekhug4fj" path="res://resources/styleboxes/dialogue_box_balloon.tres" id="1_fyakv"]
 [ext_resource type="FontFile" uid="uid://bcrqct413atql" path="res://fonts/Goldman-Regular.ttf" id="1_r7cxn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tew8n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0al1v"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_deevc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k8uu3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_trr2k"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tfy7q"]
 
@@ -26,6 +37,16 @@ corner_radius_bottom_left = 40
 [resource]
 default_font = ExtResource("1_r7cxn")
 default_font_size = 50
+DialogueBoxBalloon/base_type = &"Panel"
+DialogueBoxBalloon/styles/panel = ExtResource("1_fyakv")
+DialogueBoxButton/base_type = &"Button"
+DialogueBoxButton/styles/normal = ExtResource("1_fyakv")
+InvisibleButton/base_type = &"Button"
+InvisibleButton/styles/disabled = SubResource("StyleBoxEmpty_tew8n")
+InvisibleButton/styles/focus = SubResource("StyleBoxEmpty_0al1v")
+InvisibleButton/styles/hover = SubResource("StyleBoxEmpty_deevc")
+InvisibleButton/styles/normal = SubResource("StyleBoxEmpty_k8uu3")
+InvisibleButton/styles/pressed = SubResource("StyleBoxEmpty_trr2k")
 InvisiblePanel/base_type = &"PanelContainer"
 InvisiblePanel/styles/panel = SubResource("StyleBoxEmpty_tfy7q")
 MarginContainer/constants/margin_bottom = 20
