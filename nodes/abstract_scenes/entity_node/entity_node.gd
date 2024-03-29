@@ -9,8 +9,14 @@ class_name EntityNode
 @export var display_interact_dialog: bool = true
 @export var inventory: Inventory
 
-@export var data: Entity
+@export var data: Entity: set = set_data
 @export var interact_description: String
+
+@export var node_variety_manager: NodeVarietyManager
+
+
+func set_data(value: Entity) -> void: 
+	data = value
 
 
 ## Virtual Function

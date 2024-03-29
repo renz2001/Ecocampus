@@ -32,6 +32,10 @@ PlayerManager="*res://nodes/singletons/managers/player_manager/player_manager.ts
 GlobalShortcuts="*res://nodes/singletons/globals/global_shortcuts/global_shortcuts.tscn"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 
+[dialogue_manager]
+
+general/states=["PlayerManager", "GUIManager"]
+
 [display]
 
 window/size/viewport_width=1920

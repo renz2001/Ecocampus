@@ -1,3 +1,4 @@
+@tool
 extends ActingContainer
 class_name CenteredActingContainer
 

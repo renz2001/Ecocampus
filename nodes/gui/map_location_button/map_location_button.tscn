@@ -12,6 +12,8 @@ offset_right = 221.0
 offset_bottom = 221.0
 texture_normal = ExtResource("2_f62vw")
 script = ExtResource("3_nuy2u")
+change_scene = null
+texture = null
 change_scene_component = NodePath("ChangeSceneComponent")
 texture_rect = NodePath("TextureRect")
 

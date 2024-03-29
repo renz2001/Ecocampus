@@ -1,7 +1,17 @@
+@tool
 extends EntityNode
 class_name PlayerNode
 
-@export var gender: GlobalEnums.Gender
+@export var gender: GlobalEnums.Gender: 
+	set(value): 
+		gender = value
+		if !is_node_ready(): 
+			await ready
+		if gender == GlobalEnums.Gender.MALE: 
+			node_variety_manager.index = 1
+		else: 
+			node_variety_manager.index = 0
+		
 @export var move_to_tap: MoveToTapPathFindMovement
 @export var mouse_position: MousePositionComponent
 @export var cosmetic_equipper_component: CosmeticEquipperComponent
@@ -32,3 +42,10 @@ func _on_can_tap_state_input(event: InputEvent) -> void:
 			
 		state_chart.send_event("idle")
 		state_chart.send_event("walk")
+
+
+func set_data(value: Entity) -> void: 
+	data = value
+	if data: 
+		gender = data.gender
+	

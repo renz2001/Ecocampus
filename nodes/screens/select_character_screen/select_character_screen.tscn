@@ -16,6 +16,6 @@ grow_vertical = 2
 [node name="SelectCharacterDisplay" parent="Root/HBoxContainer" index="0" instance=ExtResource("2_f7u8v")]
 layout_mode = 2
 
-[node name="Control2" type="CenterContainer" parent="Root/HBoxContainer" index="1"]
+[node name="SelectCharacterDisplay2" parent="Root/HBoxContainer" index="1" instance=ExtResource("2_f7u8v")]
 layout_mode = 2
-size_flags_horizontal = 3
+gender = 1

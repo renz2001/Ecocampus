@@ -1,12 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://glnb78ju8p8o"]
+[gd_scene load_steps=11 format=3 uid="uid://glnb78ju8p8o"]
 
 [ext_resource type="PackedScene" uid="uid://3miay8g4x6j3" path="res://nodes/abstract_scenes/main_screen/main_screen.tscn" id="1_c5phn"]
 [ext_resource type="PackedScene" uid="uid://dggdvwjvdrmkh" path="res://nodes/gui/buttons/medium_wooden_button/medium_wooden_button.tscn" id="2_5xhb2"]
-[ext_resource type="Theme" uid="uid://cd55r8awc3jgy" path="res://themes/main_theme.tres" id="2_gf28e"]
+[ext_resource type="Texture2D" uid="uid://cc8xvqqoy2ku1" path="res://assets/background/main_menu.jpg" id="2_q4bpm"]
 [ext_resource type="Texture2D" uid="uid://b3hxtkgufbsdg" path="res://assets/buttons/play.png" id="3_m1v58"]
 [ext_resource type="Texture2D" uid="uid://b4fijb1vufwm7" path="res://assets/buttons/exit.png" id="4_cpr3a"]
 [ext_resource type="PackedScene" uid="uid://csp1aki3k6ecy" path="res://nodes/gui_components/on_pressed_components/on_pressed_play/on_pressed_play.tscn" id="5_k3spk"]
 [ext_resource type="PackedScene" uid="uid://cp41bsdgf5ftt" path="res://nodes/gui_components/on_pressed_components/on_pressed_exit/on_pressed_exit.tscn" id="6_f38ca"]
+[ext_resource type="PackedScene" uid="uid://bjcvqp7t237wt" path="res://nodes/gui/buttons/settings_icon_button/settings_icon_button.tscn" id="7_vtt2b"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pd6nm"]
 atlas = ExtResource("3_m1v58")
@@ -18,8 +19,8 @@ region = Rect2(82, 144, 1403, 511)
 
 [node name="MainMenu" instance=ExtResource("1_c5phn")]
 
-[node name="Root" parent="." index="0"]
-theme = ExtResource("2_gf28e")
+[node name="Background" parent="Root/Background" index="0"]
+texture = ExtResource("2_q4bpm")
 
 [node name="CenterContainer" type="CenterContainer" parent="Root" index="1"]
 layout_mode = 1
@@ -66,3 +67,6 @@ layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
 alignment = 2
+
+[node name="SettingsButton" parent="Root/MarginContainer/Top" index="0" instance=ExtResource("7_vtt2b")]
+layout_mode = 2

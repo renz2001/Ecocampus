@@ -8,6 +8,7 @@
 [node name="SpeakerSpritesSwitcher" type="TabContainer"]
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_2fts4")
 clip_tabs = false
 tabs_visible = false

@@ -9,7 +9,8 @@ signal tapped
 		control = value
 		if !control.is_node_ready(): 
 			await control.ready
-		control.gui_input.connect(_on_gui_input)
+		if !control.gui_input.is_connected(_on_gui_input): 
+			control.gui_input.connect(_on_gui_input)
 
 
 func _on_gui_input(event: InputEvent) -> void: 

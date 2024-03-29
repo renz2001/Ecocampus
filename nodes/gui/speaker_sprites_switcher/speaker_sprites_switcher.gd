@@ -30,13 +30,22 @@ enum Speaker {
 @export var entities: EntityCollection
 
 
-func get_speaker_sprite(entity_name: String) -> Texture2D: 
+func get_speaker_idle_sprite(entity_name: String) -> Texture2D: 
 	var entity: Entity = NodeTools.get_item_from_array(entities.entities, 
 		func(item: Entity, _i: int): 
-			return item.name.to_lower() == entity_name.to_lower()
+			return item.custom_name.to_lower() == entity_name.to_lower()
 	)
 	if entity != null: 
-		return entity.speaker_sprite
+		return entity.get_speaker_idle_sprite()
+	return null
+	
+func get_speaker_talk_sprite(entity_name: String) -> Texture2D: 
+	var entity: Entity = NodeTools.get_item_from_array(entities.entities, 
+		func(item: Entity, _i: int): 
+			return item.custom_name.to_lower() == entity_name.to_lower()
+	)
+	if entity != null: 
+		return entity.get_speaker_talk_sprite()
 	return null
 	
 	

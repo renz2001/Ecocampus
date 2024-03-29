@@ -13,6 +13,8 @@ signal dialogue_unpaused
 	set(new_dialogue_gui):
 		#var previous_dialogue_gui: DialogueGUI = current_dialogue_gui
 		current_dialogue_gui = new_dialogue_gui
+		if !is_node_ready(): 
+			await ready
 		if is_instance_valid(current_dialogue_gui.acting_container): 
 			dialogue_guis.current_tab = get_index_from_tab(current_dialogue_gui.acting_container) 
 		else: 
@@ -76,6 +78,10 @@ func _unhandled_input(_event: InputEvent) -> void:
 
 func get_index_from_tab(node: Control) -> int: 
 	return dialogue_guis.get_children().find(node)
+
+
+func next() -> void: 
+	current_dialogue_gui.next()
 
 
 ## Start some dialogue

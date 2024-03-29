@@ -16,6 +16,8 @@ func move() -> void:
 		#return
 		#
 	#if event.is_action_pressed("tap"): 
+	if !GameManager.is_playing(): 
+		return
 	var mouse_pos: Vector2 = node.get_global_mouse_position()
 	if is_instance_valid(target): 
 		target.queue_free()

@@ -11,7 +11,7 @@
 [node name="GameManager" type="Node" node_paths=PackedStringArray("state_chart", "to_map_picker", "playing_state", "paused_state")]
 script = ExtResource("1_pr44q")
 state_chart = NodePath("StateChart")
-to_map_picker = NodePath("Components/ToMapPicker")
+to_map_picker = NodePath("Components/ToSelectCharacter")
 playing_state = NodePath("StateChart/Root/GameState/Playing")
 paused_state = NodePath("StateChart/Root/GameState/Paused")
 
@@ -46,6 +46,11 @@ script = ExtResource("6_dwqa5")
 to = NodePath("../../MainMenu")
 event = &"main_menu"
 
+[node name="OnDialogue" type="Node" parent="StateChart/Root/GameState/Playing"]
+script = ExtResource("6_dwqa5")
+to = NodePath("../../Dialogue")
+event = &"dialogue"
+
 [node name="Paused" type="Node" parent="StateChart/Root/GameState"]
 script = ExtResource("5_o0eby")
 
@@ -59,7 +64,20 @@ script = ExtResource("6_dwqa5")
 to = NodePath("../../MainMenu")
 event = &"main_menu"
 
+[node name="Dialogue" type="Node" parent="StateChart/Root/GameState"]
+script = ExtResource("5_o0eby")
+
+[node name="OnPlaying" type="Node" parent="StateChart/Root/GameState/Dialogue"]
+script = ExtResource("6_dwqa5")
+to = NodePath("../../Playing")
+event = &"playing"
+
+[node name="OnPaused" type="Node" parent="StateChart/Root/GameState/Dialogue"]
+script = ExtResource("6_dwqa5")
+to = NodePath("../../Paused")
+event = &"paused"
+
 [node name="Components" type="Node" parent="."]
 
-[node name="ToMapPicker" parent="Components" instance=ExtResource("7_b865j")]
-to_scene = "res://nodes/screens/map_picker/map_picker.tscn"
+[node name="ToSelectCharacter" parent="Components" instance=ExtResource("7_b865j")]
+to_scene = "res://nodes/screens/select_character_screen/select_character_screen.tscn"

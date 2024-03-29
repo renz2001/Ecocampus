@@ -61,6 +61,14 @@ var dialogue_line: DialogueLine:
 		print_color.out_debug_wvalue("dialogue playing", next_dialogue_line)
 
 		is_waiting_for_input = false
+		
+		dialogue_label.finished_typing.connect(
+			func(): 
+				await get_tree().create_timer(0.7).timeout
+				speaker_sprites_switcher.set_current_speaker_rect_texture(speaker_sprites_switcher.get_speaker_idle_sprite(dialogue_line.character))
+		, CONNECT_ONE_SHOT
+		)
+		
 		dialogue_line = next_dialogue_line
 		speed_up_line(dialogue_line, text_speed_multiplier)
 		
@@ -69,7 +77,12 @@ var dialogue_line: DialogueLine:
 			speaker_sprites_switcher.speaker = SpeakerSpritesSwitcher.Speaker.MAIN
 		else: 
 			speaker_sprites_switcher.speaker = SpeakerSpritesSwitcher.Speaker.SECONDARY
-		speaker_sprites_switcher.set_current_speaker_rect_texture(speaker_sprites_switcher.get_speaker_sprite(dialogue_line.character))
+		
+		speaker_sprites_switcher.set_current_speaker_rect_texture(speaker_sprites_switcher.get_speaker_idle_sprite(dialogue_line.character))
+		get_tree().create_timer(0.1).timeout.connect(
+			func(): 
+				speaker_sprites_switcher.set_current_speaker_rect_texture(speaker_sprites_switcher.get_speaker_talk_sprite(dialogue_line.character))
+		)
 		
 		next_dialogue_line.text = dialogue_text_preset % next_dialogue_line.text
 		#speed_up_line(dialogue_line, GUIManager.dialogue_gui_manager.text_speed_multiplier)
@@ -113,7 +126,7 @@ var dialogue_line: DialogueLine:
 				time = dialogue_line.time.to_float() / text_speed_multiplier
 			#time = 0.2
 			await get_tree().create_timer(time).timeout
-			next(dialogue_line.next_id)
+			next_from_id(dialogue_line.next_id)
 		else: 
 			is_waiting_for_input = true
 			focus_mode = Control.FOCUS_ALL
@@ -150,9 +163,13 @@ func start(arguments: DialogueArguments, title_variation_counter: PointCounterCo
 	
 	
 # This gets called even with the [auto] mutation. 
-## Go to the next line
-func next(next_id: String) -> void: 
+## Go to the next_from_id line
+func next_from_id(next_id: String) -> void: 
 	self.dialogue_line = await resource.get_next_dialogue_line(next_id, dialogue_line.extra_game_states)
+	
+	
+func next() -> void: 
+	next_from_id(dialogue_line.next_id)
 	
 	
 func _on_balloon_gui_input(event: InputEvent) -> void: 
@@ -174,9 +191,9 @@ func _on_balloon_gui_input(event: InputEvent) -> void:
 	get_viewport().set_input_as_handled()
 	#print(get_viewport().gui_get_focus_owner())
 	if event is InputEventMouseButton and event.is_pressed() and event.button_index == 1:
-		next(dialogue_line.next_id)
+		next_from_id(dialogue_line.next_id)
 	elif event.is_action_pressed("ui_accept") and get_viewport().gui_get_focus_owner() == self:
-		next(dialogue_line.next_id)
+		next_from_id(dialogue_line.next_id)
 		
 		
 		
@@ -186,7 +203,7 @@ func _on_responses_menu_response_selected(response: DialogueResponse) -> void:
 	#next_id_from_response = response.next_id
 	#printerr(response.next_id)
 	#printerr(response.next_id)
-	next(response.next_id)
+	next_from_id(response.next_id)
 	#print(await resource.get_next_dialogue_line(response.next_id, temporary_game_states))
 	#printerr(response.next_id)
 	pass
@@ -209,13 +226,13 @@ func _on_auto_play_toggled(toggled_on: bool) -> void:
 		#if dialogue_label.is_typing: 
 			#dialogue_label.finished_typing.connect(
 				#func(): 
-					#next(dialogue_line.next_id)
+					#next_from_id(dialogue_line.next_id)
 			#, CONNECT_ONE_SHOT
 			#)
 
 
 func _on_skip_pressed() -> void:
-	next(dialogue_line.next_id)
+	next_from_id(dialogue_line.next_id)
 
 
 func _on_cancel_pressed() -> void:

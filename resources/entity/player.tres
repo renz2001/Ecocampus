@@ -1,7 +1,31 @@
-[gd_resource type="Resource" script_class="Entity" load_steps=2 format=3 uid="uid://bhl7afn8ti7bs"]
+[gd_resource type="Resource" script_class="Entity" load_steps=8 format=3 uid="uid://bhl7afn8ti7bs"]
 
 [ext_resource type="Script" path="res://scripts/resources/entity.gd" id="1_4bjuv"]
+[ext_resource type="Texture2D" uid="uid://cwomglc1im0b1" path="res://assets/character/player_girl/speaker_sprite.png" id="1_t887y"]
+[ext_resource type="Texture2D" uid="uid://b6s8up1g0ajmb" path="res://assets/character/player_boy/speaker_sprite.png" id="2_7h3po"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dl1b8"]
+atlas = ExtResource("1_t887y")
+region = Rect2(45, 1037, 1279, 1443)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ym8xa"]
+atlas = ExtResource("1_t887y")
+region = Rect2(1541, 1041, 1279, 1439)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ettas"]
+atlas = ExtResource("2_7h3po")
+region = Rect2(64, 1007, 1179, 1473)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ak87l"]
+atlas = ExtResource("2_7h3po")
+region = Rect2(1567, 1042, 1179, 1438)
 
 [resource]
 script = ExtResource("1_4bjuv")
+custom_name = ""
 name = "Player"
+male_speaker_idle_sprite = SubResource("AtlasTexture_ettas")
+male_speaker_talk_sprite = SubResource("AtlasTexture_ak87l")
+female_speaker_idle_sprite = SubResource("AtlasTexture_dl1b8")
+female_speaker_talk_sprite = SubResource("AtlasTexture_ym8xa")
+gender = 1

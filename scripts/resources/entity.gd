@@ -3,6 +3,13 @@ class_name Entity
 
 signal name_changed
 signal speaker_sprite_changed
+signal gender_changed
+
+@export var custom_name: String: 
+	get: 
+		if custom_name.is_empty(): 
+			return name
+		return custom_name
 
 @export var name: String: 
 	set(value): 
@@ -10,9 +17,47 @@ signal speaker_sprite_changed
 		name_changed.emit()
 
 
-@export var speaker_sprite: Texture2D: 
+@export var male_speaker_idle_sprite: Texture2D: 
 	set(value): 
-		speaker_sprite = value
+		male_speaker_idle_sprite = value
 		speaker_sprite_changed.emit()
 		
 		
+@export var male_speaker_talk_sprite: Texture2D: 
+	set(value): 
+		male_speaker_talk_sprite = value
+		speaker_sprite_changed.emit()
+		
+		
+@export var female_speaker_idle_sprite: Texture2D: 
+	set(value): 
+		female_speaker_idle_sprite = value
+		speaker_sprite_changed.emit()
+		
+		
+@export var female_speaker_talk_sprite: Texture2D: 
+	set(value): 
+		female_speaker_talk_sprite = value
+		speaker_sprite_changed.emit()
+		
+		
+@export var gender: GlobalEnums.Gender: 
+	set(value): 
+		gender = value
+		gender_changed.emit()
+	
+	
+func get_speaker_idle_sprite() -> Texture2D: 
+	if gender == GlobalEnums.Gender.FEMALE: 
+		return female_speaker_idle_sprite
+	return male_speaker_idle_sprite
+	
+	
+func get_speaker_talk_sprite() -> Texture2D: 
+	if gender == GlobalEnums.Gender.FEMALE: 
+		return female_speaker_talk_sprite
+	return male_speaker_talk_sprite
+	
+	
+	
+	

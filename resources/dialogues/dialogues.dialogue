@@ -13,5 +13,8 @@ Nathan: For more information see the online documentation.
 => END
 
 ~ test_npc
-
+{{PlayerManager.player.data.custom_name}}: HI!
 TestNPC: TEST!
+{{PlayerManager.player.data.custom_name}}: LOL!
+
+=> END

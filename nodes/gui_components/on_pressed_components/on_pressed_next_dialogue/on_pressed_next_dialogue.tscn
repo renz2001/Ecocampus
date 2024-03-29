@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://djvu45m1p70d8"]
+
+[ext_resource type="PackedScene" uid="uid://da2nlvvpyaabx" path="res://nodes/gui_components/on_pressed/on_pressed.tscn" id="1_n8d5d"]
+[ext_resource type="Script" path="res://nodes/gui_components/on_pressed_components/on_pressed_next_dialogue/on_pressed_next_dialogue.gd" id="2_x1kdu"]
+
+[node name="OnPressedNextDialogue" node_paths=PackedStringArray("control") instance=ExtResource("1_n8d5d")]
+script = ExtResource("2_x1kdu")
+control = NodePath("")

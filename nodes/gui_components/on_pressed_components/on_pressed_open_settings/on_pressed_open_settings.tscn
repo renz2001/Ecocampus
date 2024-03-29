@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://bgiqoyxfmrqq4"]
+
+[ext_resource type="PackedScene" uid="uid://da2nlvvpyaabx" path="res://nodes/gui_components/on_pressed/on_pressed.tscn" id="1_6gvxt"]
+[ext_resource type="Script" path="res://nodes/gui_components/on_pressed_components/on_pressed_open_settings/on_pressed_open_settings.gd" id="2_oiidh"]
+
+[node name="OnPressedOpenSettings" instance=ExtResource("1_6gvxt")]
+script = ExtResource("2_oiidh")

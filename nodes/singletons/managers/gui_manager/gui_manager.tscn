@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dn0hmrfmam4bl"]
+[gd_scene load_steps=15 format=3 uid="uid://dn0hmrfmam4bl"]
 
 [ext_resource type="PackedScene" uid="uid://dup6nowsahsrg" path="res://addons/macchi's_gui_manager/nodes/singletons/gui_manager/gui_manager.tscn" id="1_fgil1"]
 [ext_resource type="Script" path="res://nodes/singletons/managers/gui_manager/gui_manager.gd" id="2_43jm5"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://y2iscrkvsonm" path="res://nodes/gui/player_hud/player_hud.tscn" id="9_32jpw"]
 [ext_resource type="PackedScene" uid="uid://dr8onh47tahfw" path="res://nodes/components/if_playing_set_visible/if_playing_set_visible.tscn" id="10_72pma"]
 [ext_resource type="PackedScene" uid="uid://ctmxelmponiux" path="res://nodes/screens/customize_character_screen/customize_character_screen.tscn" id="12_4q2px"]
+[ext_resource type="PackedScene" uid="uid://dywlc2qvwfqms" path="res://nodes/gui/settings_menu/settings_menu.tscn" id="13_qklwl"]
 
 [sub_resource type="Resource" id="Resource_w1cp2"]
 script = ExtResource("6_g7dor")
@@ -21,11 +22,12 @@ value_color = Color(1, 0, 0, 1)
 automatic_value_color = true
 use_spaces_for_node_name = false
 
-[node name="GUIManager" node_paths=PackedStringArray("transitions_manager", "dialogue_gui_manager", "customize_character_screen", "playing", "instanced_uis", "dropdown_popup") instance=ExtResource("1_fgil1")]
+[node name="GUIManager" node_paths=PackedStringArray("transitions_manager", "dialogue_gui_manager", "customize_character_screen", "settings_menu", "playing", "instanced_uis", "dropdown_popup") instance=ExtResource("1_fgil1")]
 script = ExtResource("2_43jm5")
 transitions_manager = NodePath("Root/TransitionsManager")
 dialogue_gui_manager = NodePath("Root/Playing/DialogueGUIManager")
 customize_character_screen = NodePath("Root/CustomizeCharacterScreen")
+settings_menu = NodePath("Root/CenteredActingContainer/CenterContainer/SettingsMenu")
 alert = ExtResource("3_wkjxm")
 centered_acting_container = ExtResource("4_ddkn8")
 exclusive_gui = ExtResource("5_bp7t5")
@@ -51,3 +53,11 @@ layout_mode = 1
 
 [node name="CustomizeCharacterScreen" parent="Root" index="3" instance=ExtResource("12_4q2px")]
 layout_mode = 1
+
+[node name="CenteredActingContainer" parent="Root" index="4" instance=ExtResource("4_ddkn8")]
+layout_mode = 1
+
+[node name="SettingsMenu" parent="Root/CenteredActingContainer/CenterContainer" index="0" instance=ExtResource("13_qklwl")]
+layout_mode = 2
+
+[editable path="Root/CenteredActingContainer"]
