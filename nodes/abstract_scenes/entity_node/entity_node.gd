@@ -1,18 +1,28 @@
 extends CharacterBody2D
 class_name EntityNode
 
-@export var state_chart: StateChart
-@export var path_find: PathFindMovementComponent
-@export var walk: MovementComponent
-@export var hitbox: Hitbox
 
 @export var display_interact_dialog: bool = true
-@export var inventory: Inventory
+@export var inventory: Inventory: 
+	set(value): 
+		inventory = value
+		if inventory: 
+			inventory.owner = self
 
 @export var data: Entity: set = set_data
 @export var interact_description: String
 
+@export_group("Dependencies")
+@export var state_chart: StateChart
+@export var path_find: PathFindMovementComponent
+@export var walk: MovementComponent
+@export var hitbox: Hitbox
 @export var node_variety_manager: NodeVarietyManager
+
+
+func _ready() -> void: 
+	if inventory: 
+		inventory.owner = self
 
 
 func set_data(value: Entity) -> void: 

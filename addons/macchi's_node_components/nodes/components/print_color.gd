@@ -28,7 +28,9 @@ func out_debug_wvalue(output: String, val) -> void:
 		val = str(val)
 	if automatic_value_color: 
 		var real_value = str_to_var(val)
-		if real_value == true: 
+		if real_value is Array: 
+			final_color = GlobalVariables.COLOR_EDITOR_GREEN
+		elif real_value == true: 
 			final_color = GlobalVariables.COLOR_EDITOR_GREEN
 		elif real_value == false: 
 			final_color =  GlobalVariables.COLOR_EDITOR_RED

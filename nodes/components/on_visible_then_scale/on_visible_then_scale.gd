@@ -1,6 +1,12 @@
 @tool
 extends OnVisibleDo
+class_name OnVisibleThenScale
 
+@export var editor_play: bool: 
+	set(value): 
+		if Engine.is_editor_hint(): 
+			play()
+		
 @export var tween: TweenArguments: 
 	set(value): 
 		tween = value
@@ -34,6 +40,7 @@ extends OnVisibleDo
 
 func _on_visible() -> void: 
 	if !node.is_node_ready(): 
+		node.scale = start_scale
 		await node.ready
 	if node.visible: 
 		play()

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwlol86lqgq6e"]
+
+[ext_resource type="PackedScene" uid="uid://i7q2pxetima5" path="res://addons/macchi's_node_components/nodes/components/conditional_set_property_component/conditional_set_property_component.tscn" id="1_mra3u"]
+[ext_resource type="Script" path="res://nodes/components/if_playing_entered_set_property/if_playing_entered_set_property.gd" id="2_t5mfk"]
+
+[node name="IfPlayingEnteredSetProperty" instance=ExtResource("1_mra3u")]
+script = ExtResource("2_t5mfk")
+ready_value = "false"
+property_or_method = "visible"
+new_value = "true"

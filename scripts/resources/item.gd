@@ -24,3 +24,5 @@ func subtract_from_same(item: Item) -> Item:
 	return self
 	
 	
+func _to_string() -> String: 
+	return "%s<stack_count:%s>" % [name, stack.current]

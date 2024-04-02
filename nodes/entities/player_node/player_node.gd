@@ -18,6 +18,9 @@ class_name PlayerNode
 
 
 func _ready() -> void: 
+	super._ready()
+	if Engine.is_editor_hint(): 
+		return
 	PlayerManager.player_instanced.emit()
 
 

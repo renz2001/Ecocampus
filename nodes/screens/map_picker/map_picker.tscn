@@ -1,21 +1,95 @@
-[gd_scene load_steps=6 format=3 uid="uid://dcjxf25vgikeb"]
+[gd_scene load_steps=16 format=3 uid="uid://dcjxf25vgikeb"]
 
 [ext_resource type="PackedScene" uid="uid://3miay8g4x6j3" path="res://nodes/abstract_scenes/main_screen/main_screen.tscn" id="1_ethfg"]
 [ext_resource type="PackedScene" uid="uid://5npqpm4ofnr" path="res://nodes/gui/map_location_button/map_location_button.tscn" id="2_5f6v8"]
+[ext_resource type="Texture2D" uid="uid://dmbnej0o25nd6" path="res://assets/map/map_transparent.png" id="2_oteo3"]
 [ext_resource type="Script" path="res://scripts/arguments/change_scene_arguments.gd" id="3_cuxqn"]
-[ext_resource type="Resource" uid="uid://bmfktr33c6caq" path="res://nodes/transitions/fade_transition/fade_transition.tres" id="4_w7e85"]
+[ext_resource type="Texture2D" uid="uid://cmyovnl4vkyxt" path="res://assets/map/icons/con_icon.png" id="4_sbxly"]
+[ext_resource type="Texture2D" uid="uid://d3qhdft6m3gyt" path="res://assets/map/icons/dit_icon.png" id="5_b4x4x"]
+[ext_resource type="Texture2D" uid="uid://feqbcawgbj0t" path="res://assets/map/icons/gate_icon.png" id="6_2jbm6"]
+[ext_resource type="Texture2D" uid="uid://vy3sc4i6w3vt" path="res://assets/map/icons/library_icon.png" id="7_ssrne"]
+[ext_resource type="Texture2D" uid="uid://u3ir732fkp5j" path="res://assets/map/icons/saluysoy_icon.png" id="8_ob73h"]
+[ext_resource type="Texture2D" uid="uid://c53nvgcsjrpdg" path="res://assets/map/icons/trashcan_icon.png" id="9_t8wk1"]
 
-[sub_resource type="Resource" id="Resource_82rwc"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_s445c"]
+atlas = ExtResource("4_sbxly")
+region = Rect2(465, 332, 745, 539)
+
+[sub_resource type="Resource" id="Resource_85384"]
 script = ExtResource("3_cuxqn")
 scene = "res://nodes/levels/test_level/test_level.tscn"
-transition = ExtResource("4_w7e85")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6sr2r"]
+atlas = ExtResource("5_b4x4x")
+region = Rect2(985, 491, 1575, 1552)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ixlmw"]
+atlas = ExtResource("6_2jbm6")
+region = Rect2(751, 386, 572, 665)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h43h3"]
+atlas = ExtResource("9_t8wk1")
+region = Rect2(1130, 871, 808, 646)
 
 [node name="MapPicker" instance=ExtResource("1_ethfg")]
 
-[node name="MapLocationButton" parent="Root" index="1" instance=ExtResource("2_5f6v8")]
+[node name="ColorRect" type="ColorRect" parent="Root/Background" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.666667, 0.854902, 1)
+
+[node name="Background" parent="Root/Background" index="1"]
+texture = ExtResource("2_oteo3")
+
+[node name="CON" parent="Root" index="1" instance=ExtResource("2_5f6v8")]
 layout_mode = 0
-offset_left = 646.0
-offset_top = 400.0
-offset_right = 867.0
-offset_bottom = 621.0
-change_scene = SubResource("Resource_82rwc")
+offset_left = 468.0
+offset_top = 90.0
+offset_right = 772.0
+offset_bottom = 394.0
+texture_normal = SubResource("AtlasTexture_s445c")
+change_scene = SubResource("Resource_85384")
+
+[node name="DIT" parent="Root" index="2" instance=ExtResource("2_5f6v8")]
+layout_mode = 0
+offset_left = 615.0
+offset_top = 570.0
+offset_right = 898.0
+offset_bottom = 853.0
+texture_normal = SubResource("AtlasTexture_6sr2r")
+
+[node name="Gate" parent="Root" index="3" instance=ExtResource("2_5f6v8")]
+layout_mode = 0
+offset_left = 284.0
+offset_top = 346.0
+offset_right = 602.0
+offset_bottom = 664.0
+texture_normal = SubResource("AtlasTexture_ixlmw")
+
+[node name="Library" parent="Root" index="4" instance=ExtResource("2_5f6v8")]
+layout_mode = 0
+offset_left = 792.0
+offset_top = -69.0
+offset_right = 1281.0
+offset_bottom = 420.0
+texture_normal = ExtResource("7_ssrne")
+
+[node name="Saluysoy" parent="Root" index="5" instance=ExtResource("2_5f6v8")]
+layout_mode = 0
+offset_left = 1324.0
+offset_top = 225.0
+offset_right = 1545.0
+offset_bottom = 446.0
+texture_normal = ExtResource("8_ob73h")
+
+[node name="Trashcan" parent="Root" index="6" instance=ExtResource("2_5f6v8")]
+layout_mode = 0
+offset_left = 1209.0
+offset_top = 457.0
+offset_right = 1442.0
+offset_bottom = 690.0
+texture_normal = SubResource("AtlasTexture_h43h3")

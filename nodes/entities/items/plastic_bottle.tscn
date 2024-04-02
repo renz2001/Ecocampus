@@ -1,18 +1,37 @@
-[gd_scene load_steps=7 format=3 uid="uid://toh0omo27g8y"]
+[gd_scene load_steps=13 format=3 uid="uid://toh0omo27g8y"]
 
 [ext_resource type="PackedScene" uid="uid://boot2rcrsay35" path="res://nodes/abstract_scenes/item_node/item_node.tscn" id="1_accvq"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="2_ej8ea"]
 [ext_resource type="Script" path="res://scripts/resources/inventory.gd" id="2_fpuxj"]
+[ext_resource type="Resource" uid="uid://byvmcgi6p0hdv" path="res://resources/items/plastic_bottle.tres" id="2_msteo"]
 [ext_resource type="Texture2D" uid="uid://bd1l0lam720ha" path="res://placeholder_assets/plastic_bottle_trash.png" id="2_t5umu"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="3_73337"]
+[ext_resource type="Script" path="res://scripts/resources/entity.gd" id="4_wnry3"]
+[ext_resource type="PackedScene" uid="uid://c4gnwuhmu4msa" path="res://nodes/gui_components/on_pressed_components/on_pressed_apply_material_to_node/on_pressed_apply_material_to_node.tscn" id="5_sfc0n"]
+[ext_resource type="Shader" path="res://resources/shaders/outline_inline.gdshader" id="6_7b1ko"]
 
 [sub_resource type="Resource" id="Resource_gkepi"]
 script = ExtResource("2_fpuxj")
-items = Array[Resource("res://scripts/resources/item.gd")]([])
+items = Array[Resource("res://scripts/resources/item.gd")]([ExtResource("2_msteo")])
+max_items = -1
+
+[sub_resource type="Resource" id="Resource_gdex3"]
+script = ExtResource("4_wnry3")
+custom_name = ""
+name = "Plastic Bottle"
+gender = 0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ad8w7"]
+shader = ExtResource("6_7b1ko")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 10.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
 
 [node name="PlasticBottle" instance=ExtResource("1_accvq")]
 inventory = SubResource("Resource_gkepi")
-entity_name = "Plastic Bottle"
+data = SubResource("Resource_gdex3")
 interact_description = "Pick me up"
 
 [node name="Button" parent="." index="0"]
@@ -20,6 +39,10 @@ offset_left = -65.0
 offset_top = -47.0
 offset_right = 69.0
 offset_bottom = 31.0
+
+[node name="OnPressedApplyMaterialToNode" parent="Button" index="0" node_paths=PackedStringArray("apply_to_node") instance=ExtResource("5_sfc0n")]
+material = SubResource("ShaderMaterial_ad8w7")
+apply_to_node = NodePath("../../Sprites/Sprite2D")
 
 [node name="Left" parent="StateChart/Root/Enabled/Animation" index="0"]
 initial_state = NodePath("Nothing")

@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://qfyxou4gfo7f"]
+[gd_scene load_steps=11 format=3 uid="uid://qfyxou4gfo7f"]
 
 [ext_resource type="PackedScene" uid="uid://hdksnn1gc6qq" path="res://addons/macchi's_gui_manager/nodes/gui/dialog_gui/dialog_gui.tscn" id="1_vqmba"]
 [ext_resource type="Script" path="res://nodes/gui/interact_dialog/interact_dialog.gd" id="2_5f634"]
 [ext_resource type="Texture2D" uid="uid://crum2o41ed4wp" path="res://assets/buttons/board.png" id="3_0ji44"]
 [ext_resource type="PackedScene" uid="uid://dggdvwjvdrmkh" path="res://nodes/gui/buttons/medium_wooden_button/medium_wooden_button.tscn" id="3_2wovi"]
+[ext_resource type="FontFile" uid="uid://bh5eyon0or827" path="res://fonts/Ubuntu-Regular.ttf" id="4_a317s"]
 [ext_resource type="PackedScene" uid="uid://cnsvmjc5ytto2" path="res://nodes/components/on_visible_then_scale/on_visible_then_scale.tscn" id="5_t4yxs"]
 [ext_resource type="Script" path="res://addons/macchi's_node_components/scripts/arguments/tween_arguments.gd" id="6_hyohs"]
 
@@ -12,13 +13,17 @@ atlas = ExtResource("3_0ji44")
 region = Rect2(6, 27, 537, 396)
 
 [sub_resource type="LabelSettings" id="LabelSettings_2sqwb"]
+font = ExtResource("4_a317s")
 font_size = 40
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(-2, 4)
 
 [sub_resource type="Resource" id="Resource_x4ke4"]
 script = ExtResource("6_hyohs")
-transition_type = 6
+transition_type = 10
 ease_type = 1
-duration = 0.8
+duration = 0.4
 
 [node name="InteractDialog" node_paths=PackedStringArray("description_label") instance=ExtResource("1_vqmba")]
 offset_left = 1.0
@@ -62,7 +67,34 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MediumWoodenButton" parent="Body" index="2" instance=ExtResource("3_2wovi")]
+[node name="MarginContainer" type="MarginContainer" parent="Body" index="2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="Description" type="Label" parent="Body/MarginContainer" index="0"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Description"
+label_settings = SubResource("LabelSettings_2sqwb")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+text_overrun_behavior = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="Body/MarginContainer" index="1"]
+layout_mode = 2
+theme_type_variation = &"TransparentBlackPanelContainer"
+
+[node name="MediumWoodenButton" parent="Body" index="3" instance=ExtResource("3_2wovi")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.76962
@@ -77,25 +109,8 @@ grow_horizontal = 0
 grow_vertical = 0
 metadata/_edit_use_anchors_ = true
 
-[node name="MarginContainer" type="MarginContainer" parent="Body" index="3"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="Description" type="Label" parent="Body/MarginContainer" index="0"]
-layout_mode = 2
-size_flags_vertical = 1
-label_settings = SubResource("LabelSettings_2sqwb")
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
-text_overrun_behavior = 3
-
 [node name="OnVisibleThenScale" parent="." index="1" node_paths=PackedStringArray("node") instance=ExtResource("5_t4yxs")]
+editor_play = false
 tween = SubResource("Resource_x4ke4")
 node = NodePath("..")
 

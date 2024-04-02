@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://baxha8yav8g1m"]
+[gd_scene load_steps=7 format=3 uid="uid://baxha8yav8g1m"]
 
 [ext_resource type="PackedScene" uid="uid://d4mqjvr57ok1h" path="res://nodes/gui/buttons/icon_button/icon_button.tscn" id="1_h3ubs"]
 [ext_resource type="Texture2D" uid="uid://cctob6jdpvmio" path="res://assets/buttons/inventory_box.png" id="2_4chiu"]
 [ext_resource type="Script" path="res://nodes/gui/item_slot/item_slot.gd" id="2_8ywvp"]
+[ext_resource type="Texture2D" uid="uid://bd1l0lam720ha" path="res://placeholder_assets/plastic_bottle_trash.png" id="5_mrqly"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lnjew"]
 atlas = ExtResource("2_4chiu")
@@ -11,37 +12,44 @@ region = Rect2(24, 84, 238, 247)
 [sub_resource type="LabelSettings" id="LabelSettings_vat1p"]
 font_size = 40
 
-[node name="ItemSlot" instance=ExtResource("1_h3ubs")]
+[node name="ItemSlot" node_paths=PackedStringArray("stack_label", "item_texture_rect") instance=ExtResource("1_h3ubs")]
 texture_normal = SubResource("AtlasTexture_lnjew")
 script = ExtResource("2_8ywvp")
+stack_label = NodePath("StackLabel")
+item_texture_rect = NodePath("ItemContainer/ItemTexture")
 item = null
-inactive_on_ready = true
-active = true
-alias = ""
 
-[node name="ItemContainer" type="MarginContainer" parent="." index="2"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ItemTexture" type="TextureRect" parent="ItemContainer" index="0"]
-layout_mode = 2
-
-[node name="StackLabel" type="Label" parent="." index="3"]
+[node name="StackLabel" type="Label" parent="." index="2"]
+visible = false
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -40.0
-offset_top = -23.0
+offset_left = -45.0
+offset_top = -55.0
 grow_horizontal = 0
 grow_vertical = 0
 text = "x1"
 label_settings = SubResource("LabelSettings_vat1p")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="ItemContainer" type="MarginContainer" parent="." index="3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 35
+
+[node name="ItemTexture" type="TextureRect" parent="ItemContainer" index="0"]
+layout_mode = 2
+texture = ExtResource("5_mrqly")
+expand_mode = 1
+stretch_mode = 5

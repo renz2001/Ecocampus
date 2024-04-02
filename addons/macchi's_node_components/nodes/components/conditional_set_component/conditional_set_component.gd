@@ -13,6 +13,8 @@ signal condition_met
 ## After the condition is met, the condition cannot be changed anymore. 
 @export var one_shot: bool
 
+## Checks if the condition returns the opposite instead. 
+@export var inverted: bool
 
 func update_condition() -> void: 
 	if disabled: 

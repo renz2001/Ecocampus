@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://bcnx3fui12mb7"]
+
+[ext_resource type="PackedScene" uid="uid://da2nlvvpyaabx" path="res://nodes/gui_components/on_pressed/on_pressed.tscn" id="1_ajcjd"]
+[ext_resource type="Script" path="res://nodes/gui_components/on_pressed_components/on_pressed_scale/on_pressed_scale.gd" id="2_75njx"]
+[ext_resource type="PackedScene" uid="uid://c341gagax5vvu" path="res://addons/macchi's_node_components/nodes/components/lerp_components/vector_2_property_lerp_component/vector_2_property_lerp_component.tscn" id="3_lj1uw"]
+
+[node name="OnPressedScale" node_paths=PackedStringArray("scale_lerp") instance=ExtResource("1_ajcjd")]
+script = ExtResource("2_75njx")
+tween = null
+start_scale = Vector2(0, 0)
+end_scale = Vector2(1, 1)
+percentage = 0.0
+scale_lerp = NodePath("ScaleLerp")
+
+[node name="ScaleLerp" parent="." index="1" instance=ExtResource("3_lj1uw")]

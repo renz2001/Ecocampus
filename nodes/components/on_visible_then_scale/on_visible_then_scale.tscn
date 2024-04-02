@@ -13,6 +13,7 @@ duration = 0.8
 
 [node name="OnVisibleThenScale" node_paths=PackedStringArray("scale_lerp") instance=ExtResource("1_o2op8")]
 script = ExtResource("2_262gx")
+editor_play = null
 tween = SubResource("Resource_hhop0")
 start_scale = Vector2(0, 0)
 end_scale = Vector2(1, 1)

@@ -1,4 +1,7 @@
+@tool
 extends OnPressedComponent
+class_name OnPressedChangeScene
+
 
 @export var change_scene: ChangeSceneArguments: 
 	set(value): 

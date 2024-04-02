@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dn0hmrfmam4bl"]
+[gd_scene load_steps=16 format=3 uid="uid://dn0hmrfmam4bl"]
 
 [ext_resource type="PackedScene" uid="uid://dup6nowsahsrg" path="res://addons/macchi's_gui_manager/nodes/singletons/gui_manager/gui_manager.tscn" id="1_fgil1"]
 [ext_resource type="Script" path="res://nodes/singletons/managers/gui_manager/gui_manager.gd" id="2_43jm5"]
@@ -10,7 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://b2oeadjalbr07" path="res://addons/macchi's_gui_manager/nodes/gui/exclusive_gui/exclusive_gui.tscn" id="5_bp7t5"]
 [ext_resource type="Script" path="res://addons/macchi's_node_components/nodes/components/print_color.gd" id="6_g7dor"]
 [ext_resource type="PackedScene" uid="uid://y2iscrkvsonm" path="res://nodes/gui/player_hud/player_hud.tscn" id="9_32jpw"]
-[ext_resource type="PackedScene" uid="uid://dr8onh47tahfw" path="res://nodes/components/if_playing_set_visible/if_playing_set_visible.tscn" id="10_72pma"]
+[ext_resource type="PackedScene" uid="uid://cwlol86lqgq6e" path="res://nodes/components/if_playing_entered_set_property/if_playing_entered_set_property.tscn" id="10_ouw7r"]
+[ext_resource type="PackedScene" uid="uid://ca1c4xu4yf6y8" path="res://nodes/components/if_playing_exited_set_property/if_playing_exited_set_property.tscn" id="11_o8ssb"]
 [ext_resource type="PackedScene" uid="uid://ctmxelmponiux" path="res://nodes/screens/customize_character_screen/customize_character_screen.tscn" id="12_4q2px"]
 [ext_resource type="PackedScene" uid="uid://dywlc2qvwfqms" path="res://nodes/gui/settings_menu/settings_menu.tscn" id="13_qklwl"]
 
@@ -39,14 +40,37 @@ _print_color = SubResource("Resource_w1cp2")
 [node name="Root" parent="." index="0"]
 theme = ExtResource("2_v1v03")
 
-[node name="DialogueGUIManager" parent="Root/Playing" index="0" instance=ExtResource("3_ew5n2")]
+[node name="Playing" parent="Root" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayerHUD" parent="Root/Playing" index="0" instance=ExtResource("9_32jpw")]
 layout_mode = 1
 
-[node name="PlayerHUD" parent="Root/Playing" index="1" instance=ExtResource("9_32jpw")]
+[node name="DialogueGUIManager" parent="Root/Playing" index="1" instance=ExtResource("3_ew5n2")]
 layout_mode = 1
 
-[node name="IfPlayingSetVisible" parent="Root/Playing" index="2" node_paths=PackedStringArray("node") instance=ExtResource("10_72pma")]
+[node name="IfPlayingEnteredSetVisible" parent="Root/Playing" index="2" node_paths=PackedStringArray("node") instance=ExtResource("10_ouw7r")]
 node = NodePath("..")
+
+[node name="IfPlayingExitedSetVisible" parent="Root/Playing" index="3" node_paths=PackedStringArray("node") instance=ExtResource("11_o8ssb")]
+ready_value = "false"
+node = NodePath("..")
+property_or_method = "visible"
+new_value = "false"
+inverted = true
+
+[node name="InstancedGUIs" parent="Root" index="1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="TransitionsManager" parent="Root" index="2" instance=ExtResource("4_fwi2h")]
 layout_mode = 1

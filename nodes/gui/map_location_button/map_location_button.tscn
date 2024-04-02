@@ -1,32 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://5npqpm4ofnr"]
+[gd_scene load_steps=5 format=3 uid="uid://5npqpm4ofnr"]
 
 [ext_resource type="PackedScene" uid="uid://ba6uieidm61wl" path="res://nodes/gui/buttons/texture_button_plus/texture_button_plus.tscn" id="1_twwau"]
 [ext_resource type="Texture2D" uid="uid://b8aa610eimimt" path="res://assets/environment/white_circle.png" id="2_f62vw"]
 [ext_resource type="Script" path="res://nodes/gui/map_location_button/map_location_button.gd" id="3_nuy2u"]
-[ext_resource type="Texture2D" uid="uid://bvf4phttgiyol" path="res://icon.svg" id="3_od4ev"]
-[ext_resource type="PackedScene" uid="uid://nnpxfb02bn17" path="res://nodes/components/change_scene_component/change_scene_component.tscn" id="5_sugdk"]
+[ext_resource type="PackedScene" uid="uid://cu4fjldtsnbkh" path="res://nodes/gui_components/on_pressed_components/on_pressed_change_scene/on_pressed_change_scene.tscn" id="4_6vvlu"]
 
-[node name="MapLocationButton" node_paths=PackedStringArray("change_scene_component", "texture_rect") instance=ExtResource("1_twwau")]
-clip_children = 1
+[node name="MapLocationButton" node_paths=PackedStringArray("on_pressed_change_scene") instance=ExtResource("1_twwau")]
 offset_right = 221.0
 offset_bottom = 221.0
 texture_normal = ExtResource("2_f62vw")
 script = ExtResource("3_nuy2u")
 change_scene = null
-texture = null
-change_scene_component = NodePath("ChangeSceneComponent")
-texture_rect = NodePath("TextureRect")
+on_pressed_change_scene = NodePath("OnPressedChangeScene")
 
-[node name="TextureRect" type="TextureRect" parent="." index="1"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-texture = ExtResource("3_od4ev")
-
-[node name="ChangeSceneComponent" parent="." index="2" instance=ExtResource("5_sugdk")]
-
-[connection signal="pressed" from="." to="." method="_on_pressed"]
+[node name="OnPressedChangeScene" parent="." index="2" node_paths=PackedStringArray("control") instance=ExtResource("4_6vvlu")]
+control = NodePath("..")

@@ -9,19 +9,6 @@ class_name MapLocationButton
 			return
 		if !is_node_ready(): 
 			await ready
-		change_scene_component.set_properties(change_scene)
+		on_pressed_change_scene.change_scene = change_scene
 		
-@export var texture: Texture2D: 
-	set(value): 
-		texture = value
-		if !is_node_ready(): 
-			await ready
-		texture_rect.texture = texture
-		
-@export var change_scene_component: ChangeSceneComponent
-@export var texture_rect: TextureRect
-
-
-
-func _on_pressed() -> void:
-	change_scene_component.change()
+@export var on_pressed_change_scene: OnPressedChangeScene

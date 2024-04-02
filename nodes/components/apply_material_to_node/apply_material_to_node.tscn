@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwrfsu0cu68sk"]
+
+[ext_resource type="Script" path="res://nodes/components/apply_material_to_node/apply_material_to_node.gd" id="1_wsxr2"]
+
+[node name="ApplyMaterialToNode" type="Node" node_paths=PackedStringArray("duration_timer")]
+script = ExtResource("1_wsxr2")
+duration_timer = NodePath("DurationTimer")
+
+[node name="DurationTimer" type="Timer" parent="."]

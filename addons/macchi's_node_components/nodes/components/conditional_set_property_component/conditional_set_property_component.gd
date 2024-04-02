@@ -11,8 +11,9 @@ class_name ConditionalSetPropertyComponent
 ## Property or method's new value when the condition is met.
 @export var new_value: String
 
-
 func _ready() -> void: 
+	if disabled: 
+		return
 	if !node.is_node_ready(): 
 		await node.ready
 	node.set(property_or_method, str_to_var(ready_value))
@@ -20,5 +21,4 @@ func _ready() -> void:
 
 func _condition_met() -> void: 
 	node.set(property_or_method, str_to_var(new_value))
-	
 	

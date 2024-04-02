@@ -6,6 +6,7 @@ class_name Vector2PropertyLerpComponent
 @export var node: Node
 @export var properties: PackedStringArray
 
+
 func _on_interpolated(value: Vector2) -> void:
 	for property: String in properties: 
 		node.set(property, value)

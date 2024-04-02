@@ -38,7 +38,7 @@ var _initialized: bool = false
 	
 #func _ready() -> void: 
 	#print(self, _initialized, active)
-	
+
 
 ## Activateds and makes the gui visible. Never use this method, only use GUIManager.set_gui_active. 
 func set_active(value: bool) -> void: 

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dttl450xjlf6s"]
+
+[ext_resource type="PackedScene" uid="uid://da2nlvvpyaabx" path="res://nodes/gui_components/on_pressed/on_pressed.tscn" id="1_qwk66"]
+
+[node name="OnPressedChangeLocation" node_paths=PackedStringArray("control") instance=ExtResource("1_qwk66")]
+control = NodePath("..")

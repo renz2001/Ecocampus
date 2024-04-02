@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://ca1c4xu4yf6y8"]
+
+[ext_resource type="PackedScene" uid="uid://i7q2pxetima5" path="res://addons/macchi's_node_components/nodes/components/conditional_set_property_component/conditional_set_property_component.tscn" id="1_gg5y5"]
+[ext_resource type="Script" path="res://nodes/components/if_playing_exited_set_property/if_playing_exited_set_property.gd" id="2_76hvo"]
+
+[node name="IfPlayingExitedSetProperty" instance=ExtResource("1_gg5y5")]
+script = ExtResource("2_76hvo")
+ready_value = ""
+property_or_method = ""

@@ -10,5 +10,7 @@ func change() -> void:
 
 
 func set_properties(args: ChangeSceneArguments) -> void: 
+	if args == null: 
+		return
 	to_scene = args.scene
 	transition = args.transition

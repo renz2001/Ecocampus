@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dup6nowsahsrg"]
+[gd_scene load_steps=6 format=3 uid="uid://dup6nowsahsrg"]
 
 [ext_resource type="Script" path="res://addons/macchi's_gui_manager/nodes/singletons/gui_manager/gui_manager.gd" id="1_2bthb"]
+[ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/macchi's_gui_manager/nodes/gui/gui/gui.tscn" id="3_tx424"]
 [ext_resource type="PackedScene" uid="uid://biojbnlwffqny" path="res://addons/macchi's_gui_manager/nodes/gui/dropdown_popup/dropdown_popup.tscn" id="7_44ncd"]
 [ext_resource type="Script" path="res://addons/macchi's_node_components/nodes/components/print_color.gd" id="8_uggyv"]
 
@@ -28,23 +29,9 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 
-[node name="Playing" type="Control" parent="Root"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
+[node name="Playing" parent="Root" instance=ExtResource("3_tx424")]
 
-[node name="InstancedGUIs" type="Control" parent="Root"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
+[node name="InstancedGUIs" parent="Root" instance=ExtResource("3_tx424")]
 
 [node name="DropdownPopup" parent="." instance=ExtResource("7_44ncd")]
 visible = false

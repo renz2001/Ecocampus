@@ -1,11 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://boot2rcrsay35"]
+[gd_scene load_steps=4 format=3 uid="uid://boot2rcrsay35"]
 
 [ext_resource type="PackedScene" uid="uid://dml5uy4doh7s6" path="res://nodes/abstract_scenes/entity_node/entity_node.tscn" id="1_wdinh"]
 [ext_resource type="Script" path="res://nodes/abstract_scenes/item_node/item_node.gd" id="2_tv102"]
+[ext_resource type="PackedScene" uid="uid://le3pltdhswul" path="res://addons/macchi's_node_components/nodes/components/ready_unique_resource/ready_unique_resource.tscn" id="3_7fbys"]
 
 [node name="ItemNode" instance=ExtResource("1_wdinh")]
 script = ExtResource("2_tv102")
-display_interact_dialogue = true
+
+[node name="ReadyUniqueResource" parent="Components" index="4" node_paths=PackedStringArray("node") instance=ExtResource("3_7fbys")]
+node = NodePath("../..")
+resource = "inventory"
 
 [node name="ShadowCircle" parent="Sprites" index="0"]
 visible = false

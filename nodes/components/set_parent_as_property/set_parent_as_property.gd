@@ -8,8 +8,8 @@ class_name SetParentAsProperty
 
 
 func _ready() -> void: 
-	if !Engine.is_editor_hint(): 
-		return 
+	#if !Engine.is_editor_hint(): 
+		#return 
 	if node != null: 
 		node.set(property, node.get_parent())
 	
