@@ -9,6 +9,7 @@
 
 [node name="NavbarGUI" instance=ExtResource("1_abshs")]
 script = ExtResource("2_hp6n3")
+inactive_on_ready = false
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." index="0"]
 layout_mode = 0

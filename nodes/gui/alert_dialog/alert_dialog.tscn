@@ -1,0 +1,70 @@
+[gd_scene load_steps=9 format=3 uid="uid://b3o7xjwmj44nu"]
+
+[ext_resource type="PackedScene" uid="uid://dyhp1stjx005g" path="res://addons/macchi's_gui_manager/nodes/gui/alert_dialog_base/alert_dialog_base.tscn" id="1_kmsj0"]
+[ext_resource type="Texture2D" uid="uid://crum2o41ed4wp" path="res://assets/buttons/board.png" id="2_dune7"]
+[ext_resource type="PackedScene" uid="uid://dggdvwjvdrmkh" path="res://nodes/gui/buttons/medium_wooden_button/medium_wooden_button.tscn" id="3_6p5a3"]
+[ext_resource type="Texture2D" uid="uid://do0rkrmxxseyk" path="res://assets/buttons/ok.png" id="4_4vhar"]
+[ext_resource type="Texture2D" uid="uid://6fb0erew6hy8" path="res://assets/buttons/cancel.png" id="5_h6txn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_35ray"]
+atlas = ExtResource("2_dune7")
+region = Rect2(6, 27, 537, 396)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1kpf0"]
+atlas = ExtResource("4_4vhar")
+region = Rect2(82, 144, 1403, 511)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vbvt7"]
+atlas = ExtResource("5_h6txn")
+region = Rect2(82, 144, 1403, 511)
+
+[node name="AlertDialog" node_paths=PackedStringArray("description_label", "yes_button", "no_button") instance=ExtResource("1_kmsj0")]
+description_label = NodePath("TextureRect/MarginContainer/DescriptionLabel")
+yes_button = NodePath("TextureRect/MarginContainer/Control/HBoxContainer/Yes")
+no_button = NodePath("TextureRect/MarginContainer/Control/HBoxContainer/No")
+
+[node name="TextureRect" type="TextureRect" parent="." index="0"]
+layout_mode = 0
+offset_left = -275.0
+offset_top = -223.0
+offset_right = 262.0
+offset_bottom = 173.0
+texture = SubResource("AtlasTexture_35ray")
+
+[node name="MarginContainer" type="MarginContainer" parent="TextureRect" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DescriptionLabel" type="Label" parent="TextureRect/MarginContainer" index="0"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="TextureRect/MarginContainer" index="1"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/MarginContainer/Control" index="0"]
+layout_mode = 2
+offset_left = -57.0
+offset_top = -78.0
+offset_right = 552.0
+offset_bottom = 70.0
+size_flags_vertical = 8
+
+[node name="Yes" parent="TextureRect/MarginContainer/Control/HBoxContainer" index="0" instance=ExtResource("3_6p5a3")]
+custom_minimum_size = Vector2(250, 120)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = SubResource("AtlasTexture_1kpf0")
+
+[node name="No" parent="TextureRect/MarginContainer/Control/HBoxContainer" index="1" instance=ExtResource("3_6p5a3")]
+custom_minimum_size = Vector2(250, 120)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = SubResource("AtlasTexture_vbvt7")

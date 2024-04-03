@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d07384jfiolfg"]
+
+[ext_resource type="Script" path="res://nodes/components/audio_bus_volume_slider/audio_bus_volume_slider.gd" id="1_vvtj2"]
+
+[node name="AudioBusVolumeSlider" type="Node"]
+script = ExtResource("1_vvtj2")

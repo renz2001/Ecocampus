@@ -44,7 +44,12 @@ class_name OnPressedScale
 
 @export var node_is_control_scale_from_center: bool
 
+
 func _on_pressed() -> void: 
+	play()
+	
+	
+func play() -> void: 
 	if node_is_control_scale_from_center:
 		node.pivot_offset = node.size / 2
 	else: 

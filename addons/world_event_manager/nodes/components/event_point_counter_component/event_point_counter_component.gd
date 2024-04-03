@@ -16,7 +16,7 @@ class_name EventPointCounterComponent
 @export var event_call: WorldEventCall: 
 	set(value): 
 		event_call = value
-		
+
 
 @export_group("Dependencies")
 @export var world_event_listener: WorldEventListener

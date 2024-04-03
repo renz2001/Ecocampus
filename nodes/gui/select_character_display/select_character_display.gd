@@ -19,6 +19,7 @@ class_name SelectCharacterDisplay
 @export var gender_label: Label
 @export var to_map_picker: ChangeSceneComponent
 
+
 func _on_on_control_tapped() -> void:
 	player_data.gender = gender
 	to_map_picker.change()

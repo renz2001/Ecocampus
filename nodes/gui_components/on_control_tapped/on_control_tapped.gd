@@ -7,6 +7,8 @@ signal tapped
 @export var control: Control: 
 	set(value): 
 		control = value
+		if !is_node_ready(): 
+			await ready
 		if !control.is_node_ready(): 
 			await control.ready
 		if !control.gui_input.is_connected(_on_gui_input): 

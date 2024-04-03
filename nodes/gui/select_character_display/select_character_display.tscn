@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b6uuamc65bqup"]
+[gd_scene load_steps=14 format=3 uid="uid://b6uuamc65bqup"]
 
 [ext_resource type="Texture2D" uid="uid://cn233vrb5i466" path="res://assets/character/player_girl/girl.png" id="1_3o5pj"]
 [ext_resource type="Theme" uid="uid://cd55r8awc3jgy" path="res://themes/main_theme.tres" id="1_n7hw7"]
@@ -6,7 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://dqshq874l3ic5" path="res://assets/character/player_boy/boy.png" id="3_io1tm"]
 [ext_resource type="Resource" uid="uid://bhl7afn8ti7bs" path="res://resources/entity/player.tres" id="3_nks4u"]
 [ext_resource type="PackedScene" uid="uid://id2l84q3tpk0" path="res://nodes/gui_components/on_control_tapped/on_control_tapped.tscn" id="4_4nsny"]
+[ext_resource type="FontFile" uid="uid://cp5vi568oh4jl" path="res://fonts/Ubuntu-Bold.ttf" id="6_3qqbw"]
 [ext_resource type="PackedScene" uid="uid://nnpxfb02bn17" path="res://nodes/components/change_scene_component/change_scene_component.tscn" id="7_m8fta"]
+[ext_resource type="PackedScene" uid="uid://b5oetv37eb3b5" path="res://nodes/gui_components/on_control_tapped_components/on_control_tapped_then_scale/on_control_tapped_then_scale.tscn" id="8_0csdj"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6mofy"]
 
@@ -18,7 +20,21 @@ region = Rect2(375, 53, 145, 228)
 atlas = ExtResource("1_3o5pj")
 region = Rect2(375, 53, 145, 228)
 
+[sub_resource type="LabelSettings" id="LabelSettings_dj53l"]
+font = ExtResource("6_3qqbw")
+font_size = 60
+outline_size = 20
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 20
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(10, 5)
+
 [node name="SelectCharacterDisplay" type="CenterContainer" node_paths=PackedStringArray("sprites_switcher", "gender_label", "to_map_picker")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("1_n7hw7")
@@ -42,23 +58,30 @@ tabs_visible = false
 
 [node name="Male" type="TextureRect" parent="VBoxContainer/SpritesSwitcher"]
 visible = false
+use_parent_material = true
 layout_mode = 2
 texture = SubResource("AtlasTexture_0sor3")
 stretch_mode = 3
 
 [node name="Female" type="TextureRect" parent="VBoxContainer/SpritesSwitcher"]
+use_parent_material = true
 layout_mode = 2
 texture = SubResource("AtlasTexture_mcx0f")
-stretch_mode = 3
+stretch_mode = 5
 flip_h = true
 
 [node name="GenderLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "Female Character"
+label_settings = SubResource("LabelSettings_dj53l")
 horizontal_alignment = 1
 
 [node name="OnControlTapped" parent="VBoxContainer" node_paths=PackedStringArray("control") instance=ExtResource("4_4nsny")]
+control = NodePath("..")
+
+[node name="OnControlTappedThenScale" parent="VBoxContainer" node_paths=PackedStringArray("node", "control") instance=ExtResource("8_0csdj")]
+node = NodePath("../SpritesSwitcher")
 control = NodePath("..")
 
 [node name="ToMapPicker" parent="." instance=ExtResource("7_m8fta")]

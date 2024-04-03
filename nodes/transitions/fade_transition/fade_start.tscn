@@ -8,7 +8,7 @@
 script = ExtResource("3_def7i")
 transition_type = 4
 ease_type = 2
-duration = 0.5
+duration = 0.3
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8307l"]
 bg_color = Color(0, 0, 0, 1)

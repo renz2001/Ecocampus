@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://b5oetv37eb3b5"]
+
+[ext_resource type="PackedScene" uid="uid://id2l84q3tpk0" path="res://nodes/gui_components/on_control_tapped/on_control_tapped.tscn" id="1_iutv3"]
+[ext_resource type="Script" path="res://nodes/gui_components/on_control_tapped_components/on_control_tapped_then_scale/on_control_tapped_then_scale.gd" id="2_mixvd"]
+[ext_resource type="PackedScene" uid="uid://bcnx3fui12mb7" path="res://nodes/gui_components/on_pressed_components/on_pressed_scale/on_pressed_scale.tscn" id="3_ew6kn"]
+
+[node name="OnControlTappedThenScale" node_paths=PackedStringArray("on_pressed_scale") instance=ExtResource("1_iutv3")]
+script = ExtResource("2_mixvd")
+on_pressed_scale = NodePath("OnPressedScale")
+
+[node name="OnPressedScale" parent="." index="1" instance=ExtResource("3_ew6kn")]

@@ -1,5 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://b1j5hhbaa24a8"]
+[gd_scene load_steps=6 format=3 uid="uid://b1j5hhbaa24a8"]
 
 [ext_resource type="PackedScene" uid="uid://d4mqjvr57ok1h" path="res://nodes/gui/buttons/icon_button/icon_button.tscn" id="1_gx3qy"]
+[ext_resource type="Texture2D" uid="uid://bhkpoyfaxhaxo" path="res://assets/buttons/silent_icon_atlas.tres" id="2_1vfgi"]
+[ext_resource type="Script" path="res://nodes/gui/audio_mute_button/audio_mute_button.gd" id="2_13gob"]
+[ext_resource type="PackedScene" uid="uid://s6yihx140bgk" path="res://nodes/gui_components/on_pressed_components/on_pressed_toggle_mute/on_pressed_toggle_mute.tscn" id="3_vpcxd"]
+[ext_resource type="Texture2D" uid="uid://dj83hbfwotujo" path="res://assets/buttons/sound_icon_atlas.tres" id="4_3a3m0"]
 
 [node name="AudioMuteButton" instance=ExtResource("1_gx3qy")]
+texture_normal = ExtResource("2_1vfgi")
+script = ExtResource("2_13gob")
+silent_icon = ExtResource("4_3a3m0")
+sound_icon = ExtResource("2_1vfgi")
+
+[node name="OnPressedToggleMute" parent="." index="3" node_paths=PackedStringArray("control") instance=ExtResource("3_vpcxd")]
+control = NodePath("..")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dcjxf25vgikeb"]
+[gd_scene load_steps=17 format=3 uid="uid://dcjxf25vgikeb"]
 
 [ext_resource type="PackedScene" uid="uid://3miay8g4x6j3" path="res://nodes/abstract_scenes/main_screen/main_screen.tscn" id="1_ethfg"]
 [ext_resource type="PackedScene" uid="uid://5npqpm4ofnr" path="res://nodes/gui/map_location_button/map_location_button.tscn" id="2_5f6v8"]
@@ -10,6 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://vy3sc4i6w3vt" path="res://assets/map/icons/library_icon.png" id="7_ssrne"]
 [ext_resource type="Texture2D" uid="uid://u3ir732fkp5j" path="res://assets/map/icons/saluysoy_icon.png" id="8_ob73h"]
 [ext_resource type="Texture2D" uid="uid://c53nvgcsjrpdg" path="res://assets/map/icons/trashcan_icon.png" id="9_t8wk1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6f7ax"]
+atlas = ExtResource("2_oteo3")
+region = Rect2(315, 46, 1313, 942)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s445c"]
 atlas = ExtResource("4_sbxly")
@@ -42,54 +46,65 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0.666667, 0.854902, 1)
 
-[node name="Background" parent="Root/Background" index="1"]
-texture = ExtResource("2_oteo3")
+[node name="Island" type="Control" parent="Root" index="1"]
+anchors_preset = 0
+offset_left = 923.0
+offset_top = 500.0
+offset_right = 963.0
+offset_bottom = 540.0
 
-[node name="CON" parent="Root" index="1" instance=ExtResource("2_5f6v8")]
+[node name="Island" type="TextureRect" parent="Root/Island" index="0"]
+offset_left = -665.0
+offset_top = -418.0
+offset_right = 648.0
+offset_bottom = 524.0
+texture = SubResource("AtlasTexture_6f7ax")
+
+[node name="CON" parent="Root/Island" index="1" instance=ExtResource("2_5f6v8")]
 layout_mode = 0
-offset_left = 468.0
-offset_top = 90.0
-offset_right = 772.0
-offset_bottom = 394.0
+offset_left = -512.0
+offset_top = -374.0
+offset_right = -208.0
+offset_bottom = -70.0
 texture_normal = SubResource("AtlasTexture_s445c")
 change_scene = SubResource("Resource_85384")
 
-[node name="DIT" parent="Root" index="2" instance=ExtResource("2_5f6v8")]
+[node name="DIT" parent="Root/Island" index="2" instance=ExtResource("2_5f6v8")]
 layout_mode = 0
-offset_left = 615.0
-offset_top = 570.0
-offset_right = 898.0
-offset_bottom = 853.0
+offset_left = -365.0
+offset_top = 106.0
+offset_right = -82.0
+offset_bottom = 389.0
 texture_normal = SubResource("AtlasTexture_6sr2r")
 
-[node name="Gate" parent="Root" index="3" instance=ExtResource("2_5f6v8")]
+[node name="Gate" parent="Root/Island" index="3" instance=ExtResource("2_5f6v8")]
 layout_mode = 0
-offset_left = 284.0
-offset_top = 346.0
-offset_right = 602.0
-offset_bottom = 664.0
+offset_left = -696.0
+offset_top = -118.0
+offset_right = -378.0
+offset_bottom = 200.0
 texture_normal = SubResource("AtlasTexture_ixlmw")
 
-[node name="Library" parent="Root" index="4" instance=ExtResource("2_5f6v8")]
+[node name="Library" parent="Root/Island" index="4" instance=ExtResource("2_5f6v8")]
 layout_mode = 0
-offset_left = 792.0
-offset_top = -69.0
-offset_right = 1281.0
-offset_bottom = 420.0
+offset_left = -188.0
+offset_top = -533.0
+offset_right = 301.0
+offset_bottom = -44.0
 texture_normal = ExtResource("7_ssrne")
 
-[node name="Saluysoy" parent="Root" index="5" instance=ExtResource("2_5f6v8")]
+[node name="Saluysoy" parent="Root/Island" index="5" instance=ExtResource("2_5f6v8")]
 layout_mode = 0
-offset_left = 1324.0
-offset_top = 225.0
-offset_right = 1545.0
-offset_bottom = 446.0
+offset_left = 344.0
+offset_top = -239.0
+offset_right = 565.0
+offset_bottom = -18.0
 texture_normal = ExtResource("8_ob73h")
 
-[node name="Trashcan" parent="Root" index="6" instance=ExtResource("2_5f6v8")]
+[node name="Trashcan" parent="Root/Island" index="6" instance=ExtResource("2_5f6v8")]
 layout_mode = 0
-offset_left = 1209.0
-offset_top = 457.0
-offset_right = 1442.0
-offset_bottom = 690.0
+offset_left = 229.0
+offset_top = -7.0
+offset_right = 462.0
+offset_bottom = 226.0
 texture_normal = SubResource("AtlasTexture_h43h3")

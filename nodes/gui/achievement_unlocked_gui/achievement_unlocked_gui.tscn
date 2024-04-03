@@ -12,9 +12,8 @@ offset_bottom = 576.0
 script = ExtResource("2_vvx3l")
 title_label = NodePath("Panel/MarginContainer/VBoxContainer/Title")
 task_label = NodePath("Panel/MarginContainer/VBoxContainer/Task")
-alias = ""
 
-[node name="Panel" type="Panel" parent="." index="0"]
+[node name="Panel" type="PanelContainer" parent="." index="0"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -28,12 +27,7 @@ grow_vertical = 2
 theme = ExtResource("3_qkqff")
 
 [node name="MarginContainer" type="MarginContainer" parent="Panel" index="0"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer" index="0"]
 custom_minimum_size = Vector2(200, 500)
@@ -67,4 +61,5 @@ vertical_alignment = 1
 layout_mode = 2
 
 [node name="OnVisibleThenScale" parent="." index="1" node_paths=PackedStringArray("node") instance=ExtResource("5_dk1ap")]
+editor_play = false
 node = NodePath("..")

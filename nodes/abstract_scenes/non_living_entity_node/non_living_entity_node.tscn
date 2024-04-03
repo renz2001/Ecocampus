@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://dokfordgw2kk3"]
+
+[ext_resource type="PackedScene" uid="uid://dml5uy4doh7s6" path="res://nodes/abstract_scenes/entity_node/entity_node.tscn" id="1_mq6kp"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="2_q3tmh"]
+[ext_resource type="PackedScene" uid="uid://c4gnwuhmu4msa" path="res://nodes/gui_components/on_pressed_components/on_pressed_apply_material_to_node/on_pressed_apply_material_to_node.tscn" id="2_vlhxa"]
+[ext_resource type="Shader" path="res://resources/shaders/outline_inline.gdshader" id="3_u5jah"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_phhau"]
+shader = ExtResource("3_u5jah")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 10.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+
+[node name="NonLivingEntityNode" instance=ExtResource("1_mq6kp")]
+
+[node name="OnPressedApplyMaterialToNode" parent="Button" index="0" node_paths=PackedStringArray("apply_to_node", "control") instance=ExtResource("2_vlhxa")]
+material = SubResource("ShaderMaterial_phhau")
+apply_to_node = NodePath("../../Sprites")
+control = NodePath("")
+
+[node name="Left" parent="StateChart/Root/Enabled/Animation" index="0"]
+initial_state = NodePath("Nothing")
+
+[node name="Nothing" type="Node" parent="StateChart/Root/Enabled/Animation/Left" index="1"]
+script = ExtResource("2_q3tmh")
+
+[node name="Nothing2" type="Node" parent="StateChart/Root/Enabled/Animation/Left" index="2"]
+script = ExtResource("2_q3tmh")
+
+[node name="Right" parent="StateChart/Root/Enabled/Animation" index="1"]
+initial_state = NodePath("Nothing2")
+
+[node name="Nothing" type="Node" parent="StateChart/Root/Enabled/Animation/Right" index="1"]
+script = ExtResource("2_q3tmh")
+
+[node name="Nothing2" type="Node" parent="StateChart/Root/Enabled/Animation/Right" index="2"]
+script = ExtResource("2_q3tmh")
+
+[node name="Nothing" type="Node" parent="StateChart/Root/Enabled/Mobility" index="1"]
+script = ExtResource("2_q3tmh")
+
+[node name="EntitySprite" type="Sprite2D" parent="Sprites" index="1"]
+use_parent_material = true

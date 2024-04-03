@@ -4,6 +4,5 @@
 
 [node name="VolumeSliderComponent" type="Node" node_paths=PackedStringArray("audio_player")]
 script = ExtResource("1_x6875")
-slider = 1.0
-audio_player = NodePath("")
+audio_player = NodePath("..")
 use_parent = true
