@@ -3,8 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://c3gxoaexalp0g" path="res://addons/macchi's_node_components/nodes/components/lerp_components/base_lerp_component/base_lerp_component.tscn" id="1_bjjm7"]
 [ext_resource type="Script" path="res://addons/macchi's_node_components/nodes/components/lerp_components/float_lerp_component/float_lerp_component.gd" id="2_ys8s4"]
 
-
 [node name="FloatLerpComponent" instance=ExtResource("1_bjjm7")]
 script = ExtResource("2_ys8s4")
 start_point = 0.0
 end_point = 0.0
+current = 0.0
+loop_interpolate_end_to_back = null

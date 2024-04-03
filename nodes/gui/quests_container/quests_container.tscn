@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://c33ymv4k2whut"]
+
+[ext_resource type="Script" path="res://nodes/gui/quests_container/quests_container.gd" id="1_10nvr"]
+[ext_resource type="PackedScene" uid="uid://bkmlgrsxipqkh" path="res://nodes/gui/quest_gui/quest_gui.tscn" id="1_inq5n"]
+
+[node name="QuestsContainer" type="VBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_10nvr")
+quest_gui = ExtResource("1_inq5n")

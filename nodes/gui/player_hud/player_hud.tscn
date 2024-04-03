@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://y2iscrkvsonm"]
+[gd_scene load_steps=5 format=3 uid="uid://y2iscrkvsonm"]
 
 [ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/macchi's_gui_manager/nodes/gui/gui/gui.tscn" id="1_jq4ma"]
 [ext_resource type="Script" path="res://nodes/gui/player_hud/player_hud.gd" id="2_3hk1a"]
 [ext_resource type="PackedScene" uid="uid://53yheb41dh24" path="res://nodes/gui/inventory_gui/inventory_gui.tscn" id="2_j6f2o"]
+[ext_resource type="PackedScene" uid="uid://du6p4swgv5hfd" path="res://nodes/gui/navbar_gui/navbar_gui.tscn" id="3_iydx5"]
 
 [node name="PlayerHUD" node_paths=PackedStringArray("inventory_gui") instance=ExtResource("1_jq4ma")]
 anchors_preset = 15
@@ -31,7 +32,16 @@ theme_override_constants/margin_bottom = 30
 layout_mode = 2
 mouse_filter = 2
 
-[node name="InventoryGUI" parent="MarginContainer/Control" index="0" instance=ExtResource("2_j6f2o")]
+[node name="NavbarGUI" parent="MarginContainer/Control" index="0" instance=ExtResource("3_iydx5")]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -708.0
+offset_right = -708.0
+grow_horizontal = 0
+
+[node name="InventoryGUI" parent="MarginContainer/Control" index="1" instance=ExtResource("2_j6f2o")]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0

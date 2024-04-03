@@ -1,5 +1,17 @@
+@tool
 extends OnPressedComponent
+class_name OnPressedScale
 
+@export var node: Node: 
+	set(value): 
+		node = value
+		if !is_node_ready(): 
+			await ready
+		scale_lerp.node = node
+		scale_lerp.start_point = start_scale
+		scale_lerp.end_point = end_scale
+		
+		
 @export var tween: TweenArguments: 
 	set(value): 
 		tween = value
@@ -29,3 +41,14 @@ extends OnPressedComponent
 		scale_lerp.percentage = percentage
 	
 @export var scale_lerp: Vector2PropertyLerpComponent
+
+@export var node_is_control_scale_from_center: bool
+
+func _on_pressed() -> void: 
+	if node_is_control_scale_from_center:
+		node.pivot_offset = node.size / 2
+	else: 
+		node.pivot_offset = Vector2.ZERO
+	scale_lerp.play()
+	
+	

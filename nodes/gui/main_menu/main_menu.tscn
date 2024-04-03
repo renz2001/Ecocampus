@@ -70,3 +70,5 @@ alignment = 2
 
 [node name="SettingsButton" parent="Root/MarginContainer/Top" index="0" instance=ExtResource("7_vtt2b")]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4

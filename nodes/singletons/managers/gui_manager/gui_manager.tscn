@@ -1,10 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://dn0hmrfmam4bl"]
+[gd_scene load_steps=15 format=3 uid="uid://dn0hmrfmam4bl"]
 
 [ext_resource type="PackedScene" uid="uid://dup6nowsahsrg" path="res://addons/macchi's_gui_manager/nodes/singletons/gui_manager/gui_manager.tscn" id="1_fgil1"]
 [ext_resource type="Script" path="res://nodes/singletons/managers/gui_manager/gui_manager.gd" id="2_43jm5"]
 [ext_resource type="Theme" uid="uid://cd55r8awc3jgy" path="res://themes/main_theme.tres" id="2_v1v03"]
 [ext_resource type="PackedScene" uid="uid://n1ca0tqy8k26" path="res://nodes/singletons/managers/dialogue_gui_manager/dialogue_gui_manager.tscn" id="3_ew5n2"]
-[ext_resource type="PackedScene" uid="uid://c84cjehhbrqgt" path="res://addons/macchi's_gui_manager/nodes/gui/alert_gui/alert_dialog/alert_dialog.tscn" id="3_wkjxm"]
 [ext_resource type="PackedScene" uid="uid://cter0vorqb1lu" path="res://addons/macchi's_gui_manager/nodes/gui/centered_acting_container/centered_acting_container.tscn" id="4_ddkn8"]
 [ext_resource type="PackedScene" uid="uid://cc8x55fjnng7u" path="res://nodes/singletons/managers/transitions_manager/transitions_manager.tscn" id="4_fwi2h"]
 [ext_resource type="PackedScene" uid="uid://b2oeadjalbr07" path="res://addons/macchi's_gui_manager/nodes/gui/exclusive_gui/exclusive_gui.tscn" id="5_bp7t5"]
@@ -29,7 +28,6 @@ transitions_manager = NodePath("Root/TransitionsManager")
 dialogue_gui_manager = NodePath("Root/Playing/DialogueGUIManager")
 customize_character_screen = NodePath("Root/CustomizeCharacterScreen")
 settings_menu = NodePath("Root/CenteredActingContainer/CenterContainer/SettingsMenu")
-alert = ExtResource("3_wkjxm")
 centered_acting_container = ExtResource("4_ddkn8")
 exclusive_gui = ExtResource("5_bp7t5")
 playing = NodePath("Root/Playing")

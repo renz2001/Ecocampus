@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdhkyjskyryv"]
+
+[ext_resource type="Script" path="res://nodes/gui/formatted_label/formatted_label.gd" id="1_rul5w"]
+
+[node name="FormattedLabel" type="Label"]
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("1_rul5w")

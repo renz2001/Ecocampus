@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://bvqcvxujyci1a"]
+
+[ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/macchi's_gui_manager/nodes/gui/gui/gui.tscn" id="1_mmghx"]
+[ext_resource type="Script" path="res://nodes/gui/quests_menu/quests_menu.gd" id="2_crym1"]
+[ext_resource type="PackedScene" uid="uid://c33ymv4k2whut" path="res://nodes/gui/quests_container/quests_container.tscn" id="2_mkdg8"]
+
+[node name="QuestsMenu" node_paths=PackedStringArray("quests_container") instance=ExtResource("1_mmghx")]
+script = ExtResource("2_crym1")
+quests_container = NodePath("PanelContainer/VBoxContainer/QuestsContainer")
+
+[node name="PanelContainer" type="PanelContainer" parent="." index="0"]
+layout_mode = 0
+offset_right = 127.0
+offset_bottom = 240.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" index="0"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer" index="0"]
+layout_mode = 2
+text = "Quests"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="QuestsContainer" parent="PanelContainer/VBoxContainer" index="1" instance=ExtResource("2_mkdg8")]
+layout_mode = 2

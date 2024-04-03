@@ -2,6 +2,5 @@
 
 [ext_resource type="Script" path="res://addons/macchi's_node_components/nodes/components/lerp_components/base_lerp_component/base_lerp_component.gd" id="1_1ut2v"]
 
-
 [node name="BaseLerpComponent" type="Node" groups=["LerpComponent"]]
 script = ExtResource("1_1ut2v")

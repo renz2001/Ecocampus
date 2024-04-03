@@ -1,0 +1,28 @@
+[gd_scene load_steps=7 format=3 uid="uid://du6p4swgv5hfd"]
+
+[ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/macchi's_gui_manager/nodes/gui/gui/gui.tscn" id="1_abshs"]
+[ext_resource type="Script" path="res://nodes/gui/navbar_gui/navbar_gui.gd" id="2_hp6n3"]
+[ext_resource type="PackedScene" uid="uid://dlpg8uw7rra2p" path="res://nodes/gui/buttons/quests_icon_button/quests_icon_button.tscn" id="3_d8ra2"]
+[ext_resource type="PackedScene" uid="uid://bjcvqp7t237wt" path="res://nodes/gui/buttons/settings_icon_button/settings_icon_button.tscn" id="4_rkvut"]
+[ext_resource type="PackedScene" uid="uid://b1j5hhbaa24a8" path="res://nodes/gui/audio_mute_button/audio_mute_button.tscn" id="5_dk0mc"]
+[ext_resource type="PackedScene" uid="uid://y6epls2k86pu" path="res://nodes/gui/buttons/to_map_picker_icon_button/to_map_picker_icon_button.tscn" id="6_lg5x3"]
+
+[node name="NavbarGUI" instance=ExtResource("1_abshs")]
+script = ExtResource("2_hp6n3")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." index="0"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="QuestsIconButton" parent="HBoxContainer" index="0" instance=ExtResource("3_d8ra2")]
+layout_mode = 2
+
+[node name="AudioMuteButton" parent="HBoxContainer" index="1" instance=ExtResource("5_dk0mc")]
+layout_mode = 2
+
+[node name="ToMapPickerIconButton" parent="HBoxContainer" index="2" instance=ExtResource("6_lg5x3")]
+layout_mode = 2
+
+[node name="SettingsIconButton" parent="HBoxContainer" index="3" instance=ExtResource("4_rkvut")]
+layout_mode = 2

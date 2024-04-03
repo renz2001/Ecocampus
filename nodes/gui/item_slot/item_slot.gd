@@ -10,8 +10,9 @@ class_name ItemSlot
 		item = value
 		if !is_node_ready(): 
 			await ready
-		if Engine.is_editor_hint() && item.icon: 
-			item_texture_rect.texture = item.item_icon
+		if Engine.is_editor_hint(): 
+			if item: 
+				item_texture_rect.texture = item.item_icon
 			
 		if item == null: 
 			_display_empty()

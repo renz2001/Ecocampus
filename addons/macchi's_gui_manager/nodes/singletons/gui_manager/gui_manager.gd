@@ -5,7 +5,7 @@ signal gui_changed(gui: GUI)
 signal gui_added(gui: GUI)
 signal gui_removed(gui: GUI)
 
-@export var alert: PackedScene 
+#@export var alert: PackedScene 
 @export var centered_acting_container: PackedScene
 @export var exclusive_gui: PackedScene
 
@@ -93,19 +93,19 @@ func remove_gui(gui: GUI) -> void:
 	gui_changed.emit(gui)
 
 
-func create_alert(alert_message: String, yes_func: Callable = func(): , 
-	no_func: Callable = func(): , yes_text: String = "Yes", 
-	no_text: String = "No") -> AlertScreen: 
-	var alert_node: AlertScreen = alert.instantiate()
-	var yes_button: Button = alert_node.yes
-	var no_button: Button = alert_node.no
-	GUIManager.add_gui(alert_node, AddGUIConfig.new().set_centered(true).set_is_exclusive(true))
-	alert_node.alert_label.text = alert_message
-	yes_button.text = yes_text
-	no_button.text = no_text
-	yes_button.pressed.connect(yes_func)
-	no_button.pressed.connect(no_func)
-	return alert_node
+#func create_alert(alert_message: String, yes_func: Callable = func(): , 
+	#no_func: Callable = func(): , yes_text: String = "Yes", 
+	#no_text: String = "No") -> AlertScreen: 
+	#var alert_node: AlertScreen = alert.instantiate()
+	#var yes_button: Button = alert_node.yes
+	#var no_button: Button = alert_node.no
+	#GUIManager.add_gui(alert_node, AddGUIConfig.new().set_centered(true).set_is_exclusive(true))
+	#alert_node.alert_label.text = alert_message
+	#yes_button.text = yes_text
+	#no_button.text = no_text
+	#yes_button.pressed.connect(yes_func)
+	#no_button.pressed.connect(no_func)
+	#return alert_node
 
 
 func call_dropdown_popup(items: Array[DropdownPopupItem]) -> void: 

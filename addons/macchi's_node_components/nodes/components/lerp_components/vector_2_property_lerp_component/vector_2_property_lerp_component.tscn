@@ -7,5 +7,12 @@
 script = ExtResource("2_pm0qn")
 reset_node_when_finished = false
 properties = PackedStringArray()
+loop_interpolate_end_to_back = null
+
+[node name="XLerpComponent" parent="." index="0"]
+loop_interpolate_end_to_back = null
+
+[node name="YLerpComponent" parent="." index="1"]
+loop_interpolate_end_to_back = null
 
 [connection signal="interpolated" from="." to="." method="_on_interpolated"]

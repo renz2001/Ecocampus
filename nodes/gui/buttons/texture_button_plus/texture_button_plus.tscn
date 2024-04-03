@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://ba6uieidm61wl"]
+[gd_scene load_steps=6 format=3 uid="uid://ba6uieidm61wl"]
 
 [ext_resource type="Script" path="res://nodes/gui/buttons/texture_button_plus/texture_button_plus.gd" id="1_aumt3"]
 [ext_resource type="PackedScene" uid="uid://j60lt30xbjw6" path="res://addons/macchi's_audio_manager_and_plus/nodes/audio_players/button_audio_player/button_audio_player.tscn" id="1_w1ans"]
 [ext_resource type="Script" path="res://addons/macchi's_audio_manager_and_plus/scripts/resources/button_audio.gd" id="2_sptvq"]
+[ext_resource type="PackedScene" uid="uid://bcnx3fui12mb7" path="res://nodes/gui_components/on_pressed_components/on_pressed_scale/on_pressed_scale.tscn" id="4_ouleo"]
 
 [sub_resource type="Resource" id="Resource_v52d4"]
 script = ExtResource("2_sptvq")
@@ -30,3 +31,7 @@ grow_vertical = 2
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
+
+[node name="OnPressedScale" parent="." node_paths=PackedStringArray("node", "control") instance=ExtResource("4_ouleo")]
+node = NodePath("..")
+control = NodePath("..")

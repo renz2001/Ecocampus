@@ -8,6 +8,8 @@ class_name OnPressedChangeScene
 		change_scene = value
 		if !is_node_ready(): 
 			await ready
+		if Engine.is_editor_hint(): 
+			return
 		change_scene_component.set_properties(change_scene)
 
 @export var change_scene_component: ChangeSceneComponent
@@ -15,3 +17,4 @@ class_name OnPressedChangeScene
 
 func _on_pressed() -> void: 
 	change_scene_component.change()
+

@@ -57,7 +57,7 @@ func end() -> void:
 	
 	
 func set_node(value: CanvasItem) -> void: 
-	node = value
+	super.set_node(value)
 	if !is_node_ready(): 
 		await ready
 	scale_lerp.node = node

@@ -113,6 +113,7 @@ metadata/_edit_use_anchors_ = true
 editor_play = false
 tween = SubResource("Resource_x4ke4")
 node = NodePath("..")
+on_hide = true
 
 [node name="Starting" type="Marker2D" parent="OnVisibleThenScale" index="1"]
 
