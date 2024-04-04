@@ -13,12 +13,11 @@ shader_parameter/pattern = 0
 shader_parameter/inside = false
 shader_parameter/add_margins = true
 
-[node name="NonLivingEntityNode" instance=ExtResource("1_mq6kp")]
+[node name="NonLivingEntityNode" groups=["NonLivingEntity"] instance=ExtResource("1_mq6kp")]
 
-[node name="OnPressedApplyMaterialToNode" parent="Button" index="0" node_paths=PackedStringArray("apply_to_node", "control") instance=ExtResource("2_vlhxa")]
+[node name="OnPressedApplyMaterialToNode" parent="Button" index="0" node_paths=PackedStringArray("apply_to_node") instance=ExtResource("2_vlhxa")]
 material = SubResource("ShaderMaterial_phhau")
 apply_to_node = NodePath("../../Sprites")
-control = NodePath("")
 
 [node name="Left" parent="StateChart/Root/Enabled/Animation" index="0"]
 initial_state = NodePath("Nothing")

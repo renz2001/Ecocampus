@@ -12,5 +12,5 @@ func _ready() -> void:
 	
 
 func _condition() -> bool: 
-	printerr(GameManager.is_playing())
+	#printerr(GameManager.is_playing())
 	return GameManager.is_playing()
