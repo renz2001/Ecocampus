@@ -5,7 +5,8 @@ class_name CosmeticDisplayCard
 @export var player: Entity: 
 	set(value): 
 		player = value
-		player.gender_changed.connect(update)
+		if !Engine.is_editor_hint(): 
+			player.gender_changed.connect(update)
 
 @export var gender: GlobalEnums.Gender: 
 	set(value): 

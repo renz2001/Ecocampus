@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://qfyxou4gfo7f"]
+[gd_scene load_steps=13 format=3 uid="uid://qfyxou4gfo7f"]
 
 [ext_resource type="PackedScene" uid="uid://hdksnn1gc6qq" path="res://addons/macchi's_gui_manager/nodes/gui/dialog_gui/dialog_gui.tscn" id="1_vqmba"]
 [ext_resource type="Script" path="res://nodes/gui/interact_dialog/interact_dialog.gd" id="2_5f634"]
@@ -7,6 +7,7 @@
 [ext_resource type="FontFile" uid="uid://bh5eyon0or827" path="res://fonts/Ubuntu-Regular.ttf" id="4_a317s"]
 [ext_resource type="PackedScene" uid="uid://cnsvmjc5ytto2" path="res://nodes/components/on_visible_then_scale/on_visible_then_scale.tscn" id="5_t4yxs"]
 [ext_resource type="Script" path="res://addons/macchi's_node_components/scripts/arguments/tween_arguments.gd" id="6_hyohs"]
+[ext_resource type="Texture2D" uid="uid://do0rkrmxxseyk" path="res://assets/buttons/ok_button.png" id="6_m2xc1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l0aej"]
 atlas = ExtResource("3_0ji44")
@@ -19,20 +20,27 @@ shadow_size = 5
 shadow_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(-2, 4)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ocl6h"]
+atlas = ExtResource("6_m2xc1")
+region = Rect2(82, 144, 1403, 511)
+
 [sub_resource type="Resource" id="Resource_x4ke4"]
 script = ExtResource("6_hyohs")
 transition_type = 10
 ease_type = 1
 duration = 0.4
 
-[node name="InteractDialog" node_paths=PackedStringArray("description_label") instance=ExtResource("1_vqmba")]
+[node name="InteractDialog" node_paths=PackedStringArray("description_label", "ok_button") instance=ExtResource("1_vqmba")]
 offset_left = 1.0
 offset_top = 1.0
 offset_right = 380.0
 offset_bottom = 251.0
+scale = Vector2(1e-05, 1e-05)
 script = ExtResource("2_5f634")
 description_label = NodePath("Body/MarginContainer/Description")
+ok_button = NodePath("Body/OKButton")
 inactive_on_ready = false
+only_one_instance = true
 
 [node name="Body" type="TextureRect" parent="." index="0"]
 layout_mode = 1
@@ -94,7 +102,7 @@ text_overrun_behavior = 3
 layout_mode = 2
 theme_type_variation = &"TransparentBlackPanelContainer"
 
-[node name="MediumWoodenButton" parent="Body" index="3" instance=ExtResource("3_2wovi")]
+[node name="OKButton" parent="Body" index="3" instance=ExtResource("3_2wovi")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.76962
@@ -107,6 +115,7 @@ offset_right = 111.0
 offset_bottom = 0.0
 grow_horizontal = 0
 grow_vertical = 0
+texture_normal = SubResource("AtlasTexture_ocl6h")
 metadata/_edit_use_anchors_ = true
 
 [node name="OnVisibleThenScale" parent="." index="1" node_paths=PackedStringArray("node") instance=ExtResource("5_t4yxs")]
@@ -120,4 +129,4 @@ on_hide = true
 [node name="Ending" type="Marker2D" parent="OnVisibleThenScale" index="2"]
 
 [connection signal="visibility_changed" from="." to="OnVisibleThenScale" method="_on_visible"]
-[connection signal="pressed" from="Body/MediumWoodenButton" to="." method="_on_medium_wooden_button_pressed"]
+[connection signal="pressed" from="Body/OKButton" to="." method="_on_medium_wooden_button_pressed"]

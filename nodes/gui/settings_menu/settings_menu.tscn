@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://dywlc2qvwfqms"]
+[gd_scene load_steps=8 format=3 uid="uid://dywlc2qvwfqms"]
 
 [ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/macchi's_gui_manager/nodes/gui/gui/gui.tscn" id="1_cbayu"]
 [ext_resource type="Script" path="res://nodes/gui/settings_menu/settings_menu.gd" id="2_wgnu1"]
 [ext_resource type="PackedScene" uid="uid://dggdvwjvdrmkh" path="res://nodes/gui/buttons/medium_wooden_button/medium_wooden_button.tscn" id="3_f0t0v"]
+[ext_resource type="PackedScene" uid="uid://c55suis7kmxsy" path="res://nodes/gui/volume_slider/volume_slider.tscn" id="3_ovwmi"]
 [ext_resource type="Texture2D" uid="uid://b4fijb1vufwm7" path="res://assets/buttons/exit.png" id="4_p4eyu"]
+[ext_resource type="PackedScene" uid="uid://bqqiiwxg42b4r" path="res://nodes/gui_components/on_pressed_components/on_pressed_exit_to_main_menu/on_pressed_exit_to_main_menu.tscn" id="5_h8g62"]
+[ext_resource type="PackedScene" uid="uid://der1edoxrqxln" path="res://nodes/gui_components/set_game_state_on_gui_active/set_game_state_on_gui_active.tscn" id="7_xoj0p"]
 
 [node name="SettingsMenu" instance=ExtResource("1_cbayu")]
 anchors_preset = 15
@@ -12,6 +15,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_wgnu1")
+only_one_instance = true
 
 [node name="CenterContainer" type="CenterContainer" parent="." index="0"]
 layout_mode = 1
@@ -25,7 +29,17 @@ grow_vertical = 2
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 
-[node name="MediumWoodenButton" parent="CenterContainer/VBoxContainer" index="0" instance=ExtResource("3_f0t0v")]
+[node name="VolumeSlider" parent="CenterContainer/VBoxContainer" index="0" instance=ExtResource("3_ovwmi")]
+layout_mode = 2
+
+[node name="ExitToMainMenu" parent="CenterContainer/VBoxContainer" index="1" instance=ExtResource("3_f0t0v")]
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 texture_normal = ExtResource("4_p4eyu")
+
+[node name="OnPressedExitToMainMenu" parent="CenterContainer/VBoxContainer/ExitToMainMenu" index="3" instance=ExtResource("5_h8g62")]
+
+[node name="SetGameStateOnGUIActive" parent="." index="2" node_paths=PackedStringArray("gui") instance=ExtResource("7_xoj0p")]
+gui = NodePath("..")
+activated_state = "paused"
+deactivated_state = "playing"

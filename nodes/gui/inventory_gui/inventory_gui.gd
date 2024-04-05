@@ -29,5 +29,5 @@ func _on_player_instanced() -> void:
 	inventory = PlayerManager.player.inventory
 	
 	
-func _on_inventory_items_changed(new_items: Array[Item]) -> void: 
+func _on_inventory_items_changed(_new_items: Array[Item]) -> void: 
 	inventory = PlayerManager.player.inventory

@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://bqqiiwxg42b4r"]
+[gd_scene load_steps=4 format=3 uid="uid://bqqiiwxg42b4r"]
 
 [ext_resource type="PackedScene" uid="uid://da2nlvvpyaabx" path="res://nodes/gui_components/on_pressed/on_pressed.tscn" id="1_oat51"]
 [ext_resource type="Script" path="res://nodes/gui_components/on_pressed_components/on_pressed_exit_to_main_menu/on_pressed_exit_to_main_menu.gd" id="2_iyh8u"]
+[ext_resource type="PackedScene" uid="uid://nnpxfb02bn17" path="res://nodes/components/change_scene_component/change_scene_component.tscn" id="3_o5leq"]
 
-[node name="OnPressedExitToMainMenu" instance=ExtResource("1_oat51")]
+[node name="OnPressedExitToMainMenu" node_paths=PackedStringArray("to_main_menu", "control") instance=ExtResource("1_oat51")]
 script = ExtResource("2_iyh8u")
+to_main_menu = NodePath("ToMainMenu")
+control = NodePath("..")
+
+[node name="ToMainMenu" parent="." index="1" instance=ExtResource("3_o5leq")]
+to_scene = "res://nodes/gui/main_menu/main_menu.tscn"

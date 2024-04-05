@@ -1,7 +1,10 @@
-[gd_resource type="Theme" load_steps=14 format=3 uid="uid://cd55r8awc3jgy"]
+[gd_resource type="Theme" load_steps=16 format=3 uid="uid://cd55r8awc3jgy"]
 
 [ext_resource type="StyleBox" uid="uid://dwn5sekhug4fj" path="res://resources/styleboxes/dialogue_box_balloon.tres" id="1_fyakv"]
 [ext_resource type="FontFile" uid="uid://bh5eyon0or827" path="res://fonts/Ubuntu-Regular.ttf" id="2_hew1c"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_7jrk4"]
+color = Color(1, 1, 1, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tew8n"]
 
@@ -61,6 +64,18 @@ corner_radius_bottom_left = 20
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xvfsi"]
 bg_color = Color(0, 0, 0, 0.392157)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hi8ag"]
+bg_color = Color(0.552941, 0.627451, 0.705882, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.729412, 0.321569, 0.184314, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
 [resource]
 default_font = ExtResource("2_hew1c")
 default_font_size = 50
@@ -73,6 +88,7 @@ GUIManagerMargin/constants/margin_bottom = 0
 GUIManagerMargin/constants/margin_left = 0
 GUIManagerMargin/constants/margin_right = 0
 GUIManagerMargin/constants/margin_top = 0
+HSlider/styles/slider = SubResource("StyleBoxLine_7jrk4")
 InvisibleButton/base_type = &"Button"
 InvisibleButton/styles/disabled = SubResource("StyleBoxEmpty_tew8n")
 InvisibleButton/styles/focus = SubResource("StyleBoxEmpty_0al1v")
@@ -91,9 +107,12 @@ PlayerHUDMargin/constants/margin_bottom = 20
 PlayerHUDMargin/constants/margin_left = 20
 PlayerHUDMargin/constants/margin_right = 20
 PlayerHUDMargin/constants/margin_top = 20
+QuizAttemptPanel/base_type = &"PanelContainer"
 QuizAttemptPanel/styles/panel = SubResource("StyleBoxFlat_gd5xk")
 RoundedPanel/styles/panel = SubResource("StyleBoxFlat_p30aw")
 TransparentBlackPanelContainer/base_type = &"PanelContainer"
 TransparentBlackPanelContainer/styles/panel = SubResource("StyleBoxFlat_opodm")
 TransparentGrayPanelContainer/base_type = &"PanelContainer"
 TransparentGrayPanelContainer/styles/panel = SubResource("StyleBoxFlat_xvfsi")
+VolumeSliderPanelContainer/base_type = &"PanelContainer"
+VolumeSliderPanelContainer/styles/panel = SubResource("StyleBoxFlat_hi8ag")

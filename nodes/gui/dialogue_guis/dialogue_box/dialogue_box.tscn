@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://blx1a7x2yt18"]
+[gd_scene load_steps=14 format=3 uid="uid://blx1a7x2yt18"]
 
 [ext_resource type="PackedScene" uid="uid://daxlnabqn25ah" path="res://addons/dialogue_manager's_dialogue_gui_manager/nodes/gui/dialogue_gui/dialogue_gui.tscn" id="1_sidoq"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_ob5wh"]
@@ -6,6 +6,39 @@
 [ext_resource type="PackedScene" uid="uid://crt2vt3u0qp70" path="res://nodes/gui/speaker_sprite/speaker_sprite.tscn" id="3_0vhnd"]
 [ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_reponses_menu.gd" id="3_a42pw"]
 [ext_resource type="PackedScene" uid="uid://rc8fo3x7f3mp" path="res://nodes/gui/dialogue_guis/dialogue_box/guis/dialogue_box_button.tscn" id="4_yi2ws"]
+[ext_resource type="Script" path="res://addons/macchi's_audio_manager_and_plus/scripts/arguments/audio_stream_player_arguments.gd" id="7_erbwi"]
+[ext_resource type="AudioStream" uid="uid://bwlyi35ixt1pg" path="res://assets/audio/ui/convo_popup.mp3" id="8_kkemd"]
+[ext_resource type="AudioStream" uid="uid://cxyrg6av4rnd0" path="res://assets/audio/ui/convo_back.mp3" id="9_l4yr5"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_qvr4e"]
+random_pitch = 1.3
+streams_count = 1
+stream_0/stream = ExtResource("8_kkemd")
+stream_0/weight = 1.0
+
+[sub_resource type="Resource" id="Resource_s4lct"]
+script = ExtResource("7_erbwi")
+sound = SubResource("AudioStreamRandomizer_qvr4e")
+play_from_position = 0
+pitch_scale = 1.0
+volume_slider = 1.0
+volume_db = 0.0
+bus = ""
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_b8yci"]
+random_pitch = 1.3
+streams_count = 1
+stream_0/stream = ExtResource("9_l4yr5")
+stream_0/weight = 1.0
+
+[sub_resource type="Resource" id="Resource_dk1y4"]
+script = ExtResource("7_erbwi")
+sound = SubResource("AudioStreamRandomizer_b8yci")
+play_from_position = 0
+pitch_scale = 1.0
+volume_slider = 1.0
+volume_db = 0.0
+bus = ""
 
 [node name="DialogueBox" node_paths=PackedStringArray("character_label", "responses_menu", "dialogue_label", "speaker_sprites_switcher") instance=ExtResource("1_sidoq")]
 custom_minimum_size = Vector2(536, 140)
@@ -186,6 +219,12 @@ visible = false
 layout_mode = 2
 text = "Cancel
 "
+
+[node name="OnActivateAudio" parent="Audio" index="2"]
+audio = SubResource("Resource_s4lct")
+
+[node name="OnDeactivateAudio" parent="Audio" index="3"]
+audio = SubResource("Resource_dk1y4")
 
 [connection signal="gui_input" from="Balloon" to="." method="_on_balloon_gui_input"]
 [connection signal="spoke" from="Balloon/Dialogue/VBoxContainer/DialogueLabel" to="." method="_on_dialogue_label_spoke"]

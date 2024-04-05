@@ -1,0 +1,81 @@
+[gd_scene load_steps=11 format=3 uid="uid://c55suis7kmxsy"]
+
+[ext_resource type="Script" path="res://nodes/gui/volume_slider/volume_slider.gd" id="1_anity"]
+[ext_resource type="Theme" uid="uid://cd55r8awc3jgy" path="res://themes/main_theme.tres" id="1_jq51u"]
+[ext_resource type="PackedScene" uid="uid://d07384jfiolfg" path="res://nodes/components/audio_bus_volume_slider/audio_bus_volume_slider.tscn" id="2_0o2s6"]
+[ext_resource type="PackedScene" uid="uid://cdhkyjskyryv" path="res://nodes/gui/formatted_label/formatted_label.tscn" id="3_y8iyn"]
+[ext_resource type="FontFile" uid="uid://cp5vi568oh4jl" path="res://fonts/Ubuntu-Bold.ttf" id="3_ypntq"]
+[ext_resource type="Script" path="res://scripts/resources/string_formatter.gd" id="4_m82y8"]
+[ext_resource type="FontFile" uid="uid://dqdntixoq4bc2" path="res://fonts/Ubuntu-Medium.ttf" id="5_htx2b"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_t4or4"]
+font = ExtResource("3_ypntq")
+font_size = 40
+outline_size = 12
+outline_color = Color(0, 0, 0, 0.717647)
+shadow_size = 15
+shadow_color = Color(0, 0, 0, 0.717647)
+shadow_offset = Vector2(3, 3)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ccdjs"]
+font = ExtResource("5_htx2b")
+font_size = 32
+outline_size = 8
+outline_color = Color(0, 0, 0, 0.717647)
+shadow_size = 8
+shadow_color = Color(0, 0, 0, 0.717647)
+shadow_offset = Vector2(3, 3)
+
+[sub_resource type="Resource" id="Resource_vmx8t"]
+script = ExtResource("4_m82y8")
+format = "%s%%"
+
+[node name="VolumeSlider" type="PanelContainer" node_paths=PackedStringArray("label", "slider", "audio_bus_volume_slider", "percentage_label")]
+offset_right = 173.0
+offset_bottom = 54.0
+theme = ExtResource("1_jq51u")
+theme_type_variation = &"VolumeSliderPanelContainer"
+script = ExtResource("1_anity")
+label = NodePath("MarginContainer/VBoxContainer/Label")
+slider = NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HSlider")
+audio_bus_volume_slider = NodePath("AudioBusVolumeSlider")
+percentage_label = NodePath("MarginContainer/VBoxContainer/HBoxContainer/Percentage")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "AudioBus"
+label_settings = SubResource("LabelSettings_t4or4")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="HSlider" type="HSlider" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="Percentage" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("3_y8iyn")]
+layout_mode = 2
+text = "100"
+label_settings = SubResource("LabelSettings_ccdjs")
+horizontal_alignment = 1
+vertical_alignment = 1
+string_formatter = SubResource("Resource_vmx8t")
+
+[node name="AudioBusVolumeSlider" parent="." instance=ExtResource("2_0o2s6")]
+
+[connection signal="drag_ended" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HSlider" to="." method="_on_h_slider_drag_ended"]
+[connection signal="drag_started" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HSlider" to="." method="_on_h_slider_drag_started"]

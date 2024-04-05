@@ -5,7 +5,7 @@
 [ext_resource type="Resource" uid="uid://dandwe41rj323" path="res://resources/audio/button_audio/button_audio.tres" id="3_p1fcf"]
 [ext_resource type="PackedScene" uid="uid://bcnx3fui12mb7" path="res://nodes/gui_components/on_pressed_components/on_pressed_scale/on_pressed_scale.tscn" id="4_ouleo"]
 
-[node name="TextureButtonPlus" type="TextureButton" node_paths=PackedStringArray("label")]
+[node name="TextureButtonPlus" type="TextureButton" node_paths=PackedStringArray("label", "button_audio_player")]
 offset_right = 40.0
 offset_bottom = 40.0
 mouse_default_cursor_shape = 2
@@ -13,6 +13,7 @@ ignore_texture_size = true
 stretch_mode = 5
 script = ExtResource("1_aumt3")
 label = NodePath("Label")
+button_audio_player = NodePath("ButtonAudioPlayer")
 
 [node name="ButtonAudioPlayer" parent="." node_paths=PackedStringArray("button") instance=ExtResource("1_w1ans")]
 button = NodePath("..")

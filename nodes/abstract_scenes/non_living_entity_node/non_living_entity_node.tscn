@@ -1,23 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://dokfordgw2kk3"]
+[gd_scene load_steps=3 format=3 uid="uid://dokfordgw2kk3"]
 
 [ext_resource type="PackedScene" uid="uid://dml5uy4doh7s6" path="res://nodes/abstract_scenes/entity_node/entity_node.tscn" id="1_mq6kp"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="2_q3tmh"]
-[ext_resource type="PackedScene" uid="uid://c4gnwuhmu4msa" path="res://nodes/gui_components/on_pressed_components/on_pressed_apply_material_to_node/on_pressed_apply_material_to_node.tscn" id="2_vlhxa"]
-[ext_resource type="Shader" path="res://resources/shaders/outline_inline.gdshader" id="3_u5jah"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_phhau"]
-shader = ExtResource("3_u5jah")
-shader_parameter/color = Color(1, 1, 1, 1)
-shader_parameter/width = 10.0
-shader_parameter/pattern = 0
-shader_parameter/inside = false
-shader_parameter/add_margins = true
 
 [node name="NonLivingEntityNode" groups=["NonLivingEntity"] instance=ExtResource("1_mq6kp")]
 
-[node name="OnPressedApplyMaterialToNode" parent="Button" index="0" node_paths=PackedStringArray("apply_to_node") instance=ExtResource("2_vlhxa")]
-material = SubResource("ShaderMaterial_phhau")
-apply_to_node = NodePath("../../Sprites")
+[node name="TapHitBox" parent="." index="0"]
+offset_left = -26.0
+offset_top = -26.0
+offset_right = 27.0
+offset_bottom = 16.0
 
 [node name="Left" parent="StateChart/Root/Enabled/Animation" index="0"]
 initial_state = NodePath("Nothing")
@@ -42,6 +34,3 @@ script = ExtResource("2_q3tmh")
 
 [node name="ShadowCircle" parent="Sprites" index="0"]
 scale = Vector2(0.074, 0.054)
-
-[node name="EntitySprite" type="Sprite2D" parent="Sprites" index="1"]
-use_parent_material = true

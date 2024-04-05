@@ -1,52 +1,35 @@
-[gd_scene load_steps=6 format=3 uid="uid://b0uhkknx5mqy0"]
+[gd_scene load_steps=5 format=3 uid="uid://kswh3ivlg5yv"]
 
-[ext_resource type="PackedScene" uid="uid://b6naf25j7vwf2" path="res://nodes/abstract_scenes/npc_node/npc_node.tscn" id="1_t3km3"]
-[ext_resource type="Script" path="res://addons/godot_state_charts/animation_player_state.gd" id="2_85lky"]
-[ext_resource type="Texture2D" uid="uid://dqshq874l3ic5" path="res://assets/character/player_boy/boy.png" id="2_d3kna"]
+[ext_resource type="PackedScene" uid="uid://cjrygqeartla8" path="res://nodes/abstract_scenes/living_entity_node/living_entity_node.tscn" id="1_slgqi"]
+[ext_resource type="Script" path="res://scripts/resources/entity.gd" id="2_5wdww"]
+[ext_resource type="Texture2D" uid="uid://bbugcjteorh2i" path="res://assets/character/player_boy/sets/boy_with_suit.png" id="2_7j2ln"]
 
-[sub_resource type="Animation" id="Animation_w6dbb"]
-resource_name = "idle_right"
+[sub_resource type="Resource" id="Resource_m6blp"]
+script = ExtResource("2_5wdww")
+custom_name = ""
+name = "test_npc"
+gender = 1
+group = "NPC"
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ki2hi"]
-_data = {
-"idle_right": SubResource("Animation_w6dbb")
-}
+[node name="TestNPC" instance=ExtResource("1_slgqi")]
+use_parent_material = true
+position = Vector2(0, -102)
+data = SubResource("Resource_m6blp")
 
-[node name="TestNPC" instance=ExtResource("1_t3km3")]
+[node name="TapHitBox" parent="." index="0"]
+offset_left = -105.0
+offset_top = -269.0
+offset_right = 117.0
+offset_bottom = 158.0
+
+[node name="Sprites" parent="." index="5"]
 scale = Vector2(1.5, 1.5)
 
-[node name="Button" parent="." index="0"]
-offset_left = -71.0
-offset_top = -243.0
-offset_right = 81.0
-offset_bottom = 1.0
-
-[node name="Right" parent="StateChart/Root/Enabled/Animation" index="1"]
-initial_state = NodePath("Idle")
-
-[node name="Idle" type="Node" parent="StateChart/Root/Enabled/Animation/Right" index="1"]
-script = ExtResource("2_85lky")
-animation_player = NodePath("../../../../../../AnimationPlayer")
-animation_name = &"idle_right"
-
-[node name="Talk" type="Node" parent="StateChart/Root/Enabled/Animation/Right" index="2"]
-script = ExtResource("2_85lky")
-animation_player = NodePath("../../../../../../AnimationPlayer")
-animation_name = &"idle_right"
-
-[node name="TwoPoint5DNodeSimulator" parent="Components" index="1"]
-node_base_scale = Vector2(1.5, 1.5)
-
 [node name="ShadowCircle" parent="Sprites" index="0"]
-position = Vector2(0, -9)
+position = Vector2(0, 68)
 
-[node name="Sprite2D" type="Sprite2D" parent="Sprites" index="1"]
-position = Vector2(6, -122)
-texture = ExtResource("2_d3kna")
+[node name="EntitySprite" parent="Sprites" index="1"]
+position = Vector2(5.33333, -57.3333)
+texture = ExtResource("2_7j2ln")
 hframes = 6
 frame = 1
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="7"]
-libraries = {
-"": SubResource("AnimationLibrary_ki2hi")
-}

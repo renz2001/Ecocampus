@@ -60,6 +60,9 @@ func set_gui_active(gui: GUI, active: bool) -> void:
 func add_gui(gui: GUI, config: AddGUIConfig = null) -> void:
 	#if gui.get_parent() == instanced_uis:
 		#return
+	if gui.only_one_instance && is_gui_the_only_instance(gui): 
+		return
+		
 	if config: 
 		if !config.centered: 
 			instanced_uis.add_child(gui)
@@ -111,3 +114,13 @@ func remove_gui(gui: GUI) -> void:
 func call_dropdown_popup(items: Array[DropdownPopupItem]) -> void: 
 	dropdown_popup.activate(get_viewport().get_mouse_position(), items)
 
+
+func is_gui_the_only_instance(gui: GUI) -> bool: 
+	var node: GUI = NodeTools.get_item_from_array(
+		get_tree().get_nodes_in_group("GUI"), 
+		func(item: GUI, _i: int): 
+			return gui.name == item.name
+	)
+	return is_instance_valid(node)
+	
+	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c8raw86b1ub34"]
+[gd_scene load_steps=14 format=3 uid="uid://c8raw86b1ub34"]
 
 [ext_resource type="Script" path="res://nodes/singletons/managers/game_manager/game_manager.gd" id="1_pr44q"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/state_chart.gd" id="2_u5lwv"]
@@ -9,13 +9,12 @@
 [ext_resource type="PackedScene" uid="uid://nnpxfb02bn17" path="res://nodes/components/change_scene_component/change_scene_component.tscn" id="7_b865j"]
 [ext_resource type="PackedScene" uid="uid://7gri71kaffvv" path="res://addons/macchi's_audio_manager_and_plus/nodes/components/audio_manager_player/audio_manager_player.tscn" id="8_mvjuo"]
 [ext_resource type="Script" path="res://addons/macchi's_audio_manager_and_plus/scripts/arguments/audio_stream_player_arguments.gd" id="9_wmpeo"]
-[ext_resource type="AudioStream" uid="uid://cuaimqbc6gqay" path="res://assets/audio/music/bg_music1.mp3" id="10_0357q"]
+[ext_resource type="AudioStream" uid="uid://dg7s4yqd7lmew" path="res://assets/audio/music/bg_music_menu.ogg" id="10_0ipxl"]
 [ext_resource type="AudioStream" uid="uid://bduif8tvd6k3j" path="res://assets/itch_io/audio/music/stream_loops_2024-02-28_02.ogg" id="11_x36yc"]
-[ext_resource type="AudioStream" uid="uid://cgy32rgx57i7e" path="res://assets/audio/music/bg_music_for_assesment.mp3" id="12_16fxm"]
 
 [sub_resource type="Resource" id="Resource_7t6ii"]
 script = ExtResource("9_wmpeo")
-sound = ExtResource("10_0357q")
+sound = ExtResource("10_0ipxl")
 play_from_position = 0
 pitch_scale = 1.0
 volume_slider = 1.0
@@ -31,24 +30,16 @@ volume_slider = 1.0
 volume_db = 0.0
 bus = ""
 
-[sub_resource type="Resource" id="Resource_fwdt0"]
-script = ExtResource("9_wmpeo")
-sound = ExtResource("12_16fxm")
-play_from_position = 0
-pitch_scale = 1.0
-volume_slider = 1.0
-volume_db = 0.0
-bus = ""
-
-[node name="GameManager" type="Node" node_paths=PackedStringArray("state_chart", "to_map_picker", "playing_state", "paused_state", "menu_music", "playing_music", "assesment_music")]
+[node name="GameManager" type="Node" node_paths=PackedStringArray("state_chart", "to_map_picker", "playing_state", "paused_state", "main_menu_state", "menu_music", "playing_music", "assesment_music")]
 script = ExtResource("1_pr44q")
 state_chart = NodePath("StateChart")
 to_map_picker = NodePath("ChangeScene/ToSelectCharacter")
 playing_state = NodePath("StateChart/Root/GameState/Playing")
 paused_state = NodePath("StateChart/Root/GameState/Paused")
+main_menu_state = NodePath("StateChart/Root/GameState/MainMenu")
 menu_music = NodePath("Audio/MenuMusic")
 playing_music = NodePath("Audio/PlayingMusic")
-assesment_music = NodePath("Audio/AssesmentMusic")
+assesment_music = NodePath("")
 
 [node name="StateChart" type="Node" parent="."]
 script = ExtResource("2_u5lwv")
@@ -140,9 +131,7 @@ audio = SubResource("Resource_7t6ii")
 type = 1
 audio = SubResource("Resource_262es")
 
-[node name="AssesmentMusic" parent="Audio" instance=ExtResource("8_mvjuo")]
-audio = SubResource("Resource_fwdt0")
-
 [connection signal="state_entered" from="StateChart/Root/GameState/MainMenu" to="." method="_on_main_menu_state_entered"]
 [connection signal="state_entered" from="StateChart/Root/GameState/Playing" to="." method="_on_playing_state_entered"]
+[connection signal="state_exited" from="StateChart/Root/GameState/Playing" to="." method="_on_playing_state_exited"]
 [connection signal="state_entered" from="StateChart/Root/GameState/Assesment" to="." method="_on_assesment_state_entered"]

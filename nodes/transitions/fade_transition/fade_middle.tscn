@@ -1,7 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bv8o3mlvgjwjq"]
 
-[ext_resource type="PackedScene" uid="uid://bvaaabgdnbhtc" path="res://addons/easy_rpg_maker/nodes/singletons/managers/transitions_manager/middle_transition/middle_transition_gui.tscn" id="1_t0nid"]
-
+[ext_resource type="PackedScene" uid="uid://bvaaabgdnbhtc" path="res://nodes/singletons/managers/transitions_manager/middle_transition/middle_transition_gui.tscn" id="1_t0nid"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kkvek"]
 bg_color = Color(0, 0, 0, 1)

@@ -3,7 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://dxw87na67md60" path="res://nodes/singletons/managers/transitions_manager/transition_gui/transition_gui.tscn" id="1_2oy53"]
 [ext_resource type="Script" path="res://nodes/singletons/managers/transitions_manager/middle_transition/middle_transition_gui.gd" id="2_leuag"]
 
-
 [node name="MiddleTransitionGUI" node_paths=PackedStringArray("timer") instance=ExtResource("1_2oy53")]
 script = ExtResource("2_leuag")
 timer = NodePath("Timer")

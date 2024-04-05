@@ -21,9 +21,3 @@ class_name EcoQuestTask
 
 var completed: bool
 
-
-func init(tree: SceneTree) -> void: 
-	pass
-	
-	
-	

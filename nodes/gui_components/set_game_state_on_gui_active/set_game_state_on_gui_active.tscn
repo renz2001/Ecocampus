@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://der1edoxrqxln"]
+
+[ext_resource type="Script" path="res://nodes/gui_components/set_game_state_on_gui_active/set_game_state_on_gui_active.gd" id="1_t7nfo"]
+
+[node name="SetGameStateOnGUIActive" type="Node"]
+script = ExtResource("1_t7nfo")

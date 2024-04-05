@@ -66,6 +66,10 @@ static func get_item_from_array(array: Array, method: Callable):
 	return null
 	
 	
+static func get_autoload(parent: Node, autoload: String) -> Node: 
+	return parent.get_node("/root/%s" % autoload)
+	
+	
 #func _get_all_save_components(parent: Node) -> Array[FollowerSaveComponent]: 
 	#var save_components_in_node: Array[FollowerSaveComponent] = []
 	#for child: Node in parent.get_children(): 

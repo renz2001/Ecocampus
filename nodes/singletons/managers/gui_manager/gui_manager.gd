@@ -6,4 +6,4 @@ extends BaseGUIManager
 
 @export var customize_character_screen: CustomizeCharacterScreen
 @export var settings_menu: SettingsMenu
-
+@export var quiz_attempt_screen: QuizAttemptScreen

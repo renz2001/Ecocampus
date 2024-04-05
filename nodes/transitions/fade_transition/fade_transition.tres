@@ -5,9 +5,11 @@
 [ext_resource type="Script" path="res://scripts/resources/gui_transition.gd" id="3_b8am1"]
 [ext_resource type="PackedScene" uid="uid://ck7pft6wcl6rw" path="res://nodes/transitions/fade_transition/fade_start.tscn" id="4_v80lx"]
 
-
 [resource]
 script = ExtResource("3_b8am1")
 middle_transition = ExtResource("2_oa00u")
 start_transition = ExtResource("4_v80lx")
 end_transition = ExtResource("1_gw7fw")
+start_transition_duration = 0.0
+middle_transition_duration = 0.0
+end_transition_duration = 0.0

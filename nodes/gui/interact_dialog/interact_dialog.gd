@@ -3,6 +3,7 @@ extends DialogGUI
 class_name InteractDialog
 
 @export var description_label: Label
+@export var ok_button: TextureButtonPlus
 
 var data: InteractDialogData
 
@@ -12,12 +13,8 @@ static func display(args: InteractDialogData) -> InteractDialog:
 	gui.data = args
 	gui.global_position = gui.data.gui_position
 	gui.description_label.text = gui.data.description
-	gui.data.caller.path_find.finished_navigation.connect(
-		func(): 
-			gui.data.caller.state_chart.send_event("cannot_tap")
-			GUIManager.add_gui(gui)
-	, CONNECT_ONE_SHOT
-	)
+	GUIManager.add_gui(gui)
+	gui.data.caller.state_chart.send_event("disabled")
 	return gui
 
 
@@ -32,6 +29,6 @@ func _deactivated() -> void:
 
 func _close() -> void: 
 	queue_free()
-	data.caller.state_chart.send_event("can_tap")
+	data.caller.state_chart.send_event("enabled")
 
 

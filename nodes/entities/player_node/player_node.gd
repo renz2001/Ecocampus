@@ -33,11 +33,6 @@ func _on_walk_state_entered() -> void:
 	move_to_tap.move()
 
 
-## PathFindMovementComponent finished_navigation is connected to this. 
-func _on_walk_stopped() -> void:
-	state_chart.send_event("idle")
-
-
 func _on_can_tap_state_input(event: InputEvent) -> void:
 	if event.is_action_pressed("tap"): 
 		if mouse_position.get_position_direction_relative_to(global_position)[0] == BaseGlobalEnums.Directions.LEFT: 
@@ -54,4 +49,10 @@ func set_data(value: Entity) -> void:
 	data = value
 	if data: 
 		gender = data.gender
-	
+
+
+func _on_path_find_movement_component_finished_navigation() -> void: 
+	state_chart.send_event("idle")
+
+
+

@@ -18,3 +18,14 @@ TestNPC: TEST!
 {{PlayerManager.player.data.custom_name}}: LOL!
 
 => END
+
+~ test_quiz
+{{PlayerManager.player.data.custom_name}}: HI!
+{{data.custom_name}}: Wanna do a quiz? 
+{{PlayerManager.player.data.custom_name}}: Hmmm!
+{{data.custom_name}}: Accept quiz? 
+- Accept
+	do dialogue_response_handler.respond("accept_quiz")
+- Not yet
+	{{data.custom_name}}: Welp ok have fun!
+=> END

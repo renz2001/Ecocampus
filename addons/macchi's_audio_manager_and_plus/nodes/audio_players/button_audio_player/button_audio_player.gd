@@ -11,6 +11,12 @@ class_name ButtonAudioPlayer
 		
 @export var player: AudioManagerPlayer
 @export var audio: ButtonAudio
+@export var disabled: bool: 
+	set(value): 
+		disabled = value
+		if !is_node_ready(): 
+			await ready
+		player.disabled = disabled
 
 @export_range(0, 1) var volume_slider: float = 1
 

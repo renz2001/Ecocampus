@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://nodes/singletons/globals/gui_collection/gui_collection.gd" id="1_c5gfh"]
 [ext_resource type="PackedScene" uid="uid://qfyxou4gfo7f" path="res://nodes/gui/interact_dialog/interact_dialog.tscn" id="2_7v1ee"]
-[ext_resource type="PackedScene" uid="uid://cl0gfqdtf6wv3" path="res://nodes/screens/quiz_screen/quiz_screen.tscn" id="3_f47mb"]
+[ext_resource type="PackedScene" uid="uid://cl0gfqdtf6wv3" path="res://nodes/screens/quiz_attempt_screen/quiz_attempt_screen.tscn" id="3_f47mb"]
 [ext_resource type="PackedScene" uid="uid://xg2ytqrjlg5u" path="res://nodes/gui/quiz_problem_page/quiz_problem_page.tscn" id="4_t1ky3"]
 [ext_resource type="PackedScene" uid="uid://cijbhqkas6yol" path="res://nodes/gui/cosmetic_display_card/cosmetic_display_card.tscn" id="5_in3fo"]
 [ext_resource type="PackedScene" uid="uid://cdhkyjskyryv" path="res://nodes/gui/formatted_label/formatted_label.tscn" id="6_61al7"]

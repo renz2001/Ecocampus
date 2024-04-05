@@ -28,10 +28,15 @@ signal deactivated
 			#print()
 @export var active: bool = true: set = set_active
 @export var alias: String
+@export var only_one_instance: bool = true
 
 @export var disabled: bool = false
 
 @export var acting_container: ActingContainer
+
+@export_group("Dependencies")
+@export var on_activate_audio: AudioManagerPlayer
+@export var on_deactivate_audio: AudioManagerPlayer
 
 var _initialized: bool = false
 	
@@ -63,14 +68,17 @@ func set_active(value: bool) -> void:
 		active = true
 		set_process(true)
 		_activated()
+		if !Engine.is_editor_hint(): 
+			on_activate_audio.play()
 		activated.emit()
 		_initialized = true
 	elif !value && _deactivate_condition(): 
 		active = false
 		set_process(false)
 		_deactivated()
+		if !Engine.is_editor_hint(): 
+			on_deactivate_audio.play()
 		deactivated.emit()
-
 	
 	
 #func activate() -> void: 

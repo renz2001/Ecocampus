@@ -16,7 +16,7 @@ func to_float() -> float:
 
 
 func to_percentage_number() -> int: 
-	return to_float() * 100
+	return int(to_float() * 100)
 	
 	
 #func float_to_string(value: float) -> String: 

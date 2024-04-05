@@ -32,8 +32,6 @@ active = null
 alias = null
 disabled = null
 
-[node name="Audio" type="Node" parent="." index="0"]
-
 [node name="TalkSound1" type="AudioStreamPlayer" parent="Audio" index="0"]
 
 [node name="TalkSound2" type="AudioStreamPlayer" parent="Audio" index="1"]

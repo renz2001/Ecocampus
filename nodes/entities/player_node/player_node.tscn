@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://8qsjsyglmgq4"]
+[gd_scene load_steps=25 format=3 uid="uid://8qsjsyglmgq4"]
 
 [ext_resource type="PackedScene" uid="uid://cjrygqeartla8" path="res://nodes/abstract_scenes/living_entity_node/living_entity_node.tscn" id="1_hoap6"]
 [ext_resource type="Script" path="res://nodes/entities/player_node/player_node.gd" id="2_6c1ia"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dg5q85tiv0ibp" path="res://nodes/components/move_to_tap_path_find_movement/move_to_tap_path_find_movement.tscn" id="7_jfgwu"]
 [ext_resource type="PackedScene" uid="uid://sf310cfhr818" path="res://nodes/components/mouse_position_component/mouse_position_component.tscn" id="8_t7gk8"]
 [ext_resource type="PackedScene" uid="uid://dop4lslntrlgb" path="res://nodes/components/cosmetic_equipper_component/cosmetic_equipper_component.tscn" id="10_qtam7"]
+[ext_resource type="PackedScene" uid="uid://b5du1qww5qopg" path="res://addons/macchi's_node_components/nodes/components/path_find_movement_component/path_find_movement_component.tscn" id="11_d0mbx"]
 [ext_resource type="Resource" uid="uid://ccu36slooej8y" path="res://resources/cosmetics/default.tres" id="11_die3w"]
 [ext_resource type="Texture2D" uid="uid://dqshq874l3ic5" path="res://assets/character/player_boy/boy.png" id="13_xn5bl"]
 [ext_resource type="Texture2D" uid="uid://cn233vrb5i466" path="res://assets/character/player_girl/girl.png" id="15_54xdd"]
@@ -294,7 +295,7 @@ _data = {
 "walk_right": SubResource("Animation_1p6li")
 }
 
-[node name="PlayerNode" node_paths=PackedStringArray("move_to_tap", "mouse_position", "cosmetic_equipper_component") groups=["Player"] instance=ExtResource("1_hoap6")]
+[node name="PlayerNode" node_paths=PackedStringArray("move_to_tap", "mouse_position", "cosmetic_equipper_component", "path_find") groups=["Player"] instance=ExtResource("1_hoap6")]
 collision_layer = 2
 collision_mask = 16
 script = ExtResource("2_6c1ia")
@@ -304,6 +305,7 @@ mouse_position = NodePath("Components/Movement/MousePositionComponent")
 cosmetic_equipper_component = NodePath("CosmeticEquipperComponent")
 inventory = SubResource("Resource_w3run")
 data = ExtResource("4_qvtbh")
+path_find = NodePath("Components/Movement/PathFindMovementComponent")
 
 [node name="Left" parent="StateChart/Root/Enabled/Animation" index="0"]
 initial_state = NodePath("Idle")
@@ -391,6 +393,13 @@ path_find_move_component = NodePath("../PathFindMovementComponent")
 
 [node name="MousePositionComponent" parent="Components/Movement" index="1" instance=ExtResource("8_t7gk8")]
 
+[node name="PathFindMovementComponent" parent="Components/Movement" index="3" node_paths=PackedStringArray("movement", "navigation_agent") instance=ExtResource("11_d0mbx")]
+movement = NodePath("../Walk")
+navigation_agent = NodePath("../../../NavigationAgent2D")
+
+[node name="TwoPoint5DNodeSimulator" parent="Components" index="1" node_paths=PackedStringArray("path_find")]
+path_find = NodePath("../Movement/PathFindMovementComponent")
+
 [node name="NodeVarietyManager" parent="Components" index="2"]
 index = 1
 variety_name = "Boy"
@@ -441,4 +450,5 @@ libraries = {
 [connection signal="state_entered" from="StateChart/Root/Enabled/Mobility/Idle" to="." method="_on_idle_state_entered"]
 [connection signal="state_entered" from="StateChart/Root/Enabled/Mobility/Walk" to="." method="_on_walk_state_entered"]
 [connection signal="state_input" from="StateChart/Root/Enabled/TapState/CanTap" to="." method="_on_can_tap_state_input"]
-[connection signal="finished_navigation" from="Components/Movement/PathFindMovementComponent" to="." method="_on_walk_stopped"]
+[connection signal="finished_navigation" from="Components/Movement/PathFindMovementComponent" to="." method="_on_path_find_movement_component_finished_navigation"]
+[connection signal="velocity_computed" from="NavigationAgent2D" to="Components/Movement/PathFindMovementComponent" method="_on_navigation_agent_2d_velocity_computed"]

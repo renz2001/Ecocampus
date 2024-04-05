@@ -1,7 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://dml5uy4doh7s6"]
+[gd_scene load_steps=24 format=3 uid="uid://dml5uy4doh7s6"]
 
 [ext_resource type="Script" path="res://nodes/abstract_scenes/entity_node/entity_node.gd" id="1_ljx5x"]
+[ext_resource type="PackedScene" uid="uid://j60lt30xbjw6" path="res://addons/macchi's_audio_manager_and_plus/nodes/audio_players/button_audio_player/button_audio_player.tscn" id="2_1fgry"]
 [ext_resource type="PackedScene" uid="uid://cf3hc58pq1vru" path="res://nodes/tools/hitbox/hitbox.tscn" id="2_qnb1g"]
+[ext_resource type="Resource" uid="uid://dandwe41rj323" path="res://resources/audio/button_audio/button_audio.tres" id="3_fco0e"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/state_chart.gd" id="3_pi3qr"]
 [ext_resource type="PackedScene" uid="uid://m4km4ixwc3e3" path="res://addons/macchi's_node_components/nodes/components/movement_component/movement_component.tscn" id="4_wexpm"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="5_d0dfx"]
@@ -13,6 +15,9 @@
 [ext_resource type="PackedScene" uid="uid://b6l0q5hhqq12m" path="res://nodes/components/two_point_5d_node_simulator/two_point_5d_node_simulator.tscn" id="11_sgbnk"]
 [ext_resource type="PackedScene" uid="uid://c2up8cal10ft5" path="res://addons/macchi's_node_components/nodes/components/base_values_keeper/base_values_keeper.tscn" id="12_q7foa"]
 [ext_resource type="Texture2D" uid="uid://b2ptenvkaj5rw" path="res://assets/environment/shadow.png" id="12_qhkve"]
+[ext_resource type="PackedScene" uid="uid://dblwtr7yj366" path="res://addons/dialogue_manager's_dialogue_gui_manager/nodes/components/dialogue_starter/dialogue_starter.tscn" id="13_py28a"]
+[ext_resource type="PackedScene" uid="uid://ddc47quo3n5uw" path="res://nodes/components/dialogue_response_handler/dialogue_response_handler.tscn" id="14_bvgcr"]
+[ext_resource type="PackedScene" uid="uid://7gri71kaffvv" path="res://addons/macchi's_audio_manager_and_plus/nodes/components/audio_manager_player/audio_manager_player.tscn" id="15_80f6o"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7egjd"]
 
@@ -24,15 +29,19 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nqe4d"]
 
-[node name="EntityNode" type="CharacterBody2D" node_paths=PackedStringArray("state_chart", "path_find", "walk", "hitbox", "node_variety_manager") groups=["Entity"]]
+[node name="EntityNode" type="CharacterBody2D" node_paths=PackedStringArray("state_chart", "path_find", "walk", "hitbox", "node_variety_manager", "interact_audio_player", "interact_dialog_position", "dialogue_starter", "dialogue_response_handler") groups=["Entity"]]
 script = ExtResource("1_ljx5x")
 state_chart = NodePath("StateChart")
-path_find = NodePath("Components/Movement/PathFindMovementComponent")
+path_find = NodePath("Components/Movement/WalkPathFindMovement")
 walk = NodePath("Components/Movement/Walk")
 hitbox = NodePath("Hitbox")
 node_variety_manager = NodePath("Components/NodeVarietyManager")
+interact_audio_player = NodePath("Audio/InteractAudio")
+interact_dialog_position = NodePath("InteractDialogPosition")
+dialogue_starter = NodePath("Components/DialogueStarter")
+dialogue_response_handler = NodePath("Components/DialogueResponseHandler")
 
-[node name="Button" type="Button" parent="."]
+[node name="TapHitBox" type="Button" parent="."]
 offset_right = 8.0
 offset_bottom = 8.0
 mouse_default_cursor_shape = 2
@@ -103,14 +112,14 @@ event = &"enabled"
 body = NodePath("../../..")
 speed = 5.0
 
-[node name="PathFindMovementComponent" parent="Components/Movement" node_paths=PackedStringArray("movement", "navigation_agent") instance=ExtResource("5_epl30")]
+[node name="WalkPathFindMovement" parent="Components/Movement" node_paths=PackedStringArray("movement", "navigation_agent") instance=ExtResource("5_epl30")]
 movement = NodePath("../Walk")
 navigation_agent = NodePath("../../../NavigationAgent2D")
 
 [node name="TwoPoint5DNodeSimulator" parent="Components" node_paths=PackedStringArray("node", "movement", "path_find") instance=ExtResource("11_sgbnk")]
 node = NodePath("../..")
 movement = NodePath("../Movement/Walk")
-path_find = NodePath("../Movement/PathFindMovementComponent")
+path_find = NodePath("../Movement/WalkPathFindMovement")
 node_base_scale = Vector2(1, 1)
 
 [node name="NodeVarietyManager" parent="Components" instance=ExtResource("11_a2123")]
@@ -119,7 +128,18 @@ node_base_scale = Vector2(1, 1)
 node = NodePath("../..")
 values_to_keep = PackedStringArray("scale")
 
+[node name="DialogueStarter" parent="Components" node_paths=PackedStringArray("extra_node_game_states") instance=ExtResource("13_py28a")]
+extra_node_game_states = [NodePath("../..")]
+
+[node name="DialogueResponseHandler" parent="Components" instance=ExtResource("14_bvgcr")]
+
 [node name="Audio" type="Node2D" parent="."]
+
+[node name="TapHitBoxAudio" parent="Audio" node_paths=PackedStringArray("button") instance=ExtResource("2_1fgry")]
+button = NodePath("../../TapHitBox")
+audio = ExtResource("3_fco0e")
+
+[node name="InteractAudio" parent="Audio" instance=ExtResource("15_80f6o")]
 
 [node name="Sprites" type="Node2D" parent="."]
 
@@ -127,8 +147,14 @@ values_to_keep = PackedStringArray("scale")
 scale = Vector2(0.188571, 0.138365)
 texture = ExtResource("12_qhkve")
 
+[node name="EntitySprite" type="Sprite2D" parent="Sprites"]
+use_parent_material = true
+
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 
-[connection signal="gui_input" from="Button" to="." method="_on_button_gui_input"]
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
-[connection signal="velocity_computed" from="NavigationAgent2D" to="Components/Movement/PathFindMovementComponent" method="_on_navigation_agent_2d_velocity_computed"]
+[node name="InteractDialogPosition" type="Marker2D" parent="."]
+position = Vector2(-43, -98)
+
+[connection signal="pressed" from="TapHitBox" to="." method="_on_tap_hit_box_pressed"]
+[connection signal="responded" from="Components/DialogueResponseHandler" to="." method="_on_dialogue_response_handler_responded"]
+[connection signal="velocity_computed" from="NavigationAgent2D" to="Components/Movement/WalkPathFindMovement" method="_on_navigation_agent_2d_velocity_computed"]

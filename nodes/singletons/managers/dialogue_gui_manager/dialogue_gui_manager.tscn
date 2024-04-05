@@ -11,10 +11,12 @@
 [node name="DialogueGUIManager" node_paths=PackedStringArray("current_dialogue_gui") instance=ExtResource("1_gr8rf")]
 script = ExtResource("2_xarql")
 current_dialogue_gui = NodePath("DialogueGUIs/ActingContainer/MarginContainer/DialogueBox")
+only_one_instance = true
 
 [node name="ActingContainer" parent="DialogueGUIs" index="1" node_paths=PackedStringArray("real_control") instance=ExtResource("2_0kfrd")]
 layout_mode = 2
 real_control = NodePath("MarginContainer/DialogueBox")
+only_one_instance = true
 
 [node name="GaussianBlur" parent="DialogueGUIs/ActingContainer" index="0" instance=ExtResource("4_5jmys")]
 layout_mode = 1
@@ -43,6 +45,7 @@ theme_override_constants/margin_bottom = 50
 
 [node name="DialogueBox" parent="DialogueGUIs/ActingContainer/MarginContainer" index="0" node_paths=PackedStringArray("acting_container") instance=ExtResource("2_n6fh7")]
 layout_mode = 2
+only_one_instance = true
 acting_container = NodePath("../..")
 
 [node name="InvisibleButton" parent="DialogueGUIs/ActingContainer" index="2" instance=ExtResource("4_kny8a")]

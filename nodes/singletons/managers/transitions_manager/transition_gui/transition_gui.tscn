@@ -1,11 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://dxw87na67md60"]
+[gd_scene load_steps=4 format=3 uid="uid://dxw87na67md60"]
 
 [ext_resource type="Script" path="res://nodes/singletons/managers/transitions_manager/transition_gui/transition_gui.gd" id="1_5oud0"]
+[ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/macchi's_gui_manager/nodes/gui/gui/gui.tscn" id="1_smnqp"]
 [ext_resource type="PackedScene" uid="uid://cl5a85fpc5bry" path="res://addons/macchi's_node_components/nodes/components/multiple_signals_listener/multiple_signals_listener.tscn" id="2_ujyvj"]
 
-
-[node name="TransitionGUI" type="Control" node_paths=PackedStringArray("multiple_signals_listener")]
-layout_mode = 3
+[node name="TransitionGUI" node_paths=PackedStringArray("multiple_signals_listener") instance=ExtResource("1_smnqp")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -14,7 +13,7 @@ grow_vertical = 2
 script = ExtResource("1_5oud0")
 multiple_signals_listener = NodePath("AnimationsListener")
 
-[node name="AnimationsListener" parent="." instance=ExtResource("2_ujyvj")]
+[node name="AnimationsListener" parent="." index="0" instance=ExtResource("2_ujyvj")]
 signals = PackedStringArray("finished")
 
 [connection signal="all_conditions_met" from="AnimationsListener" to="." method="_on_animations_listener_all_conditions_met"]
