@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b6uuamc65bqup"]
+[gd_scene load_steps=16 format=3 uid="uid://b6uuamc65bqup"]
 
 [ext_resource type="Texture2D" uid="uid://cn233vrb5i466" path="res://assets/character/player_girl/girl.png" id="1_3o5pj"]
 [ext_resource type="Theme" uid="uid://cd55r8awc3jgy" path="res://themes/main_theme.tres" id="1_n7hw7"]
@@ -9,6 +9,8 @@
 [ext_resource type="FontFile" uid="uid://cp5vi568oh4jl" path="res://fonts/Ubuntu-Bold.ttf" id="6_3qqbw"]
 [ext_resource type="PackedScene" uid="uid://nnpxfb02bn17" path="res://nodes/components/change_scene_component/change_scene_component.tscn" id="7_m8fta"]
 [ext_resource type="PackedScene" uid="uid://b5oetv37eb3b5" path="res://nodes/gui_components/on_control_tapped_components/on_control_tapped_then_scale/on_control_tapped_then_scale.tscn" id="8_0csdj"]
+[ext_resource type="PackedScene" uid="uid://j60lt30xbjw6" path="res://addons/macchi's_audio_manager_and_plus/nodes/audio_players/button_audio_player/button_audio_player.tscn" id="9_q5tkc"]
+[ext_resource type="Resource" uid="uid://dandwe41rj323" path="res://resources/audio/button_audio/button_audio.tres" id="10_1aps5"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6mofy"]
 
@@ -84,7 +86,11 @@ control = NodePath("..")
 node = NodePath("../SpritesSwitcher")
 control = NodePath("..")
 
+[node name="ButtonAudioPlayer" parent="VBoxContainer" instance=ExtResource("9_q5tkc")]
+audio = ExtResource("10_1aps5")
+
 [node name="ToMapPicker" parent="." instance=ExtResource("7_m8fta")]
 to_scene = "res://nodes/screens/map_picker/map_picker.tscn"
 
 [connection signal="tapped" from="VBoxContainer/OnControlTapped" to="." method="_on_on_control_tapped"]
+[connection signal="tapped" from="VBoxContainer/OnControlTapped" to="VBoxContainer/ButtonAudioPlayer" method="_on_pressed"]

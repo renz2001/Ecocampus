@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjrygqeartla8"]
+
+[ext_resource type="PackedScene" uid="uid://dml5uy4doh7s6" path="res://nodes/abstract_scenes/entity_node/entity_node.tscn" id="1_o00sc"]
+
+[node name="LivingEntityNode" groups=["LivingEntity"] instance=ExtResource("1_o00sc")]
+
+[node name="NavigationAgent2D" parent="." index="6"]
+avoidance_enabled = true

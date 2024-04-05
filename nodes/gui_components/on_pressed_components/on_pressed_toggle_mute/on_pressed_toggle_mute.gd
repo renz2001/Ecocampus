@@ -1,4 +1,5 @@
 extends OnPressedComponent
+class_name OnPressedToggleMute
 
 @export var audio_bus_volume_slider: AudioBusVolumeSlider
 

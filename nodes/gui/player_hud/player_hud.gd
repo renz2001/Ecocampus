@@ -2,8 +2,6 @@ extends GUI
 class_name PlayerHUD
 
 @export var inventory_gui: InventoryGUI
-@export var navbar_gui: NavbarGUI
-@export var quests_menu: QuestsMenu
 
 
 func _ready() -> void: 

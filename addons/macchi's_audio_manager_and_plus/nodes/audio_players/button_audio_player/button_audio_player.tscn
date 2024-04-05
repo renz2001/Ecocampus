@@ -6,5 +6,6 @@
 [node name="ButtonAudioPlayer" type="Node" node_paths=PackedStringArray("player")]
 script = ExtResource("1_abame")
 player = NodePath("AudioManagerPlayer")
+volume_slider = 0.5
 
 [node name="AudioManagerPlayer" parent="." instance=ExtResource("3_lapka")]

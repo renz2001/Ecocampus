@@ -3,15 +3,20 @@ class_name QuestsMenu
 
 @export var quests_container: QuestsContainer
 
+var quests: Array[Quest]: 
+	get: 
+		return QuestSystem.active.quests as Array[Quest]
+
+
 func _ready() -> void: 
-	QuestSystem.new_available_quest.connect(_on_new_available_quest)
 	update()
+	QuestSystem.quest_accepted.connect(_on_quest_accepted)
 
 
-func _on_new_available_quest(_quest: Quest) -> void: 
+func _on_quest_accepted(_quest: Quest) -> void: 
 	update()
 	
 	
 func update() -> void: 
-	quests_container.quests = QuestSystem.active.quests
+	quests_container.quests = quests
 

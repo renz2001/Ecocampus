@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bkmlgrsxipqkh"]
+[gd_scene load_steps=9 format=3 uid="uid://bkmlgrsxipqkh"]
 
 [ext_resource type="Theme" uid="uid://cd55r8awc3jgy" path="res://themes/main_theme.tres" id="1_mriba"]
 [ext_resource type="Script" path="res://nodes/gui/quest_gui/quest_gui.gd" id="2_a3avm"]
@@ -6,10 +6,12 @@
 [ext_resource type="Resource" uid="uid://c2x51gyw7ec5w" path="res://resources/quests/test_quest.tres" id="3_ilhfr"]
 [ext_resource type="Script" path="res://scripts/resources/string_formatter.gd" id="5_qb1w5"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_818jw"]
+
 [sub_resource type="LabelSettings" id="LabelSettings_e1gaq"]
 font_size = 50
 
-[sub_resource type="Resource" id="Resource_fpi4e"]
+[sub_resource type="Resource" id="Resource_f4a06"]
 script = ExtResource("5_qb1w5")
 format = "%s: %s/%s"
 
@@ -17,6 +19,7 @@ format = "%s: %s/%s"
 offset_right = 40.0
 offset_bottom = 40.0
 theme = ExtResource("1_mriba")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_818jw")
 script = ExtResource("2_a3avm")
 quest = ExtResource("3_ilhfr")
 percentage_label = NodePath("MarginContainer/VBoxContainer/FormattedLabel")
@@ -33,7 +36,7 @@ layout_mode = 2
 layout_mode = 2
 text = "Pick Trash: 0%/100%"
 label_settings = SubResource("LabelSettings_e1gaq")
-string_formatter = SubResource("Resource_fpi4e")
+string_formatter = SubResource("Resource_f4a06")
 
 [node name="Tasks" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2

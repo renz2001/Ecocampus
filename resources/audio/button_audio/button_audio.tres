@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ButtonAudio" load_steps=4 format=3 uid="uid://dandwe41rj323"]
+
+[ext_resource type="AudioStream" uid="uid://lnejuiarhqak" path="res://assets/itch_io/audio/button/mi_sfx_27.wav" id="1_2dsn3"]
+[ext_resource type="Script" path="res://addons/macchi's_audio_manager_and_plus/scripts/resources/button_audio.gd" id="2_c27yw"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_weth5"]
+random_pitch = 1.2
+streams_count = 1
+stream_0/stream = ExtResource("1_2dsn3")
+stream_0/weight = 1.0
+
+[resource]
+script = ExtResource("2_c27yw")
+pressed = SubResource("AudioStreamRandomizer_weth5")

@@ -44,7 +44,6 @@ func init() -> void:
 	if is_instance_valid(test_start_node) && should_test_start_node: 
 		change_node(test_start_node)
 		return
-	print(self)
 	change_node(starting_node)
 	
 	

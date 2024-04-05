@@ -5,5 +5,6 @@
 
 [node name="IfPlayingExitedSetProperty" instance=ExtResource("1_gg5y5")]
 script = ExtResource("2_76hvo")
-ready_value = ""
-property_or_method = ""
+ready_value = "false"
+property_or_method = "visible"
+new_value = "false"

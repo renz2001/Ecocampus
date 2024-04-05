@@ -12,4 +12,4 @@ func _ready() -> void:
 
 
 func _condition() -> bool: 
-	return GameManager.is_playing()
+	return !GameManager.is_playing()

@@ -67,12 +67,13 @@ func move_to_position(position: Vector2, speed: float) -> bool:
 			
 	var movement_direction: Vector2 = body.global_position.direction_to(next_path_position)
 	movement.direction = movement_direction
-	var new_velocity: Vector2 = movement_direction * GlobalVariables.get_tile_scaled_speed(speed)
+	var new_velocity: Vector2 = movement.direction * GlobalVariables.get_tile_scaled_speed(speed)
 	navigation_agent.set_velocity(new_velocity)
 	return true
 	
 	
 ## Connect nav agent signal here
+## IF this doesn't work, that means that avoidance is disabled in NavigationAgent2D
 func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void: 
 	if Engine.is_editor_hint(): 
 		return

@@ -22,7 +22,7 @@ enum CosmeticState {
 			return name
 		return female_alias
 
-@export var unlock_points_requirement: int
+@export var unlocked: bool
 
 @export var male_icon: Texture2D
 @export var female_icon: Texture2D
@@ -40,4 +40,10 @@ func get_icon(gender: GlobalEnums.Gender) -> Texture2D:
 		GlobalEnums.Gender.FEMALE: 
 			return female_icon
 	return null
+	
+	
+func unlock() -> void: 
+	unlocked = true
+	
+	
 	

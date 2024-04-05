@@ -1,27 +1,20 @@
 extends Resource
 class_name Achievement
 
-signal completed
+signal unlocked
 
 @export var title: String
 @export var task_description: String
 
-var is_completed: bool: 
+
+var is_unlocked: bool: 
 	set(value): 
-		is_completed = value
-		if is_completed: 
-			completed.emit()
-
-
-func _condition() -> bool: 
-	return false
+		is_unlocked = value
+		if is_unlocked: 
+			unlocked.emit()
 	
 	
-func update() -> void: 
-	if completed: 
-		return
-		
-	if _condition(): 
-		is_completed = true
+func unlock() -> void: 
+	is_unlocked = true
 	
 	

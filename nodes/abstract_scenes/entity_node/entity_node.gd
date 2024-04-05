@@ -1,6 +1,7 @@
 extends CharacterBody2D
 class_name EntityNode
 
+signal interacted
 
 @export var display_interact_dialog: bool = true
 @export var inventory: Inventory: 
@@ -40,15 +41,17 @@ func _on_button_pressed() -> void:
 		show_interact_dialog(interact_description)
 	else: 
 		_interact()
+		interacted.emit()
 
 
 func show_interact_dialog(description: String) -> void: 
 	InteractDialog.display(
 		InteractDialogData.new()\
 			.set_caller(
-				GroupNodeFetcher.get_first_node(GroupNodeFetcher.player)
+				PlayerManager.player
 			)\
 			.set_gui_position(get_global_mouse_position())\
 			.set_on_button_pressed(_interact)\
 			.set_description(description)
 	)
+

@@ -25,13 +25,39 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Root"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_type_variation = &"GUIManagerMargin"
+
+[node name="BaseControl" type="Control" parent="Root/MarginContainer"]
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 
-[node name="Playing" parent="Root" instance=ExtResource("3_tx424")]
+[node name="Playing" parent="Root/MarginContainer/BaseControl" instance=ExtResource("3_tx424")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="InstancedGUIs" parent="Root" instance=ExtResource("3_tx424")]
+[node name="InstancedGUIs" parent="Root/MarginContainer/BaseControl" instance=ExtResource("3_tx424")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="DropdownPopup" parent="." instance=ExtResource("7_44ncd")]
 visible = false

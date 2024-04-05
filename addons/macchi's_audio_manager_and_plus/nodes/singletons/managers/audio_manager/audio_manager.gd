@@ -49,6 +49,7 @@ func play_music(args: AudioStreamPlayerArguments) -> AudioStreamPlayer:
 func _set_player(player: Node, args: AudioStreamPlayerArguments, change_name: bool = false) -> Node: 
 	player.stream = args.sound
 	player.pitch_scale = args.pitch_scale
+	player.volume_db = args.get_volume()
 	#if change_name: 
 		#player.name = args.sound.resource_name.to_camel_case()
 	player.play(args.play_from_position) 
@@ -71,7 +72,7 @@ func play_temporary_music(args: AudioStreamPlayerArguments) -> AudioStreamPlayer
 	return audio_stream_player
 
 
-func play_temporary_sound(args: AudioStreamPlayerArguments, position: Vector2 = Vector2.ZERO) -> Node: 
+func play_sound_effect(args: AudioStreamPlayerArguments, position: Vector2 = Vector2.ZERO) -> Node: 
 	if position != Vector2.ZERO: 
 		@warning_ignore("confusable_local_declaration")
 		var audio_stream_player: AudioStreamPlayer2D = AudioStreamPlayer2D.new()

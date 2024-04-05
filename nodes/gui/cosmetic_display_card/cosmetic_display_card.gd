@@ -2,10 +2,16 @@
 extends GUI
 class_name CosmeticDisplayCard
 
+@export var player: Entity: 
+	set(value): 
+		player = value
+		player.gender_changed.connect(update)
+
 @export var gender: GlobalEnums.Gender: 
 	set(value): 
 		gender = value
-		cosmetic = cosmetic
+		player.gender = gender
+		update()
 		
 @export var cosmetic: Cosmetic: 
 	set(value): 
@@ -13,11 +19,9 @@ class_name CosmeticDisplayCard
 		if !is_node_ready(): 
 			await ready
 		if cosmetic: 
-			cosmetic_icon.texture = cosmetic.get_icon(gender)
-			#print("D")
+			cosmetic_icon.texture = cosmetic.get_icon(player.gender)
 		else: 
 			cosmetic_icon.texture = null
-			#printerr("A")
 
 @export var state: Cosmetic.CosmeticState: 
 	set(value): 
@@ -45,3 +49,6 @@ static func create(parent: Node, _cosmetic: Cosmetic, theme_variation: String = 
 	return gui
 	
 	
+func update() -> void: 
+	cosmetic = cosmetic
+

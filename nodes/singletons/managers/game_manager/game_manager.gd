@@ -5,7 +5,9 @@ extends Node
 @export var playing_state: AtomicState
 @export var paused_state: AtomicState
 
-
+@export var menu_music: AudioManagerPlayer
+@export var playing_music: AudioManagerPlayer
+@export var assesment_music: AudioManagerPlayer
 
 
 func start() -> void: 
@@ -20,3 +22,13 @@ func is_paused() -> bool:
 	return paused_state.active
 
 
+func _on_playing_state_entered() -> void:
+	playing_music.play()
+
+
+func _on_main_menu_state_entered() -> void:
+	menu_music.play()
+
+
+func _on_assesment_state_entered() -> void:
+	assesment_music.play()

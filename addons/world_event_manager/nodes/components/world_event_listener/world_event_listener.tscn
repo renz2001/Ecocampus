@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://extvndgbgjf5"]
-
-[ext_resource type="Script" path="res://addons/world_event_manager/nodes/components/world_event_listener/world_event_listener.gd" id="1_7rkyn"]
-
-
-[node name="WorldEventListener" type="Node"]
-script = ExtResource("1_7rkyn")

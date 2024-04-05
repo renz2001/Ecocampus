@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dlpg8uw7rra2p"]
+[gd_scene load_steps=5 format=3 uid="uid://dlpg8uw7rra2p"]
 
 [ext_resource type="PackedScene" uid="uid://d4mqjvr57ok1h" path="res://nodes/gui/buttons/icon_button/icon_button.tscn" id="1_jc2n0"]
+[ext_resource type="Script" path="res://nodes/gui/buttons/quests_icon_button/quests_icon_button.gd" id="2_2w6v8"]
 [ext_resource type="Texture2D" uid="uid://bmna6uendd66b" path="res://assets/icons/quest_icon.png" id="2_jpfgc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lr11n"]
@@ -8,6 +9,7 @@ atlas = ExtResource("2_jpfgc")
 region = Rect2(64, 26, 354, 466)
 
 [node name="QuestsIconButton" instance=ExtResource("1_jc2n0")]
+script = ExtResource("2_2w6v8")
 
 [node name="MarginContainer" type="MarginContainer" parent="." index="3"]
 layout_mode = 1
@@ -28,3 +30,5 @@ texture = SubResource("AtlasTexture_lr11n")
 expand_mode = 1
 stretch_mode = 5
 flip_h = true
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

@@ -12,7 +12,7 @@ func _init(_value: int, _maximum: int) -> void:
 
 
 func to_float() -> float: 
-	return value / maximum
+	return float(value) / float(maximum)
 
 
 func to_percentage_number() -> int: 

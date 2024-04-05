@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cijbhqkas6yol"]
+[gd_scene load_steps=6 format=3 uid="uid://cijbhqkas6yol"]
 
 [ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/macchi's_gui_manager/nodes/gui/gui/gui.tscn" id="1_gd4lf"]
 [ext_resource type="Script" path="res://nodes/gui/cosmetic_display_card/cosmetic_display_card.gd" id="2_4ppon"]
 [ext_resource type="PackedScene" uid="uid://bk4jnfmvdr6ud" path="res://nodes/gui/buttons/button_plus/button_plus.tscn" id="3_f8fm6"]
+[ext_resource type="Resource" uid="uid://bhl7afn8ti7bs" path="res://resources/entity/player.tres" id="3_plikv"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i356o"]
 
@@ -14,6 +15,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_4ppon")
+player = ExtResource("3_plikv")
 gender = 1
 cosmetic = null
 state = 0

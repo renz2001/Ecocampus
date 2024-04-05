@@ -70,9 +70,9 @@ func take_from_inventory(inventory: Inventory) -> void:
 	if self == inventory: 
 		_print_color.out_debug_wvalue("Cannot take items from itself", inventory)
 		return
-	var items: Array[Item] = inventory.clear(owner)
-	add_items(items)
-	items_taken_from_inventory.emit(owner, items)
+	var taken_items: Array[Item] = inventory.clear(owner)
+	add_items(taken_items)
+	items_taken_from_inventory.emit(owner, taken_items)
 	
 
 #func take_items_from_inventory(by: Object, inventory: Inventory) -> void: 

@@ -1,11 +1,20 @@
-@tool
 extends Resource
 class_name EcoQuestTask
 
 
 @export var description: String
 
-@export var counter: PointCounter
+## If this hits the maximum, it will complete this task. 
+@export var counter: WorldEventPointCounter: 
+	set(value): 
+		counter = value
+		if !is_instance_valid(counter): 
+			return
+		counter.maximum_hit.connect(
+			func(): 
+				completed = true
+		, CONNECT_ONE_SHOT
+		)
 
 ### Callable() -> bool
 #var complete_condition: Callable 
@@ -13,10 +22,8 @@ class_name EcoQuestTask
 var completed: bool
 
 
-func _init() -> void: 
-	counter.maximum_hit.connect(
-		func(): 
-			completed = true
-	)
+func init(tree: SceneTree) -> void: 
+	pass
+	
 	
 	

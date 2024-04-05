@@ -1,6 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://d07384jfiolfg"]
+[gd_scene load_steps=4 format=3 uid="uid://d07384jfiolfg"]
 
 [ext_resource type="Script" path="res://nodes/components/audio_bus_volume_slider/audio_bus_volume_slider.gd" id="1_vvtj2"]
+[ext_resource type="Script" path="res://addons/macchi's_node_components/nodes/components/print_color.gd" id="2_vxg4b"]
+
+[sub_resource type="Resource" id="Resource_st3e3"]
+script = ExtResource("2_vxg4b")
+color = Color(1, 0.380392, 0.858824, 1)
+node_name_color = Color(0, 0, 1, 1)
+value_color = Color(1, 0, 0, 1)
+automatic_value_color = true
+use_spaces_for_node_name = false
 
 [node name="AudioBusVolumeSlider" type="Node"]
 script = ExtResource("1_vvtj2")
+print_color = SubResource("Resource_st3e3")

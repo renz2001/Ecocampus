@@ -8,6 +8,7 @@ class_name CallWorldEventComponent
 ## For debug purposes 
 @export var disabled: bool
 
+
 func play() -> void: 
 	if disabled: 
 		return

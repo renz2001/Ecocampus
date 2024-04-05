@@ -5,11 +5,11 @@ class_name FormattedLabel
 @export var string_formatter: StringFormatter
 
 
-static func create(parent: Node, format: String, input: Array[String]) -> FormattedLabel: 
+static func create(parent: Node, format: String, _input: Array[String]) -> FormattedLabel: 
 	var label: FormattedLabel = GUICollection.formatted_label.instantiate()
 	label.format = format
 	parent.add_child(label)
-	label.input(input)
+	label.input(_input)
 	return label
 
 

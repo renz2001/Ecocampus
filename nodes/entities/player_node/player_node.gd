@@ -12,6 +12,7 @@ class_name PlayerNode
 		else: 
 			node_variety_manager.index = 0
 		
+@export_group("Dependencies")
 @export var move_to_tap: MoveToTapPathFindMovement
 @export var mouse_position: MousePositionComponent
 @export var cosmetic_equipper_component: CosmeticEquipperComponent
@@ -32,6 +33,7 @@ func _on_walk_state_entered() -> void:
 	move_to_tap.move()
 
 
+## PathFindMovementComponent finished_navigation is connected to this. 
 func _on_walk_stopped() -> void:
 	state_chart.send_event("idle")
 
@@ -43,6 +45,7 @@ func _on_can_tap_state_input(event: InputEvent) -> void:
 		else: 
 			state_chart.send_event("right")
 			
+		# Idle event is sent first so that it resets. ???
 		state_chart.send_event("idle")
 		state_chart.send_event("walk")
 

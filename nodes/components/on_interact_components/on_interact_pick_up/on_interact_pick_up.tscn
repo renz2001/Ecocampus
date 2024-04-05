@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6yh5ahr4kpcw"]
+
+[ext_resource type="PackedScene" uid="uid://cvhhqe1kxtxmi" path="res://nodes/components/on_interact_component/on_interact_component.tscn" id="1_pdpyf"]
+[ext_resource type="Script" path="res://nodes/components/on_interact_components/on_interact_pick_up/on_interact_pick_up.gd" id="2_nq5df"]
+
+[node name="OnInteractPickUp" instance=ExtResource("1_pdpyf")]
+script = ExtResource("2_nq5df")

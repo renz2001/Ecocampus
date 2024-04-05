@@ -8,10 +8,6 @@ class_name AudioMuteButton
 
 func _ready() -> void: 
 	update()
-	
-
-func _on_pressed() -> void:
-	update()
 
 
 func update() -> void: 
@@ -19,3 +15,7 @@ func update() -> void:
 		texture_normal = silent_icon
 	else: 
 		texture_normal = sound_icon
+
+
+func _on_on_pressed_toggle_mute_pressed() -> void:
+	update()

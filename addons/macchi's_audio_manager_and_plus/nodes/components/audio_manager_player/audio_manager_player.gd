@@ -20,9 +20,8 @@ func _ready() -> void:
 func play() -> void: 
 	match type: 
 		Type.SOUND_EFFECT: 
-			AudioManager.play_temporary_sound(audio)
+			AudioManager.play_sound_effect(audio)
 		Type.MUSIC: 
 			AudioManager.play_music(audio)
 		Type.TEMPORARY_MUSIC: 
 			AudioManager.play_temporary_music(audio)
-

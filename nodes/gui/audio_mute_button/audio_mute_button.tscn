@@ -9,10 +9,10 @@
 [node name="AudioMuteButton" instance=ExtResource("1_gx3qy")]
 texture_normal = ExtResource("2_1vfgi")
 script = ExtResource("2_13gob")
-silent_icon = ExtResource("4_3a3m0")
-sound_icon = ExtResource("2_1vfgi")
+silent_icon = ExtResource("2_1vfgi")
+sound_icon = ExtResource("4_3a3m0")
 
 [node name="OnPressedToggleMute" parent="." index="3" node_paths=PackedStringArray("control") instance=ExtResource("3_vpcxd")]
 control = NodePath("..")
 
-[connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="pressed" from="OnPressedToggleMute" to="." method="_on_on_pressed_toggle_mute_pressed"]

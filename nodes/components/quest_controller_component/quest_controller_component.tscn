@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dnkulpgwm8gep"]
+
+[ext_resource type="Script" path="res://nodes/components/quest_controller_component/quest_controller_component.gd" id="1_e3eyi"]
+
+[node name="QuestControllerComponent" type="Node"]
+script = ExtResource("1_e3eyi")
