@@ -65,6 +65,7 @@ func make_tween(to: float = 1, from_tween: Tween = null) -> Tween:
 	else: 
 		tween = get_tree().create_tween()
 	tween.tween_property(self, "percentage", to, interpolation.duration)
+	tween.bind_node(self)
 	tween.finished.connect(
 		func():
 			finished.emit()

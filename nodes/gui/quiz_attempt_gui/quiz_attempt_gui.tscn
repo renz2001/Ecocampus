@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bjsr1rnrk3ssi"]
+[gd_scene load_steps=16 format=3 uid="uid://bjsr1rnrk3ssi"]
 
 [ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/macchi's_gui_manager/nodes/gui/gui/gui.tscn" id="1_tkvea"]
 [ext_resource type="PackedScene" uid="uid://dyvkcprf58urk" path="res://addons/macchi's_gui_manager/nodes/gui/page_router_container/page_router_container.tscn" id="2_dmxuy"]
@@ -10,6 +10,7 @@
 [ext_resource type="LabelSettings" uid="uid://b4jfqs4wewmec" path="res://resources/label_settings/font_sizes/quiz_attemp_title.tres" id="5_pby04"]
 [ext_resource type="PackedScene" uid="uid://dj23rqjh7m1r3" path="res://addons/macchi's_gui_manager/nodes/components/page_router/page_router.tscn" id="7_xwpdj"]
 [ext_resource type="PackedScene" uid="uid://xg2ytqrjlg5u" path="res://nodes/gui/quiz_problem_page/quiz_problem_page.tscn" id="10_jfxo7"]
+[ext_resource type="PackedScene" uid="uid://der1edoxrqxln" path="res://nodes/gui_components/set_game_state_on_gui_active/set_game_state_on_gui_active.tscn" id="12_hwelt"]
 [ext_resource type="PackedScene" uid="uid://ciq54uqx2lta" path="res://nodes/gui_components/label_preset_setter/label_preset_setter.tscn" id="12_pcbp7"]
 
 [sub_resource type="Resource" id="Resource_p4emr"]
@@ -238,6 +239,11 @@ label = NodePath("../../../../../FirstPage/MarginContainer/VBoxContainer/HBoxCon
 
 [node name="Label" parent="Board/BoardMargin/PageRouterContainer/EndPage/MarginContainer/VBoxContainer/HBoxContainer/Exit" index="1"]
 text = "Exit"
+
+[node name="SetGameStateOnGUIActive" parent="." index="2" node_paths=PackedStringArray("gui") instance=ExtResource("12_hwelt")]
+gui = NodePath("..")
+activated_state = "assesment"
+deactivated_state = "playing"
 
 [connection signal="pressed" from="Board/BoardMargin/PageRouterContainer/FirstPage/MarginContainer/VBoxContainer/HBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Board/BoardMargin/PageRouterContainer/FirstPage/MarginContainer/VBoxContainer/HBoxContainer/Exit" to="." method="_on_exit_pressed"]

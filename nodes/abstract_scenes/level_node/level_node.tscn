@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cm6jeskbiise6"]
+[gd_scene load_steps=6 format=3 uid="uid://cm6jeskbiise6"]
 
 [ext_resource type="PackedScene" uid="uid://uumu0cyt08vn" path="res://nodes/tools/main_camera/main_camera.tscn" id="1_7i7vm"]
 [ext_resource type="Script" path="res://nodes/abstract_scenes/level_node/level_node.gd" id="1_i8rcc"]
 [ext_resource type="PackedScene" uid="uid://coge3r6c3f044" path="res://nodes/components/two_point_5d_space_simulator/two_point_5d_space_simulator.tscn" id="2_lkpw8"]
 [ext_resource type="PackedScene" uid="uid://bwn0ec225xwd8" path="res://addons/world_event_manager/nodes/tools/world_event_handler/world_event_handler.tscn" id="4_0l3dg"]
+[ext_resource type="PackedScene" uid="uid://bink1hk2vfpun" path="res://addons/world_event_manager/nodes/tools/world_event/world_event.tscn" id="4_g04p1"]
 
 [node name="LevelNode" type="Node2D"]
 y_sort_enabled = true
@@ -35,6 +36,8 @@ y_sort_enabled = true
 y_sort_enabled = true
 
 [node name="WorldEventHandler" parent="." instance=ExtResource("4_0l3dg")]
+
+[node name="PickedUpPlasticBottle" parent="WorldEventHandler/TaskEvents" index="0" instance=ExtResource("4_g04p1")]
 
 [node name="Scripts" type="Node" parent="."]
 

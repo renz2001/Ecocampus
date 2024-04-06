@@ -3,14 +3,20 @@
 extends Quest
 class_name EcoQuest
 
+signal task_completed(task: EcoQuestTask)
 
 @export var percentage_description: String
-@export var tasks: Array[EcoQuestTask]
+@export var tasks: Array[EcoQuestTask]: 
+	set(value): 
+		tasks = value
+		for task: EcoQuestTask in tasks: 
+			task.completed.connect(func(): task_completed.emit(task))
 
 var percentage_description_format: StringFormatter
 
 var completed_percentage: Percentage: 
 	get: 
+		#print(Percentage.new(completed_tasks_count, tasks_count))
 		return Percentage.new(completed_tasks_count, tasks_count)
 
 var tasks_count: int:
@@ -21,7 +27,7 @@ var completed_tasks_count: int:
 	get: 
 		var count: int = 0
 		for task: EcoQuestTask in tasks: 
-			if task.completed: 
+			if task.is_completed: 
 				count += 1
 		return count
 

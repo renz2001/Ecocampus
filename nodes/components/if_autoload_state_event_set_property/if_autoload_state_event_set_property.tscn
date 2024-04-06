@@ -6,6 +6,7 @@
 [node name="IfAutoloadStateEventSetProperty" instance=ExtResource("1_urxe6")]
 script = ExtResource("2_rg2ac")
 autoload = "GameManager"
+property = "playing"
 state_event = 0
 ready_value = "false"
 property_or_method = "visible"

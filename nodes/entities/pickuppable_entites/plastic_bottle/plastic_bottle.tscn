@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqx1n417lyw35"]
+
+[ext_resource type="PackedScene" uid="uid://77dhb6ck4eyt" path="res://nodes/abstract_scenes/pickuppable_entity/pickuppable_entity.tscn" id="1_7uoco"]
+[ext_resource type="Script" path="res://addons/world_event_manager/scripts/resources/world_event_call.gd" id="2_n05a3"]
+
+[sub_resource type="Resource" id="Resource_5kmfl"]
+script = ExtResource("2_n05a3")
+event = "picked_up_plastic_bottle"
+one_shot = false
+
+[node name="PlasticBottle" instance=ExtResource("1_7uoco")]
+on_interact_call_world_event = SubResource("Resource_5kmfl")

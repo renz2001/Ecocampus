@@ -12,7 +12,13 @@ signal interacted
 		if !is_node_ready(): 
 			await ready
 		interact_audio_player.audio = interact_audio
-
+		
+@export var on_interact_call_world_event: WorldEventCall: 
+	set(value): 
+		on_interact_call_world_event = value
+		if !is_node_ready(): 
+			await ready
+		call_world_event_component.event_call = on_interact_call_world_event
 
 @export var inventory: Inventory: 
 	set(value): 
@@ -40,6 +46,7 @@ signal interacted
 @export var interact_dialog_position: Marker2D
 @export var dialogue_starter: DialogueStarter
 @export var dialogue_response_handler: DialogueResponseHandler
+@export var call_world_event_component: CallWorldEventComponent
 
 func _ready() -> void: 
 	if inventory: 
@@ -60,6 +67,7 @@ func _on_interact() -> void:
 	if interact_audio: 
 		interact_audio_player.play()
 	dialogue_starter.start()
+	call_world_event_component.play()
 	interacted.emit()
 
 

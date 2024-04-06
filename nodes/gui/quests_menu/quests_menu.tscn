@@ -7,6 +7,7 @@
 [node name="QuestsMenu" node_paths=PackedStringArray("quests_container") instance=ExtResource("1_mmghx")]
 script = ExtResource("2_crym1")
 quests_container = NodePath("PanelContainer/VBoxContainer/QuestsContainer")
+only_one_instance = true
 
 [node name="PanelContainer" type="PanelContainer" parent="." index="0"]
 custom_minimum_size = Vector2(500, 0)

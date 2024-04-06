@@ -8,8 +8,8 @@
 [ext_resource type="Resource" uid="uid://byaj1bas2wkaw" path="res://resources/dialogues/dialogues.dialogue" id="6_ja6bt"]
 [ext_resource type="Resource" uid="uid://bhl7afn8ti7bs" path="res://resources/entity/player.tres" id="7_xkvai"]
 [ext_resource type="Script" path="res://addons/dialogue_manager's_dialogue_gui_manager/scripts/arguments/dialogue_arguments.gd" id="8_gx0oq"]
-[ext_resource type="PackedScene" uid="uid://77dhb6ck4eyt" path="res://nodes/entities/items/pickuppable_entity/pickuppable_entity.tscn" id="9_16pqo"]
 [ext_resource type="Resource" uid="uid://dan5dbax50rp0" path="res://resources/quizzes/test_quiz.tres" id="9_32uar"]
+[ext_resource type="PackedScene" uid="uid://dqx1n417lyw35" path="res://nodes/entities/pickuppable_entites/plastic_bottle/plastic_bottle.tscn" id="10_hq7d6"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_oe50d"]
 vertices = PackedVector2Array(1342, 809, 1307, 789, 1590, 788, 328, 817, 327, 816, 395, 814, 579, 841, 474, 792, 596, 794, 1907, 848, 1909, 1270, 12, 1283, 1338, 824, 6, 888)
@@ -54,9 +54,17 @@ scale = Vector2(0.90299, 0.90299)
 dialogue = SubResource("Resource_cb3e1")
 quiz = ExtResource("9_32uar")
 
-[node name="PlasticBottle" parent="Entities/NonLiving" index="0" instance=ExtResource("9_16pqo")]
-position = Vector2(1647, 968)
-scale = Vector2(0.939945, 0.939945)
+[node name="PlasticBottle" parent="Entities/NonLiving" index="0" instance=ExtResource("10_hq7d6")]
+position = Vector2(1679, 1022)
+scale = Vector2(0.973637, 0.973637)
+
+[node name="PlasticBottle2" parent="Entities/NonLiving" index="1" instance=ExtResource("10_hq7d6")]
+position = Vector2(1304, 1037)
+scale = Vector2(0.979984, 0.979984)
+
+[node name="PlasticBottle3" parent="Entities/NonLiving" index="2" instance=ExtResource("10_hq7d6")]
+position = Vector2(1503, 1070)
+scale = Vector2(0.990189, 0.990189)
 
 [node name="TwoPoint5DSpaceSimulator" parent="Scripts" index="0"]
 max_distance_offset = 100.0

@@ -1,14 +1,15 @@
-[gd_resource type="Resource" script_class="EcoQuest" load_steps=6 format=3 uid="uid://c2x51gyw7ec5w"]
+[gd_resource type="Resource" script_class="EcoQuest" load_steps=8 format=3 uid="uid://c2x51gyw7ec5w"]
 
 [ext_resource type="Script" path="res://scripts/resources/eco_quest.gd" id="1_lirxy"]
 [ext_resource type="Script" path="res://addons/macchi's_node_components/scripts/resources/point_counter.gd" id="2_c0xa6"]
+[ext_resource type="Script" path="res://addons/world_event_manager/scripts/resources/world_event_point_counter.gd" id="2_esmm3"]
 [ext_resource type="Script" path="res://scripts/resources/eco_quest_task.gd" id="3_wt2xu"]
 
-[sub_resource type="Resource" id="Resource_kexm3"]
+[sub_resource type="Resource" id="Resource_i1csr"]
 script = ExtResource("2_c0xa6")
 starting_value = 0.0
 minimum = 0.0
-maximum = 1.0
+maximum = 3.0
 cant_be_added = false
 cant_be_subtracted = false
 when_maximum_stay = false
@@ -20,10 +21,16 @@ reset_after_minimum_hit = false
 rounded_off = false
 disabled = false
 
+[sub_resource type="Resource" id="Resource_t8672"]
+script = ExtResource("2_esmm3")
+increment_on_event = "picked_up_plastic_bottle"
+counter = SubResource("Resource_i1csr")
+call_event_from_counter_signal = ""
+
 [sub_resource type="Resource" id="Resource_0oxb7"]
 script = ExtResource("3_wt2xu")
 description = "Pick plastic bottles"
-counter = SubResource("Resource_kexm3")
+counter = SubResource("Resource_t8672")
 
 [resource]
 script = ExtResource("1_lirxy")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dml5uy4doh7s6"]
+[gd_scene load_steps=25 format=3 uid="uid://dml5uy4doh7s6"]
 
 [ext_resource type="Script" path="res://nodes/abstract_scenes/entity_node/entity_node.gd" id="1_ljx5x"]
 [ext_resource type="PackedScene" uid="uid://j60lt30xbjw6" path="res://addons/macchi's_audio_manager_and_plus/nodes/audio_players/button_audio_player/button_audio_player.tscn" id="2_1fgry"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://dblwtr7yj366" path="res://addons/dialogue_manager's_dialogue_gui_manager/nodes/components/dialogue_starter/dialogue_starter.tscn" id="13_py28a"]
 [ext_resource type="PackedScene" uid="uid://ddc47quo3n5uw" path="res://nodes/components/dialogue_response_handler/dialogue_response_handler.tscn" id="14_bvgcr"]
 [ext_resource type="PackedScene" uid="uid://7gri71kaffvv" path="res://addons/macchi's_audio_manager_and_plus/nodes/components/audio_manager_player/audio_manager_player.tscn" id="15_80f6o"]
+[ext_resource type="PackedScene" uid="uid://c1fh46pweltjk" path="res://addons/world_event_manager/nodes/components/call_world_event_component/call_world_event_component.tscn" id="15_w6sfs"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7egjd"]
 
@@ -29,7 +30,7 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nqe4d"]
 
-[node name="EntityNode" type="CharacterBody2D" node_paths=PackedStringArray("state_chart", "path_find", "walk", "hitbox", "node_variety_manager", "interact_audio_player", "interact_dialog_position", "dialogue_starter", "dialogue_response_handler") groups=["Entity"]]
+[node name="EntityNode" type="CharacterBody2D" node_paths=PackedStringArray("state_chart", "path_find", "walk", "hitbox", "node_variety_manager", "interact_audio_player", "interact_dialog_position", "dialogue_starter", "dialogue_response_handler", "call_world_event_component") groups=["Entity"]]
 script = ExtResource("1_ljx5x")
 state_chart = NodePath("StateChart")
 path_find = NodePath("Components/Movement/WalkPathFindMovement")
@@ -40,6 +41,7 @@ interact_audio_player = NodePath("Audio/InteractAudio")
 interact_dialog_position = NodePath("InteractDialogPosition")
 dialogue_starter = NodePath("Components/DialogueStarter")
 dialogue_response_handler = NodePath("Components/DialogueResponseHandler")
+call_world_event_component = NodePath("Components/CallWorldEventComponent")
 
 [node name="TapHitBox" type="Button" parent="."]
 offset_right = 8.0
@@ -132,6 +134,9 @@ values_to_keep = PackedStringArray("scale")
 extra_node_game_states = [NodePath("../..")]
 
 [node name="DialogueResponseHandler" parent="Components" instance=ExtResource("14_bvgcr")]
+
+[node name="CallWorldEventComponent" parent="Components" node_paths=PackedStringArray("node") instance=ExtResource("15_w6sfs")]
+node = NodePath("../..")
 
 [node name="Audio" type="Node2D" parent="."]
 

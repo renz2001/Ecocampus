@@ -1,0 +1,26 @@
+[gd_scene load_steps=7 format=3 uid="uid://rynflj61av3k"]
+
+[ext_resource type="Theme" uid="uid://cd55r8awc3jgy" path="res://themes/main_theme.tres" id="1_qgq0n"]
+[ext_resource type="Script" path="res://nodes/gui/quest_task_gui/quest_task_gui.gd" id="2_nhjmm"]
+[ext_resource type="PackedScene" uid="uid://cdhkyjskyryv" path="res://nodes/gui/formatted_label/formatted_label.tscn" id="3_qke0p"]
+[ext_resource type="Script" path="res://scripts/resources/string_formatter.gd" id="4_ogr7s"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_33vkc"]
+font_size = 40
+
+[sub_resource type="Resource" id="Resource_ofhdq"]
+script = ExtResource("4_ogr7s")
+format = "- %s: %s/%s"
+
+[node name="EcoQuestTaskGUI" type="PanelContainer" node_paths=PackedStringArray("label")]
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("1_qgq0n")
+theme_type_variation = &"InvisiblePanel"
+script = ExtResource("2_nhjmm")
+label = NodePath("FormattedLabel")
+
+[node name="FormattedLabel" parent="." instance=ExtResource("3_qke0p")]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_33vkc")
+string_formatter = SubResource("Resource_ofhdq")

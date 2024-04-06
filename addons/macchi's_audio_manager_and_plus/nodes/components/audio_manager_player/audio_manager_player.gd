@@ -29,7 +29,7 @@ func play() -> void:
 			AudioManager.play_sound_effect(audio)
 		Type.MUSIC: 
 			AudioManager.play_music(audio)
-			print_color.out_debug_wvalue("Started Music", audio.sound.resource_name)
+			print_color.out_debug_wvalue("Started Music", audio.sound.resource_path)
 		Type.TEMPORARY_MUSIC: 
 			AudioManager.play_temporary_music(audio)
 

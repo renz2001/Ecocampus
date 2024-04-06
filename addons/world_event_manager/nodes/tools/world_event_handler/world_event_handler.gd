@@ -5,7 +5,10 @@ class_name WorldEventHandler
 @export var generic_events: Node
 @export var specific_events: Node
 @export var task_events: Node
-@export var _print_color: PrintColor
+@export var _print_color: PrintColor: 
+	set(value): 
+		_print_color = value
+		_print_color.owner = self
 
 var local_events_history: Array[WorldEvent]
 

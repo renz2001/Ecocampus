@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://glnb78ju8p8o"]
+[gd_scene load_steps=14 format=3 uid="uid://glnb78ju8p8o"]
 
 [ext_resource type="PackedScene" uid="uid://3miay8g4x6j3" path="res://nodes/abstract_scenes/main_screen/main_screen.tscn" id="1_c5phn"]
 [ext_resource type="PackedScene" uid="uid://dggdvwjvdrmkh" path="res://nodes/gui/buttons/medium_wooden_button/medium_wooden_button.tscn" id="2_5xhb2"]
@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://b4fijb1vufwm7" path="res://assets/buttons/exit.png" id="4_cpr3a"]
 [ext_resource type="PackedScene" uid="uid://csp1aki3k6ecy" path="res://nodes/gui_components/on_pressed_components/on_pressed_play/on_pressed_play.tscn" id="5_k3spk"]
 [ext_resource type="PackedScene" uid="uid://cp41bsdgf5ftt" path="res://nodes/gui_components/on_pressed_components/on_pressed_exit/on_pressed_exit.tscn" id="6_f38ca"]
-[ext_resource type="PackedScene" uid="uid://bjcvqp7t237wt" path="res://nodes/gui/buttons/settings_icon_button/settings_icon_button.tscn" id="7_vtt2b"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qt5cm"]
 atlas = ExtResource("3_bxeg8")
@@ -81,23 +80,3 @@ texture_normal = SubResource("AtlasTexture_ywn4y")
 
 [node name="OnPressedExit" parent="Root/CenterContainer/VBoxContainer/Buttons/Exit" index="1" node_paths=PackedStringArray("control") instance=ExtResource("6_f38ca")]
 control = NodePath("..")
-
-[node name="MarginContainer" type="MarginContainer" parent="Root" index="2"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="Top" type="HBoxContainer" parent="Root/MarginContainer" index="0"]
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 0
-alignment = 2
-
-[node name="SettingsButton" parent="Root/MarginContainer/Top" index="0" instance=ExtResource("7_vtt2b")]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4

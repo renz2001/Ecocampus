@@ -78,7 +78,6 @@ layout_mode = 1
 only_one_instance = false
 
 [node name="MarginContainer" type="MarginContainer" parent="Root/MarginContainer/BaseControl" index="3"]
-visible = false
 layout_mode = 2
 offset_right = 1920.0
 offset_bottom = 1080.0
@@ -94,22 +93,9 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -566.0
-offset_right = -566.0
+offset_left = -564.0
+offset_right = -564.0
 grow_horizontal = 0
-only_one_instance = true
-
-[node name="Node" type="Node" parent="Root/MarginContainer/BaseControl/MarginContainer" index="1"]
-
-[node name="IfMainMenuEnteredSetProperty" parent="Root/MarginContainer/BaseControl/MarginContainer/Node" index="0" node_paths=PackedStringArray("node") instance=ExtResource("9_ep4ey")]
-property = "main_menu_state"
-node = NodePath("../..")
-new_value = "false"
-
-[node name="IfMainMenuExitedSetProperty" parent="Root/MarginContainer/BaseControl/MarginContainer/Node" index="1" node_paths=PackedStringArray("node") instance=ExtResource("9_ep4ey")]
-property = "main_menu_state"
-state_event = 1
-node = NodePath("../..")
 
 [node name="TransitionsManager" parent="Root" index="1" instance=ExtResource("10_u8sf5")]
 layout_mode = 1

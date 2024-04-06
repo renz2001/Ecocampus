@@ -2,6 +2,7 @@ extends GUI
 class_name QuizAttemptScreen
 
 @export var assesment_music: AudioManagerPlayer
+@export var quiz_attempt_gui: QuizAttemptGUI
 
 var quiz: Quiz
 
@@ -9,6 +10,7 @@ var quiz: Quiz
 static func display(q: Quiz) -> QuizAttemptScreen: 
 	var screen: QuizAttemptScreen = GUIManager.quiz_attempt_screen
 	GUIManager.set_gui_active(screen, true)
+	GUIManager.set_gui_active(screen.quiz_attempt_gui, true)
 	screen.start(q)
 	return screen
 	
