@@ -45,7 +45,6 @@ theme_override_constants/margin_bottom = 50
 
 [node name="DialogueBox" parent="DialogueGUIs/ActingContainer/MarginContainer" index="0" node_paths=PackedStringArray("acting_container") instance=ExtResource("2_n6fh7")]
 layout_mode = 2
-only_one_instance = true
 acting_container = NodePath("../..")
 
 [node name="InvisibleButton" parent="DialogueGUIs/ActingContainer" index="2" instance=ExtResource("4_kny8a")]

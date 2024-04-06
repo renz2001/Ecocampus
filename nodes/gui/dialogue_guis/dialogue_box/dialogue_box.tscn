@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://blx1a7x2yt18"]
+[gd_scene load_steps=15 format=3 uid="uid://blx1a7x2yt18"]
 
 [ext_resource type="PackedScene" uid="uid://daxlnabqn25ah" path="res://addons/dialogue_manager's_dialogue_gui_manager/nodes/gui/dialogue_gui/dialogue_gui.tscn" id="1_sidoq"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_ob5wh"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://crt2vt3u0qp70" path="res://nodes/gui/speaker_sprite/speaker_sprite.tscn" id="3_0vhnd"]
 [ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_reponses_menu.gd" id="3_a42pw"]
 [ext_resource type="PackedScene" uid="uid://rc8fo3x7f3mp" path="res://nodes/gui/dialogue_guis/dialogue_box/guis/dialogue_box_button.tscn" id="4_yi2ws"]
+[ext_resource type="PackedScene" uid="uid://bskfvry8t4hly" path="res://nodes/gui/dialogue_box_button/dialogue_box_button.tscn" id="6_xun7r"]
 [ext_resource type="Script" path="res://addons/macchi's_audio_manager_and_plus/scripts/arguments/audio_stream_player_arguments.gd" id="7_erbwi"]
 [ext_resource type="AudioStream" uid="uid://bwlyi35ixt1pg" path="res://assets/audio/ui/convo_popup.mp3" id="8_kkemd"]
 [ext_resource type="AudioStream" uid="uid://cxyrg6av4rnd0" path="res://assets/audio/ui/convo_back.mp3" id="9_l4yr5"]
@@ -49,14 +50,6 @@ character_label = NodePath("Balloon/Dialogue/VBoxContainer/CharacterLabel")
 responses_menu = NodePath("Balloon/Responses/ResponsesMenu")
 dialogue_label = NodePath("Balloon/Dialogue/VBoxContainer/DialogueLabel")
 speaker_sprites_switcher = NodePath("SpeakerSpritesSwitcher")
-dialogue_text_preset = "%s"
-hide_character_text = false
-character_text_preset = "%s"
-fast_forward_speed = 2.0
-inactive_on_ready = true
-active = true
-alias = ""
-disabled = false
 
 [node name="SpeakerSpritesSwitcher" parent="." index="0" node_paths=PackedStringArray("current_speaker_rect", "main_speaker_texture_rect", "secondary_speaker_texture_rect") instance=ExtResource("2_oiacn")]
 layout_mode = 1
@@ -161,17 +154,16 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="ResponsesMenu" type="VBoxContainer" parent="Balloon/Responses" index="0" node_paths=PackedStringArray("response_template")]
+[node name="ResponsesMenu" type="VBoxContainer" parent="Balloon/Responses" index="0"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 8
 theme_override_constants/separation = 2
 script = ExtResource("3_a42pw")
-response_template = NodePath("DialogueBoxButton")
 
-[node name="DialogueBoxButton" parent="Balloon/Responses/ResponsesMenu" index="0" instance=ExtResource("4_yi2ws")]
+[node name="DialogueBoxButton" parent="Balloon/Responses/ResponsesMenu" index="0" instance=ExtResource("6_xun7r")]
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
-text = "Choice 1"
 
 [node name="Buttons" type="MarginContainer" parent="Balloon" index="2"]
 layout_mode = 1

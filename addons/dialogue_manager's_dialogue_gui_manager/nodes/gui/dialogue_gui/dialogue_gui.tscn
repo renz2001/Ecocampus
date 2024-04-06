@@ -19,18 +19,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_omtw1")
-dialogue_gui_alias = null
-dialogue_text_preset = null
-hide_character_text = null
-character_text_preset = null
+dialogue_gui_alias = 0
+dialogue_text_preset = "%s"
+hide_character_text = false
+character_text_preset = "%s"
 print_color = SubResource("Resource_05s4r")
-fast_forward_speed = null
+fast_forward_speed = 2.0
 talk_sound_1 = NodePath("Audio/TalkSound1")
 talk_sound_2 = NodePath("Audio/TalkSound2")
-inactive_on_ready = null
-active = null
-alias = null
-disabled = null
+only_one_instance = true
 
 [node name="TalkSound1" type="AudioStreamPlayer" parent="Audio" index="0"]
 

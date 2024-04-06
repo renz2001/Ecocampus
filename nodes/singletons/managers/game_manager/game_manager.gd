@@ -10,11 +10,17 @@ extends Node
 
 @export var menu_music: AudioManagerPlayer
 @export var playing_music: AudioManagerPlayer
-@export var assesment_music: AudioManagerPlayer
 @export var print_color: PrintColor: 
 	set(value): 
 		print_color = value
 		print_color.owner = self
+
+var enable_player_on_playing_entered: bool = true: 
+	set(value): 
+		enable_player_on_playing_entered = value
+		if enable_player_on_playing_entered: 
+			PlayerManager.player.state_chart.send_event("enabled")
+
 
 func start() -> void: 
 	to_map_picker.change()
@@ -30,7 +36,8 @@ func is_paused() -> bool:
 
 func _on_playing_state_entered() -> void:
 	playing_music.play()
-	PlayerManager.player.state_chart.send_event("enabled")
+	if enable_player_on_playing_entered: 
+		PlayerManager.player.state_chart.send_event("enabled")
 
 
 func _on_main_menu_state_entered() -> void:
@@ -44,3 +51,8 @@ func _on_playing_state_exited() -> void:
 
 func _on_state_chart_event_received(event: StringName) -> void:
 	print_color.out_debug_wvalue("State chart event received", event)
+
+
+
+func _on_dialogue_state_entered() -> void:
+	PlayerManager.player.state_chart.send_event("disabled")

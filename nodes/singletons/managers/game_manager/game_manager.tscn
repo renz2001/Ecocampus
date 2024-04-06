@@ -149,3 +149,4 @@ audio = SubResource("Resource_262es")
 [connection signal="state_entered" from="StateChart/Root/GameState/MainMenu" to="." method="_on_main_menu_state_entered"]
 [connection signal="state_entered" from="StateChart/Root/GameState/Playing" to="." method="_on_playing_state_entered"]
 [connection signal="state_exited" from="StateChart/Root/GameState/Playing" to="." method="_on_playing_state_exited"]
+[connection signal="state_entered" from="StateChart/Root/GameState/Dialogue" to="." method="_on_dialogue_state_entered"]
