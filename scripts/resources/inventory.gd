@@ -1,6 +1,8 @@
 extends Resource
 class_name Inventory
 
+signal full
+
 signal items_changed(new_items: Array[Item])
 
 signal items_set(new_items: Array[Item])
@@ -60,10 +62,17 @@ func add_item(new_item: Item) -> void:
 			items_changed.emit([new_item] as Array[Item])
 			_print_color.out_debug_wvalue("Added item to stack", new_item.to_string())
 			return
+			
 	items.append(new_item)
+	if is_full(): 
+		full.emit()
+	
 	item_added.emit(new_item)
 	items_changed.emit([new_item] as Array[Item])
 	_print_color.out_debug_wvalue("Added item", new_item.to_string())
+
+func is_full() -> bool: 
+	return items.size() == max_items
 
 
 func take_from_inventory(inventory: Inventory) -> void: 
