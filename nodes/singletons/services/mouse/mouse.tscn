@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://18ykykqudinx"]
+
+[ext_resource type="Script" path="res://nodes/singletons/services/mouse/mouse.gd" id="1_ihke1"]
+
+[node name="Mouse" type="Node" node_paths=PackedStringArray("long_press_timer")]
+script = ExtResource("1_ihke1")
+long_press_timer = NodePath("LongPressTimer")
+
+[node name="LongPressTimer" type="Timer" parent="."]

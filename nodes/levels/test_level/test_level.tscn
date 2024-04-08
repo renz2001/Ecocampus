@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c8ts62hakxdh3"]
+[gd_scene load_steps=15 format=3 uid="uid://c8ts62hakxdh3"]
 
 [ext_resource type="PackedScene" uid="uid://cm6jeskbiise6" path="res://nodes/abstract_scenes/level_node/level_node.tscn" id="1_pvguk"]
 [ext_resource type="Texture2D" uid="uid://bb8wuo25lx7ap" path="res://assets/background/camera_pictures/Location1.jpg" id="2_bj4v3"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://addons/dialogue_manager's_dialogue_gui_manager/scripts/arguments/dialogue_arguments.gd" id="8_gx0oq"]
 [ext_resource type="Resource" uid="uid://dan5dbax50rp0" path="res://resources/quizzes/test_quiz.tres" id="9_32uar"]
 [ext_resource type="PackedScene" uid="uid://dqx1n417lyw35" path="res://nodes/entities/pickuppable_entites/plastic_bottle/plastic_bottle.tscn" id="10_hq7d6"]
+[ext_resource type="PackedScene" uid="uid://cgp37jt6tw7vg" path="res://nodes/entities/test_storage/test_storage.tscn" id="12_5oiva"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_oe50d"]
 vertices = PackedVector2Array(1342, 809, 1307, 789, 1590, 788, 328, 817, 327, 816, 395, 814, 579, 841, 474, 792, 596, 794, 1907, 848, 1909, 1270, 12, 1283, 1338, 824, 6, 888)
@@ -43,9 +44,9 @@ initial_node_to_watch = NodePath("../Entities/Living/PlayerNode")
 position = Vector2(0, -81)
 navigation_polygon = SubResource("NavigationPolygon_oe50d")
 
-[node name="MainCamera" parent="Cameras" index="0" node_paths=PackedStringArray("follow_node")]
-position = Vector2(1053, 434)
-follow_node = NodePath("../../Entities/Living/PlayerNode")
+[node name="MainCamera" parent="Cameras" index="0"]
+position = Vector2(940, 451)
+zoom = Vector2(1, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="Background" index="0"]
 position = Vector2(960.476, 481)
@@ -73,6 +74,10 @@ scale = Vector2(0.979984, 0.979984)
 [node name="PlasticBottle3" parent="Entities/NonLiving" index="2" instance=ExtResource("10_hq7d6")]
 position = Vector2(1503, 1070)
 scale = Vector2(0.990189, 0.990189)
+
+[node name="TestStorage" parent="Entities/NonLiving" index="3" instance=ExtResource("12_5oiva")]
+position = Vector2(1742, 898)
+scale = Vector2(0.864646, 0.864646)
 
 [node name="TwoPoint5DSpaceSimulator" parent="Scripts" index="0"]
 max_distance_offset = 100.0

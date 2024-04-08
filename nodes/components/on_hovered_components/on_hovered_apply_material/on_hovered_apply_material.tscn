@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://bdn1668ew0yo6"]
+
+[ext_resource type="PackedScene" uid="uid://bixo7b6x8xp13" path="res://nodes/components/on_hovered_component/on_hovered_component.tscn" id="1_11ujv"]
+[ext_resource type="Script" path="res://nodes/components/on_hovered_components/on_hovered_apply_material/on_hovered_apply_material.gd" id="2_koeol"]
+[ext_resource type="PackedScene" uid="uid://bwrfsu0cu68sk" path="res://nodes/components/apply_material_to_node/apply_material_to_node.tscn" id="3_3nega"]
+
+[node name="OnHoveredApplyMaterial" node_paths=PackedStringArray("apply_material_to_node", "control") instance=ExtResource("1_11ujv")]
+script = ExtResource("2_koeol")
+material = null
+apply_material_to_node = NodePath("ApplyMaterialToNode")
+control = NodePath("..")
+
+[node name="ApplyMaterialToNode" parent="." index="1" instance=ExtResource("3_3nega")]

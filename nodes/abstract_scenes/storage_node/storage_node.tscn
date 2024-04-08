@@ -1,0 +1,40 @@
+[gd_scene load_steps=8 format=3 uid="uid://dls07q71n33yn"]
+
+[ext_resource type="PackedScene" uid="uid://dokfordgw2kk3" path="res://nodes/abstract_scenes/non_living_entity_node/non_living_entity_node.tscn" id="1_op1yp"]
+[ext_resource type="Script" path="res://nodes/abstract_scenes/storage_node/storage_node.gd" id="2_gmyt4"]
+[ext_resource type="PackedScene" uid="uid://bdn1668ew0yo6" path="res://nodes/components/on_hovered_components/on_hovered_apply_material/on_hovered_apply_material.tscn" id="3_h05rh"]
+[ext_resource type="PackedScene" uid="uid://bvktq7qid2b8v" path="res://nodes/components/mouse_drag_drop_area_controller/mouse_drag_drop_area_controller.tscn" id="3_nkrf1"]
+[ext_resource type="Texture2D" uid="uid://ng63gntckj62" path="res://assets/trash.png" id="4_ibn1n"]
+[ext_resource type="Shader" path="res://resources/shaders/outline_inline.gdshader" id="4_stwhy"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pd2xc"]
+shader = ExtResource("4_stwhy")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 50.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+
+[node name="StorageNode" instance=ExtResource("1_op1yp")]
+script = ExtResource("2_gmyt4")
+
+[node name="TapHitBox" parent="." index="0"]
+offset_left = -76.0
+offset_top = -211.0
+offset_right = 76.0
+offset_bottom = 23.0
+
+[node name="OnHoveredApplyMaterial" parent="TapHitBox" index="0" node_paths=PackedStringArray("apply_to_node") instance=ExtResource("3_h05rh")]
+material = SubResource("ShaderMaterial_pd2xc")
+apply_to_node = NodePath("../../Sprites")
+
+[node name="MouseDragDropArea" parent="." index="1" node_paths=PackedStringArray("owner_node") instance=ExtResource("3_nkrf1")]
+collision_mask = 0
+owner_node = NodePath("..")
+
+[node name="EntitySprite" parent="Sprites" index="1"]
+position = Vector2(0, -92)
+scale = Vector2(0.252664, 0.252664)
+texture = ExtResource("4_ibn1n")
+
+[connection signal="dropped" from="MouseDragDropArea" to="." method="_on_mouse_drag_drop_area_dropped"]

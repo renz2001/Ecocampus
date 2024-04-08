@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqsx8gsmwnfao"]
+
+[ext_resource type="Script" path="res://nodes/singletons/server/mouse_drag_server/mouse_drag_server.gd" id="1_v5fym"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mct0a"]
+
+[node name="MouseDragServer" type="Area2D" node_paths=PackedStringArray("collision")]
+z_index = 20
+collision_layer = 0
+collision_mask = 64
+script = ExtResource("1_v5fym")
+collision = NodePath("CollisionShape2D")
+collision_size_offset = Vector2(40, 40)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_mct0a")

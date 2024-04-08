@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bixo7b6x8xp13"]
+
+[ext_resource type="Script" path="res://nodes/components/on_hovered_component/on_hovered_component.gd" id="1_gg70e"]
+[ext_resource type="PackedScene" uid="uid://d8hno8b2usfl" path="res://nodes/components/set_parent_as_property/set_parent_as_property.tscn" id="2_6yuhh"]
+
+[node name="OnHoveredComponent" type="Node"]
+script = ExtResource("1_gg70e")
+
+[node name="SetParentAsProperty" parent="." node_paths=PackedStringArray("node") instance=ExtResource("2_6yuhh")]
+node = NodePath("..")
+property = "control"

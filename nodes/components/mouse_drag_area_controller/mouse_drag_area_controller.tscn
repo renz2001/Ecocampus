@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1joew0to5eeh"]
+
+[ext_resource type="Script" path="res://nodes/components/mouse_drag_area_controller/mouse_drag_area_controller.gd" id="1_hudjp"]
+
+[node name="MouseDragAreaController" type="Area2D"]
+script = ExtResource("1_hudjp")

@@ -13,6 +13,7 @@ class_name ItemSlot
 		if item: 
 			item.stack.current_changed.connect(func(_val: float): update())
 
+@export var drag_controller: MouseDragAreaController
 
 var stack_label_preset: String = "x%s"
 
@@ -39,5 +40,3 @@ func update() -> void:
 		stack_label.show()
 	else: 
 		stack_label.hide()
-	
-	
