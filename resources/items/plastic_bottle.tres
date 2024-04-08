@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://byvmcgi6p0hdv"]
 
-[ext_resource type="Script" path="res://scripts/resources/item.gd" id="1_la1da"]
+[ext_resource type="Script" path="res://scripts/resources/item_model.gd" id="1_la1da"]
 [ext_resource type="Texture2D" uid="uid://bd1l0lam720ha" path="res://placeholder_assets/plastic_bottle_trash.png" id="1_nx4hg"]
 
 [resource]

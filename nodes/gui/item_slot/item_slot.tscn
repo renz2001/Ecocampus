@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://baxha8yav8g1m"]
+[gd_scene load_steps=6 format=3 uid="uid://baxha8yav8g1m"]
 
 [ext_resource type="PackedScene" uid="uid://d4mqjvr57ok1h" path="res://nodes/gui/buttons/icon_button/icon_button.tscn" id="1_h3ubs"]
 [ext_resource type="Texture2D" uid="uid://cctob6jdpvmio" path="res://assets/buttons/inventory_box.png" id="2_4chiu"]
 [ext_resource type="Script" path="res://nodes/gui/item_slot/item_slot.gd" id="2_8ywvp"]
-[ext_resource type="Texture2D" uid="uid://bd1l0lam720ha" path="res://placeholder_assets/plastic_bottle_trash.png" id="5_mrqly"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lnjew"]
 atlas = ExtResource("2_4chiu")
@@ -50,6 +49,5 @@ theme_override_constants/margin_bottom = 35
 
 [node name="ItemTexture" type="TextureRect" parent="ItemContainer" index="0"]
 layout_mode = 2
-texture = ExtResource("5_mrqly")
 expand_mode = 1
 stretch_mode = 5

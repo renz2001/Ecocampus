@@ -9,6 +9,7 @@ script = ExtResource("2_fclw4")
 item_slots = NodePath("ItemSlots")
 inventory = null
 inactive_on_ready = false
+only_one_instance = true
 
 [node name="ItemSlots" type="HBoxContainer" parent="." index="0"]
 layout_mode = 1

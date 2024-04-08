@@ -1,28 +1,10 @@
-## Base Class for items, does not have functions but can be used as collectibles/requirements/miscellanous. 
-extends Resource
+## Item resource that contains modifiable properties and contains ItemModel. 
+extends SaveableResource
 class_name Item
 
-@export var name: StringName
-@export var description: String
-@export var item_icon: CompressedTexture2D
+@export var model: ItemModel: 
+	set(value): 
+		model = value
+		stack = model.stack.duplicate(true)
 
 var stack: PointCounter
-
-func _init() -> void: 
-	stack = PointCounter.new()
-	stack.starting_value = 1
-	stack.minimum_hit.connect(
-		func(): 
-			free()
-	)
-
-
-func subtract_from_same(item: Item) -> Item: 
-	if item != self: 
-		return
-	stack.subtract(item.stack.current)
-	return self
-	
-	
-func _to_string() -> String: 
-	return "%s<stack_count:%s>" % [name, stack.current]
