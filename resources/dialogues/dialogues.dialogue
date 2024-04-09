@@ -24,8 +24,9 @@ TestNPC: TEST!
 {{data.custom_name}}: Wanna do a quiz? 
 {{PlayerManager.player.data.custom_name}}: Hmmm!
 {{data.custom_name}}: Accept quiz? 
-- Accept => END
+- Accept
 	do dialogue_response_handler.respond("accept_quiz")
+	=> END
 - Not yet
 	{{data.custom_name}}: Welp ok have fun! => END
 => END

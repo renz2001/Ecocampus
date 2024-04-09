@@ -1,6 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://ddc47quo3n5uw"]
+[gd_scene load_steps=4 format=3 uid="uid://ddc47quo3n5uw"]
 
 [ext_resource type="Script" path="res://nodes/components/dialogue_response_handler/dialogue_response_handler.gd" id="1_4owxi"]
+[ext_resource type="Script" path="res://addons/macchi's_node_components/nodes/components/print_color.gd" id="2_5eewx"]
+
+[sub_resource type="Resource" id="Resource_3mdcr"]
+script = ExtResource("2_5eewx")
+disabled = false
+color = Color(0.890196, 0, 0.792157, 1)
+owner_name_color = Color(0, 0, 1, 1)
+value_color = Color(1, 0, 0, 1)
+automatic_value_color = true
+use_spaces_for_node_name = false
 
 [node name="DialogueResponseHandler" type="Node"]
 script = ExtResource("1_4owxi")
+print_color = SubResource("Resource_3mdcr")

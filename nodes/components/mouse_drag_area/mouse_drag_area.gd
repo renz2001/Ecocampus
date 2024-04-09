@@ -1,5 +1,5 @@
 extends Area2D
-class_name MouseDragAreaController
+class_name MouseDragArea
 
 enum Type {
 	TEXTURE_NODE, 
@@ -18,7 +18,6 @@ enum Type {
 
 @export var drag_data_properties: Array[String]
 
-
 #func grab() -> void: 
 	#pass
 	#
@@ -28,26 +27,24 @@ func _ready() -> void:
 		control.gui_input.connect(_on_gui_input)
 		
 		
-func _on_gui_input(event: InputEvent) -> void: 
+func _on_gui_input(_event: InputEvent) -> void: 
 	if disabled: 
 		return
 		
 	if Mouse.is_just_pressed(): 
-		if !MouseDragServer.dragging_cancelled.is_connected(_on_dragging_cancelled): 
-			MouseDragServer.dragging_cancelled.connect(_on_dragging_cancelled, CONNECT_ONE_SHOT)
-		if !MouseDragServer.dragging_ended.is_connected(_on_dragging_ended): 
-			MouseDragServer.dragging_ended.connect(_on_dragging_ended, CONNECT_ONE_SHOT)
+		if !MouseDrag.dragging_cancelled.is_connected(_on_dragging_cancelled): 
+			MouseDrag.dragging_cancelled.connect(_on_dragging_cancelled, CONNECT_ONE_SHOT)
+		if !MouseDrag.dropped.is_connected(_on_dropped): 
+			MouseDrag.dropped.connect(_on_dropped, CONNECT_ONE_SHOT)
 		
-		MouseDragServer.drag(self)
-		
+		MouseDrag.drag(self)
 		
 		
 func get_drag_data() -> Dictionary: 
-	var arr: Dictionary = {}
-	for property in drag_data_properties: 
-		arr[property] = owner_node.get(property)
-		
-	return arr
+	var dict: Dictionary = {}
+	for property: String in drag_data_properties: 
+		dict[property] = owner_node.get(property)
+	return dict
 
 
 func empty_ownder_node_properties(): 
@@ -55,7 +52,7 @@ func empty_ownder_node_properties():
 		owner_node.set(property, null)
 		
 		
-func _on_dragging_ended() -> void: 
+func _on_dropped() -> void: 
 	empty_ownder_node_properties()
 	
 	

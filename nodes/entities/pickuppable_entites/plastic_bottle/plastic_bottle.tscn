@@ -1,12 +1,26 @@
-[gd_scene load_steps=4 format=3 uid="uid://dqx1n417lyw35"]
+[gd_scene load_steps=9 format=3 uid="uid://dqx1n417lyw35"]
 
 [ext_resource type="PackedScene" uid="uid://77dhb6ck4eyt" path="res://nodes/abstract_scenes/pickuppable_entity/pickuppable_entity.tscn" id="1_7uoco"]
 [ext_resource type="Script" path="res://addons/world_event_manager/scripts/resources/world_event_call.gd" id="2_n05a3"]
+[ext_resource type="Resource" uid="uid://byvmcgi6p0hdv" path="res://resources/items/plastic_bottle.tres" id="3_k0hy6"]
+[ext_resource type="Script" path="res://scripts/resources/item_stack.gd" id="4_xf5db"]
+[ext_resource type="Script" path="res://scripts/resources/inventory.gd" id="5_cmigy"]
 
 [sub_resource type="Resource" id="Resource_5kmfl"]
 script = ExtResource("2_n05a3")
 event = "picked_up_plastic_bottle"
 one_shot = false
 
+[sub_resource type="Resource" id="Resource_p634p"]
+script = ExtResource("4_xf5db")
+model = ExtResource("3_k0hy6")
+stack_starting_value = 1.0
+
+[sub_resource type="Resource" id="Resource_beh1a"]
+script = ExtResource("5_cmigy")
+items = Array[ExtResource("4_xf5db")]([SubResource("Resource_p634p")])
+max_items = -1
+
 [node name="PlasticBottle" instance=ExtResource("1_7uoco")]
 on_interact_call_world_event = SubResource("Resource_5kmfl")
+inventory = SubResource("Resource_beh1a")

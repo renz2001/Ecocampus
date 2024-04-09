@@ -1,5 +1,5 @@
 extends Area2D
-class_name MouseDragDropAreaController
+class_name MouseDragDropArea
 
 signal dropped(drag_data: Dictionary)
 
@@ -7,7 +7,9 @@ signal dropped(drag_data: Dictionary)
 
 @export var texture_node: CanvasItem
 
-func drop(controller: MouseDragAreaController) -> void: 
+@export var can_drop_condition_method: String
+
+func drop(controller: MouseDragArea) -> void: 
 	
 	if texture_node: 
 		if has_texture_property(texture_node): 
@@ -22,9 +24,17 @@ func drop(controller: MouseDragAreaController) -> void:
 					children[i].texture = child.texture 
 		)
 	
-	dropped.emit(controller.get_drag_data())
+	dropped.emit(MouseDrag.drag_data)
 	
 	
 func has_texture_property(node: Node) -> bool: 
 	return node.has("texture")
 
+
+func can_drop() -> bool: 
+	if can_drop_condition_method.is_empty(): 
+		return true
+		
+	return Callable(owner_node, can_drop_condition_method).call()
+	
+	

@@ -8,15 +8,13 @@ class_name InventoryGUI
 		inventory = value
 		if !is_node_ready(): 
 			await ready
-		if inventory: 
-			if !inventory.items_changed.is_connected(_on_inventory_items_changed): 
-				inventory.items_changed.connect(_on_inventory_items_changed)
-			var children: Array[Node] = item_slots.get_children()
-			for i: int in children.size(): 
-				var slot: ItemSlot = children[i]
-				slot.item = null
-				if i < inventory.items.size(): 
-					slot.item = inventory.items[i]
+			
+		update()
+		if inventory == null: 
+			return
+			
+		if !inventory.items_changed.is_connected(_on_inventory_items_changed): 
+			inventory.items_changed.connect(_on_inventory_items_changed)
 
 
 func _ready() -> void: 
@@ -26,8 +24,25 @@ func _ready() -> void:
 
 
 func _on_player_instanced() -> void: 
-	inventory = PlayerManager.player.inventory
+	update()
 	
 	
-func _on_inventory_items_changed(_new_items: Array[Item]) -> void: 
-	inventory = PlayerManager.player.inventory
+func _on_inventory_items_changed(_new_items: Array[ItemStack]) -> void: 
+	update()
+
+
+func update() -> void: 
+
+	var children: Array[Node] = item_slots.get_children()
+	for i: int in children.size(): 
+		var slot: ItemSlot = children[i]
+		
+		slot.item = null
+		
+		if inventory == null: 
+			continue
+			
+		if i < inventory.items.size(): 
+			slot.item = inventory.items[i]
+	
+	

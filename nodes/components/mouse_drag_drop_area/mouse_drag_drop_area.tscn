@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bvktq7qid2b8v"]
 
-[ext_resource type="Script" path="res://nodes/components/mouse_drag_drop_area_controller/mouse_drag_drop_area_controller.gd" id="1_c6vgk"]
+[ext_resource type="Script" path="res://nodes/components/mouse_drag_drop_area/mouse_drag_drop_area.gd" id="1_c6vgk"]
 
 [node name="MouseDragDropArea" type="Area2D"]
 collision_layer = 64

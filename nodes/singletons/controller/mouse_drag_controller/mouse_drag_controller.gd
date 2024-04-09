@@ -10,8 +10,9 @@ signal dropped
 
 var is_dragging: bool
 
-var current_controller: MouseDragAreaController
+var current_controller: MouseDragArea
 var node_being_dragged: CanvasItem
+var drag_data: Dictionary
 
 
 func _process(_delta: float) -> void: 
@@ -22,50 +23,64 @@ func _process(_delta: float) -> void:
 			node_being_dragged.global_position = get_global_mouse_position()
 		collision.global_position = get_global_mouse_position()
 
-func drag(controller: MouseDragAreaController) -> void: 
+
+func drag(drag_area: MouseDragArea) -> void: 
 	is_dragging = true
 	
-	var dupe: CanvasItem = controller.drag_node.duplicate()
+	var dupe: CanvasItem = drag_area.drag_node.duplicate()
 	
 	add_child(dupe)
 	
 	if dupe is Control: 
-		dupe.size = controller.drag_node.size
+		dupe.size = drag_area.drag_node.size
 		collision.shape.size = dupe.size + collision_size_offset
 		dupe.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		if dupe is TextureRect: 
 			dupe.pivot_offset = dupe.size / 2
-		
-	controller.drag_node.hide()
+			
+	drag_data = drag_area.get_drag_data()
+	dupe.show()
+	drag_area.drag_node.hide()
 	
 	node_being_dragged = dupe
-	current_controller = controller
+	current_controller = drag_area
 	
 	dragging_started.emit() 
 	
 	
 func _input(event: InputEvent) -> void: 
-		if Mouse.is_released(event): 
-			if has_overlapping_areas(): 
-				var areas: Array[Area2D] = get_overlapping_areas() 
-				drop_at(areas[0])
-			else: 
-				cancel()
+	if Mouse.is_released(event) && is_dragging: 
+		if has_overlapping_areas(): 
+			var areas: Array[Area2D] = get_overlapping_areas() 
+			drop_at(areas[0])
+		else: 
+			cancel()
 	
 	
 func _clear() -> void: 
+	if current_controller: 
+		current_controller.drag_node.show()
+		current_controller = null
+		
 	if node_being_dragged: 
 		node_being_dragged.queue_free()
 		node_being_dragged = null
-		dragging_ended.emit()
-		is_dragging = false
+	
+	collision.global_position = Vector2.ZERO
+	drag_data.clear()
+	
+	dragging_ended.emit()
+	is_dragging = false
 	
 	
-func drop_at(controller: MouseDragDropAreaController) -> void: 
-	controller.drop(current_controller)
-	_clear()
-	dropped.emit()
-	
+func drop_at(drag_area: MouseDragDropArea) -> void: 
+	if drag_area.can_drop(): 
+		drag_area.drop(current_controller)
+		dropped.emit()
+		_clear()
+	else: 
+		cancel()
+		
 	
 func cancel() -> void: 
 	_clear()

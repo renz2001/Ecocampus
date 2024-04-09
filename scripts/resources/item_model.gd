@@ -6,30 +6,14 @@ class_name ItemModel
 @export var description: String
 @export var item_icon: CompressedTexture2D
 
-var stack: PointCounter
+@export var maximum_stack: int = 12
 
-func _init() -> void: 
-	stack = PointCounter.new()
-	stack.starting_value = 1
-	stack.minimum_hit.connect(
-		func(): 
-			free()
-	)
-
-
-func subtract_from_same(item: ItemModel) -> ItemModel: 
-	if item != self: 
-		return
-	stack.subtract(item.stack.current)
-	return self
-	
-	
 func _to_string() -> String: 
-	return "%s<stack_count:%s>" % [name, stack.current]
+	return "%s(maximum_stack:%s)" % [name, maximum_stack]
 
 
-func to_item() -> Item: 
-	var item: Item = Item.new() 
+func to_item_stack() -> ItemStack: 
+	var item: ItemStack = ItemStack.new() 
 	item.model = self
 	return item
 	

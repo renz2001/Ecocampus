@@ -47,12 +47,14 @@ signal interacted
 @export var dialogue_starter: DialogueStarter
 @export var dialogue_response_handler: DialogueResponseHandler
 @export var call_world_event_component: CallWorldEventComponent
+@export var ready_unique_resource: ReadyUniqueResource
+
+
 
 func _ready() -> void: 
-	if inventory: 
-		inventory.owner = self
-
-
+	pass
+		
+		
 func set_data(value: Entity) -> void: 
 	data = value
 
@@ -89,19 +91,29 @@ func show_interact_dialog(description: String) -> void:
 func _on_tap_hit_box_pressed() -> void:
 	if display_interact_dialog: 
 		if wait_for_player_to_display_interact_dialog: 
-			PlayerManager.player.path_find.finished_navigation.connect(
-				func(): 
-					show_interact_dialog(interact_description)
-			, CONNECT_ONE_SHOT
-			)
+			PlayerManager.player.path_find.changed_target.connect(_on_changed_target, CONNECT_ONE_SHOT)
+			PlayerManager.player.path_find.finished_navigation.connect(_on_finished_navigation, CONNECT_ONE_SHOT)
 		else: 
 			show_interact_dialog(interact_description)
 	else: 
 		_on_interact()
 
 
+func _on_changed_target() -> void: 
+	if PlayerManager.player.path_find.finished_navigation.is_connected(_on_finished_navigation): 
+		PlayerManager.player.path_find.finished_navigation.disconnect(_on_finished_navigation)
+
+
+func _on_finished_navigation() -> void: 
+	show_interact_dialog(interact_description)
+
+
 func _on_dialogue_response_handler_responded(value: String) -> void: 
 	if value == "accept_quiz": 
 		QuizAttemptScreen.display(quiz)
 
+
+func _on_ready_unique_resource_resource_ready() -> void:
+	if inventory: 
+		inventory.owner = self
 

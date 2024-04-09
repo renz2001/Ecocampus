@@ -19,7 +19,7 @@
 
 [sub_resource type="Resource" id="Resource_w3run"]
 script = ExtResource("3_ip38p")
-items = Array[Resource("res://scripts/resources/item.gd")]([])
+items = Array[Resource("res://scripts/resources/item_stack.gd")]([])
 max_items = -1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dvdpg"]
@@ -392,6 +392,9 @@ mouse_position = NodePath("../MousePositionComponent")
 path_find_move_component = NodePath("../PathFindMovementComponent")
 
 [node name="MousePositionComponent" parent="Components/Movement" index="1" instance=ExtResource("8_t7gk8")]
+
+[node name="Walk" parent="Components/Movement" index="2"]
+speed = 10.0
 
 [node name="PathFindMovementComponent" parent="Components/Movement" index="3" node_paths=PackedStringArray("movement", "navigation_agent") instance=ExtResource("11_d0mbx")]
 movement = NodePath("../Walk")

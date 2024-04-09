@@ -119,6 +119,10 @@ func is_less_than_maximum() -> bool:
 	return current < maximum
 
 
+func is_empty() -> bool: 
+	return current == 0
+
+
 func has_exceeded_maximum() -> bool: 
 	return current > maximum
 	

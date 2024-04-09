@@ -3,12 +3,17 @@ extends NodeComponent
 class_name PathFindMovementComponent
 
 signal finished_navigation
+signal changed_target
 
 @export var debug: bool = false
 @export var movement: MovementComponent
 @export var navigation_agent: NavigationAgent2D
 
-@export var target: Node
+@export var target: Node: 
+	set(value): 
+		if target != value: 
+			changed_target.emit()
+		target = value
 
 var line: Line2D
 var _is_setup: bool = false

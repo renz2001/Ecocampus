@@ -63,21 +63,21 @@ scale = Vector2(0.90299, 0.90299)
 dialogue = SubResource("Resource_cb3e1")
 quiz = ExtResource("9_32uar")
 
-[node name="PlasticBottle" parent="Entities/NonLiving" index="0" instance=ExtResource("10_hq7d6")]
-position = Vector2(1679, 1022)
-scale = Vector2(0.973637, 0.973637)
-
-[node name="PlasticBottle2" parent="Entities/NonLiving" index="1" instance=ExtResource("10_hq7d6")]
-position = Vector2(1304, 1037)
-scale = Vector2(0.979984, 0.979984)
-
-[node name="PlasticBottle3" parent="Entities/NonLiving" index="2" instance=ExtResource("10_hq7d6")]
-position = Vector2(1503, 1070)
-scale = Vector2(0.990189, 0.990189)
-
-[node name="TestStorage" parent="Entities/NonLiving" index="3" instance=ExtResource("12_5oiva")]
+[node name="TestStorage" parent="Entities/NonLiving" index="0" instance=ExtResource("12_5oiva")]
 position = Vector2(1742, 898)
 scale = Vector2(0.864646, 0.864646)
+
+[node name="PlasticBottle" parent="Entities/NonLiving" index="1" instance=ExtResource("10_hq7d6")]
+position = Vector2(1148, 1092)
+scale = Vector2(0.994568, 0.994568)
+
+[node name="PlasticBottle2" parent="Entities/NonLiving" index="2" instance=ExtResource("10_hq7d6")]
+position = Vector2(1403, 1064)
+scale = Vector2(0.988682, 0.988682)
+
+[node name="PlasticBottle3" parent="Entities/NonLiving" index="3" instance=ExtResource("10_hq7d6")]
+position = Vector2(1065, 931)
+scale = Vector2(0.905178, 0.905178)
 
 [node name="TwoPoint5DSpaceSimulator" parent="Scripts" index="0"]
 max_distance_offset = 100.0

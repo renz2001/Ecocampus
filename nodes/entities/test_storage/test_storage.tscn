@@ -5,14 +5,17 @@
 
 [sub_resource type="Resource" id="Resource_hvldv"]
 script = ExtResource("2_4hifv")
-items = Array[Resource("res://scripts/resources/item.gd")]([])
+items = Array[Resource("res://scripts/resources/item_stack.gd")]([])
 max_items = -1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_smdto"]
 size = Vector2(153, 235)
 
 [node name="TestStorage" instance=ExtResource("1_dks7g")]
+display_interact_dialog = true
+wait_for_player_to_display_interact_dialog = true
 inventory = SubResource("Resource_hvldv")
+interact_description = ""
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MouseDragDropArea" index="0"]
 position = Vector2(0.5, -95.5)

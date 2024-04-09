@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dml5uy4doh7s6"]
+[gd_scene load_steps=26 format=3 uid="uid://dml5uy4doh7s6"]
 
 [ext_resource type="Script" path="res://nodes/abstract_scenes/entity_node/entity_node.gd" id="1_ljx5x"]
 [ext_resource type="PackedScene" uid="uid://j60lt30xbjw6" path="res://addons/macchi's_audio_manager_and_plus/nodes/audio_players/button_audio_player/button_audio_player.tscn" id="2_1fgry"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://ddc47quo3n5uw" path="res://nodes/components/dialogue_response_handler/dialogue_response_handler.tscn" id="14_bvgcr"]
 [ext_resource type="PackedScene" uid="uid://7gri71kaffvv" path="res://addons/macchi's_audio_manager_and_plus/nodes/components/audio_manager_player/audio_manager_player.tscn" id="15_80f6o"]
 [ext_resource type="PackedScene" uid="uid://c1fh46pweltjk" path="res://addons/world_event_manager/nodes/components/call_world_event_component/call_world_event_component.tscn" id="15_w6sfs"]
+[ext_resource type="PackedScene" uid="uid://le3pltdhswul" path="res://addons/macchi's_node_components/nodes/components/ready_unique_resource/ready_unique_resource.tscn" id="16_qjodn"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7egjd"]
 
@@ -30,7 +31,7 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nqe4d"]
 
-[node name="EntityNode" type="CharacterBody2D" node_paths=PackedStringArray("state_chart", "path_find", "walk", "hitbox", "node_variety_manager", "interact_audio_player", "interact_dialog_position", "dialogue_starter", "dialogue_response_handler", "call_world_event_component") groups=["Entity"]]
+[node name="EntityNode" type="CharacterBody2D" node_paths=PackedStringArray("state_chart", "path_find", "walk", "hitbox", "node_variety_manager", "interact_audio_player", "interact_dialog_position", "dialogue_starter", "dialogue_response_handler", "call_world_event_component", "ready_unique_resource") groups=["Entity"]]
 script = ExtResource("1_ljx5x")
 state_chart = NodePath("StateChart")
 path_find = NodePath("Components/Movement/WalkPathFindMovement")
@@ -42,6 +43,7 @@ interact_dialog_position = NodePath("InteractDialogPosition")
 dialogue_starter = NodePath("Components/DialogueStarter")
 dialogue_response_handler = NodePath("Components/DialogueResponseHandler")
 call_world_event_component = NodePath("Components/CallWorldEventComponent")
+ready_unique_resource = NodePath("Components/ReadyUniqueResource")
 
 [node name="TapHitBox" type="Button" parent="."]
 offset_right = 8.0
@@ -138,6 +140,11 @@ extra_node_game_states = [NodePath("../..")]
 [node name="CallWorldEventComponent" parent="Components" node_paths=PackedStringArray("node") instance=ExtResource("15_w6sfs")]
 node = NodePath("../..")
 
+[node name="ReadyUniqueResource" parent="Components" node_paths=PackedStringArray("node") instance=ExtResource("16_qjodn")]
+node = NodePath("../..")
+resource = "inventory"
+disabled = true
+
 [node name="Audio" type="Node2D" parent="."]
 
 [node name="TapHitBoxAudio" parent="Audio" node_paths=PackedStringArray("button") instance=ExtResource("2_1fgry")]
@@ -162,4 +169,5 @@ position = Vector2(-43, -98)
 
 [connection signal="pressed" from="TapHitBox" to="." method="_on_tap_hit_box_pressed"]
 [connection signal="responded" from="Components/DialogueResponseHandler" to="." method="_on_dialogue_response_handler_responded"]
+[connection signal="resource_ready" from="Components/ReadyUniqueResource" to="." method="_on_ready_unique_resource_resource_ready"]
 [connection signal="velocity_computed" from="NavigationAgent2D" to="Components/Movement/WalkPathFindMovement" method="_on_navigation_agent_2d_velocity_computed"]

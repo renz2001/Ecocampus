@@ -1,24 +1,28 @@
-[gd_scene load_steps=7 format=3 uid="uid://baxha8yav8g1m"]
+[gd_scene load_steps=8 format=3 uid="uid://baxha8yav8g1m"]
 
 [ext_resource type="PackedScene" uid="uid://d4mqjvr57ok1h" path="res://nodes/gui/buttons/icon_button/icon_button.tscn" id="1_h3ubs"]
 [ext_resource type="Texture2D" uid="uid://cctob6jdpvmio" path="res://assets/buttons/inventory_box.png" id="2_4chiu"]
 [ext_resource type="Script" path="res://nodes/gui/item_slot/item_slot.gd" id="2_8ywvp"]
-[ext_resource type="PackedScene" uid="uid://d1joew0to5eeh" path="res://nodes/components/mouse_drag_area_controller/mouse_drag_area_controller.tscn" id="5_1w6ua"]
+[ext_resource type="FontFile" uid="uid://cp5vi568oh4jl" path="res://fonts/Ubuntu-Bold.ttf" id="4_yqdnp"]
+[ext_resource type="PackedScene" uid="uid://d1joew0to5eeh" path="res://nodes/components/mouse_drag_area/mouse_drag_area.tscn" id="5_1w6ua"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lnjew"]
 atlas = ExtResource("2_4chiu")
 region = Rect2(24, 84, 238, 247)
 
 [sub_resource type="LabelSettings" id="LabelSettings_vat1p"]
+font = ExtResource("4_yqdnp")
 font_size = 40
+outline_size = 12
+outline_color = Color(0, 0, 0, 1)
 
-[node name="ItemSlot" node_paths=PackedStringArray("stack_label", "item_texture_rect", "drag_controller") instance=ExtResource("1_h3ubs")]
+[node name="ItemSlot" node_paths=PackedStringArray("stack_label", "item_texture_rect", "drag_area") instance=ExtResource("1_h3ubs")]
 texture_normal = SubResource("AtlasTexture_lnjew")
 script = ExtResource("2_8ywvp")
 stack_label = NodePath("StackLabel")
 item_texture_rect = NodePath("ItemContainer/ItemTexture")
 item = null
-drag_controller = NodePath("MouseDragAreaController")
+drag_area = NodePath("MouseDragArea")
 
 [node name="StackLabel" type="Label" parent="." index="2"]
 visible = false
@@ -54,8 +58,10 @@ layout_mode = 2
 expand_mode = 1
 stretch_mode = 5
 
-[node name="MouseDragAreaController" parent="." index="5" node_paths=PackedStringArray("drag_node", "control", "owner_node") instance=ExtResource("5_1w6ua")]
+[node name="MouseDragArea" parent="." index="5" node_paths=PackedStringArray("drag_node", "control", "owner_node") instance=ExtResource("5_1w6ua")]
 drag_node = NodePath("../ItemContainer/ItemTexture")
+type = 0
 control = NodePath("..")
+disabled = true
 owner_node = NodePath("..")
 drag_data_properties = Array[String](["item"])

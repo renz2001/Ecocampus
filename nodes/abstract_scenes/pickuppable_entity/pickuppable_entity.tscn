@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://scripts/resources/inventory.gd" id="3_qwicy"]
 [ext_resource type="PackedScene" uid="uid://b6yh5ahr4kpcw" path="res://nodes/components/on_interact_components/on_interact_pick_up/on_interact_pick_up.tscn" id="3_u3rje"]
 [ext_resource type="AudioStream" uid="uid://dnipkpbpk6h6n" path="res://assets/audio/ui/pickup_item.wav" id="5_i7dfg"]
-[ext_resource type="Script" path="res://scripts/resources/item.gd" id="5_o0hjb"]
+[ext_resource type="Script" path="res://scripts/resources/item_stack.gd" id="5_o0hjb"]
 [ext_resource type="Texture2D" uid="uid://bd1l0lam720ha" path="res://placeholder_assets/plastic_bottle_trash.png" id="6_6ar2y"]
 [ext_resource type="PackedScene" uid="uid://c4gnwuhmu4msa" path="res://nodes/gui_components/on_pressed_components/on_pressed_apply_material_to_node/on_pressed_apply_material_to_node.tscn" id="7_cgy4r"]
 [ext_resource type="Shader" path="res://resources/shaders/outline_inline.gdshader" id="8_cxd3f"]
@@ -24,6 +24,7 @@ bus = ""
 [sub_resource type="Resource" id="Resource_5aqsf"]
 script = ExtResource("5_o0hjb")
 model = ExtResource("2_5efc4")
+stack_starting_value = 1.0
 
 [sub_resource type="Resource" id="Resource_cgcbb"]
 script = ExtResource("3_qwicy")
@@ -62,6 +63,10 @@ apply_to_node = NodePath("../../Sprites/EntitySprite")
 
 [node name="OnInteractPickUp" parent="Components" index="4" node_paths=PackedStringArray("entity") instance=ExtResource("3_u3rje")]
 entity = NodePath("../..")
+
+[node name="ReadyUniqueResource" parent="Components" index="8"]
+duplicate_from_method = "clone"
+disabled = false
 
 [node name="ShadowCircle" parent="Sprites" index="0"]
 scale = Vector2(0.229, 0.167)

@@ -154,12 +154,13 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="ResponsesMenu" type="VBoxContainer" parent="Balloon/Responses" index="0"]
+[node name="ResponsesMenu" type="VBoxContainer" parent="Balloon/Responses" index="0" node_paths=PackedStringArray("response_template")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 8
 theme_override_constants/separation = 2
 script = ExtResource("3_a42pw")
+response_template = NodePath("DialogueBoxButton")
 
 [node name="DialogueBoxButton" parent="Balloon/Responses/ResponsesMenu" index="0" instance=ExtResource("6_xun7r")]
 custom_minimum_size = Vector2(0, 100)

@@ -31,7 +31,7 @@ GlobalData="*res://nodes/singletons/globals/global_data/global_data.tscn"
 PlayerManager="*res://nodes/singletons/managers/player_manager/player_manager.tscn"
 GlobalShortcuts="*res://nodes/singletons/globals/global_shortcuts/global_shortcuts.tscn"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
-MouseDragServer="*res://nodes/singletons/server/mouse_drag_server/mouse_drag_server.tscn"
+MouseDrag="*res://nodes/singletons/controller/mouse_drag_controller/mouse_drag_controller.tscn"
 Mouse="*res://nodes/singletons/services/mouse/mouse.tscn"
 
 [dialogue_manager]
