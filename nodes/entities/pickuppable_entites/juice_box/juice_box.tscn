@@ -1,0 +1,39 @@
+[gd_scene load_steps=10 format=3 uid="uid://de0t0vj8vdxfw"]
+
+[ext_resource type="PackedScene" uid="uid://77dhb6ck4eyt" path="res://nodes/abstract_scenes/pickuppable_entity/pickuppable_entity.tscn" id="1_r15se"]
+[ext_resource type="Resource" uid="uid://dla73tgx4t3cn" path="res://resources/items/juice_box.tres" id="2_tt280"]
+[ext_resource type="Script" path="res://scripts/resources/entity.gd" id="2_ttc2a"]
+[ext_resource type="Texture2D" uid="uid://dyb41qo07dngr" path="res://assets/collect_item/juice_box.png" id="3_nwmjj"]
+[ext_resource type="Script" path="res://scripts/resources/item_stack.gd" id="3_s4ocu"]
+[ext_resource type="Script" path="res://scripts/resources/inventory.gd" id="4_nj86f"]
+
+[sub_resource type="Resource" id="Resource_vvvml"]
+script = ExtResource("3_s4ocu")
+model = ExtResource("2_tt280")
+stack_starting_value = 1.0
+
+[sub_resource type="Resource" id="Resource_ir415"]
+script = ExtResource("4_nj86f")
+items = Array[ExtResource("3_s4ocu")]([SubResource("Resource_vvvml")])
+max_items = -1
+
+[sub_resource type="Resource" id="Resource_fp6cc"]
+script = ExtResource("2_ttc2a")
+custom_name = ""
+name = "Juice Box"
+gender = 0
+group = "Entity"
+
+[node name="JuiceBox" instance=ExtResource("1_r15se")]
+inventory = SubResource("Resource_ir415")
+data = SubResource("Resource_fp6cc")
+
+[node name="ShadowCircle" parent="Sprites" index="0"]
+position = Vector2(-0.999998, -1)
+scale = Vector2(0.153309, 0.111802)
+
+[node name="EntitySprite" parent="Sprites" index="1"]
+position = Vector2(1.00001, -49)
+rotation = 0.0
+scale = Vector2(0.393833, 0.393833)
+texture = ExtResource("3_nwmjj")

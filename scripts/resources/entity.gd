@@ -1,4 +1,4 @@
-extends Resource
+extends SaveableResource
 class_name Entity
 
 signal name_changed
@@ -70,4 +70,7 @@ func get_node(tree: SceneTree) -> EntityNode:
 	)
 	
 	
-	
+func _save_properties() -> PackedStringArray: 
+	return [
+		"custom_name"
+	]

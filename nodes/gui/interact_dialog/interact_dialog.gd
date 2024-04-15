@@ -2,7 +2,7 @@
 extends DialogGUI
 class_name InteractDialog
 
-@export var description_label: Label
+@export var description_label: FormattedLabel
 @export var ok_button: TextureButtonPlus
 
 var data: InteractDialogData
@@ -12,7 +12,8 @@ static func display(args: InteractDialogData) -> InteractDialog:
 	#print(_caller)
 	gui.data = args
 	gui.global_position = gui.data.gui_position
-	gui.description_label.text = gui.data.description
+	if gui.data.description: 
+		gui.data.description.set_label(gui.description_label)
 	GUIManager.add_gui(gui)
 	gui.data.caller.state_chart.send_event("disabled")
 	return gui

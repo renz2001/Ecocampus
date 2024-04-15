@@ -11,6 +11,9 @@ signal task_completed(task: EcoQuestTask)
 		tasks = value
 		for task: EcoQuestTask in tasks: 
 			task.completed.connect(func(): task_completed.emit(task))
+			
+## Optional, leave null if not wanted. Unlocks this achievement when finished 
+@export var on_complete_unlock_achievement: Achievement
 
 var percentage_description_format: StringFormatter
 
@@ -47,3 +50,7 @@ func update() -> void:
 		objective_completed = true
 
 
+func display_achievement() -> void: 
+	AchievementUnlockedScreen.display(on_complete_unlock_achievement)
+	
+	

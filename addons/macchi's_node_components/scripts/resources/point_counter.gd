@@ -155,7 +155,9 @@ func _save_properties() -> PackedStringArray:
 		"disabled", 
 		"current", 
 		"minimum", 
-		"maximum"
+		"maximum", 
+		"cant_be_added", 
+		"cant_be_subtracted"
 	]
 	
 	

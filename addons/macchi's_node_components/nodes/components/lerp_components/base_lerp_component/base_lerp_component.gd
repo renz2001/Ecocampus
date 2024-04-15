@@ -49,7 +49,6 @@ func play(to: float = 1) -> void:
 	elif loop_times > 0: 
 		for i in loop_times: 
 			var tween: Tween = make_tween(to)
-			# FIXME
 			if loop_interpolate_end_to_back: 
 				tween.chain()
 				make_tween(0, tween)

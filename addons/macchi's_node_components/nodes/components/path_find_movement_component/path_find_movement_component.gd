@@ -11,7 +11,7 @@ signal changed_target
 
 @export var target: Node: 
 	set(value): 
-		if target != value: 
+		if value != null && target != value: 
 			changed_target.emit()
 		target = value
 

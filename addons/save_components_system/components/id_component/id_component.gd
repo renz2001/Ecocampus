@@ -1,4 +1,3 @@
-@tool
 extends NodeComponent
 class_name IDComponent
 
@@ -8,11 +7,15 @@ class_name IDComponent
 @export var data: ID: 
 	set(value): 
 		data = value
-		if Engine.is_editor_hint(): 
-			return
+		if !is_node_ready(): 
+			await ready
+			
 		if !node.is_node_ready(): 
 			await node.ready
 			
-		if data == null: 
-			data = ID.create() 
-		node.name = str(data.value)
+		if !is_instance_valid(data): 
+			data = ID.use_custom_id(node.get_path())
+		else: 
+			if Engine.is_editor_hint(): 
+				return
+			node.name = data.value

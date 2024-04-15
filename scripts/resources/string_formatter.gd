@@ -1,7 +1,7 @@
 extends Resource
 class_name StringFormatter
 
-@export var format: String = "%s"
+@export_multiline var format: String = "%s"
 
 
 func input(val: Array[String]) -> String: 

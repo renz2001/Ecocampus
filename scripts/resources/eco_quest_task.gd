@@ -1,4 +1,4 @@
-extends Resource
+extends SaveableResource
 class_name EcoQuestTask
 
 signal completed
@@ -30,3 +30,8 @@ func _on_counter_maximum_hit(_value: float) -> void:
 	is_completed = true
 	
 	
+func _save_properties() -> PackedStringArray: 
+	return [
+		"is_completed", 
+		"counter"
+	]

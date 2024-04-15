@@ -66,6 +66,7 @@ static func get_item_from_array(array: Array, method: Callable):
 	return null
 	
 	
+## Gets the autoload of the scene. Needs a node (parent) that exists within a scene. 
 static func get_autoload(parent: Node, autoload: String) -> Node: 
 	return parent.get_node("/root/%s" % autoload)
 	

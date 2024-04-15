@@ -1,21 +1,25 @@
 extends Node
 
-#TODO: Seperate save_file_name with SaveName: as the actual save name
+signal saved_data(data: GameSave)
+signal loaded_data(data: GameSave)
 
-signal saved_data(data: GameSaveData)
-signal loaded_data(data: GameSaveData)
-
-signal saved_data_to_file(data: GameSaveData, save_file: SaveFile)
+signal saved_data_to_file(data: GameSave, save_file: SaveFile)
 
 signal save_file_removed( save_file: SaveFile)
 
 signal save_files_edited(new_save_files: Array[SaveFile])
 
+@export var print_color: PrintColor: 
+	set(value): 
+		print_color = value
+		print_color.owner = self
+
+
 ## Path of the user://
 var user_path: String = "user://"
 
 ## Name of the main folder of the game
-var game_data_folder_path: String = user_path + "Ecocampus/"
+var game_data_folder_path: String = user_path + "Ecocampus/" 
 
 ## Folder where saves are stored
 var saves_folder_path: String = game_data_folder_path + "saves/" 
@@ -26,14 +30,13 @@ var save_file_name: String = SaveFile.base_name + "_%s"
 ## File name for autosaves
 var autosave_file_name: String = save_file_name % "%s_autosave"
 
-# GameSaveData class is for loading in between levels and writing to file. 
-# To load data from a save file, load data directly from the file, it is not turned into a GameSaveData object. 
+# GameSave class is for loading in between levels and writing to file. 
+# To load data from a save file, load data directly from the file, it is not turned into a GameSave object. 
 
-# TODO: Make it so that there is a new GameSaveData each time the game starts anew.  
-var current_saved_data: GameSaveData = GameSaveData.new()
+var current_saved_data: GameSave = GameSave.new()
 
 # Data Structure: 
-# SaveName: GameSaveData name
+# SaveName: GameSave name, 
 # ID: {
 #	"NodePath" : {
 #		"PropertyName" : Value
@@ -47,51 +50,51 @@ func _ready() -> void:
 	DirAccess.make_dir_absolute(saves_folder_path)
 
 
-func set_current_game_save_data_from_file_path(file_path: String) -> void: 
-	var file: SaveFile = SaveFile.from_file(file_path)
+## Used to set the current_game_save from a file path. Then you can load the game file. 
+func set_current_game_save_from_file_name(file_name: String) -> void: 
+	await get_tree().process_frame
+	var file: SaveFile = SaveFile.from_file(file_name)
 	set_current_game_save_data(file.data)
+	print_color.out_debug_wvalue("Set current game save from file name", file_name)
 
 
-func set_current_game_save_data(save_data: GameSaveData) -> void: 
+func set_current_game_save_data(save_data: GameSave) -> void: 
 	current_saved_data = save_data
 
 
 ## Saves in game save data to computer
 func save_game_to_file(overwrite: bool = false) -> SaveFile: 
+	await get_tree().process_frame
 	var save_file: SaveFile = SaveFile.create_from_save_data(current_saved_data, overwrite)
-	
 	saved_data_to_file.emit(current_saved_data, save_file.data.name)
 	save_files_edited.emit(get_save_files())
+	print_color.out_debug_wvalue("Saved Game to file", [current_saved_data.name, save_file.name])
 	return save_file
 	
 	
 # Stores it into current_save_data, as well as returns the data itself. 
 ## Saves game data in game to saved_datas
 func save_game(new_name: String = "") -> void: 
+	await get_tree().process_frame
 	if !new_name.is_empty(): 
 		current_saved_data.name = new_name
 	current_saved_data.save_game(get_tree())
 	
 	saved_data.emit(current_saved_data)
+	print_color.out_debug_wvalue("Saved Game", current_saved_data.name)
 
-## current_id is the key for the save file
-func load_current_game_save_data(current_id: String) -> void:
-	var data: Dictionary = current_saved_data.data
-	
-	
-	var data_group: Dictionary = data[current_id]
-	for path: String in data_group.keys(): 
-		var follower_node: FollowerSaveComponent = get_node(path)
-		var load_data: Dictionary = data_group[path]
-		follower_node.load_dict(load_data)
-	
+## current_id is the key for the save file/current KingSaveComponent/current level. 
+func load_current_game_save(current_id: String) -> void: 
+	await get_tree().process_frame
+	current_saved_data.load_game(get_tree(), current_id)
 	loaded_data.emit(current_saved_data)
+	print_color.out_debug_wvalue("Loaded current game save", current_saved_data.name)
 	
 	
 func get_indexed_string_from_array(val: String, array: Array, adjustment: int = 0) -> String: 
 	var new: String = ""
 	var index: int = array.size() + 1 + adjustment
-	new = val + " _" + str(index)
+	new = val + "_" + str(index)
 	return new
 
 
@@ -105,17 +108,14 @@ func get_non_numbered_string(val: String) -> String:
 	return res
 
 
-func remove_save_file(save_file: GameSaveData) -> void: 
+func remove_save_file(save_file: GameSave) -> void: 
 	save_file_removed.emit(save_file)
 	save_files_edited.emit(get_save_files())
 
 
-
-func does_save_file_name_already_exist(file_name: String) -> bool: 
+func does_save_file_name_exists(file_name: String) -> bool: 
 	var saves_folder_dir: DirAccess = DirAccess.open(saves_folder_path)
-	if saves_folder_dir.file_exists(file_name): 
-		return true
-	return false
+	return saves_folder_dir.file_exists(file_name + ".json")
 	
 	
 func save_files_is_empty() -> bool:
@@ -126,7 +126,6 @@ func get_save_files() -> Array[SaveFile]:
 	var save_files: Array[SaveFile] = []
 	#
 	for file in DirAccess.get_files_at(saves_folder_path): 
-		#print("file: ", file)
 		var file_name: String = get_file_name(file, false)
 		#print(get_file_name(file, false))
 		#print(file_name.begins_with(save_file_name % ""))

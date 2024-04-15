@@ -1,7 +1,7 @@
 extends Resource
 class_name SaveFileArguments
 
-@export var save_data: GameSaveData
+@export var save_data: GameSave
 @export var overwrite: bool = false
 
 
@@ -15,10 +15,10 @@ func set_overwrite(value: bool) -> SaveFileArguments:
 	#return self
 	
 	
-func set_save_data(value: GameSaveData) -> SaveFileArguments: 
+func set_save_data(value: GameSave) -> SaveFileArguments: 
 	save_data = value
 	return self
 	
 	
-func to_save_data_arguments() -> GameSaveDataArguments: 
-	return GameSaveDataArguments.new().set_overwrite(overwrite).set_save_name(save_data.name)
+func to_save_data_arguments() -> GameSaveArguments: 
+	return GameSaveArguments.new().set_overwrite(overwrite).set_save_name(save_data.name)

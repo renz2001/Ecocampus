@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemModel" load_steps=3 format=3 uid="uid://4bd0gl2jjueb"]
+
+[ext_resource type="Script" path="res://scripts/resources/item_model.gd" id="1_d2van"]
+[ext_resource type="Texture2D" uid="uid://crg6wpxxmx4n3" path="res://assets/collect_item/coffee_cup.png" id="1_n6jxn"]
+
+[resource]
+script = ExtResource("1_d2van")
+name = &"Disposable Coffee cup"
+description = ""
+item_icon = ExtResource("1_n6jxn")
+maximum_stack = 12

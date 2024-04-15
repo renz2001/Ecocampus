@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7fkc7ap00buw"
-path="res://.godot/imported/proffesor_girl.png-9d9faea711cc18ef175c6aeaa48ab357.ctex"
+uid="uid://cjn8l7lvhkm7s"
+path="res://.godot/imported/banana_peel.png-b7d48ed87d9262bdf9c07e9750e48c54.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/character/proffessor/proffesor_girl.png"
-dest_files=["res://.godot/imported/proffesor_girl.png-9d9faea711cc18ef175c6aeaa48ab357.ctex"]
+source_file="res://assets/collect_item/banana_peel.png"
+dest_files=["res://.godot/imported/banana_peel.png-b7d48ed87d9262bdf9c07e9750e48c54.ctex"]
 
 [params]
 

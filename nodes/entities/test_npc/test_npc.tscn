@@ -13,7 +13,6 @@ group = "NPC"
 
 [node name="TestNPC" instance=ExtResource("1_slgqi")]
 use_parent_material = true
-position = Vector2(0, -102)
 data = SubResource("Resource_m6blp")
 
 [node name="TapHitBox" parent="." index="0"]
@@ -26,10 +25,10 @@ offset_bottom = 158.0
 scale = Vector2(1.5, 1.5)
 
 [node name="ShadowCircle" parent="Sprites" index="0"]
-position = Vector2(0, 68)
+position = Vector2(0, 2.33329)
 
 [node name="EntitySprite" parent="Sprites" index="1"]
-position = Vector2(5.33333, -57.3333)
+position = Vector2(5.33333, -123)
 texture = ExtResource("2_7j2ln")
 hframes = 6
 frame = 1

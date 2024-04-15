@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://0gghp1dg5pic"]
+
+[ext_resource type="Script" path="res://nodes/singletons/extensions/extended_quest_system/extended_quest_system.gd" id="1_ecs0a"]
+
+[node name="ExtendedQuestSystem" type="Node"]
+script = ExtResource("1_ecs0a")

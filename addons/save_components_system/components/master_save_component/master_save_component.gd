@@ -1,16 +1,11 @@
-## Master means it is an owner of multiple SaveComponents 
+## Master means it is an owner of multiple SaveComponents. It will search the node of SaveComponents then it will gather it for to_dict(). 
 extends FollowerSaveComponent
 class_name MasterSaveComponent
 
-@export var id: IDComponent: 
-	set(value): 
-		id = value
-@export var do_not_search_nodes: PackedStringArray
+@export var id: IDComponent
 
-func _ready() -> void: 
-	if !node.is_node_ready(): 
-		await node.ready
-	#node.add_to_group("MasterSaveNode")
+@export var do_not_search_nodes: PackedStringArray
+@export var no_king: bool
 
 
 func to_dict() -> Dictionary: 

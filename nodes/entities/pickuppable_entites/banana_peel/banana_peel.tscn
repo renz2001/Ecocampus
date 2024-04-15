@@ -1,0 +1,39 @@
+[gd_scene load_steps=10 format=3 uid="uid://bm3t8igvjt658"]
+
+[ext_resource type="PackedScene" uid="uid://77dhb6ck4eyt" path="res://nodes/abstract_scenes/pickuppable_entity/pickuppable_entity.tscn" id="1_35r7o"]
+[ext_resource type="Resource" uid="uid://c2ms3lvdy84n5" path="res://resources/items/banana_peel.tres" id="2_evcxx"]
+[ext_resource type="Script" path="res://scripts/resources/item_stack.gd" id="3_5csbt"]
+[ext_resource type="Script" path="res://scripts/resources/inventory.gd" id="4_p0mbv"]
+[ext_resource type="Script" path="res://scripts/resources/entity.gd" id="5_yu0d0"]
+[ext_resource type="Texture2D" uid="uid://cjn8l7lvhkm7s" path="res://assets/collect_item/banana_peel.png" id="6_k6hhx"]
+
+[sub_resource type="Resource" id="Resource_vymub"]
+script = ExtResource("3_5csbt")
+model = ExtResource("2_evcxx")
+stack_starting_value = 1.0
+
+[sub_resource type="Resource" id="Resource_quoql"]
+script = ExtResource("4_p0mbv")
+items = Array[ExtResource("3_5csbt")]([SubResource("Resource_vymub")])
+max_items = -1
+
+[sub_resource type="Resource" id="Resource_q4381"]
+script = ExtResource("5_yu0d0")
+custom_name = ""
+name = "Banana Peel"
+gender = 0
+group = "Entity"
+
+[node name="BananaPeel" instance=ExtResource("1_35r7o")]
+inventory = SubResource("Resource_quoql")
+data = SubResource("Resource_q4381")
+
+[node name="ShadowCircle" parent="Sprites" index="0"]
+position = Vector2(-6.89351, -4.9625)
+scale = Vector2(0.206019, 0.150241)
+
+[node name="EntitySprite" parent="Sprites" index="1"]
+position = Vector2(-1.89351, -27.9625)
+rotation = 0.0
+scale = Vector2(0.353583, 0.353583)
+texture = ExtResource("6_k6hhx")

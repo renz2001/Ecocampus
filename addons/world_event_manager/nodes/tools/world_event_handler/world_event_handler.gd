@@ -22,7 +22,7 @@ func call_event(event_name: String, called_by: Node, args: Array = []) -> void:
 		return
 	var world_event: WorldEvent = get_world_event_node(event_name)
 	world_event.call_event(called_by, args)
-	_print_color.out_debug("Event Called: %s by: %s" % [world_event.id, called_by])
+	_print_color.out_debug("Event Called: %s, with arguments: %s by: %s" % [world_event.id, args, called_by])
 	local_events_history.append(world_event)
 
 
@@ -36,6 +36,7 @@ func get_world_event_node(event_name: String) -> WorldEvent:
 		
 	if specific_events.has_node(event_name): 
 		return specific_events.get_node(event_name)
+		
 	push_error("Error: WorldEvent: %s, cannot be found in WorldEventHandler. " % event_name)
 	return null
 

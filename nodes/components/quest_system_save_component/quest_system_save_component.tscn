@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=3 uid="uid://drsh18t2p40f2"]
+
+[ext_resource type="PackedScene" uid="uid://bixjjksp3dphm" path="res://addons/save_components_system/components/master_save_component/master_save_component.tscn" id="1_kmd8k"]
+[ext_resource type="Script" path="res://nodes/components/quest_system_save_component/quest_system_save_component.gd" id="1_urkpb"]
+[ext_resource type="Resource" uid="uid://bi6mer5mjqaty" path="res://resources/quests_collection/quests_collection.tres" id="3_woxs1"]
+
+[node name="QuestSystemSaveComponent" instance=ExtResource("1_kmd8k")]
+script = ExtResource("1_urkpb")
+quests_collection = ExtResource("3_woxs1")
+no_king = true

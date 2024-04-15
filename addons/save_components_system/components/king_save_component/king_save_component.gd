@@ -1,39 +1,37 @@
+## SaveComponent used for gathering all the MasterComponents in a scene. There should only be one in a level scene. 
 extends NodeComponent
 class_name KingSaveComponent
 
 @export var node: Node
-
-@export var id: ID: 
-	set(value): 
-		#if Engine.is_editor_hint(): 
-			#return
-		id = value
-		if !is_node_ready(): 
-			await ready
-		id_component.data = id
 
 @export var id_component: IDComponent
 
 
 func to_dict() -> Dictionary: 
 	
-	var king_dict: Dictionary = {}
+	var king_dict: Dictionary = {
+		"Globals": {}
+	}
 	
-	for masters: MasterSaveComponent in get_tree().get_nodes_in_group("MasterSaveComponent"): 
+	for master: MasterSaveComponent in get_tree().get_nodes_in_group("MasterSaveComponent"): 
 		#print(masters.to_dict())
-		king_dict.merge(masters.to_dict())
+		if master.no_king: 
+			king_dict["Globals"].merge(master.to_dict())
+			continue
+		king_dict.merge(master.to_dict())
 		#print(masters.to_dict())
-		
+	
+	var key: String = str(id_component.data.value)
+	
 	var dict: Dictionary = {
-		str(id_component.data.value): king_dict
+		key: king_dict
 	}
 	return dict
 	
 	
 func load_data(data: Dictionary) -> void: 
-	var grand_master_dict = data[id.value]
-	for path: String in data[id.value].keys(): 
+	var king_dict = data[id_component.id.value]
+	for path: String in king_dict.keys(): 
 		var follower_save: FollowerSaveComponent = node.get_node(path)
 		#follower_save.load_data()
-	
-	
+

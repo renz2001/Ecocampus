@@ -1,5 +1,5 @@
 @tool
-extends Resource
+extends SaveableResource
 class_name Cosmetic
 
 enum CosmeticState {
@@ -47,3 +47,8 @@ func unlock() -> void:
 	
 	
 	
+func _save_properties() -> PackedStringArray: 
+	return [
+		"unlocked", 
+		"state"
+	]

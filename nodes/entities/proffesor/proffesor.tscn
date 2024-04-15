@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://ysp2h4h7neww"]
+
+[ext_resource type="PackedScene" uid="uid://b8627vb83551h" path="res://nodes/abstract_scenes/npc_node/npc_node.tscn" id="1_yhm85"]
+[ext_resource type="Texture2D" uid="uid://dcjm4h3jfy5sh" path="res://assets/character/proffessor/proffesor.png" id="2_hml6t"]
+
+[node name="Proffesor" instance=ExtResource("1_yhm85")]
+
+[node name="EntitySprite" parent="Sprites" index="1"]
+position = Vector2(0, -108)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_hml6t")
+hframes = 4
+frame = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="8"]

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemModel" load_steps=3 format=3 uid="uid://23ubbrkj81uh"]
+
+[ext_resource type="Texture2D" uid="uid://c8b36my8htck6" path="res://assets/collect_item/plastic_bag.png" id="1_5lodj"]
+[ext_resource type="Script" path="res://scripts/resources/item_model.gd" id="2_jgb1y"]
+
+[resource]
+script = ExtResource("2_jgb1y")
+name = &"Plastic Bag"
+description = ""
+item_icon = ExtResource("1_5lodj")
+maximum_stack = 12

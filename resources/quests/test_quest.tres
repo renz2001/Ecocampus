@@ -23,7 +23,8 @@ disabled = false
 
 [sub_resource type="Resource" id="Resource_t8672"]
 script = ExtResource("2_esmm3")
-increment_on_event = "picked_up_plastic_bottle"
+increment_on_event = "picked_up"
+increment_if_has_similar_arguments = ["plastic_bottle"]
 counter = SubResource("Resource_i1csr")
 call_event_from_counter_signal = ""
 
@@ -36,7 +37,7 @@ counter = SubResource("Resource_t8672")
 script = ExtResource("1_lirxy")
 percentage_description = "Pick Trash"
 tasks = Array[ExtResource("3_wt2xu")]([SubResource("Resource_0oxb7")])
-id = 0
-quest_name = ""
+id = 1
+quest_name = "Pick trash"
 quest_description = ""
 quest_objective = ""

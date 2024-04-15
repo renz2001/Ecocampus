@@ -1,0 +1,39 @@
+[gd_scene load_steps=10 format=3 uid="uid://bfnapusrrbksh"]
+
+[ext_resource type="PackedScene" uid="uid://77dhb6ck4eyt" path="res://nodes/abstract_scenes/pickuppable_entity/pickuppable_entity.tscn" id="1_8jn73"]
+[ext_resource type="Resource" uid="uid://4bd0gl2jjueb" path="res://resources/items/coffee_cup.tres" id="2_agvcg"]
+[ext_resource type="Texture2D" uid="uid://crg6wpxxmx4n3" path="res://assets/collect_item/coffee_cup.png" id="2_h64tc"]
+[ext_resource type="Script" path="res://scripts/resources/entity.gd" id="2_x8cn5"]
+[ext_resource type="Script" path="res://scripts/resources/item_stack.gd" id="3_h852v"]
+[ext_resource type="Script" path="res://scripts/resources/inventory.gd" id="4_mq8nk"]
+
+[sub_resource type="Resource" id="Resource_r3oc2"]
+script = ExtResource("3_h852v")
+model = ExtResource("2_agvcg")
+stack_starting_value = 1.0
+
+[sub_resource type="Resource" id="Resource_wqtld"]
+script = ExtResource("4_mq8nk")
+items = Array[ExtResource("3_h852v")]([SubResource("Resource_r3oc2")])
+max_items = -1
+
+[sub_resource type="Resource" id="Resource_2g2ol"]
+script = ExtResource("2_x8cn5")
+custom_name = ""
+name = "Coffee Cup"
+gender = 0
+group = "Entity"
+
+[node name="CoffeeCup" instance=ExtResource("1_8jn73")]
+inventory = SubResource("Resource_wqtld")
+data = SubResource("Resource_2g2ol")
+
+[node name="ShadowCircle" parent="Sprites" index="0"]
+position = Vector2(-1, -4)
+scale = Vector2(0.148997, 0.108657)
+
+[node name="EntitySprite" parent="Sprites" index="1"]
+position = Vector2(-2, -52)
+rotation = 0.0
+scale = Vector2(0.37025, 0.37025)
+texture = ExtResource("2_h64tc")

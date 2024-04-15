@@ -1,27 +1,37 @@
-[gd_scene load_steps=6 format=3 uid="uid://c584i6hhgux8p"]
+[gd_scene load_steps=9 format=3 uid="uid://c584i6hhgux8p"]
 
 [ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/macchi's_gui_manager/nodes/gui/gui/gui.tscn" id="1_y7k5e"]
 [ext_resource type="PackedScene" uid="uid://dggdvwjvdrmkh" path="res://nodes/gui/buttons/medium_wooden_button/medium_wooden_button.tscn" id="2_thsxv"]
 [ext_resource type="Script" path="res://nodes/gui/achievement_unlocked_gui/achievement_unlocked_gui.gd" id="2_vvx3l"]
 [ext_resource type="Theme" uid="uid://cd55r8awc3jgy" path="res://themes/main_theme.tres" id="3_qkqff"]
 [ext_resource type="PackedScene" uid="uid://cnsvmjc5ytto2" path="res://nodes/components/on_visible_then_scale/on_visible_then_scale.tscn" id="5_dk1ap"]
+[ext_resource type="Script" path="res://addons/macchi's_audio_manager_and_plus/scripts/arguments/audio_stream_player_arguments.gd" id="6_0l4ik"]
+[ext_resource type="AudioStream" uid="uid://bg0jmi11j2nv4" path="res://assets/audio/ui/achievement_popup.wav" id="7_k8gel"]
 
-[node name="AchievementUnlockedGUI" node_paths=PackedStringArray("title_label", "task_label") instance=ExtResource("1_y7k5e")]
+[sub_resource type="Resource" id="Resource_rcbbj"]
+script = ExtResource("6_0l4ik")
+sound = ExtResource("7_k8gel")
+play_from_position = 0
+pitch_scale = 1.0
+volume_slider = 1.0
+volume_db = 0.0
+bus = ""
+
+[node name="AchievementUnlockedGUI" node_paths=PackedStringArray("sprite_rect", "title_label", "task_description_label") instance=ExtResource("1_y7k5e")]
 offset_right = 439.0
 offset_bottom = 576.0
 script = ExtResource("2_vvx3l")
+achievement = null
+sprite_rect = NodePath("Panel/MarginContainer/VBoxContainer/TextureRect")
 title_label = NodePath("Panel/MarginContainer/VBoxContainer/Title")
-task_label = NodePath("Panel/MarginContainer/VBoxContainer/Task")
+task_description_label = NodePath("Panel/MarginContainer/VBoxContainer/TaskDescription")
+only_one_instance = true
 
 [node name="Panel" type="PanelContainer" parent="." index="0"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -217.0
-offset_top = -282.0
-offset_right = -217.0
-offset_bottom = -282.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("3_qkqff")
@@ -44,7 +54,7 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 
-[node name="Task" type="Label" parent="Panel/MarginContainer/VBoxContainer" index="2"]
+[node name="TaskDescription" type="Label" parent="Panel/MarginContainer/VBoxContainer" index="2"]
 layout_mode = 2
 text = "(5 bottles collected)
 "
@@ -63,3 +73,6 @@ layout_mode = 2
 [node name="OnVisibleThenScale" parent="." index="1" node_paths=PackedStringArray("node") instance=ExtResource("5_dk1ap")]
 editor_play = false
 node = NodePath("..")
+
+[node name="OnActivateAudio" parent="Audio" index="0"]
+audio = SubResource("Resource_rcbbj")

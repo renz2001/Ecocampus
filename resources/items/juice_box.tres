@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemModel" load_steps=3 format=3 uid="uid://dla73tgx4t3cn"]
+
+[ext_resource type="Texture2D" uid="uid://dyb41qo07dngr" path="res://assets/collect_item/juice_box.png" id="1_dx6yn"]
+[ext_resource type="Script" path="res://scripts/resources/item_model.gd" id="1_qd4y5"]
+
+[resource]
+script = ExtResource("1_qd4y5")
+name = &"Juice box"
+description = ""
+item_icon = ExtResource("1_dx6yn")
+maximum_stack = 12

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://77dhb6ck4eyt"]
+[gd_scene load_steps=21 format=3 uid="uid://77dhb6ck4eyt"]
 
 [ext_resource type="PackedScene" uid="uid://dokfordgw2kk3" path="res://nodes/abstract_scenes/non_living_entity_node/non_living_entity_node.tscn" id="1_d4ii6"]
 [ext_resource type="Resource" uid="uid://byvmcgi6p0hdv" path="res://resources/items/plastic_bottle.tres" id="2_5efc4"]
@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://bd1l0lam720ha" path="res://placeholder_assets/plastic_bottle_trash.png" id="6_6ar2y"]
 [ext_resource type="PackedScene" uid="uid://c4gnwuhmu4msa" path="res://nodes/gui_components/on_pressed_components/on_pressed_apply_material_to_node/on_pressed_apply_material_to_node.tscn" id="7_cgy4r"]
 [ext_resource type="Shader" path="res://resources/shaders/outline_inline.gdshader" id="8_cxd3f"]
+[ext_resource type="Script" path="res://scripts/resources/string_formatter.gd" id="8_fa10n"]
+[ext_resource type="Script" path="res://scripts/resources/label_text.gd" id="9_fvkps"]
 
 [sub_resource type="Resource" id="Resource_jowr4"]
 script = ExtResource("2_wai6l")
@@ -38,6 +40,20 @@ name = "Plastic Bottle"
 gender = 0
 group = "Entity"
 
+[sub_resource type="Resource" id="Resource_n7c8o"]
+script = ExtResource("8_fa10n")
+format = "%s
+Type: %s
+Environmental Impact: %s"
+
+[sub_resource type="Resource" id="Resource_ymgkp"]
+script = ExtResource("9_fvkps")
+format = SubResource("Resource_n7c8o")
+texts = Array[String]([])
+with_label_settings = false
+horizontal_alignment = 0
+vertical_alignment = 0
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ukjcl"]
 shader = ExtResource("8_cxd3f")
 shader_parameter/color = Color(1, 1, 1, 1)
@@ -47,9 +63,12 @@ shader_parameter/inside = false
 shader_parameter/add_margins = true
 
 [node name="PickUppableEntity" instance=ExtResource("1_d4ii6")]
+display_interact_dialog = null
+wait_for_player_to_display_interact_dialog = null
 interact_audio = SubResource("Resource_jowr4")
 inventory = SubResource("Resource_cgcbb")
 data = SubResource("Resource_uhq21")
+interact_description = SubResource("Resource_ymgkp")
 
 [node name="TapHitBox" parent="." index="0"]
 offset_left = -68.0

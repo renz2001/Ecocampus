@@ -43,3 +43,4 @@ func _load_scenes() -> void:
 func _exit_tree():
 	if thread && thread.is_alive(): 
 		thread.wait_to_finish()
+

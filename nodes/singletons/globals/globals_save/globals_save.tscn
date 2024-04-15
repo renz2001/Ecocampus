@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://c802krt7dhwg4"]
+
+[ext_resource type="PackedScene" uid="uid://drsh18t2p40f2" path="res://nodes/components/quest_system_save_component/quest_system_save_component.tscn" id="1_1pt7d"]
+
+[node name="GlobalsSave" type="Node"]
+
+[node name="QuestSystemSaveComponent" parent="." instance=ExtResource("1_1pt7d")]

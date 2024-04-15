@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bb8wuo25lx7ap"
-path="res://.godot/imported/Location1.jpg-ab03f366241c6ec2d008e028e0fc7ca4.ctex"
+uid="uid://bw0bd5coec4j8"
+path="res://.godot/imported/aluminum_soda_can.png-0fdb2f14e70e38446af1ba362baa18b1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/background/camera_pictures/Location1.jpg"
-dest_files=["res://.godot/imported/Location1.jpg-ab03f366241c6ec2d008e028e0fc7ca4.ctex"]
+source_file="res://assets/collect_item/aluminum_soda_can.png"
+dest_files=["res://.godot/imported/aluminum_soda_can.png-0fdb2f14e70e38446af1ba362baa18b1.ctex"]
 
 [params]
 

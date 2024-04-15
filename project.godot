@@ -33,6 +33,8 @@ GlobalShortcuts="*res://nodes/singletons/globals/global_shortcuts/global_shortcu
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 MouseDrag="*res://nodes/singletons/controller/mouse_drag_controller/mouse_drag_controller.tscn"
 Mouse="*res://nodes/singletons/services/mouse/mouse.tscn"
+ExtendedQuestSystem="*res://nodes/singletons/extensions/extended_quest_system/extended_quest_system.tscn"
+GlobalsSave="*res://nodes/singletons/globals/globals_save/globals_save.tscn"
 
 [dialogue_manager]
 

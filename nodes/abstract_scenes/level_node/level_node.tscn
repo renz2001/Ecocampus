@@ -1,14 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://cm6jeskbiise6"]
+[gd_scene load_steps=8 format=3 uid="uid://cm6jeskbiise6"]
 
 [ext_resource type="PackedScene" uid="uid://uumu0cyt08vn" path="res://nodes/tools/main_camera/main_camera.tscn" id="1_7i7vm"]
 [ext_resource type="Script" path="res://nodes/abstract_scenes/level_node/level_node.gd" id="1_i8rcc"]
 [ext_resource type="PackedScene" uid="uid://coge3r6c3f044" path="res://nodes/components/two_point_5d_space_simulator/two_point_5d_space_simulator.tscn" id="2_lkpw8"]
 [ext_resource type="PackedScene" uid="uid://bwn0ec225xwd8" path="res://addons/world_event_manager/nodes/tools/world_event_handler/world_event_handler.tscn" id="4_0l3dg"]
 [ext_resource type="PackedScene" uid="uid://bink1hk2vfpun" path="res://addons/world_event_manager/nodes/tools/world_event/world_event.tscn" id="4_g04p1"]
+[ext_resource type="PackedScene" uid="uid://dcl4q5evy7cq1" path="res://addons/save_components_system/components/king_save_component/king_save_component.tscn" id="6_tky5n"]
+[ext_resource type="PackedScene" uid="uid://bf36nvt8j4eto" path="res://addons/save_components_system/components/id_component/id_component.tscn" id="8_ncmm5"]
 
-[node name="LevelNode" type="Node2D"]
+[node name="LevelNode" type="Node2D" node_paths=PackedStringArray("id_component")]
 y_sort_enabled = true
 script = ExtResource("1_i8rcc")
+id_component = NodePath("Scripts/IDComponent")
 
 [node name="NavigationRegion" type="Node2D" parent="."]
 z_index = 2
@@ -26,6 +29,9 @@ limit_bottom = 1080
 
 [node name="Background" type="Node2D" parent="."]
 
+[node name="CanvasLayer" type="CanvasLayer" parent="Background"]
+layer = -1
+
 [node name="Entities" type="Node2D" parent="."]
 y_sort_enabled = true
 
@@ -37,7 +43,7 @@ y_sort_enabled = true
 
 [node name="WorldEventHandler" parent="." instance=ExtResource("4_0l3dg")]
 
-[node name="PickedUpPlasticBottle" parent="WorldEventHandler/TaskEvents" index="0" instance=ExtResource("4_g04p1")]
+[node name="PickedUp" parent="WorldEventHandler/TaskEvents" index="0" instance=ExtResource("4_g04p1")]
 
 [node name="Scripts" type="Node" parent="."]
 
@@ -45,6 +51,13 @@ y_sort_enabled = true
 
 [node name="BasePoint" parent="Scripts/TwoPoint5DSpaceSimulator" index="0"]
 position = Vector2(0, 1079)
+
+[node name="KingSaveComponent" parent="Scripts" node_paths=PackedStringArray("node", "id_component") instance=ExtResource("6_tky5n")]
+node = NodePath("../..")
+id_component = NodePath("../IDComponent")
+
+[node name="IDComponent" parent="Scripts" node_paths=PackedStringArray("node") instance=ExtResource("8_ncmm5")]
+node = NodePath("../..")
 
 [editable path="WorldEventHandler"]
 [editable path="Scripts/TwoPoint5DSpaceSimulator"]

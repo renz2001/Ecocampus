@@ -13,7 +13,7 @@ properties = PackedStringArray("speed", "direction", "previous_direction")
 script = ExtResource("1_84g7f")
 base_values = NodePath("BaseValuesKeeper")
 
-[node name="SaveComponent" parent="." node_paths=PackedStringArray("node") instance=ExtResource("2_l5oj2")]
+[node name="FollowerSaveComponent" parent="." node_paths=PackedStringArray("node") instance=ExtResource("2_l5oj2")]
 node = NodePath("..")
 data = SubResource("Resource_xalqb")
 

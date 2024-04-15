@@ -1,4 +1,4 @@
-extends Resource
+extends SaveableResource
 class_name Inventory
 
 signal full
@@ -33,6 +33,7 @@ var print_color: PrintColor
 var _max_items_error: Callable = func(val): print_color.out_debug_wvalue("Cannot add more items since it has reached it's maximum. The new items", val)
 
 func _init() -> void: 
+	super._init()
 	print_color = PrintColor.new()
 	print_color.owner = owner
 	print_color.owner_name_color = Color("93ffb5")
@@ -56,7 +57,6 @@ func add_items(new_items: Array[ItemStack], by: Object = null) -> void:
 		add_item(item, by)
 	items_added.emit(new_items)
 
-# TODO: Make the current ItemStack into ItemModel then create a new resource called ItemStack, which contains an ItemModel and a Stack
 func add_item(new_item_stack: ItemStack, by: Object = null) -> void: 
 	
 	# Checks if the item already exists in the inventory. 
@@ -220,3 +220,8 @@ func clone() -> Inventory:
 	return inventory
 	
 	
+func _save_properties() -> PackedStringArray: 
+	return [
+		"items", 
+		"max_items"
+	]

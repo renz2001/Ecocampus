@@ -1,5 +1,5 @@
 @tool
-extends Resource
+extends SaveableResource
 class_name DialogueArguments
 
 @export var dialogue_gui: DialogueGUI.DialogueGUIAlias
@@ -55,5 +55,16 @@ func set_is_dialogue_game_state(value: bool) -> DialogueArguments:
 func set_reset_when_title_variation_reached(value: bool) -> DialogueArguments:
 	reset_when_title_variation_reached = value
 	return self
-	
-	
+
+
+func _save_properties() -> PackedStringArray: 
+	return [
+		"extra_game_states", 
+		"dialogue_gui", 
+		"dialogue_resource", 
+		"main_speakers", 
+		"title", 
+		"title_variation", 
+		"reset_when_title_variation_reached", 
+		"is_dialogue_game_state"
+	]

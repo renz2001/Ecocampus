@@ -1,0 +1,52 @@
+[gd_scene load_steps=22 format=3 uid="uid://c8ts62hakxdh3"]
+
+[ext_resource type="PackedScene" uid="uid://cm6jeskbiise6" path="res://nodes/abstract_scenes/level_node/level_node.tscn" id="1_pvguk"]
+[ext_resource type="Texture2D" uid="uid://bb8wuo25lx7ap" path="res://assets/background/camera_pictures/Location1.jpg" id="2_bj4v3"]
+[ext_resource type="Resource" uid="uid://bi6mer5mjqaty" path="res://resources/quests_collection/quests_collection.tres" id="2_j64ll"]
+[ext_resource type="PackedScene" uid="uid://bcwkugn6v3oy7" path="res://addons/godot_state_charts/utilities/state_chart_debugger.tscn" id="3_as2rk"]
+[ext_resource type="PackedScene" uid="uid://8qsjsyglmgq4" path="res://nodes/entities/player_node/player_node.tscn" id="3_uej4m"]
+[ext_resource type="PackedScene" uid="uid://kswh3ivlg5yv" path="res://nodes/entities/test_npc/test_npc.tscn" id="5_qgg4j"]
+[ext_resource type="Resource" uid="uid://byaj1bas2wkaw" path="res://resources/dialogues/dialogues.dialogue" id="6_ja6bt"]
+[ext_resource type="Resource" uid="uid://bhl7afn8ti7bs" path="res://resources/entity/player.tres" id="7_xkvai"]
+[ext_resource type="Script" path="res://addons/dialogue_manager's_dialogue_gui_manager/scripts/arguments/dialogue_arguments.gd" id="8_gx0oq"]
+[ext_resource type="Resource" uid="uid://dan5dbax50rp0" path="res://resources/quizzes/test_quiz.tres" id="9_32uar"]
+[ext_resource type="PackedScene" uid="uid://dqx1n417lyw35" path="res://nodes/entities/pickuppable_entites/plastic_bottle/plastic_bottle.tscn" id="10_hq7d6"]
+[ext_resource type="PackedScene" uid="uid://cgp37jt6tw7vg" path="res://nodes/entities/test_storage/test_storage.tscn" id="12_5oiva"]
+[ext_resource type="PackedScene" uid="uid://bpsxhkc4aak0g" path="res://nodes/entities/pickuppable_entites/plastic_bag/plastic_bag.tscn" id="13_rrvmi"]
+[ext_resource type="PackedScene" uid="uid://do3f5g0eamejc" path="res://nodes/entities/pickuppable_entites/aluminum_soda_can/aluminum_soda_can.tscn" id="14_mmd0e"]
+[ext_resource type="PackedScene" uid="uid://de0t0vj8vdxfw" path="res://nodes/entities/pickuppable_entites/juice_box/juice_box.tscn" id="15_syl6x"]
+[ext_resource type="PackedScene" uid="uid://bm3t8igvjt658" path="res://nodes/entities/pickuppable_entites/banana_peel/banana_peel.tscn" id="16_12k5r"]
+[ext_resource type="PackedScene" uid="uid://bfnapusrrbksh" path="res://nodes/entities/pickuppable_entites/coffee_cup/coffee_cup.tscn" id="17_xe4q7"]
+[ext_resource type="Script" path="res://addons/save_components_system/scripts/resources/id.gd" id="18_rr6ls"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_oe50d"]
+vertices = PackedVector2Array(1342, 809, 1307, 789, 1590, 788, 328, 817, 327, 816, 395, 814, 579, 841, 474, 792, 596, 794, 1907, 848, 1909, 1270, 12, 1283, 1338, 824, 6, 888)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 4, 5, 6), PackedInt32Array(7, 8, 6, 5), PackedInt32Array(2, 9, 10, 11, 12), PackedInt32Array(11, 13, 3, 6), PackedInt32Array(12, 0, 2), PackedInt32Array(6, 12, 11)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(610, 785, 593, 831, 1330, 814, 1269, 780, 1592, 778, 1917, 840, 1920, 1280, 3, 1294, -4, 880, 326, 807, 393, 804, 472, 782)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+
+[sub_resource type="Resource" id="Resource_cb3e1"]
+script = ExtResource("8_gx0oq")
+dialogue_gui = 0
+dialogue_resource = ExtResource("6_ja6bt")
+main_speakers = Array[Resource("res://scripts/resources/entity.gd")]([ExtResource("7_xkvai")])
+title = "test_quiz"
+extra_game_states = []
+title_variation = 0
+reset_when_title_variation_reached = false
+is_dialogue_game_state = true
+
+[sub_resource type="Resource" id="Resource_j1ycd"]
+script = ExtResource("18_rr6ls")
+value = "8907853222016559660"
+
+[node name="TestLevel" instance=ExtResource("1_pvguk")]
+quests_collection = ExtResource("2_j64ll")
+
+[node name="StateChartDebugger" parent="." index="0" instance=ExtResource("3_as2rk")]
+offset_left = 982.0
+offset_top = 179.0
+offset_right = 1473.0
+offset_bottom = 670.0
+enabled = false
+initial_node_to_watch = NodePath("../Entities/Living/PlayerNode"

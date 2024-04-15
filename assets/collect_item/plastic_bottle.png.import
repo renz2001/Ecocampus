@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://klwn6odsyjlc"
-path="res://.godot/imported/Prof girl transparent.png-98003cb0cf9866ec15f6f8e1f72e7049.ctex"
+uid="uid://dkeyopffes5gg"
+path="res://.godot/imported/plastic_bottle.png-6da5b56dbeb44b33ee14d014f6975e1e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/character/proffessor/Prof girl transparent.png"
-dest_files=["res://.godot/imported/Prof girl transparent.png-98003cb0cf9866ec15f6f8e1f72e7049.ctex"]
+source_file="res://assets/collect_item/plastic_bottle.png"
+dest_files=["res://.godot/imported/plastic_bottle.png-6da5b56dbeb44b33ee14d014f6975e1e.ctex"]
 
 [params]
 

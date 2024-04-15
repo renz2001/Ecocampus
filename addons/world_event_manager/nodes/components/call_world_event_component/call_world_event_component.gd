@@ -16,6 +16,6 @@ func play() -> void:
 		return
 	if event_call.one_shot: 
 		disabled = true
-	WorldEventManager.call_event(event_call.event, node)
+	WorldEventManager.call_event(event_call.event, node, event_call.arguments)
 	
 	

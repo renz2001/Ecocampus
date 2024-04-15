@@ -26,9 +26,7 @@ enum DialogueGUIAlias {
 		print_color.owner = self
 
 @export var fast_forward_speed: float = 2
-
-@export var talk_sound_1: AudioStreamPlayer
-@export var talk_sound_2: AudioStreamPlayer
+@export var typing_sound: AudioStreamPlayer
 
 var text_speed_multiplier: float = 1
 var auto_play: bool
@@ -250,7 +248,5 @@ func speed_up_line(line: DialogueLine, multiplier: float) -> void:
 
 
 func _on_dialogue_label_spoke(letter: String, _letter_index: int, _speed: float) -> void:
-	if !talk_sound_1.has_stream_playback(): 
-		talk_sound_1.play()
-	elif !talk_sound_2.has_stream_playback(): 
-		talk_sound_2.play()
+	typing_sound.play()
+

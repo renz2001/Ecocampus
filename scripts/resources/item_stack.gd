@@ -72,3 +72,12 @@ func _to_string() -> String:
 	
 	return "%s<#%s>(stack_count:%s)" % [model.name, get_instance_id(),  stack.current]
 
+
+func _save_properties() -> PackedStringArray: 
+	return [
+		"stack", 
+		#"owner", 
+		"model"
+	]
+	
+	

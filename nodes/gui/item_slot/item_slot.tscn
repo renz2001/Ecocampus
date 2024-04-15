@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://baxha8yav8g1m"]
+[gd_scene load_steps=11 format=3 uid="uid://baxha8yav8g1m"]
 
 [ext_resource type="PackedScene" uid="uid://d4mqjvr57ok1h" path="res://nodes/gui/buttons/icon_button/icon_button.tscn" id="1_h3ubs"]
 [ext_resource type="Texture2D" uid="uid://cctob6jdpvmio" path="res://assets/buttons/inventory_box.png" id="2_4chiu"]
 [ext_resource type="Script" path="res://nodes/gui/item_slot/item_slot.gd" id="2_8ywvp"]
+[ext_resource type="PackedScene" uid="uid://cdhkyjskyryv" path="res://nodes/gui/formatted_label/formatted_label.tscn" id="4_7oqcw"]
 [ext_resource type="FontFile" uid="uid://cp5vi568oh4jl" path="res://fonts/Ubuntu-Bold.ttf" id="4_yqdnp"]
 [ext_resource type="PackedScene" uid="uid://d1joew0to5eeh" path="res://nodes/components/mouse_drag_area/mouse_drag_area.tscn" id="5_1w6ua"]
+[ext_resource type="Script" path="res://scripts/resources/string_formatter.gd" id="6_km7fq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lnjew"]
 atlas = ExtResource("2_4chiu")
@@ -16,6 +18,10 @@ font_size = 40
 outline_size = 12
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="Resource" id="Resource_uyj5i"]
+script = ExtResource("6_km7fq")
+format = "x%s"
+
 [node name="ItemSlot" node_paths=PackedStringArray("stack_label", "item_texture_rect", "drag_area") instance=ExtResource("1_h3ubs")]
 texture_normal = SubResource("AtlasTexture_lnjew")
 script = ExtResource("2_8ywvp")
@@ -24,7 +30,7 @@ item_texture_rect = NodePath("ItemContainer/ItemTexture")
 item = null
 drag_area = NodePath("MouseDragArea")
 
-[node name="StackLabel" type="Label" parent="." index="2"]
+[node name="StackLabel" parent="." index="2" instance=ExtResource("4_7oqcw")]
 visible = false
 layout_mode = 1
 anchors_preset = 3
@@ -34,12 +40,15 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -45.0
 offset_top = -55.0
+offset_right = 0.0
+offset_bottom = 0.0
 grow_horizontal = 0
 grow_vertical = 0
 text = "x1"
 label_settings = SubResource("LabelSettings_vat1p")
 horizontal_alignment = 1
 vertical_alignment = 1
+string_formatter = SubResource("Resource_uyj5i")
 
 [node name="ItemContainer" type="MarginContainer" parent="." index="3"]
 layout_mode = 1

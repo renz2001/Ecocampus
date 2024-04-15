@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="EcoQuest" load_steps=8 format=3 uid="uid://cktltn1m3bfqb"]
+
+[ext_resource type="Script" path="res://scripts/resources/eco_quest.gd" id="1_wkmub"]
+[ext_resource type="Script" path="res://addons/macchi's_node_components/scripts/resources/point_counter.gd" id="2_3un0t"]
+[ext_resource type="Script" path="res://addons/world_event_manager/scripts/resources/world_event_point_counter.gd" id="2_tqxv4"]
+[ext_resource type="Script" path="res://scripts/resources/eco_quest_task.gd" id="3_ww4hh"]
+
+[sub_resource type="Resource" id="Resource_tf67b"]
+script = ExtResource("2_3un0t")
+starting_value = 0.0
+minimum = 0.0
+maximum = 5.0
+cant_be_added = false
+cant_be_subtracted = false
+when_maximum_stay = false
+when_minmum_stay = false
+reset_after_maximum_exceeded = false
+reset_after_minimum_exceeded = false
+reset_after_maximum_hit = false
+reset_after_minimum_hit = false
+rounded_off = false
+disabled = false
+
+[sub_resource type="Resource" id="Resource_kkhqh"]
+script = ExtResource("2_tqxv4")
+increment_on_event = "picked_up"
+increment_if_has_similar_arguments = ["plastic_bottle"]
+counter = SubResource("Resource_tf67b")
+call_event_from_counter_signal = ""
+
+[sub_resource type="Resource" id="Resource_uts7q"]
+script = ExtResource("3_ww4hh")
+description = "Pick 5 plastic bottles"
+counter = SubResource("Resource_kkhqh")
+
+[resource]
+script = ExtResource("1_wkmub")
+percentage_description = "Tested"
+tasks = Array[ExtResource("3_ww4hh")]([SubResource("Resource_uts7q")])
+id = 0
+quest_name = "Test Achievement"
+quest_description = ""
+quest_objective = ""

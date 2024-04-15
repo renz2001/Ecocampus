@@ -1,13 +1,73 @@
-[gd_scene load_steps=4 format=3 uid="uid://b6naf25j7vwf2"]
+[gd_scene load_steps=7 format=3 uid="uid://b8627vb83551h"]
 
-[ext_resource type="PackedScene" uid="uid://dml5uy4doh7s6" path="res://nodes/abstract_scenes/entity_node/entity_node.tscn" id="1_hfsjx"]
-[ext_resource type="Script" path="res://nodes/abstract_scenes/npc_node/npc_node.gd" id="2_wilt8"]
-[ext_resource type="PackedScene" uid="uid://dblwtr7yj366" path="res://addons/dialogue_manager's_dialogue_gui_manager/nodes/components/dialogue_starter/dialogue_starter.tscn" id="3_vxlol"]
+[ext_resource type="PackedScene" uid="uid://cjrygqeartla8" path="res://nodes/abstract_scenes/living_entity_node/living_entity_node.tscn" id="1_4vfvx"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/animation_player_state.gd" id="2_3l8bg"]
+[ext_resource type="Script" path="res://scripts/resources/label_text.gd" id="2_8dcrp"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="3_o4eif"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="4_5t7p8"]
 
-[node name="NPCNode" node_paths=PackedStringArray("dialogue_starter") groups=["NPC"] instance=ExtResource("1_hfsjx")]
-script = ExtResource("2_wilt8")
-on_interact_dialogue = null
-dialogue_starter = NodePath("Components/DialogueStarter")
+[sub_resource type="Resource" id="Resource_xk11q"]
+script = ExtResource("2_8dcrp")
+texts = Array[String]([])
+with_label_settings = false
+horizontal_alignment = 0
+vertical_alignment = 0
 
-[node name="DialogueStarter" parent="Components" index="4" node_paths=PackedStringArray("extra_node_game_states") instance=ExtResource("3_vxlol")]
-extra_node_game_states = [NodePath("../..")]
+[node name="NPCNode" instance=ExtResource("1_4vfvx")]
+interact_description = SubResource("Resource_xk11q")
+
+[node name="Idle" type="Node" parent="StateChart/Root/Enabled/Animation/Left" index="1"]
+script = ExtResource("2_3l8bg")
+animation_player = NodePath("../../../../../../AnimationPlayer")
+animation_name = &"idle_left"
+
+[node name="OnWalk" type="Node" parent="StateChart/Root/Enabled/Animation/Left/Idle" index="0"]
+script = ExtResource("3_o4eif")
+to = NodePath("../../Walk")
+event = &"walk"
+
+[node name="Walk" type="Node" parent="StateChart/Root/Enabled/Animation/Left" index="2"]
+script = ExtResource("2_3l8bg")
+animation_player = NodePath("../../../../../../AnimationPlayer")
+animation_name = &"walk_left"
+
+[node name="OnIdle" type="Node" parent="StateChart/Root/Enabled/Animation/Left/Walk" index="0"]
+script = ExtResource("3_o4eif")
+to = NodePath("../../Idle")
+event = &"idle"
+
+[node name="Right" parent="StateChart/Root/Enabled/Animation" index="1"]
+initial_state = NodePath("Walk")
+
+[node name="Idle" type="Node" parent="StateChart/Root/Enabled/Animation/Right" index="1"]
+script = ExtResource("2_3l8bg")
+animation_player = NodePath("../../../../../../AnimationPlayer")
+animation_name = &"idle_right"
+
+[node name="OnWalk" type="Node" parent="StateChart/Root/Enabled/Animation/Right/Idle" index="0"]
+script = ExtResource("3_o4eif")
+to = NodePath("../../Walk")
+event = &"walk"
+
+[node name="Walk" type="Node" parent="StateChart/Root/Enabled/Animation/Right" index="2"]
+script = ExtResource("2_3l8bg")
+animation_player = NodePath("../../../../../../AnimationPlayer")
+animation_name = &"walk_right"
+
+[node name="OnIdle" type="Node" parent="StateChart/Root/Enabled/Animation/Right/Walk" index="0"]
+script = ExtResource("3_o4eif")
+to = NodePath("../../Idle")
+event = &"idle"
+
+[node name="OnWalk" type="Node" parent="StateChart/Root/Enabled/Mobility/Idle" index="0"]
+script = ExtResource("3_o4eif")
+to = NodePath("../../Walk")
+event = &"walk"
+
+[node name="Walk" type="Node" parent="StateChart/Root/Enabled/Mobility" index="1"]
+script = ExtResource("4_5t7p8")
+
+[node name="Idle" type="Node" parent="StateChart/Root/Enabled/Mobility/Walk" index="0"]
+script = ExtResource("3_o4eif")
+to = NodePath("../../Idle")
+event = &"idle"

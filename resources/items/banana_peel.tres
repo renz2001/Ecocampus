@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemModel" load_steps=3 format=3 uid="uid://c2ms3lvdy84n5"]
+
+[ext_resource type="Script" path="res://scripts/resources/item_model.gd" id="1_335ys"]
+[ext_resource type="Texture2D" uid="uid://cjn8l7lvhkm7s" path="res://assets/collect_item/banana_peel.png" id="1_o0e3e"]
+
+[resource]
+script = ExtResource("1_335ys")
+name = &"Banana peel"
+description = ""
+item_icon = ExtResource("1_o0e3e")
+maximum_stack = 12

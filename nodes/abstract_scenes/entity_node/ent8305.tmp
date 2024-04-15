@@ -1,0 +1,139 @@
+[gd_scene load_steps=30 format=3 uid="uid://dml5uy4doh7s6"]
+
+[ext_resource type="Script" path="res://nodes/abstract_scenes/entity_node/entity_node.gd" id="1_ljx5x"]
+[ext_resource type="PackedScene" uid="uid://j60lt30xbjw6" path="res://addons/macchi's_audio_manager_and_plus/nodes/audio_players/button_audio_player/button_audio_player.tscn" id="2_1fgry"]
+[ext_resource type="PackedScene" uid="uid://cf3hc58pq1vru" path="res://nodes/tools/hitbox/hitbox.tscn" id="2_qnb1g"]
+[ext_resource type="Resource" uid="uid://dandwe41rj323" path="res://resources/audio/button_audio/button_audio.tres" id="3_fco0e"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/state_chart.gd" id="3_pi3qr"]
+[ext_resource type="PackedScene" uid="uid://m4km4ixwc3e3" path="res://addons/macchi's_node_components/nodes/components/movement_component/movement_component.tscn" id="4_wexpm"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="5_d0dfx"]
+[ext_resource type="PackedScene" uid="uid://b5du1qww5qopg" path="res://addons/macchi's_node_components/nodes/components/path_find_movement_component/path_find_movement_component.tscn" id="5_epl30"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/parallel_state.gd" id="6_nd87m"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="7_kiuy1"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="8_ued26"]
+[ext_resource type="PackedScene" uid="uid://tvt1avle8hon" path="res://addons/macchi's_node_components/nodes/components/node_variety_manager/node_variety_manager.tscn" id="11_a2123"]
+[ext_resource type="PackedScene" uid="uid://b6l0q5hhqq12m" path="res://nodes/components/two_point_5d_node_simulator/two_point_5d_node_simulator.tscn" id="11_sgbnk"]
+[ext_resource type="PackedScene" uid="uid://c2up8cal10ft5" path="res://addons/macchi's_node_components/nodes/components/base_values_keeper/base_values_keeper.tscn" id="12_q7foa"]
+[ext_resource type="Texture2D" uid="uid://b2ptenvkaj5rw" path="res://assets/environment/shadow.png" id="12_qhkve"]
+[ext_resource type="PackedScene" uid="uid://dblwtr7yj366" path="res://addons/dialogue_manager's_dialogue_gui_manager/nodes/components/dialogue_starter/dialogue_starter.tscn" id="13_py28a"]
+[ext_resource type="PackedScene" uid="uid://ddc47quo3n5uw" path="res://nodes/components/dialogue_response_handler/dialogue_response_handler.tscn" id="14_bvgcr"]
+[ext_resource type="PackedScene" uid="uid://7gri71kaffvv" path="res://addons/macchi's_audio_manager_and_plus/nodes/components/audio_manager_player/audio_manager_player.tscn" id="15_80f6o"]
+[ext_resource type="PackedScene" uid="uid://c1fh46pweltjk" path="res://addons/world_event_manager/nodes/components/call_world_event_component/call_world_event_component.tscn" id="15_w6sfs"]
+[ext_resource type="PackedScene" uid="uid://le3pltdhswul" path="res://addons/macchi's_node_components/nodes/components/ready_unique_resource/ready_unique_resource.tscn" id="16_qjodn"]
+[ext_resource type="PackedScene" uid="uid://bixjjksp3dphm" path="res://addons/save_components_system/components/master_save_component/master_save_component.tscn" id="17_2mjbo"]
+[ext_resource type="Script" path="res://addons/save_components_system/scripts/resources/properties_to_save.gd" id="18_pu4wv"]
+[ext_resource type="PackedScene" uid="uid://bf36nvt8j4eto" path="res://addons/save_components_system/components/id_component/id_component.tscn" id="19_hoyb1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7egjd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1os15"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x6pic"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dswbv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nqe4d"]
+
+[sub_resource type="Resource" id="Resource_vvnq8"]
+script = ExtResource("18_pu4wv")
+properties = PackedStringArray("inventory", "data", "quiz", "dialogue", "global_position", "global_scale")
+
+[node name="EntityNode" type="CharacterBody2D" node_paths=PackedStringArray("state_chart", "path_find", "walk", "hitbox", "node_variety_manager", "interact_audio_player", "interact_dialog_position", "dialogue_starter", "dialogue_response_handler", "call_world_event_component", "ready_unique_resource") groups=["Entity"]]
+script = ExtResource("1_ljx5x")
+state_chart = NodePath("StateChart")
+path_find = NodePath("Components/Movement/WalkPathFindMovement")
+walk = NodePath("Components/Movement/Walk")
+hitbox = NodePath("Hitbox")
+node_variety_manager = NodePath("Components/NodeVarietyManager")
+interact_audio_player = NodePath("Audio/InteractAudio")
+interact_dialog_position = NodePath("InteractDialogPosition")
+dialogue_starter = NodePath("Components/DialogueStarter")
+dialogue_response_handler = NodePath("Components/DialogueResponseHandler")
+call_world_event_component = NodePath("Components/CallWorldEventComponent")
+ready_unique_resource = NodePath("Components/ReadyUniqueResource")
+
+[node name="TapHitBox" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_7egjd")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_1os15")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_x6pic")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_dswbv")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nqe4d")
+
+[node name="Hitbox" parent="." instance=ExtResource("2_qnb1g")]
+
+[node name="StateChart" type="Node" parent="."]
+script = ExtResource("3_pi3qr")
+
+[node name="Root" type="Node" parent="StateChart"]
+script = ExtResource("5_d0dfx")
+initial_state = NodePath("Enabled")
+
+[node name="Enabled" type="Node" parent="StateChart/Root"]
+script = ExtResource("6_nd87m")
+
+[node name="OnDisabled" type="Node" parent="StateChart/Root/Enabled"]
+script = ExtResource("7_kiuy1")
+to = NodePath("../../Disabled")
+event = &"disabled"
+
+[node name="Animation" type="Node" parent="StateChart/Root/Enabled"]
+script = ExtResource("5_d0dfx")
+initial_state = NodePath("Right")
+
+[node name="Left" type="Node" parent="StateChart/Root/Enabled/Animation"]
+script = ExtResource("5_d0dfx")
+initial_state = NodePath("../AnimationPlayerState")
+
+[node name="OnRight" type="Node" parent="StateChart/Root/Enabled/Animation/Left"]
+script = ExtResource("7_kiuy1")
+to = NodePath("../../Right")
+event = &"right"
+
+[node name="Right" type="Node" parent="StateChart/Root/Enabled/Animation"]
+script = ExtResource("5_d0dfx")
+
+[node name="OnLeft" type="Node" parent="StateChart/Root/Enabled/Animation/Right"]
+script = ExtResource("7_kiuy1")
+to = NodePath("../../Left")
+event = &"left"
+
+[node name="Mobility" type="Node" parent="StateChart/Root/Enabled"]
+script = ExtResource("5_d0dfx")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateChart/Root/Enabled/Mobility"]
+script = ExtResource("8_ued26")
+
+[node name="Disabled" type="Node" parent="StateChart/Root"]
+script = ExtResource("8_ued26")
+
+[node name="OnEnabled" type="Node" parent="StateChart/Root/Disabled"]
+script = ExtResource("7_kiuy1")
+to = NodePath("../../Enabled")
+event = &"enabled"
+
+[node name="Components" type="Node" parent="."]
+
+[node name="Movement" type="Node" parent="Components"]
+
+[node name="Walk" parent="Components/Movement" node_paths=PackedStringArray("body") instance=ExtResource("4_wexpm")]
+body = NodePath("../../..")
+speed = 5.0
+
+[node name="WalkPathFindMovement" parent="Components/Movement" node_paths=PackedStringArray("movement", "navigation_agent") instance=ExtResource("5_epl30")]
+movement = NodePath("../Walk")
+navigation_agent = NodePath("../../../NavigationAgent2D")
+
+[node name="TwoPoint5DNodeSimulator" parent="Components" node_paths=PackedStringArray("node", "movement", "path_find") instance=ExtResource("11_sgbnk")]
+node = NodePath("../..")
+movement = NodePath("../Movement/Walk")
+path_find = NodePath("../Movement/WalkPathFindMovement")
+node_base_scale = Vector2(1, 1)
+
+[node name="NodeVarietyManager" parent="Components" instance=ExtResource("11_a2123")]
+
+[node name="BaseValuesKeeper" parent="Components" node_paths=PackedStringArray("node") instance=ExtResource("12_q7foa")]
+node = NodePath("../..")

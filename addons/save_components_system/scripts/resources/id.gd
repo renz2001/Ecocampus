@@ -1,27 +1,26 @@
 @tool
-extends Resource
+extends SaveableResource
 class_name ID
 
-@export var generate_id: bool: 
-	set(val): 
-		value = ResourceUID.create_id()
-		
-@export var value: int
-
-var initialized: bool = false
+@export var value: String
 
 
-static func create() -> ID: 
+func _init() -> void: 
+	if ResourceUID.has_id(int(value)): 
+		return
+	value = str(ResourceUID.create_id())
+
+
+static func use_custom_id(custom_id: String) -> ID: 
 	var id: ID = ID.new()
-	id.value = ResourceUID.create_id()
+	id.value = custom_id
 	return id
 
 
-func save_data() -> Dictionary: 
-	var data: Dictionary = {
-		"value": value
-	}
-	return data
+func _save_properties() -> PackedStringArray: 
+	return [
+		"value"
+	]
 	
 	
 #func load_data(data: Dictionary) -> void: 

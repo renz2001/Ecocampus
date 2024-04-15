@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://cf858o4ytbp0u"]
+
+[ext_resource type="PackedScene" uid="uid://cm6jeskbiise6" path="res://nodes/abstract_scenes/level_node/level_node.tscn" id="1_ycc0e"]
+[ext_resource type="Texture2D" uid="uid://bb8wuo25lx7ap" path="res://assets/background/camera_pictures/gate_1.jpg" id="2_83yqh"]
+
+[node name="Gate1" instance=ExtResource("1_ycc0e")]
+
+[node name="Control" type="Control" parent="Background/CanvasLayer" index="0"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="Background/CanvasLayer/Control" index="0"]
+layout_mode = 0
+offset_left = -2.0
+offset_top = -344.0
+offset_right = 1927.0
+offset_bottom = 1097.0
+texture = ExtResource("2_83yqh")
+expand_mode = 1
+stretch_mode = 5
+
+[editable path="WorldEventHandler"]
+[editable path="Scripts/TwoPoint5DSpaceSimulator"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dml5uy4doh7s6"]
+[gd_scene load_steps=30 format=3 uid="uid://dml5uy4doh7s6"]
 
 [ext_resource type="Script" path="res://nodes/abstract_scenes/entity_node/entity_node.gd" id="1_ljx5x"]
 [ext_resource type="PackedScene" uid="uid://j60lt30xbjw6" path="res://addons/macchi's_audio_manager_and_plus/nodes/audio_players/button_audio_player/button_audio_player.tscn" id="2_1fgry"]
@@ -20,6 +20,9 @@
 [ext_resource type="PackedScene" uid="uid://7gri71kaffvv" path="res://addons/macchi's_audio_manager_and_plus/nodes/components/audio_manager_player/audio_manager_player.tscn" id="15_80f6o"]
 [ext_resource type="PackedScene" uid="uid://c1fh46pweltjk" path="res://addons/world_event_manager/nodes/components/call_world_event_component/call_world_event_component.tscn" id="15_w6sfs"]
 [ext_resource type="PackedScene" uid="uid://le3pltdhswul" path="res://addons/macchi's_node_components/nodes/components/ready_unique_resource/ready_unique_resource.tscn" id="16_qjodn"]
+[ext_resource type="PackedScene" uid="uid://bixjjksp3dphm" path="res://addons/save_components_system/components/master_save_component/master_save_component.tscn" id="17_2mjbo"]
+[ext_resource type="Script" path="res://addons/save_components_system/scripts/resources/properties_to_save.gd" id="18_pu4wv"]
+[ext_resource type="PackedScene" uid="uid://bf36nvt8j4eto" path="res://addons/save_components_system/components/id_component/id_component.tscn" id="19_hoyb1"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7egjd"]
 
@@ -30,6 +33,10 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dswbv"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nqe4d"]
+
+[sub_resource type="Resource" id="Resource_vvnq8"]
+script = ExtResource("18_pu4wv")
+properties = PackedStringArray("inventory", "data", "quiz", "dialogue", "global_position", "global_scale")
 
 [node name="EntityNode" type="CharacterBody2D" node_paths=PackedStringArray("state_chart", "path_find", "walk", "hitbox", "node_variety_manager", "interact_audio_player", "interact_dialog_position", "dialogue_starter", "dialogue_response_handler", "call_world_event_component", "ready_unique_resource") groups=["Entity"]]
 script = ExtResource("1_ljx5x")
@@ -135,7 +142,8 @@ values_to_keep = PackedStringArray("scale")
 [node name="DialogueStarter" parent="Components" node_paths=PackedStringArray("extra_node_game_states") instance=ExtResource("13_py28a")]
 extra_node_game_states = [NodePath("../..")]
 
-[node name="DialogueResponseHandler" parent="Components" instance=ExtResource("14_bvgcr")]
+[node name="DialogueResponseHandler" parent="Components" node_paths=PackedStringArray("owner_node") instance=ExtResource("14_bvgcr")]
+owner_node = NodePath("../..")
 
 [node name="CallWorldEventComponent" parent="Components" node_paths=PackedStringArray("node") instance=ExtResource("15_w6sfs")]
 node = NodePath("../..")
@@ -144,6 +152,14 @@ node = NodePath("../..")
 node = NodePath("../..")
 resource = "inventory"
 disabled = true
+
+[node name="MasterSaveComponent" parent="Components" node_paths=PackedStringArray("id", "node") instance=ExtResource("17_2mjbo")]
+id = NodePath("../IDComponent")
+node = NodePath("../..")
+data = SubResource("Resource_vvnq8")
+
+[node name="IDComponent" parent="Components" node_paths=PackedStringArray("node") instance=ExtResource("19_hoyb1")]
+node = NodePath("../..")
 
 [node name="Audio" type="Node2D" parent="."]
 

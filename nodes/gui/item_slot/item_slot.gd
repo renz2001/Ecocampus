@@ -2,15 +2,19 @@
 extends TextureButtonPlus
 class_name ItemSlot
 
-@export var stack_label: Label
+@export var stack_label: FormattedLabel
 @export var item_texture_rect: TextureRect
 
 @export var item: ItemStack: 
 	set(value): 
+		if item != null && item.stack.current_changed.is_connected(_on_item_stack_current_changed): 
+			item.stack.current_changed.disconnect(_on_item_stack_current_changed)
+		
 		item = value
 		update()
+		
 		if item: 
-			item.stack.current_changed.connect(func(_a: float, _b: float): update())
+			item.stack.current_changed.connect(_on_item_stack_current_changed)
 
 @export var drag_area: MouseDragArea
 
@@ -28,7 +32,7 @@ func set_display_visible(val: bool) -> void:
 	#printerr(self)
 	#printerr(stack_label.visible)
 
-
+# FIXME: Does not work properly
 func update() -> void: 
 	if !is_node_ready(): 
 		await ready
@@ -40,9 +44,10 @@ func update() -> void:
 		
 	drag_area.disabled = false
 	item_texture_rect.texture = item.model.item_icon
+	
 	if item.stack.current > 1: 
 		# FIXME: Stack label doesn't show even if it says show. 
-		stack_label.text = stack_label_preset % str(item.stack.current)
+		stack_label.input([str(item.stack.current)])
 		stack_label.show()
 	else: 
 		stack_label.hide()
@@ -50,6 +55,10 @@ func update() -> void:
 	if MouseDrag.is_dragging: 
 		set_display_visible(false)
 
+
+func _on_item_stack_current_changed(_a: float, _b: float) -> void: 
+	update()
+	
 
 func _on_dragging_started() -> void:
 	update()

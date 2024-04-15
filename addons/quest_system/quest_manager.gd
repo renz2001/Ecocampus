@@ -201,7 +201,9 @@ func dict_to_quests(dict: Dictionary, quests: Array[Quest]) -> void:
 		# Match quest with their ids and insert them into the quest pool
 		var quest_with_id: Dictionary = {}
 		var pool_ids: Array[int]
-		pool_ids.append_array(dict[pool.name.to_lower()])
+		#printerr((dict[pool.name.to_lower()] as Array[int]).get_typed_builtin())
+		pool_ids.append_array(dict[pool.name.to_lower()] as Array[int])
+		#print(pool_ids.get_typed_builtin())
 		for quest in quests:
 			if quest.id in pool_ids:
 				pool.add_quest(quest)
@@ -217,7 +219,7 @@ func serialize_quests(pool: String) -> Dictionary:
 	for quests in pool_node.quests:
 		var quest_data: Dictionary
 		for name in quests.get_script().get_script_property_list():
-
+			
 			# Filter only defined properties
 			if name.usage & PROPERTY_USAGE_STORAGE or name.usage & PROPERTY_USAGE_SCRIPT_VARIABLE:
 				quest_data[name["name"]] = quests.get(name["name"])

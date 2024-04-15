@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemModel" load_steps=3 format=3 uid="uid://jgsa6g533e4g"]
+
+[ext_resource type="Texture2D" uid="uid://bw0bd5coec4j8" path="res://assets/collect_item/aluminum_soda_can.png" id="1_n3wgf"]
+[ext_resource type="Script" path="res://scripts/resources/item_model.gd" id="2_mjs1u"]
+
+[resource]
+script = ExtResource("2_mjs1u")
+name = &"Aluminum Soda Can"
+description = ""
+item_icon = ExtResource("1_n3wgf")
+maximum_stack = 12

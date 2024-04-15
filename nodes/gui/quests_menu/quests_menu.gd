@@ -5,12 +5,12 @@ class_name QuestsMenu
 
 var quests: Array[Quest]: 
 	get: 
-		return QuestSystem.active.quests as Array[Quest]
+		return ExtendedQuestSystem.active.quests as Array[Quest]
 
 
 func _ready() -> void: 
 	update()
-	QuestSystem.quest_accepted.connect(_on_quest_accepted)
+	ExtendedQuestSystem.quest_accepted.connect(_on_quest_accepted)
 
 
 func _on_quest_accepted(_quest: Quest) -> void: 

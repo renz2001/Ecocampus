@@ -1,8 +1,12 @@
-## Seperate from WorldEventPointCounterComponent (lol idk why) 
-extends Resource
+## Seperate from WorldEventPointCounterComponent since it cannot contain nodes. 
+extends SaveableResource
 class_name WorldEventPointCounter
 
+## Will increment the counter if this event is called
 @export var increment_on_event: String
+
+## Will increment if increment on event works and this has arguments from the event that was called. 
+@export var increment_if_has_similar_arguments: Array
 
 @export var counter: PointCounter
 
@@ -14,6 +18,7 @@ class_name WorldEventPointCounter
 
 
 func _init() -> void: 
+	super._init()
 	WorldEventManager.event_called.connect(_on_event_called)
 	if !call_event_from_counter_signal.is_empty(): 
 		counter.connect(call_event_from_counter_signal, _on_signal)
@@ -24,6 +29,20 @@ func _on_signal(value: float) -> void:
 	
 	
 func _on_event_called(event: String, by: Node, args: Array = []) -> void: 
-	counter.increment()
+	if increment_on_event == event && has_similar_arguments(args): 
+		counter.increment()
+	
+	
+func has_similar_arguments(args: Array) -> bool: 
+	return args.any(
+		func(item): 
+			return item in increment_if_has_similar_arguments
+	)
+	
+
+func _save_properties() -> PackedStringArray: 
+	return [
+		"counter"
+	]
 	
 	

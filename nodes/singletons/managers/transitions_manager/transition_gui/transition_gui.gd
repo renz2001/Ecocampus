@@ -9,7 +9,6 @@ signal ended
 @export var multiple_signals_listener: MultipleSignalsListener
 @export var animation_player: AnimationPlayer
 
-# FIXME: Inheritance screws up fade start from fade end. FIX THIS!
 func play() -> void: 
 	await get_tree().process_frame
 	GUIManager.set_gui_active(self, true)

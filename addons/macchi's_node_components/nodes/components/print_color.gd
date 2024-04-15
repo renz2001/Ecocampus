@@ -20,7 +20,11 @@ func out(output: String) -> void:
 func out_debug(output: String) -> void: 
 	if disabled: 
 		return
-	var node_name: String = owner.name
+	var node_name: String
+	if is_instance_valid(owner): 
+		node_name = owner.name
+	else: 
+		node_name = str(owner)
 	if use_spaces_for_node_name: 
 		node_name = node_name.capitalize()
 	print_rich("[color=%s]%s: [color=%s]%s" % [owner_name_color.to_html(), node_name, color.to_html(), output])

@@ -25,4 +25,3 @@ func attempt() -> QuizAttempt:
 	var _attempt: QuizAttempt = QuizAttempt.from_quiz(self)
 	return _attempt
 	
-	

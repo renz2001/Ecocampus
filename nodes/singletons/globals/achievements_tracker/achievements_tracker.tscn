@@ -1,18 +1,8 @@
 [gd_scene load_steps=3 format=3 uid="uid://jo332ksg44ul"]
 
-[ext_resource type="PackedScene" uid="uid://d02dwov2yojbj" path="res://addons/macchi's_node_components/nodes/components/point_counter_component/point_counter_component.tscn" id="1_nqm7e"]
 [ext_resource type="Script" path="res://nodes/singletons/globals/achievements_tracker/achievements_tracker.gd" id="1_y316a"]
+[ext_resource type="Resource" uid="uid://cktltn1m3bfqb" path="res://resources/achievement_quests/test_achievement_quest.tres" id="2_12cty"]
 
-[node name="AchievementsTracker" type="Node" node_paths=PackedStringArray("achievements", "total_badges", "current_badges")]
+[node name="AchievementsTracker" type="Node"]
 script = ExtResource("1_y316a")
-achievements = NodePath("Achievements")
-total_badges = NodePath("BadgesCount/TotalBadges")
-current_badges = NodePath("BadgesCount/CurrentBadges")
-
-[node name="BadgesCount" type="Node" parent="."]
-
-[node name="CurrentBadges" parent="BadgesCount" instance=ExtResource("1_nqm7e")]
-
-[node name="TotalBadges" parent="BadgesCount" instance=ExtResource("1_nqm7e")]
-
-[node name="Achievements" type="Node" parent="."]
+achievements_quests = Array[Resource("res://scripts/resources/eco_quest.gd")]([ExtResource("2_12cty")])

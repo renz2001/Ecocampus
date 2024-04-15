@@ -8,37 +8,42 @@ static var base_name: String = "save_file"
 
 var name: String
 
-var data: GameSaveData
+var data: GameSave
 # Just the file name with the extension
-
-func _init() -> void: 
-	#push_error("Must be created using either create_from_save_data or from_file")
-	name = SaveManager.get_indexed_string_from_array(SaveFile.base_name, SaveManager.get_save_files())
 
 
 ## Automatically creates a file in the computer
-static func create_from_save_data(save_data: GameSaveData, overwrite: bool = false) -> SaveFile: 
-	var save_file: SaveFile
+static func create_from_save_data(save_data: GameSave, overwrite: bool = false, create_new_if_it_doesnt_exist_with_overwrite_on: bool = true) -> SaveFile: 
+	var save_file: SaveFile = SaveFile.new()
 	
+	var current_save_files: Array[SaveFile] = SaveManager.get_save_files()
+	
+	save_file.name = SaveManager.get_indexed_string_from_array(SaveFile.base_name, current_save_files, -1)
+	
+	# If save file already exists. 
 	if save_file.file_exists(): 
 		if overwrite: 
 			save_file = SaveFile.from_file(save_file.name)
 			save_file.data.data.merge(save_data.data, true)
 			
-			_create_file(SaveFile.base_name, save_file.data.data)
+			_create_file(save_file.name, save_file.data.data)
 		elif overwrite == false: 
 			push_warning("File exists but overwrite is false")
 			return null
+		elif overwrite == false && create_new_if_it_doesnt_exist_with_overwrite_on: 
+			save_file.name = SaveManager.get_indexed_string_from_array(SaveFile.base_name, current_save_files)
+			save_file.data = save_data
+			_create_file(save_file.name, save_data.data)
 	else: 
+		save_file.name = SaveManager.get_indexed_string_from_array(SaveFile.base_name, current_save_files)
 		 #If save file does not exist and not overwrite
-		save_file = SaveFile.new()
 		save_file.data = save_data
-		_create_file(SaveFile.base_name, save_data.data)
+		_create_file(save_file.name, save_data.data)
 		
 	return save_file
 
 
-## For getting file from computer
+## For getting file from computer. file_name not file_path
 static func from_file(file_name: String ) -> SaveFile:
 	#file_name = _file_name
 	#make_file = _make_file
@@ -46,9 +51,8 @@ static func from_file(file_name: String ) -> SaveFile:
 	var path: String = SaveManager.saves_folder_path + file_name + extension
 	
 	if ResourceLoader.exists(path): 
-		
-		save_file.data = GameSaveData.create_from_existing_file(path)
-		
+		save_file.name = file_name
+		save_file.data = GameSave.create_from_existing_file(path)
 		return save_file
 		
 	push_error("Save file: %s does not exist in Directory. " % path)
