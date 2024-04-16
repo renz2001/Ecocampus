@@ -9,3 +9,4 @@ enum Type {
 }
 
 @export var type: Type
+@export_multiline var environmental_impact: String

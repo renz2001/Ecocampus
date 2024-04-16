@@ -1,54 +1,23 @@
-[gd_scene load_steps=21 format=3 uid="uid://77dhb6ck4eyt"]
+[gd_scene load_steps=12 format=3 uid="uid://77dhb6ck4eyt"]
 
 [ext_resource type="PackedScene" uid="uid://dokfordgw2kk3" path="res://nodes/abstract_scenes/non_living_entity_node/non_living_entity_node.tscn" id="1_d4ii6"]
-[ext_resource type="Resource" uid="uid://byvmcgi6p0hdv" path="res://resources/items/plastic_bottle.tres" id="2_5efc4"]
-[ext_resource type="Script" path="res://scripts/resources/entity.gd" id="2_14bdn"]
-[ext_resource type="Script" path="res://addons/macchi's_audio_manager_and_plus/scripts/arguments/audio_stream_player_arguments.gd" id="2_wai6l"]
-[ext_resource type="Script" path="res://scripts/resources/inventory.gd" id="3_qwicy"]
+[ext_resource type="Script" path="res://nodes/abstract_scenes/pickuppable_entity/pickuppable_entity.gd" id="2_a2l0a"]
 [ext_resource type="PackedScene" uid="uid://b6yh5ahr4kpcw" path="res://nodes/components/on_interact_components/on_interact_pick_up/on_interact_pick_up.tscn" id="3_u3rje"]
-[ext_resource type="AudioStream" uid="uid://dnipkpbpk6h6n" path="res://assets/audio/ui/pickup_item.wav" id="5_i7dfg"]
-[ext_resource type="Script" path="res://scripts/resources/item_stack.gd" id="5_o0hjb"]
 [ext_resource type="Texture2D" uid="uid://bd1l0lam720ha" path="res://placeholder_assets/plastic_bottle_trash.png" id="6_6ar2y"]
 [ext_resource type="PackedScene" uid="uid://c4gnwuhmu4msa" path="res://nodes/gui_components/on_pressed_components/on_pressed_apply_material_to_node/on_pressed_apply_material_to_node.tscn" id="7_cgy4r"]
 [ext_resource type="Shader" path="res://resources/shaders/outline_inline.gdshader" id="8_cxd3f"]
 [ext_resource type="Script" path="res://scripts/resources/string_formatter.gd" id="8_fa10n"]
 [ext_resource type="Script" path="res://scripts/resources/label_text.gd" id="9_fvkps"]
 
-[sub_resource type="Resource" id="Resource_jowr4"]
-script = ExtResource("2_wai6l")
-sound = ExtResource("5_i7dfg")
-play_from_position = 0
-pitch_scale = 1.0
-volume_slider = 1.0
-volume_db = 0.0
-bus = ""
-
-[sub_resource type="Resource" id="Resource_5aqsf"]
-script = ExtResource("5_o0hjb")
-model = ExtResource("2_5efc4")
-stack_starting_value = 1.0
-
-[sub_resource type="Resource" id="Resource_cgcbb"]
-script = ExtResource("3_qwicy")
-items = Array[ExtResource("5_o0hjb")]([SubResource("Resource_5aqsf")])
-max_items = -1
-
-[sub_resource type="Resource" id="Resource_uhq21"]
-script = ExtResource("2_14bdn")
-custom_name = ""
-name = "Plastic Bottle"
-gender = 0
-group = "Entity"
-
-[sub_resource type="Resource" id="Resource_n7c8o"]
+[sub_resource type="Resource" id="Resource_u6nh2"]
 script = ExtResource("8_fa10n")
 format = "%s
 Type: %s
 Environmental Impact: %s"
 
-[sub_resource type="Resource" id="Resource_ymgkp"]
+[sub_resource type="Resource" id="Resource_jkius"]
 script = ExtResource("9_fvkps")
-format = SubResource("Resource_n7c8o")
+format = SubResource("Resource_u6nh2")
 texts = Array[String]([])
 with_label_settings = false
 horizontal_alignment = 0
@@ -63,12 +32,8 @@ shader_parameter/inside = false
 shader_parameter/add_margins = true
 
 [node name="PickUppableEntity" instance=ExtResource("1_d4ii6")]
-display_interact_dialog = null
-wait_for_player_to_display_interact_dialog = null
-interact_audio = SubResource("Resource_jowr4")
-inventory = SubResource("Resource_cgcbb")
-data = SubResource("Resource_uhq21")
-interact_description = SubResource("Resource_ymgkp")
+script = ExtResource("2_a2l0a")
+interact_description = SubResource("Resource_jkius")
 
 [node name="TapHitBox" parent="." index="0"]
 offset_left = -68.0

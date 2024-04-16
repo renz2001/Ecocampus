@@ -161,3 +161,5 @@ func _save_properties() -> PackedStringArray:
 	]
 	
 	
+func _to_string() -> String: 
+	return "PointCounter#%s(current:%s)" % [get_instance_id(), current]

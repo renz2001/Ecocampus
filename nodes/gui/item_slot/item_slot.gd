@@ -8,20 +8,29 @@ class_name ItemSlot
 @export var item: ItemStack: 
 	set(value): 
 		if item != null && item.stack.current_changed.is_connected(_on_item_stack_current_changed): 
+			#print(self)
+			#print(item)
+			#print("")
 			item.stack.current_changed.disconnect(_on_item_stack_current_changed)
 		
 		item = value
 		update()
 		
 		if item: 
+			#printerr(self)
+			#printerr(item)
+			#printerr("")
 			item.stack.current_changed.connect(_on_item_stack_current_changed)
-
+		
+		
 @export var drag_area: MouseDragArea
 
 var stack_label_preset: String = "x%s"
 
 
 func _ready() -> void: 
+	if Engine.is_editor_hint(): 
+		return
 	MouseDrag.dragging_started.connect(_on_dragging_started)
 	MouseDrag.dragging_cancelled.connect(_on_dragging_cancelled)
 
@@ -47,18 +56,21 @@ func update() -> void:
 	
 	if item.stack.current > 1: 
 		# FIXME: Stack label doesn't show even if it says show. 
+		printerr("%s and %s with stack %s is shown" % [self, item, item.stack.current])
 		stack_label.input([str(item.stack.current)])
 		stack_label.show()
 	else: 
+		printerr("%s with %s is hidden" % [self, item])
 		stack_label.hide()
 
-	if MouseDrag.is_dragging: 
+	if MouseDrag.is_dragging && MouseDrag.drag_data.has("item") && MouseDrag.drag_data["item"] == item: 
+		#printerr("%s with %s is hidden with dragging" % [self, item])
 		set_display_visible(false)
 
 
 func _on_item_stack_current_changed(_a: float, _b: float) -> void: 
 	update()
-	
+
 
 func _on_dragging_started() -> void:
 	update()

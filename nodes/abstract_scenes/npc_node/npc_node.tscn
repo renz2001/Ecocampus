@@ -8,7 +8,7 @@
 
 [sub_resource type="Resource" id="Resource_xk11q"]
 script = ExtResource("2_8dcrp")
-texts = Array[String]([])
+texts = Array[String](["Hello!"])
 with_label_settings = false
 horizontal_alignment = 0
 vertical_alignment = 0

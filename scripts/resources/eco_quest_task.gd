@@ -35,3 +35,6 @@ func _save_properties() -> PackedStringArray:
 		"is_completed", 
 		"counter"
 	]
+
+func _to_string() -> String: 
+	return "%s: <EcoQuestTask#%s>" % [description, get_instance_id()]

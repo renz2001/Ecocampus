@@ -54,3 +54,5 @@ func display_achievement() -> void:
 	AchievementUnlockedScreen.display(on_complete_unlock_achievement)
 	
 	
+func _to_string() -> String: 
+	return "%s: <EcoQuest#%s>" % [quest_name, get_instance_id()]

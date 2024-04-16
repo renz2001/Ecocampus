@@ -2,10 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://77dhb6ck4eyt" path="res://nodes/abstract_scenes/pickuppable_entity/pickuppable_entity.tscn" id="1_r15se"]
 [ext_resource type="Resource" uid="uid://dla73tgx4t3cn" path="res://resources/items/juice_box.tres" id="2_tt280"]
-[ext_resource type="Script" path="res://scripts/resources/entity.gd" id="2_ttc2a"]
 [ext_resource type="Texture2D" uid="uid://dyb41qo07dngr" path="res://assets/collect_item/juice_box.png" id="3_nwmjj"]
 [ext_resource type="Script" path="res://scripts/resources/item_stack.gd" id="3_s4ocu"]
 [ext_resource type="Script" path="res://scripts/resources/inventory.gd" id="4_nj86f"]
+[ext_resource type="Script" path="res://scripts/resources/item_entity.gd" id="5_lwi0q"]
 
 [sub_resource type="Resource" id="Resource_vvvml"]
 script = ExtResource("3_s4ocu")
@@ -17,8 +17,10 @@ script = ExtResource("4_nj86f")
 items = Array[ExtResource("3_s4ocu")]([SubResource("Resource_vvvml")])
 max_items = -1
 
-[sub_resource type="Resource" id="Resource_fp6cc"]
-script = ExtResource("2_ttc2a")
+[sub_resource type="Resource" id="Resource_slgd0"]
+script = ExtResource("5_lwi0q")
+type = 2
+environmental_impact = ""
 custom_name = ""
 name = "Juice Box"
 gender = 0
@@ -26,7 +28,7 @@ group = "Entity"
 
 [node name="JuiceBox" instance=ExtResource("1_r15se")]
 inventory = SubResource("Resource_ir415")
-data = SubResource("Resource_fp6cc")
+data = SubResource("Resource_slgd0")
 
 [node name="ShadowCircle" parent="Sprites" index="0"]
 position = Vector2(-0.999998, -1)

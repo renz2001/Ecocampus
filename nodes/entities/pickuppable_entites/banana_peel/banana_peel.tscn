@@ -4,7 +4,7 @@
 [ext_resource type="Resource" uid="uid://c2ms3lvdy84n5" path="res://resources/items/banana_peel.tres" id="2_evcxx"]
 [ext_resource type="Script" path="res://scripts/resources/item_stack.gd" id="3_5csbt"]
 [ext_resource type="Script" path="res://scripts/resources/inventory.gd" id="4_p0mbv"]
-[ext_resource type="Script" path="res://scripts/resources/entity.gd" id="5_yu0d0"]
+[ext_resource type="Script" path="res://scripts/resources/item_entity.gd" id="5_aaypy"]
 [ext_resource type="Texture2D" uid="uid://cjn8l7lvhkm7s" path="res://assets/collect_item/banana_peel.png" id="6_k6hhx"]
 
 [sub_resource type="Resource" id="Resource_vymub"]
@@ -17,8 +17,10 @@ script = ExtResource("4_p0mbv")
 items = Array[ExtResource("3_5csbt")]([SubResource("Resource_vymub")])
 max_items = -1
 
-[sub_resource type="Resource" id="Resource_q4381"]
-script = ExtResource("5_yu0d0")
+[sub_resource type="Resource" id="Resource_n1fg8"]
+script = ExtResource("5_aaypy")
+type = 1
+environmental_impact = ""
 custom_name = ""
 name = "Banana Peel"
 gender = 0
@@ -26,7 +28,7 @@ group = "Entity"
 
 [node name="BananaPeel" instance=ExtResource("1_35r7o")]
 inventory = SubResource("Resource_quoql")
-data = SubResource("Resource_q4381")
+data = SubResource("Resource_n1fg8")
 
 [node name="ShadowCircle" parent="Sprites" index="0"]
 position = Vector2(-6.89351, -4.9625)

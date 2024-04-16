@@ -29,42 +29,96 @@ func to_dict(from_object: Object) -> Dictionary:
 		var value = from_object.get(property)
 		if value is SaveableResource: 
 			data[property] = value.to_dict()
-		if value is Vector2: 
+		elif value is Vector2: 
 			data[property] = {
 				"x": value.x, 
 				"y": value.y
 			}
 		elif value is Array: 
-			for item in value: 
+			data[property] = []
+			for i in value.size(): 
+				var item = value[i]
 				if item is SaveableResource: 
-					data[property] = []
-					data[property].append(item.to_dict())
-					pass
+					data[property].append({
+						i: item.to_dict()
+					})
 		elif value is Resource: 
 			if ResourceLoader.exists(value.resource_path): 
 				data[property] = value.resource_path
 			else: 
-				push_error("%s is not a SaveableResource and does not have a resource path. From object: %s" % [value.resource_path, from_object])
+				push_error("%s from %s is not a SaveableResource and does not have a resource path. From object: %s" % [value, value.resource_path, from_object])
 		else: 
 			data[property] = value
 	return data
 
 
+# FIXME
+# This was hell lmao. 
 static func load_dict_to_object(obj: Object, dict: Dictionary) -> void: 
+	#print(dict)
 	for property: String in dict.keys(): 
 		var value = dict[property]
+		print(property)
 		if value is String: 
-			if ResourceLoader.exists(value): 
+			#if property == "items": 
+				#print("%s is string" % value)
+			if value == "script_resource_path": 
+				continue
+			elif ResourceLoader.exists(value): 
 				obj.set(property, load(value))
-			else: 
-				obj.set(property, JSON.parse_string(value))
-		if value is Dictionary: 
+		elif value is Dictionary: 
 			if value.has("x") && value.has("y"): 
 				obj.set(property, Vector2(value["x"], value["y"]))
-			for value_prop: String in value.keys(): 
-				var value_value = value[value_prop]
-				obj.set(value_prop, value_value)
+			else: 
+				#print("from: %s property: %s, value %s" % [obj, property, value])
+				#if property == "items": 
+					#printerr("%s is dict" % value)
+				#printerr(obj)
+				#print("%s has dict" % obj.get(property))
+				#printerr(value)
+				#if obj.get(property) == null: 
+					#printerr("%s get property: %s is null" % [obj, property])
+				#printerr(obj)
+				#printerr("property: %s" % property)
+				load_dict_to_object(obj.get(property), value)
+				#for value_prop: String in value.keys(): 
+					#var value_value = value[value_prop]
+					#obj.set(value_prop, value_value)
+		elif value is Array: 
+			#if property == "items": 
+				#print("%s with Array: %s" % [obj, str(value)])
+				#pass
+			#print(obj)
+			for i: int in value.size(): 
+				var value_value = value[i]
+				var obj_array: Array = obj.get(property)
+				var obj_array_value = value_value[str(i)]
+				#printerr("obj array: ", obj_array)
+				if obj_array_value is Dictionary: 
+					#if property == "items": 
+						#printerr("%s is dict and from %s" % [str(value_value), obj])
+					#load_dict_to_object(obj, value_value)
+					if i < obj_array.size(): 
+						#printerr("obj array item: %s with %s" % [obj.get(property)[i], value_value[str(i)]])
+						load_dict_to_object(obj.get(property)[i], obj_array_value)
+					# If the array does not have the item at that index. 
+					elif i >= obj_array.size(): 
+						if obj_array_value.has("script_resource_path"): 
+							var resource = load(obj_array_value["script_resource_path"]).new()
+							obj_array.append(resource)
+							#print("from: ", obj_array)
+							load_dict_to_object(obj_array[i], obj_array_value)
+							#printerr("to: ", obj_array)
+				# FIXME: Idk if this is necessary
+				else: 
+					if i > obj_array.size(): 
+						obj_array.append(obj_array_value)
+					else: 
+						obj_array[i] = value_value
 		else: 
 			#print(obj.get(property))
+			#if property == "items": 
+			#printerr("%s is none" % value)
 			obj.set(property, value)
 			#printerr(obj.get(property))
+

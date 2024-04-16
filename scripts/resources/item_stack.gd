@@ -69,8 +69,13 @@ func is_empty() -> bool:
 	
 	
 func _to_string() -> String: 
-	
-	return "%s<#%s>(stack_count:%s)" % [model.name, get_instance_id(),  stack.current]
+	var n: String = "NullName"
+	var cur: int = -1
+	if model: 
+		n = model.name
+	if stack: 
+		cur = stack.current
+	return "%s<ItemStack#%s>(stack_count:%s)" % [n, get_instance_id(),  cur]
 
 
 func _save_properties() -> PackedStringArray: 

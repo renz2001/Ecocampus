@@ -36,6 +36,7 @@ offset_left = 1.0
 offset_top = 1.0
 offset_right = 380.0
 offset_bottom = 251.0
+scale = Vector2(1e-05, 1e-05)
 script = ExtResource("2_5f634")
 description_label = NodePath("Body/MarginContainer/Description")
 ok_button = NodePath("Body/OKButton")

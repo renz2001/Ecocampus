@@ -53,8 +53,8 @@ signal interacted
 
 func _ready() -> void: 
 	pass
-		
-		
+	
+	
 func set_data(value: Entity) -> void: 
 	data = value
 

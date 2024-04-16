@@ -46,3 +46,5 @@ func _save_properties() -> PackedStringArray:
 	]
 	
 	
+func _to_string() -> String: 
+	return "WorldEventPointCounter#%s(increment_on_event:%s, call_event_from_counter_signal:%s, current:%s)" % [increment_on_event, get_instance_id(), call_event_from_counter_signal, counter.current]

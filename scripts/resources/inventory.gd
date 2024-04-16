@@ -73,6 +73,7 @@ func add_item(new_item_stack: ItemStack, by: Object = null) -> void:
 			item_added.emit(dupe_debug)
 			items_changed.emit([dupe_debug] as Array[ItemStack])
 			print_color.out_debug_wvalue("Inventory: %s added item to stack, new value" % by, item_stack)
+			print_items()
 			return
 	
 	var dupe: ItemStack = ItemStack.from_item_stack(new_item_stack, self)

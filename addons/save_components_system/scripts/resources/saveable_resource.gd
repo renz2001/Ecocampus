@@ -7,7 +7,7 @@ class_name SaveableResource
 ## 	super._init() 
 
 var save: PropertiesToSave
-
+#var use_script_resource_path_as_key: bool
 
 func _init() -> void: 
 	_save()
@@ -29,4 +29,13 @@ func _save_properties() -> PackedStringArray:
 	
 	
 func to_dict() -> Dictionary: 
-	return save.to_dict(self)
+	#if use_script_resource_path_as_key: 
+		#return {
+			#str(get_script().resource_path): save.to_dict(self)
+		#}
+	var dict: Dictionary = {
+		"script_resource_path": get_script().resource_path
+	}
+	dict.merge(save.to_dict(self))
+	return dict
+
