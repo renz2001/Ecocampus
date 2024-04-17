@@ -39,3 +39,12 @@ func to_dict() -> Dictionary:
 	dict.merge(save.to_dict(self))
 	return dict
 
+# Called by PropertiesToSave
+func load_update(data) -> void: 
+	_load_update(data)
+
+
+## Virtual Function
+func _load_update(_data) -> void: 
+	pass
+	

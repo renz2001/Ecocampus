@@ -1,12 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://cvgmotvsixufi"]
+[gd_scene load_steps=4 format=3 uid="uid://cvgmotvsixufi"]
 
 [ext_resource type="Script" path="res://app.gd" id="1_bk2hn"]
 [ext_resource type="PackedScene" uid="uid://nnpxfb02bn17" path="res://nodes/components/change_scene_component/change_scene_component.tscn" id="2_i1vnj"]
+[ext_resource type="PackedScene" uid="uid://d07384jfiolfg" path="res://nodes/components/audio_bus_volume_slider/audio_bus_volume_slider.tscn" id="3_i38j6"]
 
-[node name="App" type="Node" node_paths=PackedStringArray("main_scene")]
+[node name="App" type="Node" node_paths=PackedStringArray("audio_bus_volume_slider", "main_scene")]
 script = ExtResource("1_bk2hn")
+audio_bus_volume_slider = NodePath("AudioBusVolumeSlider")
 main_scene = NodePath("MainScene")
 
 [node name="MainScene" parent="." instance=ExtResource("2_i1vnj")]
 to_scene = "res://nodes/gui/main_menu/main_menu.tscn"
 transition = null
+
+[node name="AudioBusVolumeSlider" parent="." instance=ExtResource("3_i38j6")]

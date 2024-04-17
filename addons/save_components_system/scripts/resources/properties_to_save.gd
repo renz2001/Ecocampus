@@ -103,11 +103,14 @@ static func load_dict_to_object(obj: Object, dict: Dictionary) -> void:
 						load_dict_to_object(obj.get(property)[i], obj_array_value)
 					# If the array does not have the item at that index. 
 					elif i >= obj_array.size(): 
+						# If the item is a SaveableResource
 						if obj_array_value.has("script_resource_path"): 
 							var resource = load(obj_array_value["script_resource_path"]).new()
 							obj_array.append(resource)
 							#print("from: ", obj_array)
 							load_dict_to_object(obj_array[i], obj_array_value)
+							obj.load_update(resource)
+							#value.load_update()
 							#printerr("to: ", obj_array)
 				# FIXME: Idk if this is necessary
 				else: 

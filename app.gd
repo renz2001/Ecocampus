@@ -1,10 +1,14 @@
 extends Node
+class_name App
 
+@export var audio_bus_volume_slider: AudioBusVolumeSlider
 @export var main_scene: ChangeSceneComponent
 
 func _ready() -> void: 
-	## TODO: Temporary change
-	AudioManager.music_player.volume_db = linear_to_db(0.3)
+	
+	if OS.is_debug_build(): 
+		audio_bus_volume_slider.value = 0.1
+		
 	main_scene.change()
 	
 	

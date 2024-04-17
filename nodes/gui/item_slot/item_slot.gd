@@ -48,19 +48,18 @@ func update() -> void:
 		
 	if item == null: 
 		item_texture_rect.texture = null
+		stack_label.hide()
 		drag_area.disabled = true
-		return 
+		return
 		
 	drag_area.disabled = false
 	item_texture_rect.texture = item.model.item_icon
 	
 	if item.stack.current > 1: 
 		# FIXME: Stack label doesn't show even if it says show. 
-		printerr("%s and %s with stack %s is shown" % [self, item, item.stack.current])
 		stack_label.input([str(item.stack.current)])
 		stack_label.show()
 	else: 
-		printerr("%s with %s is hidden" % [self, item])
 		stack_label.hide()
 
 	if MouseDrag.is_dragging && MouseDrag.drag_data.has("item") && MouseDrag.drag_data["item"] == item: 
@@ -78,5 +77,9 @@ func _on_dragging_started() -> void:
 	
 func _on_dragging_cancelled() -> void: 
 	update()
+	
+	
+func clear() -> void: 
+	item = null
 	
 	

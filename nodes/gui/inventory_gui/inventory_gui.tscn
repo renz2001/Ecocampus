@@ -25,18 +25,14 @@ theme_override_constants/separation = 3
 [node name="ItemSlot" parent="ItemSlots" index="0" instance=ExtResource("3_6rg13")]
 layout_mode = 2
 
-[node name="ItemSlot2" parent="ItemSlots" index="1" node_paths=PackedStringArray("stack_label") instance=ExtResource("3_6rg13")]
+[node name="ItemSlot2" parent="ItemSlots" index="1" instance=ExtResource("3_6rg13")]
 layout_mode = 2
-stack_label = NodePath("../ItemSlot/StackLabel")
 
-[node name="ItemSlot3" parent="ItemSlots" index="2" node_paths=PackedStringArray("stack_label") instance=ExtResource("3_6rg13")]
+[node name="ItemSlot3" parent="ItemSlots" index="2" instance=ExtResource("3_6rg13")]
 layout_mode = 2
-stack_label = NodePath("../ItemSlot/StackLabel")
 
-[node name="ItemSlot4" parent="ItemSlots" index="3" node_paths=PackedStringArray("stack_label") instance=ExtResource("3_6rg13")]
+[node name="ItemSlot4" parent="ItemSlots" index="3" instance=ExtResource("3_6rg13")]
 layout_mode = 2
-stack_label = NodePath("../ItemSlot/StackLabel")
 
-[node name="ItemSlot5" parent="ItemSlots" index="4" node_paths=PackedStringArray("stack_label") instance=ExtResource("3_6rg13")]
+[node name="ItemSlot5" parent="ItemSlots" index="4" instance=ExtResource("3_6rg13")]
 layout_mode = 2
-stack_label = NodePath("../ItemSlot/StackLabel")

@@ -12,8 +12,6 @@ max_items = -1
 size = Vector2(153, 235)
 
 [node name="TestStorage" instance=ExtResource("1_dks7g")]
-display_interact_dialog = true
-wait_for_player_to_display_interact_dialog = true
 inventory = SubResource("Resource_hvldv")
 interact_description = ""
 

@@ -12,7 +12,15 @@ class_name VolumeSlider
 		audio_bus = value
 		if !is_node_ready(): 
 			await ready
-		label.text = AudioServer.get_bus_name(audio_bus)
+		update()
+
+
+func _ready(): 
+	update()
+	
+	
+func update() -> void: 
+	label.text = AudioServer.get_bus_name(audio_bus)
 
 
 func _on_h_slider_drag_started() -> void:

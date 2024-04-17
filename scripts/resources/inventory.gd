@@ -226,3 +226,10 @@ func _save_properties() -> PackedStringArray:
 		"items", 
 		"max_items"
 	]
+
+
+func _load_update(data) -> void: 
+	var item: ItemStack = data
+	item.owner = self
+	items_changed.emit([item] as Array[ItemStack])
+	
