@@ -15,7 +15,6 @@ answer_a = NodePath("MarginContainer/VBoxContainer/MarginContainer/Answers/A")
 answer_b = NodePath("MarginContainer/VBoxContainer/MarginContainer/Answers/B")
 answer_c = NodePath("MarginContainer/VBoxContainer/MarginContainer/Answers/C")
 answer_d = NodePath("MarginContainer/VBoxContainer/MarginContainer/Answers/D")
-alias = ""
 
 [node name="MarginContainer" type="MarginContainer" parent="." index="0"]
 layout_mode = 1
@@ -48,6 +47,10 @@ autowrap_mode = 3
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer" index="1"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
 
 [node name="Answers" type="GridContainer" parent="MarginContainer/VBoxContainer/MarginContainer" index="0"]
 layout_mode = 2

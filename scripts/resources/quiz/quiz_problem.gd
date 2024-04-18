@@ -7,7 +7,7 @@ class_name QuizProblem
 
 @export var wrong_answers: Array[String]
 
-@export var reward_points: int
+@export var reward_points: int = 1
 
 
 func attempt() -> QuizProblemAttempt: 

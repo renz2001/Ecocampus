@@ -11,7 +11,7 @@ class_name AudioStreamPlayerArguments
 
 @export var volume_db: float = 0
 
-@export var bus: String
+@export var bus: StringName = "Master"
 
 
 func set_sound(s: AudioStream) -> AudioStreamPlayerArguments: 
@@ -29,7 +29,7 @@ func set_pitch_scale(pitch: float) -> AudioStreamPlayerArguments:
 	return self
 
 
-func set_bus(b: String) -> AudioStreamPlayerArguments: 
+func set_bus(b: StringName) -> AudioStreamPlayerArguments: 
 	bus = b
 	return self
 	

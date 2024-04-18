@@ -37,47 +37,40 @@ signal deactivated
 @export_group("Dependencies")
 @export var on_activate_audio: AudioManagerPlayer
 @export var on_deactivate_audio: AudioManagerPlayer
+@export var on_show_audio: AudioManagerPlayer
+@export var on_hide_audio: AudioManagerPlayer
 
 var _initialized: bool = false
-	
-	
+
+
 #func _ready() -> void: 
 	#print(self, _initialized, active)
 
 
-## Activateds and makes the gui visible. Never use this method, only use GUIManager.set_gui_active. 
+## Activates and makes the gui visible. Never use this method, only use GUIManager.set_gui_active. 
 func set_active(value: bool) -> void: 
 	if disabled: 
 		return
-	#_initialized = false
 	if !is_node_ready(): 
 		await ready
-	#if name == "EnterNameMenu": 
-		#printerr(self, value)
-		#print()
-		#printerr(name)
-	#printerr(self, _initialized)
 	if !Engine.is_editor_hint(): 
 		if inactive_on_ready && _initialized == false: 
 			visible = false
 			active = false
 			_initialized = true 
-			#printerr(self, active)
 			return
 	if value && _activate_condition(): 
 		active = true
 		set_process(true)
 		_activated()
-		if !Engine.is_editor_hint(): 
-			on_activate_audio.play()
+		on_activate_audio.play()
 		activated.emit()
 		_initialized = true
 	elif !value && _deactivate_condition(): 
 		active = false
 		set_process(false)
 		_deactivated()
-		if !Engine.is_editor_hint(): 
-			on_deactivate_audio.play()
+		on_deactivate_audio.play()
 		deactivated.emit()
 	
 	
@@ -107,4 +100,11 @@ func _activate_condition() -> bool:
 	
 func _deactivate_condition() -> bool: 
 	return true
+
+
+func _on_visibility_changed() -> void: 
+	if is_visible_in_tree() && _initialized: 
+		on_show_audio.play()
+	elif !is_visible_in_tree() && _initialized: 
+		on_hide_audio.play()
 

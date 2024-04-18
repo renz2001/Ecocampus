@@ -32,6 +32,7 @@ fade_out_arguments = SubResource("Resource_ppac1")
 process_mode = 3
 
 [node name="MusicPlayer" parent="Music" instance=ExtResource("3_1occ1")]
+bus = &"Music"
 
 [node name="SoundEffects" type="Node" parent="."]
 

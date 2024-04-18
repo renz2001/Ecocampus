@@ -37,6 +37,7 @@ counter = SubResource("Resource_t8672")
 script = ExtResource("1_lirxy")
 percentage_description = "Pick Trash"
 tasks = Array[ExtResource("3_wt2xu")]([SubResource("Resource_0oxb7")])
+invisible_in_gui = false
 id = 1
 quest_name = "Pick trash"
 quest_description = ""

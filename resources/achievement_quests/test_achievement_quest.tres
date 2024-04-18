@@ -37,6 +37,7 @@ counter = SubResource("Resource_kkhqh")
 script = ExtResource("1_wkmub")
 percentage_description = "Tested"
 tasks = Array[ExtResource("3_ww4hh")]([SubResource("Resource_uts7q")])
+invisible_in_gui = true
 id = 0
 quest_name = "Test Achievement"
 quest_description = ""

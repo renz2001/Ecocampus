@@ -1,3 +1,4 @@
+@tool
 extends NodeComponent
 class_name AudioManagerPlayer
 
@@ -27,11 +28,13 @@ func play() -> void:
 	match type: 
 		Type.SOUND_EFFECT: 
 			AudioManager.play_sound_effect(audio)
+			print_color.out_debug_wvalue("Played Sound Effect", audio.sound.resource_path)
 		Type.MUSIC: 
 			AudioManager.play_music(audio)
-			print_color.out_debug_wvalue("Started Music", audio.sound.resource_path)
+			print_color.out_debug_wvalue("Played Music", audio.sound.resource_path)
 		Type.TEMPORARY_MUSIC: 
 			AudioManager.play_temporary_music(audio)
+			print_color.out_debug_wvalue("Played Temporary Music", audio.sound.resource_path)
 
 
 func _on_ready_unique_resource_resource_ready() -> void:

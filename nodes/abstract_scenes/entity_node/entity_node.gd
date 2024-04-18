@@ -50,7 +50,6 @@ signal interacted
 @export var ready_unique_resource: ReadyUniqueResource
 
 
-
 func _ready() -> void: 
 	pass
 	

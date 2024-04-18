@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://daxlnabqn25ah"]
+[gd_scene load_steps=6 format=3 uid="uid://daxlnabqn25ah"]
 
 [ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/macchi's_gui_manager/nodes/gui/gui/gui.tscn" id="1_caolr"]
 [ext_resource type="Script" path="res://addons/dialogue_manager's_dialogue_gui_manager/nodes/gui/dialogue_gui/dialogue_gui.gd" id="1_omtw1"]
+[ext_resource type="PackedScene" uid="uid://7gri71kaffvv" path="res://addons/macchi's_audio_manager_and_plus/nodes/components/audio_manager_player/audio_manager_player.tscn" id="4_vnggn"]
 [ext_resource type="Script" path="res://addons/macchi's_node_components/nodes/components/print_color.gd" id="5_r5f23"]
 
 [sub_resource type="Resource" id="Resource_05s4r"]
@@ -13,7 +14,7 @@ value_color = Color(1, 0, 0, 1)
 automatic_value_color = true
 use_spaces_for_node_name = false
 
-[node name="DialogueGUI" groups=["DialogueGUI"] instance=ExtResource("1_caolr")]
+[node name="DialogueGUI" node_paths=PackedStringArray("typing_audio") groups=["DialogueGUI"] instance=ExtResource("1_caolr")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -26,6 +27,6 @@ hide_character_text = false
 character_text_preset = "%s"
 print_color = SubResource("Resource_05s4r")
 fast_forward_speed = 2.0
-only_one_instance = true
+typing_audio = NodePath("Audio/TypingAudio")
 
-[node name="TypingSound" type="AudioStreamPlayer" parent="Audio" index="2"]
+[node name="TypingAudio" parent="Audio" index="2" instance=ExtResource("4_vnggn")]

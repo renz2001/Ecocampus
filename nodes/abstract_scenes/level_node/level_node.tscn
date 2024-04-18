@@ -21,7 +21,6 @@ y_sort_enabled = true
 
 [node name="MainCamera" parent="Cameras" instance=ExtResource("1_7i7vm")]
 position = Vector2(1029, 579)
-zoom = Vector2(1.2, 1.2)
 limit_left = 0
 limit_top = 0
 limit_right = 1920
@@ -31,6 +30,28 @@ limit_bottom = 1080
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Background"]
 layer = -1
+
+[node name="Root" type="Control" parent="Background/CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Center" type="Control" parent="Background/CanvasLayer/Root"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Entities" type="Node2D" parent="."]
 y_sort_enabled = true

@@ -5,15 +5,20 @@ class_name ActingContainer
 @export var real_control: Control: 
 	set(value): 
 		real_control = value
-		if real_control && !Engine.is_editor_hint(): 
-			name = real_control.name
+		if real_control: 
+			real_control.acting_container = self
+			if !Engine.is_editor_hint(): 
+				name = real_control.name
 
 
 func add_gui(gui: GUI) -> void: 
 	add_child(gui)
-	gui.acting_container = self
+	real_control = gui
 
 
-func _on_visibility_changed() -> void: 
-	if real_control: 
-		real_control.visible = visible
+func _activated() -> void: 
+	real_control.set_active(true)
+	
+	
+func _deactivated() -> void: 
+	real_control.set_active(false)

@@ -1,4 +1,7 @@
-[gd_resource type="LabelSettings" format=3 uid="uid://b4jfqs4wewmec"]
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://b4jfqs4wewmec"]
+
+[ext_resource type="FontFile" uid="uid://cp5vi568oh4jl" path="res://fonts/Ubuntu-Bold.ttf" id="1_lr3xd"]
 
 [resource]
-font_size = 55
+font = ExtResource("1_lr3xd")
+font_size = 65

@@ -26,12 +26,13 @@ automatic_value_color = true
 use_spaces_for_node_name = false
 
 [node name="GUIManager" node_paths=PackedStringArray("transitions_manager", "dialogue_gui_manager", "customize_character_screen", "settings_menu", "quiz_attempt_screen", "achievement_unlocked_screen", "playing", "instanced_uis", "dropdown_popup") instance=ExtResource("1_fgil1")]
+follow_viewport_enabled = false
 script = ExtResource("2_43jm5")
 transitions_manager = NodePath("Root/TransitionsManager")
 dialogue_gui_manager = NodePath("Root/MarginContainer/BaseControl/Playing/DialogueGUIManager")
 customize_character_screen = NodePath("Root/MarginContainer/BaseControl/Playing/CustomizeCharacterScreen")
 settings_menu = NodePath("Root/MarginContainer/BaseControl/SettingsMenu")
-quiz_attempt_screen = NodePath("Root/MarginContainer/BaseControl/Playing/QuizScreen")
+quiz_attempt_screen = NodePath("Root/MarginContainer/BaseControl/Playing/QuizAttemptScreen")
 achievement_unlocked_screen = NodePath("Root/MarginContainer/BaseControl/AchievementUnlockedScreen")
 centered_acting_container = ExtResource("4_ddkn8")
 exclusive_gui = ExtResource("5_bp7t5")
@@ -47,17 +48,12 @@ theme = ExtResource("2_v1v03")
 only_one_instance = false
 
 [node name="PlayerHUD" parent="Root/MarginContainer/BaseControl/Playing" index="0" instance=ExtResource("9_32jpw")]
-visible = false
-layout_mode = 1
-only_one_instance = true
-
-[node name="QuizScreen" parent="Root/MarginContainer/BaseControl/Playing" index="1" instance=ExtResource("8_rgdf8")]
 layout_mode = 1
 
-[node name="DialogueGUIManager" parent="Root/MarginContainer/BaseControl/Playing" index="2" instance=ExtResource("3_ew5n2")]
+[node name="QuizAttemptScreen" parent="Root/MarginContainer/BaseControl/Playing" index="1" instance=ExtResource("8_rgdf8")]
 layout_mode = 1
 
-[node name="Components" type="Node" parent="Root/MarginContainer/BaseControl/Playing" index="3"]
+[node name="Components" type="Node" parent="Root/MarginContainer/BaseControl/Playing" index="2"]
 
 [node name="IfMainMenuEnteredSetProperty" parent="Root/MarginContainer/BaseControl/Playing/Components" index="0" node_paths=PackedStringArray("node") instance=ExtResource("9_ep4ey")]
 property = "main_menu_state"
@@ -69,9 +65,12 @@ property = "main_menu_state"
 state_event = 1
 node = NodePath("../..")
 
-[node name="CustomizeCharacterScreen" parent="Root/MarginContainer/BaseControl/Playing" index="4" instance=ExtResource("11_xm22g")]
+[node name="CustomizeCharacterScreen" parent="Root/MarginContainer/BaseControl/Playing" index="3" instance=ExtResource("11_xm22g")]
 layout_mode = 1
 only_one_instance = false
+
+[node name="DialogueGUIManager" parent="Root/MarginContainer/BaseControl/Playing" index="5" instance=ExtResource("3_ew5n2")]
+layout_mode = 1
 
 [node name="InstancedGUIs" parent="Root/MarginContainer/BaseControl" index="1"]
 only_one_instance = false
@@ -81,9 +80,12 @@ layout_mode = 1
 only_one_instance = false
 
 [node name="MarginContainer" type="MarginContainer" parent="Root/MarginContainer/BaseControl" index="3"]
-layout_mode = 2
-offset_right = 1920.0
-offset_bottom = 1080.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 theme_type_variation = &"PlayerHUDMargin"
 
@@ -102,11 +104,6 @@ grow_horizontal = 0
 
 [node name="AchievementUnlockedScreen" parent="Root/MarginContainer/BaseControl" index="4" instance=ExtResource("14_df8bm")]
 layout_mode = 1
-only_one_instance = true
-on_activate_audio = Object(Node,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","script":Resource("res://addons/macchi's_audio_manager_and_plus/nodes/components/audio_manager_player/audio_manager_player.gd"),"type":0,"audio":null,"autoplay":false,"disabled":false,"print_color":null)
-
-on_deactivate_audio = Object(Node,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","script":Resource("res://addons/macchi's_audio_manager_and_plus/nodes/components/audio_manager_player/audio_manager_player.gd"),"type":0,"audio":null,"autoplay":false,"disabled":false,"print_color":null)
-
 
 [node name="TransitionsManager" parent="Root" index="1" instance=ExtResource("10_u8sf5")]
 layout_mode = 1

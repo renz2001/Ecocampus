@@ -6,7 +6,8 @@
 
 [node name="OnPressedToggleMute" node_paths=PackedStringArray("audio_bus_volume_slider", "control") instance=ExtResource("1_wnh2x")]
 script = ExtResource("2_a3p5v")
+audio_bus = 0
 audio_bus_volume_slider = NodePath("AudioBusVolumeSlider")
-control = NodePath("")
+control = NodePath("..")
 
 [node name="AudioBusVolumeSlider" parent="." index="1" instance=ExtResource("3_7splc")]

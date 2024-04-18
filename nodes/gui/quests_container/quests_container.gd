@@ -18,6 +18,8 @@ func update() -> void:
 		child.queue_free()
 		
 	for quest: EcoQuest in quests: 
+		if quest.invisible_in_gui: 
+			continue
 		var gui: QuestGUI = quest_gui.instantiate()
 		add_child(gui)
 		gui.quest = quest

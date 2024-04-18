@@ -14,7 +14,7 @@ play_from_position = 0
 pitch_scale = 1.0
 volume_slider = 1.0
 volume_db = 0.0
-bus = ""
+bus = &"Music"
 
 [node name="QuizAttemptScreen" node_paths=PackedStringArray("assesment_music", "quiz_attempt_gui") instance=ExtResource("1_imule")]
 anchors_preset = 15
@@ -23,9 +23,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_6bxe1")
-assesment_music = NodePath("AssesmentMusic")
+assesment_music = NodePath("Audio/AssesmentMusic")
 quiz_attempt_gui = NodePath("MarginContainer/Control/QuizAttemptGUI")
-only_one_instance = true
+quiz = null
 
 [node name="MarginContainer" type="MarginContainer" parent="." index="0"]
 layout_mode = 1
@@ -57,6 +57,6 @@ offset_left = 592.0
 offset_right = 592.0
 grow_vertical = 2
 
-[node name="AssesmentMusic" parent="." index="2" instance=ExtResource("5_le8am")]
+[node name="AssesmentMusic" parent="Audio" index="4" instance=ExtResource("5_le8am")]
 type = 1
 audio = SubResource("Resource_k6v7v")

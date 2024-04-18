@@ -55,10 +55,8 @@ func to_dict(from_object: Object) -> Dictionary:
 # FIXME
 # This was hell lmao. 
 static func load_dict_to_object(obj: Object, dict: Dictionary) -> void: 
-	#print(dict)
 	for property: String in dict.keys(): 
 		var value = dict[property]
-		print(property)
 		if value is String: 
 			#if property == "items": 
 				#print("%s is string" % value)

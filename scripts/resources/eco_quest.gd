@@ -14,6 +14,7 @@ signal task_completed(task: EcoQuestTask)
 			
 ## Optional, leave null if not wanted. Unlocks this achievement when finished 
 @export var on_complete_unlock_achievement: Achievement
+@export var invisible_in_gui: bool
 
 var percentage_description_format: StringFormatter
 

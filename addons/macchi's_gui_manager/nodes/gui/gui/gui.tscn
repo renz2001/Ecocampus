@@ -4,18 +4,25 @@
 [ext_resource type="Theme" uid="uid://cd55r8awc3jgy" path="res://themes/main_theme.tres" id="1_xdomf"]
 [ext_resource type="PackedScene" uid="uid://7gri71kaffvv" path="res://addons/macchi's_audio_manager_and_plus/nodes/components/audio_manager_player/audio_manager_player.tscn" id="3_m4y2w"]
 
-[node name="GUI" type="Control" node_paths=PackedStringArray("on_activate_audio", "on_deactivate_audio") groups=["GUI"]]
+[node name="GUI" type="Control" node_paths=PackedStringArray("on_activate_audio", "on_deactivate_audio", "on_show_audio", "on_hide_audio") groups=["GUI"]]
 layout_mode = 3
 anchors_preset = 0
 mouse_filter = 2
 theme = ExtResource("1_xdomf")
 script = ExtResource("1_gxwfc")
-only_one_instance = null
 on_activate_audio = NodePath("Audio/OnActivateAudio")
 on_deactivate_audio = NodePath("Audio/OnDeactivateAudio")
+on_show_audio = NodePath("Audio/OnShowAudio")
+on_hide_audio = NodePath("Audio/OnHideAudio")
 
 [node name="Audio" type="Node" parent="."]
 
 [node name="OnActivateAudio" parent="Audio" instance=ExtResource("3_m4y2w")]
 
 [node name="OnDeactivateAudio" parent="Audio" instance=ExtResource("3_m4y2w")]
+
+[node name="OnShowAudio" parent="Audio" instance=ExtResource("3_m4y2w")]
+
+[node name="OnHideAudio" parent="Audio" instance=ExtResource("3_m4y2w")]
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]

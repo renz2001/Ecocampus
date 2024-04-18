@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Quiz" load_steps=2 format=3 uid="uid://drishnchlxncq"]
+
+[ext_resource type="Script" path="res://scripts/resources/quiz/quiz.gd" id="1_8y41a"]
+
+[resource]
+script = ExtResource("1_8y41a")
+title = ""
+description = ""
+problems = Array[Resource("res://scripts/resources/quiz/quiz_problem.gd")]([])
+passing_score_percentage = 0.7

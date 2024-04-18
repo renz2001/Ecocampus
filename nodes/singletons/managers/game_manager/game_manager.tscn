@@ -15,8 +15,9 @@
 
 [sub_resource type="Resource" id="Resource_oclmn"]
 script = ExtResource("2_ol1mc")
+disabled = false
 color = Color(1, 0.843137, 0, 1)
-node_name_color = Color(0, 0, 1, 1)
+owner_name_color = Color(0, 0, 1, 1)
 value_color = Color(1, 0, 0, 1)
 automatic_value_color = true
 use_spaces_for_node_name = false
@@ -28,7 +29,7 @@ play_from_position = 0
 pitch_scale = 1.0
 volume_slider = 1.0
 volume_db = 0.0
-bus = ""
+bus = &"Music"
 
 [sub_resource type="Resource" id="Resource_262es"]
 script = ExtResource("9_wmpeo")
@@ -37,7 +38,7 @@ play_from_position = 0
 pitch_scale = 1.0
 volume_slider = 1.0
 volume_db = 0.0
-bus = ""
+bus = &"Music"
 
 [node name="GameManager" type="Node" node_paths=PackedStringArray("state_chart", "to_map_picker", "playing_state", "paused_state", "main_menu_state", "menu_music", "playing_music")]
 script = ExtResource("1_pr44q")

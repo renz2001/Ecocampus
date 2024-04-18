@@ -14,6 +14,7 @@ grow_vertical = 2
 script = ExtResource("1_kblrj")
 dialogue_guis = NodePath("DialogueGUIs")
 text_speed_multiplier = 5.0
+only_one_instance = true
 
 [node name="DialogueGUIs" type="TabContainer" parent="." index="0"]
 layout_mode = 1

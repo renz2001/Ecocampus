@@ -3,8 +3,5 @@
 [ext_resource type="Script" path="res://addons/macchi's_gui_manager/nodes/gui/acting_container/acting_container.gd" id="1_hrs7y"]
 [ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/macchi's_gui_manager/nodes/gui/gui/gui.tscn" id="1_jj8qi"]
 
-
 [node name="ActingContainer" instance=ExtResource("1_jj8qi")]
 script = ExtResource("1_hrs7y")
-
-[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]

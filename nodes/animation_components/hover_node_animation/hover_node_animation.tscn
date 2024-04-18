@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://7r374ti84blj"]
+
+[ext_resource type="Script" path="res://nodes/animation_components/hover_node_animation/hover_node_animation.gd" id="1_gbk0o"]
+[ext_resource type="PackedScene" uid="uid://c341gagax5vvu" path="res://addons/macchi's_node_components/nodes/components/lerp_components/vector_2_property_lerp_component/vector_2_property_lerp_component.tscn" id="2_0u4m4"]
+
+[node name="HoverNodeAnimation" type="Node" node_paths=PackedStringArray("up_lerp", "down_lerp")]
+script = ExtResource("1_gbk0o")
+up_lerp = NodePath("Up")
+down_lerp = NodePath("Down")
+
+[node name="Up" parent="." instance=ExtResource("2_0u4m4")]
+loop_interpolate_end_to_back = false
+
+[node name="Down" parent="." instance=ExtResource("2_0u4m4")]
+loop_interpolate_end_to_back = false

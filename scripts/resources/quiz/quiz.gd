@@ -4,11 +4,11 @@ class_name Quiz
 
 
 @export var title: String
-@export var description: String
+@export var description: String = "Clear this quiz"
 @export var problems: Array[QuizProblem]
 
 ## Percentage of the passing score. 
-@export_range(0, 1) var passing_score_percentage: float = 0.7
+@export_range(0, 1) var passing_score_percentage: float = 0.75
 
 var maximum_score: int: 
 	get:
@@ -25,3 +25,6 @@ func attempt() -> QuizAttempt:
 	var _attempt: QuizAttempt = QuizAttempt.from_quiz(self)
 	return _attempt
 	
+	
+func _to_string() -> String: 
+	return "%s: <QuizAttempt#%s>" % [title, get_instance_id()]

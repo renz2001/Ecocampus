@@ -4,7 +4,10 @@ class_name QuizAttemptScreen
 @export var assesment_music: AudioManagerPlayer
 @export var quiz_attempt_gui: QuizAttemptGUI
 
-var quiz: Quiz
+@export var quiz: Quiz: 
+	set(value): 
+		quiz = value
+		quiz_attempt_gui
 
 
 static func display(q: Quiz) -> QuizAttemptScreen: 
@@ -24,6 +27,7 @@ static func conceal() -> QuizAttemptScreen:
 func start(q: Quiz) -> void: 
 	quiz = q
 	assesment_music.play()
+	quiz_attempt_gui.start(quiz)
 
 
 func _on_quiz_attempt_gui_deactivated() -> void:

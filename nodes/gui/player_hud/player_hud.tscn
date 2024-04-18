@@ -14,6 +14,7 @@ grow_vertical = 2
 script = ExtResource("2_3hk1a")
 inventory_gui = NodePath("MarginContainer/Control/InventoryGUI")
 inactive_on_ready = false
+only_one_instance = true
 
 [node name="MarginContainer" type="MarginContainer" parent="." index="0"]
 layout_mode = 1
