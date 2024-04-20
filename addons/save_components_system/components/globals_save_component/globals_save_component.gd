@@ -11,8 +11,12 @@ func to_dict() -> Dictionary:
 	var dict: Dictionary
 	var autoload: Node = NodeTools.get_autoload(self, autoload_name)
 	
-	dict = {
-		str(autoload.get_path()): data.to_dict(autoload)
-	}
+	master_save_component.node = autoload
+
+	return master_save_component.to_dict()
+
+
+func load_dict(dict: Dictionary) -> void: 
+	master_save_component.load_dict(dict)
 	
-	return dict
+	

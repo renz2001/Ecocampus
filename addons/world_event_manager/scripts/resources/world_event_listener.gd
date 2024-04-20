@@ -15,7 +15,6 @@ signal event_heard(event: WorldEvent, by: Node, args: Array)
 
 
 func _init() -> void: 
-	# Using await cuz its shorter lol
 	WorldEventManager.event_called.connect(_on_event_called)
 
 
@@ -25,3 +24,4 @@ func _on_event_called(world_event: WorldEvent, by: Node, args: Array = []) -> vo
 		if listen_once:  
 			disabled = true
 			WorldEventManager.event_called.disconnect(_on_event_called)
+

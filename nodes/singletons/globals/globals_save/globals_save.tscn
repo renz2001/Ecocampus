@@ -1,7 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://c802krt7dhwg4"]
+[gd_scene load_steps=5 format=3 uid="uid://c802krt7dhwg4"]
 
 [ext_resource type="PackedScene" uid="uid://drsh18t2p40f2" path="res://nodes/components/quest_system_save_component/quest_system_save_component.tscn" id="1_1pt7d"]
+[ext_resource type="PackedScene" uid="uid://b4lvkxh4e5grm" path="res://addons/save_components_system/components/globals_save_component/globals_save_component.tscn" id="2_inhnn"]
+[ext_resource type="Script" path="res://addons/save_components_system/scripts/resources/properties_to_save.gd" id="3_83uv4"]
+
+[sub_resource type="Resource" id="Resource_c3d1c"]
+script = ExtResource("3_83uv4")
+properties = PackedStringArray("global_events_history")
 
 [node name="GlobalsSave" type="Node"]
 
 [node name="QuestSystemSaveComponent" parent="." instance=ExtResource("1_1pt7d")]
+
+[node name="WorldEventManagerSaveComponent" parent="." instance=ExtResource("2_inhnn")]
+autoload_name = "WorldEventManager"
+data = SubResource("Resource_c3d1c")
