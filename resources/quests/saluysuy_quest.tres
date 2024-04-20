@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="EcoQuest" load_steps=2 format=3 uid="uid://ch7fcp5l0o067"]
+
+[ext_resource type="Script" path="res://scripts/resources/eco_quest.gd" id="1_3kere"]
+
+[resource]
+script = ExtResource("1_3kere")
+percentage_description = "Waste Disposal"
+tasks = Array[Resource("res://scripts/resources/eco_quest_task.gd")]([])
+invisible_in_gui = false
+id = 0
+quest_name = ""
+quest_description = ""
+quest_objective = ""

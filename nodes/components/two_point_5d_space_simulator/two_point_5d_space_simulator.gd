@@ -7,29 +7,11 @@ class_name TwoPoint5DSpaceSimulator
 @export var base_point: Marker2D
 @export var minimum_distance: Marker2D
 @export var maximum_distance: Marker2D
+@export var clamp_minimum_scale: bool = true
 
 @export var trans_type: Tween.TransitionType = Tween.TransitionType.TRANS_LINEAR
 @export var ease_type: Tween.EaseType = Tween.EaseType.EASE_IN
-
-
-#func get_space_scale(global_position: Vector2) -> float: 
-	#var node_offset: float = minimum_distance.global_position.y - global_position.y
-	##printerr(minimum_distance.global_position.y, " ", node.global_position.y)
-	##print("offset ", node.global_position.y - maximum_distance.global_position.y)
-	#var points_distance: float = maximum_distance.global_position.y - minimum_distance.global_position.y
-	##print("max distance offset: ", -points_distance + max_distance_offset)
-	##printerr("node offset: ", node_offset)
-	##printerr("point distance: ", -points_distance)
-	#var weight: float = node_offset / (-points_distance + max_distance_offset)
-	##printerr("weight: ", weight)
-	#var current: float = lerp(maximum_distance.position.y, minimum_distance.position.y, weight) 
-	#var percent: float = current / maximum_distance.position.y
-	##printerr("percent: ", percent)
-	#
-	#if percent == 0: 
-		#return 0.1
-	#return percent
-
+@export var debug: bool
 
 func get_space_scale(global_position: Vector2, speed: float) -> float: 
 	var node_offset: float = minimum_distance.global_position.y - global_position.y
@@ -41,8 +23,22 @@ func get_space_scale(global_position: Vector2, speed: float) -> float:
 	var maximum: float = (minimum_distance.position.y) - minimum
 	var current: float = Tween.interpolate_value(maximum, minimum + max_distance_offset, elapsed_time, duration, trans_type, ease_type)
 	var percent: float = current / maximum
-
-	if percent == 0: 
+	
+	var minimum_percent: float = minimum / maximum * -1
+	if debug: 
+		print("
+			Minimum Distance: %s
+			Maximum Distance: %s
+			Minimum: %s
+			Maximum: %s
+			Current: %s
+			Percent: %s
+		" % [minimum_distance.position.y, maximum_distance.position.y, minimum, maximum, current, percent]
+		)
+		
+	if clamp_minimum_scale && percent >= minimum_percent: 
+		return minimum_percent
+	elif percent == 0: 
 		return 0.1
 	return percent
 
@@ -54,8 +50,6 @@ func get_offset_percentage_from_max_distance(global_position: Vector2) -> float:
 	#print("x distance: ", -node_x_distance)
 	var x_offset: float = node_y_distance / node_x_distance
 	
-	#printerr(x_offset)
-	#var y_offset: float = 
 	return x_offset
 	
 	

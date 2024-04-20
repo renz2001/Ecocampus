@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dcjxf25vgikeb"]
+[gd_scene load_steps=18 format=3 uid="uid://dcjxf25vgikeb"]
 
 [ext_resource type="PackedScene" uid="uid://3miay8g4x6j3" path="res://nodes/abstract_scenes/main_screen/main_screen.tscn" id="1_ethfg"]
 [ext_resource type="PackedScene" uid="uid://5npqpm4ofnr" path="res://nodes/gui/map_location_button/map_location_button.tscn" id="2_5f6v8"]
@@ -30,6 +30,10 @@ region = Rect2(985, 491, 1575, 1552)
 [sub_resource type="AtlasTexture" id="AtlasTexture_ixlmw"]
 atlas = ExtResource("6_2jbm6")
 region = Rect2(751, 386, 572, 665)
+
+[sub_resource type="Resource" id="Resource_bteyx"]
+script = ExtResource("3_cuxqn")
+scene = "res://nodes/levels/gate_1/gate_1.tscn"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h43h3"]
 atlas = ExtResource("9_t8wk1")
@@ -85,6 +89,7 @@ offset_top = -118.0
 offset_right = -378.0
 offset_bottom = 200.0
 texture_normal = SubResource("AtlasTexture_ixlmw")
+change_scene = SubResource("Resource_bteyx")
 
 [node name="Library" parent="Root/Island" index="4" instance=ExtResource("2_5f6v8")]
 layout_mode = 0

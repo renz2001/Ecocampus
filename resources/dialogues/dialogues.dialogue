@@ -31,7 +31,7 @@ TestNPC: TEST!
 	{{data.custom_name}}: Welp ok have fun! => END
 => END
 
-~ gate_1_guard_quest
+~ gate_1_quest
 {{PlayerManager.player.data.custom_name}}: Good morning, Guard!
 Guard: Good morning! Welcome to Cavite State University.
 Guard: Here in the university, the Pollution Control Office diligently enforces CvSU Environmental Policies.

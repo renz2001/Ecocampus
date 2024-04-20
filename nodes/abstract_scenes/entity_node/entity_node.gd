@@ -35,6 +35,7 @@ signal interacted
 			await ready
 		dialogue_starter.dialogue = dialogue
 @export var quiz: Quiz
+@export var quest: EcoQuest
 
 @export_group("Dependencies")
 @export var state_chart: StateChart
@@ -108,8 +109,11 @@ func _on_finished_navigation() -> void:
 
 
 func _on_dialogue_response_handler_responded(value: String) -> void: 
-	if value == "accept_quiz": 
-		QuizAttemptScreen.display(quiz)
+	match value: 
+		"start_quiz": 
+			QuizAttemptScreen.display(quiz)
+		"start_quest": 
+			ExtendedQuestSystem.start_quest(quest)
 
 
 func _on_ready_unique_resource_resource_ready() -> void:

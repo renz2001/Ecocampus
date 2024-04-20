@@ -16,7 +16,7 @@ func _on_interact() -> void:
 func _on_items_added(items: Array[ItemStack]) -> void:  
 	var event_call: WorldEventCall = WorldEventCall.new().set_event("picked_up")
 	if use_first_item_as_argument_for_event: 
-		event_call.set_arguments([items[0].model.name.to_snake_case()])
+		event_call.set_arguments([items[0].model])
 	
 	call_world_event_component.event_call = event_call
 	call_world_event_component.node = entity

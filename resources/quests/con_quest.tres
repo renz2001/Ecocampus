@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="EcoQuest" load_steps=10 format=3 uid="uid://djr5dksp1iyt"]
+
+[ext_resource type="Script" path="res://scripts/resources/eco_quest.gd" id="1_ayv04"]
+[ext_resource type="Script" path="res://scripts/resources/eco_quest_task.gd" id="2_7tm0h"]
+[ext_resource type="Resource" uid="uid://23ubbrkj81uh" path="res://resources/items/plastic_bag.tres" id="2_xvuxo"]
+[ext_resource type="Script" path="res://addons/world_event_manager/scripts/resources/world_event_point_counter.gd" id="3_25qtn"]
+[ext_resource type="Resource" uid="uid://4bd0gl2jjueb" path="res://resources/items/coffee_cup.tres" id="5_sj2b7"]
+
+[sub_resource type="Resource" id="Resource_5glee"]
+script = ExtResource("3_25qtn")
+increment_on_event = "picked_up"
+increment_if_has_similar_arguments = [ExtResource("2_xvuxo")]
+maximum_points = 0.0
+call_event_from_counter_signal = ""
+
+[sub_resource type="Resource" id="Resource_rhefh"]
+script = ExtResource("2_7tm0h")
+description = "Plastic Bags"
+counter = SubResource("Resource_5glee")
+
+[sub_resource type="Resource" id="Resource_3cxs1"]
+script = ExtResource("3_25qtn")
+increment_on_event = "picked_up"
+increment_if_has_similar_arguments = [ExtResource("5_sj2b7")]
+maximum_points = 0.0
+call_event_from_counter_signal = ""
+
+[sub_resource type="Resource" id="Resource_qdfu8"]
+script = ExtResource("2_7tm0h")
+description = "Coffee Cups"
+counter = SubResource("Resource_3cxs1")
+
+[resource]
+script = ExtResource("1_ayv04")
+percentage_description = "Pick up Non-Biodegradable waste"
+tasks = Array[ExtResource("2_7tm0h")]([SubResource("Resource_rhefh"), SubResource("Resource_qdfu8")])
+invisible_in_gui = false
+id = 0
+quest_name = ""
+quest_description = ""
+quest_objective = ""

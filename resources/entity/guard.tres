@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Entity" load_steps=5 format=3 uid="uid://xxj7ycnehhgy"]
+
+[ext_resource type="Texture2D" uid="uid://dcjm4h3jfy5sh" path="res://assets/character/professor/professor.png" id="1_oovb8"]
+[ext_resource type="Script" path="res://scripts/resources/entity.gd" id="2_l8sfg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d636n"]
+atlas = ExtResource("1_oovb8")
+region = Rect2(1270, 114, 454, 734)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_shqv2"]
+atlas = ExtResource("1_oovb8")
+region = Rect2(264, 112, 454, 734)
+
+[resource]
+script = ExtResource("2_l8sfg")
+custom_name = ""
+name = "Guard"
+male_speaker_idle_sprite = SubResource("AtlasTexture_d636n")
+male_speaker_talk_sprite = SubResource("AtlasTexture_shqv2")
+gender = 1
+group = "Entity"

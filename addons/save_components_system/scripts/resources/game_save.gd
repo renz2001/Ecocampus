@@ -30,6 +30,8 @@ func save_game(scene_tree: SceneTree) -> void:
 	
 	
 func load_game(scene_tree: SceneTree, current_id: String) -> void: 
+	if !data.has(current_id): 
+		return
 	var data_group: Dictionary = data[current_id]
 	for key: String in data_group.keys(): 
 		if key == "Globals": 

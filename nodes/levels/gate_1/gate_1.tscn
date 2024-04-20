@@ -1,29 +1,72 @@
-[gd_scene load_steps=3 format=3 uid="uid://cf858o4ytbp0u"]
+[gd_scene load_steps=13 format=3 uid="uid://cf858o4ytbp0u"]
 
 [ext_resource type="PackedScene" uid="uid://cm6jeskbiise6" path="res://nodes/abstract_scenes/level_node/level_node.tscn" id="1_ycc0e"]
 [ext_resource type="Texture2D" uid="uid://bb8wuo25lx7ap" path="res://assets/background/camera_pictures/gate_1.jpg" id="2_83yqh"]
+[ext_resource type="PackedScene" uid="uid://8qsjsyglmgq4" path="res://nodes/entities/player_node/player_node.tscn" id="3_qjg0q"]
+[ext_resource type="PackedScene" uid="uid://bjwdvr5nd6ox7" path="res://nodes/entities/guard/guard.tscn" id="4_22fi1"]
+[ext_resource type="Resource" uid="uid://byaj1bas2wkaw" path="res://resources/dialogues/dialogues.dialogue" id="5_db3om"]
+[ext_resource type="Script" path="res://addons/dialogue_manager's_dialogue_gui_manager/scripts/arguments/dialogue_arguments.gd" id="5_lkue6"]
+[ext_resource type="Resource" uid="uid://bhl7afn8ti7bs" path="res://resources/entity/player.tres" id="6_aw3e5"]
+[ext_resource type="Resource" uid="uid://dqnawmf4l2y2c" path="res://resources/quests/gate_1_quest.tres" id="8_ong1o"]
+[ext_resource type="Script" path="res://addons/save_components_system/scripts/resources/id.gd" id="9_7qys1"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_41h1c"]
+vertices = PackedVector2Array(155, 599, 154, 599, 308, 577, 1453, 531, 1648, 560, 1647, 560, 1337, 566, 1300, 536, 454, 563, 588, 564, 567, 605, -57, 1072, -53, 651, 1969, 616, 1973, 1073, 1306, 599, 747, 632, 1080, 620, 1079, 620)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 4, 5), PackedInt32Array(6, 7, 3), PackedInt32Array(0, 2, 8, 9, 10, 11, 12), PackedInt32Array(5, 13, 14, 11, 15), PackedInt32Array(11, 10, 16), PackedInt32Array(15, 6, 3, 5), PackedInt32Array(17, 15, 11), PackedInt32Array(17, 11, 16, 18)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(583, 597, 748, 622, 1079, 610, 1301, 589, 1322, 567, 1274, 527, 1454, 521, 1649, 550, 1979, 608, 1984, 1084, -68, 1082, -63, 644, 153, 589, 307, 567, 454, 553, 606, 555)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+
+[sub_resource type="Resource" id="Resource_tf6om"]
+script = ExtResource("5_lkue6")
+dialogue_gui = 0
+dialogue_resource = ExtResource("5_db3om")
+main_speakers = Array[Resource("res://scripts/resources/entity.gd")]([ExtResource("6_aw3e5")])
+title = "gate_1_quest"
+extra_game_states = []
+title_variation = 0
+reset_when_title_variation_reached = false
+is_dialogue_game_state = true
+
+[sub_resource type="Resource" id="Resource_1uyd6"]
+script = ExtResource("9_7qys1")
+value = "8481819993523898686"
 
 [node name="Gate1" instance=ExtResource("1_ycc0e")]
 
-[node name="Control" type="Control" parent="Background/CanvasLayer" index="0"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="NavigationRegion" index="0"]
+navigation_polygon = SubResource("NavigationPolygon_41h1c")
 
-[node name="TextureRect" type="TextureRect" parent="Background/CanvasLayer/Control" index="0"]
+[node name="TextureRect" type="TextureRect" parent="Background/CanvasLayer/Root/Center" index="0"]
 layout_mode = 0
-offset_left = -2.0
-offset_top = -344.0
-offset_right = 1927.0
-offset_bottom = 1097.0
+offset_left = -1011.0
+offset_top = -972.0
+offset_right = 1047.0
+offset_bottom = 565.0
 texture = ExtResource("2_83yqh")
 expand_mode = 1
 stretch_mode = 5
+
+[node name="PlayerNode" parent="Entities/Living" index="0" instance=ExtResource("3_qjg0q")]
+position = Vector2(1323, 837)
+scale = Vector2(0.841553, 0.841553)
+
+[node name="Guard" parent="Entities/Living" index="1" instance=ExtResource("4_22fi1")]
+position = Vector2(614, 583)
+scale = Vector2(0.532739, 0.532739)
+dialogue = SubResource("Resource_tf6om")
+quest = ExtResource("8_ong1o")
+
+[node name="BasePoint" parent="Scripts/TwoPoint5DSpaceSimulator" index="0"]
+position = Vector2(957, 878)
+
+[node name="MinimumDistance" parent="Scripts/TwoPoint5DSpaceSimulator/BasePoint" index="0"]
+position = Vector2(0, 0)
+
+[node name="MaximumDistance" parent="Scripts/TwoPoint5DSpaceSimulator/BasePoint" index="1"]
+position = Vector2(494, -386)
+
+[node name="IDComponent" parent="Scripts" index="2"]
+data = SubResource("Resource_1uyd6")
 
 [editable path="WorldEventHandler"]
 [editable path="Scripts/TwoPoint5DSpaceSimulator"]

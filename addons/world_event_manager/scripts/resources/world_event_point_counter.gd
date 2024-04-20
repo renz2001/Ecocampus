@@ -8,7 +8,7 @@ class_name WorldEventPointCounter
 ## Will increment if increment on event works and this has arguments from the event that was called. 
 @export var increment_if_has_similar_arguments: Array
 
-@export var counter: PointCounter
+@export var maximum_points: float
 
 ## Listens for the counter's signal
 @export var call_event_from_counter_signal: String
@@ -16,9 +16,16 @@ class_name WorldEventPointCounter
 ## (Optional) Calls this event when the listen_to_signal is emitted
 @export var call_event: WorldEventCall
 
+var counter: PointCounter
+
 
 func _init() -> void: 
 	super._init()
+	counter = PointCounter.new() 
+	counter.maximum = maximum_points
+	counter.when_maximum_stay = true
+	counter.starting_value = 0
+	
 	WorldEventManager.event_called.connect(_on_event_called)
 	if !call_event_from_counter_signal.is_empty(): 
 		counter.connect(call_event_from_counter_signal, _on_signal)
@@ -48,3 +55,4 @@ func _save_properties() -> PackedStringArray:
 	
 func _to_string() -> String: 
 	return "WorldEventPointCounter#%s(increment_on_event:%s, call_event_from_counter_signal:%s, current:%s)" % [increment_on_event, get_instance_id(), call_event_from_counter_signal, counter.current]
+

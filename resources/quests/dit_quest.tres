@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="EcoQuest" load_steps=6 format=3 uid="uid://bp866e3wvjnkn"]
+
+[ext_resource type="Script" path="res://scripts/resources/eco_quest.gd" id="1_2jeuv"]
+[ext_resource type="Script" path="res://scripts/resources/eco_quest_task.gd" id="2_0xajk"]
+[ext_resource type="Script" path="res://addons/world_event_manager/scripts/resources/world_event_point_counter.gd" id="2_t7pjr"]
+
+[sub_resource type="Resource" id="Resource_0iwwh"]
+script = ExtResource("2_t7pjr")
+increment_on_event = "turned_off_faucet"
+increment_if_has_similar_arguments = []
+maximum_points = 0.0
+call_event_from_counter_signal = ""
+
+[sub_resource type="Resource" id="Resource_1w7kg"]
+script = ExtResource("2_0xajk")
+description = "Faucets"
+counter = SubResource("Resource_0iwwh")
+
+[resource]
+script = ExtResource("1_2jeuv")
+percentage_description = "Turn off Faucets"
+tasks = Array[ExtResource("2_0xajk")]([SubResource("Resource_1w7kg")])
+invisible_in_gui = false
+id = 0
+quest_name = ""
+quest_description = ""
+quest_objective = ""

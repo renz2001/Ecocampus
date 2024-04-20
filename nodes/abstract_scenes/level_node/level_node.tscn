@@ -69,9 +69,16 @@ y_sort_enabled = true
 [node name="Scripts" type="Node" parent="."]
 
 [node name="TwoPoint5DSpaceSimulator" parent="Scripts" instance=ExtResource("2_lkpw8")]
+max_distance_offset = 150.0
 
 [node name="BasePoint" parent="Scripts/TwoPoint5DSpaceSimulator" index="0"]
-position = Vector2(0, 1079)
+position = Vector2(1023, 914)
+
+[node name="MinimumDistance" parent="Scripts/TwoPoint5DSpaceSimulator/BasePoint" index="0"]
+position = Vector2(0, -120)
+
+[node name="MaximumDistance" parent="Scripts/TwoPoint5DSpaceSimulator/BasePoint" index="1"]
+position = Vector2(0, -327)
 
 [node name="KingSaveComponent" parent="Scripts" node_paths=PackedStringArray("node", "id_component") instance=ExtResource("6_tky5n")]
 node = NodePath("../..")
