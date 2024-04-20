@@ -1,10 +1,46 @@
-[gd_resource type="Resource" script_class="Quiz" load_steps=2 format=3 uid="uid://b10nkin0kyph2"]
+[gd_resource type="Resource" script_class="Quiz" load_steps=8 format=3 uid="uid://b10nkin0kyph2"]
 
 [ext_resource type="Script" path="res://scripts/resources/quiz/quiz.gd" id="1_sqmg3"]
+[ext_resource type="Script" path="res://scripts/resources/quiz/quiz_problem.gd" id="1_tsia6"]
+
+[sub_resource type="Resource" id="Resource_alh3o"]
+script = ExtResource("1_tsia6")
+question = "What is the purpose of proper waste disposal into designated bins?"
+correct_answer = ""
+wrong_answers = Array[String](["To increase pollution.", "To make the environment cleaner.", "To save money on waste disposal.", "To encourage littering."])
+reward_points = 1
+
+[sub_resource type="Resource" id="Resource_6iiid"]
+script = ExtResource("1_tsia6")
+question = "Which items typically belong in the recyclable bin?"
+correct_answer = ""
+wrong_answers = Array[String](["Plastic bottles.", "Banana peels.", "Paper towels.", "Styrofoam containers."])
+reward_points = 1
+
+[sub_resource type="Resource" id="Resource_48pug"]
+script = ExtResource("1_tsia6")
+question = "What happens to biodegradable waste?"
+correct_answer = ""
+wrong_answers = Array[String](["It decomposes naturally.", "It remains unchanged forever.", "It releases harmful chemicals into the environment.", "It is incinerated to produce energy."])
+reward_points = 1
+
+[sub_resource type="Resource" id="Resource_ovh5n"]
+script = ExtResource("1_tsia6")
+question = "Why is it important to proper waste disposal?"
+correct_answer = ""
+wrong_answers = Array[String](["It has no impact on the environment.", "It reduces pollution and conserves resources.", "It increases landfill space.", "It encourages illegal dumping."])
+reward_points = 1
+
+[sub_resource type="Resource" id="Resource_ndowp"]
+script = ExtResource("1_tsia6")
+question = "What should you do if you're unsure about which bin to use?"
+correct_answer = ""
+wrong_answers = Array[String](["Guess and hope for the best.", "Ask for guidance or refer to signage.", "Throw the item in any bin.", "Ignore the problem and leave the waste unsorted."])
+reward_points = 1
 
 [resource]
 script = ExtResource("1_sqmg3")
-title = ""
-description = ""
-problems = Array[Resource("res://scripts/resources/quiz/quiz_problem.gd")]([])
-passing_score_percentage = 0.7
+title = "Saluysuy Quiz"
+description = "Clear this quiz"
+problems = Array[ExtResource("1_tsia6")]([SubResource("Resource_alh3o"), SubResource("Resource_6iiid"), SubResource("Resource_48pug"), SubResource("Resource_ovh5n"), SubResource("Resource_ndowp")])
+passing_score_percentage = 0.75

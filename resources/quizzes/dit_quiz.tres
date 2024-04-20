@@ -1,10 +1,46 @@
-[gd_resource type="Resource" script_class="Quiz" load_steps=2 format=3 uid="uid://c4boh8kwlv6s0"]
+[gd_resource type="Resource" script_class="Quiz" load_steps=8 format=3 uid="uid://c4boh8kwlv6s0"]
 
 [ext_resource type="Script" path="res://scripts/resources/quiz/quiz.gd" id="1_81cht"]
+[ext_resource type="Script" path="res://scripts/resources/quiz/quiz_problem.gd" id="1_c0j0u"]
+
+[sub_resource type="Resource" id="Resource_jwyxi"]
+script = ExtResource("1_c0j0u")
+question = "What is one way to conserve water?"
+correct_answer = ""
+wrong_answers = Array[String](["Leave the faucet running.", "Take long handwashing every day.", "Turn off the faucet when not in use.", "Water the garden during the hottest part of the day."])
+reward_points = 1
+
+[sub_resource type="Resource" id="Resource_vbs06"]
+script = ExtResource("1_c0j0u")
+question = "Which action helps reduce electricity consumption?"
+correct_answer = ""
+wrong_answers = Array[String](["Leaving lights on in empty rooms.", "Turning off lights when they’re not in use.", "Used lights even when not needed", "Keeping electronics plugged in overnight."])
+reward_points = 1
+
+[sub_resource type="Resource" id="Resource_cewg5"]
+script = ExtResource("1_c0j0u")
+question = "What is the benefit of turning off lights and faucets when not in use?"
+correct_answer = ""
+wrong_answers = Array[String](["It increases energy consumption.", "It saves money on utility bills.", "It improves air quality.", "It promotes water waste."])
+reward_points = 1
+
+[sub_resource type="Resource" id="Resource_6m2tf"]
+script = ExtResource("1_c0j0u")
+question = ""
+correct_answer = ""
+wrong_answers = Array[String](["Taking longer handwashing.", "Turning off faucets when they’re not in use.", "Using more water.", "Watering plants during peak sunlight hours."])
+reward_points = 1
+
+[sub_resource type="Resource" id="Resource_g0fis"]
+script = ExtResource("1_c0j0u")
+question = "What environmental impact does conserving water and electricity have?"
+correct_answer = ""
+wrong_answers = Array[String](["It worsens climate change.", "It depletes natural resources.", "It reduces greenhouse gas emissions and preserves ecosystems.", "It increases pollution levels in water bodies."])
+reward_points = 1
 
 [resource]
 script = ExtResource("1_81cht")
-title = ""
-description = ""
-problems = Array[Resource("res://scripts/resources/quiz/quiz_problem.gd")]([])
-passing_score_percentage = 0.7
+title = "DIT Quiz"
+description = "Clear this quiz"
+problems = Array[ExtResource("1_c0j0u")]([SubResource("Resource_jwyxi"), SubResource("Resource_vbs06"), SubResource("Resource_cewg5"), SubResource("Resource_6m2tf"), SubResource("Resource_g0fis")])
+passing_score_percentage = 0.75

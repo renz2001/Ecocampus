@@ -1,10 +1,46 @@
-[gd_resource type="Resource" script_class="Quiz" load_steps=2 format=3 uid="uid://drishnchlxncq"]
+[gd_resource type="Resource" script_class="Quiz" load_steps=8 format=3 uid="uid://drishnchlxncq"]
 
 [ext_resource type="Script" path="res://scripts/resources/quiz/quiz.gd" id="1_8y41a"]
+[ext_resource type="Script" path="res://scripts/resources/quiz/quiz_problem.gd" id="1_453m7"]
+
+[sub_resource type="Resource" id="Resource_0ghtb"]
+script = ExtResource("1_453m7")
+question = "Which is an example of non-biodegradable waste?"
+correct_answer = "Plastic bags"
+wrong_answers = Array[String](["Banana peels", "Apple cores", "Eggshells"])
+reward_points = 1
+
+[sub_resource type="Resource" id="Resource_2aagg"]
+script = ExtResource("1_453m7")
+question = "Why is it important to properly dispose of non-biodegradable waste?"
+correct_answer = "To prevent harm to the environment"
+wrong_answers = Array[String](["To increase pollution", "To harm wildlife", "To encourage littering"])
+reward_points = 1
+
+[sub_resource type="Resource" id="Resource_s2kxt"]
+script = ExtResource("1_453m7")
+question = "What can individuals do to reduce non-biodegradable waste?"
+correct_answer = " Properly dispose of recyclable items"
+wrong_answers = Array[String](["Use single-use plastic items", "Leave trash on the ground", "Ignore environmental policies"])
+reward_points = 1
+
+[sub_resource type="Resource" id="Resource_yvjj5"]
+script = ExtResource("1_453m7")
+question = "What problem does the NPC mention the university is facing?"
+correct_answer = "Trash piling up around campus"
+wrong_answers = Array[String](["Lack of resources", "Excessive noise pollution", "Overcrowded classrooms"])
+reward_points = 1
+
+[sub_resource type="Resource" id="Resource_chh8y"]
+script = ExtResource("1_453m7")
+question = "What is the role of individuals in preserving the environment on campus?"
+correct_answer = "Play their part in waste collection and disposal"
+wrong_answers = Array[String](["Disregard waste management practices", "Increase pollution levels", "Harm wildlife habitats"])
+reward_points = 1
 
 [resource]
 script = ExtResource("1_8y41a")
-title = ""
-description = ""
-problems = Array[Resource("res://scripts/resources/quiz/quiz_problem.gd")]([])
-passing_score_percentage = 0.7
+title = "CON Quiz"
+description = "Clear this quiz"
+problems = Array[ExtResource("1_453m7")]([SubResource("Resource_0ghtb"), SubResource("Resource_2aagg"), SubResource("Resource_s2kxt"), SubResource("Resource_yvjj5"), SubResource("Resource_chh8y")])
+passing_score_percentage = 0.75

@@ -1,10 +1,46 @@
-[gd_resource type="Resource" script_class="Quiz" load_steps=2 format=3 uid="uid://hcqk3h8qfao4"]
+[gd_resource type="Resource" script_class="Quiz" load_steps=8 format=3 uid="uid://hcqk3h8qfao4"]
 
+[ext_resource type="Script" path="res://scripts/resources/quiz/quiz_problem.gd" id="1_l1f2f"]
 [ext_resource type="Script" path="res://scripts/resources/quiz/quiz.gd" id="1_oiim1"]
+
+[sub_resource type="Resource" id="Resource_mbjwl"]
+script = ExtResource("1_l1f2f")
+question = "Which of the following materials is biodegradable?"
+correct_answer = "Banana peel"
+wrong_answers = Array[String](["Glass", "Paper", "Aluminum"])
+reward_points = 1
+
+[sub_resource type="Resource" id="Resource_kjd4i"]
+script = ExtResource("1_l1f2f")
+question = "What is the primary factor that determines whether a material is biodegradable?"
+correct_answer = "Chemical composition"
+wrong_answers = Array[String](["Color", "Density", "Temperature resistance"])
+reward_points = 1
+
+[sub_resource type="Resource" id="Resource_bg0qu"]
+script = ExtResource("1_l1f2f")
+question = "Which of the following is an example of a biodegradable waste?"
+correct_answer = "PLA coffee cup"
+wrong_answers = Array[String](["Styrofoam", "Banana peel", "Rubber tire"])
+reward_points = 1
+
+[sub_resource type="Resource" id="Resource_enkn2"]
+script = ExtResource("1_l1f2f")
+question = "How long does it typically take for biodegradable materials to decompose in nature?"
+correct_answer = "Weeks to months"
+wrong_answers = Array[String](["Decades", "Centuries", "Millennia"])
+reward_points = 1
+
+[sub_resource type="Resource" id="Resource_gxj2m"]
+script = ExtResource("1_l1f2f")
+question = "Which process breaks down biodegradable materials into simpler compounds?"
+correct_answer = "Decomposition"
+wrong_answers = Array[String](["Photosynthesis", "Fermentation", "Combustion"])
+reward_points = 1
 
 [resource]
 script = ExtResource("1_oiim1")
-title = ""
-description = ""
-problems = Array[Resource("res://scripts/resources/quiz/quiz_problem.gd")]([])
-passing_score_percentage = 0.7
+title = "Library Quiz"
+description = "Clear this quiz"
+problems = Array[ExtResource("1_l1f2f")]([SubResource("Resource_mbjwl"), SubResource("Resource_kjd4i"), SubResource("Resource_bg0qu"), SubResource("Resource_enkn2"), SubResource("Resource_gxj2m")])
+passing_score_percentage = 0.75

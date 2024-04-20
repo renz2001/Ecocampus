@@ -64,8 +64,8 @@ scale = Vector2(0.992752, 0.992752)
 texture = ExtResource("2_bj4v3")
 
 [node name="PlayerNode" parent="Entities/Living" index="0" instance=ExtResource("3_uej4m")]
-position = Vector2(1433, 965)
-scale = Vector2(0.93751, 0.93751)
+position = Vector2(1308, 997)
+scale = Vector2(0.960302, 0.960302)
 
 [node name="TestNPC" parent="Entities/Living" index="1" instance=ExtResource("5_qgg4j")]
 position = Vector2(860, 1018)
