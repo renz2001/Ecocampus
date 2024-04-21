@@ -11,9 +11,9 @@ size = Vector2(41, 8)
 data = ExtResource("2_p4q5a")
 
 [node name="TapHitBox" parent="." index="0"]
-offset_left = -72.0
-offset_top = -228.0
-offset_right = 73.0
+offset_left = -126.0
+offset_top = -363.0
+offset_right = 123.0
 offset_bottom = 11.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" index="0"]
@@ -25,10 +25,14 @@ position = Vector2(0, -1)
 scale = Vector2(0.128571, 0.0943397)
 
 [node name="EntitySprite" parent="Sprites" index="1"]
-position = Vector2(0, -102)
-scale = Vector2(0.3, 0.3)
+position = Vector2(1, -166)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_rrqn7")
 hframes = 4
 frame = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="8"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="9"]
+position = Vector2(-0.5, 1)
+shape = SubResource("RectangleShape2D_hnwhy")

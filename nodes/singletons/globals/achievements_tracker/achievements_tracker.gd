@@ -27,6 +27,8 @@ func _ready() -> void:
 	
 	
 func _on_quest_completed(quest: Quest) -> void: 
-	(quest as EcoQuest).display_achievement() 
+	#(quest as EcoQuest).display_achievement() 
+	pass
+	
 	
 	

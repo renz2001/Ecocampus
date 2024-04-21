@@ -30,3 +30,7 @@ texture = ExtResource("3_iajsh")
 hframes = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="8"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="9"]
+position = Vector2(-1.5, -5)
+shape = SubResource("RectangleShape2D_ndyod")

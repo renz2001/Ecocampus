@@ -8,10 +8,10 @@
 
 [sub_resource type="Resource" id="Resource_pfk3k"]
 script = ExtResource("2_cdwto")
+disabled = false
 increment_on_event = "picked_up"
 increment_if_has_similar_arguments = [ExtResource("2_b0fcq")]
 maximum_points = 5.0
-call_event_from_counter_signal = ""
 
 [sub_resource type="Resource" id="Resource_t8d6g"]
 script = ExtResource("3_c2q7r")
@@ -20,10 +20,10 @@ counter = SubResource("Resource_pfk3k")
 
 [sub_resource type="Resource" id="Resource_6sydr"]
 script = ExtResource("2_cdwto")
+disabled = false
 increment_on_event = "picked_up"
 increment_if_has_similar_arguments = [ExtResource("5_hqeca")]
 maximum_points = 5.0
-call_event_from_counter_signal = ""
 
 [sub_resource type="Resource" id="Resource_8qv71"]
 script = ExtResource("3_c2q7r")
@@ -35,7 +35,7 @@ script = ExtResource("1_m541f")
 percentage_description = "Collect 10 Bio-degradable materials"
 tasks = Array[ExtResource("3_c2q7r")]([SubResource("Resource_t8d6g"), SubResource("Resource_8qv71")])
 invisible_in_gui = false
-id = 0
+id = 4
 quest_name = ""
 quest_description = ""
 quest_objective = ""

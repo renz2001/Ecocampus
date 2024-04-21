@@ -44,6 +44,13 @@ Guard: Now, here's your first task: I need you to collect 10 water bottles. It's
 do dialogue_response_handler.respond("start_quest")
 => END
 
+~ gate_1_quest_completed
+{{PlayerManager.player.data.custom_name}}: ???????
+Guard: ?????
+do dialogue_response_handler.respond("start_quiz")
+=> END
+
+
 ~ con_quest
 {{PlayerManager.player.data.custom_name}}: Good day, Professor!
 Professor: Good day! Welcome to the College of Nursing.

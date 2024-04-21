@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3ckyt0j2xo5s"]
+
+[ext_resource type="PackedScene" uid="uid://c0br10f55v31e" path="res://nodes/components/conditional_set_resource_property_component/conditional_set_resource_property_component.tscn" id="1_anjkc"]
+[ext_resource type="Script" path="res://nodes/components/if_quest_complete_then_set_resource/if_quest_complete_then_set_resource.gd" id="2_6rviy"]
+
+[node name="IfQuestCompleteThenSetResource" instance=ExtResource("1_anjkc")]
+script = ExtResource("2_6rviy")
+check_quest = null
+dont_ready_value = true
+property_or_method = "dialogue"

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0br10f55v31e"]
+
+[ext_resource type="PackedScene" uid="uid://g7mchgj54c12" path="res://addons/macchi's_node_components/nodes/components/conditional_set_component/conditional_set_component.tscn" id="1_thc23"]
+[ext_resource type="Script" path="res://nodes/components/conditional_set_resource_property_component/conditional_set_resource_property_component.gd" id="2_rv0h6"]
+
+[node name="ConditionalSetResourcePropertyComponent" instance=ExtResource("1_thc23")]
+script = ExtResource("2_rv0h6")
+ready_value = null
+property_or_method = ""
+new_value = null

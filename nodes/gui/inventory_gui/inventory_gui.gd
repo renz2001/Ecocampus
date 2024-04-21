@@ -44,6 +44,6 @@ func update() -> void:
 			
 		if i < inventory.items.size(): 
 			slot.item = inventory.items[i]
-		printerr(slot.item)
+		#printerr(slot.item)
 	
 	

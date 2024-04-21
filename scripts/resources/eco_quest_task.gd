@@ -11,6 +11,7 @@ signal completed
 		counter = value
 		if !is_instance_valid(counter): 
 			return
+		counter.disabled = true
 		counter.counter.maximum_hit.connect(
 			_on_counter_maximum_hit
 		, CONNECT_ONE_SHOT
@@ -24,6 +25,11 @@ var is_completed: bool:
 		is_completed = value
 		if is_completed: 
 			completed.emit()
+
+
+## Called by EcoQuest. 
+func start() -> void: 
+	counter.disabled = false
 
 
 func _on_counter_maximum_hit(_value: float) -> void: 

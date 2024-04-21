@@ -1,8 +1,10 @@
-[gd_resource type="Resource" script_class="EntityCollection" load_steps=3 format=3 uid="uid://bhh3he63pm8w1"]
+[gd_resource type="Resource" script_class="EntityCollection" load_steps=5 format=3 uid="uid://bhh3he63pm8w1"]
 
 [ext_resource type="Script" path="res://scripts/resources/entity_collection.gd" id="1_nyd5b"]
 [ext_resource type="Resource" uid="uid://bhl7afn8ti7bs" path="res://resources/entity/player.tres" id="1_qgro1"]
+[ext_resource type="Resource" uid="uid://xxj7ycnehhgy" path="res://resources/entity/guard.tres" id="2_wp1j8"]
+[ext_resource type="Resource" uid="uid://bc3fisduj6hac" path="res://resources/entity/professor.tres" id="3_8ud7g"]
 
 [resource]
 script = ExtResource("1_nyd5b")
-entities = Array[Resource("res://scripts/resources/entity.gd")]([ExtResource("1_qgro1")])
+entities = Array[Resource("res://scripts/resources/entity.gd")]([ExtResource("1_qgro1"), ExtResource("2_wp1j8"), ExtResource("3_8ud7g")])

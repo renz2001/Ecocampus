@@ -19,7 +19,7 @@ sound = ExtResource("11_myst6")
 play_from_position = 0
 pitch_scale = 1.0
 volume_slider = 1.0
-volume_db = 25.0
+volume_db = 0.0
 bus = &"Master"
 
 [sub_resource type="Resource" id="Resource_jxgm7"]

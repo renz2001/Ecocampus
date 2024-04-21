@@ -3,9 +3,10 @@
 [ext_resource type="Script" path="res://addons/save_components_system/components/globals_save_component/globals_save_component.gd" id="1_quxkf"]
 [ext_resource type="PackedScene" uid="uid://bixjjksp3dphm" path="res://addons/save_components_system/components/master_save_component/master_save_component.tscn" id="2_r6cc3"]
 
-[node name="GlobalsSaveComponent" type="Node" node_paths=PackedStringArray("master_save_component")]
+[node name="GlobalsSaveComponent" type="Node" node_paths=PackedStringArray("master_save_component") groups=["GlobalsSaveComponent"]]
 script = ExtResource("1_quxkf")
 master_save_component = NodePath("MasterSaveComponent")
 
 [node name="MasterSaveComponent" parent="." instance=ExtResource("2_r6cc3")]
+dont_use = true
 no_king = true

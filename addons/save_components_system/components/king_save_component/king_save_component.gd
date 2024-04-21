@@ -20,7 +20,10 @@ func to_dict() -> Dictionary:
 			continue
 		king_dict.merge(master.to_dict())
 		#print(masters.to_dict())
-	
+	for globals: GlobalsSaveComponent in get_tree().get_nodes_in_group("GlobalsSaveComponent"): 
+		king_dict["Globals"].merge(globals.to_dict())
+		
+		
 	var key: String = str(id_component.data.value)
 	
 	var dict: Dictionary = {

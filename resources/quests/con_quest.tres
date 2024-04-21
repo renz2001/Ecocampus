@@ -8,10 +8,10 @@
 
 [sub_resource type="Resource" id="Resource_5glee"]
 script = ExtResource("3_25qtn")
+disabled = false
 increment_on_event = "picked_up"
 increment_if_has_similar_arguments = [ExtResource("2_xvuxo")]
 maximum_points = 0.0
-call_event_from_counter_signal = ""
 
 [sub_resource type="Resource" id="Resource_rhefh"]
 script = ExtResource("2_7tm0h")
@@ -20,10 +20,10 @@ counter = SubResource("Resource_5glee")
 
 [sub_resource type="Resource" id="Resource_3cxs1"]
 script = ExtResource("3_25qtn")
+disabled = false
 increment_on_event = "picked_up"
 increment_if_has_similar_arguments = [ExtResource("5_sj2b7")]
 maximum_points = 0.0
-call_event_from_counter_signal = ""
 
 [sub_resource type="Resource" id="Resource_qdfu8"]
 script = ExtResource("2_7tm0h")
@@ -35,7 +35,7 @@ script = ExtResource("1_ayv04")
 percentage_description = "Pick up Non-Biodegradable waste"
 tasks = Array[ExtResource("2_7tm0h")]([SubResource("Resource_rhefh"), SubResource("Resource_qdfu8")])
 invisible_in_gui = false
-id = 0
+id = 2
 quest_name = ""
 quest_description = ""
 quest_objective = ""

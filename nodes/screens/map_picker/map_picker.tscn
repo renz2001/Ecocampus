@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dcjxf25vgikeb"]
+[gd_scene load_steps=21 format=3 uid="uid://dcjxf25vgikeb"]
 
 [ext_resource type="PackedScene" uid="uid://3miay8g4x6j3" path="res://nodes/abstract_scenes/main_screen/main_screen.tscn" id="1_ethfg"]
 [ext_resource type="PackedScene" uid="uid://5npqpm4ofnr" path="res://nodes/gui/map_location_button/map_location_button.tscn" id="2_5f6v8"]
@@ -21,11 +21,15 @@ region = Rect2(465, 332, 745, 539)
 
 [sub_resource type="Resource" id="Resource_85384"]
 script = ExtResource("3_cuxqn")
-scene = "res://nodes/levels/test_level/test_level.tscn"
+scene = "res://nodes/levels/con_level/con_level.tscn"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6sr2r"]
 atlas = ExtResource("5_b4x4x")
 region = Rect2(985, 491, 1575, 1552)
+
+[sub_resource type="Resource" id="Resource_tncep"]
+script = ExtResource("3_cuxqn")
+scene = "res://nodes/levels/dit_level/dit_level.tscn"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ixlmw"]
 atlas = ExtResource("6_2jbm6")
@@ -34,6 +38,14 @@ region = Rect2(751, 386, 572, 665)
 [sub_resource type="Resource" id="Resource_bteyx"]
 script = ExtResource("3_cuxqn")
 scene = "res://nodes/levels/gate_1/gate_1.tscn"
+
+[sub_resource type="Resource" id="Resource_vqtlx"]
+script = ExtResource("3_cuxqn")
+scene = "res://nodes/levels/library/library.tscn"
+
+[sub_resource type="Resource" id="Resource_lmf8a"]
+script = ExtResource("3_cuxqn")
+scene = "res://nodes/levels/saluysuy/saluysuy.tscn"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h43h3"]
 atlas = ExtResource("9_t8wk1")
@@ -81,6 +93,7 @@ offset_top = 106.0
 offset_right = -82.0
 offset_bottom = 389.0
 texture_normal = SubResource("AtlasTexture_6sr2r")
+change_scene = SubResource("Resource_tncep")
 
 [node name="Gate" parent="Root/Island" index="3" instance=ExtResource("2_5f6v8")]
 layout_mode = 0
@@ -98,6 +111,7 @@ offset_top = -533.0
 offset_right = 301.0
 offset_bottom = -44.0
 texture_normal = ExtResource("7_ssrne")
+change_scene = SubResource("Resource_vqtlx")
 
 [node name="Saluysoy" parent="Root/Island" index="5" instance=ExtResource("2_5f6v8")]
 layout_mode = 0
@@ -106,6 +120,7 @@ offset_top = -239.0
 offset_right = 565.0
 offset_bottom = -18.0
 texture_normal = ExtResource("8_ob73h")
+change_scene = SubResource("Resource_lmf8a")
 
 [node name="Trashcan" parent="Root/Island" index="6" instance=ExtResource("2_5f6v8")]
 layout_mode = 0

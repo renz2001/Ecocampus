@@ -10,7 +10,11 @@ signal task_completed(task: EcoQuestTask)
 	set(value): 
 		tasks = value
 		for task: EcoQuestTask in tasks: 
-			task.completed.connect(func(): task_completed.emit(task))
+			task.completed.connect(
+				func(): 
+					task_completed.emit(task)
+					update()
+			)
 			
 ## Optional, leave null if not wanted. Unlocks this achievement when finished 
 @export var on_complete_unlock_achievement: Achievement
@@ -41,14 +45,21 @@ func _init() -> void:
 	percentage_description_format.format = "%s: %s/%s"
 	
 	
+func start() -> void: 
+	for task: EcoQuestTask in tasks: 
+		task.start()
+	
+	
 func update() -> void: 
 	var logic_gate: LogicGate = LogicGate.new()
 	
 	for task: EcoQuestTask in tasks: 
-		logic_gate.conditions.append(task.completed)
+		logic_gate.conditions.append(task.is_completed)
 		
 	if logic_gate.is_true(): 
 		objective_completed = true
+	
+	ExtendedQuestSystem.complete_quest(self)
 
 
 func display_achievement() -> void: 

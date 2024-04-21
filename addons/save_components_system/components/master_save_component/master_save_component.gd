@@ -2,6 +2,15 @@
 extends FollowerSaveComponent
 class_name MasterSaveComponent
 
+@export var dont_use: bool: 
+	set(value): 
+		dont_use = value
+		if dont_use: 
+			remove_from_group("MasterSaveComponent")
+		else: 
+			if !is_in_group("MasterSaveComponent"): 
+				add_to_group("MasterSaveComponent")
+		
 @export var id: IDComponent
 
 @export var do_not_search_nodes: PackedStringArray

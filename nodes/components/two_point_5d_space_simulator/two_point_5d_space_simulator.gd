@@ -9,6 +9,7 @@ class_name TwoPoint5DSpaceSimulator
 @export var maximum_distance: Marker2D
 @export var clamp_minimum_scale: bool = true
 
+@export var scale_size_offset: int
 @export var trans_type: Tween.TransitionType = Tween.TransitionType.TRANS_LINEAR
 @export var ease_type: Tween.EaseType = Tween.EaseType.EASE_IN
 @export var debug: bool
@@ -22,9 +23,9 @@ func get_space_scale(global_position: Vector2, speed: float) -> float:
 	var minimum: float = maximum_distance.position.y
 	var maximum: float = (minimum_distance.position.y) - minimum
 	var current: float = Tween.interpolate_value(maximum, minimum + max_distance_offset, elapsed_time, duration, trans_type, ease_type)
-	var percent: float = current / maximum
+	var percent: float = (current / maximum) + (scale_size_offset / maximum)
 	
-	var minimum_percent: float = minimum / maximum * -1
+	var minimum_percent: float = (minimum / maximum * -1) + (scale_size_offset / maximum)
 	if debug: 
 		print("
 			Minimum Distance: %s
