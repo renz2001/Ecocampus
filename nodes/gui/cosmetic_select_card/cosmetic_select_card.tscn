@@ -41,15 +41,15 @@ text = "Female"
 
 [node name="ScrollSnapContainer" parent="PanelContainer/MarginContainer/Select" index="1" instance=ExtResource("3_j2gae")]
 layout_mode = 2
-offset_right = 323.0
-offset_bottom = 488.0
+offset_right = 304.0
+offset_bottom = 471.0
 
 [node name="CosmeticsDisplayCardContainer" parent="PanelContainer/MarginContainer/Select/ScrollSnapContainer" index="2" instance=ExtResource("4_v5q5i")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 cosmetics_collection = ExtResource("3_w1swy")
-only_show_unlocked = null
+only_show_unlocked = true
 override_cosmetic_state = 3
 card_theme_type_variation = "InvisiblePanel"
 

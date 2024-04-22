@@ -2,13 +2,25 @@
 extends Resource
 class_name QuizAttempt
 
+enum AttemptState {
+	ANSWERING, 
+	VICTORY, 
+	LOST
+}
+
 signal started
 
+signal state_changed(state: AttemptState)
 signal problem_attempt_completed(attempt: QuizProblemAttempt)
 
 signal completed
 
 @export var quiz: Quiz
+@export var state: AttemptState: 
+	set(value): 
+		state = value
+		state_changed.emit(state)
+
 
 var problem_attempts: Array[QuizProblemAttempt] = []
 
@@ -28,6 +40,12 @@ var is_completed: bool = false:
 		if is_completed: 
 			completed.emit()
 
+var is_victory: bool: 
+	get: 
+		return problem_attempts.all(
+			func(attempt: QuizAttempt):
+				return attempt.is_victory
+		)
 
 static func from_quiz(_quiz: Quiz) -> QuizAttempt: 
 	var attempt: QuizAttempt = QuizAttempt.new()
@@ -48,6 +66,7 @@ func start() -> void:
 	problem_attempts = _get_problem_attempts()
 	current_problem_index.reset()
 	current_problem_index.maximum = problem_attempts.size() - 1
+	state = AttemptState.ANSWERING
 	started.emit()
 
 
@@ -69,18 +88,19 @@ func complete() -> void:
 	if is_completed: 
 		push_error("QuizAttempt: %s is already completed. " % quiz.title)
 		return
+	if is_victory: 
+		state = AttemptState.VICTORY
+	else: 
+		state = AttemptState.LOST
+		
 	is_completed = true
 
 
 func is_all_problems_completed() -> bool: 
-	var problem_attempts_size: int = problem_attempts.size()
-	var completed_count: int = 0
-	for attempt: QuizProblemAttempt in problem_attempts: 
-		if attempt.is_completed: 
-			completed_count += 1
-	if completed_count == problem_attempts_size: 
-		return true
-	return false
+	return problem_attempts.all(
+		func(attempt: QuizAttempt): 
+			return attempt.is_completed
+	)
 
 
 func _on_problem_attempt_completed(attempt: QuizProblemAttempt) -> void: 

@@ -1,9 +1,8 @@
 extends Node
 
-
-
 @export var state_chart: StateChart
 @export var to_map_picker: ChangeSceneComponent
+@export var to_select_character: ChangeSceneComponent
 @export var playing_state: AtomicState
 @export var paused_state: AtomicState
 @export var main_menu_state: AtomicState
@@ -23,7 +22,10 @@ var enable_player_on_playing_entered: bool = true:
 
 
 func start() -> void: 
-	to_map_picker.change()
+	if SaveManager.save_files_is_empty(): 
+		to_select_character.change()
+	else: 
+		to_map_picker.change()
 
 
 func is_playing() -> bool: 
@@ -37,7 +39,8 @@ func is_paused() -> bool:
 func _on_playing_state_entered() -> void:
 	playing_music.play()
 	if enable_player_on_playing_entered: 
-		PlayerManager.player.state_chart.send_event("enabled")
+		if PlayerManager.player: 
+			PlayerManager.player.state_chart.send_event("enabled")
 
 
 func _on_main_menu_state_entered() -> void:

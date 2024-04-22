@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="NPCEntity" load_steps=7 format=3 uid="uid://c3jxb53fw4muy"]
+
+[ext_resource type="Texture2D" uid="uid://dcjm4h3jfy5sh" path="res://assets/character/professor_cruz/professor_cruz.png" id="1_485jf"]
+[ext_resource type="Script" path="res://scripts/resources/npc_entity.gd" id="1_ldeam"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m2jln"]
+atlas = ExtResource("1_485jf")
+region = Rect2(369, 113, 1401, 1815)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_283ea"]
+atlas = ExtResource("1_485jf")
+region = Rect2(2367, 113, 1405, 1819)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6t2r7"]
+atlas = ExtResource("1_485jf")
+region = Rect2(2367, 113, 1405, 1819)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m16fs"]
+atlas = ExtResource("1_485jf")
+region = Rect2(4371, 111, 1404, 1819)
+
+[resource]
+script = ExtResource("1_ldeam")
+happy_sprite = SubResource("AtlasTexture_6t2r7")
+sad_sprite = SubResource("AtlasTexture_m16fs")
+custom_name = "Professor Cruz"
+name = "Professor"
+female_speaker_idle_sprite = SubResource("AtlasTexture_m2jln")
+female_speaker_talk_sprite = SubResource("AtlasTexture_283ea")
+gender = 2
+group = "Entity"

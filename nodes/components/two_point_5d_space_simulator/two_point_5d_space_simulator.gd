@@ -12,16 +12,30 @@ class_name TwoPoint5DSpaceSimulator
 @export var scale_size_offset: int
 @export var trans_type: Tween.TransitionType = Tween.TransitionType.TRANS_LINEAR
 @export var ease_type: Tween.EaseType = Tween.EaseType.EASE_IN
+
+@export var disabled: bool
 @export var debug: bool
 
-func get_space_scale(global_position: Vector2, speed: float) -> float: 
-	var node_offset: float = minimum_distance.global_position.y - global_position.y
-	var points_distance: float = maximum_distance.global_position.y - minimum_distance.global_position.y
-	var elapsed_time: float = node_offset / speed
-	var duration: float = abs(points_distance / speed)
 
+func get_space_scale(global_position: Vector2, speed: float) -> float: 
+	if disabled: 
+		return 1
+	
+	# Current position of the node
+	var node_offset: float = minimum_distance.global_position.y - global_position.y
+	
+	# Distance between the maximum and the minimum
+	var points_distance: float = maximum_distance.global_position.y - minimum_distance.global_position.y
+	
+	# Node distance divided by his speed
+	var elapsed_time: float = node_offset / speed
+	
+	var duration: float = abs(points_distance / speed)
+	
 	var minimum: float = maximum_distance.position.y
+	
 	var maximum: float = (minimum_distance.position.y) - minimum
+	
 	var current: float = Tween.interpolate_value(maximum, minimum + max_distance_offset, elapsed_time, duration, trans_type, ease_type)
 	var percent: float = (current / maximum) + (scale_size_offset / maximum)
 	

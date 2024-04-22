@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/macchi's_gui_manager/nodes/gui/gui/gui.tscn" id="1_46gjk"]
 [ext_resource type="Script" path="res://nodes/screens/achievement_unlocked_screen/achievement_unlocked_screen.gd" id="2_87r6r"]
-[ext_resource type="PackedScene" uid="uid://c584i6hhgux8p" path="res://nodes/gui/achievement_unlocked_gui/achievement_unlocked_gui.tscn" id="2_utc4q"]
+[ext_resource type="PackedScene" uid="uid://c584i6hhgux8p" path="res://nodes/levels/gui/achievement_unlocked_gui/achievement_unlocked_gui.tscn" id="2_utc4q"]
 
 [node name="AchievementUnlockedScreen" instance=ExtResource("1_46gjk")]
 anchors_preset = 15

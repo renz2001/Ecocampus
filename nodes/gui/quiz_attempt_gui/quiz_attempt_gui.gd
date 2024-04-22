@@ -34,7 +34,6 @@ func start(q: Quiz) -> void:
 
 
 func _on_quiz_attempt_completed() -> void: 
-	print(quiz_attempt.score)
 	score.input([str(quiz_attempt.score), str(quiz_attempt.quiz.maximum_score)])
 
 

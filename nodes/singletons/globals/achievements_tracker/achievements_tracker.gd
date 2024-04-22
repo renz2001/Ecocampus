@@ -18,6 +18,8 @@ class_name AchievementsTracker
 			
 @export var achievements_quests: Array[EcoQuest]
 
+var medals: PointCounterComponent
+
 
 func _ready() -> void: 
 	for quest: EcoQuest in achievements_quests: 
@@ -27,7 +29,9 @@ func _ready() -> void:
 	
 	
 func _on_quest_completed(quest: Quest) -> void: 
+	var eco_quest: EcoQuest = quest
 	#(quest as EcoQuest).display_achievement() 
+	medals.add(eco_quest.on_complete_unlock_achievement.reward_medals)
 	pass
 	
 	

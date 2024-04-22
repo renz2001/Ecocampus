@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bjsr1rnrk3ssi"]
+[gd_scene load_steps=19 format=3 uid="uid://gclvecuvrsiy"]
 
 [ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/macchi's_gui_manager/nodes/gui/gui/gui.tscn" id="1_tkvea"]
 [ext_resource type="PackedScene" uid="uid://dyvkcprf58urk" path="res://addons/macchi's_gui_manager/nodes/gui/page_router_container/page_router_container.tscn" id="2_dmxuy"]
@@ -10,7 +10,7 @@
 [ext_resource type="LabelSettings" uid="uid://b4jfqs4wewmec" path="res://resources/label_settings/font_sizes/quiz_attemp_title.tres" id="5_pby04"]
 [ext_resource type="PackedScene" uid="uid://dj23rqjh7m1r3" path="res://addons/macchi's_gui_manager/nodes/components/page_router/page_router.tscn" id="7_xwpdj"]
 [ext_resource type="FontFile" uid="uid://dqdntixoq4bc2" path="res://fonts/Ubuntu-Medium.ttf" id="8_3fasx"]
-[ext_resource type="PackedScene" uid="uid://xg2ytqrjlg5u" path="res://nodes/gui/quiz_problem_page/quiz_problem_page.tscn" id="10_jfxo7"]
+[ext_resource type="PackedScene" uid="uid://lallm550hhks" path="res://nodes/gui/quiz_problem_page/quiz_problem_page.tscn" id="10_jfxo7"]
 [ext_resource type="PackedScene" uid="uid://der1edoxrqxln" path="res://nodes/gui_components/set_game_state_on_gui_active/set_game_state_on_gui_active.tscn" id="12_hwelt"]
 [ext_resource type="PackedScene" uid="uid://cdhkyjskyryv" path="res://nodes/gui/formatted_label/formatted_label.tscn" id="12_lgx71"]
 [ext_resource type="Script" path="res://scripts/resources/string_formatter.gd" id="13_t84n1"]
@@ -18,6 +18,7 @@
 [sub_resource type="Resource" id="Resource_p4emr"]
 script = ExtResource("5_6v16n")
 quiz = ExtResource("3_rhkgw")
+state = 0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v16tb"]
 atlas = ExtResource("3_1ovje")

@@ -1,12 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://bi3j4clefo8l"]
+[gd_scene load_steps=11 format=3 uid="uid://bi3j4clefo8l"]
 
 [ext_resource type="PackedScene" uid="uid://cm6jeskbiise6" path="res://nodes/abstract_scenes/level_node/level_node.tscn" id="1_fiqww"]
 [ext_resource type="Texture2D" uid="uid://dwio4j5yvarq1" path="res://assets/background/camera_pictures/con_bg.jpg" id="2_eiuxd"]
 [ext_resource type="PackedScene" uid="uid://8qsjsyglmgq4" path="res://nodes/entities/player_node/player_node.tscn" id="3_rulr0"]
-[ext_resource type="PackedScene" uid="uid://ysp2h4h7neww" path="res://nodes/entities/professor/professor.tscn" id="4_ckpg3"]
-[ext_resource type="Resource" uid="uid://byaj1bas2wkaw" path="res://resources/dialogues/dialogues.dialogue" id="5_gm3s4"]
-[ext_resource type="Resource" uid="uid://bhl7afn8ti7bs" path="res://resources/entity/player.tres" id="6_ceond"]
-[ext_resource type="Script" path="res://addons/dialogue_manager's_dialogue_gui_manager/scripts/arguments/dialogue_arguments.gd" id="7_xss1r"]
+[ext_resource type="PackedScene" uid="uid://ysp2h4h7neww" path="res://nodes/entities/professor_cruz/professor_cruz.tscn" id="4_ckpg3"]
+[ext_resource type="Resource" uid="uid://0i0nf32i7a4m" path="res://resources/dialogue_arguments/con_quest_dialogue.tres" id="5_ic0dq"]
+[ext_resource type="Resource" uid="uid://drishnchlxncq" path="res://resources/quizzes/con_quiz.tres" id="6_g07y4"]
+[ext_resource type="Resource" uid="uid://djr5dksp1iyt" path="res://resources/quests/con_quest.tres" id="7_ob5e1"]
 [ext_resource type="Script" path="res://addons/save_components_system/scripts/resources/id.gd" id="8_jaiqu"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_x2g58"]
@@ -14,17 +14,6 @@ vertices = PackedVector2Array(1542, 690, 1512, 673, 2007, 673, -71, 710, 423, 70
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 4, 5), PackedInt32Array(0, 2, 6, 7), PackedInt32Array(7, 6, 8, 9), PackedInt32Array(10, 9, 8), PackedInt32Array(11, 12, 10, 8, 13), PackedInt32Array(13, 8, 3, 5)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(575, 680, 1336, 663, 1406, 700, 1472, 706, 1531, 695, 1474, 663, 1587, 663, 2017, 663, 2015, 1289, -81, 1312, -81, 701, 439, 695, 428, 720, 456, 723)])
 source_geometry_group_name = &"navigation_polygon_source_group"
-
-[sub_resource type="Resource" id="Resource_id2xt"]
-script = ExtResource("7_xss1r")
-dialogue_gui = 0
-dialogue_resource = ExtResource("5_gm3s4")
-main_speakers = Array[Resource("res://scripts/resources/entity.gd")]([ExtResource("6_ceond")])
-title = "con_quest"
-extra_game_states = []
-title_variation = 0
-reset_when_title_variation_reached = false
-is_dialogue_game_state = true
 
 [sub_resource type="Resource" id="Resource_sq2wg"]
 script = ExtResource("8_jaiqu")
@@ -46,13 +35,15 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="PlayerNode" parent="Entities/Living" index="0" instance=ExtResource("3_rulr0")]
-position = Vector2(694, 923)
-scale = Vector2(1.37958, 1.37958)
+position = Vector2(960, 961)
+scale = Vector2(1.42174, 1.42174)
 
-[node name="Professor" parent="Entities/Living" index="1" instance=ExtResource("4_ckpg3")]
+[node name="ProfessorCruz" parent="Entities/Living" index="1" instance=ExtResource("4_ckpg3")]
 position = Vector2(1312, 699)
 scale = Vector2(0.607575, 0.607575)
-dialogue = SubResource("Resource_id2xt")
+dialogue = ExtResource("5_ic0dq")
+quiz = ExtResource("6_g07y4")
+quest = ExtResource("7_ob5e1")
 
 [node name="IDComponent" parent="Scripts" index="2"]
 data = SubResource("Resource_sq2wg")

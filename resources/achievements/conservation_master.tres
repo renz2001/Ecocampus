@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Achievement" load_steps=2 format=3 uid="uid://88k0vh4c70wq"]
+
+[ext_resource type="Script" path="res://scripts/resources/achievement.gd" id="1_hv00h"]
+
+[resource]
+script = ExtResource("1_hv00h")
+title = "Conservation Master"
+task_description = "Completed the Conservation Assessment given by Professor Luna"
+reward_medals = 3

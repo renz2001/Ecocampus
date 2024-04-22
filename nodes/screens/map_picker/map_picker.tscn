@@ -1,8 +1,8 @@
-[gd_scene load_steps=21 format=3 uid="uid://dcjxf25vgikeb"]
+[gd_scene load_steps=24 format=3 uid="uid://dcjxf25vgikeb"]
 
 [ext_resource type="PackedScene" uid="uid://3miay8g4x6j3" path="res://nodes/abstract_scenes/main_screen/main_screen.tscn" id="1_ethfg"]
 [ext_resource type="PackedScene" uid="uid://5npqpm4ofnr" path="res://nodes/gui/map_location_button/map_location_button.tscn" id="2_5f6v8"]
-[ext_resource type="Texture2D" uid="uid://dmbnej0o25nd6" path="res://assets/map/map_transparent.png" id="2_oteo3"]
+[ext_resource type="Texture2D" uid="uid://co881qitymalu" path="res://assets/map/island.png" id="2_j6xsv"]
 [ext_resource type="Script" path="res://scripts/arguments/change_scene_arguments.gd" id="3_cuxqn"]
 [ext_resource type="Texture2D" uid="uid://cmyovnl4vkyxt" path="res://assets/map/icons/con_icon.png" id="4_sbxly"]
 [ext_resource type="Texture2D" uid="uid://d3qhdft6m3gyt" path="res://assets/map/icons/dit_icon.png" id="5_b4x4x"]
@@ -12,12 +12,12 @@
 [ext_resource type="Texture2D" uid="uid://c53nvgcsjrpdg" path="res://assets/map/icons/trashcan_icon.png" id="9_t8wk1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6f7ax"]
-atlas = ExtResource("2_oteo3")
-region = Rect2(315, 46, 1313, 942)
+atlas = ExtResource("2_j6xsv")
+region = Rect2(329, 45, 1301, 942)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s445c"]
 atlas = ExtResource("4_sbxly")
-region = Rect2(465, 332, 745, 539)
+region = Rect2(449, 332, 779, 556)
 
 [sub_resource type="Resource" id="Resource_85384"]
 script = ExtResource("3_cuxqn")
@@ -25,7 +25,7 @@ scene = "res://nodes/levels/con_level/con_level.tscn"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6sr2r"]
 atlas = ExtResource("5_b4x4x")
-region = Rect2(985, 491, 1575, 1552)
+region = Rect2(985, 491, 1575, 1593)
 
 [sub_resource type="Resource" id="Resource_tncep"]
 script = ExtResource("3_cuxqn")
@@ -33,15 +33,23 @@ scene = "res://nodes/levels/dit_level/dit_level.tscn"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ixlmw"]
 atlas = ExtResource("6_2jbm6")
-region = Rect2(751, 386, 572, 665)
+region = Rect2(751, 386, 572, 678)
 
 [sub_resource type="Resource" id="Resource_bteyx"]
 script = ExtResource("3_cuxqn")
 scene = "res://nodes/levels/gate_1/gate_1.tscn"
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_wfi8a"]
+atlas = ExtResource("7_ssrne")
+region = Rect2(46, 238, 905, 449)
+
 [sub_resource type="Resource" id="Resource_vqtlx"]
 script = ExtResource("3_cuxqn")
 scene = "res://nodes/levels/library/library.tscn"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_twbk7"]
+atlas = ExtResource("8_ob73h")
+region = Rect2(151, 170, 745, 619)
 
 [sub_resource type="Resource" id="Resource_lmf8a"]
 script = ExtResource("3_cuxqn")
@@ -49,7 +57,11 @@ scene = "res://nodes/levels/saluysuy/saluysuy.tscn"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h43h3"]
 atlas = ExtResource("9_t8wk1")
-region = Rect2(1130, 871, 808, 646)
+region = Rect2(1130, 871, 808, 666)
+
+[sub_resource type="Resource" id="Resource_04iki"]
+script = ExtResource("3_cuxqn")
+scene = "res://nodes/levels/trash_cans_level/trash_cans_level.tscn"
 
 [node name="MapPicker" instance=ExtResource("1_ethfg")]
 
@@ -110,16 +122,16 @@ offset_left = -188.0
 offset_top = -533.0
 offset_right = 301.0
 offset_bottom = -44.0
-texture_normal = ExtResource("7_ssrne")
+texture_normal = SubResource("AtlasTexture_wfi8a")
 change_scene = SubResource("Resource_vqtlx")
 
 [node name="Saluysoy" parent="Root/Island" index="5" instance=ExtResource("2_5f6v8")]
 layout_mode = 0
-offset_left = 344.0
-offset_top = -239.0
-offset_right = 565.0
-offset_bottom = -18.0
-texture_normal = ExtResource("8_ob73h")
+offset_left = 285.0
+offset_top = -279.0
+offset_right = 578.0
+offset_bottom = 14.0
+texture_normal = SubResource("AtlasTexture_twbk7")
 change_scene = SubResource("Resource_lmf8a")
 
 [node name="Trashcan" parent="Root/Island" index="6" instance=ExtResource("2_5f6v8")]
@@ -129,3 +141,4 @@ offset_top = -7.0
 offset_right = 462.0
 offset_bottom = 226.0
 texture_normal = SubResource("AtlasTexture_h43h3")
+change_scene = SubResource("Resource_04iki")

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Achievement" load_steps=2 format=3 uid="uid://dbbymv6ckahd2"]
+
+[ext_resource type="Script" path="res://scripts/resources/achievement.gd" id="1_hhrle"]
+
+[resource]
+script = ExtResource("1_hhrle")
+title = "Segregation Expert"
+task_description = "Completed the Waste Segregation Assessment given by Doctor Madrigal"
+reward_medals = 3

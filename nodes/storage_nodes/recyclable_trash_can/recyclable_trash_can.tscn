@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtqoxulajxxhx"]
+
+[ext_resource type="PackedScene" uid="uid://b60walfcy1mey" path="res://nodes/abstract_scenes/trash_can_node/trash_can_node.tscn" id="1_mxl8k"]
+[ext_resource type="Texture2D" uid="uid://h62a3busxrdm" path="res://assets/trash_cans/trashcan_recyclable.png" id="2_f6slk"]
+
+[node name="RecyclableTrashCan" instance=ExtResource("1_mxl8k")]
+can_take = 2
+
+[node name="EntitySprite" parent="Sprites" index="1"]
+position = Vector2(0, -200)
+texture = ExtResource("2_f6slk")

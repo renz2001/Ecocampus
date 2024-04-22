@@ -6,36 +6,36 @@
 [sub_resource type="Resource" id="Resource_jwyxi"]
 script = ExtResource("1_c0j0u")
 question = "What is one way to conserve water?"
-correct_answer = ""
-wrong_answers = Array[String](["Leave the faucet running.", "Take long handwashing every day.", "Turn off the faucet when not in use.", "Water the garden during the hottest part of the day."])
+correct_answer = "Turn off the faucet when not in use."
+wrong_answers = Array[String](["Leave the faucet running.", "Take long handwashing every day.", "Water the garden during the hottest part of the day."])
 reward_points = 1
 
 [sub_resource type="Resource" id="Resource_vbs06"]
 script = ExtResource("1_c0j0u")
 question = "Which action helps reduce electricity consumption?"
-correct_answer = ""
-wrong_answers = Array[String](["Leaving lights on in empty rooms.", "Turning off lights when they’re not in use.", "Used lights even when not needed", "Keeping electronics plugged in overnight."])
+correct_answer = "Turning off lights when they’re not in use."
+wrong_answers = Array[String](["Leaving lights on in empty rooms.", "Used lights even when not needed", "Keeping electronics plugged in overnight."])
 reward_points = 1
 
 [sub_resource type="Resource" id="Resource_cewg5"]
 script = ExtResource("1_c0j0u")
 question = "What is the benefit of turning off lights and faucets when not in use?"
-correct_answer = ""
-wrong_answers = Array[String](["It increases energy consumption.", "It saves money on utility bills.", "It improves air quality.", "It promotes water waste."])
+correct_answer = "It saves money on utility bills."
+wrong_answers = Array[String](["It increases energy consumption.", "It improves air quality.", "It promotes water waste."])
 reward_points = 1
 
 [sub_resource type="Resource" id="Resource_6m2tf"]
 script = ExtResource("1_c0j0u")
-question = ""
-correct_answer = ""
-wrong_answers = Array[String](["Taking longer handwashing.", "Turning off faucets when they’re not in use.", "Using more water.", "Watering plants during peak sunlight hours."])
+question = "How can individuals contribute to water conservation?"
+correct_answer = "Turning off faucets when they’re not in use."
+wrong_answers = Array[String](["Taking longer handwashing.", "Using more water.", "Watering plants during peak sunlight hours."])
 reward_points = 1
 
 [sub_resource type="Resource" id="Resource_g0fis"]
 script = ExtResource("1_c0j0u")
 question = "What environmental impact does conserving water and electricity have?"
-correct_answer = ""
-wrong_answers = Array[String](["It worsens climate change.", "It depletes natural resources.", "It reduces greenhouse gas emissions and preserves ecosystems.", "It increases pollution levels in water bodies."])
+correct_answer = "It reduces greenhouse gas emissions and preserves ecosystems."
+wrong_answers = Array[String](["It worsens climate change.", "It depletes natural resources.", "It increases pollution levels in water bodies."])
 reward_points = 1
 
 [resource]

@@ -22,7 +22,6 @@ signal correctly_answered
 @export var answer_c: TextureButtonPlus
 @export var answer_d: TextureButtonPlus
 
-#@export var page_router: PageRouter
 var problem_attempt: QuizProblemAttempt: 
 	set(value): 
 		problem_attempt = value

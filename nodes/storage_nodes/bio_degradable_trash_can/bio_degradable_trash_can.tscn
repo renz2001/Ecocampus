@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://ceslx0shjft6"]
+
+[ext_resource type="PackedScene" uid="uid://b60walfcy1mey" path="res://nodes/abstract_scenes/trash_can_node/trash_can_node.tscn" id="1_bj2r5"]
+[ext_resource type="Texture2D" uid="uid://c4rspyjiw8gb" path="res://assets/trash_cans/trashcan_bio.png" id="2_q8srf"]
+
+[node name="BioDegradableTrashCan" instance=ExtResource("1_bj2r5")]
+can_take = 1
+
+[node name="EntitySprite" parent="Sprites" index="1"]
+position = Vector2(0, -200)
+texture = ExtResource("2_q8srf")

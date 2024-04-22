@@ -111,7 +111,7 @@ func _on_finished_navigation() -> void:
 func _on_dialogue_response_handler_responded(value: String) -> void: 
 	match value: 
 		"start_quiz": 
-			QuizAttemptScreen.display(quiz)
+			QuizAttemptScreen.display(quiz, data)
 		"start_quest": 
 			ExtendedQuestSystem.start_quest(quest)
 

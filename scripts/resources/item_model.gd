@@ -2,9 +2,16 @@
 extends Resource
 class_name ItemModel
 
+enum Type {
+	NON_BIODEGRADABLE, 
+	BIODEGRADABLE, 
+	RECYCLABLE
+}
+
 @export var name: StringName
 @export var description: String
 @export var item_icon: CompressedTexture2D
+@export var type: Type
 
 @export var maximum_stack: int = 12
 

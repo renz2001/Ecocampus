@@ -1,13 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://xg2ytqrjlg5u"]
+[gd_scene load_steps=4 format=3 uid="uid://lallm550hhks"]
 
-[ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/macchi's_gui_manager/nodes/gui/gui/gui.tscn" id="1_7kinb"]
-[ext_resource type="Script" path="res://nodes/gui/quiz_problem_page/quiz_problem_page.gd" id="2_034k8"]
-[ext_resource type="PackedScene" uid="uid://dggdvwjvdrmkh" path="res://nodes/gui/buttons/medium_wooden_button/medium_wooden_button.tscn" id="3_kno8c"]
+[ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/macchi's_gui_manager/nodes/gui/gui/gui.tscn" id="1_6udxv"]
+[ext_resource type="Script" path="res://nodes/gui/quiz_problem_page/quiz_problem_page.gd" id="2_ex2pk"]
+[ext_resource type="PackedScene" uid="uid://dggdvwjvdrmkh" path="res://nodes/gui/buttons/medium_wooden_button/medium_wooden_button.tscn" id="3_adaod"]
 
-[node name="QuizProblemPage" node_paths=PackedStringArray("question_label", "answers", "answer_a", "answer_b", "answer_c", "answer_d") instance=ExtResource("1_7kinb")]
+[node name="QuizProblemPage" node_paths=PackedStringArray("question_label", "answers", "answer_a", "answer_b", "answer_c", "answer_d") instance=ExtResource("1_6udxv")]
 offset_right = 1048.0
 offset_bottom = 766.0
-script = ExtResource("2_034k8")
+script = ExtResource("2_ex2pk")
 quiz_attempt = null
 question_label = NodePath("MarginContainer/VBoxContainer/PanelContainer/Question")
 answers = NodePath("MarginContainer/VBoxContainer/MarginContainer/Answers")
@@ -57,22 +57,22 @@ layout_mode = 2
 size_flags_vertical = 3
 columns = 2
 
-[node name="A" parent="MarginContainer/VBoxContainer/MarginContainer/Answers" index="0" instance=ExtResource("3_kno8c")]
+[node name="A" parent="MarginContainer/VBoxContainer/MarginContainer/Answers" index="0" instance=ExtResource("3_adaod")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="C" parent="MarginContainer/VBoxContainer/MarginContainer/Answers" index="1" instance=ExtResource("3_kno8c")]
+[node name="C" parent="MarginContainer/VBoxContainer/MarginContainer/Answers" index="1" instance=ExtResource("3_adaod")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="B" parent="MarginContainer/VBoxContainer/MarginContainer/Answers" index="2" instance=ExtResource("3_kno8c")]
+[node name="B" parent="MarginContainer/VBoxContainer/MarginContainer/Answers" index="2" instance=ExtResource("3_adaod")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="D" parent="MarginContainer/VBoxContainer/MarginContainer/Answers" index="3" instance=ExtResource("3_kno8c")]
+[node name="D" parent="MarginContainer/VBoxContainer/MarginContainer/Answers" index="3" instance=ExtResource("3_adaod")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3

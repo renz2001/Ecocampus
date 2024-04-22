@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="NPCEntity" load_steps=7 format=3 uid="uid://cr75riymavve3"]
+
+[ext_resource type="Texture2D" uid="uid://bqllbqmxp6loa" path="res://assets/character/professor_grayson/professor_grayson.png" id="1_hgeb1"]
+[ext_resource type="Script" path="res://scripts/resources/npc_entity.gd" id="1_jddau"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qhtjs"]
+atlas = ExtResource("1_hgeb1")
+region = Rect2(502, 84, 1106, 1839)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xmecj"]
+atlas = ExtResource("1_hgeb1")
+region = Rect2(2490, 91, 1105, 1839)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cfxvq"]
+atlas = ExtResource("1_hgeb1")
+region = Rect2(2490, 91, 1105, 1839)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2tugm"]
+atlas = ExtResource("1_hgeb1")
+region = Rect2(4577, 76, 1095, 1840)
+
+[resource]
+script = ExtResource("1_jddau")
+happy_sprite = SubResource("AtlasTexture_cfxvq")
+sad_sprite = SubResource("AtlasTexture_2tugm")
+custom_name = "Professor Grayson"
+name = "Professor"
+female_speaker_idle_sprite = SubResource("AtlasTexture_qhtjs")
+female_speaker_talk_sprite = SubResource("AtlasTexture_xmecj")
+gender = 1
+group = "Entity"

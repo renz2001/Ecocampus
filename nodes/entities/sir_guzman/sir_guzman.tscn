@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://cdmdfj5nfysk5"]
+
+[ext_resource type="PackedScene" uid="uid://b8627vb83551h" path="res://nodes/abstract_scenes/npc_node/npc_node.tscn" id="1_l8i7v"]
+[ext_resource type="Texture2D" uid="uid://dk8lr7ojnn1gt" path="res://assets/character/sir_guzman/sir_guzman.png" id="2_ast4u"]
+[ext_resource type="Resource" uid="uid://bl4aif8jgye1x" path="res://resources/entity/sir_guzman.tres" id="2_t6ug5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i5k4q"]
+size = Vector2(77, 37)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vjoyd"]
+size = Vector2(76, 19)
+
+[node name="SirGuzman" instance=ExtResource("1_l8i7v")]
+data = ExtResource("2_t6ug5")
+
+[node name="TapHitBox" parent="." index="0"]
+offset_left = -113.0
+offset_top = -388.0
+offset_right = 139.0
+offset_bottom = 13.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2(-1.5, -8.5)
+shape = SubResource("RectangleShape2D_i5k4q")
+
+[node name="ShadowCircle" parent="Sprites" index="0"]
+position = Vector2(-3.8, 0.200012)
+
+[node name="EntitySprite" parent="Sprites" index="1"]
+position = Vector2(7.2, -185.8)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_ast4u")
+hframes = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="8"]
+position = Vector2(-1, -2.5)
+shape = SubResource("RectangleShape2D_vjoyd")

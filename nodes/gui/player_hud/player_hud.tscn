@@ -14,7 +14,6 @@ grow_vertical = 2
 script = ExtResource("2_3hk1a")
 inventory_gui = NodePath("MarginContainer/Control/InventoryGUI")
 inactive_on_ready = false
-only_one_instance = true
 
 [node name="MarginContainer" type="MarginContainer" parent="." index="0"]
 layout_mode = 1
@@ -36,8 +35,6 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -151.0
-offset_bottom = -151.0
+offset_top = -145.0
+offset_bottom = -145.0
 grow_vertical = 0
-size_flags_horizontal = 0
-size_flags_vertical = 8

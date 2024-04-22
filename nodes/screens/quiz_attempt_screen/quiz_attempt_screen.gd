@@ -8,12 +8,28 @@ class_name QuizAttemptScreen
 	set(value): 
 		quiz = value
 		quiz_attempt_gui
+		
+@export var entity_answering: NPCEntity: 
+	set(value): 
+		entity_answering = value
+		if !entity_answering: 
+			return
+		idle.texture = entity_answering.get_speaker_idle_sprite()
+		happy.texture = entity_answering.happy_sprite
+		sad.texture = entity_answering.sad_sprite
+		
+@export var idle: TextureRect
+@export var happy: TextureRect
+@export var sad: TextureRect
 
+@export var reaction_sprites: TabContainer
 
-static func display(q: Quiz) -> QuizAttemptScreen: 
+static func display(q: Quiz, _entity_answering: Entity) -> QuizAttemptScreen: 
 	var screen: QuizAttemptScreen = GUIManager.quiz_attempt_screen
 	GUIManager.set_gui_active(screen, true)
 	GUIManager.set_gui_active(screen.quiz_attempt_gui, true)
+	if _entity_answering is NPCEntity: 
+		screen.entity_answering = _entity_answering
 	screen.start(q)
 	return screen
 	
@@ -28,6 +44,19 @@ func start(q: Quiz) -> void:
 	quiz = q
 	assesment_music.play()
 	quiz_attempt_gui.start(quiz)
+	quiz_attempt_gui.quiz_attempt.state_changed.connect(
+		_on_quiz_attempt_state_changed
+	)
+
+
+func _on_quiz_attempt_state_changed(state: QuizAttempt.AttemptState) -> void: 
+	match state: 
+		QuizAttempt.AttemptState.ANSWERING: 
+			reaction_sprites.current_tab = 0
+		QuizAttempt.AttemptState.VICTORY: 
+			reaction_sprites.current_tab = 1
+		QuizAttempt.AttemptState.LOST: 
+			reaction_sprites.current_tab = 2
 
 
 func _on_quiz_attempt_gui_deactivated() -> void:

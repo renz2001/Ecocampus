@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cm6jeskbiise6" path="res://nodes/abstract_scenes/level_node/level_node.tscn" id="1_ycc0e"]
 [ext_resource type="Texture2D" uid="uid://bb8wuo25lx7ap" path="res://assets/background/camera_pictures/gate_1.jpg" id="2_83yqh"]
 [ext_resource type="PackedScene" uid="uid://8qsjsyglmgq4" path="res://nodes/entities/player_node/player_node.tscn" id="3_qjg0q"]
-[ext_resource type="PackedScene" uid="uid://bjwdvr5nd6ox7" path="res://nodes/entities/guard/guard.tscn" id="4_22fi1"]
+[ext_resource type="PackedScene" uid="uid://cdmdfj5nfysk5" path="res://nodes/entities/sir_guzman/sir_guzman.tscn" id="4_22fi1"]
 [ext_resource type="Resource" uid="uid://bvfdawon4ukh2" path="res://resources/dialogue_arguments/gate_1_guard_quest_dialogue.tres" id="5_ps4hj"]
 [ext_resource type="Resource" uid="uid://dqnawmf4l2y2c" path="res://resources/quests/gate_1_quest.tres" id="8_ong1o"]
 [ext_resource type="Resource" uid="uid://dcuvl2mko4mon" path="res://resources/quizzes/gate_1_quiz.tres" id="8_q1xfd"]
@@ -41,14 +41,14 @@ stretch_mode = 5
 [node name="PlayerNode" parent="Entities/Living" index="0" instance=ExtResource("3_qjg0q")]
 position = Vector2(1589, 899)
 
-[node name="Guard" parent="Entities/Living" index="1" instance=ExtResource("4_22fi1")]
+[node name="SirGuzman" parent="Entities/Living" index="1" instance=ExtResource("4_22fi1")]
 position = Vector2(614, 583)
 scale = Vector2(0.532739, 0.532739)
 dialogue = ExtResource("5_ps4hj")
 quiz = ExtResource("8_q1xfd")
 quest = ExtResource("8_ong1o")
 
-[node name="IfQuestCompleteThenSetResource" parent="Entities/Living/Guard" index="9" node_paths=PackedStringArray("node") instance=ExtResource("10_yj2nn")]
+[node name="IfQuestCompleteThenSetResource" parent="Entities/Living/SirGuzman" index="8" node_paths=PackedStringArray("node") instance=ExtResource("10_yj2nn")]
 check_quest = ExtResource("8_ong1o")
 node = NodePath("..")
 new_value = ExtResource("9_nhi2k")

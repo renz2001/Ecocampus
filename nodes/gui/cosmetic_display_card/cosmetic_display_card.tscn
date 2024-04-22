@@ -1,13 +1,21 @@
-[gd_scene load_steps=6 format=3 uid="uid://cijbhqkas6yol"]
+[gd_scene load_steps=11 format=3 uid="uid://cijbhqkas6yol"]
 
 [ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/macchi's_gui_manager/nodes/gui/gui/gui.tscn" id="1_gd4lf"]
 [ext_resource type="Script" path="res://nodes/gui/cosmetic_display_card/cosmetic_display_card.gd" id="2_4ppon"]
 [ext_resource type="PackedScene" uid="uid://bk4jnfmvdr6ud" path="res://nodes/gui/buttons/button_plus/button_plus.tscn" id="3_f8fm6"]
-[ext_resource type="Resource" uid="uid://bhl7afn8ti7bs" path="res://resources/entity/player.tres" id="3_plikv"]
+[ext_resource type="Resource" uid="uid://dpg6457rwx03a" path="res://resources/entity/player.tres" id="3_plikv"]
+[ext_resource type="Resource" uid="uid://do37so0kbmn3r" path="res://resources/cosmetics/royalty.tres" id="4_gn3vd"]
+[ext_resource type="Texture2D" uid="uid://cmph4t8mxf5qa" path="res://assets/customize_character/lock.png" id="5_euy2j"]
+[ext_resource type="Texture2D" uid="uid://cht5skdtape5d" path="res://assets/character/player_boy/sets/boy_as_king.png" id="6_g0j33"]
+[ext_resource type="Texture2D" uid="uid://bloiawg11mnph" path="res://assets/achievements/achievement_medal.png" id="7_svgud"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i356o"]
 
-[node name="CosmeticDisplayCard" node_paths=PackedStringArray("state_view", "cosmetic_icon", "locked_button_state_view", "panel_container") instance=ExtResource("1_gd4lf")]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ag6op"]
+atlas = ExtResource("6_g0j33")
+region = Rect2(381, 45, 140, 236)
+
+[node name="CosmeticDisplayCard" node_paths=PackedStringArray("state_view", "cosmetic_icon", "panel_container", "points_label") instance=ExtResource("1_gd4lf")]
 custom_minimum_size = Vector2(363, 0)
 anchors_preset = 15
 anchor_right = 1.0
@@ -17,12 +25,12 @@ grow_vertical = 2
 script = ExtResource("2_4ppon")
 player = ExtResource("3_plikv")
 gender = 1
-cosmetic = null
-state = 0
+cosmetic = ExtResource("4_gn3vd")
+state = 1
 state_view = NodePath("PanelContainer/MarginContainer/StateView")
-cosmetic_icon = NodePath("PanelContainer/MarginContainer/StateView/CosmeticIcon")
-locked_button_state_view = NodePath("PanelContainer/MarginContainer/StateView/LockedState/LockedButtonStateView")
+cosmetic_icon = NodePath("PanelContainer/MarginContainer/StateView/VBoxContainer/CosmeticIcon")
 panel_container = NodePath("PanelContainer")
+points_label = NodePath("PanelContainer/MarginContainer/StateView/LockedState/UnlockButton/CenterContainer/HBoxContainer/Points")
 inactive_on_ready = false
 
 [node name="PanelContainer" type="PanelContainer" parent="." index="0"]
@@ -39,29 +47,78 @@ layout_mode = 2
 [node name="StateView" type="TabContainer" parent="PanelContainer/MarginContainer" index="0"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_i356o")
+current_tab = 1
 tabs_visible = false
 
 [node name="LockedState" type="VBoxContainer" parent="PanelContainer/MarginContainer/StateView" index="1"]
+visible = false
 layout_mode = 2
+theme_override_constants/separation = 10
 alignment = 1
 
 [node name="LockSprite" type="TextureRect" parent="PanelContainer/MarginContainer/StateView/LockedState" index="0"]
 layout_mode = 2
 size_flags_vertical = 3
+texture = ExtResource("5_euy2j")
 stretch_mode = 3
 
-[node name="LockedButtonStateView" type="TabContainer" parent="PanelContainer/MarginContainer/StateView/LockedState" index="1"]
+[node name="CosmeticName" type="Label" parent="PanelContainer/MarginContainer/StateView/LockedState" index="1"]
 layout_mode = 2
-tabs_visible = false
+text = "CosmeticName
+"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="LockedButton" parent="PanelContainer/MarginContainer/StateView/LockedState/LockedButtonStateView" index="1" instance=ExtResource("3_f8fm6")]
+[node name="UnlockButton" parent="PanelContainer/MarginContainer/StateView/LockedState" index="2" instance=ExtResource("3_f8fm6")]
+layout_mode = 2
+text = "
+"
+
+[node name="CenterContainer" type="CenterContainer" parent="PanelContainer/MarginContainer/StateView/LockedState/UnlockButton" index="2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/StateView/LockedState/UnlockButton/CenterContainer" index="0"]
+layout_mode = 2
+mouse_filter = 2
+alignment = 1
+
+[node name="Unlock" type="Label" parent="PanelContainer/MarginContainer/StateView/LockedState/UnlockButton/CenterContainer/HBoxContainer" index="0"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Unlock"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Medal" type="TextureRect" parent="PanelContainer/MarginContainer/StateView/LockedState/UnlockButton/CenterContainer/HBoxContainer" index="1"]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("7_svgud")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Points" type="Label" parent="PanelContainer/MarginContainer/StateView/LockedState/UnlockButton/CenterContainer/HBoxContainer" index="2"]
+layout_mode = 2
+text = "1"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/StateView" index="2"]
 layout_mode = 2
 
-[node name="UnlockButton" parent="PanelContainer/MarginContainer/StateView/LockedState/LockedButtonStateView" index="2" instance=ExtResource("3_f8fm6")]
-visible = false
+[node name="CosmeticIcon" type="TextureRect" parent="PanelContainer/MarginContainer/StateView/VBoxContainer" index="0"]
 layout_mode = 2
-
-[node name="CosmeticIcon" type="TextureRect" parent="PanelContainer/MarginContainer/StateView" index="2"]
-visible = false
-layout_mode = 2
+size_flags_vertical = 3
+texture = SubResource("AtlasTexture_ag6op")
 stretch_mode = 3
+
+[node name="CosmeticName" type="Label" parent="PanelContainer/MarginContainer/StateView/VBoxContainer" index="1"]
+layout_mode = 2
+text = "CosmeticName"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/StateView/LockedState/UnlockButton" to="." method="_on_unlock_button_pressed"]

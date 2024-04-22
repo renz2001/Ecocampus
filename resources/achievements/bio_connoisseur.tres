@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Achievement" load_steps=2 format=3 uid="uid://dvjcesc5uyvkf"]
+
+[ext_resource type="Script" path="res://scripts/resources/achievement.gd" id="1_d50cm"]
+
+[resource]
+script = ExtResource("1_d50cm")
+title = "Bio Connoisseur"
+task_description = "Completed the Biodegradable Assessment given by Professor Grayson"
+reward_medals = 3

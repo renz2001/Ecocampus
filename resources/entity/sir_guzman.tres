@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="NPCEntity" load_steps=7 format=3 uid="uid://bl4aif8jgye1x"]
+
+[ext_resource type="Script" path="res://scripts/resources/npc_entity.gd" id="1_r4n4w"]
+[ext_resource type="Texture2D" uid="uid://dk8lr7ojnn1gt" path="res://assets/character/sir_guzman/sir_guzman.png" id="1_xdyd4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1eqtp"]
+atlas = ExtResource("1_xdyd4")
+region = Rect2(2438, 45, 1185, 1923)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3spdr"]
+atlas = ExtResource("1_xdyd4")
+region = Rect2(440, 42, 1184, 1923)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yux14"]
+atlas = ExtResource("1_xdyd4")
+region = Rect2(2438, 45, 1185, 1923)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o5gul"]
+atlas = ExtResource("1_xdyd4")
+region = Rect2(4434, 38, 1190, 1931)
+
+[resource]
+script = ExtResource("1_r4n4w")
+happy_sprite = SubResource("AtlasTexture_1eqtp")
+sad_sprite = SubResource("AtlasTexture_o5gul")
+custom_name = "Sir Guzman"
+name = "Guard"
+male_speaker_idle_sprite = SubResource("AtlasTexture_3spdr")
+male_speaker_talk_sprite = SubResource("AtlasTexture_yux14")
+gender = 1
+group = "Entity"

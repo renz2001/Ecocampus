@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="NPCEntity" load_steps=7 format=3 uid="uid://cc4y5n24btac5"]
+
+[ext_resource type="Script" path="res://scripts/resources/npc_entity.gd" id="1_il8gl"]
+[ext_resource type="Texture2D" uid="uid://drijx0n3yyg6d" path="res://assets/character/doctor_madrigal/doctor_madrigal.png" id="1_ynmcx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tcspc"]
+atlas = ExtResource("1_ynmcx")
+region = Rect2(2533, 97, 1069, 1823)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4aexc"]
+atlas = ExtResource("1_ynmcx")
+region = Rect2(545, 112, 1042, 1798)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1hh37"]
+atlas = ExtResource("1_ynmcx")
+region = Rect2(2533, 97, 1069, 1823)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bvxd5"]
+atlas = ExtResource("1_ynmcx")
+region = Rect2(4555, 114, 1032, 1789)
+
+[resource]
+script = ExtResource("1_il8gl")
+happy_sprite = SubResource("AtlasTexture_tcspc")
+sad_sprite = SubResource("AtlasTexture_bvxd5")
+custom_name = "Doctor Madrigal"
+name = "Doctor"
+male_speaker_idle_sprite = SubResource("AtlasTexture_4aexc")
+male_speaker_talk_sprite = SubResource("AtlasTexture_1hh37")
+gender = 1
+group = "Entity"

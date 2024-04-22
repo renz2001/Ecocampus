@@ -6,36 +6,36 @@
 [sub_resource type="Resource" id="Resource_alh3o"]
 script = ExtResource("1_tsia6")
 question = "What is the purpose of proper waste disposal into designated bins?"
-correct_answer = ""
-wrong_answers = Array[String](["To increase pollution.", "To make the environment cleaner.", "To save money on waste disposal.", "To encourage littering."])
+correct_answer = "To make the environment cleaner."
+wrong_answers = Array[String](["To increase pollution.", "To save money on waste disposal.", "To encourage littering."])
 reward_points = 1
 
 [sub_resource type="Resource" id="Resource_6iiid"]
 script = ExtResource("1_tsia6")
 question = "Which items typically belong in the recyclable bin?"
-correct_answer = ""
-wrong_answers = Array[String](["Plastic bottles.", "Banana peels.", "Paper towels.", "Styrofoam containers."])
+correct_answer = "Plastic bottles."
+wrong_answers = Array[String](["Banana peels.", "Paper towels.", "Styrofoam containers."])
 reward_points = 1
 
 [sub_resource type="Resource" id="Resource_48pug"]
 script = ExtResource("1_tsia6")
 question = "What happens to biodegradable waste?"
-correct_answer = ""
-wrong_answers = Array[String](["It decomposes naturally.", "It remains unchanged forever.", "It releases harmful chemicals into the environment.", "It is incinerated to produce energy."])
+correct_answer = "It decomposes naturally."
+wrong_answers = Array[String](["It remains unchanged forever.", "It releases harmful chemicals into the environment.", "It is incinerated to produce energy."])
 reward_points = 1
 
 [sub_resource type="Resource" id="Resource_ovh5n"]
 script = ExtResource("1_tsia6")
 question = "Why is it important to proper waste disposal?"
-correct_answer = ""
-wrong_answers = Array[String](["It has no impact on the environment.", "It reduces pollution and conserves resources.", "It increases landfill space.", "It encourages illegal dumping."])
+correct_answer = "It reduces pollution and conserves resources."
+wrong_answers = Array[String](["It has no impact on the environment.", "It increases landfill space.", "It encourages illegal dumping."])
 reward_points = 1
 
 [sub_resource type="Resource" id="Resource_ndowp"]
 script = ExtResource("1_tsia6")
 question = "What should you do if you're unsure about which bin to use?"
-correct_answer = ""
-wrong_answers = Array[String](["Guess and hope for the best.", "Ask for guidance or refer to signage.", "Throw the item in any bin.", "Ignore the problem and leave the waste unsorted."])
+correct_answer = "Ask for guidance or refer to signage."
+wrong_answers = Array[String](["Guess and hope for the best.", "Throw the item in any bin.", "Ignore the problem and leave the waste unsorted."])
 reward_points = 1
 
 [resource]

@@ -19,6 +19,8 @@ y_sort_enabled = true
 script = ExtResource("1_i8rcc")
 id_component = NodePath("Scripts/IDComponent")
 
+[node name="Environment" type="Node2D" parent="."]
+
 [node name="NavigationRegion" type="Node2D" parent="."]
 z_index = 2
 y_sort_enabled = true

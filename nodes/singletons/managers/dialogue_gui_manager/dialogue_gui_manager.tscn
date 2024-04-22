@@ -2,10 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://blkclu0ewbpa" path="res://addons/dialogue_manager's_dialogue_gui_manager/nodes/singletons/managers/base_dialogue_gui_manager/base_dialogue_gui_manager.tscn" id="1_gr8rf"]
 [ext_resource type="PackedScene" uid="uid://drqljvmqpitaj" path="res://addons/macchi's_gui_manager/nodes/gui/acting_container/acting_container.tscn" id="2_0kfrd"]
-[ext_resource type="PackedScene" uid="uid://blx1a7x2yt18" path="res://nodes/gui/dialogue_guis/dialogue_box/dialogue_box.tscn" id="2_n6fh7"]
+[ext_resource type="PackedScene" uid="uid://blx1a7x2yt18" path="res://nodes/levels/gui/dialogue_guis/dialogue_box/dialogue_box.tscn" id="2_n6fh7"]
 [ext_resource type="Script" path="res://nodes/singletons/managers/dialogue_gui_manager/dialogue_gui_manager.gd" id="2_xarql"]
-[ext_resource type="PackedScene" uid="uid://visuur1utug0" path="res://nodes/gui/gaussian_blur/gaussian_blur.tscn" id="4_5jmys"]
-[ext_resource type="PackedScene" uid="uid://bn7xar08yeuer" path="res://nodes/gui/invisible_button/invisible_button.tscn" id="4_kny8a"]
+[ext_resource type="PackedScene" uid="uid://visuur1utug0" path="res://nodes/levels/gui/gaussian_blur/gaussian_blur.tscn" id="4_5jmys"]
+[ext_resource type="PackedScene" uid="uid://bn7xar08yeuer" path="res://nodes/levels/gui/invisible_button/invisible_button.tscn" id="4_kny8a"]
 [ext_resource type="PackedScene" uid="uid://djvu45m1p70d8" path="res://nodes/gui_components/on_pressed_components/on_pressed_next_dialogue/on_pressed_next_dialogue.tscn" id="6_wcs1h"]
 
 [node name="DialogueGUIManager" node_paths=PackedStringArray("current_dialogue_gui") instance=ExtResource("1_gr8rf")]

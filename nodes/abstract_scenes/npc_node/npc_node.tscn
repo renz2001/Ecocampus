@@ -71,3 +71,6 @@ script = ExtResource("4_5t7p8")
 script = ExtResource("3_o4eif")
 to = NodePath("../../Idle")
 event = &"idle"
+
+[node name="ShadowCircle" parent="Sprites" index="0"]
+scale = Vector2(0.229306, 0.168255)

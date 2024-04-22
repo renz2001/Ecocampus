@@ -4,7 +4,6 @@ class_name PointCounterComponent
 
 @export var points: PointCounter
 
-
 func set_properties(props: PointCounterProperties) -> void: 
 	points.starting_value = props.starting_value
 	points.maximum = props.maximum

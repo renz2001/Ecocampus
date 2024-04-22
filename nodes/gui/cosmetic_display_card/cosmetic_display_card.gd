@@ -19,10 +19,7 @@ class_name CosmeticDisplayCard
 		cosmetic = value
 		if !is_node_ready(): 
 			await ready
-		if cosmetic: 
-			cosmetic_icon.texture = cosmetic.get_icon(player.gender)
-		else: 
-			cosmetic_icon.texture = null
+		update()
 
 @export var state: Cosmetic.CosmeticState: 
 	set(value): 
@@ -37,9 +34,10 @@ class_name CosmeticDisplayCard
 
 @export var state_view: TabContainer
 @export var cosmetic_icon: TextureRect
-@export var locked_button_state_view: TabContainer
 @export var panel_container: PanelContainer
-
+@export var points_label: Label
+@export var cosmetic_name_label: Label
+@export var cosmetic_name_label_2: Label
 
 static func create(parent: Node, _cosmetic: Cosmetic, theme_variation: String = "") -> CosmeticDisplayCard: 
 	var gui: CosmeticDisplayCard = GUICollection.cosmetic_display_card.instantiate()
@@ -51,5 +49,16 @@ static func create(parent: Node, _cosmetic: Cosmetic, theme_variation: String = 
 	
 	
 func update() -> void: 
-	cosmetic = cosmetic
+	state = cosmetic.state
+	if cosmetic: 
+		cosmetic_icon.texture = cosmetic.get_icon(player.gender)
+	else: 
+		cosmetic_icon.texture = null
+	cosmetic_name_label.text = cosmetic.get_current_name(player.gender)
+	cosmetic_name_label_2.text = cosmetic.get_current_name(player.gender)
 
+
+func _on_unlock_button_pressed() -> void:
+	cosmetic.unlock(GlobalData.achievements_tracker.medals.current)
+	
+	

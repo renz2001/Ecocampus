@@ -4,9 +4,10 @@ class_name Cosmetic
 
 enum CosmeticState {
 	LOCKED, 
-	UNLOCKABLE, 
 	UNLOCKED, 
 }
+
+signal unlocked
 
 @export var name: String
 
@@ -22,7 +23,11 @@ enum CosmeticState {
 			return name
 		return female_alias
 
-@export var unlocked: bool
+@export var is_unlocked: bool: 
+	set(value): 
+		is_unlocked = value
+		if is_unlocked: 
+			unlocked.emit()
 
 @export var male_icon: Texture2D
 @export var female_icon: Texture2D
@@ -32,6 +37,7 @@ enum CosmeticState {
 @export var male_sprite: Texture2D
 @export var female_sprite: Texture2D
 
+@export var medals_required: int = 1
 
 func get_icon(gender: GlobalEnums.Gender) -> Texture2D: 
 	match gender: 
@@ -42,9 +48,18 @@ func get_icon(gender: GlobalEnums.Gender) -> Texture2D:
 	return null
 	
 	
-func unlock() -> void: 
-	unlocked = true
+func get_current_name(gender: GlobalEnums.Gender) -> String: 
+	match gender: 
+		GlobalEnums.Gender.MALE: 
+			return male_alias
+		GlobalEnums.Gender.FEMALE: 
+			return female_alias
+	return ""
 	
+	
+func unlock(medals: int) -> void: 
+	if medals == medals_required: 
+		is_unlocked = true
 	
 	
 func _save_properties() -> PackedStringArray: 

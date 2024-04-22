@@ -1,7 +1,7 @@
 extends NodeComponent
 class_name ChangeSceneComponent
 
-@export_file() var to_scene: String
+@export_file(".tscn") var to_scene: String
 @export var transition: GUITransition
 
 

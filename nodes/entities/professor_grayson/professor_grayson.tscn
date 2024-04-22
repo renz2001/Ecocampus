@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://bwtcw61dsyb32"]
+
+[ext_resource type="PackedScene" uid="uid://b8627vb83551h" path="res://nodes/abstract_scenes/npc_node/npc_node.tscn" id="1_koi0q"]
+[ext_resource type="Texture2D" uid="uid://bqllbqmxp6loa" path="res://assets/character/professor_grayson/professor_grayson.png" id="2_77h22"]
+[ext_resource type="Resource" uid="uid://cr75riymavve3" path="res://resources/entity/professor_grayson.tres" id="2_fnkfj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2oxh6"]
+size = Vector2(81, 44)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_apv3d"]
+size = Vector2(86, 22)
+
+[node name="ProfessorGrayson" instance=ExtResource("1_koi0q")]
+data = ExtResource("2_fnkfj")
+
+[node name="TapHitBox" parent="." index="0"]
+offset_left = -103.0
+offset_top = -362.0
+offset_right = 125.0
+offset_bottom = 16.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2(0.5, -9)
+shape = SubResource("RectangleShape2D_2oxh6")
+
+[node name="ShadowCircle" parent="Sprites" index="0"]
+position = Vector2(-5, 0)
+
+[node name="EntitySprite" parent="Sprites" index="1"]
+position = Vector2(9.53674e-07, -172)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_77h22")
+hframes = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="8"]
+position = Vector2(-1, 2)
+shape = SubResource("RectangleShape2D_apv3d")

@@ -40,10 +40,11 @@ volume_slider = 1.0
 volume_db = 0.0
 bus = &"Music"
 
-[node name="GameManager" type="Node" node_paths=PackedStringArray("state_chart", "to_map_picker", "playing_state", "paused_state", "main_menu_state", "menu_music", "playing_music")]
+[node name="GameManager" type="Node" node_paths=PackedStringArray("state_chart", "to_map_picker", "to_select_character", "playing_state", "paused_state", "main_menu_state", "menu_music", "playing_music")]
 script = ExtResource("1_pr44q")
 state_chart = NodePath("StateChart")
-to_map_picker = NodePath("ChangeScene/ToSelectCharacter")
+to_map_picker = NodePath("ChangeScene/ToMapPicker")
+to_select_character = NodePath("ChangeScene/ToSelectCharacter")
 playing_state = NodePath("StateChart/Root/GameState/Playing")
 paused_state = NodePath("StateChart/Root/GameState/Paused")
 main_menu_state = NodePath("StateChart/Root/GameState/MainMenu")
@@ -135,6 +136,9 @@ event = &"playing"
 
 [node name="ToSelectCharacter" parent="ChangeScene" instance=ExtResource("7_b865j")]
 to_scene = "res://nodes/screens/select_character_screen/select_character_screen.tscn"
+
+[node name="ToMapPicker" parent="ChangeScene" instance=ExtResource("7_b865j")]
+to_scene = "res://nodes/screens/map_picker/map_picker.tscn"
 
 [node name="Audio" type="Node" parent="."]
 

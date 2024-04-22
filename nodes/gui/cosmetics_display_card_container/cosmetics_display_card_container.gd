@@ -31,6 +31,7 @@ enum OverrideCosmeticState {
 @export var override_cosmetic_state: OverrideCosmeticState
 @export var card_theme_type_variation: String = ""
 
+
 func update() -> void: 
 	clear()
 	
@@ -41,8 +42,6 @@ func update() -> void:
 				gui.state = Cosmetic.CosmeticState.LOCKED
 			OverrideCosmeticState.UNLOCKED: 
 				gui.state = Cosmetic.CosmeticState.UNLOCKED
-			OverrideCosmeticState.UNLOCKABLE: 
-				gui.state = Cosmetic.CosmeticState.UNLOCKABLE
 		#printerr(cosmetic.name)
 		#printerr(cosmetic.female_icon)
 	

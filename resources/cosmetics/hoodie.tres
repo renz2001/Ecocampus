@@ -23,3 +23,4 @@ female_icon = SubResource("AtlasTexture_twxgr")
 state = 0
 male_sprite = ExtResource("2_nwlei")
 female_sprite = ExtResource("1_h3s1x")
+medals_required = 3

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Achievement" load_steps=2 format=3 uid="uid://cclvpls5dt1r8"]
+
+[ext_resource type="Script" path="res://scripts/resources/achievement.gd" id="1_cdcrj"]
+
+[resource]
+script = ExtResource("1_cdcrj")
+title = "Non-Bio Connoisseur"
+task_description = "Completed the Non-Biodegradable Assessment given by Professor Cruz"
+reward_medals = 3

@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="NPCEntity" load_steps=7 format=3 uid="uid://dvsirph1tn1ko"]
+
+[ext_resource type="Texture2D" uid="uid://c21ba0glywlxf" path="res://assets/character/professor_luna/professor_luna.png" id="1_ccjh3"]
+[ext_resource type="Script" path="res://scripts/resources/npc_entity.gd" id="2_xvd1p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wgdlr"]
+atlas = ExtResource("1_ccjh3")
+region = Rect2(281, 78, 1216, 1831)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_28mxu"]
+atlas = ExtResource("1_ccjh3")
+region = Rect2(2300, 84, 1213, 1827)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1vvt1"]
+atlas = ExtResource("1_ccjh3")
+region = Rect2(2300, 84, 1213, 1827)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2iw0f"]
+atlas = ExtResource("1_ccjh3")
+region = Rect2(4048, 91, 1949, 1843)
+
+[resource]
+script = ExtResource("2_xvd1p")
+happy_sprite = SubResource("AtlasTexture_1vvt1")
+sad_sprite = SubResource("AtlasTexture_2iw0f")
+custom_name = "Professor Luna"
+name = "Professor"
+female_speaker_idle_sprite = SubResource("AtlasTexture_wgdlr")
+female_speaker_talk_sprite = SubResource("AtlasTexture_28mxu")
+gender = 2
+group = "Entity"

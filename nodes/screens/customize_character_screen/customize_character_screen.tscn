@@ -42,3 +42,15 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_vertical = 3
 cosmetics_collection = ExtResource("3_v3djt")
+
+[connection signal="visibility_changed" from="CenterContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18456" to="CenterContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18456" method="_on_visibility_changed"]
+[connection signal="visibility_changed" from="CenterContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18459" to="CenterContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18459" method="_on_visibility_changed"]
+[connection signal="visibility_changed" from="CenterContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18462" to="CenterContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18462" method="_on_visibility_changed"]
+[connection signal="visibility_changed" from="CenterContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18465" to="CenterContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18465" method="_on_visibility_changed"]
+[connection signal="visibility_changed" from="CenterContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18468" to="CenterContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18468" method="_on_visibility_changed"]
+[connection signal="visibility_changed" from="CenterContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18471" to="CenterContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18471" method="_on_visibility_changed"]
+[connection signal="visibility_changed" from="CenterContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18474" to="CenterContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18474" method="_on_visibility_changed"]
+[connection signal="visibility_changed" from="CenterContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18477" to="CenterContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18477" method="_on_visibility_changed"]
+[connection signal="visibility_changed" from="CenterContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18480" to="CenterContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18480" method="_on_visibility_changed"]
+[connection signal="visibility_changed" from="CenterContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18483" to="CenterContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18483" method="_on_visibility_changed"]
+[connection signal="visibility_changed" from="CenterContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18486" to="CenterContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18486" method="_on_visibility_changed"]

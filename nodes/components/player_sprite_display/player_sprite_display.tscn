@@ -1,0 +1,14 @@
+[gd_scene load_steps=5 format=3 uid="uid://ci8jg3d2e7j5p"]
+
+[ext_resource type="Texture2D" uid="uid://dqshq874l3ic5" path="res://assets/character/player_boy/boy.png" id="1_khc1t"]
+[ext_resource type="Script" path="res://nodes/components/player_sprite_display/player_sprite_display.gd" id="1_xc6l6"]
+[ext_resource type="Resource" uid="uid://dpg6457rwx03a" path="res://resources/entity/player.tres" id="2_1w3mr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8oaj7"]
+atlas = ExtResource("1_khc1t")
+region = Rect2(381, 52, 140, 229)
+
+[node name="PlayerSpriteDisplay" type="Sprite2D"]
+texture = SubResource("AtlasTexture_8oaj7")
+script = ExtResource("1_xc6l6")
+player = ExtResource("2_1w3mr")

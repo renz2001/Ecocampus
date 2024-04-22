@@ -11,6 +11,11 @@ var is_completed: bool:
 		if is_completed: 
 			completed.emit()
 			
+var is_victory: bool: 
+	get: 
+		return points == problem.reward_points
+
+
 var points: float
 
 

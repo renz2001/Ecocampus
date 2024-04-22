@@ -14,6 +14,8 @@ class_name ItemSlot
 			item.stack.current_changed.disconnect(_on_item_stack_current_changed)
 		
 		item = value
+		if !is_node_ready(): 
+			await ready
 		update()
 		
 		if item: 

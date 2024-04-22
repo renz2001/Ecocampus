@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://dabell1f8jfje"]
+
+[ext_resource type="PackedScene" uid="uid://b8627vb83551h" path="res://nodes/abstract_scenes/npc_node/npc_node.tscn" id="1_cultw"]
+[ext_resource type="Resource" uid="uid://dvsirph1tn1ko" path="res://resources/entity/professor_luna.tres" id="2_0camq"]
+[ext_resource type="Texture2D" uid="uid://c21ba0glywlxf" path="res://assets/character/professor_luna/professor_luna.png" id="2_xjy8c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4i2fh"]
+size = Vector2(101, 57)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3j4rj"]
+size = Vector2(81, 22)
+
+[node name="ProfessorLuna" instance=ExtResource("1_cultw")]
+data = ExtResource("2_0camq")
+
+[node name="TapHitBox" parent="." index="0"]
+offset_left = -132.0
+offset_top = -386.0
+offset_right = 117.0
+offset_bottom = 26.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2(4.5, -18.5)
+shape = SubResource("RectangleShape2D_4i2fh")
+
+[node name="ShadowCircle" parent="Sprites" index="0"]
+position = Vector2(-1.8, 0)
+
+[node name="EntitySprite" parent="Sprites" index="1"]
+position = Vector2(14.2, -176)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_xjy8c")
+hframes = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="8"]
+position = Vector2(1.5, -6)
+shape = SubResource("RectangleShape2D_3j4rj")

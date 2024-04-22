@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Achievement" load_steps=2 format=3 uid="uid://0w24c5562rud"]
+
+[ext_resource type="Script" path="res://scripts/resources/achievement.gd" id="1_d7nss"]
+
+[resource]
+script = ExtResource("1_d7nss")
+title = "Waste Segregator"
+task_description = "Finished segregating trash in the trashcan for Doctor Madrigal"
+reward_medals = 1

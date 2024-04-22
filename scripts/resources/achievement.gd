@@ -5,6 +5,7 @@ signal unlocked
 
 @export var title: String
 @export var task_description: String
+@export var reward_medals: int = 1
 
 var is_unlocked: bool: 
 	set(value): 
