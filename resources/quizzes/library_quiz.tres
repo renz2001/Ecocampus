@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="Quiz" load_steps=8 format=3 uid="uid://hcqk3h8qfao4"]
+[gd_resource type="Resource" script_class="Quiz" load_steps=9 format=3 uid="uid://hcqk3h8qfao4"]
 
+[ext_resource type="Resource" uid="uid://dvjcesc5uyvkf" path="res://resources/achievements/bio_connoisseur.tres" id="1_ib3vt"]
 [ext_resource type="Script" path="res://scripts/resources/quiz/quiz_problem.gd" id="1_l1f2f"]
 [ext_resource type="Script" path="res://scripts/resources/quiz/quiz.gd" id="1_oiim1"]
 
@@ -43,4 +44,5 @@ script = ExtResource("1_oiim1")
 title = "Library Quiz"
 description = "Clear this quiz"
 problems = Array[ExtResource("1_l1f2f")]([SubResource("Resource_mbjwl"), SubResource("Resource_kjd4i"), SubResource("Resource_bg0qu"), SubResource("Resource_enkn2"), SubResource("Resource_gxj2m")])
+on_victory_unloch_achievement = ExtResource("1_ib3vt")
 passing_score_percentage = 0.75

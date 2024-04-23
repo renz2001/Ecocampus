@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://qfyxou4gfo7f"]
+[gd_scene load_steps=15 format=3 uid="uid://qfyxou4gfo7f"]
 
 [ext_resource type="PackedScene" uid="uid://hdksnn1gc6qq" path="res://addons/macchi's_gui_manager/nodes/gui/dialog_gui/dialog_gui.tscn" id="1_vqmba"]
 [ext_resource type="Script" path="res://nodes/gui/interact_dialog/interact_dialog.gd" id="2_5f634"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cnsvmjc5ytto2" path="res://nodes/components/on_visible_then_scale/on_visible_then_scale.tscn" id="5_t4yxs"]
 [ext_resource type="Script" path="res://addons/macchi's_node_components/scripts/arguments/tween_arguments.gd" id="6_hyohs"]
 [ext_resource type="Texture2D" uid="uid://do0rkrmxxseyk" path="res://assets/buttons/ok_button.png" id="6_m2xc1"]
+[ext_resource type="PackedScene" uid="uid://dh1ftkyfip0sh" path="res://nodes/gui_components/on_tap_set_active/on_tap_set_active.tscn" id="10_1lx0p"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l0aej"]
 atlas = ExtResource("3_0ji44")
@@ -31,27 +32,38 @@ transition_type = 10
 ease_type = 1
 duration = 0.4
 
-[node name="InteractDialog" node_paths=PackedStringArray("description_label", "ok_button") instance=ExtResource("1_vqmba")]
+[node name="InteractDialog" node_paths=PackedStringArray("body", "description_label", "ok_button") instance=ExtResource("1_vqmba")]
 offset_left = 1.0
 offset_top = 1.0
-offset_right = 380.0
-offset_bottom = 251.0
+offset_right = 1.0
+offset_bottom = 1.0
 scale = Vector2(1e-05, 1e-05)
+mouse_filter = 1
 script = ExtResource("2_5f634")
+body = NodePath("Body")
 description_label = NodePath("Body/MarginContainer/Description")
 ok_button = NodePath("Body/OKButton")
 inactive_on_ready = false
-only_one_instance = true
 
-[node name="Body" type="TextureRect" parent="." index="0"]
+[node name="OnTapSetActive" parent="." index="0" node_paths=PackedStringArray("gui") instance=ExtResource("10_1lx0p")]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -430.0
-offset_top = -330.0
-offset_right = -414.0
-offset_bottom = -289.0
+offset_left = -1305.0
+offset_top = -963.0
+offset_right = 615.0
+offset_bottom = 378.0
+gui = NodePath("..")
+
+[node name="Body" type="TextureRect" parent="." index="1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -466.5
+offset_top = -343.0
+offset_right = 8.5
+offset_bottom = 21.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("AtlasTexture_l0aej")
@@ -119,15 +131,11 @@ grow_vertical = 0
 texture_normal = SubResource("AtlasTexture_ocl6h")
 metadata/_edit_use_anchors_ = true
 
-[node name="OnVisibleThenScale" parent="." index="1" node_paths=PackedStringArray("node") instance=ExtResource("5_t4yxs")]
+[node name="OnVisibleThenScale" parent="." index="2" node_paths=PackedStringArray("node") instance=ExtResource("5_t4yxs")]
 editor_play = false
 tween = SubResource("Resource_x4ke4")
 node = NodePath("..")
 on_hide = true
-
-[node name="Starting" type="Marker2D" parent="OnVisibleThenScale" index="1"]
-
-[node name="Ending" type="Marker2D" parent="OnVisibleThenScale" index="2"]
 
 [connection signal="visibility_changed" from="." to="OnVisibleThenScale" method="_on_visible"]
 [connection signal="pressed" from="Body/OKButton" to="." method="_on_medium_wooden_button_pressed"]

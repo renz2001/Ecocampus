@@ -74,7 +74,7 @@ func _to_string() -> String:
 	if model: 
 		n = model.name
 	if stack: 
-		cur = stack.current
+		cur = int(stack.current)
 	return "%s<ItemStack#%s>(stack_count:%s)" % [n, get_instance_id(),  cur]
 
 

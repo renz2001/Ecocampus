@@ -1,13 +1,18 @@
-[gd_resource type="Resource" script_class="EntityCollection" load_steps=8 format=3 uid="uid://bhh3he63pm8w1"]
+[gd_resource type="Resource" script_class="EntityCollection" load_steps=13 format=3 uid="uid://bhh3he63pm8w1"]
 
 [ext_resource type="Script" path="res://scripts/resources/entity_collection.gd" id="1_nyd5b"]
-[ext_resource type="Resource" uid="uid://bhl7afn8ti7bs" path="res://resources/entity/player.tres" id="1_qgro1"]
+[ext_resource type="Resource" uid="uid://dpg6457rwx03a" path="res://resources/entity/player.tres" id="1_qgro1"]
 [ext_resource type="Resource" uid="uid://cc4y5n24btac5" path="res://resources/entity/doctor_madrigal.tres" id="3_0xhuy"]
 [ext_resource type="Resource" uid="uid://c3jxb53fw4muy" path="res://resources/entity/professor_cruz.tres" id="3_8ud7g"]
 [ext_resource type="Resource" uid="uid://cr75riymavve3" path="res://resources/entity/professor_grayson.tres" id="4_jyaey"]
 [ext_resource type="Resource" uid="uid://dvsirph1tn1ko" path="res://resources/entity/professor_luna.tres" id="5_pkrc7"]
 [ext_resource type="Resource" uid="uid://bl4aif8jgye1x" path="res://resources/entity/sir_guzman.tres" id="6_v5gks"]
+[ext_resource type="Resource" uid="uid://b4ntrvtglcevm" path="res://resources/entity/annie.tres" id="7_joce0"]
+[ext_resource type="Resource" uid="uid://dsjk4wa3r6s0k" path="res://resources/entity/bea.tres" id="8_211us"]
+[ext_resource type="Resource" uid="uid://xuc21em8d5ue" path="res://resources/entity/enzo.tres" id="9_lx1gv"]
+[ext_resource type="Resource" uid="uid://bfb7gbbwg7rj2" path="res://resources/entity/viktor.tres" id="10_5nuk6"]
+[ext_resource type="Resource" uid="uid://ba6gx8702pvxy" path="res://resources/entity/zilong.tres" id="11_bd75f"]
 
 [resource]
 script = ExtResource("1_nyd5b")
-entities = Array[Resource("res://scripts/resources/entity.gd")]([ExtResource("1_qgro1"), ExtResource("3_8ud7g"), ExtResource("3_0xhuy"), ExtResource("4_jyaey"), ExtResource("5_pkrc7"), ExtResource("6_v5gks")])
+entities = Array[Resource("res://scripts/resources/entity.gd")]([ExtResource("1_qgro1"), ExtResource("3_8ud7g"), ExtResource("3_0xhuy"), ExtResource("4_jyaey"), ExtResource("5_pkrc7"), ExtResource("6_v5gks"), ExtResource("7_joce0"), ExtResource("8_211us"), ExtResource("9_lx1gv"), ExtResource("10_5nuk6"), ExtResource("11_bd75f")])

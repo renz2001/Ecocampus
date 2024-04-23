@@ -47,23 +47,26 @@ func _init() -> void:
 	
 func start() -> void: 
 	for task: EcoQuestTask in tasks: 
-		task.start()
+		task.start(GameManager.get_tree())
 	
 	
 func update() -> void: 
-	var logic_gate: LogicGate = LogicGate.new()
+	var all_complete: bool = (
+		func(): 
+			return tasks.all(
+				func(task: EcoQuestTask): 
+					return task.is_completed
+			)
+	).call()
 	
-	for task: EcoQuestTask in tasks: 
-		logic_gate.conditions.append(task.is_completed)
-		
-	if logic_gate.is_true(): 
+	if all_complete: 
 		objective_completed = true
+		ExtendedQuestSystem.complete_quest(self)
 	
-	ExtendedQuestSystem.complete_quest(self)
-
-
-func display_achievement() -> void: 
-	AchievementUnlockedScreen.display(on_complete_unlock_achievement)
+	
+func complete() -> void: 
+	on_complete_unlock_achievement.unlock()
+	on_complete_unlock_achievement.display()
 	
 	
 func _to_string() -> String: 

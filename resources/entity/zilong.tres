@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="NPCEntity" load_steps=5 format=3 uid="uid://ba6gx8702pvxy"]
+
+[ext_resource type="Texture2D" uid="uid://dvb13m4w7rdtk" path="res://assets/character/npc_zilong.png" id="1_1psd2"]
+[ext_resource type="Script" path="res://scripts/resources/npc_entity.gd" id="1_k4bpx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bsfex"]
+atlas = ExtResource("1_1psd2")
+region = Rect2(304, 140, 1308, 1742)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ppjj8"]
+atlas = ExtResource("1_1psd2")
+region = Rect2(304, 140, 1308, 1742)
+
+[resource]
+script = ExtResource("1_k4bpx")
+custom_name = "Zilong"
+name = "Student"
+male_speaker_idle_sprite = SubResource("AtlasTexture_bsfex")
+male_speaker_talk_sprite = SubResource("AtlasTexture_ppjj8")
+gender = 1
+group = "Entity"

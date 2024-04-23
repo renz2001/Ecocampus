@@ -35,6 +35,6 @@ func can_drop() -> bool:
 	if can_drop_condition_method.is_empty(): 
 		return true
 		
-	return Callable(owner_node, can_drop_condition_method).call()
+	return Callable(owner_node, can_drop_condition_method).call(MouseDrag.drag_data)
 	
 	

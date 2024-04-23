@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="Quiz" load_steps=8 format=3 uid="uid://c4boh8kwlv6s0"]
+[gd_resource type="Resource" script_class="Quiz" load_steps=9 format=3 uid="uid://c4boh8kwlv6s0"]
 
 [ext_resource type="Script" path="res://scripts/resources/quiz/quiz.gd" id="1_81cht"]
+[ext_resource type="Resource" uid="uid://88k0vh4c70wq" path="res://resources/achievements/conservation_master.tres" id="1_b4m85"]
 [ext_resource type="Script" path="res://scripts/resources/quiz/quiz_problem.gd" id="1_c0j0u"]
 
 [sub_resource type="Resource" id="Resource_jwyxi"]
@@ -43,4 +44,5 @@ script = ExtResource("1_81cht")
 title = "DIT Quiz"
 description = "Clear this quiz"
 problems = Array[ExtResource("1_c0j0u")]([SubResource("Resource_jwyxi"), SubResource("Resource_vbs06"), SubResource("Resource_cewg5"), SubResource("Resource_6m2tf"), SubResource("Resource_g0fis")])
+on_victory_unloch_achievement = ExtResource("1_b4m85")
 passing_score_percentage = 0.75

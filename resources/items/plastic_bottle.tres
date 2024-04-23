@@ -8,4 +8,5 @@ script = ExtResource("1_la1da")
 name = &"Plastic Bottle"
 description = "A bottle. "
 item_icon = ExtResource("1_nowpe")
+type = 2
 maximum_stack = 12

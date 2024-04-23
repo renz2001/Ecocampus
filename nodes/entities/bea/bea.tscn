@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://rblpu6inwiyc"]
+
+[ext_resource type="PackedScene" uid="uid://b8627vb83551h" path="res://nodes/abstract_scenes/npc_node/npc_node.tscn" id="1_ahu1d"]
+[ext_resource type="Texture2D" uid="uid://dd025s5vvo0tr" path="res://assets/character/npc_bea.png" id="2_depai"]
+
+[node name="Bea" instance=ExtResource("1_ahu1d")]
+
+[node name="TapHitBox" parent="." index="0"]
+offset_left = -118.0
+offset_top = -321.0
+offset_right = 93.0
+offset_bottom = 19.0
+
+[node name="EntitySprite" parent="Sprites" index="1"]
+position = Vector2(-4, -154)
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("2_depai")

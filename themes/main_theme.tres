@@ -1,8 +1,10 @@
-[gd_resource type="Theme" load_steps=16 format=3 uid="uid://cd55r8awc3jgy"]
+[gd_resource type="Theme" load_steps=23 format=3 uid="uid://cd55r8awc3jgy"]
 
 [ext_resource type="StyleBox" uid="uid://dwn5sekhug4fj" path="res://resources/styleboxes/dialogue_box_balloon.tres" id="1_fyakv"]
 [ext_resource type="StyleBox" uid="uid://gulw7ttuvjw1" path="res://resources/styleboxes/default_stylebox.tres" id="1_mamat"]
 [ext_resource type="FontFile" uid="uid://bh5eyon0or827" path="res://fonts/Ubuntu-Regular.ttf" id="2_hew1c"]
+[ext_resource type="FontFile" uid="uid://dqdntixoq4bc2" path="res://fonts/Ubuntu-Medium.ttf" id="3_16t82"]
+[ext_resource type="FontFile" uid="uid://cp5vi568oh4jl" path="res://fonts/Ubuntu-Bold.ttf" id="3_tsh4s"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_7jrk4"]
 color = Color(1, 1, 1, 1)
@@ -16,6 +18,16 @@ color = Color(1, 1, 1, 1)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k8uu3"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_trr2k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ys2u0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t1ocb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6ij0u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a1t4v"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yy5t6"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tfy7q"]
 
@@ -73,6 +85,17 @@ DialogueBoxBalloon/base_type = &"Panel"
 DialogueBoxBalloon/styles/panel = ExtResource("1_fyakv")
 DialogueBoxButton/base_type = &"Button"
 DialogueBoxButton/styles/normal = ExtResource("1_fyakv")
+DialogueCharacterText/base_type = &"RichTextLabel"
+DialogueCharacterText/font_sizes/normal_font_size = 50
+DialogueCharacterText/fonts/bold_font = ExtResource("3_tsh4s")
+DialogueCharacterText/fonts/normal_font = ExtResource("2_hew1c")
+DialogueText/base_type = &"RichTextLabel"
+DialogueText/font_sizes/normal_font_size = 35
+DialogueText/fonts/bold_font = ExtResource("3_tsh4s")
+DialogueText/fonts/normal_font = ExtResource("2_hew1c")
+EquipCosmeticButton/base_type = &"Button"
+EquipCosmeticButton/font_sizes/font_size = 25
+EquipCosmeticButton/fonts/font = ExtResource("3_16t82")
 GUIManagerMargin/base_type = &"MarginContainer"
 GUIManagerMargin/constants/margin_bottom = 0
 GUIManagerMargin/constants/margin_left = 0
@@ -85,6 +108,12 @@ InvisibleButton/styles/focus = SubResource("StyleBoxEmpty_0al1v")
 InvisibleButton/styles/hover = SubResource("StyleBoxEmpty_deevc")
 InvisibleButton/styles/normal = SubResource("StyleBoxEmpty_k8uu3")
 InvisibleButton/styles/pressed = SubResource("StyleBoxEmpty_trr2k")
+InvisibleHScrollBar/base_type = &"HScrollBar"
+InvisibleHScrollBar/styles/grabber = SubResource("StyleBoxEmpty_ys2u0")
+InvisibleHScrollBar/styles/grabber_highlight = SubResource("StyleBoxEmpty_t1ocb")
+InvisibleHScrollBar/styles/grabber_pressed = SubResource("StyleBoxEmpty_6ij0u")
+InvisibleHScrollBar/styles/scroll = SubResource("StyleBoxEmpty_a1t4v")
+InvisibleHScrollBar/styles/scroll_focus = SubResource("StyleBoxEmpty_yy5t6")
 InvisiblePanel/base_type = &"PanelContainer"
 InvisiblePanel/styles/panel = SubResource("StyleBoxEmpty_tfy7q")
 MarginContainer/constants/margin_bottom = 20

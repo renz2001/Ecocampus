@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtmll2lv3i17x"]
+
+[ext_resource type="PackedScene" uid="uid://b8627vb83551h" path="res://nodes/abstract_scenes/npc_node/npc_node.tscn" id="1_e8lej"]
+[ext_resource type="Texture2D" uid="uid://dvb13m4w7rdtk" path="res://assets/character/npc_zilong.png" id="2_8f11u"]
+
+[node name="Zilong" instance=ExtResource("1_e8lej")]
+
+[node name="TapHitBox" parent="." index="0"]
+offset_left = -129.0
+offset_top = -312.0
+offset_right = 115.0
+offset_bottom = 14.0
+
+[node name="EntitySprite" parent="Sprites" index="1"]
+position = Vector2(0, -151)
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("2_8f11u")

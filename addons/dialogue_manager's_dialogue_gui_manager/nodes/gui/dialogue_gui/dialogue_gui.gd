@@ -244,10 +244,9 @@ func speed_up_line(line: DialogueLine, multiplier: float) -> void:
 		#line.speeds[i] *= multiplier
 		#print(key)
 		line.speeds[key] *= multiplier
-		
-		
 
 
 func _on_dialogue_label_spoke(letter: String, _letter_index: int, _speed: float) -> void:
-	typing_audio.play()
+	if visible: 
+		typing_audio.play()
 

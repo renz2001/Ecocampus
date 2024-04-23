@@ -1,0 +1,4 @@
+extends EcoQuestTaskCondition
+class_name EcoQuestTaskWorldEventPointCounterCondition
+
+@export var counter: WorldEventPointCounter

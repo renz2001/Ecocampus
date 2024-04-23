@@ -23,7 +23,7 @@ func _ready() -> void:
 	if Engine.is_editor_hint(): 
 		return
 	PlayerManager.player_instanced.emit()
-
+	
 
 func _on_idle_state_entered() -> void:
 	path_find.stop()

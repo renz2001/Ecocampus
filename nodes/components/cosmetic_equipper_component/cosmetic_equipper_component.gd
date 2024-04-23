@@ -19,14 +19,19 @@ class_name CosmeticEquipperComponent
 @export var player: Player: 
 	set(value): 
 		player = value
+		player.current_cosmetic_changed.connect(_on_current_cosmetic_changed)
 		update()
 
 @export var male_sprite_node: Sprite2D
 @export var female_sprite_node: Sprite2D
 
 
+func _on_current_cosmetic_changed() -> void: 
+	update()
+
+
 func update() -> void: 
 	if !is_node_ready(): 
 		await ready
-	male_sprite_node.texture = player.get_current_cosmetic().male_sprite
-	female_sprite_node.texture = player.get_current_cosmetic().female_sprite
+	male_sprite_node.texture = player.current_cosmetic.male_sprite
+	female_sprite_node.texture = player.current_cosmetic.female_sprite

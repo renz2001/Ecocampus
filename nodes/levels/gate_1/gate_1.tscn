@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cf858o4ytbp0u"]
+[gd_scene load_steps=17 format=3 uid="uid://cf858o4ytbp0u"]
 
 [ext_resource type="PackedScene" uid="uid://cm6jeskbiise6" path="res://nodes/abstract_scenes/level_node/level_node.tscn" id="1_ycc0e"]
 [ext_resource type="Texture2D" uid="uid://bb8wuo25lx7ap" path="res://assets/background/camera_pictures/gate_1.jpg" id="2_83yqh"]
@@ -10,8 +10,10 @@
 [ext_resource type="Script" path="res://addons/save_components_system/scripts/resources/id.gd" id="9_7qys1"]
 [ext_resource type="PackedScene" uid="uid://dqx1n417lyw35" path="res://nodes/entities/pickuppable_entites/plastic_bottle/plastic_bottle.tscn" id="9_b0mka"]
 [ext_resource type="Resource" uid="uid://cm1lf1wejbbb0" path="res://resources/dialogue_arguments/gate_1_guard_quest_completed_dialogue.tres" id="9_nhi2k"]
+[ext_resource type="PackedScene" uid="uid://rblpu6inwiyc" path="res://nodes/entities/bea/bea.tscn" id="10_mijeq"]
 [ext_resource type="PackedScene" uid="uid://do3f5g0eamejc" path="res://nodes/entities/pickuppable_entites/aluminum_soda_can/aluminum_soda_can.tscn" id="10_r6ehk"]
 [ext_resource type="PackedScene" uid="uid://d3ckyt0j2xo5s" path="res://nodes/components/if_quest_complete_then_set_resource/if_quest_complete_then_set_resource.tscn" id="10_yj2nn"]
+[ext_resource type="Resource" uid="uid://8paemw7vsbca" path="res://resources/dialogue_arguments/bea_dialogue.tres" id="11_j3obv"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_41h1c"]
 vertices = PackedVector2Array(155, 599, 154, 599, 308, 577, 1453, 531, 1648, 560, 1647, 560, 1337, 566, 1300, 536, 454, 563, 588, 564, 567, 605, -57, 1072, -53, 651, 1969, 616, 1973, 1073, 1306, 599, 747, 632, 1080, 620, 1079, 620)
@@ -52,6 +54,11 @@ quest = ExtResource("8_ong1o")
 check_quest = ExtResource("8_ong1o")
 node = NodePath("..")
 new_value = ExtResource("9_nhi2k")
+
+[node name="Bea" parent="Entities/Living" index="2" instance=ExtResource("10_mijeq")]
+position = Vector2(1327, 685)
+scale = Vector2(0.694301, 0.694301)
+dialogue = ExtResource("11_j3obv")
 
 [node name="PlasticBottle" parent="Entities/NonLiving" index="0" instance=ExtResource("9_b0mka")]
 position = Vector2(373, 607)

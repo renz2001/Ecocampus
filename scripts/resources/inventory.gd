@@ -178,6 +178,15 @@ func find_item_by_name(item_name: StringName) -> int:
 			#var count: float = min(item.stack.current, least)
 			#return item.model == model && 
 	#)
+	
+	
+func count_item_by_model(model: ItemModel) -> int: 
+	var count: int = 0
+	for item_stack: ItemStack in items: 
+		if item_stack.model == model: 
+			count += int(item_stack.stack.current)
+	return count
+
 
 func find_item_by_model(model: ItemModel, item_not_full: bool = false) -> int: 
 	for i: int in items.size(): 

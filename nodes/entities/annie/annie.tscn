@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dke5cvrhqa4wq"]
+
+[ext_resource type="PackedScene" uid="uid://b8627vb83551h" path="res://nodes/abstract_scenes/npc_node/npc_node.tscn" id="1_eek0f"]
+[ext_resource type="Texture2D" uid="uid://fv0y1fwr8frk" path="res://assets/character/npc_annie.png" id="2_0aoyr"]
+
+[node name="Annie" instance=ExtResource("1_eek0f")]
+
+[node name="TapHitBox" parent="." index="0"]
+offset_left = -118.0
+offset_top = -320.0
+offset_right = 136.0
+offset_bottom = 16.0
+
+[node name="EntitySprite" parent="Sprites" index="1"]
+position = Vector2(4, -147)
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("2_0aoyr")

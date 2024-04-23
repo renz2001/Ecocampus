@@ -8,4 +8,5 @@ script = ExtResource("1_d2van")
 name = &"Disposable Coffee cup"
 description = ""
 item_icon = ExtResource("1_n6jxn")
+type = 1
 maximum_stack = 12

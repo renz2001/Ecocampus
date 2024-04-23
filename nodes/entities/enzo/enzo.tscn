@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c10ki4bgi4jnl"]
+
+[ext_resource type="PackedScene" uid="uid://b8627vb83551h" path="res://nodes/abstract_scenes/npc_node/npc_node.tscn" id="1_rrwmv"]
+[ext_resource type="Texture2D" uid="uid://dx7x7wkcwwaf0" path="res://assets/character/npc_enzo.png" id="2_kxk6m"]
+
+[node name="Enzo" instance=ExtResource("1_rrwmv")]
+
+[node name="TapHitBox" parent="." index="0"]
+offset_left = -115.0
+offset_top = -317.0
+offset_right = 113.0
+offset_bottom = 20.0
+
+[node name="EntitySprite" parent="Sprites" index="1"]
+position = Vector2(4, -152)
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("2_kxk6m")

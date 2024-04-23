@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bi3j4clefo8l"]
+[gd_scene load_steps=13 format=3 uid="uid://bi3j4clefo8l"]
 
 [ext_resource type="PackedScene" uid="uid://cm6jeskbiise6" path="res://nodes/abstract_scenes/level_node/level_node.tscn" id="1_fiqww"]
 [ext_resource type="Texture2D" uid="uid://dwio4j5yvarq1" path="res://assets/background/camera_pictures/con_bg.jpg" id="2_eiuxd"]
@@ -8,6 +8,8 @@
 [ext_resource type="Resource" uid="uid://drishnchlxncq" path="res://resources/quizzes/con_quiz.tres" id="6_g07y4"]
 [ext_resource type="Resource" uid="uid://djr5dksp1iyt" path="res://resources/quests/con_quest.tres" id="7_ob5e1"]
 [ext_resource type="Script" path="res://addons/save_components_system/scripts/resources/id.gd" id="8_jaiqu"]
+[ext_resource type="PackedScene" uid="uid://dtmll2lv3i17x" path="res://nodes/entities/zilong/zilong.tscn" id="8_lcx2o"]
+[ext_resource type="Resource" uid="uid://deo28qo5r8iky" path="res://resources/dialogue_arguments/zilong_dialogue.tres" id="9_2ri8o"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_x2g58"]
 vertices = PackedVector2Array(1542, 690, 1512, 673, 2007, 673, -71, 710, 423, 705, 413, 728, 2005, 1279, 1540, 704, -71, 1301, 1472, 716, 1403, 710, 575, 690, 1333, 673, 457, 733)
@@ -44,6 +46,11 @@ scale = Vector2(0.607575, 0.607575)
 dialogue = ExtResource("5_ic0dq")
 quiz = ExtResource("6_g07y4")
 quest = ExtResource("7_ob5e1")
+
+[node name="Zilong" parent="Entities/Living" index="2" instance=ExtResource("8_lcx2o")]
+position = Vector2(362, 764)
+scale = Vector2(0.876076, 0.876076)
+dialogue = ExtResource("9_2ri8o")
 
 [node name="IDComponent" parent="Scripts" index="2"]
 data = SubResource("Resource_sq2wg")

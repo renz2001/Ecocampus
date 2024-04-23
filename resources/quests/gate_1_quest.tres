@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="EcoQuest" load_steps=7 format=3 uid="uid://dqnawmf4l2y2c"]
+[gd_resource type="Resource" script_class="EcoQuest" load_steps=8 format=3 uid="uid://dqnawmf4l2y2c"]
 
 [ext_resource type="Script" path="res://scripts/resources/eco_quest.gd" id="1_1ihav"]
+[ext_resource type="Resource" uid="uid://c6s6bjq137y00" path="res://resources/achievements/recyclable_collector.tres" id="1_h2ang"]
 [ext_resource type="Script" path="res://addons/world_event_manager/scripts/resources/world_event_point_counter.gd" id="2_3nqt1"]
 [ext_resource type="Resource" uid="uid://byvmcgi6p0hdv" path="res://resources/items/plastic_bottle.tres" id="2_wyoew"]
 [ext_resource type="Script" path="res://scripts/resources/eco_quest_task.gd" id="3_67lix"]
@@ -21,6 +22,7 @@ counter = SubResource("Resource_6l8yd")
 script = ExtResource("1_1ihav")
 percentage_description = "Collect Water Bottles"
 tasks = Array[ExtResource("3_67lix")]([SubResource("Resource_rl054")])
+on_complete_unlock_achievement = ExtResource("1_h2ang")
 invisible_in_gui = false
 id = 1
 quest_name = ""

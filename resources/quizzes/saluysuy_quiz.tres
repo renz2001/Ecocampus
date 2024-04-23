@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="Quiz" load_steps=8 format=3 uid="uid://b10nkin0kyph2"]
+[gd_resource type="Resource" script_class="Quiz" load_steps=9 format=3 uid="uid://b10nkin0kyph2"]
 
 [ext_resource type="Script" path="res://scripts/resources/quiz/quiz.gd" id="1_sqmg3"]
+[ext_resource type="Resource" uid="uid://dbbymv6ckahd2" path="res://resources/achievements/segregation_expert.tres" id="1_tdfg0"]
 [ext_resource type="Script" path="res://scripts/resources/quiz/quiz_problem.gd" id="1_tsia6"]
 
 [sub_resource type="Resource" id="Resource_alh3o"]
@@ -43,4 +44,5 @@ script = ExtResource("1_sqmg3")
 title = "Saluysuy Quiz"
 description = "Clear this quiz"
 problems = Array[ExtResource("1_tsia6")]([SubResource("Resource_alh3o"), SubResource("Resource_6iiid"), SubResource("Resource_48pug"), SubResource("Resource_ovh5n"), SubResource("Resource_ndowp")])
+on_victory_unloch_achievement = ExtResource("1_tdfg0")
 passing_score_percentage = 0.75

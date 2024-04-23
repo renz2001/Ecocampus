@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="Quiz" load_steps=8 format=3 uid="uid://dcuvl2mko4mon"]
+[gd_resource type="Resource" script_class="Quiz" load_steps=9 format=3 uid="uid://dcuvl2mko4mon"]
 
 [ext_resource type="Script" path="res://scripts/resources/quiz/quiz_problem.gd" id="1_inpls"]
 [ext_resource type="Script" path="res://scripts/resources/quiz/quiz.gd" id="1_kq6jq"]
+[ext_resource type="Resource" uid="uid://dg8n283iwfrcb" path="res://resources/achievements/recyclable_connoisseur.tres" id="1_mob5h"]
 
 [sub_resource type="Resource" id="Resource_8tfuf"]
 script = ExtResource("1_inpls")
@@ -43,4 +44,5 @@ script = ExtResource("1_kq6jq")
 title = "Gate1 Quiz"
 description = "Clear this quiz"
 problems = Array[ExtResource("1_inpls")]([SubResource("Resource_8tfuf"), SubResource("Resource_2rn6j"), SubResource("Resource_cgm7c"), SubResource("Resource_xgnpp"), SubResource("Resource_53gcn")])
+on_victory_unloch_achievement = ExtResource("1_mob5h")
 passing_score_percentage = 0.75

@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="NPCEntity" load_steps=5 format=3 uid="uid://xuc21em8d5ue"]
+
+[ext_resource type="Texture2D" uid="uid://dx7x7wkcwwaf0" path="res://assets/character/npc_enzo.png" id="1_0sg6q"]
+[ext_resource type="Script" path="res://scripts/resources/npc_entity.gd" id="2_sfn14"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ka1my"]
+atlas = ExtResource("1_0sg6q")
+region = Rect2(361, 129, 1208, 1727)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h8pvq"]
+atlas = ExtResource("1_0sg6q")
+region = Rect2(361, 129, 1208, 1727)
+
+[resource]
+script = ExtResource("2_sfn14")
+custom_name = "Enzo"
+name = "Student"
+male_speaker_idle_sprite = SubResource("AtlasTexture_ka1my")
+male_speaker_talk_sprite = SubResource("AtlasTexture_h8pvq")
+gender = 1
+group = "Entity"

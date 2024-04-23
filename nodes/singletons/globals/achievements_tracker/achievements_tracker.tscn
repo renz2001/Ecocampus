@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://jo332ksg44ul"]
+[gd_scene load_steps=5 format=3 uid="uid://jo332ksg44ul"]
 
 [ext_resource type="Script" path="res://nodes/singletons/globals/achievements_tracker/achievements_tracker.gd" id="1_y316a"]
-[ext_resource type="Resource" uid="uid://cktltn1m3bfqb" path="res://resources/achievement_quests/test_achievement_quest.tres" id="2_12cty"]
 [ext_resource type="PackedScene" uid="uid://d02dwov2yojbj" path="res://addons/macchi's_node_components/nodes/components/point_counter_component/point_counter_component.tscn" id="3_02lvq"]
 [ext_resource type="Script" path="res://addons/macchi's_node_components/scripts/resources/point_counter.gd" id="4_0flqk"]
 
@@ -21,9 +20,9 @@ reset_after_minimum_hit = false
 rounded_off = false
 disabled = false
 
-[node name="AchievementsTracker" type="Node"]
+[node name="AchievementsTracker" type="Node" node_paths=PackedStringArray("medals")]
 script = ExtResource("1_y316a")
-achievements_quests = Array[Resource("res://scripts/resources/eco_quest.gd")]([ExtResource("2_12cty")])
+medals = NodePath("MedalCounter")
 
 [node name="MedalCounter" parent="." instance=ExtResource("3_02lvq")]
 points = SubResource("Resource_firrs")

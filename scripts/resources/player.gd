@@ -2,13 +2,29 @@
 extends Entity
 class_name Player
 
+signal current_cosmetic_changed
+
 @export var default_cosmetic: Cosmetic
-@export var current_cosmetic: Cosmetic
+
+@export var current_cosmetic: Cosmetic: 
+	set(value): 
+		current_cosmetic = value
+		current_cosmetic_changed.emit()
+		
+	get: 
+		if current_cosmetic == null: 
+			return default_cosmetic
+		return current_cosmetic
 
 
-func get_current_cosmetic() -> Cosmetic: 
-	if current_cosmetic == null: 
-		return default_cosmetic
-	return current_cosmetic
-	
+func is_equipped() -> bool: 
+	return current_cosmetic != default_cosmetic
+
+
+func equip_cosmetic(cosmetic: Cosmetic) -> void: 
+	current_cosmetic = cosmetic
+
+
+func unequip_cosmetic() -> void: 
+	current_cosmetic = default_cosmetic
 	

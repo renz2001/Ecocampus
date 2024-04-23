@@ -18,6 +18,10 @@ func unlock() -> void:
 	is_unlocked = true
 	
 	
+func display() -> void: 
+	AchievementUnlockedScreen.display(self)
+	
+	
 func _save_properties() -> PackedStringArray: 
 	return [
 		"is_unlocked"

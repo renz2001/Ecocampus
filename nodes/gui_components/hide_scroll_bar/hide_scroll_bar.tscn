@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://csqbhpsiauwpf"]
+
+[ext_resource type="Script" path="res://nodes/gui_components/hide_scroll_bar/hide_scroll_bar.gd" id="1_521yg"]
+
+[node name="HideScrollBar" type="Node"]
+script = ExtResource("1_521yg")

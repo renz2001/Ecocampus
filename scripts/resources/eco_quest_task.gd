@@ -5,6 +5,7 @@ signal completed
 
 @export var description: String
 
+@export var condition: EcoQuestTaskCondition
 ## If this hits the maximum, it will complete this task. 
 @export var counter: WorldEventPointCounter: 
 	set(value): 
@@ -28,8 +29,11 @@ var is_completed: bool:
 
 
 ## Called by EcoQuest. 
-func start() -> void: 
+func start(tree: SceneTree) -> void: 
 	counter.disabled = false
+	# TODO: Have not properly implemented yet. 
+	if condition: 
+		condition.init(tree, self)
 
 
 func _on_counter_maximum_hit(_value: float) -> void: 

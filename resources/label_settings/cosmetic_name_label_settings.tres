@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://bhqi3s7tkv3ad"]
+
+[ext_resource type="FontFile" uid="uid://cp5vi568oh4jl" path="res://fonts/Ubuntu-Bold.ttf" id="1_fxwag"]
+
+[resource]
+font = ExtResource("1_fxwag")
+font_size = 25

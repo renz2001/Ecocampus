@@ -1,17 +1,20 @@
-[gd_scene load_steps=16 format=3 uid="uid://blx1a7x2yt18"]
+[gd_scene load_steps=17 format=3 uid="uid://blx1a7x2yt18"]
 
 [ext_resource type="PackedScene" uid="uid://daxlnabqn25ah" path="res://addons/dialogue_manager's_dialogue_gui_manager/nodes/gui/dialogue_gui/dialogue_gui.tscn" id="1_sidoq"]
 [ext_resource type="PackedScene" uid="uid://7r374ti84blj" path="res://nodes/animation_components/hover_node_animation/hover_node_animation.tscn" id="2_dogx3"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_ob5wh"]
-[ext_resource type="PackedScene" uid="uid://dmqsqud0vb7y4" path="res://nodes/levels/gui/speaker_sprites_switcher/speaker_sprites_switcher.tscn" id="2_oiacn"]
-[ext_resource type="PackedScene" uid="uid://crt2vt3u0qp70" path="res://nodes/levels/gui/speaker_sprite/speaker_sprite.tscn" id="3_0vhnd"]
+[ext_resource type="PackedScene" uid="uid://dmqsqud0vb7y4" path="res://nodes/gui/speaker_sprites_switcher/speaker_sprites_switcher.tscn" id="2_oiacn"]
+[ext_resource type="PackedScene" uid="uid://crt2vt3u0qp70" path="res://nodes/gui/speaker_sprite/speaker_sprite.tscn" id="3_0vhnd"]
 [ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_reponses_menu.gd" id="3_a42pw"]
-[ext_resource type="PackedScene" uid="uid://rc8fo3x7f3mp" path="res://nodes/levels/gui/dialogue_guis/dialogue_box/guis/dialogue_box_button.tscn" id="4_yi2ws"]
-[ext_resource type="PackedScene" uid="uid://bskfvry8t4hly" path="res://nodes/levels/gui/dialogue_box_button/dialogue_box_button.tscn" id="6_xun7r"]
+[ext_resource type="PackedScene" uid="uid://rc8fo3x7f3mp" path="res://nodes/gui/dialogue_guis/dialogue_box/guis/dialogue_box_button.tscn" id="4_yi2ws"]
+[ext_resource type="PackedScene" uid="uid://bskfvry8t4hly" path="res://nodes/gui/dialogue_box_button/dialogue_box_button.tscn" id="6_xun7r"]
 [ext_resource type="Script" path="res://addons/macchi's_audio_manager_and_plus/scripts/arguments/audio_stream_player_arguments.gd" id="7_erbwi"]
 [ext_resource type="AudioStream" uid="uid://bhxpisr7kl31f" path="res://assets/audio/ui/convo_popup.wav" id="9_xv43d"]
 [ext_resource type="AudioStream" uid="uid://ci2w6ihjkp1fv" path="res://assets/audio/ui/convo_back.wav" id="10_voiim"]
 [ext_resource type="AudioStream" uid="uid://cl3cty47ryo" path="res://assets/audio/ui/convo.wav" id="11_myst6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_s28p8"]
+font_size = 40
 
 [sub_resource type="Resource" id="Resource_6jdsu"]
 script = ExtResource("7_erbwi")
@@ -62,11 +65,15 @@ offset_right = 163.5
 offset_bottom = -19.0
 grow_horizontal = 2
 text = "Tap anywhere."
+label_settings = SubResource("LabelSettings_s28p8")
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="HoverNodeAnimation" parent="TapAnywhere" index="0" node_paths=PackedStringArray("node") instance=ExtResource("2_dogx3")]
 node = NodePath("..")
+autoplay = true
+loops = 2
+is_playing = true
 
 [node name="SpeakerSpritesSwitcher" parent="." index="1" node_paths=PackedStringArray("current_speaker_rect", "main_speaker_texture_rect", "secondary_speaker_texture_rect") instance=ExtResource("2_oiacn")]
 layout_mode = 1
@@ -92,6 +99,7 @@ offset_top = -603.0
 offset_right = 512.0
 offset_bottom = 194.0
 grow_vertical = 0
+expand_mode = 2
 
 [node name="SecondSpeaker" type="Control" parent="SpeakerSpritesSwitcher" index="2"]
 visible = false
@@ -110,6 +118,7 @@ offset_right = 174.0
 offset_bottom = 187.0
 grow_horizontal = 0
 grow_vertical = 0
+expand_mode = 2
 flip_h = true
 
 [node name="Balloon" type="Panel" parent="." index="2"]
@@ -144,6 +153,7 @@ unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0.501961)
 layout_mode = 2
 mouse_filter = 2
+theme_type_variation = &"DialogueCharacterText"
 bbcode_enabled = true
 text = "Character"
 fit_content = true
@@ -154,6 +164,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
+theme_type_variation = &"DialogueText"
 text = "Dialogue..."
 
 [node name="Responses" type="MarginContainer" parent="Balloon" index="1"]

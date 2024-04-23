@@ -10,4 +10,4 @@ class_name PlayerSpriteDisplay
 		
 
 func update() -> void: 
-	texture = player.get_current_cosmetic().get_icon(player.gender)
+	texture = player.current_cosmetic.get_icon(player.gender)

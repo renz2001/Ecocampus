@@ -22,22 +22,31 @@ signal unlocked
 		if female_alias.is_empty(): 
 			return name
 		return female_alias
-
-@export var is_unlocked: bool: 
-	set(value): 
-		is_unlocked = value
-		if is_unlocked: 
-			unlocked.emit()
+		
 
 @export var male_icon: Texture2D
 @export var female_icon: Texture2D
 
-@export var state: CosmeticState
+@export var state: CosmeticState: 
+	set(value): 
+		state = value 
+		if state == CosmeticState.UNLOCKED: 
+			unlocked.emit()
 
 @export var male_sprite: Texture2D
 @export var female_sprite: Texture2D
 
 @export var medals_required: int = 1
+
+## Should only be ticked true for one cosmetic. 
+@export var is_default: bool: 
+	set(value): 
+		is_default = value
+		if is_default: 
+			state = CosmeticState.UNLOCKED
+		else: 
+			state = CosmeticState.LOCKED
+
 
 func get_icon(gender: GlobalEnums.Gender) -> Texture2D: 
 	match gender: 
@@ -59,7 +68,7 @@ func get_current_name(gender: GlobalEnums.Gender) -> String:
 	
 func unlock(medals: int) -> void: 
 	if medals == medals_required: 
-		is_unlocked = true
+		state = CosmeticState.UNLOCKED
 	
 	
 func _save_properties() -> PackedStringArray: 
@@ -67,3 +76,7 @@ func _save_properties() -> PackedStringArray:
 		"unlocked", 
 		"state"
 	]
+
+
+func is_unlocked() -> bool: 
+	return state == CosmeticState.UNLOCKED

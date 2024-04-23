@@ -16,23 +16,26 @@ class_name AchievementsTracker
 			#achievements.add_child(node)
 			#node.achievement = achievement
 			
-@export var achievements_quests: Array[EcoQuest]
+#@export var achievements_quests: Array[EcoQuest]
 
-var medals: PointCounterComponent
+@export var medals: PointCounterComponent
 
 
 func _ready() -> void: 
-	for quest: EcoQuest in achievements_quests: 
-		ExtendedQuestSystem.start_quest(quest)
-		
+	#for quest: EcoQuest in achievements_quests: 
+		#ExtendedQuestSystem.start_quest(quest)
+		#
 	ExtendedQuestSystem.quest_completed.connect(_on_quest_completed)
 	
 	
 func _on_quest_completed(quest: Quest) -> void: 
 	var eco_quest: EcoQuest = quest
-	#(quest as EcoQuest).display_achievement() 
-	medals.add(eco_quest.on_complete_unlock_achievement.reward_medals)
-	pass
+	medals.points.add(eco_quest.on_complete_unlock_achievement.reward_medals)
 	
+	
+func unlock_cosmetic(cosmetic: Cosmetic) -> void: 
+	cosmetic.unlock(int(medals.points.current))
+	if cosmetic.is_unlocked(): 
+		medals.points.subtract(cosmetic.medals_required)
 	
 	

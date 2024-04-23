@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="EcoQuestTaskScriptCondition" load_steps=2 format=3 uid="uid://cheq1racnfe2u"]
+
+[ext_resource type="Script" path="res://scripts/resources/eco_quest_task_script_condition.gd" id="1_foccj"]
+
+[resource]
+script = ExtResource("1_foccj")

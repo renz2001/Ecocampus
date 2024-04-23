@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b8627vb83551h"]
+[gd_scene load_steps=12 format=3 uid="uid://b8627vb83551h"]
 
 [ext_resource type="PackedScene" uid="uid://cjrygqeartla8" path="res://nodes/abstract_scenes/living_entity_node/living_entity_node.tscn" id="1_4vfvx"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/animation_player_state.gd" id="2_3l8bg"]
@@ -13,12 +13,32 @@ with_label_settings = false
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[sub_resource type="Animation" id="Animation_u7scl"]
+resource_name = "idle_right"
+
+[sub_resource type="Animation" id="Animation_rasy3"]
+resource_name = "idle_left"
+
+[sub_resource type="Animation" id="Animation_x31ak"]
+resource_name = "walk_left"
+
+[sub_resource type="Animation" id="Animation_hhrdu"]
+resource_name = "walk_right"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_us68v"]
+_data = {
+"idle_left": SubResource("Animation_rasy3"),
+"idle_right": SubResource("Animation_u7scl"),
+"walk_left": SubResource("Animation_x31ak"),
+"walk_right": SubResource("Animation_hhrdu")
+}
+
 [node name="NPCNode" instance=ExtResource("1_4vfvx")]
 interact_description = SubResource("Resource_xk11q")
 
 [node name="Idle" type="Node" parent="StateChart/Root/Enabled/Animation/Left" index="1"]
 script = ExtResource("2_3l8bg")
-animation_player = NodePath("../../../../../../AnimationPlayer")
+animation_player = NodePath("../../../../../../DefaultAnimationPlayer")
 animation_name = &"idle_left"
 
 [node name="OnWalk" type="Node" parent="StateChart/Root/Enabled/Animation/Left/Idle" index="0"]
@@ -28,7 +48,7 @@ event = &"walk"
 
 [node name="Walk" type="Node" parent="StateChart/Root/Enabled/Animation/Left" index="2"]
 script = ExtResource("2_3l8bg")
-animation_player = NodePath("../../../../../../AnimationPlayer")
+animation_player = NodePath("../../../../../../DefaultAnimationPlayer")
 animation_name = &"walk_left"
 
 [node name="OnIdle" type="Node" parent="StateChart/Root/Enabled/Animation/Left/Walk" index="0"]
@@ -41,7 +61,7 @@ initial_state = NodePath("Walk")
 
 [node name="Idle" type="Node" parent="StateChart/Root/Enabled/Animation/Right" index="1"]
 script = ExtResource("2_3l8bg")
-animation_player = NodePath("../../../../../../AnimationPlayer")
+animation_player = NodePath("../../../../../../DefaultAnimationPlayer")
 animation_name = &"idle_right"
 
 [node name="OnWalk" type="Node" parent="StateChart/Root/Enabled/Animation/Right/Idle" index="0"]
@@ -51,7 +71,7 @@ event = &"walk"
 
 [node name="Walk" type="Node" parent="StateChart/Root/Enabled/Animation/Right" index="2"]
 script = ExtResource("2_3l8bg")
-animation_player = NodePath("../../../../../../AnimationPlayer")
+animation_player = NodePath("../../../../../../DefaultAnimationPlayer")
 animation_name = &"walk_right"
 
 [node name="OnIdle" type="Node" parent="StateChart/Root/Enabled/Animation/Right/Walk" index="0"]
@@ -74,3 +94,8 @@ event = &"idle"
 
 [node name="ShadowCircle" parent="Sprites" index="0"]
 scale = Vector2(0.229306, 0.168255)
+
+[node name="DefaultAnimationPlayer" type="AnimationPlayer" parent="." index="8"]
+libraries = {
+"": SubResource("AnimationLibrary_us68v")
+}

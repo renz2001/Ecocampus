@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="Quiz" load_steps=8 format=3 uid="uid://drishnchlxncq"]
+[gd_resource type="Resource" script_class="Quiz" load_steps=9 format=3 uid="uid://drishnchlxncq"]
 
 [ext_resource type="Script" path="res://scripts/resources/quiz/quiz.gd" id="1_8y41a"]
 [ext_resource type="Script" path="res://scripts/resources/quiz/quiz_problem.gd" id="1_453m7"]
+[ext_resource type="Resource" uid="uid://cclvpls5dt1r8" path="res://resources/achievements/non_bio_connoisseur.tres" id="1_ergdk"]
 
 [sub_resource type="Resource" id="Resource_0ghtb"]
 script = ExtResource("1_453m7")
@@ -43,4 +44,5 @@ script = ExtResource("1_8y41a")
 title = "CON Quiz"
 description = "Clear this quiz"
 problems = Array[ExtResource("1_453m7")]([SubResource("Resource_0ghtb"), SubResource("Resource_2aagg"), SubResource("Resource_s2kxt"), SubResource("Resource_yvjj5"), SubResource("Resource_chh8y")])
+on_victory_unloch_achievement = ExtResource("1_ergdk")
 passing_score_percentage = 0.75

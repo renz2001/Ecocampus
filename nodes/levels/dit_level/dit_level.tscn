@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b02kmlgxwvx6d"]
+[gd_scene load_steps=14 format=3 uid="uid://b02kmlgxwvx6d"]
 
 [ext_resource type="PackedScene" uid="uid://cm6jeskbiise6" path="res://nodes/abstract_scenes/level_node/level_node.tscn" id="1_ltte7"]
 [ext_resource type="Texture2D" uid="uid://he71rk7i3shh" path="res://assets/background/camera_pictures/dit_bg.jpg" id="2_gqce5"]
@@ -8,6 +8,8 @@
 [ext_resource type="Script" path="res://addons/dialogue_manager's_dialogue_gui_manager/scripts/arguments/dialogue_arguments.gd" id="5_7xidu"]
 [ext_resource type="Script" path="res://addons/save_components_system/scripts/resources/id.gd" id="5_l65v3"]
 [ext_resource type="Resource" uid="uid://bp866e3wvjnkn" path="res://resources/quests/dit_quest.tres" id="7_60isj"]
+[ext_resource type="PackedScene" uid="uid://c10ki4bgi4jnl" path="res://nodes/entities/enzo/enzo.tscn" id="8_q4sri"]
+[ext_resource type="Resource" uid="uid://ctn5e7ndh52so" path="res://resources/dialogue_arguments/enzo_dialogue.tres" id="9_87v65"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_muct3"]
 vertices = PackedVector2Array(-58, 1180, -62, 776, 1419, 806, 1989, 1183, 1986, 733, 1520, 708)
@@ -54,6 +56,11 @@ scale = Vector2(0.694322, 0.694322)
 dialogue = SubResource("Resource_6r7n7")
 quiz = ExtResource("5_5nufk")
 quest = ExtResource("7_60isj")
+
+[node name="Enzo" parent="Entities/Living" index="2" instance=ExtResource("8_q4sri")]
+position = Vector2(239, 814)
+scale = Vector2(1.08262, 1.08262)
+dialogue = ExtResource("9_87v65")
 
 [node name="IDComponent" parent="Scripts" index="2"]
 data = SubResource("Resource_yh01w")

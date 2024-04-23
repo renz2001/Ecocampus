@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://cmimwcq2i013r"]
+
+[ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/macchi's_gui_manager/nodes/gui/gui/gui.tscn" id="1_easku"]
+[ext_resource type="Texture2D" uid="uid://bloiawg11mnph" path="res://assets/achievements/achievement_medal.png" id="2_ewh3b"]
+[ext_resource type="Script" path="res://nodes/gui/achievement_tracker_gui/achievement_tracker_gui.gd" id="2_m2pee"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_pkij6"]
+font_size = 120
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 30
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(1.87, 3.28)
+
+[node name="AchievementTrackerGUI" node_paths=PackedStringArray("label") instance=ExtResource("1_easku")]
+script = ExtResource("2_m2pee")
+label = NodePath("HBoxContainer/Label")
+inactive_on_ready = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." index="0"]
+layout_mode = 0
+offset_right = 172.0
+offset_bottom = 140.0
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer" index="0"]
+layout_mode = 2
+texture = ExtResource("2_ewh3b")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="HBoxContainer" index="1"]
+layout_mode = 2
+text = "1"
+label_settings = SubResource("LabelSettings_pkij6")

@@ -6,6 +6,7 @@ class_name Quiz
 @export var title: String
 @export var description: String = "Clear this quiz"
 @export var problems: Array[QuizProblem]
+@export var on_victory_unloch_achievement: Achievement
 
 ## Percentage of the passing score. 
 @export_range(0, 1) var passing_score_percentage: float = 0.75

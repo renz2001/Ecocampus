@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5wngnu2a6eym"]
+
+[ext_resource type="PackedScene" uid="uid://b8627vb83551h" path="res://nodes/abstract_scenes/npc_node/npc_node.tscn" id="1_p4qa0"]
+[ext_resource type="Texture2D" uid="uid://c4xa5sxi01pfw" path="res://assets/character/npc_viktor.png" id="2_cn8yk"]
+
+[node name="Viktor" instance=ExtResource("1_p4qa0")]
+
+[node name="TapHitBox" parent="." index="0"]
+offset_left = -114.0
+offset_top = -309.0
+offset_right = 106.0
+offset_bottom = 18.0
+
+[node name="EntitySprite" parent="Sprites" index="1"]
+position = Vector2(0, -148)
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("2_cn8yk")

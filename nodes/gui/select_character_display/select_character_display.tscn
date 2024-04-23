@@ -4,7 +4,7 @@
 [ext_resource type="Theme" uid="uid://cd55r8awc3jgy" path="res://themes/main_theme.tres" id="1_n7hw7"]
 [ext_resource type="Script" path="res://nodes/gui/select_character_display/select_character_display.gd" id="1_wybeh"]
 [ext_resource type="Texture2D" uid="uid://dqshq874l3ic5" path="res://assets/character/player_boy/boy.png" id="3_io1tm"]
-[ext_resource type="Resource" uid="uid://bhl7afn8ti7bs" path="res://resources/entity/player.tres" id="3_nks4u"]
+[ext_resource type="Resource" uid="uid://dpg6457rwx03a" path="res://resources/entity/player.tres" id="3_nks4u"]
 [ext_resource type="PackedScene" uid="uid://id2l84q3tpk0" path="res://nodes/gui_components/on_control_tapped/on_control_tapped.tscn" id="4_4nsny"]
 [ext_resource type="FontFile" uid="uid://cp5vi568oh4jl" path="res://fonts/Ubuntu-Bold.ttf" id="6_3qqbw"]
 [ext_resource type="PackedScene" uid="uid://nnpxfb02bn17" path="res://nodes/components/change_scene_component/change_scene_component.tscn" id="7_m8fta"]

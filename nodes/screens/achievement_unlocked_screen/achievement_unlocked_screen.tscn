@@ -1,25 +1,33 @@
-[gd_scene load_steps=4 format=3 uid="uid://cyepcbc24l4l8"]
+[gd_scene load_steps=6 format=3 uid="uid://cyepcbc24l4l8"]
 
 [ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/macchi's_gui_manager/nodes/gui/gui/gui.tscn" id="1_46gjk"]
 [ext_resource type="Script" path="res://nodes/screens/achievement_unlocked_screen/achievement_unlocked_screen.gd" id="2_87r6r"]
-[ext_resource type="PackedScene" uid="uid://c584i6hhgux8p" path="res://nodes/levels/gui/achievement_unlocked_gui/achievement_unlocked_gui.tscn" id="2_utc4q"]
+[ext_resource type="PackedScene" uid="uid://c584i6hhgux8p" path="res://nodes/gui/achievement_unlocked_gui/achievement_unlocked_gui.tscn" id="2_utc4q"]
+[ext_resource type="PackedScene" uid="uid://dh1ftkyfip0sh" path="res://nodes/gui_components/on_tap_set_active/on_tap_set_active.tscn" id="3_fgxls"]
+[ext_resource type="PackedScene" uid="uid://der1edoxrqxln" path="res://nodes/gui_components/set_game_state_on_gui_active/set_game_state_on_gui_active.tscn" id="4_y00uo"]
 
-[node name="AchievementUnlockedScreen" instance=ExtResource("1_46gjk")]
+[node name="AchievementUnlockedScreen" node_paths=PackedStringArray("achievement_unlocked_gui") instance=ExtResource("1_46gjk")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_87r6r")
-only_one_instance = true
+achievement = null
+achievement_unlocked_gui = NodePath("CenterContainer/HBoxContainer/AchievementUnlockedGUI")
 
-[node name="CenterContainer" type="CenterContainer" parent="." index="0"]
+[node name="OnTapSetActive" parent="." index="0" node_paths=PackedStringArray("gui") instance=ExtResource("3_fgxls")]
+layout_mode = 1
+gui = NodePath("..")
+
+[node name="CenterContainer" type="CenterContainer" parent="." index="1"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer" index="0"]
 layout_mode = 2
@@ -27,3 +35,8 @@ alignment = 1
 
 [node name="AchievementUnlockedGUI" parent="CenterContainer/HBoxContainer" index="0" instance=ExtResource("2_utc4q")]
 layout_mode = 2
+
+[node name="SetGameStateOnGUIActive" parent="." index="3" node_paths=PackedStringArray("gui") instance=ExtResource("4_y00uo")]
+gui = NodePath("..")
+activated_state = "paused"
+deactivated_state = "playing"

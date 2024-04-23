@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="EcoQuest" load_steps=10 format=3 uid="uid://cdlhu1mvsokoq"]
+[gd_resource type="Resource" script_class="EcoQuest" load_steps=11 format=3 uid="uid://cdlhu1mvsokoq"]
 
 [ext_resource type="Script" path="res://scripts/resources/eco_quest.gd" id="1_m541f"]
+[ext_resource type="Resource" uid="uid://chx7esm8qku05" path="res://resources/achievements/bio_collector.tres" id="1_ynpgw"]
 [ext_resource type="Resource" uid="uid://c2ms3lvdy84n5" path="res://resources/items/banana_peel.tres" id="2_b0fcq"]
 [ext_resource type="Script" path="res://addons/world_event_manager/scripts/resources/world_event_point_counter.gd" id="2_cdwto"]
 [ext_resource type="Script" path="res://scripts/resources/eco_quest_task.gd" id="3_c2q7r"]
@@ -34,6 +35,7 @@ counter = SubResource("Resource_6sydr")
 script = ExtResource("1_m541f")
 percentage_description = "Collect 10 Bio-degradable materials"
 tasks = Array[ExtResource("3_c2q7r")]([SubResource("Resource_t8d6g"), SubResource("Resource_8qv71")])
+on_complete_unlock_achievement = ExtResource("1_ynpgw")
 invisible_in_gui = false
 id = 4
 quest_name = ""

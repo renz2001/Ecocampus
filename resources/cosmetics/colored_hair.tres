@@ -15,12 +15,12 @@ region = Rect2(381, 52, 140, 229)
 [resource]
 script = ExtResource("1_nh6rj")
 name = "Colored Hair"
-male_alias = "blonde"
-female_alias = "violet"
-unlocked = false
+male_alias = "Blonde"
+female_alias = "Violet"
 male_icon = SubResource("AtlasTexture_skc85")
 female_icon = SubResource("AtlasTexture_cy1p6")
 state = 0
 male_sprite = ExtResource("2_0dke8")
 female_sprite = ExtResource("1_75fpj")
 medals_required = 1
+is_default = false

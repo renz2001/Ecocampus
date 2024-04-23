@@ -2,6 +2,7 @@
 extends DialogGUI
 class_name InteractDialog
 
+@export var body: Control
 @export var description_label: FormattedLabel
 @export var ok_button: TextureButtonPlus
 
@@ -12,6 +13,11 @@ static func display(args: InteractDialogData) -> InteractDialog:
 	#print(_caller)
 	gui.data = args
 	gui.global_position = gui.data.gui_position
+	
+	if gui.global_position.x < GlobalVariables.viewport_size.x / 2: 
+		gui.body.pivot_offset = gui.body.size / 2
+		gui.body.position.x *= -1
+	
 	if gui.data.description: 
 		gui.data.description.set_label(gui.description_label)
 	GUIManager.add_gui(gui)

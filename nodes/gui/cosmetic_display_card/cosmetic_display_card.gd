@@ -19,6 +19,8 @@ class_name CosmeticDisplayCard
 		cosmetic = value
 		if !is_node_ready(): 
 			await ready
+		if !cosmetic.unlocked.is_connected(_on_cosmetic_unlocked): 
+			cosmetic.unlocked.connect(_on_cosmetic_unlocked)
 		update()
 
 @export var state: Cosmetic.CosmeticState: 
@@ -49,16 +51,22 @@ static func create(parent: Node, _cosmetic: Cosmetic, theme_variation: String = 
 	
 	
 func update() -> void: 
-	state = cosmetic.state
-	if cosmetic: 
-		cosmetic_icon.texture = cosmetic.get_icon(player.gender)
-	else: 
+	if !is_node_ready(): 
+		await ready
+		
+	if cosmetic == null: 
 		cosmetic_icon.texture = null
+		return
+	cosmetic_icon.texture = cosmetic.get_icon(player.gender)
+	state = cosmetic.state
 	cosmetic_name_label.text = cosmetic.get_current_name(player.gender)
 	cosmetic_name_label_2.text = cosmetic.get_current_name(player.gender)
 
 
 func _on_unlock_button_pressed() -> void:
-	cosmetic.unlock(GlobalData.achievements_tracker.medals.current)
+	GlobalData.achievements_tracker.unlock_cosmetic(cosmetic)
 	
+	
+func _on_cosmetic_unlocked() -> void: 
+	update()
 	

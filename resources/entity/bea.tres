@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="NPCEntity" load_steps=5 format=3 uid="uid://dsjk4wa3r6s0k"]
+
+[ext_resource type="Texture2D" uid="uid://dd025s5vvo0tr" path="res://assets/character/npc_bea.png" id="1_admti"]
+[ext_resource type="Script" path="res://scripts/resources/npc_entity.gd" id="1_nykfl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_um52e"]
+atlas = ExtResource("1_admti")
+region = Rect2(405, 118, 1113, 1759)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jxgan"]
+atlas = ExtResource("1_admti")
+region = Rect2(405, 118, 1113, 1759)
+
+[resource]
+script = ExtResource("1_nykfl")
+custom_name = "Bea"
+name = "Student"
+female_speaker_idle_sprite = SubResource("AtlasTexture_um52e")
+female_speaker_talk_sprite = SubResource("AtlasTexture_jxgan")
+gender = 2
+group = "Entity"

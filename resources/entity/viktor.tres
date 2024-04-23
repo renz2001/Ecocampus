@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="NPCEntity" load_steps=5 format=3 uid="uid://bfb7gbbwg7rj2"]
+
+[ext_resource type="Texture2D" uid="uid://c4xa5sxi01pfw" path="res://assets/character/npc_viktor.png" id="1_c7yqw"]
+[ext_resource type="Script" path="res://scripts/resources/npc_entity.gd" id="1_jk223"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uumy7"]
+atlas = ExtResource("1_c7yqw")
+region = Rect2(398, 151, 1145, 1714)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e7eai"]
+atlas = ExtResource("1_c7yqw")
+region = Rect2(398, 151, 1145, 1714)
+
+[resource]
+script = ExtResource("1_jk223")
+custom_name = "Viktor"
+name = "Student"
+male_speaker_idle_sprite = SubResource("AtlasTexture_uumy7")
+male_speaker_talk_sprite = SubResource("AtlasTexture_e7eai")
+gender = 1
+group = "Entity"

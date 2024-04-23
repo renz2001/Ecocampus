@@ -48,6 +48,10 @@ func _on_exit_pressed() -> void:
 
 func _on_quiz_problem_page_quiz_completed() -> void:
 	problem_page_router.route()
+	# TODO: 
+	if quiz_attempt.has_passed_attempt(): 
+		quiz.on_victory_unloch_achievement.unlock()
+		quiz.on_victory_unloch_achievement.display()
 
 
 #func _activated() -> void: 
