@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://ca2lixrynn25b"]
+[gd_scene load_steps=3 format=3 uid="uid://ca2lixrynn25b"]
 
 [ext_resource type="Script" path="res://nodes/gui_components/equip_cosmetic_controller/equip_cosmetic_controller.gd" id="1_sncxy"]
+[ext_resource type="Resource" uid="uid://dpg6457rwx03a" path="res://resources/entity/player.tres" id="2_14qyo"]
 
 [node name="EquipCosmeticController" type="Node"]
 script = ExtResource("1_sncxy")
+player = ExtResource("2_14qyo")

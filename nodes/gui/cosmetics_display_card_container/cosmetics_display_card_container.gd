@@ -2,6 +2,8 @@
 extends HBoxContainer
 class_name CosmeticsDisplayCardContainer
 
+signal updated
+
 enum OverrideCosmeticState {
 	NONE, 
 	LOCKED, 
@@ -61,6 +63,8 @@ func update() -> void:
 				child.visible = false
 		#printerr(cosmetic.name)
 		#printerr(cosmetic.female_icon)
+	updated.emit()
+	
 	
 func clear() -> void: 
 	for child: Node in get_children(): 

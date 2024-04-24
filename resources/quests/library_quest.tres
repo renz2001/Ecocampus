@@ -3,33 +3,29 @@
 [ext_resource type="Script" path="res://scripts/resources/eco_quest.gd" id="1_m541f"]
 [ext_resource type="Resource" uid="uid://chx7esm8qku05" path="res://resources/achievements/bio_collector.tres" id="1_ynpgw"]
 [ext_resource type="Resource" uid="uid://c2ms3lvdy84n5" path="res://resources/items/banana_peel.tres" id="2_b0fcq"]
-[ext_resource type="Script" path="res://addons/world_event_manager/scripts/resources/world_event_point_counter.gd" id="2_cdwto"]
 [ext_resource type="Script" path="res://scripts/resources/eco_quest_task.gd" id="3_c2q7r"]
+[ext_resource type="Script" path="res://scripts/resources/eco_quest_task_conditions/picked_up_items_task_condition.gd" id="4_y2nyv"]
 [ext_resource type="Resource" uid="uid://4bd0gl2jjueb" path="res://resources/items/coffee_cup.tres" id="5_hqeca"]
 
-[sub_resource type="Resource" id="Resource_pfk3k"]
-script = ExtResource("2_cdwto")
-disabled = false
-increment_on_event = "picked_up"
-increment_if_has_similar_arguments = [ExtResource("2_b0fcq")]
-maximum_points = 5.0
+[sub_resource type="Resource" id="Resource_opp5i"]
+script = ExtResource("4_y2nyv")
+picked_up_item = ExtResource("2_b0fcq")
+maximum_points = 5
 
 [sub_resource type="Resource" id="Resource_t8d6g"]
 script = ExtResource("3_c2q7r")
 description = "Banana Peels"
-counter = SubResource("Resource_pfk3k")
+condition = SubResource("Resource_opp5i")
 
-[sub_resource type="Resource" id="Resource_6sydr"]
-script = ExtResource("2_cdwto")
-disabled = false
-increment_on_event = "picked_up"
-increment_if_has_similar_arguments = [ExtResource("5_hqeca")]
-maximum_points = 5.0
+[sub_resource type="Resource" id="Resource_hdl6u"]
+script = ExtResource("4_y2nyv")
+picked_up_item = ExtResource("5_hqeca")
+maximum_points = 5
 
 [sub_resource type="Resource" id="Resource_8qv71"]
 script = ExtResource("3_c2q7r")
 description = "Coffee Cup"
-counter = SubResource("Resource_6sydr")
+condition = SubResource("Resource_hdl6u")
 
 [resource]
 script = ExtResource("1_m541f")

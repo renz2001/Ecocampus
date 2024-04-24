@@ -59,6 +59,10 @@ func set_data(value: Entity) -> void:
 	data = value
 
 
+func interact() -> void: 
+	_on_interact()
+
+
 ## Virtual Function
 func _interact() -> void: 
 	pass
@@ -89,6 +93,8 @@ func show_interact_dialog(description: LabelText) -> void:
 
 
 func _on_tap_hit_box_pressed() -> void:
+	if !PlayerManager.player: 
+		return
 	if display_interact_dialog: 
 		if wait_for_player_to_display_interact_dialog: 
 			PlayerManager.player.path_find.changed_target.connect(_on_changed_target, CONNECT_ONE_SHOT)

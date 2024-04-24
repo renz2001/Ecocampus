@@ -15,14 +15,13 @@ font_size = 50
 script = ExtResource("5_qb1w5")
 format = "%s: %s/%s"
 
-[node name="QuestGUI" type="PanelContainer" node_paths=PackedStringArray("percentage_label", "quest_task_container")]
+[node name="QuestGUI" type="PanelContainer" node_paths=PackedStringArray("percentage_label")]
 offset_right = 40.0
 offset_bottom = 40.0
 theme = ExtResource("1_mriba")
 theme_override_styles/panel = SubResource("StyleBoxEmpty_818jw")
 script = ExtResource("2_a3avm")
 percentage_label = NodePath("MarginContainer/VBoxContainer/PercentageLabel")
-quest_task_container = NodePath("MarginContainer/VBoxContainer/QuestTaskContainer")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2

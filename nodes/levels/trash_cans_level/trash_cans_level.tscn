@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bc1txwrwrlhfu"]
+[gd_scene load_steps=12 format=3 uid="uid://bc1txwrwrlhfu"]
 
 [ext_resource type="PackedScene" uid="uid://cm6jeskbiise6" path="res://nodes/abstract_scenes/level_node/level_node.tscn" id="1_4fkii"]
 [ext_resource type="Texture2D" uid="uid://cgvwt0653vaxn" path="res://assets/background/camera_pictures/trash_can_bg.jpg" id="2_jlb62"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dqshq874l3ic5" path="res://assets/character/player_boy/boy.png" id="3_briwm"]
 [ext_resource type="PackedScene" uid="uid://ceslx0shjft6" path="res://nodes/storage_nodes/bio_degradable_trash_can/bio_degradable_trash_can.tscn" id="4_7mhfn"]
 [ext_resource type="PackedScene" uid="uid://cdt5mavsgfwcl" path="res://nodes/storage_nodes/non_biodegradable_trash_can/non_biodegradable_trash_can.tscn" id="5_4eos8"]
+[ext_resource type="PackedScene" uid="uid://caddtr3fd88mk" path="res://nodes/gui/trash_can_info_dialog/trash_can_info_dialog.tscn" id="5_qmskb"]
 [ext_resource type="PackedScene" uid="uid://dtqoxulajxxhx" path="res://nodes/storage_nodes/recyclable_trash_can/recyclable_trash_can.tscn" id="6_4jqk0"]
 [ext_resource type="Script" path="res://addons/save_components_system/scripts/resources/id.gd" id="7_w83j3"]
 
@@ -18,6 +19,22 @@ script = ExtResource("7_w83j3")
 value = "3484743336539762445"
 
 [node name="TrashCansLevel" instance=ExtResource("1_4fkii")]
+
+[node name="Root" type="Control" parent="GUIs" index="0"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TrashCanInfoDialog" parent="GUIs/Root" index="0" node_paths=PackedStringArray("trash_cans") instance=ExtResource("5_qmskb")]
+offset_left = 439.0
+offset_top = 31.0
+offset_right = 439.0
+offset_bottom = 31.0
+trash_cans = [NodePath("../../../Entities/NonLiving/TrashCans/BioDegradableTrashcan"), NodePath("../../../Entities/NonLiving/TrashCans/NonBiodegradableTrashCan"), NodePath("../../../Entities/NonLiving/TrashCans/RecyclableTrashCan")]
 
 [node name="PlayerSpriteDisplay" parent="Environment" index="0" instance=ExtResource("2_xrh1o")]
 position = Vector2(266, 653)

@@ -27,6 +27,7 @@ script = ExtResource("3_4rnnn")
 properties = PackedStringArray("points")
 
 [node name="PointCounterComponent" type="Node"]
+process_mode = 3
 script = ExtResource("1_n13je")
 points = SubResource("Resource_ui7it")
 

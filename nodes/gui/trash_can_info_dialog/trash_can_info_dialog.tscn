@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://caddtr3fd88mk"]
+
+[ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/macchi's_gui_manager/nodes/gui/gui/gui.tscn" id="1_v6ymr"]
+[ext_resource type="Script" path="res://nodes/gui/trash_can_info_dialog/trash_can_info_dialog.gd" id="2_wmqvj"]
+[ext_resource type="PackedScene" uid="uid://dh1ftkyfip0sh" path="res://nodes/gui_components/on_tap_set_active/on_tap_set_active.tscn" id="3_gev1j"]
+
+[node name="TrashCanInfoDialog" node_paths=PackedStringArray("trash_cans") instance=ExtResource("1_v6ymr")]
+script = ExtResource("2_wmqvj")
+trash_cans = []
+
+[node name="OnTapSetActive" parent="." index="0" node_paths=PackedStringArray("gui") instance=ExtResource("3_gev1j")]
+layout_mode = 1
+offset_left = -1237.0
+offset_top = -914.0
+offset_right = 2310.0
+offset_bottom = 1353.0
+gui = NodePath("..")
+
+[node name="PanelContainer" type="PanelContainer" parent="." index="2"]
+layout_mode = 0
+offset_right = 1100.0
+offset_bottom = 313.0
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" index="0"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer" index="0"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Oops! IT looks like you’ve placed an item in the wrong trash bin. Remember, proper waste segragation is key to effective recycling and environmental conservation."
+autowrap_mode = 3

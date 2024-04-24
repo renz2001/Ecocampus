@@ -34,9 +34,9 @@ func start_quest(quest: Quest) -> Quest:
 	#Add the quest to the actives quests
 	available.remove_quest(quest)
 	active.add_quest(quest)
+	quest.start()
 	quest_accepted.emit(quest)
 
-	quest.start()
 
 	return quest
 

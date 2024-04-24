@@ -36,3 +36,7 @@ func update() -> void:
 	player_gender_label.text = GlobalVariables.get_enum_name(GlobalEnums.Gender, player.gender)
 	equip_cosmetic_button.cosmetic = current_cosmetic
 
+
+
+func _on_cosmetics_display_card_container_updated() -> void:
+	update()

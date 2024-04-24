@@ -1,8 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://jo332ksg44ul"]
+[gd_scene load_steps=7 format=3 uid="uid://jo332ksg44ul"]
 
 [ext_resource type="Script" path="res://nodes/singletons/globals/achievements_tracker/achievements_tracker.gd" id="1_y316a"]
+[ext_resource type="Script" path="res://addons/macchi's_node_components/nodes/components/print_color.gd" id="2_v0dh4"]
 [ext_resource type="PackedScene" uid="uid://d02dwov2yojbj" path="res://addons/macchi's_node_components/nodes/components/point_counter_component/point_counter_component.tscn" id="3_02lvq"]
 [ext_resource type="Script" path="res://addons/macchi's_node_components/scripts/resources/point_counter.gd" id="4_0flqk"]
+
+[sub_resource type="Resource" id="Resource_2tw2o"]
+script = ExtResource("2_v0dh4")
+disabled = false
+color = Color(1, 0.807843, 0, 1)
+owner_name_color = Color(1, 0.52549, 0.121569, 1)
+value_color = Color(1, 0, 0, 1)
+automatic_value_color = true
+use_spaces_for_node_name = false
 
 [sub_resource type="Resource" id="Resource_firrs"]
 script = ExtResource("4_0flqk")
@@ -23,6 +33,12 @@ disabled = false
 [node name="AchievementsTracker" type="Node" node_paths=PackedStringArray("medals")]
 script = ExtResource("1_y316a")
 medals = NodePath("MedalCounter")
+print_color = SubResource("Resource_2tw2o")
 
 [node name="MedalCounter" parent="." instance=ExtResource("3_02lvq")]
 points = SubResource("Resource_firrs")
+
+[node name="ReadyUniqueResource" parent="MedalCounter" index="1"]
+disabled = true
+
+[editable path="MedalCounter"]

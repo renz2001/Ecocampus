@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://ibuaxowofiai"]
+
+[ext_resource type="PackedScene" uid="uid://dokfordgw2kk3" path="res://nodes/abstract_scenes/non_living_entity_node/non_living_entity_node.tscn" id="1_yhx30"]
+[ext_resource type="Texture2D" uid="uid://bklyp76j22ubq" path="res://assets/non_living_entities/light_switch.png" id="2_phfc8"]
+[ext_resource type="Script" path="res://nodes/entities/non_living_entities/light_switch/light_switch.gd" id="2_sci1n"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="3_qhoh8"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="4_emtls"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="5_mygse"]
+
+[node name="LightSwitch" node_paths=PackedStringArray("light_bulbs") instance=ExtResource("1_yhx30")]
+script = ExtResource("2_sci1n")
+light_bulbs = []
+
+[node name="TapHitBox" parent="." index="0"]
+offset_left = -38.0
+offset_top = -55.0
+offset_right = 39.0
+offset_bottom = 57.0
+
+[node name="State" type="Node" parent="StateChart/Root/Enabled" index="3"]
+script = ExtResource("3_qhoh8")
+initial_state = NodePath("On")
+
+[node name="Off" type="Node" parent="StateChart/Root/Enabled/State" index="0"]
+script = ExtResource("4_emtls")
+
+[node name="OnOn" type="Node" parent="StateChart/Root/Enabled/State/Off" index="0"]
+script = ExtResource("5_mygse")
+to = NodePath("../../On")
+event = &"on"
+
+[node name="On" type="Node" parent="StateChart/Root/Enabled/State" index="1"]
+script = ExtResource("4_emtls")
+
+[node name="OnOff" type="Node" parent="StateChart/Root/Enabled/State/On" index="0"]
+script = ExtResource("5_mygse")
+to = NodePath("../../Off")
+event = &"off"
+
+[node name="ShadowCircle" parent="Sprites" index="0"]
+visible = false
+
+[node name="EntitySprite" parent="Sprites" index="1"]
+scale = Vector2(0.0284332, 0.0284332)
+texture = ExtResource("2_phfc8")

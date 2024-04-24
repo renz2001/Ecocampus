@@ -15,5 +15,6 @@ theme = ExtResource("1_xwxy1")
 button = NodePath("..")
 audio = ExtResource("3_ok8ef")
 
-[node name="OnPressedScale" parent="." node_paths=PackedStringArray("control") instance=ExtResource("4_hcpn8")]
+[node name="OnPressedScale" parent="." node_paths=PackedStringArray("node", "control") instance=ExtResource("4_hcpn8")]
+node = NodePath("..")
 control = NodePath("..")

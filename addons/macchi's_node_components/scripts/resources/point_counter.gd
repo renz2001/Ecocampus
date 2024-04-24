@@ -87,6 +87,7 @@ func add(value: float) -> void:
 	previous = current
 	current += value
 	current_added.emit(value)
+	current_changed.emit(current, previous)
 	
 	
 func subtract(value: float) -> void: 
@@ -97,6 +98,7 @@ func subtract(value: float) -> void:
 	previous = current
 	current -= value
 	current_subtracted.emit(value)
+	current_changed.emit(current, previous)
 	
 	
 func is_minimum() -> bool: 

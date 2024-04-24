@@ -9,14 +9,14 @@
 [ext_resource type="Script" path="res://addons/macchi's_audio_manager_and_plus/scripts/arguments/audio_stream_player_arguments.gd" id="6_0l4ik"]
 [ext_resource type="AudioStream" uid="uid://bg0jmi11j2nv4" path="res://assets/audio/ui/achievement_popup.wav" id="7_k8gel"]
 
-[sub_resource type="Resource" id="Resource_rcbbj"]
+[sub_resource type="Resource" id="Resource_bdffw"]
 script = ExtResource("6_0l4ik")
 sound = ExtResource("7_k8gel")
 play_from_position = 0
 pitch_scale = 1.0
 volume_slider = 1.0
 volume_db = 0.0
-bus = ""
+bus = &"Master"
 
 [node name="AchievementUnlockedGUI" node_paths=PackedStringArray("sprite_rect", "title_label", "task_description_label") instance=ExtResource("1_y7k5e")]
 offset_right = 439.0
@@ -78,5 +78,6 @@ layout_mode = 2
 editor_play = false
 node = NodePath("..")
 
-[node name="OnActivateAudio" parent="Audio" index="0"]
-audio = SubResource("Resource_rcbbj")
+[node name="OnShowAudio" parent="Audio" index="2"]
+type = 1
+audio = SubResource("Resource_bdffw")

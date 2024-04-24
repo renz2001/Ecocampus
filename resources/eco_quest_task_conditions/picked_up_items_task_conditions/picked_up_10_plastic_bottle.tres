@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="PickedUpItemsTaskCondition" load_steps=3 format=3 uid="uid://dkl3sxbbbm2fr"]
+
+[ext_resource type="Script" path="res://scripts/resources/eco_quest_task_conditions/picked_up_items_task_condition.gd" id="1_fs354"]
+[ext_resource type="Resource" uid="uid://byvmcgi6p0hdv" path="res://resources/items/plastic_bottle.tres" id="1_pjxpx"]
+
+[resource]
+script = ExtResource("1_fs354")
+picked_up_item = ExtResource("1_pjxpx")
+maximum_points = 5

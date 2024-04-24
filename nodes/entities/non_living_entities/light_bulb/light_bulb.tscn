@@ -1,0 +1,77 @@
+[gd_scene load_steps=13 format=3 uid="uid://cxbi5gy21wbmn"]
+
+[ext_resource type="PackedScene" uid="uid://dokfordgw2kk3" path="res://nodes/abstract_scenes/non_living_entity_node/non_living_entity_node.tscn" id="1_rx25i"]
+[ext_resource type="Texture2D" uid="uid://bcc84nclik45k" path="res://assets/non_living_entities/lightbulb_off.png" id="2_1cpm4"]
+[ext_resource type="Script" path="res://nodes/entities/non_living_entities/light_bulb/light_bulb.gd" id="2_4g3bq"]
+[ext_resource type="PackedScene" uid="uid://dvrqbygr8xwlr" path="res://addons/macchi's_node_components/nodes/components/node_variety_manager/node_variety/node_variety.tscn" id="3_6qvu2"]
+[ext_resource type="Script" path="res://scripts/resources/entity.gd" id="3_r7qc0"]
+[ext_resource type="Texture2D" uid="uid://bphxxvwqj0l1t" path="res://assets/non_living_entities/lightbulb_on.png" id="3_spmdb"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="4_e7jvl"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="5_oxrtc"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="6_s7lqc"]
+[ext_resource type="Script" path="res://addons/save_components_system/scripts/resources/properties_to_save.gd" id="8_q2dlt"]
+
+[sub_resource type="Resource" id="Resource_ww6kv"]
+script = ExtResource("3_r7qc0")
+custom_name = ""
+name = "Light Bulb"
+gender = 0
+group = "LightBulb"
+
+[sub_resource type="Resource" id="Resource_cg4s3"]
+script = ExtResource("8_q2dlt")
+properties = PackedStringArray("inventory", "data", "quiz", "dialogue", "global_position", "global_scale", "state")
+
+[node name="LightBulb" node_paths=PackedStringArray("on_state") groups=["LightBulb"] instance=ExtResource("1_rx25i")]
+script = ExtResource("2_4g3bq")
+state = 1
+on_state = NodePath("StateChart/Root/Enabled/State/On")
+data = SubResource("Resource_ww6kv")
+
+[node name="State" type="Node" parent="StateChart/Root/Enabled" index="3"]
+script = ExtResource("4_e7jvl")
+initial_state = NodePath("Off")
+
+[node name="Off" type="Node" parent="StateChart/Root/Enabled/State" index="0"]
+script = ExtResource("5_oxrtc")
+
+[node name="OnOn" type="Node" parent="StateChart/Root/Enabled/State/Off" index="0"]
+script = ExtResource("6_s7lqc")
+to = NodePath("../../On")
+event = &"on"
+
+[node name="On" type="Node" parent="StateChart/Root/Enabled/State" index="1"]
+script = ExtResource("5_oxrtc")
+
+[node name="OnOff" type="Node" parent="StateChart/Root/Enabled/State/On" index="0"]
+script = ExtResource("6_s7lqc")
+to = NodePath("../../Off")
+event = &"off"
+
+[node name="NodeVarietyManager" parent="Components" index="2"]
+variety_name = "Off"
+
+[node name="Off" parent="Components/NodeVarietyManager" index="0" node_paths=PackedStringArray("nodes") instance=ExtResource("3_6qvu2")]
+active = true
+nodes = [NodePath("../../../Sprites/EntitySprite")]
+
+[node name="On" parent="Components/NodeVarietyManager" index="1" node_paths=PackedStringArray("nodes") instance=ExtResource("3_6qvu2")]
+nodes = [NodePath("../../../Sprites/On")]
+
+[node name="MasterSaveComponent" parent="Components" index="8"]
+data = SubResource("Resource_cg4s3")
+
+[node name="Sprites" parent="." index="5"]
+scale = Vector2(0.0460689, 0.0460689)
+
+[node name="ShadowCircle" parent="Sprites" index="0"]
+visible = false
+
+[node name="EntitySprite" parent="Sprites" index="1"]
+texture = ExtResource("2_1cpm4")
+
+[node name="On" type="Sprite2D" parent="Sprites" index="2"]
+visible = false
+position = Vector2(-2, 408)
+scale = Vector2(1.29597, 1.29597)
+texture = ExtResource("3_spmdb")

@@ -7,7 +7,7 @@ class_name QuizAttemptScreen
 @export var quiz: Quiz: 
 	set(value): 
 		quiz = value
-		quiz_attempt_gui
+		#quiz_attempt_gui
 		
 @export var entity_answering: NPCEntity: 
 	set(value): 

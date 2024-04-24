@@ -1,27 +1,31 @@
-[gd_resource type="Resource" script_class="EcoQuest" load_steps=8 format=3 uid="uid://dqnawmf4l2y2c"]
+[gd_resource type="Resource" script_class="EcoQuest" load_steps=10 format=3 uid="uid://dqnawmf4l2y2c"]
 
 [ext_resource type="Script" path="res://scripts/resources/eco_quest.gd" id="1_1ihav"]
 [ext_resource type="Resource" uid="uid://c6s6bjq137y00" path="res://resources/achievements/recyclable_collector.tres" id="1_h2ang"]
-[ext_resource type="Script" path="res://addons/world_event_manager/scripts/resources/world_event_point_counter.gd" id="2_3nqt1"]
-[ext_resource type="Resource" uid="uid://byvmcgi6p0hdv" path="res://resources/items/plastic_bottle.tres" id="2_wyoew"]
 [ext_resource type="Script" path="res://scripts/resources/eco_quest_task.gd" id="3_67lix"]
-
-[sub_resource type="Resource" id="Resource_6l8yd"]
-script = ExtResource("2_3nqt1")
-disabled = false
-increment_on_event = "picked_up"
-increment_if_has_similar_arguments = [ExtResource("2_wyoew")]
-maximum_points = 10.0
+[ext_resource type="Resource" uid="uid://dkl3sxbbbm2fr" path="res://resources/eco_quest_task_conditions/picked_up_items_task_conditions/picked_up_10_plastic_bottle.tres" id="3_ol54o"]
+[ext_resource type="Resource" uid="uid://jgsa6g533e4g" path="res://resources/items/aluminum_soda_can.tres" id="5_evhrl"]
+[ext_resource type="Script" path="res://scripts/resources/eco_quest_task_conditions/picked_up_items_task_condition.gd" id="6_f4bdd"]
 
 [sub_resource type="Resource" id="Resource_rl054"]
 script = ExtResource("3_67lix")
-description = "Collect 10 plastic bottles"
-counter = SubResource("Resource_6l8yd")
+description = "Plastic Bottles"
+condition = ExtResource("3_ol54o")
+
+[sub_resource type="Resource" id="Resource_516h2"]
+script = ExtResource("6_f4bdd")
+picked_up_item = ExtResource("5_evhrl")
+maximum_points = 5
+
+[sub_resource type="Resource" id="Resource_ffh07"]
+script = ExtResource("3_67lix")
+description = "Aluminum Cans"
+condition = SubResource("Resource_516h2")
 
 [resource]
 script = ExtResource("1_1ihav")
-percentage_description = "Collect Water Bottles"
-tasks = Array[ExtResource("3_67lix")]([SubResource("Resource_rl054")])
+percentage_description = "Collect 10 Recyclables"
+tasks = Array[ExtResource("3_67lix")]([SubResource("Resource_rl054"), SubResource("Resource_ffh07")])
 on_complete_unlock_achievement = ExtResource("1_h2ang")
 invisible_in_gui = false
 id = 1

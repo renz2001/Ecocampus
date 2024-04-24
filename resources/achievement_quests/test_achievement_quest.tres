@@ -1,20 +1,11 @@
-[gd_resource type="Resource" script_class="EcoQuest" load_steps=6 format=3 uid="uid://cktltn1m3bfqb"]
+[gd_resource type="Resource" script_class="EcoQuest" load_steps=4 format=3 uid="uid://cktltn1m3bfqb"]
 
 [ext_resource type="Script" path="res://scripts/resources/eco_quest.gd" id="1_wkmub"]
-[ext_resource type="Script" path="res://addons/world_event_manager/scripts/resources/world_event_point_counter.gd" id="2_tqxv4"]
 [ext_resource type="Script" path="res://scripts/resources/eco_quest_task.gd" id="3_ww4hh"]
-
-[sub_resource type="Resource" id="Resource_kkhqh"]
-script = ExtResource("2_tqxv4")
-disabled = false
-increment_on_event = "picked_up"
-increment_if_has_similar_arguments = ["plastic_bottle"]
-maximum_points = 0.0
 
 [sub_resource type="Resource" id="Resource_uts7q"]
 script = ExtResource("3_ww4hh")
 description = "Pick 5 plastic bottles"
-counter = SubResource("Resource_kkhqh")
 
 [resource]
 script = ExtResource("1_wkmub")

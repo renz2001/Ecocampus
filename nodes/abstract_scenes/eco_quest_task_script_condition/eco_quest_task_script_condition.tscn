@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cro58nkxhcyln"]
-
-[ext_resource type="Script" path="res://nodes/abstract_scenes/eco_quest_task_script_condition/eco_quest_task_script_condition.gd" id="1_ye8e0"]
-
-[node name="EcoQuestTaskScriptCondition" type="Node"]
-script = ExtResource("1_ye8e0")

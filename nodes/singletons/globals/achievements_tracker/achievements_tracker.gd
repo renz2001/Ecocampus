@@ -19,7 +19,10 @@ class_name AchievementsTracker
 #@export var achievements_quests: Array[EcoQuest]
 
 @export var medals: PointCounterComponent
-
+@export var print_color: PrintColor: 
+	set(value): 
+		print_color = value
+		print_color.owner = self
 
 func _ready() -> void: 
 	#for quest: EcoQuest in achievements_quests: 
@@ -37,5 +40,5 @@ func unlock_cosmetic(cosmetic: Cosmetic) -> void:
 	cosmetic.unlock(int(medals.points.current))
 	if cosmetic.is_unlocked(): 
 		medals.points.subtract(cosmetic.medals_required)
-	
-	
+		print_color.out_debug_wvalue("Unlocked cosmetic with medals", [cosmetic, medals.points.current])
+

@@ -9,7 +9,7 @@ class_name QuestTaskGUI
 		if !is_node_ready(): 
 			await ready
 		update()
-		task.counter.counter.current_changed.connect(
+		task.get_counter().current_changed.connect(
 			_on_task_counter_current_changed
 		)
 		
@@ -21,5 +21,8 @@ func _on_task_counter_current_changed(_new: float, _prev: float) -> void:
 	
 	
 func update() -> void: 
-	label.input([task.description, str(task.counter.counter.current), str(task.counter.counter.maximum)])
+	if task.hide_counter_in_gui: 
+		label.hide()
+		return
+	label.input([task.description, str(task.get_counter().current), str(task.get_counter().maximum)])
 

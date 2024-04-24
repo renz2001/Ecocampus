@@ -11,9 +11,14 @@ var quests: Array[Quest]:
 func _ready() -> void: 
 	update()
 	ExtendedQuestSystem.quest_accepted.connect(_on_quest_accepted)
-
+	ExtendedQuestSystem.quest_completed.connect(_on_quest_completed)
+	
 
 func _on_quest_accepted(_quest: Quest) -> void: 
+	update()
+	
+	
+func _on_quest_completed(_quest: Quest) -> void: 
 	update()
 	
 	

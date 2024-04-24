@@ -15,3 +15,7 @@ enum ScreenSizes {
 	FOUR_THREE
 }
 
+enum OnState {
+	OFF, 
+	ON
+}

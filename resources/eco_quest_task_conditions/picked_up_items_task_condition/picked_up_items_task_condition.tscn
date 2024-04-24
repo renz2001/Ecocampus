@@ -1,7 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://7luayg3ivciq"]
-
-[ext_resource type="PackedScene" uid="uid://cro58nkxhcyln" path="res://nodes/abstract_scenes/eco_quest_task_script_condition/eco_quest_task_script_condition.tscn" id="1_h1g1h"]
-[ext_resource type="Script" path="res://resources/eco_quest_task_conditions/picked_up_items_task_condition/picked_up_items_task_condition.gd" id="1_jsq8m"]
-
-[node name="PickedUpItemsTaskConditionNode" instance=ExtResource("1_h1g1h")]
-script = ExtResource("1_jsq8m")

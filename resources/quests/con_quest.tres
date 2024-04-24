@@ -4,32 +4,30 @@
 [ext_resource type="Resource" uid="uid://ll8j3lx50l2s" path="res://resources/achievements/non_bio_collector.tres" id="1_csaqd"]
 [ext_resource type="Script" path="res://scripts/resources/eco_quest_task.gd" id="2_7tm0h"]
 [ext_resource type="Resource" uid="uid://23ubbrkj81uh" path="res://resources/items/plastic_bag.tres" id="2_xvuxo"]
-[ext_resource type="Script" path="res://addons/world_event_manager/scripts/resources/world_event_point_counter.gd" id="3_25qtn"]
-[ext_resource type="Resource" uid="uid://4bd0gl2jjueb" path="res://resources/items/coffee_cup.tres" id="5_sj2b7"]
+[ext_resource type="Resource" uid="uid://dla73tgx4t3cn" path="res://resources/items/juice_box.tres" id="3_nfryj"]
+[ext_resource type="Script" path="res://scripts/resources/eco_quest_task_conditions/picked_up_items_task_condition.gd" id="4_khrq5"]
 
-[sub_resource type="Resource" id="Resource_5glee"]
-script = ExtResource("3_25qtn")
-disabled = false
-increment_on_event = "picked_up"
-increment_if_has_similar_arguments = [ExtResource("2_xvuxo")]
-maximum_points = 0.0
+[sub_resource type="Resource" id="Resource_1v7q4"]
+script = ExtResource("4_khrq5")
+picked_up_item = ExtResource("3_nfryj")
+maximum_points = 5
 
 [sub_resource type="Resource" id="Resource_rhefh"]
 script = ExtResource("2_7tm0h")
 description = "Plastic Bags"
-counter = SubResource("Resource_5glee")
+condition = SubResource("Resource_1v7q4")
+hide_counter_in_gui = false
 
-[sub_resource type="Resource" id="Resource_3cxs1"]
-script = ExtResource("3_25qtn")
-disabled = false
-increment_on_event = "picked_up"
-increment_if_has_similar_arguments = [ExtResource("5_sj2b7")]
-maximum_points = 0.0
+[sub_resource type="Resource" id="Resource_4h0wt"]
+script = ExtResource("4_khrq5")
+picked_up_item = ExtResource("2_xvuxo")
+maximum_points = 5
 
 [sub_resource type="Resource" id="Resource_qdfu8"]
 script = ExtResource("2_7tm0h")
 description = "Coffee Cups"
-counter = SubResource("Resource_3cxs1")
+condition = SubResource("Resource_4h0wt")
+hide_counter_in_gui = false
 
 [resource]
 script = ExtResource("1_ayv04")

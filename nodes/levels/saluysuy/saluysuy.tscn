@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c7ma84vuiqota"]
+[gd_scene load_steps=15 format=3 uid="uid://c7ma84vuiqota"]
 
 [ext_resource type="PackedScene" uid="uid://cm6jeskbiise6" path="res://nodes/abstract_scenes/level_node/level_node.tscn" id="1_pd2cb"]
 [ext_resource type="Texture2D" uid="uid://dwc1l7vhxhjkq" path="res://assets/background/camera_pictures/saluysuy_bg.jpg" id="2_k36ol"]
@@ -10,6 +10,8 @@
 [ext_resource type="Resource" uid="uid://ch7fcp5l0o067" path="res://resources/quests/saluysuy_quest.tres" id="7_bl1wb"]
 [ext_resource type="PackedScene" uid="uid://b5wngnu2a6eym" path="res://nodes/entities/viktor/viktor.tscn" id="8_sf3ny"]
 [ext_resource type="Resource" uid="uid://b5mxyuxnxpian" path="res://resources/dialogue_arguments/viktor_dialogue.tres" id="9_lmtsk"]
+[ext_resource type="PackedScene" uid="uid://cxbi5gy21wbmn" path="res://nodes/entities/non_living_entities/light_bulb/light_bulb.tscn" id="10_sq4sl"]
+[ext_resource type="PackedScene" uid="uid://ibuaxowofiai" path="res://nodes/entities/non_living_entities/light_switch/light_switch.tscn" id="11_cfu07"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_o2x7v"]
 vertices = PackedVector2Array(805, 550, 794, 519, 886, 529, 886, 530, -117, 1170, -128, 770, -35, 807, 936, 545, 924, 562, 736, 578, 1824, 731, 2043, 1173, 363, 650, 1386, 683, 2009, 526, 2043, 526, 362, 649, 1461, 646)
@@ -51,6 +53,15 @@ quest = ExtResource("7_bl1wb")
 position = Vector2(1725, 807)
 scale = Vector2(1.20642, 1.20642)
 dialogue = ExtResource("9_lmtsk")
+
+[node name="LightBulb" parent="Entities/NonLiving" index="0" instance=ExtResource("10_sq4sl")]
+position = Vector2(1215, 90)
+scale = Vector2(0.180359, 0.180359)
+
+[node name="LightSwitch" parent="Entities/NonLiving" index="1" node_paths=PackedStringArray("light_bulbs") instance=ExtResource("11_cfu07")]
+position = Vector2(1612, 359)
+scale = Vector2(0.565312, 0.565312)
+light_bulbs = [NodePath("../LightBulb")]
 
 [node name="TwoPoint5DSpaceSimulator" parent="Scripts" index="0"]
 scale_size_offset = 140

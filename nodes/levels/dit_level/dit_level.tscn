@@ -1,31 +1,21 @@
-[gd_scene load_steps=14 format=3 uid="uid://b02kmlgxwvx6d"]
+[gd_scene load_steps=13 format=3 uid="uid://b02kmlgxwvx6d"]
 
 [ext_resource type="PackedScene" uid="uid://cm6jeskbiise6" path="res://nodes/abstract_scenes/level_node/level_node.tscn" id="1_ltte7"]
 [ext_resource type="Texture2D" uid="uid://he71rk7i3shh" path="res://assets/background/camera_pictures/dit_bg.jpg" id="2_gqce5"]
 [ext_resource type="PackedScene" uid="uid://8qsjsyglmgq4" path="res://nodes/entities/player_node/player_node.tscn" id="3_ne317"]
 [ext_resource type="PackedScene" uid="uid://dabell1f8jfje" path="res://nodes/entities/professor_luna/professor_luna.tscn" id="4_6jlch"]
+[ext_resource type="Resource" uid="uid://bs140e2e1mtpo" path="res://resources/dialogue_arguments/dit_quest_dialogue.tres" id="5_2ypcq"]
 [ext_resource type="Resource" uid="uid://c4boh8kwlv6s0" path="res://resources/quizzes/dit_quiz.tres" id="5_5nufk"]
-[ext_resource type="Script" path="res://addons/dialogue_manager's_dialogue_gui_manager/scripts/arguments/dialogue_arguments.gd" id="5_7xidu"]
 [ext_resource type="Script" path="res://addons/save_components_system/scripts/resources/id.gd" id="5_l65v3"]
 [ext_resource type="Resource" uid="uid://bp866e3wvjnkn" path="res://resources/quests/dit_quest.tres" id="7_60isj"]
 [ext_resource type="PackedScene" uid="uid://c10ki4bgi4jnl" path="res://nodes/entities/enzo/enzo.tscn" id="8_q4sri"]
 [ext_resource type="Resource" uid="uid://ctn5e7ndh52so" path="res://resources/dialogue_arguments/enzo_dialogue.tres" id="9_87v65"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_muct3"]
-vertices = PackedVector2Array(-58, 1180, -62, 776, 1419, 806, 1989, 1183, 1986, 733, 1520, 708)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 3, 2, 5)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(1996, 724, 1517, 698, 1415, 796, -73, 766, -68, 1190, 2000, 1194)])
+vertices = PackedVector2Array(-58, 1180, -62, 776, 1419, 806, 1989, 1183, 1986, 733, 1847, 725, 1525, 704, 1553, 646, 1692, 674, 1845, 675, 1683, 644)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 3, 2, 5), PackedInt32Array(5, 2, 6), PackedInt32Array(5, 6, 7, 8), PackedInt32Array(8, 9, 5), PackedInt32Array(10, 8, 7)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(1996, 724, 1857.38, 716.476, 1855, 666, 1700, 664, 1692, 634, 1547, 637, 1517, 698, 1415, 796, -73, 766, -68, 1190, 2000, 1194)])
 source_geometry_group_name = &"navigation_polygon_source_group"
-
-[sub_resource type="Resource" id="Resource_6r7n7"]
-script = ExtResource("5_7xidu")
-dialogue_gui = 0
-main_speakers = Array[Resource("res://scripts/resources/entity.gd")]([])
-title = ""
-extra_game_states = []
-title_variation = 0
-reset_when_title_variation_reached = false
-is_dialogue_game_state = true
 
 [sub_resource type="Resource" id="Resource_yh01w"]
 script = ExtResource("5_l65v3")
@@ -53,7 +43,7 @@ scale = Vector2(1.42174, 1.42174)
 [node name="ProfessorLuna" parent="Entities/Living" index="1" instance=ExtResource("4_6jlch")]
 position = Vector2(1543, 720)
 scale = Vector2(0.694322, 0.694322)
-dialogue = SubResource("Resource_6r7n7")
+dialogue = ExtResource("5_2ypcq")
 quiz = ExtResource("5_5nufk")
 quest = ExtResource("7_60isj")
 

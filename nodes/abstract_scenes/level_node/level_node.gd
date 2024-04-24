@@ -4,6 +4,7 @@ class_name LevelNode
 @export var id_component: IDComponent
 #@export var quests_collection: QuestsCollection
 
+# TODO: Implement task condition script for segregating all trash. 
 
 func _ready() -> void:
 	GameManager.state_chart.send_event("playing")
@@ -11,6 +12,7 @@ func _ready() -> void:
 		SaveManager.set_current_game_save_from_file_name("save_file_1")
 		SaveManager.load_current_game_save(str(id_component.data.value))
 	#quests_collection.start_quests()
+	WorldEventManager.call_event("ready", self)
 
 
 func _notification(what: int) -> void: 

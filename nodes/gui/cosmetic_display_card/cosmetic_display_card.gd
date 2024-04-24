@@ -61,6 +61,7 @@ func update() -> void:
 	state = cosmetic.state
 	cosmetic_name_label.text = cosmetic.get_current_name(player.gender)
 	cosmetic_name_label_2.text = cosmetic.get_current_name(player.gender)
+	points_label.text = str(cosmetic.medals_required)
 
 
 func _on_unlock_button_pressed() -> void:
