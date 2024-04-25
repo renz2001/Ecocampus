@@ -1,12 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://b6yh5ahr4kpcw"]
+[gd_scene load_steps=5 format=3 uid="uid://b6yh5ahr4kpcw"]
 
 [ext_resource type="PackedScene" uid="uid://cvhhqe1kxtxmi" path="res://nodes/components/on_interact_component/on_interact_component.tscn" id="1_pdpyf"]
 [ext_resource type="Script" path="res://nodes/components/on_interact_components/on_interact_pick_up/on_interact_pick_up.gd" id="2_nq5df"]
 [ext_resource type="PackedScene" uid="uid://c1fh46pweltjk" path="res://addons/world_event_manager/nodes/components/call_world_event_component/call_world_event_component.tscn" id="3_w2ll4"]
+[ext_resource type="PackedScene" uid="uid://0iv6s386ufme" path="res://nodes/components/queue_free_with_save_component/queue_free_with_save_component.tscn" id="4_r2lrl"]
 
-[node name="OnInteractPickUp" node_paths=PackedStringArray("call_world_event_component") instance=ExtResource("1_pdpyf")]
+[node name="OnInteractPickUp" node_paths=PackedStringArray("call_world_event_component", "queue_free_with_save_component") instance=ExtResource("1_pdpyf")]
 script = ExtResource("2_nq5df")
 use_first_item_as_argument_for_event = true
 call_world_event_component = NodePath("CallWorldEventComponent")
+queue_free_with_save_component = NodePath("QueueFreeWithSaveComponent")
 
 [node name="CallWorldEventComponent" parent="." index="0" instance=ExtResource("3_w2ll4")]
+
+[node name="QueueFreeWithSaveComponent" parent="." index="1" instance=ExtResource("4_r2lrl")]

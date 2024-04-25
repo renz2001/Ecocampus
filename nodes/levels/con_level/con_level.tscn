@@ -64,7 +64,7 @@ scale = Vector2(0.776938, 0.776938)
 
 [node name="PlasticBag3" parent="Entities/NonLiving" index="2" instance=ExtResource("10_cgcwh")]
 position = Vector2(1569, 681)
-scale = Vector2(0.533222, 0.533222)
+scale = Vector2(0.533221, 0.533221)
 
 [node name="PlasticBag4" parent="Entities/NonLiving" index="3" instance=ExtResource("10_cgcwh")]
 position = Vector2(92, 753)

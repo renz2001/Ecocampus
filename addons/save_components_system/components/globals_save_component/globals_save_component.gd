@@ -1,4 +1,3 @@
-# TODO: (Undecided)
 extends NodeComponent
 class_name GlobalsSaveComponent
 
@@ -10,7 +9,6 @@ class_name GlobalsSaveComponent
 func to_dict() -> Dictionary: 
 	var dict: Dictionary
 	var autoload: Node = NodeTools.get_autoload(self, autoload_name)
-	print(autoload)
 	master_save_component.node = autoload
 
 	return master_save_component.to_dict()

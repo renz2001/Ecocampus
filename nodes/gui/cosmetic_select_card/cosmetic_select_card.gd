@@ -18,7 +18,12 @@ class_name CosmeticSelectCard
 
 var current_cosmetic: Cosmetic: 
 	get: 
-		return cosmetics_collection.cosmetics[scroll_snap_container.current_snap_index]
+		if !is_node_ready(): 
+			await ready
+		var card: CosmeticDisplayCard = cosmetics_display_container.get_visible_card_at(scroll_snap_container.current_snap_index)
+		if card == null: 
+			return null
+		return card.cosmetic
 
 
 func _ready() -> void: 
@@ -34,6 +39,8 @@ func _on_scroll_snap_finished_snap() -> void:
 
 func update() -> void: 
 	player_gender_label.text = GlobalVariables.get_enum_name(GlobalEnums.Gender, player.gender)
+	# FIXME
+	print(current_cosmetic.name)
 	equip_cosmetic_button.cosmetic = current_cosmetic
 
 

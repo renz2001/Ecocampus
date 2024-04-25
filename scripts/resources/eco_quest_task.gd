@@ -31,8 +31,6 @@ var is_completed: bool:
 
 ## Called by EcoQuest. 
 func start(tree: SceneTree) -> void: 
-	#counter.disabled = false
-	# TODO: Have not properly implemented yet. 
 	if condition: 
 		condition.init(tree, self)
 

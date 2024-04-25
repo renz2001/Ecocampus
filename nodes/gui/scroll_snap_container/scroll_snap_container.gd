@@ -23,7 +23,7 @@ enum ScrollDirection {
 			await ready
 			
 		var snap_size: Vector2 = get_scroll_size() / get_scroll_children_size()
-		
+		#printerr(get_scroll_children_size())
 		match scroll_direction: 
 			ScrollDirection.HORIZONTAL: 
 				scroll_horizontal_lerp.start_point = scroll_horizontal
@@ -69,15 +69,19 @@ func back() -> void:
 	current_snap_index -= 1
 
 
+## How long you have to scroll
 func get_scroll_size() -> Vector2: 
 	var container: Container = get_container()
 	if container != null: 
 		return get_container().size
 	return Vector2.ZERO
 
-
+## How many the children is that are visible. 
 func get_scroll_children_size() -> int: 
-	return get_container().get_child_count()
+	return get_container().get_children().filter(
+		func(item: Control): 
+			return item.is_visible_in_tree()
+	).size()
 	
 	
 func get_container() -> Container: 

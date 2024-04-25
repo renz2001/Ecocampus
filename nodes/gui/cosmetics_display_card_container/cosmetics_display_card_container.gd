@@ -12,10 +12,20 @@ enum OverrideCosmeticState {
 
 @export var cosmetics_collection: CosmeticsCollection: 
 	set(value): 
-		cosmetics_collection = value
 		if !is_node_ready(): 
 			await ready
 		if cosmetics_collection: 
+			for cosmetic: Cosmetic in cosmetics_collection.cosmetics: 
+				if !cosmetic.unlocked.is_connected(_on_cosmetic_unlocked): 
+					continue
+				cosmetic.unlocked.disconnect(_on_cosmetic_unlocked)
+			
+		cosmetics_collection = value
+			
+			
+		if cosmetics_collection: 
+			for cosmetic: Cosmetic in cosmetics_collection.cosmetics: 
+				cosmetic.unlocked.connect(_on_cosmetic_unlocked)
 			update()
 		else: 
 			clear()
@@ -39,10 +49,14 @@ enum OverrideCosmeticState {
 @export var card_theme_type_variation: String = ""
 @export var override_custom_minimum: Vector2
 
+
+func _on_cosmetic_unlocked() -> void: 
+	update()
+	
+
 func update() -> void: 
 	if !is_node_ready(): 
 		await ready
-		
 	clear()
 	for cosmetic: Cosmetic in cosmetics_collection.cosmetics: 
 		if cosmetic.is_default && !show_default_cosmetic: 
@@ -69,3 +83,11 @@ func update() -> void:
 func clear() -> void: 
 	for child: Node in get_children(): 
 		child.queue_free()
+
+
+func get_visible_card_at(index: int) -> Control: 
+	return NodeTools.get_item_from_array(
+		get_children(), 
+		func(item, i): 
+			return i == index && item.is_visible_in_tree()
+	)

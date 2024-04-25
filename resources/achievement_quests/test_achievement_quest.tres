@@ -6,6 +6,7 @@
 [sub_resource type="Resource" id="Resource_uts7q"]
 script = ExtResource("3_ww4hh")
 description = "Pick 5 plastic bottles"
+hide_counter_in_gui = false
 
 [resource]
 script = ExtResource("1_wkmub")

@@ -97,7 +97,8 @@ func _on_tap_hit_box_pressed() -> void:
 		return
 	if display_interact_dialog: 
 		if wait_for_player_to_display_interact_dialog: 
-			PlayerManager.player.path_find.changed_target.connect(_on_changed_target, CONNECT_ONE_SHOT)
+			if !PlayerManager.player.path_find.changed_target.is_connected(_on_changed_target): 
+				PlayerManager.player.path_find.changed_target.connect(_on_changed_target, CONNECT_ONE_SHOT)
 			PlayerManager.player.path_find.finished_navigation.connect(_on_finished_navigation, CONNECT_ONE_SHOT)
 		else: 
 			show_interact_dialog(interact_description)

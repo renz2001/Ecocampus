@@ -1,13 +1,36 @@
-[gd_scene load_steps=10 format=3 uid="uid://c584i6hhgux8p"]
+[gd_scene load_steps=19 format=3 uid="uid://c584i6hhgux8p"]
 
 [ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/macchi's_gui_manager/nodes/gui/gui/gui.tscn" id="1_y7k5e"]
-[ext_resource type="PackedScene" uid="uid://dggdvwjvdrmkh" path="res://nodes/gui/buttons/medium_wooden_button/medium_wooden_button.tscn" id="2_thsxv"]
 [ext_resource type="Script" path="res://nodes/gui/achievement_unlocked_gui/achievement_unlocked_gui.gd" id="2_vvx3l"]
 [ext_resource type="Theme" uid="uid://cd55r8awc3jgy" path="res://themes/main_theme.tres" id="3_qkqff"]
 [ext_resource type="Texture2D" uid="uid://bloiawg11mnph" path="res://assets/achievements/achievement_medal.png" id="4_fgacp"]
+[ext_resource type="Texture2D" uid="uid://45ch8jgx4jx0" path="res://assets/achievements/medal_header.png" id="4_k0x4o"]
 [ext_resource type="PackedScene" uid="uid://cnsvmjc5ytto2" path="res://nodes/components/on_visible_then_scale/on_visible_then_scale.tscn" id="5_dk1ap"]
+[ext_resource type="FontFile" uid="uid://cp5vi568oh4jl" path="res://fonts/Ubuntu-Bold.ttf" id="5_isivs"]
 [ext_resource type="Script" path="res://addons/macchi's_audio_manager_and_plus/scripts/arguments/audio_stream_player_arguments.gd" id="6_0l4ik"]
+[ext_resource type="PackedScene" uid="uid://cdhkyjskyryv" path="res://nodes/gui/formatted_label/formatted_label.tscn" id="6_l7p2b"]
+[ext_resource type="FontFile" uid="uid://dqdntixoq4bc2" path="res://fonts/Ubuntu-Medium.ttf" id="6_qdi66"]
+[ext_resource type="Script" path="res://scripts/resources/string_formatter.gd" id="7_7fbuk"]
 [ext_resource type="AudioStream" uid="uid://bg0jmi11j2nv4" path="res://assets/audio/ui/achievement_popup.wav" id="7_k8gel"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ffpch"]
+font = ExtResource("5_isivs")
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_ohhcx"]
+font = ExtResource("6_qdi66")
+font_size = 70
+
+[sub_resource type="LabelSettings" id="LabelSettings_v4q0v"]
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_02yox"]
+font = ExtResource("5_isivs")
+font_size = 40
+
+[sub_resource type="Resource" id="Resource_ks16c"]
+script = ExtResource("7_7fbuk")
+format = "You've earned: %s"
 
 [sub_resource type="Resource" id="Resource_bdffw"]
 script = ExtResource("6_0l4ik")
@@ -18,14 +41,12 @@ volume_slider = 1.0
 volume_db = 0.0
 bus = &"Master"
 
-[node name="AchievementUnlockedGUI" node_paths=PackedStringArray("sprite_rect", "title_label", "task_description_label") instance=ExtResource("1_y7k5e")]
-offset_right = 439.0
-offset_bottom = 576.0
+[node name="AchievementUnlockedGUI" node_paths=PackedStringArray("title_label", "task_description_label", "youve_earned_label") instance=ExtResource("1_y7k5e")]
 script = ExtResource("2_vvx3l")
 achievement = null
-sprite_rect = NodePath("Panel/MarginContainer/VBoxContainer/MedalSprite")
 title_label = NodePath("Panel/MarginContainer/VBoxContainer/Title")
 task_description_label = NodePath("Panel/MarginContainer/VBoxContainer/TaskDescription")
+youve_earned_label = NodePath("Panel/MarginContainer/VBoxContainer/HBoxContainer/Earned")
 inactive_on_ready = false
 
 [node name="Panel" type="PanelContainer" parent="." index="0"]
@@ -33,46 +54,82 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -426.0
+offset_top = -144.0
+offset_right = 442.0
+offset_bottom = 130.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("3_qkqff")
 
-[node name="MarginContainer" type="MarginContainer" parent="Panel" index="0"]
+[node name="Control" type="Control" parent="Panel" index="0"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="Panel/Control" index="0"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -882.0
+offset_top = -227.0
+offset_right = 848.0
+offset_bottom = 134.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture = ExtResource("4_k0x4o")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel" index="1"]
 layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer" index="0"]
-custom_minimum_size = Vector2(200, 500)
 layout_mode = 2
 alignment = 1
 
-[node name="Title" type="Label" parent="Panel/MarginContainer/VBoxContainer" index="0"]
+[node name="AchievementComplete" type="Label" parent="Panel/MarginContainer/VBoxContainer" index="0"]
 layout_mode = 2
-text = "Bottle Warrior!"
+text = "Achievement Complete!"
+label_settings = SubResource("LabelSettings_ffpch")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MedalSprite" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer" index="1"]
-custom_minimum_size = Vector2(200, 200)
+[node name="Title" type="Label" parent="Panel/MarginContainer/VBoxContainer" index="1"]
 layout_mode = 2
-texture = ExtResource("4_fgacp")
-expand_mode = 1
-stretch_mode = 5
+text = "Bottle Warrior!"
+label_settings = SubResource("LabelSettings_ohhcx")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="TaskDescription" type="Label" parent="Panel/MarginContainer/VBoxContainer" index="2"]
 layout_mode = 2
 text = "(5 bottles collected)
 "
+label_settings = SubResource("LabelSettings_v4q0v")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Congratulations" type="Label" parent="Panel/MarginContainer/VBoxContainer" index="3"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer" index="3"]
 layout_mode = 2
-text = "Congratulations"
-horizontal_alignment = 1
-vertical_alignment = 1
+alignment = 1
 
-[node name="MediumWoodenButton" parent="Panel/MarginContainer/VBoxContainer" index="4" instance=ExtResource("2_thsxv")]
+[node name="Earned" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer" index="0" instance=ExtResource("6_l7p2b")]
 layout_mode = 2
+text = "You've earned: %s"
+label_settings = SubResource("LabelSettings_02yox")
+string_formatter = SubResource("Resource_ks16c")
+
+[node name="TextureRect" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer" index="1"]
+layout_mode = 2
+texture = ExtResource("4_fgacp")
+expand_mode = 3
+stretch_mode = 5
 
 [node name="OnVisibleThenScale" parent="." index="1" node_paths=PackedStringArray("node") instance=ExtResource("5_dk1ap")]
 editor_play = false

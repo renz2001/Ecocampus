@@ -55,6 +55,10 @@ func to_dict(from_object: Object) -> Dictionary:
 # FIXME
 # This was hell lmao. 
 static func load_dict_to_object(obj: Object, dict: Dictionary) -> void: 
+	if obj is Node: 
+		if dict.has("is_queued_free"): 
+			obj.queue_free()
+			return
 	for property: String in dict.keys(): 
 		var value = dict[property]
 		if value is String: 

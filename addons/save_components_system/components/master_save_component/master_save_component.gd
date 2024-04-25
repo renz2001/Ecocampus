@@ -15,7 +15,7 @@ class_name MasterSaveComponent
 
 @export var do_not_search_nodes: PackedStringArray
 @export var no_king: bool
-
+@export var is_queued_free: bool
 
 func to_dict() -> Dictionary: 
 	var follower_dicts: Dictionary = {}
@@ -31,7 +31,9 @@ func to_dict() -> Dictionary:
 	
 	if data != null: 
 		master_dict[key] = data.to_dict(node)
-	
+		master_dict[key].merge({
+			"is_queued_free": true
+		})
 	#if id.data != null: 
 		#master_dict.merge({
 			#"id": id.data.value

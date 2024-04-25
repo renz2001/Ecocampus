@@ -43,7 +43,7 @@ func set_display_visible(val: bool) -> void:
 	#printerr(self)
 	#printerr(stack_label.visible)
 
-# FIXME: Does not work properly
+# FIXME: Drag and dropping succesfully to a trash can, causes all the items to disappear
 func update() -> void: 
 	if !is_node_ready(): 
 		await ready

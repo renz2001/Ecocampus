@@ -16,6 +16,7 @@ maximum_points = 5
 script = ExtResource("3_c2q7r")
 description = "Banana Peels"
 condition = SubResource("Resource_opp5i")
+hide_counter_in_gui = false
 
 [sub_resource type="Resource" id="Resource_hdl6u"]
 script = ExtResource("4_y2nyv")
@@ -26,6 +27,7 @@ maximum_points = 5
 script = ExtResource("3_c2q7r")
 description = "Coffee Cup"
 condition = SubResource("Resource_hdl6u")
+hide_counter_in_gui = false
 
 [resource]
 script = ExtResource("1_m541f")

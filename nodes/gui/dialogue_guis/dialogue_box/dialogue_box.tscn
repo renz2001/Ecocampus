@@ -73,7 +73,6 @@ vertical_alignment = 1
 node = NodePath("..")
 autoplay = true
 loops = 2
-is_playing = true
 
 [node name="SpeakerSpritesSwitcher" parent="." index="1" node_paths=PackedStringArray("current_speaker_rect", "main_speaker_texture_rect", "secondary_speaker_texture_rect") instance=ExtResource("2_oiacn")]
 layout_mode = 1
@@ -82,11 +81,13 @@ anchor_right = 1.0
 offset_right = 0.0
 offset_bottom = 68.0
 grow_horizontal = 2
+current_tab = 1
 current_speaker_rect = NodePath("MainSpeaker/SpeakerSprite")
 main_speaker_texture_rect = NodePath("MainSpeaker/SpeakerSprite")
 secondary_speaker_texture_rect = NodePath("SecondSpeaker/SpeakerSprite")
 
 [node name="MainSpeaker" type="Control" parent="SpeakerSpritesSwitcher" index="1"]
+visible = false
 layout_mode = 2
 
 [node name="SpeakerSprite" parent="SpeakerSpritesSwitcher/MainSpeaker" index="0" instance=ExtResource("3_0vhnd")]
@@ -102,7 +103,6 @@ grow_vertical = 0
 expand_mode = 2
 
 [node name="SecondSpeaker" type="Control" parent="SpeakerSpritesSwitcher" index="2"]
-visible = false
 layout_mode = 2
 
 [node name="SpeakerSprite" parent="SpeakerSpritesSwitcher/SecondSpeaker" index="0" instance=ExtResource("3_0vhnd")]
@@ -112,10 +112,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -533.0
-offset_top = -610.0
-offset_right = 174.0
-offset_bottom = 187.0
+offset_left = -637.0
+offset_top = -553.0
+offset_right = 160.0
+offset_bottom = 244.0
 grow_horizontal = 0
 grow_vertical = 0
 expand_mode = 2

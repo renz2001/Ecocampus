@@ -247,6 +247,6 @@ func speed_up_line(line: DialogueLine, multiplier: float) -> void:
 
 
 func _on_dialogue_label_spoke(letter: String, _letter_index: int, _speed: float) -> void:
-	if visible: 
+	if is_visible_in_tree(): 
 		typing_audio.play()
 

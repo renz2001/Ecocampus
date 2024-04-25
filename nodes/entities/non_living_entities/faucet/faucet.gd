@@ -1,6 +1,6 @@
 @tool
 extends EntityNode
-class_name LightBulb
+class_name Faucet
 
 signal turned_on
 signal turned_off

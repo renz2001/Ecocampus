@@ -4,7 +4,7 @@
 [ext_resource type="Resource" uid="uid://ccu6oqa6t4v23" path="res://resources/achievements/conversationist.tres" id="1_xequo"]
 [ext_resource type="Script" path="res://scripts/resources/eco_quest_task.gd" id="2_0xajk"]
 [ext_resource type="Script" path="res://scripts/resources/eco_quest_task_conditions/turned_off_light_bulb.gd" id="3_760tr"]
-[ext_resource type="Script" path="res://scripts/resources/eco_quest_task_conditions/all_trash_cans_inventory_size_task_condition.gd" id="5_ounsx"]
+[ext_resource type="Script" path="res://scripts/resources/eco_quest_task_conditions/turned_off_faucets.gd" id="5_taodf"]
 
 [sub_resource type="Resource" id="Resource_j8121"]
 script = ExtResource("3_760tr")
@@ -16,21 +16,20 @@ description = "Lights"
 condition = SubResource("Resource_j8121")
 hide_counter_in_gui = false
 
-[sub_resource type="Resource" id="Resource_c0054"]
-script = ExtResource("5_ounsx")
-items_size = 10
-maximum_points = 1
+[sub_resource type="Resource" id="Resource_wi44q"]
+script = ExtResource("5_taodf")
+maximum_points = 3
 
-[sub_resource type="Resource" id="Resource_hvgv6"]
+[sub_resource type="Resource" id="Resource_5qetw"]
 script = ExtResource("2_0xajk")
-description = "Segregate Trash"
-condition = SubResource("Resource_c0054")
-hide_counter_in_gui = true
+description = "Turn off all faucets"
+condition = SubResource("Resource_wi44q")
+hide_counter_in_gui = false
 
 [resource]
 script = ExtResource("1_2jeuv")
 percentage_description = "Turn off All lights and faucets"
-tasks = Array[ExtResource("2_0xajk")]([SubResource("Resource_1w7kg"), SubResource("Resource_hvgv6")])
+tasks = Array[ExtResource("2_0xajk")]([SubResource("Resource_1w7kg"), SubResource("Resource_5qetw")])
 on_complete_unlock_achievement = ExtResource("1_xequo")
 invisible_in_gui = false
 id = 3

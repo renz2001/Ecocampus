@@ -7,10 +7,9 @@ class_name AchievementsUnlockedGUI
 		achievement = value
 		update()
 
-@export var sprite_rect: TextureRect
 @export var title_label: Label
 @export var task_description_label: Label
-
+@export var youve_earned_label: FormattedLabel
 
 func update() -> void: 
 	if !is_node_ready(): 
@@ -18,5 +17,5 @@ func update() -> void:
 	if achievement == null: 
 		return
 	title_label.text = achievement.title
-	task_description_label.text = "(%s)" % achievement.task_description
-	
+	task_description_label.text = achievement.task_description
+	youve_earned_label.input([str(achievement.reward_medals)])

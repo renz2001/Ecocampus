@@ -1,0 +1,96 @@
+[gd_scene load_steps=11 format=3 uid="uid://d1klss0cjhtw0"]
+
+[ext_resource type="PackedScene" uid="uid://dokfordgw2kk3" path="res://nodes/abstract_scenes/non_living_entity_node/non_living_entity_node.tscn" id="1_sa8os"]
+[ext_resource type="Script" path="res://nodes/entities/non_living_entities/faucet/faucet.gd" id="2_pi6uq"]
+[ext_resource type="PackedScene" uid="uid://dvrqbygr8xwlr" path="res://addons/macchi's_node_components/nodes/components/node_variety_manager/node_variety/node_variety.tscn" id="3_28xli"]
+[ext_resource type="PackedScene" uid="uid://bwrfsu0cu68sk" path="res://nodes/components/apply_material_to_node/apply_material_to_node.tscn" id="3_fiocu"]
+[ext_resource type="Shader" path="res://resources/shaders/outline_inline.gdshader" id="4_r74j2"]
+[ext_resource type="Texture2D" uid="uid://cp7y8jwutmcxf" path="res://assets/environment/faucet_spritesheet.png" id="4_vyjam"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3ku3e"]
+shader = ExtResource("4_r74j2")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 5.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+
+[sub_resource type="Animation" id="Animation_fnp2l"]
+resource_name = "running"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprites/OnSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_517i3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprites/OnSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dvpqd"]
+_data = {
+"RESET": SubResource("Animation_517i3"),
+"running": SubResource("Animation_fnp2l")
+}
+
+[node name="Faucet" groups=["Faucet"] instance=ExtResource("1_sa8os")]
+script = ExtResource("2_pi6uq")
+state = 1
+
+[node name="ApplyMaterialToNode" parent="TapHitBox" index="0" node_paths=PackedStringArray("node") instance=ExtResource("3_fiocu")]
+node = NodePath("../../Sprites")
+material = SubResource("ShaderMaterial_3ku3e")
+duration = 0.2
+
+[node name="NodeVarietyManager" parent="Components" index="2"]
+index = 1
+variety_name = "On"
+
+[node name="Off" parent="Components/NodeVarietyManager" index="0" node_paths=PackedStringArray("nodes") instance=ExtResource("3_28xli")]
+nodes = [NodePath("../../../Sprites/EntitySprite")]
+
+[node name="On" parent="Components/NodeVarietyManager" index="1" node_paths=PackedStringArray("nodes") instance=ExtResource("3_28xli")]
+active = true
+nodes = [NodePath("../../../Sprites/OnSprite")]
+
+[node name="Sprites" parent="." index="5"]
+position = Vector2(0, -20)
+
+[node name="ShadowCircle" parent="Sprites" index="0"]
+visible = false
+
+[node name="EntitySprite" parent="Sprites" index="1"]
+visible = false
+
+[node name="OnSprite" type="Sprite2D" parent="Sprites" index="2"]
+use_parent_material = true
+position = Vector2(0, 9)
+scale = Vector2(0.16, 0.16)
+texture = ExtResource("4_vyjam")
+hframes = 6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="8"]
+libraries = {
+"": SubResource("AnimationLibrary_dvpqd")
+}
+autoplay = "running"

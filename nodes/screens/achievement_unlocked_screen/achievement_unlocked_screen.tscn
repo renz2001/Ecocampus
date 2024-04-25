@@ -14,7 +14,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_87r6r")
 achievement = null
-achievement_unlocked_gui = NodePath("CenterContainer/HBoxContainer/AchievementUnlockedGUI")
+achievement_unlocked_gui = NodePath("CenterContainer/AchievementUnlockedGUI")
 
 [node name="OnTapSetActive" parent="." index="0" node_paths=PackedStringArray("gui") instance=ExtResource("3_fgxls")]
 layout_mode = 1
@@ -29,11 +29,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer" index="0"]
-layout_mode = 2
-alignment = 1
-
-[node name="AchievementUnlockedGUI" parent="CenterContainer/HBoxContainer" index="0" instance=ExtResource("2_utc4q")]
+[node name="AchievementUnlockedGUI" parent="CenterContainer" index="0" instance=ExtResource("2_utc4q")]
 layout_mode = 2
 
 [node name="SetGameStateOnGUIActive" parent="." index="3" node_paths=PackedStringArray("gui") instance=ExtResource("4_y00uo")]

@@ -98,7 +98,8 @@ func complete() -> void:
 
 func is_all_problems_completed() -> bool: 
 	return problem_attempts.all(
-		func(attempt: QuizAttempt): 
+		func(item): 
+			var attempt: QuizAttempt = item
 			return attempt.is_completed
 	)
 

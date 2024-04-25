@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bc1txwrwrlhfu"]
+[gd_scene load_steps=13 format=3 uid="uid://bc1txwrwrlhfu"]
 
 [ext_resource type="PackedScene" uid="uid://cm6jeskbiise6" path="res://nodes/abstract_scenes/level_node/level_node.tscn" id="1_4fkii"]
 [ext_resource type="Texture2D" uid="uid://cgvwt0653vaxn" path="res://assets/background/camera_pictures/trash_can_bg.jpg" id="2_jlb62"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cdt5mavsgfwcl" path="res://nodes/storage_nodes/non_biodegradable_trash_can/non_biodegradable_trash_can.tscn" id="5_4eos8"]
 [ext_resource type="PackedScene" uid="uid://caddtr3fd88mk" path="res://nodes/gui/trash_can_info_dialog/trash_can_info_dialog.tscn" id="5_qmskb"]
 [ext_resource type="PackedScene" uid="uid://dtqoxulajxxhx" path="res://nodes/storage_nodes/recyclable_trash_can/recyclable_trash_can.tscn" id="6_4jqk0"]
+[ext_resource type="PackedScene" uid="uid://8qsjsyglmgq4" path="res://nodes/entities/player_node/player_node.tscn" id="6_ma7va"]
 [ext_resource type="Script" path="res://addons/save_components_system/scripts/resources/id.gd" id="7_w83j3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8oaj7"]
@@ -51,6 +52,9 @@ offset_bottom = 1020.0
 texture = ExtResource("2_jlb62")
 expand_mode = 1
 stretch_mode = 5
+
+[node name="PlayerNode" parent="Entities/Living" index="0" instance=ExtResource("6_ma7va")]
+position = Vector2(728, 1992)
 
 [node name="TrashCans" type="Node2D" parent="Entities/NonLiving" index="0"]
 position = Vector2(1158, 776)
