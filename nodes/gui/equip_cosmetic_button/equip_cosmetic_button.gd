@@ -1,7 +1,13 @@
 extends Button
 class_name EquipCosmeticButton
 
-@export var cosmetic: Cosmetic
+@export var cosmetic: Cosmetic: 
+	set(value): 
+		cosmetic = value
+		if cosmetic.is_default: 
+			disabled = true
+		else: 
+			disabled = false
 
 @export var equip_cosmetic_controller: EquipCosmeticController
 
@@ -14,8 +20,8 @@ func _on_pressed() -> void:
 	
 func update() -> void: 
 	if equip_cosmetic_controller.player.is_equipped(): 
-		text = "Equip"
-	else: 
 		text = "Unequip"
+	else: 
+		text = "Equip"
 	
 	

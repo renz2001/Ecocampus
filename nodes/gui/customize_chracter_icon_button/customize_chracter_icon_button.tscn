@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0ie2bveybvb4"]
+
+[ext_resource type="PackedScene" uid="uid://d4mqjvr57ok1h" path="res://nodes/gui/buttons/icon_button/icon_button.tscn" id="1_cavc4"]
+[ext_resource type="Script" path="res://nodes/gui/customize_chracter_icon_button/customize_chracter_icon_button.gd" id="2_xxrfh"]
+
+[node name="CustomizeChracterIconButton" instance=ExtResource("1_cavc4")]
+script = ExtResource("2_xxrfh")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

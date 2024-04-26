@@ -38,7 +38,7 @@
 script = ExtResource("18_pu4wv")
 properties = PackedStringArray("inventory", "data", "quiz", "dialogue", "global_position", "global_scale")
 
-[node name="EntityNode" type="CharacterBody2D" node_paths=PackedStringArray("state_chart", "path_find", "walk", "hitbox", "node_variety_manager", "interact_audio_player", "interact_dialog_position", "dialogue_starter", "dialogue_response_handler", "call_world_event_component", "ready_unique_resource") groups=["Entity"]]
+[node name="EntityNode" type="CharacterBody2D" node_paths=PackedStringArray("state_chart", "path_find", "walk", "hitbox", "node_variety_manager", "interact_audio_player", "interact_dialog_position", "dialogue_starter", "dialogue_response_handler", "call_world_event_component", "ready_unique_resource", "master_save_component") groups=["Entity"]]
 script = ExtResource("1_ljx5x")
 state_chart = NodePath("StateChart")
 path_find = NodePath("Components/Movement/WalkPathFindMovement")
@@ -51,6 +51,7 @@ dialogue_starter = NodePath("Components/DialogueStarter")
 dialogue_response_handler = NodePath("Components/DialogueResponseHandler")
 call_world_event_component = NodePath("Components/CallWorldEventComponent")
 ready_unique_resource = NodePath("Components/ReadyUniqueResource")
+master_save_component = NodePath("Components/MasterSaveComponent")
 
 [node name="TapHitBox" type="Button" parent="."]
 offset_right = 8.0

@@ -1,10 +1,22 @@
-[gd_resource type="Theme" load_steps=23 format=3 uid="uid://cd55r8awc3jgy"]
+[gd_resource type="Theme" load_steps=24 format=3 uid="uid://cd55r8awc3jgy"]
 
 [ext_resource type="StyleBox" uid="uid://dwn5sekhug4fj" path="res://resources/styleboxes/dialogue_box_balloon.tres" id="1_fyakv"]
 [ext_resource type="StyleBox" uid="uid://gulw7ttuvjw1" path="res://resources/styleboxes/default_stylebox.tres" id="1_mamat"]
 [ext_resource type="FontFile" uid="uid://bh5eyon0or827" path="res://fonts/Ubuntu-Regular.ttf" id="2_hew1c"]
 [ext_resource type="FontFile" uid="uid://dqdntixoq4bc2" path="res://fonts/Ubuntu-Medium.ttf" id="3_16t82"]
 [ext_resource type="FontFile" uid="uid://cp5vi568oh4jl" path="res://fonts/Ubuntu-Bold.ttf" id="3_tsh4s"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xil5t"]
+bg_color = Color(0.0980392, 0.2, 0.105882, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_7jrk4"]
 color = Color(1, 1, 1, 1)
@@ -80,7 +92,10 @@ corner_radius_bottom_left = 30
 [resource]
 default_font = ExtResource("2_hew1c")
 default_font_size = 50
+Button/styles/focus = ExtResource("1_mamat")
+Button/styles/hover = SubResource("StyleBoxFlat_xil5t")
 Button/styles/normal = ExtResource("1_mamat")
+Button/styles/pressed = SubResource("StyleBoxFlat_xil5t")
 DialogueBoxBalloon/base_type = &"Panel"
 DialogueBoxBalloon/styles/panel = ExtResource("1_fyakv")
 DialogueBoxButton/base_type = &"Button"

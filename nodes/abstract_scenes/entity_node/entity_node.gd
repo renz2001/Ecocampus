@@ -36,6 +36,8 @@ signal interacted
 		dialogue_starter.dialogue = dialogue
 @export var quiz: Quiz
 @export var quest: EcoQuest
+@export var disable_after_interact: bool
+@export var disabled: bool
 
 @export_group("Dependencies")
 @export var state_chart: StateChart
@@ -49,7 +51,7 @@ signal interacted
 @export var dialogue_response_handler: DialogueResponseHandler
 @export var call_world_event_component: CallWorldEventComponent
 @export var ready_unique_resource: ReadyUniqueResource
-
+@export var master_save_component: MasterSaveComponent
 
 func _ready() -> void: 
 	pass
@@ -69,12 +71,16 @@ func _interact() -> void:
 
 
 func _on_interact() -> void: 
+	if disabled: 
+		return
 	_interact()
 	if interact_audio: 
 		interact_audio_player.play()
 	dialogue_starter.start()
 	call_world_event_component.play()
 	interacted.emit()
+	if disable_after_interact: 
+		disabled = true
 
 
 func show_interact_dialog(description: LabelText) -> void: 

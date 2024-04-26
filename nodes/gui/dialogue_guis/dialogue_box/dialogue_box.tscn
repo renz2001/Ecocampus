@@ -73,6 +73,7 @@ vertical_alignment = 1
 node = NodePath("..")
 autoplay = true
 loops = 2
+is_playing = true
 
 [node name="SpeakerSpritesSwitcher" parent="." index="1" node_paths=PackedStringArray("current_speaker_rect", "main_speaker_texture_rect", "secondary_speaker_texture_rect") instance=ExtResource("2_oiacn")]
 layout_mode = 1

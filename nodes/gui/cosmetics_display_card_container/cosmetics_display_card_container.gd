@@ -86,8 +86,17 @@ func clear() -> void:
 
 
 func get_visible_card_at(index: int) -> Control: 
-	return NodeTools.get_item_from_array(
-		get_children(), 
-		func(item, i): 
-			return i == index && item.is_visible_in_tree()
+	#return NodeTools.get_item_from_array(
+		#get_children(), 
+		#func(item, i): 
+			#return i == index && item.is_visible_in_tree()
+	#)
+	var children: Array[Node] = get_children().filter(
+		func(item): 
+			return item.visible
 	)
+	for i: int in children.size(): 
+		var child: Node = children[i]
+		if i == index: 
+			return child
+	return null

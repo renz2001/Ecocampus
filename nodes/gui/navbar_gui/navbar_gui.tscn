@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://du6p4swgv5hfd"]
+[gd_scene load_steps=10 format=3 uid="uid://du6p4swgv5hfd"]
 
 [ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/macchi's_gui_manager/nodes/gui/gui/gui.tscn" id="1_abshs"]
 [ext_resource type="Script" path="res://nodes/gui/navbar_gui/navbar_gui.gd" id="2_hp6n3"]
 [ext_resource type="PackedScene" uid="uid://dlpg8uw7rra2p" path="res://nodes/gui/buttons/quests_icon_button/quests_icon_button.tscn" id="3_d8ra2"]
+[ext_resource type="PackedScene" uid="uid://b0ie2bveybvb4" path="res://nodes/gui/customize_chracter_icon_button/customize_chracter_icon_button.tscn" id="3_q8wt1"]
 [ext_resource type="PackedScene" uid="uid://b7d7mcq2pxeu1" path="res://nodes/components/if_autoload_state_event_set_property/if_autoload_state_event_set_property.tscn" id="4_etnct"]
 [ext_resource type="PackedScene" uid="uid://bjcvqp7t237wt" path="res://nodes/gui/buttons/settings_icon_button/settings_icon_button.tscn" id="4_rkvut"]
 [ext_resource type="PackedScene" uid="uid://b1j5hhbaa24a8" path="res://nodes/gui/audio_mute_button/audio_mute_button.tscn" id="5_dk0mc"]
@@ -12,7 +13,6 @@
 [node name="NavbarGUI" instance=ExtResource("1_abshs")]
 script = ExtResource("2_hp6n3")
 inactive_on_ready = false
-only_one_instance = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." index="0"]
 layout_mode = 1
@@ -25,7 +25,20 @@ alignment = 2
 layout_mode = 2
 alignment = 2
 
-[node name="QuestsIconButton" parent="VBoxContainer/HBoxContainer" index="0" instance=ExtResource("3_d8ra2")]
+[node name="CustomizeChracterIconButton" parent="VBoxContainer/HBoxContainer" index="0" instance=ExtResource("3_q8wt1")]
+layout_mode = 2
+
+[node name="IfPlayingEnteredSetProperty" parent="VBoxContainer/HBoxContainer/CustomizeChracterIconButton" index="3" node_paths=PackedStringArray("node") instance=ExtResource("4_etnct")]
+property = "playing_state"
+node = NodePath("..")
+
+[node name="IfPlayingExitedSetProperty2" parent="VBoxContainer/HBoxContainer/CustomizeChracterIconButton" index="4" node_paths=PackedStringArray("node") instance=ExtResource("4_etnct")]
+property = "playing_state"
+state_event = 1
+node = NodePath("..")
+new_value = "false"
+
+[node name="QuestsIconButton" parent="VBoxContainer/HBoxContainer" index="1" instance=ExtResource("3_d8ra2")]
 layout_mode = 2
 
 [node name="IfPlayingEnteredSetProperty" parent="VBoxContainer/HBoxContainer/QuestsIconButton" index="4" node_paths=PackedStringArray("node") instance=ExtResource("4_etnct")]
@@ -38,10 +51,10 @@ state_event = 1
 node = NodePath("..")
 new_value = "false"
 
-[node name="AudioMuteButton" parent="VBoxContainer/HBoxContainer" index="1" instance=ExtResource("5_dk0mc")]
+[node name="AudioMuteButton" parent="VBoxContainer/HBoxContainer" index="2" instance=ExtResource("5_dk0mc")]
 layout_mode = 2
 
-[node name="ToMapPickerIconButton" parent="VBoxContainer/HBoxContainer" index="2" instance=ExtResource("6_lg5x3")]
+[node name="ToMapPickerIconButton" parent="VBoxContainer/HBoxContainer" index="3" instance=ExtResource("6_lg5x3")]
 layout_mode = 2
 
 [node name="IfPlayingEnteredSetProperty" parent="VBoxContainer/HBoxContainer/ToMapPickerIconButton" index="5" node_paths=PackedStringArray("node") instance=ExtResource("4_etnct")]
@@ -54,7 +67,7 @@ state_event = 1
 node = NodePath("..")
 new_value = "false"
 
-[node name="SettingsIconButton" parent="VBoxContainer/HBoxContainer" index="3" instance=ExtResource("4_rkvut")]
+[node name="SettingsIconButton" parent="VBoxContainer/HBoxContainer" index="4" instance=ExtResource("4_rkvut")]
 layout_mode = 2
 
 [node name="Control" type="Control" parent="VBoxContainer" index="1"]
@@ -65,6 +78,6 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -606.0
-offset_right = -606.0
+offset_left = -22.0
+offset_right = -22.0
 grow_horizontal = 0

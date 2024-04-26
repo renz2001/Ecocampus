@@ -21,6 +21,7 @@ func _on_items_added(items: Array[ItemStack]) -> void:
 
 
 func _finished() -> void: 
-	player.inventory.items_added.disconnect(_on_items_added)
+	if player.inventory.items_added.is_connected(_on_items_added): 
+		player.inventory.items_added.disconnect(_on_items_added)
 	
 	

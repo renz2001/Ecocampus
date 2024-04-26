@@ -31,9 +31,10 @@ func to_dict() -> Dictionary:
 	
 	if data != null: 
 		master_dict[key] = data.to_dict(node)
-		master_dict[key].merge({
-			"is_queued_free": true
-		})
+		if is_queued_free: 
+			master_dict[key].merge({
+				"is_queued_free": true
+			})
 	#if id.data != null: 
 		#master_dict.merge({
 			#"id": id.data.value

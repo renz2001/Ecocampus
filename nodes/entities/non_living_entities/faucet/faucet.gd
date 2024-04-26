@@ -16,7 +16,7 @@ signal turned_off
 		else: 
 			node_variety_manager.index = 0
 			turned_off.emit()
-		
+
 
 func _interact() -> void: 
 	if is_on(): 

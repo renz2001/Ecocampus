@@ -40,8 +40,8 @@ func _on_scroll_snap_finished_snap() -> void:
 func update() -> void: 
 	player_gender_label.text = GlobalVariables.get_enum_name(GlobalEnums.Gender, player.gender)
 	# FIXME
-	print(current_cosmetic.name)
-	equip_cosmetic_button.cosmetic = current_cosmetic
+	if current_cosmetic: 
+		equip_cosmetic_button.cosmetic = current_cosmetic
 
 
 

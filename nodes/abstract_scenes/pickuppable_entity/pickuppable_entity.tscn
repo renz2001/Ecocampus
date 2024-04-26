@@ -1,13 +1,15 @@
-[gd_scene load_steps=12 format=3 uid="uid://77dhb6ck4eyt"]
+[gd_scene load_steps=15 format=3 uid="uid://77dhb6ck4eyt"]
 
 [ext_resource type="PackedScene" uid="uid://dokfordgw2kk3" path="res://nodes/abstract_scenes/non_living_entity_node/non_living_entity_node.tscn" id="1_d4ii6"]
 [ext_resource type="Script" path="res://nodes/abstract_scenes/pickuppable_entity/pickuppable_entity.gd" id="2_a2l0a"]
 [ext_resource type="PackedScene" uid="uid://b6yh5ahr4kpcw" path="res://nodes/components/on_interact_components/on_interact_pick_up/on_interact_pick_up.tscn" id="3_u3rje"]
 [ext_resource type="Texture2D" uid="uid://bd1l0lam720ha" path="res://placeholder_assets/plastic_bottle_trash.png" id="6_6ar2y"]
 [ext_resource type="PackedScene" uid="uid://c4gnwuhmu4msa" path="res://nodes/gui_components/on_pressed_components/on_pressed_apply_material_to_node/on_pressed_apply_material_to_node.tscn" id="7_cgy4r"]
+[ext_resource type="Script" path="res://addons/macchi's_audio_manager_and_plus/scripts/arguments/audio_stream_player_arguments.gd" id="8_8dy0j"]
 [ext_resource type="Shader" path="res://resources/shaders/outline_inline.gdshader" id="8_cxd3f"]
 [ext_resource type="Script" path="res://scripts/resources/string_formatter.gd" id="8_fa10n"]
 [ext_resource type="Script" path="res://scripts/resources/label_text.gd" id="9_fvkps"]
+[ext_resource type="AudioStream" uid="uid://dnipkpbpk6h6n" path="res://assets/audio/ui/pickup_item.wav" id="9_kjmyf"]
 
 [sub_resource type="Resource" id="Resource_u6nh2"]
 script = ExtResource("8_fa10n")
@@ -31,6 +33,15 @@ shader_parameter/pattern = 0
 shader_parameter/inside = false
 shader_parameter/add_margins = true
 
+[sub_resource type="Resource" id="Resource_rj2ev"]
+script = ExtResource("8_8dy0j")
+sound = ExtResource("9_kjmyf")
+play_from_position = 0
+pitch_scale = 1.0
+volume_slider = 1.0
+volume_db = 0.0
+bus = &"Master"
+
 [node name="PickUppableEntity" instance=ExtResource("1_d4ii6")]
 script = ExtResource("2_a2l0a")
 interact_description = SubResource("Resource_jkius")
@@ -51,6 +62,9 @@ entity = NodePath("../..")
 [node name="ReadyUniqueResource" parent="Components" index="8"]
 duplicate_from_method = "clone"
 disabled = false
+
+[node name="InteractAudio" parent="Audio" index="1"]
+audio = SubResource("Resource_rj2ev")
 
 [node name="ShadowCircle" parent="Sprites" index="0"]
 scale = Vector2(0.229, 0.167)
