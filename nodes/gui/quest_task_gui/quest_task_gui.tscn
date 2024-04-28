@@ -22,5 +22,6 @@ label = NodePath("FormattedLabel")
 
 [node name="FormattedLabel" parent="." instance=ExtResource("3_qke0p")]
 layout_mode = 2
+text = "- %s: %s/%s"
 label_settings = SubResource("LabelSettings_33vkc")
 string_formatter = SubResource("Resource_ofhdq")

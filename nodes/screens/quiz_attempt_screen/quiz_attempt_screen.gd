@@ -14,6 +14,10 @@ class_name QuizAttemptScreen
 		entity_answering = value
 		if !entity_answering: 
 			return
+		idle.flip_h = !entity_answering.facing_left
+		happy.flip_h = !entity_answering.facing_left
+		sad.flip_h = !entity_answering.facing_left
+		
 		idle.texture = entity_answering.get_speaker_idle_sprite()
 		happy.texture = entity_answering.happy_sprite
 		sad.texture = entity_answering.sad_sprite
@@ -42,6 +46,7 @@ static func conceal() -> QuizAttemptScreen:
 	
 func start(q: Quiz) -> void: 
 	quiz = q
+	quiz_attempt_gui.again()
 	assesment_music.play()
 	quiz_attempt_gui.start(quiz)
 	quiz_attempt_gui.quiz_attempt.state_changed.connect(
@@ -66,3 +71,4 @@ func _on_quiz_attempt_gui_deactivated() -> void:
 func close() -> void: 
 	GUIManager.set_gui_active(self, false)
 	
+

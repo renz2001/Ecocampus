@@ -13,10 +13,10 @@
 [ext_resource type="PackedScene" uid="uid://bpsxhkc4aak0g" path="res://nodes/entities/pickuppable_entites/plastic_bag/plastic_bag.tscn" id="10_cgcwh"]
 [ext_resource type="PackedScene" uid="uid://de0t0vj8vdxfw" path="res://nodes/entities/pickuppable_entites/juice_box/juice_box.tscn" id="11_sa5jh"]
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_x2g58"]
-vertices = PackedVector2Array(1542, 690, 1512, 673, 2007, 673, -71, 710, 423, 705, 413, 728, 2005, 1279, 1540, 704, -71, 1301, 1472, 716, 1403, 710, 575, 690, 1333, 673, 457, 733)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 4, 5), PackedInt32Array(0, 2, 6, 7), PackedInt32Array(7, 6, 8, 9), PackedInt32Array(10, 9, 8), PackedInt32Array(11, 12, 10, 8, 13), PackedInt32Array(13, 8, 3, 5)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(575, 680, 1336, 663, 1406, 700, 1472, 706, 1531, 695, 1474, 663, 1587, 663, 2017, 663, 2015, 1289, -81, 1312, -81, 701, 439, 695, 428, 720, 456, 723)])
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_6kqic"]
+vertices = PackedVector2Array(1463, 700, 1454, 681, 1625, 682, 2006, 1177, -123, 1177, -123, 723, 459, 728, 517, 708, 756, 701, 1136, 700, 2004, 681)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 3), PackedInt32Array(3, 6, 7, 8, 9, 0), PackedInt32Array(10, 3, 2)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-134.27, 712.747, 456.516, 718.342, 516.938, 698.201, 756.385, 691.488, 1135.7, 690.369, 1447.87, 690.369, 1440.04, 671.348, 1624.66, 672.466, 2014.04, 671.348, 2017.4, 1187.17, -133.151, 1188.29)])
 source_geometry_group_name = &"navigation_polygon_source_group"
 
 [sub_resource type="Resource" id="Resource_sq2wg"]
@@ -26,14 +26,18 @@ value = "8994681697605556668"
 [node name="CON" instance=ExtResource("1_fiqww")]
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="NavigationRegion" index="0"]
-navigation_polygon = SubResource("NavigationPolygon_x2g58")
+position = Vector2(119, 18)
+scale = Vector2(0.893725, 0.893725)
+navigation_polygon = SubResource("NavigationPolygon_6kqic")
 
-[node name="TextureRect" type="TextureRect" parent="Background/CanvasLayer/Root/Center" index="0"]
-layout_mode = 0
-offset_left = -1025.0
-offset_top = -781.0
-offset_right = 1077.0
-offset_bottom = 780.0
+[node name="MainCamera" parent="Cameras" index="0" node_paths=PackedStringArray("follow_node")]
+follow_node = NodePath("../../Entities/Living/PlayerNode")
+
+[node name="TextureRect" type="TextureRect" parent="Background/CanvasLayer" index="1"]
+offset_top = -232.0
+offset_right = 2102.0
+offset_bottom = 1329.0
+scale = Vector2(0.913809, 0.913809)
 texture = ExtResource("2_eiuxd")
 expand_mode = 1
 stretch_mode = 5
@@ -43,6 +47,7 @@ position = Vector2(960, 961)
 scale = Vector2(1.42174, 1.42174)
 
 [node name="ProfessorCruz" parent="Entities/Living" index="1" instance=ExtResource("4_ckpg3")]
+visible = false
 position = Vector2(1312, 699)
 scale = Vector2(0.607575, 0.607575)
 dialogue = ExtResource("5_ic0dq")

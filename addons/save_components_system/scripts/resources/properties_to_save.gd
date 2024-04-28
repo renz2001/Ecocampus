@@ -28,7 +28,10 @@ func to_dict(from_object: Object) -> Dictionary:
 	for property: String in properties: 
 		var value = from_object.get(property)
 		if value is SaveableResource: 
-			data[property] = value.to_dict()
+			if value.save_as_resource_path: 
+				data[property] = value.resource_path
+			else: 
+				data[property] = value.to_dict()
 		elif value is Vector2: 
 			data[property] = {
 				"x": value.x, 
@@ -55,10 +58,10 @@ func to_dict(from_object: Object) -> Dictionary:
 # FIXME
 # This was hell lmao. 
 static func load_dict_to_object(obj: Object, dict: Dictionary) -> void: 
-	if obj is Node: 
-		if dict.has("is_queued_free"): 
-			obj.queue_free()
-			return
+	#if obj is Node: 
+		#if dict.has("is_queued_free") && dict["is_queued_free"] == true: 
+			#obj.queue_free()
+			#return
 	for property: String in dict.keys(): 
 		var value = dict[property]
 		if value is String: 

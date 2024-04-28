@@ -11,3 +11,8 @@ class_name MainCamera
 		
 		
 @export var follow_node_component: FollowNodeComponent
+
+
+func _process(_delta: float) -> void: 
+	zoom = Vector2(GlobalVariables.expanded_viewport_percentage.x, GlobalVariables.expanded_viewport_percentage.x)
+

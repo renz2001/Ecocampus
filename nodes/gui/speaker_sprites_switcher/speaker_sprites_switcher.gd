@@ -30,20 +30,21 @@ enum Speaker {
 @export var entities: EntityCollection
 
 
-func get_speaker_idle_sprite(entity_name: String) -> Texture2D: 
-	var entity: Entity = NodeTools.get_item_from_array(entities.entities, 
+func get_speaker(entity_name: String) -> Entity: 
+	return NodeTools.get_item_from_array(entities.entities, 
 		func(item: Entity, _i: int): 
 			return item.custom_name.to_lower() == entity_name.to_lower()
 	)
+	
+
+func get_speaker_idle_sprite(entity_name: String) -> Texture2D: 
+	var entity: Entity = get_speaker(entity_name)
 	if entity != null: 
 		return entity.get_speaker_idle_sprite()
 	return null
 	
 func get_speaker_talk_sprite(entity_name: String) -> Texture2D: 
-	var entity: Entity = NodeTools.get_item_from_array(entities.entities, 
-		func(item: Entity, _i: int): 
-			return item.custom_name.to_lower() == entity_name.to_lower()
-	)
+	var entity: Entity = get_speaker(entity_name)
 	if entity != null: 
 		return entity.get_speaker_talk_sprite()
 	return null
@@ -51,7 +52,7 @@ func get_speaker_talk_sprite(entity_name: String) -> Texture2D:
 	
 func is_main_speaker(entity_name: String) -> bool: 
 	for entity: Entity in main_speakers: 
-		if entity.name.to_lower() == entity_name.to_lower(): 
+		if entity.custom_name.to_lower() == entity_name.to_lower(): 
 			return true
 	return false
 

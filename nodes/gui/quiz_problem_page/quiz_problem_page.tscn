@@ -1,8 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://lallm550hhks"]
+[gd_scene load_steps=7 format=3 uid="uid://lallm550hhks"]
 
 [ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/macchi's_gui_manager/nodes/gui/gui/gui.tscn" id="1_6udxv"]
 [ext_resource type="Script" path="res://nodes/gui/quiz_problem_page/quiz_problem_page.gd" id="2_ex2pk"]
+[ext_resource type="FontFile" uid="uid://dqdntixoq4bc2" path="res://fonts/Ubuntu-Medium.ttf" id="3_8ifg7"]
 [ext_resource type="PackedScene" uid="uid://dggdvwjvdrmkh" path="res://nodes/gui/buttons/medium_wooden_button/medium_wooden_button.tscn" id="3_adaod"]
+[ext_resource type="LabelSettings" uid="uid://b4a2mbjbxcc82" path="res://resources/label_settings/quiz_problem_page_answers.tres" id="4_nryfx"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ok30j"]
+font = ExtResource("3_8ifg7")
+font_size = 45
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 10
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(4, 8)
 
 [node name="QuizProblemPage" node_paths=PackedStringArray("question_label", "answers", "answer_a", "answer_b", "answer_c", "answer_d") instance=ExtResource("1_6udxv")]
 offset_right = 1048.0
@@ -23,10 +34,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 50
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" index="0"]
 layout_mode = 2
@@ -39,7 +50,8 @@ theme_type_variation = &"QuizAttemptPanel"
 
 [node name="Question" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer" index="0"]
 layout_mode = 2
-text = "1. ass"
+text = "1. This is a question. "
+label_settings = SubResource("LabelSettings_ok30j")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
@@ -61,18 +73,40 @@ columns = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+stretch_mode = 0
+
+[node name="Label" parent="MarginContainer/VBoxContainer/MarginContainer/Answers/A" index="1"]
+text = "Answer a"
+label_settings = ExtResource("4_nryfx")
 
 [node name="C" parent="MarginContainer/VBoxContainer/MarginContainer/Answers" index="1" instance=ExtResource("3_adaod")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+stretch_mode = 0
+
+[node name="Label" parent="MarginContainer/VBoxContainer/MarginContainer/Answers/C" index="1"]
+label_settings = ExtResource("4_nryfx")
 
 [node name="B" parent="MarginContainer/VBoxContainer/MarginContainer/Answers" index="2" instance=ExtResource("3_adaod")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+stretch_mode = 0
+
+[node name="Label" parent="MarginContainer/VBoxContainer/MarginContainer/Answers/B" index="1"]
+label_settings = ExtResource("4_nryfx")
 
 [node name="D" parent="MarginContainer/VBoxContainer/MarginContainer/Answers" index="3" instance=ExtResource("3_adaod")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+stretch_mode = 0
+
+[node name="Label" parent="MarginContainer/VBoxContainer/MarginContainer/Answers/D" index="1"]
+label_settings = ExtResource("4_nryfx")
+
+[editable path="MarginContainer/VBoxContainer/MarginContainer/Answers/A"]
+[editable path="MarginContainer/VBoxContainer/MarginContainer/Answers/C"]
+[editable path="MarginContainer/VBoxContainer/MarginContainer/Answers/B"]
+[editable path="MarginContainer/VBoxContainer/MarginContainer/Answers/D"]

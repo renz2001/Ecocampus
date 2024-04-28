@@ -28,4 +28,5 @@ name = "Professor"
 female_speaker_idle_sprite = SubResource("AtlasTexture_qhtjs")
 female_speaker_talk_sprite = SubResource("AtlasTexture_xmecj")
 gender = 1
+facing_left = true
 group = "Entity"

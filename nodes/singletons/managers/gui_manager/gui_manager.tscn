@@ -47,10 +47,10 @@ theme = ExtResource("2_v1v03")
 [node name="Playing" parent="Root/MarginContainer/BaseControl" index="0"]
 only_one_instance = false
 
-[node name="PlayerHUD" parent="Root/MarginContainer/BaseControl/Playing" index="0" instance=ExtResource("9_32jpw")]
+[node name="QuizAttemptScreen" parent="Root/MarginContainer/BaseControl/Playing" index="0" instance=ExtResource("8_rgdf8")]
 layout_mode = 1
 
-[node name="QuizAttemptScreen" parent="Root/MarginContainer/BaseControl/Playing" index="1" instance=ExtResource("8_rgdf8")]
+[node name="PlayerHUD" parent="Root/MarginContainer/BaseControl/Playing" index="1" instance=ExtResource("9_32jpw")]
 layout_mode = 1
 
 [node name="Components" type="Node" parent="Root/MarginContainer/BaseControl/Playing" index="2"]
@@ -87,6 +87,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+theme = ExtResource("2_v1v03")
 theme_type_variation = &"PlayerHUDMargin"
 
 [node name="Control" type="Control" parent="Root/MarginContainer/BaseControl/MarginContainer" index="0"]
@@ -98,8 +99,6 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -564.0
-offset_right = -564.0
 grow_horizontal = 0
 
 [node name="AchievementUnlockedScreen" parent="Root/MarginContainer/BaseControl" index="4" instance=ExtResource("14_df8bm")]

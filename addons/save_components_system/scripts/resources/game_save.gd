@@ -26,9 +26,9 @@ static func create_from_existing_file(path: String) -> GameSave:
 func save_game(scene_tree: SceneTree) -> void: 
 	data["SaveName"] = name
 	for king_save: KingSaveComponent in scene_tree.get_nodes_in_group("KingSaveComponent"): 
-		data.merge(king_save.to_dict(), true)
-	
-	
+		data.merge(await king_save.to_dict(), true)
+		
+		
 func load_game(scene_tree: SceneTree, current_id: String) -> void: 
 	if !data.has(current_id): 
 		return
@@ -44,7 +44,12 @@ func load_game(scene_tree: SceneTree, current_id: String) -> void:
 			var load_data: Dictionary = data_group[key]
 			follower_node.load_dict(load_data)
 	
-	
+	for path: String in data["QueuedFree"]: 
+		printerr(path)
+		if scene_tree.current_scene.has_node(path): 
+			scene_tree.current_scene.get_node(path).queue_free()
+			
+			
 func to_json() -> JSON: 
 	var json: JSON = JSON.new()
 	var error = json.parse(JSON.stringify(data))

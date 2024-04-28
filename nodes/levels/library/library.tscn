@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://drvt76bdal6cu"]
+[gd_scene load_steps=17 format=3 uid="uid://drvt76bdal6cu"]
 
 [ext_resource type="PackedScene" uid="uid://cm6jeskbiise6" path="res://nodes/abstract_scenes/level_node/level_node.tscn" id="1_rd2yn"]
 [ext_resource type="Texture2D" uid="uid://d1040i7kwhlvf" path="res://assets/background/camera_pictures/library_bg.jpg" id="2_jh3ql"]
@@ -9,14 +9,16 @@
 [ext_resource type="Resource" uid="uid://bwxlfpv2m1qsu" path="res://resources/dialogue_arguments/library_quest_dialogue.tres" id="6_vh0rf"]
 [ext_resource type="Resource" uid="uid://cdlhu1mvsokoq" path="res://resources/quests/library_quest.tres" id="7_h3337"]
 [ext_resource type="PackedScene" uid="uid://dke5cvrhqa4wq" path="res://nodes/entities/annie/annie.tscn" id="8_afd54"]
+[ext_resource type="PackedScene" uid="uid://d3ckyt0j2xo5s" path="res://nodes/components/if_quest_complete_then_set_resource/if_quest_complete_then_set_resource.tscn" id="8_rxhd3"]
+[ext_resource type="Resource" uid="uid://cjkage7gxo1x5" path="res://resources/dialogue_arguments/library_quest_complete_dialogue.tres" id="9_45nek"]
 [ext_resource type="Resource" uid="uid://7sifl3qmuvf1" path="res://resources/dialogue_arguments/annie_dialogue.tres" id="9_es0xp"]
 [ext_resource type="PackedScene" uid="uid://bm3t8igvjt658" path="res://nodes/entities/pickuppable_entites/banana_peel/banana_peel.tscn" id="10_3fnls"]
 [ext_resource type="PackedScene" uid="uid://bfnapusrrbksh" path="res://nodes/entities/pickuppable_entites/coffee_cup/coffee_cup.tscn" id="11_6pctm"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_8btix"]
-vertices = PackedVector2Array(1612, 455, 1611, 454, 1671, 453, 1397, 508, 534, 676, -94, 1157, -100, 504, 2009, 1148, 1992, 706, 1616, 677, 1397, 604, 1654, 651, 1744, 654, 1744, 655, 1460, 643)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(0, 2, 3, 4), PackedInt32Array(5, 6, 4, 7), PackedInt32Array(8, 7, 4, 9), PackedInt32Array(4, 3, 10), PackedInt32Array(11, 12, 13, 9), PackedInt32Array(4, 10, 14), PackedInt32Array(9, 13, 8), PackedInt32Array(4, 14, 9)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(1464, 634, 1614, 666, 1653, 641, 1746, 645, 2002, 698, 2020, 1158, -104, 1168, -111, 491, 534, 666, 1610, 445, 1788, 441, 1407, 516, 1407, 598)])
+vertices = PackedVector2Array(1654, 651, 1746, 655, 1744, 655, 1612, 455, 1611, 454, 1671, 453, 1397, 508, 534, 676, -94, 1157, -100, 504, 2010, 1148, 2015, 701, 1616, 677, 1397, 604, 1460, 643)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 4, 5), PackedInt32Array(3, 5, 6, 7), PackedInt32Array(8, 9, 7, 10), PackedInt32Array(11, 10, 7, 12), PackedInt32Array(7, 6, 13), PackedInt32Array(12, 0, 2, 11), PackedInt32Array(7, 13, 14), PackedInt32Array(7, 14, 12)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(1464, 634, 1614, 666, 1653, 641, 1746, 645, 2025.56, 693.333, 2020, 1158, -104, 1168, -111, 491, 534, 666, 1610, 445, 1788, 441, 1407, 516, 1407, 598)])
 source_geometry_group_name = &"navigation_polygon_source_group"
 
 [sub_resource type="Resource" id="Resource_yjoda"]
@@ -26,14 +28,19 @@ value = "228301570279103480"
 [node name="Library" instance=ExtResource("1_rd2yn")]
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="NavigationRegion" index="0"]
+position = Vector2(97, 32)
+scale = Vector2(0.9, 0.9)
 navigation_polygon = SubResource("NavigationPolygon_8btix")
 
-[node name="TextureRect" type="TextureRect" parent="Background/CanvasLayer/Root/Center" index="0"]
-layout_mode = 0
-offset_left = -1056.0
-offset_top = -945.0
-offset_right = 1083.0
-offset_bottom = 649.0
+[node name="MainCamera" parent="Cameras" index="0" node_paths=PackedStringArray("follow_node")]
+follow_node = NodePath("../../Entities/Living/PlayerNode")
+
+[node name="TextureRect" type="TextureRect" parent="Background/CanvasLayer" index="1"]
+offset_left = -8.0
+offset_top = -359.0
+offset_right = 2131.0
+offset_bottom = 1235.0
+scale = Vector2(0.904991, 0.904056)
 texture = ExtResource("2_jh3ql")
 expand_mode = 1
 stretch_mode = 5
@@ -49,6 +56,11 @@ scale = Vector2(0.886484, 0.886484)
 dialogue = ExtResource("6_vh0rf")
 quest = ExtResource("7_h3337")
 
+[node name="IfQuestCompleteThenSetResource" parent="Entities/Living/ProfessorGrayson" index="10" node_paths=PackedStringArray("node") instance=ExtResource("8_rxhd3")]
+check_quest = ExtResource("7_h3337")
+node = NodePath("..")
+new_value = ExtResource("9_45nek")
+
 [node name="Annie" parent="Entities/Living" index="2" instance=ExtResource("8_afd54")]
 position = Vector2(234, 659)
 scale = Vector2(0.993576, 0.993576)
@@ -56,43 +68,43 @@ dialogue = ExtResource("9_es0xp")
 
 [node name="BananaPeel" parent="Entities/NonLiving" index="0" instance=ExtResource("10_3fnls")]
 position = Vector2(1508, 684)
-scale = Vector2(0.781068, 0.781068)
+scale = Vector2(1.03025, 1.03025)
 
 [node name="BananaPeel2" parent="Entities/NonLiving" index="1" instance=ExtResource("10_3fnls")]
 position = Vector2(504, 713)
-scale = Vector2(1.31394, 1.31394)
+scale = Vector2(1.0728, 1.0728)
 
 [node name="BananaPeel3" parent="Entities/NonLiving" index="2" instance=ExtResource("10_3fnls")]
 position = Vector2(437, 692)
-scale = Vector2(0.884338, 0.884338)
+scale = Vector2(1.04199, 1.04199)
 
 [node name="BananaPeel4" parent="Entities/NonLiving" index="3" instance=ExtResource("10_3fnls")]
 position = Vector2(1179, 570)
-scale = Vector2(0.562137, 0.562137)
+scale = Vector2(0.863012, 0.863012)
 
 [node name="BananaPeel5" parent="Entities/NonLiving" index="4" instance=ExtResource("10_3fnls")]
 position = Vector2(1248, 834)
-scale = Vector2(1.16523, 1.16523)
+scale = Vector2(1.2503, 1.2503)
 
 [node name="CoffeeCup" parent="Entities/NonLiving" index="5" instance=ExtResource("11_6pctm")]
 position = Vector2(121, 600)
-scale = Vector2(0.78933, 0.78933)
+scale = Vector2(0.907023, 0.907023)
 
 [node name="CoffeeCup2" parent="Entities/NonLiving" index="6" instance=ExtResource("11_6pctm")]
 position = Vector2(1405, 634)
-scale = Vector2(0.504306, 0.504306)
+scale = Vector2(0.956901, 0.956901)
 
 [node name="CoffeeCup3" parent="Entities/NonLiving" index="7" instance=ExtResource("11_6pctm")]
 position = Vector2(1626, 573)
-scale = Vector2(0.73563, 0.73563)
+scale = Vector2(0.867413, 0.867413)
 
 [node name="CoffeeCup4" parent="Entities/NonLiving" index="8" instance=ExtResource("11_6pctm")]
 position = Vector2(563, 606)
-scale = Vector2(1.07848, 1.07848)
+scale = Vector2(0.915825, 0.915825)
 
 [node name="CoffeeCup5" parent="Entities/NonLiving" index="9" instance=ExtResource("11_6pctm")]
 position = Vector2(582, 590)
-scale = Vector2(1.09914, 1.09914)
+scale = Vector2(0.892352, 0.892352)
 
 [node name="TwoPoint5DSpaceSimulator" parent="Scripts" index="0"]
 scale_size_offset = 180

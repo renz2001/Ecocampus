@@ -1,5 +1,5 @@
 @tool
-extends HBoxContainer
+extends VBoxContainer
 class_name QuestTaskContainer
 
 @export var quest: EcoQuest: 

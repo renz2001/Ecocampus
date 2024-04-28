@@ -1,3 +1,4 @@
+@tool
 extends Node
 
 signal player_instanced

@@ -25,6 +25,11 @@ var viewport_size: Vector2:
 		
 var initial_viewport_size: Vector2 = Vector2(ProjectSettings.get_setting_with_override("display/window/size/viewport_width"), ProjectSettings.get_setting("display/window/size/viewport_height"))
 
+var expanded_viewport_percentage: Vector2: 
+	get: 
+		return viewport_size / initial_viewport_size
+
+
 var screen_sizes: Dictionary: 
 	get: 
 		return {

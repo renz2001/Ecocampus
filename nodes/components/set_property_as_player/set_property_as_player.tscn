@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkl3v8xrwfvmc"]
+
+[ext_resource type="Script" path="res://nodes/components/set_property_as_player/set_property_as_player.gd" id="1_d62fk"]
+[ext_resource type="PackedScene" uid="uid://d8hno8b2usfl" path="res://nodes/components/set_parent_as_property/set_parent_as_property.tscn" id="2_wyfh0"]
+
+[node name="SetPropertyAsPlayer" type="Node" node_paths=PackedStringArray("node")]
+script = ExtResource("1_d62fk")
+node = NodePath("")
+
+[node name="SetParentAsProperty" parent="." node_paths=PackedStringArray("node") instance=ExtResource("2_wyfh0")]
+node = NodePath("..")

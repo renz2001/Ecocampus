@@ -33,7 +33,7 @@ script = ExtResource("13_t84n1")
 format = "Score: %s / %s
 "
 
-[node name="QuizAttemptGUI" node_paths=PackedStringArray("problem_page", "title", "end_title", "description", "score", "wrong", "problem_page_router") instance=ExtResource("1_tkvea")]
+[node name="QuizAttemptGUI" node_paths=PackedStringArray("problem_page", "title", "end_title", "description", "score", "wrong", "problem_page_router", "again_page_router") instance=ExtResource("1_tkvea")]
 script = ExtResource("2_n2cxh")
 quiz_attempt = SubResource("Resource_p4emr")
 problem_page = NodePath("Board/BoardMargin/PageRouterContainer/QuizProblemPage")
@@ -43,6 +43,7 @@ description = NodePath("Board/BoardMargin/PageRouterContainer/FirstPage/MarginCo
 score = NodePath("Board/BoardMargin/PageRouterContainer/EndPage/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/Score")
 wrong = NodePath("Board/BoardMargin/PageRouterContainer/EndPage/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/Wrong")
 problem_page_router = NodePath("Board/BoardMargin/PageRouterContainer/QuizProblemPage/PageRouter")
+again_page_router = NodePath("Board/BoardMargin/PageRouterContainer/EndPage/MarginContainer/VBoxContainer/HBoxContainer/Again/PageRouter")
 inactive_on_ready = false
 
 [node name="Board" type="TextureRect" parent="." index="0"]

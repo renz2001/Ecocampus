@@ -5,6 +5,7 @@ class_name SaveableResource
 ## func _init()
 ## 	properties = ["scene_file", "items"] 
 ## 	super._init() 
+@export var save_as_resource_path: bool = false
 
 var save: PropertiesToSave
 #var use_script_resource_path_as_key: bool
@@ -34,7 +35,7 @@ func to_dict() -> Dictionary:
 			#str(get_script().resource_path): save.to_dict(self)
 		#}
 	var dict: Dictionary = {
-		"script_resource_path": get_script().resource_path
+		"script_resource_path": get_script().resource_path, 
 	}
 	dict.merge(save.to_dict(self))
 	return dict

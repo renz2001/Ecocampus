@@ -1,6 +1,7 @@
 extends GUI
 class_name QuestsMenu
 
+@export var panel_container: PanelContainer
 @export var quests_container: QuestsContainer
 
 var quests: Array[Quest]: 
@@ -24,4 +25,8 @@ func _on_quest_completed(_quest: Quest) -> void:
 	
 func update() -> void: 
 	quests_container.quests = quests
+	if quests_container.quests: 
+		panel_container.size.y = 512
+	else: 
+		panel_container.size.y = 93
 

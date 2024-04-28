@@ -13,7 +13,8 @@ config_version=5
 config/name="Ecocampus"
 run/main_scene="res://app.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0, 0.447059, 0.701961, 1)
+config/icon="res://icon.png"
 
 [autoload]
 

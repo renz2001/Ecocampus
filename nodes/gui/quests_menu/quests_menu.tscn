@@ -1,12 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://bvqcvxujyci1a"]
+[gd_scene load_steps=6 format=3 uid="uid://bvqcvxujyci1a"]
 
 [ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/macchi's_gui_manager/nodes/gui/gui/gui.tscn" id="1_mmghx"]
 [ext_resource type="Script" path="res://nodes/gui/quests_menu/quests_menu.gd" id="2_crym1"]
 [ext_resource type="PackedScene" uid="uid://c33ymv4k2whut" path="res://nodes/gui/quests_container/quests_container.tscn" id="2_mkdg8"]
+[ext_resource type="FontFile" uid="uid://cp5vi568oh4jl" path="res://fonts/Ubuntu-Bold.ttf" id="3_dmhab"]
 
-[node name="QuestsMenu" node_paths=PackedStringArray("quests_container") instance=ExtResource("1_mmghx")]
+[sub_resource type="LabelSettings" id="LabelSettings_ifpyy"]
+font = ExtResource("3_dmhab")
+font_size = 50
+
+[node name="QuestsMenu" node_paths=PackedStringArray("panel_container", "quests_container") instance=ExtResource("1_mmghx")]
 script = ExtResource("2_crym1")
-quests_container = NodePath("PanelContainer/VBoxContainer/QuestsContainer")
+panel_container = NodePath("PanelContainer")
+quests_container = NodePath("PanelContainer/VBoxContainer/ScrollContainer/QuestsContainer")
 
 [node name="PanelContainer" type="PanelContainer" parent="." index="0"]
 custom_minimum_size = Vector2(500, 0)
@@ -14,19 +20,25 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -600.0
+offset_left = -804.0
 offset_bottom = 77.0
 grow_horizontal = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" index="0"]
 layout_mode = 2
-size_flags_vertical = 4
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer" index="0"]
+[node name="Quests" type="Label" parent="PanelContainer/VBoxContainer" index="0"]
 layout_mode = 2
 text = "Quests"
+label_settings = SubResource("LabelSettings_ifpyy")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="QuestsContainer" parent="PanelContainer/VBoxContainer" index="1" instance=ExtResource("2_mkdg8")]
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/VBoxContainer" index="1"]
 layout_mode = 2
+size_flags_vertical = 3
+
+[node name="QuestsContainer" parent="PanelContainer/VBoxContainer/ScrollContainer" index="0" instance=ExtResource("2_mkdg8")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3

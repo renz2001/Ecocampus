@@ -15,10 +15,10 @@
 [ext_resource type="PackedScene" uid="uid://d3ckyt0j2xo5s" path="res://nodes/components/if_quest_complete_then_set_resource/if_quest_complete_then_set_resource.tscn" id="10_yj2nn"]
 [ext_resource type="Resource" uid="uid://8paemw7vsbca" path="res://resources/dialogue_arguments/bea_dialogue.tres" id="11_j3obv"]
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_41h1c"]
-vertices = PackedVector2Array(155, 599, 154, 599, 308, 577, 1453, 531, 1648, 560, 1647, 560, 1337, 566, 1300, 536, 454, 563, 588, 564, 567, 605, -57, 1072, -53, 651, 1969, 616, 1973, 1073, 1306, 599, 747, 632, 1080, 620, 1079, 620)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 4, 5), PackedInt32Array(6, 7, 3), PackedInt32Array(0, 2, 8, 9, 10, 11, 12), PackedInt32Array(5, 13, 14, 11, 15), PackedInt32Array(11, 10, 16), PackedInt32Array(15, 6, 3, 5), PackedInt32Array(17, 15, 11), PackedInt32Array(17, 11, 16, 18)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(583, 597, 748, 622, 1079, 610, 1301, 589, 1322, 567, 1274, 527, 1454, 521, 1649, 550, 1979, 608, 1984, 1084, -68, 1082, -63, 644, 153, 589, 307, 567, 454, 553, 606, 555)])
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_qt44p"]
+vertices = PackedVector2Array(364, 576, 363, 576, 587, 573, 153, 608, 151, 608, 1341, 580, 1324, 546, 1516, 538, 572, 618, -40, 1071, -40, 662, 1965, 615, 1971, 1070, 1305, 601, 663, 633, 1188, 614, 1189, 614)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 4, 0), PackedInt32Array(5, 6, 7), PackedInt32Array(3, 0, 2, 8, 9, 10), PackedInt32Array(7, 11, 12, 9, 13), PackedInt32Array(9, 8, 14), PackedInt32Array(9, 14, 15, 16), PackedInt32Array(13, 5, 7), PackedInt32Array(13, 9, 16)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-49.5237, 1082.14, -50.5773, 654.344, 150, 598, 363, 566, 601, 563, 585, 610, 664, 623, 1188, 604, 1302, 591, 1328, 576, 1309, 537, 1518, 528, 1975, 607, 1982, 1080)])
 source_geometry_group_name = &"navigation_polygon_source_group"
 
 [sub_resource type="Resource" id="Resource_1uyd6"]
@@ -28,14 +28,21 @@ value = "8481819993523898686"
 [node name="Gate1" instance=ExtResource("1_ycc0e")]
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="NavigationRegion" index="0"]
-navigation_polygon = SubResource("NavigationPolygon_41h1c")
+position = Vector2(46, 57)
+scale = Vector2(0.949042, 0.949042)
+navigation_polygon = SubResource("NavigationPolygon_qt44p")
 
-[node name="TextureRect" type="TextureRect" parent="Background/CanvasLayer/Root/Center" index="0"]
-layout_mode = 0
-offset_left = -1011.0
-offset_top = -972.0
-offset_right = 1047.0
-offset_bottom = 565.0
+[node name="MainCamera" parent="Cameras" index="0" node_paths=PackedStringArray("follow_node")]
+position = Vector2(960, 586)
+follow_node = NodePath("../../Entities/Living/PlayerNode")
+
+[node name="TextureRect" type="TextureRect" parent="Background/CanvasLayer" index="1"]
+offset_left = -66.0
+offset_top = -391.0
+offset_right = 1969.0
+offset_bottom = 1129.0
+scale = Vector2(0.948352, 0.948352)
+pivot_offset = Vector2(1029, 768)
 texture = ExtResource("2_83yqh")
 expand_mode = 1
 stretch_mode = 5
@@ -44,8 +51,8 @@ stretch_mode = 5
 position = Vector2(1589, 899)
 
 [node name="SirGuzman" parent="Entities/Living" index="1" instance=ExtResource("4_22fi1")]
-position = Vector2(614, 583)
-scale = Vector2(0.532739, 0.532739)
+position = Vector2(706, 614)
+scale = Vector2(0.581841, 0.581841)
 dialogue = ExtResource("5_ps4hj")
 quiz = ExtResource("8_q1xfd")
 quest = ExtResource("8_ong1o")
@@ -56,49 +63,49 @@ node = NodePath("..")
 new_value = ExtResource("9_nhi2k")
 
 [node name="Bea" parent="Entities/Living" index="2" instance=ExtResource("10_mijeq")]
-position = Vector2(1327, 685)
-scale = Vector2(0.694301, 0.694301)
+position = Vector2(1302, 663)
+scale = Vector2(0.659454, 0.659454)
 dialogue = ExtResource("11_j3obv")
 
 [node name="PlasticBottle2" parent="Entities/NonLiving" index="0" instance=ExtResource("9_b0mka")]
-position = Vector2(297, 614)
-scale = Vector2(0.581841, 0.581841)
+position = Vector2(289, 668)
+scale = Vector2(0.667374, 0.667374)
 
 [node name="PlasticBottle3" parent="Entities/NonLiving" index="1" instance=ExtResource("9_b0mka")]
-position = Vector2(310, 636)
-scale = Vector2(0.616688, 0.616688)
+position = Vector2(302, 690)
+scale = Vector2(0.70222, 0.70222)
 
 [node name="PlasticBottle4" parent="Entities/NonLiving" index="2" instance=ExtResource("9_b0mka")]
-position = Vector2(343, 631)
-scale = Vector2(0.608768, 0.608768)
+position = Vector2(335, 685)
+scale = Vector2(0.694301, 0.694301)
 
 [node name="PlasticBottle5" parent="Entities/NonLiving" index="3" instance=ExtResource("9_b0mka")]
 position = Vector2(1239, 713)
 scale = Vector2(0.738651, 0.738651)
 
 [node name="PlasticBottle6" parent="Entities/NonLiving" index="4" instance=ExtResource("9_b0mka")]
-position = Vector2(1677, 577)
-scale = Vector2(0.523235, 0.523235)
+position = Vector2(1509, 637)
+scale = Vector2(0.618272, 0.618272)
 
 [node name="AluminumSodaCan" parent="Entities/NonLiving" index="5" instance=ExtResource("10_r6ehk")]
-position = Vector2(1215, 580)
-scale = Vector2(0.527987, 0.527987)
+position = Vector2(1213, 618)
+scale = Vector2(0.588177, 0.588177)
 
 [node name="AluminumSodaCan2" parent="Entities/NonLiving" index="6" instance=ExtResource("10_r6ehk")]
-position = Vector2(1187, 575)
-scale = Vector2(0.520068, 0.520068)
+position = Vector2(1185, 613)
+scale = Vector2(0.580257, 0.580257)
 
-[node name="AluminumSodaCan" parent="Entities" index="2" instance=ExtResource("10_r6ehk")]
+[node name="AluminumSodaCan3" parent="Entities/NonLiving" index="7" instance=ExtResource("10_r6ehk")]
 position = Vector2(1186, 726)
 scale = Vector2(0.759242, 0.759242)
 
-[node name="AluminumSodaCan2" parent="Entities" index="3" instance=ExtResource("10_r6ehk")]
-position = Vector2(620, 629)
-scale = Vector2(0.6056, 0.6056)
+[node name="AluminumSodaCan4" parent="Entities/NonLiving" index="8" instance=ExtResource("10_r6ehk")]
+position = Vector2(623, 674)
+scale = Vector2(0.676877, 0.676877)
 
-[node name="AluminumSodaCan3" parent="Entities" index="4" instance=ExtResource("10_r6ehk")]
-position = Vector2(675, 644)
-scale = Vector2(0.629359, 0.629359)
+[node name="AluminumSodaCan5" parent="Entities/NonLiving" index="9" instance=ExtResource("10_r6ehk")]
+position = Vector2(678, 689)
+scale = Vector2(0.700636, 0.700636)
 
 [node name="BasePoint" parent="Scripts/TwoPoint5DSpaceSimulator" index="0"]
 position = Vector2(957, 878)

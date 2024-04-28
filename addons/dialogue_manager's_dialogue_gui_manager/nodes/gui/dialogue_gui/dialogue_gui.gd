@@ -78,6 +78,11 @@ var dialogue_line: DialogueLine:
 			speaker_sprites_switcher.speaker = SpeakerSpritesSwitcher.Speaker.SECONDARY
 		
 		speaker_sprites_switcher.set_current_speaker_rect_texture(speaker_sprites_switcher.get_speaker_idle_sprite(dialogue_line.character))
+		
+		if !speaker_sprites_switcher.is_main_speaker(dialogue_line.character): 
+			var speaker: Entity = speaker_sprites_switcher.get_speaker(dialogue_line.character)
+			speaker_sprites_switcher.current_speaker_rect.flip_h = !speaker.facing_left
+		
 		get_tree().create_timer(0.1).timeout.connect(
 			func(): 
 				speaker_sprites_switcher.set_current_speaker_rect_texture(speaker_sprites_switcher.get_speaker_talk_sprite(dialogue_line.character))

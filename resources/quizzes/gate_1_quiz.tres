@@ -27,7 +27,7 @@ reward_points = 1
 
 [sub_resource type="Resource" id="Resource_xgnpp"]
 script = ExtResource("1_inpls")
-question = "What does the Guard NPC describe the university as?"
+question = "What does Sir Guzman describe the university as?"
 correct_answer = "A sustainable and eco-friendly haven"
 wrong_answers = Array[String](["A polluted place", "A chaotic environment", "A place devoid of beauty"])
 reward_points = 1

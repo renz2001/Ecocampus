@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://cr60ao03skho1"]
+
+[node name="PhoneMargin" type="MarginContainer"]
+offset_right = 40.0
+offset_bottom = 40.0

@@ -43,12 +43,15 @@ scale = Vector2(3.42857, 3.42857)
 texture = SubResource("AtlasTexture_8oaj7")
 flip_h = true
 
-[node name="TextureRect" type="TextureRect" parent="Background/CanvasLayer/Root/Center" index="0"]
-layout_mode = 0
-offset_left = -1078.0
-offset_top = -1162.0
-offset_right = 1104.0
-offset_bottom = 1020.0
+[node name="MainCamera" parent="Cameras" index="0" node_paths=PackedStringArray("follow_node")]
+follow_node = NodePath("../../Entities/Living/PlayerNode")
+
+[node name="TextureRect" type="TextureRect" parent="Background/CanvasLayer" index="1"]
+offset_left = 6.00002
+offset_top = -482.0
+offset_right = 2188.0
+offset_bottom = 1700.0
+scale = Vector2(0.878849, 0.878849)
 texture = ExtResource("2_jlb62")
 expand_mode = 1
 stretch_mode = 5
@@ -57,7 +60,7 @@ stretch_mode = 5
 position = Vector2(728, 1992)
 
 [node name="TrashCans" type="Node2D" parent="Entities/NonLiving" index="0"]
-position = Vector2(1158, 776)
+position = Vector2(1218, 838)
 
 [node name="BioDegradableTrashcan" parent="Entities/NonLiving/TrashCans" index="0" instance=ExtResource("4_7mhfn")]
 position = Vector2(-312, 2)

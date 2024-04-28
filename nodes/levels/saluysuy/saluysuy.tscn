@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c7ma84vuiqota"]
+[gd_scene load_steps=18 format=3 uid="uid://c7ma84vuiqota"]
 
 [ext_resource type="PackedScene" uid="uid://cm6jeskbiise6" path="res://nodes/abstract_scenes/level_node/level_node.tscn" id="1_pd2cb"]
 [ext_resource type="Texture2D" uid="uid://dwc1l7vhxhjkq" path="res://assets/background/camera_pictures/saluysuy_bg.jpg" id="2_k36ol"]
@@ -9,15 +9,17 @@
 [ext_resource type="Resource" uid="uid://doui5wjwiq177" path="res://resources/dialogue_arguments/saluysuy_quest_dialogue.tres" id="5_vdd73"]
 [ext_resource type="Resource" uid="uid://ch7fcp5l0o067" path="res://resources/quests/saluysuy_quest.tres" id="7_bl1wb"]
 [ext_resource type="PackedScene" uid="uid://b5wngnu2a6eym" path="res://nodes/entities/viktor/viktor.tscn" id="8_sf3ny"]
+[ext_resource type="PackedScene" uid="uid://d3ckyt0j2xo5s" path="res://nodes/components/if_quest_complete_then_set_resource/if_quest_complete_then_set_resource.tscn" id="8_ya8kc"]
 [ext_resource type="Resource" uid="uid://b5mxyuxnxpian" path="res://resources/dialogue_arguments/viktor_dialogue.tres" id="9_lmtsk"]
+[ext_resource type="Resource" uid="uid://qqhxiyomk2ql" path="res://resources/dialogue_arguments/saluysuy_quest_completed_dialogue.tres" id="9_w4vwt"]
 [ext_resource type="PackedScene" uid="uid://cxbi5gy21wbmn" path="res://nodes/entities/non_living_entities/light_bulb/light_bulb.tscn" id="10_sq4sl"]
 [ext_resource type="PackedScene" uid="uid://ibuaxowofiai" path="res://nodes/entities/non_living_entities/light_switch/light_switch.tscn" id="11_cfu07"]
 [ext_resource type="PackedScene" uid="uid://d1klss0cjhtw0" path="res://nodes/entities/non_living_entities/faucet/faucet.tscn" id="12_n4yv5"]
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_o2x7v"]
-vertices = PackedVector2Array(805, 550, 794, 519, 886, 529, 886, 530, -117, 1170, -128, 770, -35, 807, 936, 545, 924, 562, 736, 578, 1824, 731, 2043, 1173, 363, 650, 1386, 683, 2009, 526, 2043, 526, 362, 649, 1461, 646)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6), PackedInt32Array(0, 3, 7, 8, 9), PackedInt32Array(10, 11, 4, 6, 12, 13), PackedInt32Array(14, 15, 11, 10), PackedInt32Array(6, 16, 12), PackedInt32Array(13, 17, 10), PackedInt32Array(13, 12, 9, 8)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(889, 520, 953, 540, 941, 556, 1385, 672, 1461, 636, 1821, 720, 2005, 516, 2053, 516, 2053, 1184, -127, 1180, -139, 756, -35, 796, 361, 640, 733, 568, 793, 544, 781, 508)])
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_jhrwx"]
+vertices = PackedVector2Array(738, 582, 737, 581, 820, 578, 2042, 1156, -112, 1165, -117, 761, -26, 802, 357, 645, 637, 609, 639, 609, 912, 522, 957, 537, 946, 555, 844, 526, 2006, 516, 2034, 521, 1943, 588, 1807, 719, 1894, 578, 1458, 641, 1396, 672)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6), PackedInt32Array(3, 4, 6, 7, 8, 9), PackedInt32Array(3, 9, 0), PackedInt32Array(10, 11, 12, 13), PackedInt32Array(3, 2, 13, 12), PackedInt32Array(14, 15, 3, 16), PackedInt32Array(17, 18, 16, 3), PackedInt32Array(19, 17, 3, 20), PackedInt32Array(20, 3, 12)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(814.137, 568.424, 837.915, 517.469, 911.516, 511.808, 971.529, 533.322, 962.47, 549.174, 1395.02, 661.274, 1458.43, 630.701, 1801.52, 707.699, 1889.84, 567.291, 1938.53, 577.482, 2001.94, 505.014, 2043.83, 512.94, 2052.89, 1166.29, -122.29, 1176.48, -127.952, 746.198, -26.0433, 791.49, 355.548, 636.363, 636.363, 598.996, 734.874, 571.821)])
 source_geometry_group_name = &"navigation_polygon_source_group"
 
 [sub_resource type="Resource" id="Resource_jo488"]
@@ -27,54 +29,69 @@ value = "6900684437040981709"
 [node name="Saluysuy" instance=ExtResource("1_pd2cb")]
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="NavigationRegion" index="0"]
-navigation_polygon = SubResource("NavigationPolygon_o2x7v")
+position = Vector2(110, 43)
+scale = Vector2(0.883144, 0.883144)
+navigation_polygon = SubResource("NavigationPolygon_jhrwx")
 
-[node name="TextureRect" type="TextureRect" parent="Background/CanvasLayer/Root/Center" index="0"]
-layout_mode = 0
-offset_left = -1433.0
-offset_top = -965.0
-offset_right = 1467.0
-offset_bottom = 663.0
+[node name="MainCamera" parent="Cameras" index="0" node_paths=PackedStringArray("follow_node")]
+follow_node = NodePath("../../Entities/Living/PlayerNode")
+
+[node name="TextureRect" type="TextureRect" parent="Background/CanvasLayer" index="1"]
+offset_left = -309.0
+offset_top = -344.0
+offset_right = 2230.0
+offset_bottom = 1082.0
 texture = ExtResource("2_k36ol")
 expand_mode = 1
 stretch_mode = 5
 
 [node name="PlayerNode" parent="Entities/Living" index="0" instance=ExtResource("3_q43q1")]
-position = Vector2(1248, 912)
+position = Vector2(1053, 870)
 scale = Vector2(1.16395, 1.16395)
 
 [node name="DoctorMadrigal" parent="Entities/Living" index="1" instance=ExtResource("4_17uen")]
-position = Vector2(758, 600)
-scale = Vector2(0.910196, 0.910196)
+position = Vector2(728, 572)
+scale = Vector2(0.870126, 0.870126)
 dialogue = ExtResource("5_vdd73")
 quiz = ExtResource("5_a5prq")
 quest = ExtResource("7_bl1wb")
 
+[node name="IfQuestCompleteThenSetResource" parent="Entities/Living/DoctorMadrigal" index="10" node_paths=PackedStringArray("node") instance=ExtResource("8_ya8kc")]
+check_quest = ExtResource("7_bl1wb")
+node = NodePath("..")
+new_value = ExtResource("9_w4vwt")
+
 [node name="Viktor" parent="Entities/Living" index="2" instance=ExtResource("8_sf3ny")]
-position = Vector2(1725, 807)
-scale = Vector2(1.20642, 1.20642)
+position = Vector2(1575, 674)
+scale = Vector2(1.01609, 1.01609)
 dialogue = ExtResource("9_lmtsk")
 
 [node name="LightBulb" parent="Entities/NonLiving" index="0" instance=ExtResource("10_sq4sl")]
-position = Vector2(1215, 90)
-scale = Vector2(0.180359, 0.180359)
+position = Vector2(1187, 123)
+scale = Vector2(0.227583, 0.227583)
 
 [node name="LightSwitch" parent="Entities/NonLiving" index="1" node_paths=PackedStringArray("light_bulbs") instance=ExtResource("11_cfu07")]
-position = Vector2(1612, 359)
-scale = Vector2(0.565312, 0.565312)
+position = Vector2(1561, 353)
+scale = Vector2(0.556726, 0.556726)
 light_bulbs = [NodePath("../LightBulb")]
 
 [node name="Faucet" parent="Entities/NonLiving" index="2" instance=ExtResource("12_n4yv5")]
-position = Vector2(1077, 422)
-scale = Vector2(0.655469, 0.655469)
+position = Vector2(1064, 419)
+scale = Vector2(0.651175, 0.651175)
+disable_after_interact = false
+disabled = false
 
 [node name="Faucet2" parent="Entities/NonLiving" index="3" instance=ExtResource("12_n4yv5")]
-position = Vector2(1183, 428)
-scale = Vector2(0.664055, 0.664055)
+position = Vector2(1159, 422)
+scale = Vector2(0.655468, 0.655468)
+disable_after_interact = false
+disabled = false
 
 [node name="Faucet3" parent="Entities/NonLiving" index="4" instance=ExtResource("12_n4yv5")]
-position = Vector2(1380, 436)
-scale = Vector2(0.675503, 0.675503)
+position = Vector2(1333, 430)
+scale = Vector2(0.666917, 0.666917)
+disable_after_interact = false
+disabled = false
 
 [node name="TwoPoint5DSpaceSimulator" parent="Scripts" index="0"]
 scale_size_offset = 140

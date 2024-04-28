@@ -23,7 +23,7 @@ class_name QuizAttemptGUI
 @export var score: FormattedLabel
 @export var wrong: Label
 @export var problem_page_router: PageRouter
-
+@export var again_page_router: PageRouter
 
 var quiz: Quiz
 
@@ -53,6 +53,10 @@ func _on_quiz_problem_page_quiz_completed() -> void:
 		quiz.on_victory_unloch_achievement.unlock()
 		quiz.on_victory_unloch_achievement.display()
 
+
+func again() -> void: 
+	again_page_router.route()
+	
 
 #func _activated() -> void: 
 	#GameManager.enable_player_on_playing_entered = false

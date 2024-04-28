@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://cm6jeskbiise6"]
+[gd_scene load_steps=12 format=3 uid="uid://cm6jeskbiise6"]
 
 [ext_resource type="PackedScene" uid="uid://uumu0cyt08vn" path="res://nodes/tools/main_camera/main_camera.tscn" id="1_7i7vm"]
 [ext_resource type="Script" path="res://nodes/abstract_scenes/level_node/level_node.gd" id="1_i8rcc"]
 [ext_resource type="PackedScene" uid="uid://coge3r6c3f044" path="res://nodes/components/two_point_5d_space_simulator/two_point_5d_space_simulator.tscn" id="2_lkpw8"]
+[ext_resource type="PackedScene" uid="uid://dkl3v8xrwfvmc" path="res://nodes/components/set_property_as_player/set_property_as_player.tscn" id="3_d882r"]
 [ext_resource type="PackedScene" uid="uid://bwn0ec225xwd8" path="res://addons/world_event_manager/nodes/tools/world_event_handler/world_event_handler.tscn" id="4_0l3dg"]
 [ext_resource type="PackedScene" uid="uid://bink1hk2vfpun" path="res://addons/world_event_manager/nodes/tools/world_event/world_event.tscn" id="4_g04p1"]
 [ext_resource type="PackedScene" uid="uid://bixjjksp3dphm" path="res://addons/save_components_system/components/master_save_component/master_save_component.tscn" id="5_h3bm6"]
@@ -36,11 +37,18 @@ limit_left = 0
 limit_top = 0
 limit_right = 1920
 limit_bottom = 1080
+drag_top_margin = 0.05
+drag_bottom_margin = 0.05
+
+[node name="SetPropertyAsPlayer" parent="Cameras/MainCamera" node_paths=PackedStringArray("node") instance=ExtResource("3_d882r")]
+node = NodePath("..")
+property = "follow_node"
 
 [node name="Background" type="Node2D" parent="."]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Background"]
 layer = -1
+follow_viewport_enabled = true
 
 [node name="Root" type="Control" parent="Background/CanvasLayer"]
 layout_mode = 3

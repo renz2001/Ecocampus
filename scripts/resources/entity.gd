@@ -46,7 +46,8 @@ signal gender_changed
 		gender = value
 		gender_changed.emit()
 	
-	
+@export var facing_left: bool
+
 @export var group: String = "Entity"
 	
 	

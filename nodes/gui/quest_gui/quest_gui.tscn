@@ -1,27 +1,30 @@
-[gd_scene load_steps=9 format=3 uid="uid://bkmlgrsxipqkh"]
+[gd_scene load_steps=10 format=3 uid="uid://bkmlgrsxipqkh"]
 
 [ext_resource type="Theme" uid="uid://cd55r8awc3jgy" path="res://themes/main_theme.tres" id="1_mriba"]
 [ext_resource type="Script" path="res://nodes/gui/quest_gui/quest_gui.gd" id="2_a3avm"]
 [ext_resource type="PackedScene" uid="uid://cdhkyjskyryv" path="res://nodes/gui/formatted_label/formatted_label.tscn" id="3_dg3vj"]
+[ext_resource type="FontFile" uid="uid://cp5vi568oh4jl" path="res://fonts/Ubuntu-Bold.ttf" id="4_ead0c"]
 [ext_resource type="PackedScene" uid="uid://ifobkgbsuyu1" path="res://nodes/gui/quest_task_container/quest_task_container.tscn" id="5_0yanl"]
 [ext_resource type="Script" path="res://scripts/resources/string_formatter.gd" id="5_qb1w5"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_818jw"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_e1gaq"]
-font_size = 50
+font = ExtResource("4_ead0c")
+font_size = 40
 
 [sub_resource type="Resource" id="Resource_qaqbw"]
 script = ExtResource("5_qb1w5")
 format = "%s: %s/%s"
 
-[node name="QuestGUI" type="PanelContainer" node_paths=PackedStringArray("percentage_label")]
+[node name="QuestGUI" type="PanelContainer" node_paths=PackedStringArray("percentage_label", "quest_task_container")]
 offset_right = 40.0
 offset_bottom = 40.0
 theme = ExtResource("1_mriba")
 theme_override_styles/panel = SubResource("StyleBoxEmpty_818jw")
 script = ExtResource("2_a3avm")
 percentage_label = NodePath("MarginContainer/VBoxContainer/PercentageLabel")
+quest_task_container = NodePath("MarginContainer/VBoxContainer/QuestTaskContainer")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2

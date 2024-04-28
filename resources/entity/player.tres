@@ -32,4 +32,6 @@ male_speaker_talk_sprite = SubResource("AtlasTexture_kptaq")
 female_speaker_idle_sprite = SubResource("AtlasTexture_0lxs5")
 female_speaker_talk_sprite = SubResource("AtlasTexture_gc6or")
 gender = 1
-group = "Entity"
+facing_left = null
+group = 1
+save_as_resource_path = null

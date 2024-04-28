@@ -230,6 +230,7 @@ func parse(text: String, path: String) -> Error:
 					line["character"] = first_child.character
 					line["character_replacements"] = first_child.character_replacements
 					line["text"] = first_child.text
+					line["text_replacements"] = extract_dialogue_replacements(line.text, indent_size + 2)
 					line["translation_key"] = first_child.translation_key
 					parsed_lines[str(id) + ".2"] = first_child
 					line["next_id"] = str(id) + ".2"
@@ -691,12 +692,7 @@ func get_line_after_line(id: int, indent_size: int, line: Dictionary) -> String:
 	var next_nonempty_line_id = get_next_nonempty_line_id(id)
 	if next_nonempty_line_id != DialogueConstants.ID_NULL \
 		and indent_size <= get_indent(raw_lines[next_nonempty_line_id.to_int()]):
-		# The next line is a title so we need the next nonempty line after that
-		if is_title_line(raw_lines[next_nonempty_line_id.to_int()]):
-			return get_next_nonempty_line_id(next_nonempty_line_id.to_int())
-		# Otherwise it's a normal line
-		else:
-			return next_nonempty_line_id
+		return next_nonempty_line_id
 	# Otherwise, we grab the ID from the parents next ID after children
 	elif line.has("parent_id") and parsed_lines.has(line.parent_id):
 		return parsed_lines[line.parent_id].next_id_after
@@ -927,8 +923,8 @@ func find_next_line_after_responses(line_number: int) -> String:
 			if get_indent(line) <= expected_indent:
 				return str(line_number)
 
-	# EOF so must be end of conversation
-	return DialogueConstants.ID_END_CONVERSATION
+	# EOF so it's also the end of a block
+	return DialogueConstants.ID_END
 
 
 ## Get the names of any autoloads in the project

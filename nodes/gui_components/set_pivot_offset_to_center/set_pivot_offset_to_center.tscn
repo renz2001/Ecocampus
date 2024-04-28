@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://rht72s4l6wx3"]
+
+[ext_resource type="Script" path="res://nodes/gui_components/set_pivot_offset_to_center/set_pivot_offset_to_center.gd" id="1_5x8s7"]
+[ext_resource type="PackedScene" uid="uid://d8hno8b2usfl" path="res://nodes/components/set_parent_as_property/set_parent_as_property.tscn" id="2_rp6ew"]
+
+[node name="SetPivotOffsetToCenter" type="Node"]
+script = ExtResource("1_5x8s7")
+
+[node name="SetParentAsProperty" parent="." node_paths=PackedStringArray("node") instance=ExtResource("2_rp6ew")]
+node = NodePath("..")
+property = "control"

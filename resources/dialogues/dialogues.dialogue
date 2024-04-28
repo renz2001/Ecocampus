@@ -45,8 +45,10 @@ do dialogue_response_handler.respond("start_quest")
 => END
 
 ~ gate_1_quest_completed
-{{PlayerManager.player.data.custom_name}}: ???????
-Sir Guzman: ?????
+{{PlayerManager.player.data.custom_name}}: Good day Sir Guard! I did it, the challenge is complete
+Sir Guzman: Excellent work, {{PlayerManager.player.data.custom_name}}! You handled the challenge responsibly and efficiently. I'm proud of you.
+{{PlayerManager.player.data.custom_name}}: Thank you! 
+Sir Guzman: Let's recall what you've learned from your journey through the Eco Quiz.
 do dialogue_response_handler.respond("start_quiz")
 => END
 
@@ -77,7 +79,7 @@ Professor Luna: I knew i could count on you, get back to me when you're done. Re
 do dialogue_response_handler.respond("start_quest")
 => END
 
-~ dit_challenge_complete
+~ dit_challenge_completed
 {{PlayerManager.player.data.custom_name}}: Good day teacher! I did it, the challenge is complete
 Professor Luna: Well done! How did it go?
 {{PlayerManager.player.data.custom_name}}:  It went smoothly. I remembered to turn the faucet clockwise to shut off the water, and then I made sure all the lights were off in certain areas of the school.
@@ -101,7 +103,7 @@ Professor Grayson: Remember, identifying biodegradable items is essential for re
 do dialogue_response_handler.respond("start_quest")
 => END
 
-~ library_quest_complete
+~ library_quest_completed
 {{PlayerManager.player.data.custom_name}}: Good day teacher! I did it, the challenge is complete
 Professor Grayson: Excellent work, John! You handled the challenge responsibly and efficiently. I'm proud of you.
 {{PlayerManager.player.data.custom_name}}: Thank you!
@@ -125,7 +127,7 @@ do dialogue_response_handler.respond("start_quest")
 => END
 
 
-~ saluysuy_quest_complete
+~ saluysuy_quest_completed
 {{PlayerManager.player.data.custom_name}}: Good day teacher! I did it, the challenge is complete
 Doctor Madrigal: Excellent work, John! You handled the challenge responsibly and efficiently. I'm proud of you.
 {{PlayerManager.player.data.custom_name}}: Thank you!

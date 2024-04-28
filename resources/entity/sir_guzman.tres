@@ -28,4 +28,5 @@ name = "Guard"
 male_speaker_idle_sprite = SubResource("AtlasTexture_3spdr")
 male_speaker_talk_sprite = SubResource("AtlasTexture_yux14")
 gender = 1
+facing_left = true
 group = "Entity"

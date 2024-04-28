@@ -16,7 +16,8 @@ inactive_on_ready = false
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." index="0"]
 layout_mode = 1
-offset_right = 572.0
+offset_left = -715.0
+offset_right = 1.0
 offset_bottom = 180.0
 theme_override_constants/separation = 40
 alignment = 2

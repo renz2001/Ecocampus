@@ -43,7 +43,7 @@ var is_completed: bool = false:
 var is_victory: bool: 
 	get: 
 		return problem_attempts.all(
-			func(attempt: QuizAttempt):
+			func(attempt: QuizProblemAttempt):
 				return attempt.is_victory
 		)
 
@@ -81,7 +81,7 @@ func _get_problem_attempts() -> Array[QuizProblemAttempt]:
 
 
 func has_passed_attempt() -> bool: 
-	return quiz.passing_score >= score
+	return score >= quiz.passing_score
 	
 	
 func complete() -> void: 
@@ -99,7 +99,7 @@ func complete() -> void:
 func is_all_problems_completed() -> bool: 
 	return problem_attempts.all(
 		func(item): 
-			var attempt: QuizAttempt = item
+			var attempt: QuizProblemAttempt = item
 			return attempt.is_completed
 	)
 

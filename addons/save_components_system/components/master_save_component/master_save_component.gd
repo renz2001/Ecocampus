@@ -31,17 +31,23 @@ func to_dict() -> Dictionary:
 	
 	if data != null: 
 		master_dict[key] = data.to_dict(node)
-		if is_queued_free: 
-			master_dict[key].merge({
-				"is_queued_free": true
-			})
+		#if is_queued_free: 
+			#master_dict[key]["is_queued_free"] = true
+			##master_dict[key].merge({
+				##"is_queued_free": true
+			##})
+		#else: 
+			#master_dict[key]["is_queued_free"] = false
 	#if id.data != null: 
 		#master_dict.merge({
 			#"id": id.data.value
 		#})
-	
 	master_dict.merge(follower_dicts)
+	#if is_queued_free: 
+		#printerr(master_dict)
 	#print("\nmaster_dict: %s\n" % master_dict)
+	#if master_dict.has(key) && master_dict[key].has("is_queued_free"): 
+		#printerr("master: ", master_dict[key]["is_queued_free"])
 	return master_dict
 
 # {
