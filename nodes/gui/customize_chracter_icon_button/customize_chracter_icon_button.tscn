@@ -1,9 +1,34 @@
-[gd_scene load_steps=3 format=3 uid="uid://b0ie2bveybvb4"]
+[gd_scene load_steps=5 format=3 uid="uid://b0ie2bveybvb4"]
 
 [ext_resource type="PackedScene" uid="uid://d4mqjvr57ok1h" path="res://nodes/gui/buttons/icon_button/icon_button.tscn" id="1_cavc4"]
 [ext_resource type="Script" path="res://nodes/gui/customize_chracter_icon_button/customize_chracter_icon_button.gd" id="2_xxrfh"]
+[ext_resource type="Texture2D" uid="uid://c3y3wr830edi6" path="res://assets/icons/shop_icon.png" id="3_37vcs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_67g4v"]
+atlas = ExtResource("3_37vcs")
+region = Rect2(0, 27, 512, 458)
 
 [node name="CustomizeChracterIconButton" instance=ExtResource("1_cavc4")]
 script = ExtResource("2_xxrfh")
+
+[node name="MarginContainer" type="MarginContainer" parent="." index="3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 38
+theme_override_constants/margin_top = 28
+theme_override_constants/margin_right = 33
+theme_override_constants/margin_bottom = 46
+
+[node name="Icon" type="TextureRect" parent="MarginContainer" index="0"]
+modulate = Color(0.627451, 0.27451, 0.137255, 1)
+layout_mode = 2
+texture = SubResource("AtlasTexture_67g4v")
+expand_mode = 1
+stretch_mode = 5
+flip_h = true
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]

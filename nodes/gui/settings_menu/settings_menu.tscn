@@ -17,7 +17,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_wgnu1")
-only_one_instance = true
 
 [node name="CenterContainer" type="CenterContainer" parent="." index="0"]
 layout_mode = 1
@@ -49,11 +48,13 @@ control = NodePath("..")
 property = "main_menu_state"
 node = NodePath("..")
 new_value = "false"
+disabled = true
 
 [node name="IfMainMenuExitedSetProperty2" parent="CenterContainer/VBoxContainer/ExitToMainMenu" index="6" node_paths=PackedStringArray("node") instance=ExtResource("8_dayxy")]
 property = "main_menu_state"
 state_event = 1
 node = NodePath("..")
+disabled = true
 
 [node name="SetGameStateOnGUIActive" parent="." index="2" node_paths=PackedStringArray("gui") instance=ExtResource("7_xoj0p")]
 gui = NodePath("..")

@@ -21,10 +21,12 @@
 script = ExtResource("3_ip38p")
 items = Array[Resource("res://scripts/resources/item_stack.gd")]([])
 max_items = 6
+save_as_resource_path = false
 
 [sub_resource type="Resource" id="Resource_22bs7"]
 script = ExtResource("13_6oemm")
 value = "6519512559362500665"
+save_as_resource_path = false
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dvdpg"]
 size = Vector2(84, 21)
@@ -441,9 +443,6 @@ position = Vector2(0, -119)
 texture = ExtResource("15_54xdd")
 hframes = 6
 frame = 1
-
-[node name="NavigationAgent2D" parent="." index="6"]
-debug_enabled = true
 
 [node name="CosmeticEquipperComponent" parent="." index="7" node_paths=PackedStringArray("male_sprite_node", "female_sprite_node") instance=ExtResource("10_qtam7")]
 player = ExtResource("4_qvtbh")

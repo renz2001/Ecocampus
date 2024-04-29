@@ -1,10 +1,11 @@
-[gd_resource type="Theme" load_steps=24 format=3 uid="uid://cd55r8awc3jgy"]
+[gd_resource type="Theme" load_steps=25 format=3 uid="uid://cd55r8awc3jgy"]
 
 [ext_resource type="StyleBox" uid="uid://dwn5sekhug4fj" path="res://resources/styleboxes/dialogue_box_balloon.tres" id="1_fyakv"]
 [ext_resource type="StyleBox" uid="uid://gulw7ttuvjw1" path="res://resources/styleboxes/default_stylebox.tres" id="1_mamat"]
 [ext_resource type="FontFile" uid="uid://bh5eyon0or827" path="res://fonts/Ubuntu-Regular.ttf" id="2_hew1c"]
 [ext_resource type="FontFile" uid="uid://dqdntixoq4bc2" path="res://fonts/Ubuntu-Medium.ttf" id="3_16t82"]
 [ext_resource type="FontFile" uid="uid://cp5vi568oh4jl" path="res://fonts/Ubuntu-Bold.ttf" id="3_tsh4s"]
+[ext_resource type="Texture2D" uid="uid://c566rhfwrcqe3" path="res://assets/gui/grabber.png" id="6_i48ey"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xil5t"]
 bg_color = Color(0.0980392, 0.2, 0.105882, 1)
@@ -150,5 +151,7 @@ TransparentBlackPanelContainer/base_type = &"PanelContainer"
 TransparentBlackPanelContainer/styles/panel = SubResource("StyleBoxFlat_opodm")
 TransparentGrayPanelContainer/base_type = &"PanelContainer"
 TransparentGrayPanelContainer/styles/panel = SubResource("StyleBoxFlat_xvfsi")
+VolumeHSlider/base_type = &"HSlider"
+VolumeHSlider/icons/grabber = ExtResource("6_i48ey")
 VolumeSliderPanelContainer/base_type = &"PanelContainer"
 VolumeSliderPanelContainer/styles/panel = SubResource("StyleBoxFlat_hi8ag")

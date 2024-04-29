@@ -21,8 +21,10 @@ node = NodePath("..")
 properties = PackedStringArray("scroll_horizontal")
 reset_percentage_when_finished = true
 interpolation = SubResource("Resource_6mppe")
+loop_interpolate_end_to_back = false
 
 [node name="ScrollVerticalLerpComponent" parent="." node_paths=PackedStringArray("node") instance=ExtResource("1_mxp2s")]
 node = NodePath("..")
 properties = PackedStringArray("scroll_vertical")
 interpolation = SubResource("Resource_6mppe")
+loop_interpolate_end_to_back = false
