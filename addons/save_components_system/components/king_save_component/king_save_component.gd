@@ -13,31 +13,32 @@ func to_dict() -> Dictionary:
 	
 	}
 	
-	var dict: Dictionary = {
-		"Globals": {}, 
-		"QueuedFree": []
-	}
+	var dict: Dictionary = {}
+	
 	await get_tree().process_frame
 	for master: MasterSaveComponent in get_tree().get_nodes_in_group("MasterSaveComponent"): 
 		#print(masters.to_dict())
 		if master.no_king: 
-			dict["Globals"].merge(master.to_dict())
+			SaveManager.current_saved_data.data["Globals"].merge(master.to_dict())
 			continue
 		
 		# FIXME: BandAid solution
-		if master.node.is_queued_for_deletion(): 
-			var queued_frees: Array = dict["QueuedFree"]
+		if master.is_queued_free: 
+			var queued_frees: Array = SaveManager.current_saved_data.data["QueuedFree"]
 			queued_frees.append(master.node.get_path())
-			printerr(dict["QueuedFree"])
+			
 		king_dict.merge(master.to_dict())
-		await get_tree().process_frame
+		
+		#await get_tree().process_frame
 		#printerr("king: ", king_dict[master.get_path()]["is_queued_free"])
 		#print(masters.to_dict())
 	for globals: GlobalsSaveComponent in get_tree().get_nodes_in_group("GlobalsSaveComponent"): 
-		dict["Globals"].merge(globals.to_dict())
+		SaveManager.current_saved_data.data["Globals"].merge(globals.to_dict())
 		await get_tree().process_frame
 		
 	var key: String = str(id_component.data.value)
+	#printerr(SaveManager.current_saved_data.data["QueuedFree"])
+	
 	await get_tree().process_frame
 	dict[key] = king_dict
 	return dict

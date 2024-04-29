@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_d2van")
 name = &"Disposable Coffee cup"
-description = ""
+description = "Proper disposal and composting facilities are essential to ensure that biodegradable coffee cups break down efficiently and do not harm the environment"
 item_icon = ExtResource("1_n6jxn")
 type = 1
 maximum_stack = 12

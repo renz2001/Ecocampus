@@ -3,11 +3,14 @@ class_name ChangeSceneComponent
 
 @export_file(".tscn") var to_scene: String
 @export var transition: GUITransition
+#@export var save_on_change: bool
 
 # TODO: WIP
 func change() -> void: 
-	SaveManager.save_game()
-	SaveManager.save_game_to_file(true)
+	# BandAid solution
+	if get_tree().current_scene is LevelNode: 
+		SaveManager.save_game()
+		SaveManager.save_game_to_file(true)
 	SceneLoader.load_file(ChangeSceneArguments.new().set_scene(to_scene).set_transition(transition))
 
 

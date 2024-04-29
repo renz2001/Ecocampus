@@ -20,8 +20,7 @@ _print_color = SubResource("Resource_q4uac")
 [node name="LevelLoader" parent="." instance=ExtResource("2_b20wm")]
 start_at_ready = true
 packed_scene_loader_arguments = "res://resources/packed_scene_loader_arguments/levels.tres"
-disabled = true
 
 [node name="TransitionsLoader" parent="." instance=ExtResource("2_b20wm")]
 start_at_ready = true
-packed_scene_loader_arguments = "res://resources/packed_scene_loader/transitions.tres"
+packed_scene_loader_arguments = "res://resources/packed_scene_loader_arguments/transitions.tres"

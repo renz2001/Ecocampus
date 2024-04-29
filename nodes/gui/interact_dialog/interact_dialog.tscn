@@ -32,15 +32,15 @@ transition_type = 10
 ease_type = 1
 duration = 0.4
 
-[node name="InteractDialog" node_paths=PackedStringArray("body", "description_label", "ok_button") instance=ExtResource("1_vqmba")]
+[node name="InteractDialog" node_paths=PackedStringArray("body", "rich_description_label", "description_label", "ok_button") instance=ExtResource("1_vqmba")]
 offset_left = 1.0
 offset_top = 1.0
 offset_right = 1.0
 offset_bottom = 1.0
-scale = Vector2(1e-05, 1e-05)
 mouse_filter = 1
 script = ExtResource("2_5f634")
 body = NodePath("Body")
+rich_description_label = NodePath("Body/MarginContainer/RichDescription")
 description_label = NodePath("Body/MarginContainer/Description")
 ok_button = NodePath("Body/OKButton")
 inactive_on_ready = false
@@ -101,7 +101,11 @@ theme_override_constants/margin_top = 30
 theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 30
 
-[node name="Description" parent="Body/MarginContainer" index="0" instance=ExtResource("4_ujr3p")]
+[node name="PanelContainer" type="PanelContainer" parent="Body/MarginContainer" index="0"]
+layout_mode = 2
+theme_type_variation = &"TransparentBlackPanelContainer"
+
+[node name="Description" parent="Body/MarginContainer" index="1" instance=ExtResource("4_ujr3p")]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 text = "Description
@@ -111,9 +115,13 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="PanelContainer" type="PanelContainer" parent="Body/MarginContainer" index="1"]
+[node name="RichDescription" type="RichTextLabel" parent="Body/MarginContainer" index="2"]
+visible = false
 layout_mode = 2
-theme_type_variation = &"TransparentBlackPanelContainer"
+bbcode_enabled = true
+text = "[b][font_size=25]%s[/font_size][/b]\\n
+[font_size=20][b]Type:[/b] %s[/font_size]\\n
+[font_size=20][b]Environmental Impact:[/b] %s[/font_size]"
 
 [node name="OKButton" parent="Body" index="3" instance=ExtResource("3_2wovi")]
 layout_mode = 1

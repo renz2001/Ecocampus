@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_la1da")
 name = &"Plastic Bottle"
-description = "A bottle. "
+description = "Proper disposal and recycling contribute to reducing pollution and conserving resources."
 item_icon = ExtResource("1_nowpe")
 type = 2
 maximum_stack = 12

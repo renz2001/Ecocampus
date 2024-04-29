@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://77dhb6ck4eyt"]
+[gd_scene load_steps=11 format=3 uid="uid://77dhb6ck4eyt"]
 
 [ext_resource type="PackedScene" uid="uid://dokfordgw2kk3" path="res://nodes/abstract_scenes/non_living_entity_node/non_living_entity_node.tscn" id="1_d4ii6"]
 [ext_resource type="Script" path="res://nodes/abstract_scenes/pickuppable_entity/pickuppable_entity.gd" id="2_a2l0a"]
@@ -7,23 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c4gnwuhmu4msa" path="res://nodes/gui_components/on_pressed_components/on_pressed_apply_material_to_node/on_pressed_apply_material_to_node.tscn" id="7_cgy4r"]
 [ext_resource type="Script" path="res://addons/macchi's_audio_manager_and_plus/scripts/arguments/audio_stream_player_arguments.gd" id="8_8dy0j"]
 [ext_resource type="Shader" path="res://resources/shaders/outline_inline.gdshader" id="8_cxd3f"]
-[ext_resource type="Script" path="res://scripts/resources/string_formatter.gd" id="8_fa10n"]
-[ext_resource type="Script" path="res://scripts/resources/label_text.gd" id="9_fvkps"]
 [ext_resource type="AudioStream" uid="uid://dnipkpbpk6h6n" path="res://assets/audio/ui/pickup_item.wav" id="9_kjmyf"]
-
-[sub_resource type="Resource" id="Resource_u6nh2"]
-script = ExtResource("8_fa10n")
-format = "%s
-Type: %s
-Environmental Impact: %s"
-
-[sub_resource type="Resource" id="Resource_jkius"]
-script = ExtResource("9_fvkps")
-format = SubResource("Resource_u6nh2")
-texts = Array[String]([])
-with_label_settings = false
-horizontal_alignment = 0
-vertical_alignment = 0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ukjcl"]
 shader = ExtResource("8_cxd3f")
@@ -44,7 +28,6 @@ bus = &"Master"
 
 [node name="PickUppableEntity" instance=ExtResource("1_d4ii6")]
 script = ExtResource("2_a2l0a")
-interact_description = SubResource("Resource_jkius")
 
 [node name="TapHitBox" parent="." index="0"]
 offset_left = -68.0

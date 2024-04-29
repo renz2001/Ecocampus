@@ -1,4 +1,4 @@
-extends Resource
+extends BaseLabelText
 class_name LabelText
 
 @export var format: StringFormatter

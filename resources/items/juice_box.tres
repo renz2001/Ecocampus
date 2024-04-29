@@ -6,6 +6,7 @@
 [resource]
 script = ExtResource("1_qd4y5")
 name = &"Juice box"
-description = ""
+description = "Improper disposal can lead to pollution and harm to wildlife."
 item_icon = ExtResource("1_dx6yn")
+type = 0
 maximum_stack = 12

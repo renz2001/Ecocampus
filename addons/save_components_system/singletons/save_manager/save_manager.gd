@@ -59,6 +59,7 @@ func set_current_game_save_from_file_name(file_name: String) -> void:
 
 
 func set_current_game_save_data(save_data: GameSave) -> void: 
+	#print(save_data.data["Globals"])
 	current_saved_data = save_data
 
 

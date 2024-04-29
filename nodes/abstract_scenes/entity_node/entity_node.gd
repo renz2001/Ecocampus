@@ -27,7 +27,7 @@ signal interacted
 			inventory.owner = self
 
 @export var data: Entity: set = set_data
-@export var interact_description: LabelText
+@export var interact_description: BaseLabelText
 @export var dialogue: DialogueArguments: 
 	set(value): 
 		dialogue = value
@@ -83,7 +83,7 @@ func _on_interact() -> void:
 		disabled = true
 
 
-func show_interact_dialog(description: LabelText) -> void: 
+func show_interact_dialog(description: BaseLabelText) -> void: 
 	var dialog: InteractDialog = InteractDialog.display(
 		InteractDialogData.new()\
 			.set_caller(

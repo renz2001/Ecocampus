@@ -1,9 +1,18 @@
-[gd_resource type="Resource" script_class="PackedSceneLoaderArguments" load_steps=3 format=3 uid="uid://dpjj0fk2vpfco"]
+[gd_resource type="Resource" script_class="PackedSceneLoaderArguments" load_steps=12 format=3 uid="uid://dpjj0fk2vpfco"]
 
 [ext_resource type="PackedScene" uid="uid://c8ts62hakxdh3" path="res://nodes/levels/test_level/test_level.tscn" id="1_o4wre"]
+[ext_resource type="PackedScene" uid="uid://glnb78ju8p8o" path="res://nodes/gui/main_menu/main_menu.tscn" id="2_o23oo"]
 [ext_resource type="Script" path="res://scripts/arguments/packed_scene_loader_arguments.gd" id="2_vljg7"]
+[ext_resource type="PackedScene" uid="uid://dcjxf25vgikeb" path="res://nodes/screens/map_picker/map_picker.tscn" id="3_puv8q"]
+[ext_resource type="PackedScene" uid="uid://bi3j4clefo8l" path="res://nodes/levels/con_level/con_level.tscn" id="4_xxrbe"]
+[ext_resource type="PackedScene" uid="uid://b02kmlgxwvx6d" path="res://nodes/levels/dit_level/dit_level.tscn" id="5_dtvww"]
+[ext_resource type="PackedScene" uid="uid://bc1txwrwrlhfu" path="res://nodes/levels/trash_cans_level/trash_cans_level.tscn" id="6_4ucvx"]
+[ext_resource type="PackedScene" uid="uid://drvt76bdal6cu" path="res://nodes/levels/library/library.tscn" id="7_qn0yx"]
+[ext_resource type="PackedScene" uid="uid://cf858o4ytbp0u" path="res://nodes/levels/gate_1/gate_1.tscn" id="8_1kvkv"]
+[ext_resource type="PackedScene" uid="uid://c7ma84vuiqota" path="res://nodes/levels/saluysuy/saluysuy.tscn" id="9_rokrg"]
+[ext_resource type="PackedScene" uid="uid://ctmxelmponiux" path="res://nodes/screens/customize_character_screen/customize_character_screen.tscn" id="10_kpis7"]
 
 [resource]
 script = ExtResource("2_vljg7")
-scenes = Array[PackedScene]([ExtResource("1_o4wre")])
+scenes = Array[PackedScene]([ExtResource("1_o4wre"), ExtResource("2_o23oo"), ExtResource("3_puv8q"), ExtResource("4_xxrbe"), ExtResource("5_dtvww"), ExtResource("6_4ucvx"), ExtResource("7_qn0yx"), ExtResource("8_1kvkv"), ExtResource("9_rokrg"), ExtResource("10_kpis7")])
 resources = Array[Resource]([])

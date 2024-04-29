@@ -22,6 +22,7 @@ source_geometry_group_name = &"navigation_polygon_source_group"
 [sub_resource type="Resource" id="Resource_sq2wg"]
 script = ExtResource("8_jaiqu")
 value = "8994681697605556668"
+save_as_resource_path = false
 
 [node name="CON" instance=ExtResource("1_fiqww")]
 
@@ -47,9 +48,8 @@ position = Vector2(960, 961)
 scale = Vector2(1.42174, 1.42174)
 
 [node name="ProfessorCruz" parent="Entities/Living" index="1" instance=ExtResource("4_ckpg3")]
-visible = false
-position = Vector2(1312, 699)
-scale = Vector2(0.607575, 0.607575)
+position = Vector2(1285, 648)
+scale = Vector2(0.396905, 0.396905)
 dialogue = ExtResource("5_ic0dq")
 quiz = ExtResource("6_g07y4")
 quest = ExtResource("7_ob5e1")

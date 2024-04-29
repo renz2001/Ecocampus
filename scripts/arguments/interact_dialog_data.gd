@@ -1,7 +1,8 @@
 extends Resource
 class_name InteractDialogData
 
-@export var description: LabelText
+@export var use_rich_text: bool
+@export var description: BaseLabelText
 @export var on_button_pressed: Callable
 @export var gui_position: Vector2
 
@@ -13,7 +14,7 @@ func set_caller(value: Node) -> InteractDialogData:
 	return self
 	
 	
-func set_description(value: LabelText) -> InteractDialogData: 
+func set_description(value: BaseLabelText) -> InteractDialogData: 
 	description = value
 	return self
 	

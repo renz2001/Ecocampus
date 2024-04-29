@@ -22,6 +22,7 @@ source_geometry_group_name = &"navigation_polygon_source_group"
 [sub_resource type="Resource" id="Resource_yh01w"]
 script = ExtResource("5_l65v3")
 value = "8275758077038195350"
+save_as_resource_path = false
 
 [node name="DIT" instance=ExtResource("1_ltte7")]
 

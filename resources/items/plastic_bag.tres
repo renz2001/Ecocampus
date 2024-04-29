@@ -6,6 +6,7 @@
 [resource]
 script = ExtResource("2_jgb1y")
 name = &"Plastic Bag"
-description = ""
+description = "Improper disposal can lead to pollution of waterways and harm to wildlife."
 item_icon = ExtResource("1_5lodj")
+type = 0
 maximum_stack = 12

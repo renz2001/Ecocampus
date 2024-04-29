@@ -3,6 +3,9 @@ extends DialogGUI
 class_name InteractDialog
 
 @export var body: Control
+
+
+@export var rich_description_label: RichTextLabel
 @export var description_label: FormattedLabel
 @export var ok_button: TextureButtonPlus
 
@@ -18,8 +21,14 @@ static func display(args: InteractDialogData) -> InteractDialog:
 		gui.body.pivot_offset = gui.body.size / 2
 		gui.body.position.x *= -1
 	
-	if gui.data.description: 
+	if gui.data.description is LabelText: 
 		gui.data.description.set_label(gui.description_label)
+		
+	elif gui.data.description is RichLabelText: 
+		gui.data.description.set_label(gui.rich_description_label)
+		gui.rich_description_label.show()
+		gui.description_label.hide()
+		
 	GUIManager.add_gui(gui)
 	gui.data.caller.state_chart.send_event("disabled")
 	return gui

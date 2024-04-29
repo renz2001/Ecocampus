@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_335ys")
 name = &"Banana peel"
-description = ""
+description = "Proper disposal in compost bins supports nutrient recycling and reduces landfill waste."
 item_icon = ExtResource("1_o0e3e")
 type = 1
 maximum_stack = 12
