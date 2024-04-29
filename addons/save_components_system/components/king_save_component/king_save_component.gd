@@ -45,9 +45,10 @@ func to_dict() -> Dictionary:
 	return dict
 	
 	
-func load_data(data: Dictionary) -> void: 
-	var king_dict = data[id_component.id.value]
-	for path: String in king_dict.keys(): 
-		var follower_save: FollowerSaveComponent = node.get_node(path)
+#func load_data(data: Dictionary) -> void: 
+	#var king_dict = data[id_component.id.value]
+	#for path: String in king_dict.keys(): 
+		#var follower_save: FollowerSaveComponent = get_tree().current_scene.get_node(path)
+		#
 		#follower_save.load_data()
 

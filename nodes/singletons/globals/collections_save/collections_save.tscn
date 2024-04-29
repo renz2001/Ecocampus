@@ -1,0 +1,20 @@
+[gd_scene load_steps=6 format=3 uid="uid://cnxj1v3fkxftq"]
+
+[ext_resource type="Script" path="res://nodes/singletons/globals/collections_save/collections_save.gd" id="1_ffufp"]
+[ext_resource type="Resource" uid="uid://ohh3qdnbacsf" path="res://resources/cosmetics_collection/cosmetics_collection.tres" id="2_dflac"]
+[ext_resource type="PackedScene" uid="uid://bixjjksp3dphm" path="res://addons/save_components_system/components/master_save_component/master_save_component.tscn" id="2_fyjoy"]
+[ext_resource type="Script" path="res://addons/save_components_system/scripts/resources/properties_to_save.gd" id="3_ev1cg"]
+
+[sub_resource type="Resource" id="Resource_4u0oq"]
+script = ExtResource("3_ev1cg")
+properties = PackedStringArray("cosmetics")
+save_properties_as_resource_path = PackedStringArray()
+
+[node name="CollectionsSave" type="Node"]
+script = ExtResource("1_ffufp")
+cosmetics = ExtResource("2_dflac")
+
+[node name="MasterSaveComponent" parent="." node_paths=PackedStringArray("node") instance=ExtResource("2_fyjoy")]
+no_king = true
+node = NodePath("..")
+data = SubResource("Resource_4u0oq")

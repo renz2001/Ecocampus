@@ -16,6 +16,7 @@ signal following_new_node(node: Node2D)
 
 @export var smoothing: TweenArguments
 @export var weight: float = 0
+@export var offset: Vector2
 
 @export var base_values: BaseValuesKeeper
 
@@ -33,7 +34,7 @@ func _physics_process(_delta: float) -> void:
 		return
 	if !follow_node: 
 		return
-	var new: Vector2 = Tween.interpolate_value(node.global_position, following_node.global_position - node.global_position, weight * smoothing.duration, smoothing.duration, smoothing.transition_type, smoothing.ease_type)
+	var new: Vector2 = Tween.interpolate_value(node.global_position, following_node.global_position - node.global_position, weight * smoothing.duration, smoothing.duration, smoothing.transition_type, smoothing.ease_type) - offset
 	node.global_position = new
 
 

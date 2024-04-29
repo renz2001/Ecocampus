@@ -17,9 +17,9 @@
 [ext_resource type="PackedScene" uid="uid://d1klss0cjhtw0" path="res://nodes/entities/non_living_entities/faucet/faucet.tscn" id="12_n4yv5"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_jhrwx"]
-vertices = PackedVector2Array(738, 582, 737, 581, 820, 578, 2042, 1156, -112, 1165, -117, 761, -26, 802, 357, 645, 637, 609, 639, 609, 912, 522, 957, 537, 946, 555, 844, 526, 2006, 516, 2034, 521, 1943, 588, 1807, 719, 1894, 578, 1458, 641, 1396, 672)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6), PackedInt32Array(3, 4, 6, 7, 8, 9), PackedInt32Array(3, 9, 0), PackedInt32Array(10, 11, 12, 13), PackedInt32Array(3, 2, 13, 12), PackedInt32Array(14, 15, 3, 16), PackedInt32Array(17, 18, 16, 3), PackedInt32Array(19, 17, 3, 20), PackedInt32Array(20, 3, 12)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(814.137, 568.424, 837.915, 517.469, 911.516, 511.808, 971.529, 533.322, 962.47, 549.174, 1395.02, 661.274, 1458.43, 630.701, 1801.52, 707.699, 1889.84, 567.291, 1938.53, 577.482, 2001.94, 505.014, 2043.83, 512.94, 2052.89, 1166.29, -122.29, 1176.48, -127.952, 746.198, -26.0433, 791.49, 355.548, 636.363, 636.363, 598.996, 734.874, 571.821)])
+vertices = PackedVector2Array(738, 582, 737, 581, 820, 578, 2042, 1156, -112, 1165, -117, 761, -26, 802, 357, 645, 637, 609, 639, 609, 912, 522, 957, 537, 946, 555, 844, 526, 2020, 523, 2034, 523, 1923, 633, 1818, 740, 1458, 652, 1395, 671)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6), PackedInt32Array(3, 4, 6, 7, 8, 9), PackedInt32Array(3, 9, 0), PackedInt32Array(10, 11, 12, 13), PackedInt32Array(3, 2, 13, 12), PackedInt32Array(14, 15, 3, 16), PackedInt32Array(17, 16, 3), PackedInt32Array(18, 17, 3, 19), PackedInt32Array(3, 12, 19)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(814.137, 568.424, 837.915, 517.469, 911.516, 511.808, 971.529, 533.322, 962.47, 549.174, 1395.02, 661.274, 1458.43, 642.024, 1815.11, 729.213, 1915.88, 626.172, 2015.53, 514.072, 2043.83, 512.94, 2052.89, 1166.29, -122.29, 1176.48, -127.952, 746.198, -26.0433, 791.49, 355.548, 636.363, 636.363, 598.996, 734.874, 571.821)])
 source_geometry_group_name = &"navigation_polygon_source_group"
 
 [sub_resource type="Resource" id="Resource_jo488"]
@@ -49,6 +49,7 @@ stretch_mode = 5
 [node name="PlayerNode" parent="Entities/Living" index="0" instance=ExtResource("3_q43q1")]
 position = Vector2(1053, 870)
 scale = Vector2(1.16395, 1.16395)
+gender = 1
 
 [node name="DoctorMadrigal" parent="Entities/Living" index="1" instance=ExtResource("4_17uen")]
 position = Vector2(728, 572)

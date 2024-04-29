@@ -8,8 +8,8 @@ class_name OnInteractPickup
 func _on_interact() -> void: 
 	var player: PlayerNode = get_tree().get_first_node_in_group("Player") 
 	
-	player.inventory.items_added.connect(_on_items_added, CONNECT_ONE_SHOT)
-	player.inventory.take_inventory(entity.inventory, player)
+	player.data.inventory.items_added.connect(_on_items_added, CONNECT_ONE_SHOT)
+	player.data.inventory.take_inventory(entity.inventory, player)
 	queue_free_with_save_component.node = entity
 	queue_free_with_save_component.use()
 

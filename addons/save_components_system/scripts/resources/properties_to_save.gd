@@ -5,7 +5,7 @@ class_name PropertiesToSave
 
 ## The properties that will be saved. 
 @export var properties: PackedStringArray
-
+@export var save_properties_as_resource_path: PackedStringArray
 #@export var additional_node_save_data: Array[FollowerSaveComponent]
 
 
@@ -28,7 +28,10 @@ func to_dict(from_object: Object) -> Dictionary:
 	for property: String in properties: 
 		var value = from_object.get(property)
 		if value is SaveableResource: 
-			if value.save_as_resource_path: 
+			if property in save_properties_as_resource_path: 
+				data[property] = value.resource_path
+				continue
+			elif value.save_as_resource_path: 
 				data[property] = value.resource_path
 			else: 
 				data[property] = value.to_dict()

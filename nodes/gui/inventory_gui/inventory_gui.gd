@@ -38,8 +38,8 @@ func update() -> void:
 		
 		slot.item = null
 		
-		if inventory == null: 
-			continue
+	if inventory == null: 
+		return
 			
 	for i: int in inventory.items.size(): 
 		var slot: ItemSlot = children[i]

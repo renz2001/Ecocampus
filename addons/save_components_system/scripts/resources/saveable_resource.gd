@@ -36,6 +36,7 @@ func to_dict() -> Dictionary:
 		#}
 	var dict: Dictionary = {
 		"script_resource_path": get_script().resource_path, 
+		"resource_path": resource_path
 	}
 	dict.merge(save.to_dict(self))
 	return dict

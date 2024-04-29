@@ -1,6 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://c5jgq22w5veia"]
+[gd_scene load_steps=6 format=3 uid="uid://c5jgq22w5veia"]
 
 [ext_resource type="Script" path="res://nodes/singletons/managers/player_manager/player_manager.gd" id="1_lilca"]
+[ext_resource type="Resource" uid="uid://dpg6457rwx03a" path="res://resources/entity/player.tres" id="2_2n01j"]
+[ext_resource type="PackedScene" uid="uid://bixjjksp3dphm" path="res://addons/save_components_system/components/master_save_component/master_save_component.tscn" id="2_xr8js"]
+[ext_resource type="Script" path="res://addons/save_components_system/scripts/resources/properties_to_save.gd" id="3_bduac"]
+
+[sub_resource type="Resource" id="Resource_6lb7v"]
+script = ExtResource("3_bduac")
+properties = PackedStringArray("player_data")
+save_properties_as_resource_path = PackedStringArray()
 
 [node name="PlayerManager" type="Node"]
 script = ExtResource("1_lilca")
+player_data = ExtResource("2_2n01j")
+
+[node name="MasterSaveComponent" parent="." node_paths=PackedStringArray("node") instance=ExtResource("2_xr8js")]
+no_king = true
+node = NodePath("..")
+data = SubResource("Resource_6lb7v")

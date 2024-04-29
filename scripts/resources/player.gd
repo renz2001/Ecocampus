@@ -15,6 +15,19 @@ signal current_cosmetic_changed
 		if current_cosmetic == null: 
 			return default_cosmetic
 		return current_cosmetic
+		
+# FIXME: BANDAID SOLUTION
+@export var inventory: Inventory: 
+	set(value): 
+		inventory = value
+		if inventory: 
+			inventory.owner = self
+
+func _init() -> void: 
+	super._init()
+	save.save_properties_as_resource_path = [
+		"current_cosmetic"
+	]
 
 
 func is_equipped() -> bool: 
@@ -27,11 +40,12 @@ func equip_cosmetic(cosmetic: Cosmetic) -> void:
 
 func unequip_cosmetic() -> void: 
 	current_cosmetic = default_cosmetic
-	
+
 
 func _save_properties() -> PackedStringArray: 
 	var arr: PackedStringArray = [
-		"current_cosmetic"
+		"current_cosmetic", 
+		"inventory"
 	]
 	arr.append_array(super._save_properties())
 	

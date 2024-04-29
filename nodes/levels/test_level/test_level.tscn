@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://8qsjsyglmgq4" path="res://nodes/entities/player_node/player_node.tscn" id="3_uej4m"]
 [ext_resource type="PackedScene" uid="uid://kswh3ivlg5yv" path="res://nodes/entities/test_npc/test_npc.tscn" id="5_qgg4j"]
 [ext_resource type="Resource" uid="uid://byaj1bas2wkaw" path="res://resources/dialogues/dialogues.dialogue" id="6_ja6bt"]
-[ext_resource type="Resource" uid="uid://bhl7afn8ti7bs" path="res://resources/entity/player.tres" id="7_xkvai"]
+[ext_resource type="Resource" uid="uid://dpg6457rwx03a" path="res://resources/entity/player.tres" id="7_xkvai"]
 [ext_resource type="Script" path="res://addons/dialogue_manager's_dialogue_gui_manager/scripts/arguments/dialogue_arguments.gd" id="8_gx0oq"]
 [ext_resource type="Resource" uid="uid://dcuvl2mko4mon" path="res://resources/quizzes/gate_1_quiz.tres" id="10_at6cv"]
 [ext_resource type="PackedScene" uid="uid://dqx1n417lyw35" path="res://nodes/entities/pickuppable_entites/plastic_bottle/plastic_bottle.tscn" id="10_hq7d6"]

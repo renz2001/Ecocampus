@@ -3,7 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://cjrygqeartla8" path="res://nodes/abstract_scenes/living_entity_node/living_entity_node.tscn" id="1_hoap6"]
 [ext_resource type="Script" path="res://nodes/entities/player_node/player_node.gd" id="2_6c1ia"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/animation_player_state.gd" id="3_gwwov"]
-[ext_resource type="Script" path="res://scripts/resources/inventory.gd" id="3_ip38p"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="4_3xned"]
 [ext_resource type="Resource" uid="uid://dpg6457rwx03a" path="res://resources/entity/player.tres" id="4_qvtbh"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="5_44w7h"]
@@ -14,14 +13,14 @@
 [ext_resource type="PackedScene" uid="uid://dop4lslntrlgb" path="res://nodes/components/cosmetic_equipper_component/cosmetic_equipper_component.tscn" id="10_qtam7"]
 [ext_resource type="PackedScene" uid="uid://b5du1qww5qopg" path="res://addons/macchi's_node_components/nodes/components/path_find_movement_component/path_find_movement_component.tscn" id="11_d0mbx"]
 [ext_resource type="Script" path="res://addons/save_components_system/scripts/resources/id.gd" id="13_6oemm"]
+[ext_resource type="Script" path="res://addons/save_components_system/scripts/resources/properties_to_save.gd" id="13_rwu47"]
 [ext_resource type="Texture2D" uid="uid://dqshq874l3ic5" path="res://assets/character/player_boy/boy.png" id="13_xn5bl"]
 [ext_resource type="Texture2D" uid="uid://cn233vrb5i466" path="res://assets/character/player_girl/girl.png" id="15_54xdd"]
 
-[sub_resource type="Resource" id="Resource_w3run"]
-script = ExtResource("3_ip38p")
-items = Array[Resource("res://scripts/resources/item_stack.gd")]([])
-max_items = 6
-save_as_resource_path = false
+[sub_resource type="Resource" id="Resource_rljr6"]
+script = ExtResource("13_rwu47")
+properties = PackedStringArray("quiz", "dialogue", "global_position", "global_scale")
+save_properties_as_resource_path = PackedStringArray()
 
 [sub_resource type="Resource" id="Resource_22bs7"]
 script = ExtResource("13_6oemm")
@@ -306,11 +305,10 @@ scale = Vector2(0.9, 0.9)
 collision_layer = 2
 collision_mask = 16
 script = ExtResource("2_6c1ia")
-gender = 0
+gender = 1
 move_to_tap = NodePath("Components/Movement/MoveToTapPathFindMovement")
 mouse_position = NodePath("Components/Movement/MousePositionComponent")
 cosmetic_equipper_component = NodePath("CosmeticEquipperComponent")
-inventory = SubResource("Resource_w3run")
 data = ExtResource("4_qvtbh")
 path_find = NodePath("Components/Movement/PathFindMovementComponent")
 
@@ -412,14 +410,18 @@ path_find = NodePath("../Movement/PathFindMovementComponent")
 node_base_scale = Vector2(0.9, 0.9)
 
 [node name="NodeVarietyManager" parent="Components" index="2"]
-variety_name = "Girl"
+index = 1
+variety_name = "Boy"
 
 [node name="Girl" parent="Components/NodeVarietyManager" index="0" node_paths=PackedStringArray("nodes") instance=ExtResource("6_kb0jf")]
-active = true
 nodes = [NodePath("../../../Sprites/Girl")]
 
 [node name="Boy" parent="Components/NodeVarietyManager" index="1" node_paths=PackedStringArray("nodes") instance=ExtResource("6_kb0jf")]
+active = true
 nodes = [NodePath("../../../Sprites/Boy")]
+
+[node name="MasterSaveComponent" parent="Components" index="8"]
+data = SubResource("Resource_rljr6")
 
 [node name="IDComponent" parent="Components" index="9"]
 data = SubResource("Resource_22bs7")
@@ -428,7 +430,6 @@ data = SubResource("Resource_22bs7")
 scale = Vector2(1.5, 1.5)
 
 [node name="Boy" type="Node2D" parent="Sprites" index="1"]
-visible = false
 
 [node name="BoyDefault" type="Sprite2D" parent="Sprites/Boy" index="0"]
 position = Vector2(0, -119)
@@ -436,6 +437,7 @@ texture = ExtResource("13_xn5bl")
 hframes = 6
 
 [node name="Girl" type="Node2D" parent="Sprites" index="2"]
+visible = false
 
 [node name="GirlDefault" type="Sprite2D" parent="Sprites/Girl" index="0"]
 position = Vector2(0, -119)

@@ -7,7 +7,7 @@ class_name EquipCosmeticController
 
 
 func toggle() -> void: 
-	if player.is_equipped(): 
+	if player.current_cosmetic.name == cosmetic.name: 
 		unequip()
 	else: 
 		equip()

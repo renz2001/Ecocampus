@@ -8,6 +8,7 @@ class_name EquipCosmeticButton
 			disabled = true
 		else: 
 			disabled = false
+		update()
 
 @export var equip_cosmetic_controller: EquipCosmeticController
 
@@ -19,7 +20,7 @@ func _on_pressed() -> void:
 	
 	
 func update() -> void: 
-	if equip_cosmetic_controller.player.is_equipped(): 
+	if equip_cosmetic_controller.player.current_cosmetic.name == cosmetic.name: 
 		text = "Unequip"
 	else: 
 		text = "Equip"

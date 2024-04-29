@@ -10,4 +10,4 @@ func _ready() -> void:
 
 func _on_player_instanced() -> void: 
 	var player: PlayerNode = PlayerManager.player
-	inventory_gui.inventory = player.inventory
+	inventory_gui.inventory = player.data.inventory
