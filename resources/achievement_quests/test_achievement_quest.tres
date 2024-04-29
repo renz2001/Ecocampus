@@ -7,6 +7,7 @@
 script = ExtResource("3_ww4hh")
 description = "Pick 5 plastic bottles"
 hide_counter_in_gui = false
+save_as_resource_path = false
 
 [resource]
 script = ExtResource("1_wkmub")

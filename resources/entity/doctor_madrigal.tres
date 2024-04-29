@@ -30,3 +30,4 @@ male_speaker_talk_sprite = SubResource("AtlasTexture_1hh37")
 gender = 1
 facing_left = true
 group = "Entity"
+save_as_resource_path = false

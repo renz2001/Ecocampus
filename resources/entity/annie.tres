@@ -20,3 +20,4 @@ female_speaker_talk_sprite = SubResource("AtlasTexture_vowt4")
 gender = 2
 facing_left = true
 group = "Entity"
+save_as_resource_path = false

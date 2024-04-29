@@ -24,3 +24,4 @@ male_sprite = ExtResource("2_20qxn")
 female_sprite = ExtResource("1_1mtlw")
 medals_required = 1
 is_default = false
+save_as_resource_path = false

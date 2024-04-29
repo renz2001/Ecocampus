@@ -18,4 +18,6 @@ name = "Student"
 male_speaker_idle_sprite = SubResource("AtlasTexture_uumy7")
 male_speaker_talk_sprite = SubResource("AtlasTexture_e7eai")
 gender = 1
+facing_left = false
 group = "Entity"
+save_as_resource_path = false
