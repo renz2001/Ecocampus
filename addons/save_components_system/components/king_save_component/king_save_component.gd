@@ -15,31 +15,32 @@ func to_dict() -> Dictionary:
 	
 	var dict: Dictionary = {}
 	
-	await get_tree().process_frame
 	for master: MasterSaveComponent in get_tree().get_nodes_in_group("MasterSaveComponent"): 
 		#print(masters.to_dict())
+		
+		var master_dict: Dictionary = master.to_dict()
 		if master.no_king: 
-			SaveManager.current_saved_data.data["Globals"].merge(master.to_dict())
+			SaveManager.current_saved_data.data["Globals"].merge(master_dict, true)
 			continue
 		
 		# FIXME: BandAid solution
-		if master.is_queued_free: 
-			var queued_frees: Array = SaveManager.current_saved_data.data["QueuedFree"]
-			queued_frees.append(master.node.get_path())
+		#if master.is_queued_free: 
+			#var queued_frees: Array = SaveManager.current_saved_data.data["QueuedFree"]
+			#queued_frees.append(master.node.get_path())
 			
-		king_dict.merge(master.to_dict())
+		king_dict.merge(master_dict)
 		
 		#await get_tree().process_frame
 		#printerr("king: ", king_dict[master.get_path()]["is_queued_free"])
 		#print(masters.to_dict())
 	for globals: GlobalsSaveComponent in get_tree().get_nodes_in_group("GlobalsSaveComponent"): 
-		SaveManager.current_saved_data.data["Globals"].merge(globals.to_dict())
-		await get_tree().process_frame
+		SaveManager.current_saved_data.data["Globals"].merge(globals.to_dict(), true)
+		# DK if this await changes anything
 		
 	var key: String = str(id_component.data.value)
 	#printerr(SaveManager.current_saved_data.data["QueuedFree"])
 	
-	await get_tree().process_frame
+	# DK if this await changes anything
 	dict[key] = king_dict
 	return dict
 	

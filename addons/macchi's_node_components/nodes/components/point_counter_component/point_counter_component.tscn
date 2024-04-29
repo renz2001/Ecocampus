@@ -21,15 +21,17 @@ reset_after_maximum_hit = false
 reset_after_minimum_hit = false
 rounded_off = false
 disabled = false
+save_as_resource_path = false
 
 [sub_resource type="Resource" id="Resource_n6rpr"]
 script = ExtResource("3_4rnnn")
 properties = PackedStringArray("points")
 
-[node name="PointCounterComponent" type="Node"]
+[node name="PointCounterComponent" type="Node" node_paths=PackedStringArray("ready_unique_resource")]
 process_mode = 3
 script = ExtResource("1_n13je")
 points = SubResource("Resource_ui7it")
+ready_unique_resource = NodePath("ReadyUniqueResource")
 
 [node name="FollowerSaveComponent" parent="." node_paths=PackedStringArray("node") instance=ExtResource("2_hdk75")]
 node = NodePath("..")

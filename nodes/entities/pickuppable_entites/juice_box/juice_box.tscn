@@ -11,11 +11,13 @@
 script = ExtResource("3_s4ocu")
 model = ExtResource("2_tt280")
 stack_starting_value = 1.0
+save_as_resource_path = false
 
 [sub_resource type="Resource" id="Resource_ir415"]
 script = ExtResource("4_nj86f")
 items = Array[ExtResource("3_s4ocu")]([SubResource("Resource_vvvml")])
 max_items = -1
+save_as_resource_path = false
 
 [sub_resource type="Resource" id="Resource_slgd0"]
 script = ExtResource("5_lwi0q")
@@ -24,7 +26,9 @@ environmental_impact = ""
 custom_name = ""
 name = "Juice Box"
 gender = 0
+facing_left = false
 group = "Entity"
+save_as_resource_path = false
 
 [node name="JuiceBox" instance=ExtResource("1_r15se")]
 inventory = SubResource("Resource_ir415")

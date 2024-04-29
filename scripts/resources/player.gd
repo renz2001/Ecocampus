@@ -28,3 +28,11 @@ func equip_cosmetic(cosmetic: Cosmetic) -> void:
 func unequip_cosmetic() -> void: 
 	current_cosmetic = default_cosmetic
 	
+
+func _save_properties() -> PackedStringArray: 
+	var arr: PackedStringArray = [
+		"current_cosmetic"
+	]
+	arr.append_array(super._save_properties())
+	
+	return arr

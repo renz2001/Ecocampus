@@ -15,7 +15,7 @@ func _initialized() -> void:
 		can.inventory.items_changed.connect(_on_items_changed)
 
 
-func _on_items_changed(items: Array[ItemStack]) -> void: 
+func _on_items_changed(_items: Array[ItemStack]) -> void: 
 	check()
 
 

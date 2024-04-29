@@ -15,6 +15,7 @@ format = "- %s: %s/%s"
 [node name="EcoQuestTaskGUI" type="PanelContainer" node_paths=PackedStringArray("label")]
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 2
 theme = ExtResource("1_qgq0n")
 theme_type_variation = &"InvisiblePanel"
 script = ExtResource("2_nhjmm")

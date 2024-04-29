@@ -1,0 +1,93 @@
+[gd_scene load_steps=7 format=3 uid="uid://0t8xqgbn3kwl"]
+
+[ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/macchi's_gui_manager/nodes/gui/gui/gui.tscn" id="1_7x6in"]
+[ext_resource type="PackedScene" uid="uid://dh1ftkyfip0sh" path="res://nodes/gui_components/on_tap_set_active/on_tap_set_active.tscn" id="2_kiasv"]
+[ext_resource type="Script" path="res://nodes/gui/about_us_popup/about_us_popup.gd" id="2_kpv4k"]
+[ext_resource type="Texture2D" uid="uid://crum2o41ed4wp" path="res://assets/buttons/board.png" id="2_ml5o0"]
+[ext_resource type="PackedScene" uid="uid://cnsvmjc5ytto2" path="res://nodes/components/on_visible_then_scale/on_visible_then_scale.tscn" id="3_0o38c"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6o1ub"]
+font_size = 40
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 20
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(3, 5)
+
+[node name="AboutUsPopup" instance=ExtResource("1_7x6in")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_kpv4k")
+inactive_on_ready = false
+
+[node name="OnTapSetActive" parent="." index="0" node_paths=PackedStringArray("gui") instance=ExtResource("2_kiasv")]
+layout_mode = 1
+offset_left = -1000.0
+offset_top = -718.0
+offset_right = 952.0
+offset_bottom = 683.0
+gui = NodePath("..")
+
+[node name="CenterContainer" type="CenterContainer" parent="." index="1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Control" type="Control" parent="CenterContainer" index="0"]
+layout_mode = 2
+
+[node name="Body" type="TextureRect" parent="CenterContainer/Control" index="0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -297.0
+offset_top = -229.0
+offset_right = 297.0
+offset_bottom = 229.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ml5o0")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/Control/Body" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 60
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 60
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer/Control/Body/MarginContainer" index="0"]
+layout_mode = 2
+theme_type_variation = &"TransparentGrayPanelContainer"
+
+[node name="Label" type="Label" parent="CenterContainer/Control/Body/MarginContainer/PanelContainer" index="0"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "About Us:
+Renz Marion R. Guiao
+Bradley Jlord I. Pinpin
+Mark Ian M. Pinpin
+Lance Reinel C. Taganas"
+label_settings = SubResource("LabelSettings_6o1ub")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OnVisibleThenScale" parent="." index="3" node_paths=PackedStringArray("node") instance=ExtResource("3_0o38c")]
+editor_play = false
+node = NodePath("../CenterContainer/Control")

@@ -16,6 +16,7 @@ var is_unlocked: bool:
 	
 func unlock() -> void: 
 	is_unlocked = true
+	GlobalData.achievements_tracker.medals.points.add(reward_medals)
 	
 	
 func display() -> void: 

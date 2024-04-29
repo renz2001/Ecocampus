@@ -49,8 +49,8 @@ signal gender_changed
 @export var facing_left: bool
 
 @export var group: String = "Entity"
-	
-	
+
+
 func get_speaker_idle_sprite() -> Texture2D: 
 	if gender == GlobalEnums.Gender.FEMALE: 
 		return female_speaker_idle_sprite
@@ -73,7 +73,8 @@ func get_node(tree: SceneTree) -> EntityNode:
 	
 func _save_properties() -> PackedStringArray: 
 	return [
-		"custom_name"
+		"custom_name", 
+		"gender"
 	]
 
 

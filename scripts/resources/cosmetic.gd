@@ -67,13 +67,13 @@ func get_current_name(gender: GlobalEnums.Gender) -> String:
 	
 	
 func unlock(medals: int) -> void: 
-	if medals == medals_required: 
+	#printerr("medals: %s, required: %s" % [medals, medals_required])
+	if medals >= medals_required: 
 		state = CosmeticState.UNLOCKED
 	
 	
 func _save_properties() -> PackedStringArray: 
 	return [
-		"unlocked", 
 		"state"
 	]
 

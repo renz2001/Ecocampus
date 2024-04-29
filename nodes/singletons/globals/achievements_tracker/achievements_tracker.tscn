@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://jo332ksg44ul"]
+[gd_scene load_steps=10 format=3 uid="uid://jo332ksg44ul"]
 
 [ext_resource type="Script" path="res://nodes/singletons/globals/achievements_tracker/achievements_tracker.gd" id="1_y316a"]
 [ext_resource type="Script" path="res://addons/macchi's_node_components/nodes/components/print_color.gd" id="2_v0dh4"]
 [ext_resource type="PackedScene" uid="uid://d02dwov2yojbj" path="res://addons/macchi's_node_components/nodes/components/point_counter_component/point_counter_component.tscn" id="3_02lvq"]
 [ext_resource type="Script" path="res://addons/macchi's_node_components/scripts/resources/point_counter.gd" id="4_0flqk"]
+[ext_resource type="PackedScene" uid="uid://bixjjksp3dphm" path="res://addons/save_components_system/components/master_save_component/master_save_component.tscn" id="5_oj2ya"]
+[ext_resource type="Script" path="res://addons/save_components_system/scripts/resources/properties_to_save.gd" id="6_wi7ub"]
 
 [sub_resource type="Resource" id="Resource_2tw2o"]
 script = ExtResource("2_v0dh4")
@@ -29,6 +31,11 @@ reset_after_maximum_hit = false
 reset_after_minimum_hit = false
 rounded_off = false
 disabled = false
+save_as_resource_path = false
+
+[sub_resource type="Resource" id="Resource_c88jr"]
+script = ExtResource("6_wi7ub")
+properties = PackedStringArray("points")
 
 [node name="AchievementsTracker" type="Node" node_paths=PackedStringArray("medals")]
 script = ExtResource("1_y316a")
@@ -38,7 +45,11 @@ print_color = SubResource("Resource_2tw2o")
 [node name="MedalCounter" parent="." instance=ExtResource("3_02lvq")]
 points = SubResource("Resource_firrs")
 
-[node name="ReadyUniqueResource" parent="MedalCounter" index="1"]
-disabled = true
+[node name="FollowerSaveComponent" parent="MedalCounter" index="0"]
+data = SubResource("Resource_c88jr")
+
+[node name="MasterSaveComponent" parent="." node_paths=PackedStringArray("node") instance=ExtResource("5_oj2ya")]
+no_king = true
+node = NodePath("..")
 
 [editable path="MedalCounter"]

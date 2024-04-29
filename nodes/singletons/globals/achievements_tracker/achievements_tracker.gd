@@ -28,17 +28,19 @@ func _ready() -> void:
 	#for quest: EcoQuest in achievements_quests: 
 		#ExtendedQuestSystem.start_quest(quest)
 		#
-	ExtendedQuestSystem.quest_completed.connect(_on_quest_completed)
+	#ExtendedQuestSystem.quest_completed.connect(_on_quest_completed)
+	pass
 	
-	
-func _on_quest_completed(quest: Quest) -> void: 
-	var eco_quest: EcoQuest = quest
-	medals.points.add(eco_quest.on_complete_unlock_achievement.reward_medals)
+#func _on_quest_completed(quest: Quest) -> void: 
+	#var eco_quest: EcoQuest = quest
+	#pass
+	#medals.points.add(eco_quest.on_complete_unlock_achievement.reward_medals)
 	
 	
 func unlock_cosmetic(cosmetic: Cosmetic) -> void: 
+	var debug: float = medals.points.current
 	cosmetic.unlock(int(medals.points.current))
 	if cosmetic.is_unlocked(): 
 		medals.points.subtract(cosmetic.medals_required)
-		print_color.out_debug_wvalue("Unlocked cosmetic with medals", [cosmetic, medals.points.current])
+		print_color.out_debug_wvalue("Unlocked cosmetic with medals", [cosmetic, debug])
 

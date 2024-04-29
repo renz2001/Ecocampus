@@ -29,8 +29,8 @@ static func create_from_existing_file(path: String) -> GameSave:
 func save_game(scene_tree: SceneTree) -> void: 
 	data["SaveName"] = name
 	for king_save: KingSaveComponent in scene_tree.get_nodes_in_group("KingSaveComponent"): 
-		data.merge(await king_save.to_dict())
-		
+		data.merge(await king_save.to_dict(), true)
+	
 	
 func load_game(scene_tree: SceneTree, current_id: String) -> void: 
 	if !data.has(current_id): 

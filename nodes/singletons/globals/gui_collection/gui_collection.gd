@@ -8,4 +8,4 @@ extends Node
 @export var cosmetic_display_card: PackedScene
 @export var alert_dialog: PackedScene
 @export var formatted_label: PackedScene
-
+@export var about_us_popup: PackedScene

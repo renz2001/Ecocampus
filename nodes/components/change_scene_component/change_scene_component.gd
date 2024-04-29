@@ -6,11 +6,13 @@ class_name ChangeSceneComponent
 #@export var save_on_change: bool
 
 # TODO: WIP
+# TODO: Change to_scene form String to PackedScene then use PackedScene.resource_path
 func change() -> void: 
 	# BandAid solution
 	if get_tree().current_scene is LevelNode: 
 		SaveManager.save_game()
 		SaveManager.save_game_to_file(true)
+		
 	SceneLoader.load_file(ChangeSceneArguments.new().set_scene(to_scene).set_transition(transition))
 
 

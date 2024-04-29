@@ -48,11 +48,17 @@ func _on_can_tap_state_input(event: InputEvent) -> void:
 func set_data(value: Entity) -> void: 
 	data = value
 	if data: 
+		data.gender_changed.connect(_on_gender_changed)
 		gender = data.gender
+
+
+func _on_gender_changed() -> void: 
+	gender = data.gender
 
 
 func _on_path_find_movement_component_finished_navigation() -> void: 
 	state_chart.send_event("idle")
+
 
 
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://d1klss0cjhtw0"]
+[gd_scene load_steps=15 format=3 uid="uid://d1klss0cjhtw0"]
 
 [ext_resource type="PackedScene" uid="uid://dokfordgw2kk3" path="res://nodes/abstract_scenes/non_living_entity_node/non_living_entity_node.tscn" id="1_sa8os"]
 [ext_resource type="Script" path="res://nodes/entities/non_living_entities/faucet/faucet.gd" id="2_pi6uq"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bwrfsu0cu68sk" path="res://nodes/components/apply_material_to_node/apply_material_to_node.tscn" id="3_fiocu"]
 [ext_resource type="Shader" path="res://resources/shaders/outline_inline.gdshader" id="4_r74j2"]
 [ext_resource type="Texture2D" uid="uid://cp7y8jwutmcxf" path="res://assets/environment/faucet_spritesheet.png" id="4_vyjam"]
+[ext_resource type="Script" path="res://addons/save_components_system/scripts/resources/properties_to_save.gd" id="7_2vhho"]
 
 [sub_resource type="Resource" id="Resource_yn3gy"]
 script = ExtResource("3_0wv2s")
@@ -22,6 +23,10 @@ shader_parameter/width = 5.0
 shader_parameter/pattern = 0
 shader_parameter/inside = false
 shader_parameter/add_margins = true
+
+[sub_resource type="Resource" id="Resource_uu57v"]
+script = ExtResource("7_2vhho")
+properties = PackedStringArray("inventory", "data", "quiz", "dialogue", "global_position", "global_scale", "state")
 
 [sub_resource type="Animation" id="Animation_517i3"]
 length = 0.001
@@ -65,8 +70,12 @@ _data = {
 script = ExtResource("2_pi6uq")
 state = 1
 interact_description = SubResource("Resource_yn3gy")
-disable_after_interact = null
-disabled = null
+
+[node name="TapHitBox" parent="." index="0"]
+offset_left = -73.0
+offset_top = -83.0
+offset_right = 80.0
+offset_bottom = 65.0
 
 [node name="ApplyMaterialToNode" parent="TapHitBox" index="0" node_paths=PackedStringArray("node") instance=ExtResource("3_fiocu")]
 node = NodePath("../../Sprites")
@@ -83,6 +92,9 @@ nodes = [NodePath("../../../Sprites/EntitySprite")]
 [node name="On" parent="Components/NodeVarietyManager" index="1" node_paths=PackedStringArray("nodes") instance=ExtResource("3_28xli")]
 active = true
 nodes = [NodePath("../../../Sprites/OnSprite")]
+
+[node name="MasterSaveComponent" parent="Components" index="8"]
+data = SubResource("Resource_uu57v")
 
 [node name="Sprites" parent="." index="5"]
 position = Vector2(0, -20)

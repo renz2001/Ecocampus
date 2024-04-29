@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://du6p4swgv5hfd"]
+[gd_scene load_steps=11 format=3 uid="uid://du6p4swgv5hfd"]
 
 [ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/macchi's_gui_manager/nodes/gui/gui/gui.tscn" id="1_abshs"]
 [ext_resource type="Script" path="res://nodes/gui/navbar_gui/navbar_gui.gd" id="2_hp6n3"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b1j5hhbaa24a8" path="res://nodes/gui/audio_mute_button/audio_mute_button.tscn" id="5_dk0mc"]
 [ext_resource type="PackedScene" uid="uid://y6epls2k86pu" path="res://nodes/gui/buttons/to_map_picker_icon_button/to_map_picker_icon_button.tscn" id="6_lg5x3"]
 [ext_resource type="PackedScene" uid="uid://bvqcvxujyci1a" path="res://nodes/gui/quests_menu/quests_menu.tscn" id="7_qubt8"]
+[ext_resource type="PackedScene" uid="uid://dbm2cekdqabvn" path="res://nodes/gui/info_icon_button/info_icon_button.tscn" id="9_h4wh8"]
 
 [node name="NavbarGUI" instance=ExtResource("1_abshs")]
 script = ExtResource("2_hp6n3")
@@ -16,9 +17,10 @@ inactive_on_ready = false
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." index="0"]
 layout_mode = 1
-offset_left = -715.0
-offset_right = 1.0
-offset_bottom = 180.0
+offset_left = -863.0
+offset_top = 1.0
+offset_right = -3.0
+offset_bottom = 181.0
 theme_override_constants/separation = 40
 alignment = 2
 
@@ -70,6 +72,19 @@ new_value = "false"
 
 [node name="SettingsIconButton" parent="VBoxContainer/HBoxContainer" index="4" instance=ExtResource("4_rkvut")]
 layout_mode = 2
+
+[node name="InfoIconButton" parent="VBoxContainer/HBoxContainer" index="5" instance=ExtResource("9_h4wh8")]
+layout_mode = 2
+
+[node name="IfMainMenuEnteredSetProperty" parent="VBoxContainer/HBoxContainer/InfoIconButton" index="3" node_paths=PackedStringArray("node") instance=ExtResource("4_etnct")]
+property = "main_menu_state"
+node = NodePath("..")
+
+[node name="IfMainMenuExitedSetProperty" parent="VBoxContainer/HBoxContainer/InfoIconButton" index="4" node_paths=PackedStringArray("node") instance=ExtResource("4_etnct")]
+property = "main_menu_state"
+state_event = 1
+node = NodePath("..")
+new_value = "false"
 
 [node name="Control" type="Control" parent="VBoxContainer" index="1"]
 layout_mode = 2

@@ -306,7 +306,7 @@ scale = Vector2(0.9, 0.9)
 collision_layer = 2
 collision_mask = 16
 script = ExtResource("2_6c1ia")
-gender = 1
+gender = 0
 move_to_tap = NodePath("Components/Movement/MoveToTapPathFindMovement")
 mouse_position = NodePath("Components/Movement/MousePositionComponent")
 cosmetic_equipper_component = NodePath("CosmeticEquipperComponent")
@@ -412,14 +412,13 @@ path_find = NodePath("../Movement/PathFindMovementComponent")
 node_base_scale = Vector2(0.9, 0.9)
 
 [node name="NodeVarietyManager" parent="Components" index="2"]
-index = 1
-variety_name = "Boy"
+variety_name = "Girl"
 
 [node name="Girl" parent="Components/NodeVarietyManager" index="0" node_paths=PackedStringArray("nodes") instance=ExtResource("6_kb0jf")]
+active = true
 nodes = [NodePath("../../../Sprites/Girl")]
 
 [node name="Boy" parent="Components/NodeVarietyManager" index="1" node_paths=PackedStringArray("nodes") instance=ExtResource("6_kb0jf")]
-active = true
 nodes = [NodePath("../../../Sprites/Boy")]
 
 [node name="IDComponent" parent="Components" index="9"]
@@ -429,6 +428,7 @@ data = SubResource("Resource_22bs7")
 scale = Vector2(1.5, 1.5)
 
 [node name="Boy" type="Node2D" parent="Sprites" index="1"]
+visible = false
 
 [node name="BoyDefault" type="Sprite2D" parent="Sprites/Boy" index="0"]
 position = Vector2(0, -119)
@@ -436,7 +436,6 @@ texture = ExtResource("13_xn5bl")
 hframes = 6
 
 [node name="Girl" type="Node2D" parent="Sprites" index="2"]
-visible = false
 
 [node name="GirlDefault" type="Sprite2D" parent="Sprites/Girl" index="0"]
 position = Vector2(0, -119)

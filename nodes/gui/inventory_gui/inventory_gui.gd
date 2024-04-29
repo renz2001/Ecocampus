@@ -32,7 +32,6 @@ func _on_inventory_items_changed(_new_items: Array[ItemStack]) -> void:
 
 
 func update() -> void: 
-
 	var children: Array[Node] = item_slots.get_children()
 	for i: int in children.size(): 
 		var slot: ItemSlot = children[i]
@@ -42,8 +41,9 @@ func update() -> void:
 		if inventory == null: 
 			continue
 			
-		if i < inventory.items.size(): 
-			slot.item = inventory.items[i]
+	for i: int in inventory.items.size(): 
+		var slot: ItemSlot = children[i]
+		slot.item = inventory.items[i]
 		#printerr(slot.item)
 	
 	

@@ -24,6 +24,7 @@ source_geometry_group_name = &"navigation_polygon_source_group"
 [sub_resource type="Resource" id="Resource_yjoda"]
 script = ExtResource("5_5s361")
 value = "228301570279103480"
+save_as_resource_path = false
 
 [node name="Library" instance=ExtResource("1_rd2yn")]
 

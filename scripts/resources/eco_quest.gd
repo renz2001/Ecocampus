@@ -70,4 +70,4 @@ func complete() -> void:
 	
 	
 func _to_string() -> String: 
-	return "%s: <EcoQuest#%s>" % [quest_name, get_instance_id()]
+	return "%s: <EcoQuest#%s>" % [percentage_description, get_instance_id()]

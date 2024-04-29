@@ -1,21 +1,30 @@
-[gd_scene load_steps=7 format=3 uid="uid://ibuaxowofiai"]
+[gd_scene load_steps=9 format=3 uid="uid://ibuaxowofiai"]
 
 [ext_resource type="PackedScene" uid="uid://dokfordgw2kk3" path="res://nodes/abstract_scenes/non_living_entity_node/non_living_entity_node.tscn" id="1_yhx30"]
 [ext_resource type="Texture2D" uid="uid://bklyp76j22ubq" path="res://assets/non_living_entities/light_switch.png" id="2_phfc8"]
 [ext_resource type="Script" path="res://nodes/entities/non_living_entities/light_switch/light_switch.gd" id="2_sci1n"]
+[ext_resource type="Script" path="res://scripts/resources/label_text.gd" id="3_5q7s6"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="3_qhoh8"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="4_emtls"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="5_mygse"]
 
+[sub_resource type="Resource" id="Resource_aopd7"]
+script = ExtResource("3_5q7s6")
+texts = Array[String](["Turn off Light Bulb?"])
+with_label_settings = false
+horizontal_alignment = 0
+vertical_alignment = 0
+
 [node name="LightSwitch" node_paths=PackedStringArray("light_bulbs") instance=ExtResource("1_yhx30")]
 script = ExtResource("2_sci1n")
 light_bulbs = []
+interact_description = SubResource("Resource_aopd7")
 
 [node name="TapHitBox" parent="." index="0"]
-offset_left = -38.0
-offset_top = -55.0
-offset_right = 39.0
-offset_bottom = 57.0
+offset_left = -77.0
+offset_top = -88.0
+offset_right = 81.0
+offset_bottom = 94.0
 
 [node name="State" type="Node" parent="StateChart/Root/Enabled" index="3"]
 script = ExtResource("3_qhoh8")

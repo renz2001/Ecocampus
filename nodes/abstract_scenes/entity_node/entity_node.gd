@@ -76,6 +76,9 @@ func _on_interact() -> void:
 	_interact()
 	if interact_audio: 
 		interact_audio_player.play()
+	if dialogue == null: 
+		if quiz != null: 
+			QuizAttemptScreen.display(quiz, data)
 	dialogue_starter.start()
 	call_world_event_component.play()
 	interacted.emit()
@@ -127,6 +130,8 @@ func _on_dialogue_response_handler_responded(value: String) -> void:
 			QuizAttemptScreen.display(quiz, data)
 		"start_quest": 
 			ExtendedQuestSystem.start_quest(quest)
+		"remove_dialogue": 
+			dialogue = null
 
 
 func _on_ready_unique_resource_resource_ready() -> void:
