@@ -2,10 +2,12 @@ extends TransitionGUI
 class_name MiddleTransitionGUI
 
 enum EndCondition {
+	NONE, 
 	TIMEOUT, 
 	LOADING_FINISHED, 
 	SIGNAL, 
 	WORLD_EVENT_CALLED, 
+	ENTERED_TREE, 
 }
 
 @export var timer: Timer
@@ -22,6 +24,13 @@ func _play() -> void:
 				end()
 				return
 			SceneLoader.thread_load_loaded.connect(_on_scene_loader_load_ended, CONNECT_ONE_SHOT)
+		EndCondition.ENTERED_TREE: 
+			# DOES NOT WORK
+			SceneLoader.scene_entered_tree.connect(
+				func(): 
+					end() 
+			, CONNECT_ONE_SHOT
+			)
 		EndCondition.SIGNAL: 
 			pass
 		EndCondition.WORLD_EVENT_CALLED: 

@@ -18,6 +18,7 @@ func play() -> void:
 		if node is BaseLerpComponent: 
 			node.play()
 	_play()
+	started.emit()
 	
 	
 # Virtual Function

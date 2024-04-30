@@ -14,6 +14,7 @@
 [sub_resource type="Resource" id="Resource_nryn4"]
 script = ExtResource("6_hexg7")
 properties = PackedStringArray("local_events_history")
+save_properties_as_resource_path = PackedStringArray()
 
 [node name="LevelNode" type="Node2D" node_paths=PackedStringArray("id_component")]
 y_sort_enabled = true

@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/macchi's_gui_manager/nodes/gui/gui/gui.tscn" id="1_47ww0"]
 [ext_resource type="Script" path="res://nodes/singletons/managers/transitions_manager/transitions_manager.gd" id="1_rgj07"]
 
-[node name="TransitionsManager" node_paths=PackedStringArray("middle_transition_control", "start_transition_control", "end_transition_control", "animation_player", "pre_loaded_scenes") instance=ExtResource("1_47ww0")]
+[node name="TransitionsManager" node_paths=PackedStringArray("middle_transition_control", "start_transition_control", "end_transition_control", "animation_player") instance=ExtResource("1_47ww0")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -14,8 +14,6 @@ middle_transition_control = NodePath("MiddleTransition")
 start_transition_control = NodePath("StartTransition")
 end_transition_control = NodePath("EndTransition")
 animation_player = NodePath("AnimationPlayer")
-pre_loaded_scenes = NodePath("")
-alias = ""
 
 [node name="MiddleTransition" type="Control" parent="." index="0"]
 layout_mode = 1

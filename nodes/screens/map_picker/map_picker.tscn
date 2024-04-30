@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dcjxf25vgikeb"]
+[gd_scene load_steps=25 format=3 uid="uid://dcjxf25vgikeb"]
 
 [ext_resource type="PackedScene" uid="uid://3miay8g4x6j3" path="res://nodes/abstract_scenes/main_screen/main_screen.tscn" id="1_ethfg"]
 [ext_resource type="PackedScene" uid="uid://5npqpm4ofnr" path="res://nodes/gui/map_location_button/map_location_button.tscn" id="2_5f6v8"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cmyovnl4vkyxt" path="res://assets/map/icons/con_icon.png" id="4_sbxly"]
 [ext_resource type="Texture2D" uid="uid://d3qhdft6m3gyt" path="res://assets/map/icons/dit_icon.png" id="5_b4x4x"]
 [ext_resource type="Texture2D" uid="uid://feqbcawgbj0t" path="res://assets/map/icons/gate_icon.png" id="6_2jbm6"]
+[ext_resource type="Resource" uid="uid://bmfktr33c6caq" path="res://nodes/transitions/fade_transition/fade_transition.tres" id="6_u5ky5"]
 [ext_resource type="Texture2D" uid="uid://vy3sc4i6w3vt" path="res://assets/map/icons/library_icon.png" id="7_ssrne"]
 [ext_resource type="Texture2D" uid="uid://u3ir732fkp5j" path="res://assets/map/icons/saluysoy_icon.png" id="8_ob73h"]
 [ext_resource type="Texture2D" uid="uid://c53nvgcsjrpdg" path="res://assets/map/icons/trashcan_icon.png" id="9_t8wk1"]
@@ -22,6 +23,8 @@ region = Rect2(449, 332, 779, 556)
 [sub_resource type="Resource" id="Resource_85384"]
 script = ExtResource("3_cuxqn")
 scene = "res://nodes/levels/con_level/con_level.tscn"
+transition = ExtResource("6_u5ky5")
+middle_transition_end_condition = 0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6sr2r"]
 atlas = ExtResource("5_b4x4x")
@@ -30,6 +33,8 @@ region = Rect2(985, 491, 1575, 1593)
 [sub_resource type="Resource" id="Resource_tncep"]
 script = ExtResource("3_cuxqn")
 scene = "res://nodes/levels/dit_level/dit_level.tscn"
+transition = ExtResource("6_u5ky5")
+middle_transition_end_condition = 0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ixlmw"]
 atlas = ExtResource("6_2jbm6")
@@ -38,6 +43,8 @@ region = Rect2(751, 386, 572, 678)
 [sub_resource type="Resource" id="Resource_bteyx"]
 script = ExtResource("3_cuxqn")
 scene = "res://nodes/levels/gate_1/gate_1.tscn"
+transition = ExtResource("6_u5ky5")
+middle_transition_end_condition = 0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wfi8a"]
 atlas = ExtResource("7_ssrne")
@@ -46,6 +53,8 @@ region = Rect2(46, 238, 905, 449)
 [sub_resource type="Resource" id="Resource_vqtlx"]
 script = ExtResource("3_cuxqn")
 scene = "res://nodes/levels/library/library.tscn"
+transition = ExtResource("6_u5ky5")
+middle_transition_end_condition = 0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_twbk7"]
 atlas = ExtResource("8_ob73h")
@@ -54,6 +63,8 @@ region = Rect2(151, 170, 745, 619)
 [sub_resource type="Resource" id="Resource_lmf8a"]
 script = ExtResource("3_cuxqn")
 scene = "res://nodes/levels/saluysuy/saluysuy.tscn"
+transition = ExtResource("6_u5ky5")
+middle_transition_end_condition = 0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h43h3"]
 atlas = ExtResource("9_t8wk1")
@@ -62,6 +73,8 @@ region = Rect2(1130, 871, 808, 666)
 [sub_resource type="Resource" id="Resource_04iki"]
 script = ExtResource("3_cuxqn")
 scene = "res://nodes/levels/trash_cans_level/trash_cans_level.tscn"
+transition = ExtResource("6_u5ky5")
+middle_transition_end_condition = 0
 
 [node name="MapPicker" instance=ExtResource("1_ethfg")]
 

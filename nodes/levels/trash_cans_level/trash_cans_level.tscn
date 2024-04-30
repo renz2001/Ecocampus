@@ -18,6 +18,7 @@ region = Rect2(381, 52, 140, 229)
 [sub_resource type="Resource" id="Resource_7dr80"]
 script = ExtResource("7_w83j3")
 value = "3484743336539762445"
+save_as_resource_path = false
 
 [node name="TrashCansLevel" instance=ExtResource("1_4fkii")]
 
@@ -38,7 +39,7 @@ offset_bottom = 31.0
 trash_cans = [NodePath("../../../Entities/NonLiving/TrashCans/BioDegradableTrashcan"), NodePath("../../../Entities/NonLiving/TrashCans/NonBiodegradableTrashCan"), NodePath("../../../Entities/NonLiving/TrashCans/RecyclableTrashCan")]
 
 [node name="PlayerSpriteDisplay" parent="Environment" index="0" instance=ExtResource("2_xrh1o")]
-position = Vector2(266, 653)
+position = Vector2(266, 585)
 scale = Vector2(3.42857, 3.42857)
 texture = SubResource("AtlasTexture_8oaj7")
 flip_h = true
@@ -57,7 +58,8 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="PlayerNode" parent="Entities/Living" index="0" instance=ExtResource("6_ma7va")]
-position = Vector2(728, 1992)
+position = Vector2(-433, 670)
+gender = 0
 
 [node name="TrashCans" type="Node2D" parent="Entities/NonLiving" index="0"]
 position = Vector2(1218, 838)

@@ -3,6 +3,8 @@
 extends Resource
 class_name GameSave
 
+signal finished_loading
+
 var name: StringName = "save_data"
 
 var data: Dictionary = {
@@ -56,6 +58,7 @@ func load_game(scene_tree: SceneTree, current_id: String) -> void:
 		if scene_tree.current_scene.has_node(path): 
 			scene_tree.current_scene.get_node(path).queue_free()
 			
+	finished_loading.emit()
 			
 func to_json() -> JSON: 
 	var json: JSON = JSON.new()

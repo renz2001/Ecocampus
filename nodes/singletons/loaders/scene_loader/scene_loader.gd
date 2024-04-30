@@ -3,6 +3,7 @@ extends Node
 signal load_started
 signal thread_load_loaded
 signal load_ended 
+signal scene_entered_tree
 
 @export var _print_color: PrintColor: 
 	set(value): 
@@ -21,7 +22,7 @@ var load_progress: Array
 func _init() -> void: 
 	set_process.call_deferred(false)
 
-
+# BANDAID SOLUTION
 func _process(_delta: float) -> void: 
 	#var current_scene: Node = get_tree().current_scene
 	#load_screen.load_progress = load_progress
@@ -43,9 +44,19 @@ func _process(_delta: float) -> void:
 			has_thread_load_loaded = true
 			thread_load_loaded.emit()
 			var next_scene: PackedScene = ResourceLoader.load_threaded_get(_next_scene_path)
+			
+			#if GUIManager.transitions_manager.middle_transition_condition != MiddleTransitionGUI.EndCondition.NONE: 
+			#if GUIManager.transitions_manager.transitioning: 
+				#await GUIManager.transitions_manager.middle_transition.ended
 			if GUIManager.transitions_manager.transitioning: 
-				await GUIManager.transitions_manager.middle_transition.ended
+				if GUIManager.transitions_manager.start_transition: 
+					await GUIManager.transitions_manager.start_transition.ended
 			get_tree().change_scene_to_packed(next_scene)
+			#if GUIManager.transitions_manager.end_transition: 
+				#await GUIManager.transitions_manager.middle_transition.started
+			#await get_tree().process_frame
+			scene_entered_tree.emit()
+			#printerr(get_tree().current_scene)
 			_print_color.out_debug_wvalue("Loading scene finished", _next_scene_path)
 			load_ended.emit()
 			has_thread_load_loaded = false
@@ -59,8 +70,8 @@ func load_file(args: ChangeSceneArguments) -> void:
 		return
 	
 	GUIManager.transitions_manager.prepare_transition(args.transition)
-	GUIManager.transitions_manager.start(args.transition, MiddleTransitionGUI.EndCondition.LOADING_FINISHED)
-	
+	GUIManager.transitions_manager.start(args.transition, args.middle_transition_end_condition)
+
 	ResourceLoader.load_threaded_request(_next_scene_path)
 	_print_color.out_debug_wvalue("Started loading scene", _next_scene_path)
 	set_process.call_deferred(true)

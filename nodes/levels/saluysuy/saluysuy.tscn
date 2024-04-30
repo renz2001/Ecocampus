@@ -49,7 +49,7 @@ stretch_mode = 5
 [node name="PlayerNode" parent="Entities/Living" index="0" instance=ExtResource("3_q43q1")]
 position = Vector2(1053, 870)
 scale = Vector2(1.16395, 1.16395)
-gender = 1
+gender = 0
 
 [node name="DoctorMadrigal" parent="Entities/Living" index="1" instance=ExtResource("4_17uen")]
 position = Vector2(728, 572)
