@@ -212,6 +212,7 @@ autowrap_mode = 3
 string_formatter = SubResource("Resource_js1b8")
 
 [node name="Wrong" type="Label" parent="Board/BoardMargin/PageRouterContainer/EndPage/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer" index="2"]
+visible = false
 layout_mode = 2
 text = "Score: no. 2"
 label_settings = SubResource("LabelSettings_ffuf1")

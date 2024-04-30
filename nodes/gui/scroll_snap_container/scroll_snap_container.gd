@@ -23,6 +23,8 @@ enum ScrollDirection {
 			await ready
 			
 		var snap_size: Vector2 = get_scroll_size() / get_scroll_children_size()
+		#printerr(snap_size)
+		#scroll_horizontal_custom_step = abs(snap_size.x)
 		#printerr(get_scroll_children_size())
 		match scroll_direction: 
 			ScrollDirection.HORIZONTAL: 
@@ -42,6 +44,7 @@ enum ScrollDirection {
 			await ready
 		scroll_horizontal_lerp.interpolation = interpolation
 		scroll_vertical_lerp.interpolation = interpolation
+@export var mouse_ignore_h_scroll_bar: bool
 
 @export_group("Dependencies")
 @export var scroll_horizontal_lerp: FloatPropertyLerpComponent
@@ -51,7 +54,8 @@ enum ScrollDirection {
 func _ready() -> void: 
 	scroll_horizontal_lerp.finished.connect(_on_scroll_lerp_finished)
 	scroll_vertical_lerp.finished.connect(_on_scroll_lerp_finished)
-
+	if mouse_ignore_h_scroll_bar: 
+		get_h_scroll_bar().mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 #func update() -> void: 
 	#pass

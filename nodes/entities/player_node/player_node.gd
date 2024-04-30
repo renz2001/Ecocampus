@@ -34,6 +34,7 @@ func _on_walk_state_entered() -> void:
 
 
 func _on_can_tap_state_input(event: InputEvent) -> void:
+	#event.
 	if event.is_action_pressed("tap"): 
 		if mouse_position.get_position_direction_relative_to(global_position)[0] == BaseGlobalEnums.Directions.LEFT: 
 			state_chart.send_event("left")

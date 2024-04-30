@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bqny6jbecen3l"]
+[gd_scene load_steps=14 format=3 uid="uid://bqny6jbecen3l"]
 
 [ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/macchi's_gui_manager/nodes/gui/gui/gui.tscn" id="1_cwby0"]
 [ext_resource type="Script" path="res://nodes/gui/cosmetic_select_card/cosmetic_select_card.gd" id="2_gjsv2"]
@@ -7,10 +7,15 @@
 [ext_resource type="Resource" uid="uid://ohh3qdnbacsf" path="res://resources/cosmetics_collection/cosmetics_collection.tres" id="3_w1swy"]
 [ext_resource type="PackedScene" uid="uid://bg70bh8vbivny" path="res://nodes/gui/cosmetics_display_card_container/cosmetics_display_card_container.tscn" id="4_v5q5i"]
 [ext_resource type="PackedScene" uid="uid://ba6uieidm61wl" path="res://nodes/gui/buttons/texture_button_plus/texture_button_plus.tscn" id="4_wqdmp"]
+[ext_resource type="FontFile" uid="uid://cp5vi568oh4jl" path="res://fonts/Ubuntu-Bold.ttf" id="5_o5xkj"]
 [ext_resource type="Texture2D" uid="uid://br2a12xqh0v10" path="res://assets/material_icons/play_arrow.png" id="6_a1me2"]
 [ext_resource type="PackedScene" uid="uid://b2fqifa3ihc1f" path="res://nodes/gui_components/scroll_snap_controller/scroll_snap_controller.tscn" id="6_yaduu"]
 [ext_resource type="PackedScene" uid="uid://c1d4krljf0hr2" path="res://nodes/gui/equip_cosmetic_button/equip_cosmetic_button.tscn" id="9_xibm5"]
 [ext_resource type="Resource" uid="uid://ccu36slooej8y" path="res://resources/cosmetics/default.tres" id="11_6bhsx"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_m6onl"]
+font = ExtResource("5_o5xkj")
+font_size = 40
 
 [node name="CosmeticSelectCard" node_paths=PackedStringArray("player_gender_label", "scroll_snap_container", "cosmetics_display_container", "equip_cosmetic_button") instance=ExtResource("1_cwby0")]
 custom_minimum_size = Vector2(363, 528)
@@ -43,11 +48,14 @@ offset_right = 40.0
 offset_bottom = 60.0
 theme_override_font_sizes/font_size = 30
 text = "MALE"
+label_settings = SubResource("LabelSettings_m6onl")
 
 [node name="ScrollSnapContainer" parent="PanelContainer/MarginContainer/Select" index="1" instance=ExtResource("3_j2gae")]
 layout_mode = 2
 offset_right = 304.0
 offset_bottom = 422.0
+mouse_filter = 2
+mouse_ignore_h_scroll_bar = true
 
 [node name="CosmeticsDisplayCardContainer" parent="PanelContainer/MarginContainer/Select/ScrollSnapContainer" index="2" instance=ExtResource("4_v5q5i")]
 layout_mode = 2
@@ -96,14 +104,14 @@ texture_normal = ExtResource("6_a1me2")
 scroll_snap_container = NodePath("../../../ScrollSnapContainer")
 control = NodePath("..")
 
-[connection signal="visibility_changed" from="PanelContainer/MarginContainer/Select/ScrollSnapContainer/CosmeticsDisplayCardContainer/@Control@18412" to="PanelContainer/MarginContainer/Select/ScrollSnapContainer/CosmeticsDisplayCardContainer/@Control@18412" method="_on_visibility_changed"]
-[connection signal="visibility_changed" from="PanelContainer/MarginContainer/Select/ScrollSnapContainer/CosmeticsDisplayCardContainer/@Control@18414" to="PanelContainer/MarginContainer/Select/ScrollSnapContainer/CosmeticsDisplayCardContainer/@Control@18414" method="_on_visibility_changed"]
-[connection signal="visibility_changed" from="PanelContainer/MarginContainer/Select/ScrollSnapContainer/CosmeticsDisplayCardContainer/@Control@18416" to="PanelContainer/MarginContainer/Select/ScrollSnapContainer/CosmeticsDisplayCardContainer/@Control@18416" method="_on_visibility_changed"]
-[connection signal="visibility_changed" from="PanelContainer/MarginContainer/Select/ScrollSnapContainer/CosmeticsDisplayCardContainer/@Control@18418" to="PanelContainer/MarginContainer/Select/ScrollSnapContainer/CosmeticsDisplayCardContainer/@Control@18418" method="_on_visibility_changed"]
-[connection signal="visibility_changed" from="PanelContainer/MarginContainer/Select/ScrollSnapContainer/CosmeticsDisplayCardContainer/@Control@18420" to="PanelContainer/MarginContainer/Select/ScrollSnapContainer/CosmeticsDisplayCardContainer/@Control@18420" method="_on_visibility_changed"]
-[connection signal="visibility_changed" from="PanelContainer/MarginContainer/Select/ScrollSnapContainer/CosmeticsDisplayCardContainer/@Control@18422" to="PanelContainer/MarginContainer/Select/ScrollSnapContainer/CosmeticsDisplayCardContainer/@Control@18422" method="_on_visibility_changed"]
-[connection signal="visibility_changed" from="PanelContainer/MarginContainer/Select/ScrollSnapContainer/CosmeticsDisplayCardContainer/@Control@18424" to="PanelContainer/MarginContainer/Select/ScrollSnapContainer/CosmeticsDisplayCardContainer/@Control@18424" method="_on_visibility_changed"]
-[connection signal="visibility_changed" from="PanelContainer/MarginContainer/Select/ScrollSnapContainer/CosmeticsDisplayCardContainer/@Control@18426" to="PanelContainer/MarginContainer/Select/ScrollSnapContainer/CosmeticsDisplayCardContainer/@Control@18426" method="_on_visibility_changed"]
-[connection signal="visibility_changed" from="PanelContainer/MarginContainer/Select/ScrollSnapContainer/CosmeticsDisplayCardContainer/@Control@18428" to="PanelContainer/MarginContainer/Select/ScrollSnapContainer/CosmeticsDisplayCardContainer/@Control@18428" method="_on_visibility_changed"]
-[connection signal="visibility_changed" from="PanelContainer/MarginContainer/Select/ScrollSnapContainer/CosmeticsDisplayCardContainer/@Control@18430" to="PanelContainer/MarginContainer/Select/ScrollSnapContainer/CosmeticsDisplayCardContainer/@Control@18430" method="_on_visibility_changed"]
-[connection signal="visibility_changed" from="PanelContainer/MarginContainer/Select/ScrollSnapContainer/CosmeticsDisplayCardContainer/@Control@18432" to="PanelContainer/MarginContainer/Select/ScrollSnapContainer/CosmeticsDisplayCardContainer/@Control@18432" method="_on_visibility_changed"]
+[connection signal="visibility_changed" from="PanelContainer/MarginContainer/Select/ScrollSnapContainer/CosmeticsDisplayCardContainer/@Control@51371" to="PanelContainer/MarginContainer/Select/ScrollSnapContainer/CosmeticsDisplayCardContainer/@Control@51371" method="_on_visibility_changed"]
+[connection signal="visibility_changed" from="PanelContainer/MarginContainer/Select/ScrollSnapContainer/CosmeticsDisplayCardContainer/@Control@51373" to="PanelContainer/MarginContainer/Select/ScrollSnapContainer/CosmeticsDisplayCardContainer/@Control@51373" method="_on_visibility_changed"]
+[connection signal="visibility_changed" from="PanelContainer/MarginContainer/Select/ScrollSnapContainer/CosmeticsDisplayCardContainer/@Control@51375" to="PanelContainer/MarginContainer/Select/ScrollSnapContainer/CosmeticsDisplayCardContainer/@Control@51375" method="_on_visibility_changed"]
+[connection signal="visibility_changed" from="PanelContainer/MarginContainer/Select/ScrollSnapContainer/CosmeticsDisplayCardContainer/@Control@51377" to="PanelContainer/MarginContainer/Select/ScrollSnapContainer/CosmeticsDisplayCardContainer/@Control@51377" method="_on_visibility_changed"]
+[connection signal="visibility_changed" from="PanelContainer/MarginContainer/Select/ScrollSnapContainer/CosmeticsDisplayCardContainer/@Control@51379" to="PanelContainer/MarginContainer/Select/ScrollSnapContainer/CosmeticsDisplayCardContainer/@Control@51379" method="_on_visibility_changed"]
+[connection signal="visibility_changed" from="PanelContainer/MarginContainer/Select/ScrollSnapContainer/CosmeticsDisplayCardContainer/@Control@51381" to="PanelContainer/MarginContainer/Select/ScrollSnapContainer/CosmeticsDisplayCardContainer/@Control@51381" method="_on_visibility_changed"]
+[connection signal="visibility_changed" from="PanelContainer/MarginContainer/Select/ScrollSnapContainer/CosmeticsDisplayCardContainer/@Control@51383" to="PanelContainer/MarginContainer/Select/ScrollSnapContainer/CosmeticsDisplayCardContainer/@Control@51383" method="_on_visibility_changed"]
+[connection signal="visibility_changed" from="PanelContainer/MarginContainer/Select/ScrollSnapContainer/CosmeticsDisplayCardContainer/@Control@51385" to="PanelContainer/MarginContainer/Select/ScrollSnapContainer/CosmeticsDisplayCardContainer/@Control@51385" method="_on_visibility_changed"]
+[connection signal="visibility_changed" from="PanelContainer/MarginContainer/Select/ScrollSnapContainer/CosmeticsDisplayCardContainer/@Control@51387" to="PanelContainer/MarginContainer/Select/ScrollSnapContainer/CosmeticsDisplayCardContainer/@Control@51387" method="_on_visibility_changed"]
+[connection signal="visibility_changed" from="PanelContainer/MarginContainer/Select/ScrollSnapContainer/CosmeticsDisplayCardContainer/@Control@51389" to="PanelContainer/MarginContainer/Select/ScrollSnapContainer/CosmeticsDisplayCardContainer/@Control@51389" method="_on_visibility_changed"]
+[connection signal="visibility_changed" from="PanelContainer/MarginContainer/Select/ScrollSnapContainer/CosmeticsDisplayCardContainer/@Control@51391" to="PanelContainer/MarginContainer/Select/ScrollSnapContainer/CosmeticsDisplayCardContainer/@Control@51391" method="_on_visibility_changed"]

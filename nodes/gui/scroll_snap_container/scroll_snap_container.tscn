@@ -13,6 +13,7 @@ duration = 0.1
 [node name="ScrollSnapContainer" type="ScrollContainer" node_paths=PackedStringArray("scroll_horizontal_lerp", "scroll_vertical_lerp")]
 script = ExtResource("1_fou41")
 interpolation = SubResource("Resource_6mppe")
+mouse_ignore_h_scroll_bar = null
 scroll_horizontal_lerp = NodePath("ScrollHorizontalLerpComponent")
 scroll_vertical_lerp = NodePath("ScrollVerticalLerpComponent")
 

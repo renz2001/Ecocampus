@@ -50,6 +50,11 @@ only_one_instance = false
 [node name="QuizAttemptScreen" parent="Root/MarginContainer/BaseControl/Playing" index="0" instance=ExtResource("8_rgdf8")]
 layout_mode = 1
 
+[node name="IfPlayingExitedSetProperty" parent="Root/MarginContainer/BaseControl/Playing/QuizAttemptScreen" index="3" node_paths=PackedStringArray("node") instance=ExtResource("9_ep4ey")]
+property = "playing_state"
+state_event = 1
+node = NodePath("..")
+
 [node name="PlayerHUD" parent="Root/MarginContainer/BaseControl/Playing" index="1" instance=ExtResource("9_32jpw")]
 layout_mode = 1
 
@@ -69,6 +74,11 @@ node = NodePath("../..")
 layout_mode = 1
 only_one_instance = false
 
+[node name="IfPlayingExitedSetProperty" parent="Root/MarginContainer/BaseControl/Playing/CustomizeCharacterScreen" index="2" node_paths=PackedStringArray("node") instance=ExtResource("9_ep4ey")]
+property = "playing_state"
+state_event = 1
+node = NodePath("..")
+
 [node name="DialogueGUIManager" parent="Root/MarginContainer/BaseControl/Playing" index="5" instance=ExtResource("3_ew5n2")]
 layout_mode = 1
 
@@ -78,6 +88,11 @@ only_one_instance = false
 [node name="SettingsMenu" parent="Root/MarginContainer/BaseControl" index="2" instance=ExtResource("13_qklwl")]
 layout_mode = 1
 only_one_instance = false
+
+[node name="IfPlayingExitedSetProperty" parent="Root/MarginContainer/BaseControl/SettingsMenu" index="3" node_paths=PackedStringArray("node") instance=ExtResource("9_ep4ey")]
+property = "playing_state"
+state_event = 1
+node = NodePath("..")
 
 [node name="MarginContainer" type="MarginContainer" parent="Root/MarginContainer/BaseControl" index="3"]
 layout_mode = 1

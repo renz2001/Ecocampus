@@ -20,7 +20,7 @@ reward_points = 1
 
 [sub_resource type="Resource" id="Resource_cgm7c"]
 script = ExtResource("1_inpls")
-question = "What does the Guard NPC emphasize about waste collection?"
+question = "What does Sir Guzman emphasize about waste collection?"
 correct_answer = "Its crucial role in campus sustainability"
 wrong_answers = Array[String](["Its negative impact on the environment", "Its irrelevance to campus life", "Its contribution to pollution"])
 reward_points = 1
