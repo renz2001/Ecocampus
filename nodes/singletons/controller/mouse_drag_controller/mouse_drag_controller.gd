@@ -66,6 +66,10 @@ func _clear() -> void:
 		node_being_dragged.queue_free()
 		node_being_dragged = null
 	
+	for child in get_children(): 
+		if !child is CollisionShape2D: 
+			child.queue_free()
+	
 	collision.global_position = Vector2.ZERO
 	drag_data.clear()
 	

@@ -20,7 +20,7 @@ func _init() -> void:
 
 func init(_tree: SceneTree, _task: EcoQuestTask) -> void: 
 	super.init(_tree, _task)
-	if counter.maximum_hit.is_connected(_on_counter_maximum_hit): 
+	if !counter.maximum_hit.is_connected(_on_counter_maximum_hit): 
 		counter.maximum_hit.connect(_on_counter_maximum_hit, CONNECT_ONE_SHOT)
 	#var instance: EcoQuestTaskScriptConditionNode = scene.instantiate()
 	#tree.current_scene.add_child(instance)

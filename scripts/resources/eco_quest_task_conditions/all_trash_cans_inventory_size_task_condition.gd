@@ -12,7 +12,7 @@ var trash_cans: Array[Node]:
 func _initialized() -> void: 
 	check()
 	for can: TrashCanNode in trash_cans: 
-		if can.inventory.items_changed.is_connected(_on_items_changed): 
+		if !can.inventory.items_changed.is_connected(_on_items_changed): 
 			can.inventory.items_changed.connect(_on_items_changed)
 
 

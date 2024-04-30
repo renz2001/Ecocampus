@@ -4,7 +4,7 @@ class_name TurnOffFaucetTaskCondition
 var listener: WorldEventListener
 
 func _initialized() -> void: 
-	if WorldEventManager.event_called.is_connected(_on_event_called): 
+	if !WorldEventManager.event_called.is_connected(_on_event_called): 
 		WorldEventManager.event_called.connect(_on_event_called)
 	initialized()
 	
@@ -15,7 +15,8 @@ func initialized() -> void:
 		if !faucet.is_on(): 
 			counter.increment()
 		else: 
-			faucet.turned_off.connect(_on_bulb_turned_off)
+			if !faucet.turned_off.is_connected(_on_bulb_turned_off): 
+				faucet.turned_off.connect(_on_bulb_turned_off)
 	
 	
 func _on_event_called(event: String, _by: Node, _args: Array) -> void: 

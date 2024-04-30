@@ -467,5 +467,4 @@ libraries = {
 [connection signal="state_entered" from="StateChart/Root/Enabled/TapState/CanTap" to="." method="_on_can_tap_state_entered"]
 [connection signal="state_exited" from="StateChart/Root/Enabled/TapState/CanTap" to="." method="_on_can_tap_state_exited"]
 [connection signal="finished_navigation" from="Components/Movement/PathFindMovementComponent" to="." method="_on_path_find_movement_component_finished_navigation"]
-[connection signal="velocity_computed" from="NavigationAgent2D" to="Components/Movement/WalkPathFindMovement" method="_on_navigation_agent_2d_velocity_computed"]
 [connection signal="velocity_computed" from="NavigationAgent2D" to="Components/Movement/PathFindMovementComponent" method="_on_navigation_agent_2d_velocity_computed"]

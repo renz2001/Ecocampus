@@ -205,6 +205,7 @@ func _to_string() -> String:
 	return string
 	
 	
+# FIXME: NEEDS WORK
 func _is_value_too_big(value: int) -> bool: 
 	return max_items > 0 && value >= max_items
 	

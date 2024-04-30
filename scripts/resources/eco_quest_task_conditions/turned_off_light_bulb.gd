@@ -4,7 +4,7 @@ class_name TurnOffLightBulbTaskCondition
 var listener: WorldEventListener
 
 func _initialized() -> void: 
-	if WorldEventManager.event_called.is_connected(_on_event_called): 
+	if !WorldEventManager.event_called.is_connected(_on_event_called): 
 		WorldEventManager.event_called.connect(_on_event_called)
 	initialized()
 	
@@ -15,7 +15,8 @@ func initialized() -> void:
 		if !bulb.is_on(): 
 			counter.increment()
 		else: 
-			bulb.turned_off.connect(_on_bulb_turned_off)
+			if !bulb.turned_off.is_connected(_on_bulb_turned_off): 
+				bulb.turned_off.connect(_on_bulb_turned_off)
 	
 	
 func _on_event_called(event: String, _by: Node, _args: Array) -> void: 
