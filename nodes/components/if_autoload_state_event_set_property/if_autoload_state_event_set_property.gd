@@ -14,7 +14,7 @@ enum StateEvent {
 func _ready() -> void: 
 	super._ready()
 	var autoload_node: Node = NodeTools.get_autoload(self, autoload)
-	var state: AtomicState = autoload_node.get(property) 
+	var state: State = autoload_node.get(property) 
 	
 	match state_event: 
 		StateEvent.STATE_ENTERED: 

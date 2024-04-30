@@ -1,9 +1,13 @@
-[gd_resource type="Resource" script_class="QuestsCollection" load_steps=4 format=3 uid="uid://bi6mer5mjqaty"]
+[gd_resource type="Resource" script_class="QuestsCollection" load_steps=8 format=3 uid="uid://bi6mer5mjqaty"]
 
 [ext_resource type="Resource" uid="uid://cktltn1m3bfqb" path="res://resources/achievement_quests/test_achievement_quest.tres" id="1_e2x6a"]
-[ext_resource type="Resource" uid="uid://c2x51gyw7ec5w" path="res://resources/quests/test_quest.tres" id="2_jsnig"]
+[ext_resource type="Resource" uid="uid://djr5dksp1iyt" path="res://resources/quests/con_quest.tres" id="2_hf2xw"]
+[ext_resource type="Resource" uid="uid://bp866e3wvjnkn" path="res://resources/quests/dit_quest.tres" id="3_4kegm"]
 [ext_resource type="Script" path="res://scripts/resources/quests_collection.gd" id="3_f8fwx"]
+[ext_resource type="Resource" uid="uid://dqnawmf4l2y2c" path="res://resources/quests/gate_1_quest.tres" id="4_eipi3"]
+[ext_resource type="Resource" uid="uid://cdlhu1mvsokoq" path="res://resources/quests/library_quest.tres" id="5_me2qt"]
+[ext_resource type="Resource" uid="uid://ch7fcp5l0o067" path="res://resources/quests/saluysuy_quest.tres" id="6_7g022"]
 
 [resource]
 script = ExtResource("3_f8fwx")
-collection = Array[Resource("res://addons/quest_system/quest_resource.gd")]([ExtResource("1_e2x6a"), ExtResource("2_jsnig")])
+collection = Array[Resource("res://addons/quest_system/quest_resource.gd")]([ExtResource("1_e2x6a"), ExtResource("2_hf2xw"), ExtResource("3_4kegm"), ExtResource("4_eipi3"), ExtResource("5_me2qt"), ExtResource("6_7g022")])

@@ -15,4 +15,5 @@
 
 [resource]
 script = ExtResource("1_16m7q")
-cosmetics = Array[Resource("res://scripts/resources/cosmetic.gd")]([ExtResource("1_tg31m"), ExtResource("2_lf0xb"), ExtResource("3_exlm6"), ExtResource("4_d6i8g"), ExtResource("5_u5nx0"), ExtResource("6_7flf7"), ExtResource("7_7qayv"), ExtResource("8_ukbsa"), ExtResource("9_pm852"), ExtResource("10_j3i8p"), ExtResource("11_le5ck")])
+cosmetics = Array[Resource("res://scripts/resources/cosmetic.gd")]([ExtResource("1_tg31m"), ExtResource("3_exlm6"), ExtResource("4_d6i8g"), ExtResource("5_u5nx0"), ExtResource("10_j3i8p"), ExtResource("9_pm852"), ExtResource("8_ukbsa"), ExtResource("7_7qayv"), ExtResource("2_lf0xb"), ExtResource("6_7flf7"), ExtResource("11_le5ck")])
+save_as_resource_path = false

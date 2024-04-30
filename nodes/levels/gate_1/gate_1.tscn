@@ -24,6 +24,7 @@ source_geometry_group_name = &"navigation_polygon_source_group"
 [sub_resource type="Resource" id="Resource_1uyd6"]
 script = ExtResource("9_7qys1")
 value = "8481819993523898686"
+save_as_resource_path = false
 
 [node name="Gate1" instance=ExtResource("1_ycc0e")]
 
@@ -39,8 +40,8 @@ follow_node = NodePath("../../Entities/Living/PlayerNode")
 [node name="TextureRect" type="TextureRect" parent="Background/CanvasLayer" index="1"]
 offset_left = -66.0
 offset_top = -391.0
-offset_right = 1969.0
-offset_bottom = 1129.0
+offset_right = 1991.0
+offset_bottom = 1125.0
 scale = Vector2(0.948352, 0.948352)
 pivot_offset = Vector2(1029, 768)
 texture = ExtResource("2_83yqh")
@@ -51,8 +52,8 @@ stretch_mode = 5
 position = Vector2(1589, 899)
 
 [node name="SirGuzman" parent="Entities/Living" index="1" instance=ExtResource("4_22fi1")]
-position = Vector2(706, 614)
-scale = Vector2(0.581841, 0.581841)
+position = Vector2(737, 608)
+scale = Vector2(0.572338, 0.572338)
 dialogue = ExtResource("5_ps4hj")
 quiz = ExtResource("8_q1xfd")
 quest = ExtResource("8_ong1o")

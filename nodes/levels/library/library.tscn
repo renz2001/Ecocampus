@@ -55,9 +55,10 @@ quiz = ExtResource("4_vwvne")
 position = Vector2(1296, 586)
 scale = Vector2(0.886484, 0.886484)
 dialogue = ExtResource("6_vh0rf")
+quiz = ExtResource("4_vwvne")
 quest = ExtResource("7_h3337")
 
-[node name="IfQuestCompleteThenSetResource" parent="Entities/Living/ProfessorGrayson" index="10" node_paths=PackedStringArray("node") instance=ExtResource("8_rxhd3")]
+[node name="IfQuestCompleteThenSetResource" parent="Entities/Living/ProfessorGrayson" index="9" node_paths=PackedStringArray("node") instance=ExtResource("8_rxhd3")]
 check_quest = ExtResource("7_h3337")
 node = NodePath("..")
 new_value = ExtResource("9_45nek")

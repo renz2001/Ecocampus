@@ -22,6 +22,9 @@ save_as_resource_path = false
 
 [node name="TrashCansLevel" instance=ExtResource("1_4fkii")]
 
+[node name="GUIs" parent="." index="0"]
+layer = 4
+
 [node name="Root" type="Control" parent="GUIs" index="0"]
 layout_mode = 3
 anchors_preset = 15
@@ -59,7 +62,6 @@ stretch_mode = 5
 
 [node name="PlayerNode" parent="Entities/Living" index="0" instance=ExtResource("6_ma7va")]
 position = Vector2(-433, 670)
-gender = 0
 
 [node name="TrashCans" type="Node2D" parent="Entities/NonLiving" index="0"]
 position = Vector2(1218, 838)

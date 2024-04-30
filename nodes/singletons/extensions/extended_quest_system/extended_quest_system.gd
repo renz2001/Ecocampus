@@ -10,10 +10,9 @@ func serialize_quests(pool: String) -> Dictionary:
 	var quest_dictionary: Dictionary = {}
 	
 	for quest: Quest in pool_node.quests:
-		print(quest)
-		
 		var save: PropertiesToSave = PropertiesToSave.new()
 		save.properties = [
+			"id", 
 			"tasks", 
 			"objective_completed", 
 		]

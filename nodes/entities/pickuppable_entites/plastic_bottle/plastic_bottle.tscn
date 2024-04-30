@@ -34,6 +34,12 @@ save_as_resource_path = false
 inventory = SubResource("Resource_beh1a")
 data = SubResource("Resource_8fjol")
 
+[node name="TapHitBox" parent="CanvasLayer/Root" index="0"]
+offset_left = -66.0
+offset_top = -68.0
+offset_right = 75.0
+offset_bottom = 29.0
+
 [node name="EntitySprite" parent="Sprites" index="1"]
 position = Vector2(6, -19)
 scale = Vector2(0.439974, 0.439974)

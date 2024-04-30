@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bi3j4clefo8l"]
+[gd_scene load_steps=16 format=3 uid="uid://bi3j4clefo8l"]
 
 [ext_resource type="PackedScene" uid="uid://cm6jeskbiise6" path="res://nodes/abstract_scenes/level_node/level_node.tscn" id="1_fiqww"]
 [ext_resource type="Texture2D" uid="uid://dwio4j5yvarq1" path="res://assets/background/camera_pictures/con_bg.jpg" id="2_eiuxd"]
@@ -9,6 +9,7 @@
 [ext_resource type="Resource" uid="uid://djr5dksp1iyt" path="res://resources/quests/con_quest.tres" id="7_ob5e1"]
 [ext_resource type="Script" path="res://addons/save_components_system/scripts/resources/id.gd" id="8_jaiqu"]
 [ext_resource type="PackedScene" uid="uid://dtmll2lv3i17x" path="res://nodes/entities/zilong/zilong.tscn" id="8_lcx2o"]
+[ext_resource type="PackedScene" uid="uid://d3ckyt0j2xo5s" path="res://nodes/components/if_quest_complete_then_set_resource/if_quest_complete_then_set_resource.tscn" id="8_ss337"]
 [ext_resource type="Resource" uid="uid://deo28qo5r8iky" path="res://resources/dialogue_arguments/zilong_dialogue.tres" id="9_2ri8o"]
 [ext_resource type="PackedScene" uid="uid://bpsxhkc4aak0g" path="res://nodes/entities/pickuppable_entites/plastic_bag/plastic_bag.tscn" id="10_cgcwh"]
 [ext_resource type="PackedScene" uid="uid://de0t0vj8vdxfw" path="res://nodes/entities/pickuppable_entites/juice_box/juice_box.tscn" id="11_sa5jh"]
@@ -53,6 +54,10 @@ scale = Vector2(0.396905, 0.396905)
 dialogue = ExtResource("5_ic0dq")
 quiz = ExtResource("6_g07y4")
 quest = ExtResource("7_ob5e1")
+
+[node name="IfQuestCompleteThenSetResource" parent="Entities/Living/ProfessorCruz" index="10" node_paths=PackedStringArray("node") instance=ExtResource("8_ss337")]
+check_quest = ExtResource("7_ob5e1")
+node = NodePath("..")
 
 [node name="Zilong" parent="Entities/Living" index="2" instance=ExtResource("8_lcx2o")]
 position = Vector2(362, 764)

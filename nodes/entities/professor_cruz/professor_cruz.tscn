@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://ysp2h4h7neww"]
+[gd_scene load_steps=5 format=3 uid="uid://ysp2h4h7neww"]
 
 [ext_resource type="PackedScene" uid="uid://b8627vb83551h" path="res://nodes/abstract_scenes/npc_node/npc_node.tscn" id="1_nmv05"]
 [ext_resource type="Resource" uid="uid://c3jxb53fw4muy" path="res://resources/entity/professor_cruz.tres" id="2_p4q5a"]
@@ -7,17 +7,14 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iliwx"]
 size = Vector2(81, 37.5)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hnwhy"]
-size = Vector2(79, 17)
-
 [node name="ProfessorCruz" instance=ExtResource("1_nmv05")]
 data = ExtResource("2_p4q5a")
 
-[node name="TapHitBox" parent="." index="0"]
-offset_left = -126.0
-offset_top = -363.0
-offset_right = 166.0
-offset_bottom = 11.0
+[node name="TapHitBox" parent="CanvasLayer/Root" index="0"]
+offset_left = -137.0
+offset_top = -378.0
+offset_right = 168.0
+offset_bottom = 34.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" index="0"]
 position = Vector2(-0.5, -9.25)
@@ -33,7 +30,3 @@ texture = ExtResource("3_rrqn7")
 hframes = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="8"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="9"]
-position = Vector2(-1.5, -0.5)
-shape = SubResource("RectangleShape2D_hnwhy")

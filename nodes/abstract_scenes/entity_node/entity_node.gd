@@ -1,3 +1,4 @@
+@tool
 extends CharacterBody2D
 class_name EntityNode
 
@@ -52,9 +53,16 @@ signal interacted
 @export var call_world_event_component: CallWorldEventComponent
 @export var ready_unique_resource: ReadyUniqueResource
 @export var master_save_component: MasterSaveComponent
+@export var tap_hit_box: Button
+@export var tap_hit_box_root: Control
 
 func _ready() -> void: 
 	pass
+	
+	
+func _process(delta: float) -> void: 
+	tap_hit_box_root.global_position = global_position
+	tap_hit_box_root.scale = scale
 	
 	
 func set_data(value: Entity) -> void: 
@@ -104,11 +112,17 @@ func show_interact_dialog(description: BaseLabelText) -> void:
 func _on_tap_hit_box_pressed() -> void:
 	if !PlayerManager.player: 
 		return
+	PlayerManager.player.is_move_to_position = true
+	PlayerManager.player.move_to_position = global_position
+	PlayerManager.player.move_to_position.y += 40 * scale.y
+	
+	PlayerManager.player.move()
 	if display_interact_dialog: 
 		if wait_for_player_to_display_interact_dialog: 
 			if !PlayerManager.player.path_find.changed_target.is_connected(_on_changed_target): 
 				PlayerManager.player.path_find.changed_target.connect(_on_changed_target, CONNECT_ONE_SHOT)
-			PlayerManager.player.path_find.finished_navigation.connect(_on_finished_navigation, CONNECT_ONE_SHOT)
+			if !PlayerManager.player.path_find.finished_navigation.is_connected(_on_finished_navigation): 
+				PlayerManager.player.path_find.finished_navigation.connect(_on_finished_navigation, CONNECT_ONE_SHOT)
 		else: 
 			show_interact_dialog(interact_description)
 	else: 
@@ -122,6 +136,7 @@ func _on_changed_target() -> void:
 
 func _on_finished_navigation() -> void: 
 	show_interact_dialog(interact_description)
+	PlayerManager.player.is_move_to_position = false
 
 
 func _on_dialogue_response_handler_responded(value: String) -> void: 

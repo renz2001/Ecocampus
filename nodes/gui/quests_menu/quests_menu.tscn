@@ -9,7 +9,7 @@
 font = ExtResource("3_dmhab")
 font_size = 50
 
-[node name="QuestsMenu" node_paths=PackedStringArray("panel_container", "quests_container") instance=ExtResource("1_mmghx")]
+[node name="QuestsMenu" node_paths=PackedStringArray("panel_container", "quests_container") groups=["QuestsMenu"] instance=ExtResource("1_mmghx")]
 script = ExtResource("2_crym1")
 panel_container = NodePath("PanelContainer")
 quests_container = NodePath("PanelContainer/VBoxContainer/ScrollContainer/QuestsContainer")

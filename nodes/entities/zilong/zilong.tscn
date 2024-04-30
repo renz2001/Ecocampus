@@ -5,11 +5,11 @@
 
 [node name="Zilong" instance=ExtResource("1_e8lej")]
 
-[node name="TapHitBox" parent="." index="0"]
+[node name="TapHitBox" parent="CanvasLayer/Root" index="0"]
 offset_left = -129.0
-offset_top = -312.0
+offset_top = -335.0
 offset_right = 115.0
-offset_bottom = 14.0
+offset_bottom = 23.0
 
 [node name="EntitySprite" parent="Sprites" index="1"]
 position = Vector2(0, -151)

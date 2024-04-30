@@ -39,8 +39,8 @@ func load_game(scene_tree: SceneTree, current_id: String) -> void:
 		return
 	var data_group: Dictionary = data[current_id]
 	
+	
 	for key: String in data_group.keys(): 
-
 		if scene_tree.current_scene.has_node(key): 
 			var follower_node: FollowerSaveComponent = scene_tree.current_scene.get_node(key)
 			var load_data: Dictionary = data_group[key]
@@ -49,6 +49,8 @@ func load_game(scene_tree: SceneTree, current_id: String) -> void:
 	for key: String in data.keys(): 
 		if key == "Globals": 
 			for path: String in data[key]: 
+				#if path == "/root/GlobalsSave/QuestSystemSaveComponent": 
+					#printerr(data[key][path])
 				var follower_node: FollowerSaveComponent = scene_tree.current_scene.get_node(path)
 				var load_data: Dictionary = data[key][path]
 				follower_node.load_dict(load_data)

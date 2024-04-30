@@ -11,11 +11,13 @@
 script = ExtResource("3_s5ogb")
 model = ExtResource("2_86hal")
 stack_starting_value = 1.0
+save_as_resource_path = false
 
 [sub_resource type="Resource" id="Resource_bm6mt"]
 script = ExtResource("4_spif0")
 items = Array[ExtResource("3_s5ogb")]([SubResource("Resource_87mav")])
 max_items = -1
+save_as_resource_path = false
 
 [sub_resource type="Resource" id="Resource_hq2ec"]
 script = ExtResource("5_ujb45")
@@ -24,17 +26,26 @@ environmental_impact = ""
 custom_name = ""
 name = "Plastic Bag"
 gender = 0
+facing_left = false
 group = "Entity"
+save_as_resource_path = false
 
 [node name="PlasticBag" instance=ExtResource("1_qq2vx")]
 inventory = SubResource("Resource_bm6mt")
 data = SubResource("Resource_hq2ec")
 
+[node name="TapHitBox" parent="CanvasLayer/Root" index="0"]
+offset_left = -83.0
+offset_top = -110.0
+offset_right = 75.0
+offset_bottom = 39.0
+
 [node name="ShadowCircle" parent="Sprites" index="0"]
+visible = false
 position = Vector2(-4.85, 7.91339)
 
 [node name="EntitySprite" parent="Sprites" index="1"]
-position = Vector2(-4.85, -31.0866)
-rotation = 1.65796
+position = Vector2(0, -27)
+rotation = 0.132543
 scale = Vector2(0.473348, 0.473348)
 texture = ExtResource("6_cv57s")

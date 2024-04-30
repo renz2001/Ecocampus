@@ -21,7 +21,9 @@ func _ready() -> void:
 	if Engine.is_editor_hint(): 
 		return
 	PlayerManager.player_instanced.connect(_on_player_instanced)
-
+	MouseDrag.dragging_cancelled.connect(_on_dragging_cancelled)
+	MouseDrag.dropped.connect(_on_dropped)
+	
 
 func _on_player_instanced() -> void: 
 	update()
@@ -47,3 +49,9 @@ func update() -> void:
 		#printerr(slot.item)
 	
 	
+func _on_dragging_cancelled() -> void: 
+	update()
+	
+	
+func _on_dropped() -> void: 
+	update()

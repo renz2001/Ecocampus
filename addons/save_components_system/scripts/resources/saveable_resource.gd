@@ -15,7 +15,7 @@ func _init() -> void:
 	
 	
 func _save() -> void: 
-	if Engine.is_editor_hint(): 
+	if Engine.is_editor_hint() || save != null: 
 		return
 	save = PropertiesToSave.from(_save_properties())
 
@@ -38,6 +38,10 @@ func to_dict() -> Dictionary:
 		"script_resource_path": get_script().resource_path, 
 		"resource_path": resource_path
 	}
+	#printerr(self)
+	#printerr(save)
+	if save == null: 
+		_save()
 	dict.merge(save.to_dict(self))
 	return dict
 

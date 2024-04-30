@@ -6,6 +6,7 @@
 
 [node name="MouseDragController" type="Area2D" node_paths=PackedStringArray("collision")]
 z_index = 20
+position = Vector2(-56, 0)
 collision_layer = 0
 collision_mask = 64
 script = ExtResource("1_814ov")

@@ -10,11 +10,11 @@ size = Vector2(81, 44)
 [node name="ProfessorGrayson" instance=ExtResource("1_koi0q")]
 data = ExtResource("2_fnkfj")
 
-[node name="TapHitBox" parent="." index="0"]
-offset_left = -103.0
-offset_top = -362.0
-offset_right = 125.0
-offset_bottom = 16.0
+[node name="TapHitBox" parent="CanvasLayer/Root" index="0"]
+offset_left = -112.0
+offset_top = -368.0
+offset_right = 136.0
+offset_bottom = 35.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" index="0"]
 position = Vector2(0.5, -9)

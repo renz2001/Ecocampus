@@ -34,6 +34,12 @@ save_as_resource_path = false
 inventory = SubResource("Resource_ir415")
 data = SubResource("Resource_slgd0")
 
+[node name="TapHitBox" parent="CanvasLayer/Root" index="0"]
+offset_left = -41.0
+offset_top = -122.0
+offset_right = 50.0
+offset_bottom = 20.0
+
 [node name="ShadowCircle" parent="Sprites" index="0"]
 position = Vector2(-0.999998, -1)
 scale = Vector2(0.153309, 0.111802)

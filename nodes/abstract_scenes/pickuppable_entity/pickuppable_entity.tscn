@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://77dhb6ck4eyt"]
+[gd_scene load_steps=12 format=3 uid="uid://77dhb6ck4eyt"]
 
 [ext_resource type="PackedScene" uid="uid://dokfordgw2kk3" path="res://nodes/abstract_scenes/non_living_entity_node/non_living_entity_node.tscn" id="1_d4ii6"]
 [ext_resource type="Script" path="res://nodes/abstract_scenes/pickuppable_entity/pickuppable_entity.gd" id="2_a2l0a"]
 [ext_resource type="PackedScene" uid="uid://b6yh5ahr4kpcw" path="res://nodes/components/on_interact_components/on_interact_pick_up/on_interact_pick_up.tscn" id="3_u3rje"]
 [ext_resource type="Texture2D" uid="uid://bd1l0lam720ha" path="res://placeholder_assets/plastic_bottle_trash.png" id="6_6ar2y"]
 [ext_resource type="PackedScene" uid="uid://c4gnwuhmu4msa" path="res://nodes/gui_components/on_pressed_components/on_pressed_apply_material_to_node/on_pressed_apply_material_to_node.tscn" id="7_cgy4r"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="7_m44xo"]
 [ext_resource type="Script" path="res://addons/macchi's_audio_manager_and_plus/scripts/arguments/audio_stream_player_arguments.gd" id="8_8dy0j"]
 [ext_resource type="Shader" path="res://resources/shaders/outline_inline.gdshader" id="8_cxd3f"]
 [ext_resource type="AudioStream" uid="uid://dnipkpbpk6h6n" path="res://assets/audio/ui/pickup_item.wav" id="9_kjmyf"]
@@ -21,7 +22,7 @@ bus = &"Master"
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ukjcl"]
 shader = ExtResource("8_cxd3f")
 shader_parameter/color = Color(1, 1, 1, 1)
-shader_parameter/width = 5.0
+shader_parameter/width = 10.0
 shader_parameter/pattern = 0
 shader_parameter/inside = false
 shader_parameter/add_margins = true
@@ -30,15 +31,12 @@ shader_parameter/add_margins = true
 script = ExtResource("2_a2l0a")
 interact_audio = SubResource("Resource_rj2ev")
 
-[node name="TapHitBox" parent="." index="0"]
-offset_left = -68.0
-offset_top = -53.0
-offset_right = 79.0
-offset_bottom = 31.0
-
-[node name="OnPressedApplyMaterialToNode" parent="TapHitBox" index="0" node_paths=PackedStringArray("apply_to_node") instance=ExtResource("7_cgy4r")]
+[node name="OnPressedApplyMaterialToNode" parent="CanvasLayer/Root/TapHitBox" index="0" node_paths=PackedStringArray("apply_to_node") instance=ExtResource("7_cgy4r")]
 material = SubResource("ShaderMaterial_ukjcl")
-apply_to_node = NodePath("../../Sprites/EntitySprite")
+apply_to_node = NodePath("../../../../Sprites")
+
+[node name="Left" parent="StateChart/Root/Enabled/Animation" index="0"]
+script = ExtResource("7_m44xo")
 
 [node name="OnInteractPickUp" parent="Components" index="4" node_paths=PackedStringArray("entity") instance=ExtResource("3_u3rje")]
 entity = NodePath("../..")

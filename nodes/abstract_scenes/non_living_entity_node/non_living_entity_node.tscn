@@ -5,12 +5,6 @@
 
 [node name="NonLivingEntityNode" groups=["NonLivingEntity"] instance=ExtResource("1_mq6kp")]
 
-[node name="TapHitBox" parent="." index="0"]
-offset_left = -26.0
-offset_top = -26.0
-offset_right = 27.0
-offset_bottom = 16.0
-
 [node name="Left" parent="StateChart/Root/Enabled/Animation" index="0"]
 initial_state = NodePath("Nothing")
 

@@ -1,6 +1,7 @@
 extends SaveableResource
 class_name EcoQuestTask
 
+signal started
 signal completed
 
 @export var description: String
@@ -33,7 +34,7 @@ var is_completed: bool:
 func start(tree: SceneTree) -> void: 
 	if condition: 
 		condition.init(tree, self)
-
+	started.emit()
 
 #func _on_counter_maximum_hit(_value: float) -> void: 
 	#is_completed = true

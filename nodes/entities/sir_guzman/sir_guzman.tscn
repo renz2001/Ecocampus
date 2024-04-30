@@ -10,11 +10,30 @@ size = Vector2(77, 37)
 [node name="SirGuzman" instance=ExtResource("1_l8i7v")]
 data = ExtResource("2_t6ug5")
 
-[node name="TapHitBox" parent="." index="0"]
-offset_left = -113.0
+[node name="TapHitBox" parent="CanvasLayer/Root" index="0"]
+anchors_preset = 7
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -122.0
 offset_top = -388.0
-offset_right = 139.0
-offset_bottom = 13.0
+offset_right = 145.0
+offset_bottom = 20.0
+grow_vertical = 0
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Root" index="1"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -15.0
+offset_right = 15.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" index="0"]
 position = Vector2(-1.5, -8.5)

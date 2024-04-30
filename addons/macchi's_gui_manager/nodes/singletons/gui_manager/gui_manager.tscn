@@ -14,10 +14,12 @@ value_color = Color(1, 0, 0, 1)
 automatic_value_color = true
 use_spaces_for_node_name = false
 
-[node name="GUIManager" type="CanvasLayer"]
+[node name="GUIManager" type="CanvasLayer" node_paths=PackedStringArray("playing", "instanced_uis")]
 layer = 2
 follow_viewport_enabled = true
 script = ExtResource("1_2bthb")
+playing = NodePath("Root/MarginContainer/BaseControl/Playing")
+instanced_uis = NodePath("Root/MarginContainer/BaseControl/InstancedGUIs/CanvasLayer/Root")
 _print_color = SubResource("Resource_0sx6n")
 
 [node name="Root" type="Control" parent="."]
@@ -52,7 +54,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-only_one_instance = true
 
 [node name="InstancedGUIs" parent="Root/MarginContainer/BaseControl" instance=ExtResource("3_tx424")]
 layout_mode = 1
@@ -61,7 +62,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-only_one_instance = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Root/MarginContainer/BaseControl/InstancedGUIs"]
+layer = 4
+
+[node name="Root" type="Control" parent="Root/MarginContainer/BaseControl/InstancedGUIs/CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
 
 [node name="DropdownPopup" parent="." instance=ExtResource("7_44ncd")]
 visible = false

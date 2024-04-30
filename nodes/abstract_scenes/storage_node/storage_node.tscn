@@ -17,20 +17,14 @@ shader_parameter/add_margins = true
 [node name="StorageNode" instance=ExtResource("1_op1yp")]
 script = ExtResource("2_gmyt4")
 
-[node name="TapHitBox" parent="." index="0"]
-offset_left = -76.0
-offset_top = -211.0
-offset_right = 76.0
-offset_bottom = 23.0
-
-[node name="OnHoveredApplyMaterial" parent="TapHitBox" index="0" node_paths=PackedStringArray("apply_to_node") instance=ExtResource("3_h05rh")]
-material = SubResource("ShaderMaterial_pd2xc")
-apply_to_node = NodePath("../../Sprites")
-
-[node name="MouseDragDropArea" parent="." index="1" node_paths=PackedStringArray("owner_node") instance=ExtResource("3_nkrf1")]
+[node name="MouseDragDropArea" parent="." index="0" node_paths=PackedStringArray("owner_node") instance=ExtResource("3_nkrf1")]
 collision_mask = 0
 owner_node = NodePath("..")
 can_drop_condition_method = "mouse_drag_can_drop_condition"
+
+[node name="OnHoveredApplyMaterial" parent="CanvasLayer/Root/TapHitBox" index="0" node_paths=PackedStringArray("apply_to_node") instance=ExtResource("3_h05rh")]
+material = SubResource("ShaderMaterial_pd2xc")
+apply_to_node = NodePath("../../../../Sprites")
 
 [node name="ReadyUniqueResource" parent="Components" index="7"]
 disabled = false

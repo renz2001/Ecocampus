@@ -20,11 +20,11 @@ script = ExtResource("2_sci1n")
 light_bulbs = []
 interact_description = SubResource("Resource_aopd7")
 
-[node name="TapHitBox" parent="." index="0"]
-offset_left = -77.0
-offset_top = -88.0
-offset_right = 81.0
-offset_bottom = 94.0
+[node name="TapHitBox" parent="CanvasLayer/Root" index="0"]
+offset_left = -96.0
+offset_top = -108.0
+offset_right = 100.0
+offset_bottom = 117.0
 
 [node name="State" type="Node" parent="StateChart/Root/Enabled" index="3"]
 script = ExtResource("3_qhoh8")

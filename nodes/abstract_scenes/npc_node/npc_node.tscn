@@ -13,11 +13,11 @@ with_label_settings = false
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[sub_resource type="Animation" id="Animation_u7scl"]
-resource_name = "idle_right"
-
 [sub_resource type="Animation" id="Animation_rasy3"]
 resource_name = "idle_left"
+
+[sub_resource type="Animation" id="Animation_u7scl"]
+resource_name = "idle_right"
 
 [sub_resource type="Animation" id="Animation_x31ak"]
 resource_name = "walk_left"
@@ -35,6 +35,9 @@ _data = {
 
 [node name="NPCNode" instance=ExtResource("1_4vfvx")]
 interact_description = SubResource("Resource_xk11q")
+
+[node name="TapHitBox" parent="CanvasLayer" index="0"]
+mouse_default_cursor_shape = 2
 
 [node name="Idle" type="Node" parent="StateChart/Root/Enabled/Animation/Left" index="1"]
 script = ExtResource("2_3l8bg")

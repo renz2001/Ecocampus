@@ -9,6 +9,10 @@ var quests: Array[Quest]:
 		return ExtendedQuestSystem.active.quests as Array[Quest]
 
 
+static func this() -> QuestsMenu: 
+	return GameManager.get_tree().get_first_node_in_group("QuestsMenu")
+
+
 func _ready() -> void: 
 	update()
 	ExtendedQuestSystem.quest_accepted.connect(_on_quest_accepted)

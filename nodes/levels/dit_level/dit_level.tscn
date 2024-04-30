@@ -55,7 +55,7 @@ dialogue = ExtResource("5_2ypcq")
 quiz = ExtResource("5_5nufk")
 quest = ExtResource("7_60isj")
 
-[node name="IfQuestCompleteThenSetResource" parent="Entities/Living/ProfessorLuna" index="10" node_paths=PackedStringArray("node") instance=ExtResource("8_0w5hu")]
+[node name="IfQuestCompleteThenSetResource" parent="Entities/Living/ProfessorLuna" index="9" node_paths=PackedStringArray("node") instance=ExtResource("8_0w5hu")]
 check_quest = ExtResource("7_60isj")
 node = NodePath("..")
 new_value = ExtResource("9_0sljf")

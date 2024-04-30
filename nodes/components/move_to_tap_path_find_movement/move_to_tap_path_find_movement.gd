@@ -30,6 +30,25 @@ func move() -> void:
 	tapped.emit(mouse_pos)
 
 
+func move_at(pos: Vector2) -> void: 
+	#if disabled: 
+		#return
+		#
+	#if event.is_action_pressed("tap"): 
+	if !GameManager.is_playing(): 
+		return
+		
+	if is_instance_valid(target): 
+		target.queue_free()
+	target = Marker2D.new()
+	target.global_position = pos
+
+	#print(target.global_position)
+	get_tree().current_scene.add_child(target)
+	path_find_move_component.target = target
+	tapped.emit(pos)
+
+
 func _physics_process(_delta: float) -> void: 
 	if is_instance_valid(target): 
 		var is_moving: bool = path_find_move_component.move()

@@ -67,6 +67,7 @@ static func load_dict_to_object(obj: Object, dict: Dictionary) -> void:
 			#return
 	for property: String in dict.keys(): 
 		var value = dict[property]
+		print("obj: %s, property: %s" % [obj, property])
 		if value is String: 
 			#if property == "items": 
 				#print("%s is string" % value)
@@ -130,6 +131,7 @@ static func load_dict_to_object(obj: Object, dict: Dictionary) -> void:
 			#print(obj.get(property))
 			#if property == "items": 
 			#printerr("%s is none" % value)
+			#print("obj: %s, property: %s" % [obj, property])
 			obj.set(property, value)
 			#printerr(obj.get(property))
 

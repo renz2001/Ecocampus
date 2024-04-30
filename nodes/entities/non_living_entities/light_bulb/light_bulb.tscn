@@ -16,17 +16,25 @@ script = ExtResource("3_r7qc0")
 custom_name = ""
 name = "Light Bulb"
 gender = 0
+facing_left = false
 group = "LightBulb"
+save_as_resource_path = false
 
 [sub_resource type="Resource" id="Resource_cg4s3"]
 script = ExtResource("8_q2dlt")
 properties = PackedStringArray("inventory", "data", "quiz", "dialogue", "global_position", "global_scale", "state")
+save_properties_as_resource_path = PackedStringArray()
 
-[node name="LightBulb" node_paths=PackedStringArray("on_state") groups=["LightBulb"] instance=ExtResource("1_rx25i")]
+[node name="LightBulb" groups=["LightBulb"] instance=ExtResource("1_rx25i")]
 script = ExtResource("2_4g3bq")
 state = 1
-on_state = NodePath("StateChart/Root/Enabled/State/On")
 data = SubResource("Resource_ww6kv")
+
+[node name="TapHitBox" parent="CanvasLayer/Root" index="0"]
+offset_left = -128.0
+offset_top = -131.0
+offset_right = 140.0
+offset_bottom = 141.0
 
 [node name="State" type="Node" parent="StateChart/Root/Enabled" index="3"]
 script = ExtResource("4_e7jvl")
@@ -49,13 +57,14 @@ to = NodePath("../../Off")
 event = &"off"
 
 [node name="NodeVarietyManager" parent="Components" index="2"]
-variety_name = "Off"
+index = 1
+variety_name = "On"
 
 [node name="Off" parent="Components/NodeVarietyManager" index="0" node_paths=PackedStringArray("nodes") instance=ExtResource("3_6qvu2")]
-active = true
 nodes = [NodePath("../../../Sprites/EntitySprite")]
 
 [node name="On" parent="Components/NodeVarietyManager" index="1" node_paths=PackedStringArray("nodes") instance=ExtResource("3_6qvu2")]
+active = true
 nodes = [NodePath("../../../Sprites/On")]
 
 [node name="MasterSaveComponent" parent="Components" index="8"]
@@ -68,10 +77,10 @@ scale = Vector2(0.0460689, 0.0460689)
 visible = false
 
 [node name="EntitySprite" parent="Sprites" index="1"]
+visible = false
 texture = ExtResource("2_1cpm4")
 
 [node name="On" type="Sprite2D" parent="Sprites" index="2"]
-visible = false
 position = Vector2(-2, 408)
 scale = Vector2(1.29597, 1.29597)
 texture = ExtResource("3_spmdb")

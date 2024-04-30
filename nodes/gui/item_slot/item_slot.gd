@@ -35,6 +35,10 @@ func _ready() -> void:
 		return
 	MouseDrag.dragging_started.connect(_on_dragging_started)
 	MouseDrag.dragging_cancelled.connect(_on_dragging_cancelled)
+	MouseDrag.dropped.connect(_on_dropped)
+
+
+
 
 
 func set_display_visible(val: bool) -> void: 
@@ -80,6 +84,9 @@ func _on_dragging_started() -> void:
 func _on_dragging_cancelled() -> void: 
 	update()
 	
+	
+func _on_dropped() -> void: 
+	update()
 	
 func clear() -> void: 
 	item = null

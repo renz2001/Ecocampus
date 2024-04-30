@@ -1,27 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://b4y18pa38y6gc"]
+[gd_scene load_steps=4 format=3 uid="uid://b4y18pa38y6gc"]
 
 [ext_resource type="PackedScene" uid="uid://b8627vb83551h" path="res://nodes/abstract_scenes/npc_node/npc_node.tscn" id="1_y6dkb"]
 [ext_resource type="Resource" uid="uid://cc4y5n24btac5" path="res://resources/entity/doctor_madrigal.tres" id="2_5j7l3"]
 [ext_resource type="Texture2D" uid="uid://drijx0n3yyg6d" path="res://assets/character/doctor_madrigal/doctor_madrigal.png" id="2_8xuoe"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_x40qx"]
-size = Vector2(81, 29)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hfohx"]
-size = Vector2(81, 12)
-
 [node name="DoctorMadrigal" instance=ExtResource("1_y6dkb")]
 data = ExtResource("2_5j7l3")
 
-[node name="TapHitBox" parent="." index="0"]
-offset_left = -94.0
-offset_top = -359.0
-offset_right = 123.0
-offset_bottom = 18.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" index="0"]
-position = Vector2(0.5, -5.5)
-shape = SubResource("RectangleShape2D_x40qx")
+[node name="TapHitBox" parent="CanvasLayer/Root" index="0"]
+offset_left = -102.0
+offset_top = -379.0
+offset_right = 130.0
+offset_bottom = 28.0
 
 [node name="ShadowCircle" parent="Sprites" index="0"]
 position = Vector2(-5.8, 0)
@@ -31,7 +21,3 @@ position = Vector2(-4.76837e-07, -170)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_8xuoe")
 hframes = 3
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="8"]
-position = Vector2(0, 2)
-shape = SubResource("RectangleShape2D_hfohx")

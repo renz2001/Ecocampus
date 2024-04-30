@@ -27,6 +27,7 @@ shader_parameter/add_margins = true
 [sub_resource type="Resource" id="Resource_uu57v"]
 script = ExtResource("7_2vhho")
 properties = PackedStringArray("inventory", "data", "quiz", "dialogue", "global_position", "global_scale", "state")
+save_properties_as_resource_path = PackedStringArray()
 
 [sub_resource type="Animation" id="Animation_517i3"]
 length = 0.001
@@ -71,16 +72,15 @@ script = ExtResource("2_pi6uq")
 state = 1
 interact_description = SubResource("Resource_yn3gy")
 
-[node name="TapHitBox" parent="." index="0"]
-offset_left = -73.0
-offset_top = -83.0
-offset_right = 80.0
-offset_bottom = 65.0
-
-[node name="ApplyMaterialToNode" parent="TapHitBox" index="0" node_paths=PackedStringArray("node") instance=ExtResource("3_fiocu")]
-node = NodePath("../../Sprites")
+[node name="TapHitBox#ApplyMaterialToNode" parent="." index="0" instance=ExtResource("3_fiocu")]
 material = SubResource("ShaderMaterial_3ku3e")
 duration = 0.2
+
+[node name="TapHitBox" parent="CanvasLayer/Root" index="0"]
+offset_left = -61.0
+offset_top = -78.0
+offset_right = 64.0
+offset_bottom = 57.0
 
 [node name="NodeVarietyManager" parent="Components" index="2"]
 index = 1
@@ -96,7 +96,7 @@ nodes = [NodePath("../../../Sprites/OnSprite")]
 [node name="MasterSaveComponent" parent="Components" index="8"]
 data = SubResource("Resource_uu57v")
 
-[node name="Sprites" parent="." index="5"]
+[node name="Sprites" parent="." index="6"]
 position = Vector2(0, -20)
 
 [node name="ShadowCircle" parent="Sprites" index="0"]

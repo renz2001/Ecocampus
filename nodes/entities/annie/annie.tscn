@@ -5,11 +5,11 @@
 
 [node name="Annie" instance=ExtResource("1_eek0f")]
 
-[node name="TapHitBox" parent="." index="0"]
-offset_left = -118.0
-offset_top = -320.0
-offset_right = 136.0
-offset_bottom = 16.0
+[node name="TapHitBox" parent="CanvasLayer/Root" index="0"]
+offset_left = -122.0
+offset_top = -344.0
+offset_right = 142.0
+offset_bottom = 29.0
 
 [node name="EntitySprite" parent="Sprites" index="1"]
 position = Vector2(4, -147)

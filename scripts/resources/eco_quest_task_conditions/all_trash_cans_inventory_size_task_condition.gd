@@ -20,6 +20,8 @@ func _on_items_changed(_items: Array[ItemStack]) -> void:
 
 
 func condition() -> bool: 
+	if trash_cans.is_empty(): 
+		return false
 	return trash_cans.all(
 		func(can: TrashCanNode): 
 			return can.inventory.items.size() == items_size

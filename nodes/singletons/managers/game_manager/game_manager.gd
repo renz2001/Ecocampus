@@ -4,8 +4,12 @@ extends Node
 @export var to_map_picker: ChangeSceneComponent
 @export var to_select_character: ChangeSceneComponent
 @export var playing_state: AtomicState
-@export var paused_state: AtomicState
+@export var paused_state: CompoundState
 @export var main_menu_state: AtomicState
+@export var map_picker_state: AtomicState
+@export var assesment_state: AtomicState
+@export var customize_character_state: AtomicState
+@export var dialogue_state: AtomicState
 
 @export var menu_music: AudioManagerPlayer
 @export var playing_music: AudioManagerPlayer
@@ -56,6 +60,9 @@ func _on_state_chart_event_received(event: StringName) -> void:
 	print_color.out_debug_wvalue("State chart event received", event)
 
 
-
 func _on_dialogue_state_entered() -> void:
 	PlayerManager.player.state_chart.send_event("disabled")
+
+
+func _on_map_picker_state_entered() -> void:
+	pass # Replace with function body.

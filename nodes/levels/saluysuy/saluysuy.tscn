@@ -49,7 +49,6 @@ stretch_mode = 5
 [node name="PlayerNode" parent="Entities/Living" index="0" instance=ExtResource("3_q43q1")]
 position = Vector2(1053, 870)
 scale = Vector2(1.16395, 1.16395)
-gender = 0
 
 [node name="DoctorMadrigal" parent="Entities/Living" index="1" instance=ExtResource("4_17uen")]
 position = Vector2(728, 572)
@@ -58,7 +57,7 @@ dialogue = ExtResource("5_vdd73")
 quiz = ExtResource("5_a5prq")
 quest = ExtResource("7_bl1wb")
 
-[node name="IfQuestCompleteThenSetResource" parent="Entities/Living/DoctorMadrigal" index="10" node_paths=PackedStringArray("node") instance=ExtResource("8_ya8kc")]
+[node name="IfQuestCompleteThenSetResource" parent="Entities/Living/DoctorMadrigal" index="9" node_paths=PackedStringArray("node") instance=ExtResource("8_ya8kc")]
 check_quest = ExtResource("7_bl1wb")
 node = NodePath("..")
 new_value = ExtResource("9_w4vwt")

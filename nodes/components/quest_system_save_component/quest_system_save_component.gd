@@ -21,7 +21,6 @@ func to_dict() -> Dictionary:
 	
 func load_dict(dict: Dictionary) -> void: 
 	var serialized_quests: Array = dict["serialized_quests"]
-	
 	#var quests: Array[Q4uest] = []
 	#
 	#for serialized_quest: Dictionary in serialized_quests: 
@@ -34,7 +33,7 @@ func load_dict(dict: Dictionary) -> void:
 			for quest_id: String in serialized_quest.keys(): 
 				if int(quest_id) == quest.id: 
 					PropertiesToSave.load_dict_to_object(quest, serialized_quest[quest_id])
-	
+					quest.start()
 	# --The reason why this error happens is because JSON.stringify converts the int to float.  --
 	# E 0:00:03:0961   quest_manager.gd:204 @ dict_to_quests(): Condition "!_p->typed.validate(validated_array.write[i], "append_array")" is true.
 		#<C++ Source>   core/variant/array.cpp:278 @ append_array()
@@ -42,23 +41,15 @@ func load_dict(dict: Dictionary) -> void:
 					 #quest_system_save_component.gd:42 @ load_dict()
 					 #game_save.gd:39 @ load_game()
 					 #save_manager.gd:92 @ load_current_game_save()
-
-	#dict["quests"] = {
-		#"active": dict["quests"]["active"] as Array[int], 
-		#"available": dict["quests"]["available"] as Array[int], 
-		#"completed": dict["quests"]["completed"] as Array[int]
-	#}
 	
-	#print(dict["quests"]["active"].get_typed_builtin())
 	# Converting an untyped array (Variant.Type.NULL) to a typed array. 
 	var quests: Dictionary = dict["quests"]
 	for key: String in quests.keys(): 
 		var ids: Array[int] = []
 		ids.assign(quests[key])
 		quests[key] = ids
-		
-	ExtendedQuestSystem.dict_to_quests(dict["quests"], quests_collection.collection)
 	
+	ExtendedQuestSystem.dict_to_quests(quests, quests_collection.collection)
 	
-
-
+	QuestsMenu.this().update()
+	#printerr("\nquests: ", ExtendedQuestSystem.get_active_quests())

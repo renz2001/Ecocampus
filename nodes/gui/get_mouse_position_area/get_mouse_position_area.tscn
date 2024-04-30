@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://ct4dxtwfgplwg"]
+
+[ext_resource type="Theme" uid="uid://cd55r8awc3jgy" path="res://themes/main_theme.tres" id="1_i8omt"]
+[ext_resource type="Script" path="res://nodes/gui/get_mouse_position_area/get_mouse_position_area.gd" id="2_1fqan"]
+
+[node name="GetMousePositionArea" type="Button" groups=["GetMousePositionArea"]]
+offset_right = 358.0
+offset_bottom = 180.0
+theme = ExtResource("1_i8omt")
+theme_type_variation = &"InvisibleButton"
+script = ExtResource("2_1fqan")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
