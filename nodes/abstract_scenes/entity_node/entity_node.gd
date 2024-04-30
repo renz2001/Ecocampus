@@ -60,7 +60,7 @@ func _ready() -> void:
 	pass
 	
 	
-func _process(delta: float) -> void: 
+func _process(_delta: float) -> void: 
 	tap_hit_box_root.global_position = global_position
 	tap_hit_box_root.scale = scale
 	

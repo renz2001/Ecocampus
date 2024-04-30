@@ -150,7 +150,6 @@ grow_horizontal = 0
 [node name="IfMapPickerEnteredSetProperty" parent="Root/MarginContainer/BaseControl/MarginContainer/Control/NavbarGUI" index="2" node_paths=PackedStringArray("node") instance=ExtResource("9_ep4ey")]
 property = "map_picker_state"
 node = NodePath("..")
-new_value = "false"
 
 [node name="IfMapPickerExitedSetProperty2" parent="Root/MarginContainer/BaseControl/MarginContainer/Control/NavbarGUI" index="3" node_paths=PackedStringArray("node") instance=ExtResource("9_ep4ey")]
 property = "map_picker_state"
@@ -174,7 +173,7 @@ theme_type_variation = &"PlayerHUDMargin"
 layout_mode = 2
 mouse_filter = 2
 
-[node name="QuestsMenu" parent="Root/MarginContainer/BaseControl/MarginContainer/Control/CanvasLayer/MarginContainer/Root" index="0" groups=["QuestsMenu"] instance=ExtResource("15_54dqn")]
+[node name="QuestsMenu" parent="Root/MarginContainer/BaseControl/MarginContainer/Control/CanvasLayer/MarginContainer/Root" index="0" instance=ExtResource("15_54dqn")]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0

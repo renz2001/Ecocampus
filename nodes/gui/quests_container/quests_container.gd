@@ -14,6 +14,7 @@ class_name QuestsContainer
 
 
 func update() -> void: 
+	await get_tree().process_frame
 	for child in get_children(): 
 		child.queue_free()
 		

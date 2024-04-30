@@ -12,7 +12,8 @@ var player: PlayerNode:
 func _initialized() -> void: 
 	if player.data.inventory.items.size() == 0: 
 		counter.increment()
-	player.data.inventory.items_changed.connect(_on_items_changed)
+	if !player.data.inventory.items_changed.is_connected(_on_items_changed): 
+		player.data.inventory.items_changed.connect(_on_items_changed)
 
 
 func _on_items_changed(items: Array[ItemStack]) -> void: 

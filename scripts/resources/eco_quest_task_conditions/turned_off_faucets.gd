@@ -4,7 +4,8 @@ class_name TurnOffFaucetTaskCondition
 var listener: WorldEventListener
 
 func _initialized() -> void: 
-	WorldEventManager.event_called.connect(_on_event_called)
+	if WorldEventManager.event_called.is_connected(_on_event_called): 
+		WorldEventManager.event_called.connect(_on_event_called)
 	initialized()
 	
 	

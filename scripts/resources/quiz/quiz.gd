@@ -9,7 +9,7 @@ class_name Quiz
 @export var on_victory_unloch_achievement: Achievement
 
 ## Percentage of the passing score. 
-@export_range(0, 1) var passing_score_percentage: float = 0.75
+@export_range(0, 1) var passing_score_percentage: float = 1
 
 var maximum_score: int: 
 	get:

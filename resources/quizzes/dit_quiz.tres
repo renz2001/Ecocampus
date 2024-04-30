@@ -45,4 +45,4 @@ title = "DIT Quiz"
 description = "Clear this quiz"
 problems = Array[ExtResource("1_c0j0u")]([SubResource("Resource_jwyxi"), SubResource("Resource_vbs06"), SubResource("Resource_cewg5"), SubResource("Resource_6m2tf"), SubResource("Resource_g0fis")])
 on_victory_unloch_achievement = ExtResource("1_b4m85")
-passing_score_percentage = 0.75
+passing_score_percentage = 1.0

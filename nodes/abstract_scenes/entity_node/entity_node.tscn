@@ -84,6 +84,12 @@ property = "playing_state"
 ready_value = "true"
 node = NodePath("..")
 
+[node name="IfDialogueEnteredSetProperty2" parent="CanvasLayer/Root/TapHitBox" node_paths=PackedStringArray("node") instance=ExtResource("3_dpo6a")]
+property = "dialogue_state"
+ready_value = "true"
+node = NodePath("..")
+new_value = "false"
+
 [node name="Hitbox" parent="." instance=ExtResource("2_qnb1g")]
 
 [node name="StateChart" type="Node" parent="."]

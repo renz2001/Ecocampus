@@ -11,7 +11,8 @@ var player: PlayerNode:
 func _initialized() -> void: 
 	var items_amount: int = player.data.inventory.count_item_by_model(picked_up_item)
 	counter.add(items_amount)
-	player.data.inventory.items_added.connect(_on_items_added)
+	if player.data.inventory.items_added.is_connected(_on_items_added): 
+		player.data.inventory.items_added.connect(_on_items_added)
 
 
 func _on_items_added(items: Array[ItemStack]) -> void: 

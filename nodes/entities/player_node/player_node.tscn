@@ -403,7 +403,7 @@ path_find_move_component = NodePath("../PathFindMovementComponent")
 [node name="MousePositionComponent" parent="Components/Movement" index="1" instance=ExtResource("8_t7gk8")]
 
 [node name="Walk" parent="Components/Movement" index="2"]
-speed = 10.0
+speed = 7.0
 
 [node name="PathFindMovementComponent" parent="Components/Movement" index="3" node_paths=PackedStringArray("movement", "navigation_agent") instance=ExtResource("11_d0mbx")]
 movement = NodePath("../Walk")
@@ -467,4 +467,5 @@ libraries = {
 [connection signal="state_entered" from="StateChart/Root/Enabled/TapState/CanTap" to="." method="_on_can_tap_state_entered"]
 [connection signal="state_exited" from="StateChart/Root/Enabled/TapState/CanTap" to="." method="_on_can_tap_state_exited"]
 [connection signal="finished_navigation" from="Components/Movement/PathFindMovementComponent" to="." method="_on_path_find_movement_component_finished_navigation"]
+[connection signal="velocity_computed" from="NavigationAgent2D" to="Components/Movement/WalkPathFindMovement" method="_on_navigation_agent_2d_velocity_computed"]
 [connection signal="velocity_computed" from="NavigationAgent2D" to="Components/Movement/PathFindMovementComponent" method="_on_navigation_agent_2d_velocity_computed"]
