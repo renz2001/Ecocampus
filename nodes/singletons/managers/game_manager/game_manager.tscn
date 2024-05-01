@@ -1,8 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://c8raw86b1ub34"]
+[gd_scene load_steps=18 format=3 uid="uid://c8raw86b1ub34"]
 
 [ext_resource type="Script" path="res://nodes/singletons/managers/game_manager/game_manager.gd" id="1_pr44q"]
+[ext_resource type="Resource" uid="uid://ohh3qdnbacsf" path="res://resources/cosmetics_collection/cosmetics_collection.tres" id="2_0lnhy"]
 [ext_resource type="Script" path="res://addons/macchi's_node_components/nodes/components/print_color.gd" id="2_ol1mc"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/state_chart.gd" id="2_u5lwv"]
+[ext_resource type="Resource" uid="uid://c8vv063c4vva5" path="res://resources/achievements_collection/achievements_collection.tres" id="3_g1580"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/parallel_state.gd" id="3_rmnqs"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="4_3fmft"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="5_o0eby"]
@@ -42,6 +44,8 @@ bus = &"Music"
 
 [node name="GameManager" type="Node" node_paths=PackedStringArray("state_chart", "to_map_picker", "to_select_character", "playing_state", "paused_state", "main_menu_state", "map_picker_state", "assesment_state", "customize_character_state", "dialogue_state", "menu_music", "playing_music")]
 script = ExtResource("1_pr44q")
+cosmetics_collection = ExtResource("2_0lnhy")
+achievements_collection = ExtResource("3_g1580")
 state_chart = NodePath("StateChart")
 to_map_picker = NodePath("ChangeScene/ToMapPicker")
 to_select_character = NodePath("ChangeScene/ToSelectCharacter")

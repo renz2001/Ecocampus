@@ -50,3 +50,9 @@ func _save_properties() -> PackedStringArray:
 	arr.append_array(super._save_properties())
 	
 	return arr
+	
+	
+func reset() -> void: 
+	unequip_cosmetic()
+	inventory.reset()
+	

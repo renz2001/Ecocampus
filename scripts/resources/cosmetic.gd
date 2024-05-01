@@ -80,3 +80,9 @@ func _save_properties() -> PackedStringArray:
 
 func is_unlocked() -> bool: 
 	return state == CosmeticState.UNLOCKED
+
+
+func reset() -> void: 
+	state == CosmeticState.LOCKED
+	
+	

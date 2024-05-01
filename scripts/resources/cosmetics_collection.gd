@@ -10,3 +10,8 @@ func _save_properties() -> PackedStringArray:
 	return [
 		"cosmetics"
 	]
+
+
+func reset() -> void: 
+	for cosmetic: Cosmetic in cosmetics: 
+		cosmetic.reset()

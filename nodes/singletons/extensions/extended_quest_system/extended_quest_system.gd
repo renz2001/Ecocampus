@@ -46,3 +46,13 @@ func dict_to_quests(dict: Dictionary, quests: Array[Quest]) -> void:
 				if !pool.is_quest_inside(quest):
 					pool.add_quest(quest)
 				quests.erase(quest)
+
+
+func reset_all() -> void: 
+	completed.reset()
+	active.reset()
+	available.reset()
+	
+	
+	
+	

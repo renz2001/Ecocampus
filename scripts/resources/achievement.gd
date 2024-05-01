@@ -30,3 +30,8 @@ func _save_properties() -> PackedStringArray:
 	return [
 		"is_unlocked"
 	]
+
+func reset() -> void: 
+	is_unlocked = false
+	
+	

@@ -63,7 +63,7 @@ func update_victory() -> void:
 	#))
 	if achievements_collection.collection.all(
 		func(item: Achievement): 
-			return item.unlocked
+			return item.is_unlocked
 	): 
 		GUIManager.add_gui(GUICollection.victory_screen.instantiate())
 	

@@ -69,6 +69,7 @@ layer = 4
 [node name="Root" type="Control" parent="Root/MarginContainer/BaseControl/InstancedGUIs/CanvasLayer"]
 layout_mode = 3
 anchors_preset = 0
+mouse_filter = 2
 
 [node name="DropdownPopup" parent="." instance=ExtResource("7_44ncd")]
 visible = false

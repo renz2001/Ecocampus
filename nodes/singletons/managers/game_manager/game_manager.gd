@@ -1,5 +1,8 @@
 extends Node
 
+@export var cosmetics_collection: CosmeticsCollection
+@export var achievements_collection: AchievementsCollection
+
 @export var state_chart: StateChart
 @export var to_map_picker: ChangeSceneComponent
 @export var to_select_character: ChangeSceneComponent
@@ -71,3 +74,11 @@ func _on_map_picker_state_entered() -> void:
 ## _notification doesn't work with mobile??
 func is_close_request(what: int) -> bool: 
 	return what == NOTIFICATION_WM_CLOSE_REQUEST || what == NOTIFICATION_CRASH || what == NOTIFICATION_APPLICATION_PAUSED || what == DisplayServer.WINDOW_EVENT_CLOSE_REQUEST
+
+
+func reset_all_data() -> void: 
+	ExtendedQuestSystem.reset_all()
+	cosmetics_collection.reset()
+	achievements_collection.reset()
+	PlayerManager.player_data.reset()
+	SaveManager.remove_save_file("save_file_1")

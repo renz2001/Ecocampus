@@ -260,3 +260,10 @@ func _load_update(data) -> void:
 	item.owner = self
 	items_changed.emit([item] as Array[ItemStack])
 	
+
+# Completely removes everything, from the history
+func reset() -> void: 
+	added_items_history.clear()
+	clear(null)
+	
+	

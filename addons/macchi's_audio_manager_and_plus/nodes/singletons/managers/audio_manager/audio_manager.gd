@@ -55,10 +55,6 @@ func _set_player(player: Node, args: AudioStreamPlayerArguments, change_name: bo
 	#if change_name: 
 		#player.name = args.sound.resource_name.to_camel_case()
 	player.play(args.play_from_position) 
-	player.finished.connect(
-		func(): 
-			player.stream = null
-	)
 	return player
 
 

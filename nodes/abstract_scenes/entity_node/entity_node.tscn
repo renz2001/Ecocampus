@@ -70,7 +70,7 @@ offset_right = 11.0
 offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_default_cursor_shape = 5
+mouse_default_cursor_shape = 11
 theme_type_variation = &"InvisibleButton"
 
 [node name="IfPausedEnteredSetProperty" parent="CanvasLayer/Root/TapHitBox" node_paths=PackedStringArray("node") instance=ExtResource("3_dpo6a")]

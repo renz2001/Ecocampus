@@ -3,8 +3,11 @@ extends GUI
 class_name VictoryScreen
 
 
+func _activated() -> void: 
+	super._activated()
+
 func _on_return_home_pressed() -> void:
-	SaveManager.remove_save_file("save_file_1s")
+	GameManager.reset_all_data()
 	GUIManager.set_gui_active(self, false)
 	
 	
