@@ -65,6 +65,10 @@ func update_victory() -> void:
 		func(item: Achievement): 
 			return item.is_unlocked
 	): 
+		if AchievementUnlockedScreen.this() != null && AchievementUnlockedScreen.this().visible: 
+			await AchievementUnlockedScreen.this().deactivated
+		else: 
+			await get_tree().create_timer(1).timeout
 		GUIManager.add_gui(GUICollection.victory_screen.instantiate())
 	
 	

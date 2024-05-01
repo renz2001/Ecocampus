@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://drvt76bdal6cu"]
+[gd_scene load_steps=19 format=3 uid="uid://drvt76bdal6cu"]
 
 [ext_resource type="PackedScene" uid="uid://cm6jeskbiise6" path="res://nodes/abstract_scenes/level_node/level_node.tscn" id="1_rd2yn"]
 [ext_resource type="Texture2D" uid="uid://d1040i7kwhlvf" path="res://assets/background/camera_pictures/library_bg.jpg" id="2_jh3ql"]
@@ -13,6 +13,7 @@
 [ext_resource type="Resource" uid="uid://cjkage7gxo1x5" path="res://resources/dialogue_arguments/library_quest_complete_dialogue.tres" id="9_45nek"]
 [ext_resource type="Resource" uid="uid://7sifl3qmuvf1" path="res://resources/dialogue_arguments/annie_dialogue.tres" id="9_es0xp"]
 [ext_resource type="PackedScene" uid="uid://bm3t8igvjt658" path="res://nodes/entities/pickuppable_entites/banana_peel/banana_peel.tscn" id="10_3fnls"]
+[ext_resource type="PackedScene" uid="uid://cvfad21xn8iyk" path="res://nodes/components/if_quiz_complete_then_set/if_quiz_complete_then_set.tscn" id="10_upaeq"]
 [ext_resource type="PackedScene" uid="uid://bfnapusrrbksh" path="res://nodes/entities/pickuppable_entites/coffee_cup/coffee_cup.tscn" id="11_6pctm"]
 [ext_resource type="PackedScene" uid="uid://d1klss0cjhtw0" path="res://nodes/entities/non_living_entities/faucet/faucet.tscn" id="14_shp1p"]
 
@@ -63,6 +64,13 @@ quest = ExtResource("7_h3337")
 check_quest = ExtResource("7_h3337")
 node = NodePath("..")
 new_value = ExtResource("9_45nek")
+
+[node name="IfQuizCompleteThenSet" parent="Entities/Living/ProfessorGrayson" index="10" node_paths=PackedStringArray("node") instance=ExtResource("10_upaeq")]
+quiz = ExtResource("4_vwvne")
+ready_value = "false"
+node = NodePath("..")
+property_or_method = "disabled"
+new_value = "true"
 
 [node name="Annie" parent="Entities/Living" index="2" instance=ExtResource("8_afd54")]
 position = Vector2(234, 659)

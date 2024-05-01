@@ -15,5 +15,6 @@ extends BaseGUIManager
 func reset() -> void: 
 	GUIManager.set_gui_active(quiz_attempt_screen, false)
 	GUIManager.set_gui_active(player_hud, false)
-	
+	if AchievementUnlockedScreen.this() != null: 
+		GameManager.set_gui_active(AchievementUnlockedScreen.this(), false)
 	

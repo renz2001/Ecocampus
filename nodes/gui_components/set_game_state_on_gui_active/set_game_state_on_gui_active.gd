@@ -27,6 +27,8 @@ func _on_deactivated() -> void:
 		return
 	if debug: 
 		print(deactivated_state)
+	if deactivated_state == "playing" && GUIManager.quiz_attempt_screen.visible: 
+		return
 	GameManager.state_chart.send_event(deactivated_state)
 	
 	

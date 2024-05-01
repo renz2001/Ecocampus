@@ -206,11 +206,13 @@ theme_override_constants/separation = 30
 alignment = 1
 
 [node name="Title" type="Label" parent="Board/BoardMargin/PageRouterContainer/EndPage/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer" index="0"]
+custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
 text = "Title"
 label_settings = ExtResource("7_gvve6")
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="Score" parent="Board/BoardMargin/PageRouterContainer/EndPage/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer" index="1" instance=ExtResource("12_lgx71")]
 layout_mode = 2
@@ -236,7 +238,7 @@ layout_mode = 2
 [node name="Again" parent="Board/BoardMargin/PageRouterContainer/EndPage/MarginContainer/VBoxContainer/HBoxContainer" index="0" node_paths=PackedStringArray("label") instance=ExtResource("5_lmvr6")]
 custom_minimum_size = Vector2(300, 100)
 layout_mode = 2
-texture_pressed = ExtResource("16_jq6ql")
+texture_disabled = ExtResource("16_jq6ql")
 label = NodePath("../../../../../FirstPage/MarginContainer/VBoxContainer/HBoxContainer/Play/Label")
 
 [node name="Label" parent="Board/BoardMargin/PageRouterContainer/EndPage/MarginContainer/VBoxContainer/HBoxContainer/Again" index="1"]

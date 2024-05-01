@@ -24,6 +24,7 @@ func _ready() -> void:
 		play()
 		
 		
+# FIXME: Doesn't loop properly (BaseLerpComponent problem) 
 func play() -> void: 
 	return
 	original_position = node.position

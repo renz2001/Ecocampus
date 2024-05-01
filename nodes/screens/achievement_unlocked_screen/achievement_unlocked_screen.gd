@@ -9,6 +9,10 @@ class_name AchievementUnlockedScreen
 		
 @export var achievement_unlocked_gui: AchievementsUnlockedGUI
 
+static func this() -> AchievementUnlockedScreen: 
+	return GameManager.get_tree().get_first_node_in_group("AchievementUnlockedScreen")
+
+
 static func display(_achievement: Achievement) -> AchievementUnlockedScreen: 
 	var gui: AchievementUnlockedScreen = GUIManager.achievement_unlocked_screen
 	GUIManager.set_gui_active(gui, true)

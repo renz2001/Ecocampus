@@ -23,6 +23,5 @@ func _ready() -> void:
 
 
 func _condition_met() -> void: 
-	printerr(new_value)
 	node.set(property_or_method, new_value)
 	

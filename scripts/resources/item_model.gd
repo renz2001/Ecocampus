@@ -9,7 +9,7 @@ enum Type {
 }
 
 @export var name: StringName
-@export var description: String
+@export_multiline var description: String
 @export var item_icon: CompressedTexture2D
 @export var type: Type
 

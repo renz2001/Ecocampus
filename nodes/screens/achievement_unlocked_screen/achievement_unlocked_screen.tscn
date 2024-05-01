@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dh1ftkyfip0sh" path="res://nodes/gui_components/on_tap_set_active/on_tap_set_active.tscn" id="3_fgxls"]
 [ext_resource type="PackedScene" uid="uid://der1edoxrqxln" path="res://nodes/gui_components/set_game_state_on_gui_active/set_game_state_on_gui_active.tscn" id="4_y00uo"]
 
-[node name="AchievementUnlockedScreen" node_paths=PackedStringArray("achievement_unlocked_gui") instance=ExtResource("1_46gjk")]
+[node name="AchievementUnlockedScreen" node_paths=PackedStringArray("achievement_unlocked_gui") groups=["AchievementUnlockedScreen"] instance=ExtResource("1_46gjk")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

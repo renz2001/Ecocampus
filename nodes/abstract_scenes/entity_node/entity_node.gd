@@ -57,7 +57,14 @@ signal interacted
 @export var tap_hit_box_root: Control
 
 func _ready() -> void: 
+	#GameManager.playing_state.state_entered.connect(_on_playing_state_entered)
 	pass
+	#
+	
+## FIXME: BANDAID SOLUTION!
+#func _on_playing_state_entered() -> void: 
+	#if GUIManager.quiz_attempt_screen.visible: 
+		#tap_hit_box.visible = false
 	
 	
 func _process(_delta: float) -> void: 
