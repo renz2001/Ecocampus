@@ -86,7 +86,8 @@ grow_horizontal = 2
 grow_vertical = 0
 texture_normal = SubResource("AtlasTexture_tgxyd")
 
-[node name="OnPressedExitToMainMenu" parent="CenterContainer/Victory/ReturnHome" index="3" instance=ExtResource("6_c448r")]
+[node name="OnPressedExitToMainMenu" parent="CenterContainer/Victory/ReturnHome" index="3" node_paths=PackedStringArray("control") instance=ExtResource("6_c448r")]
+control = NodePath("..")
 
 [node name="ToMainMenu" parent="CenterContainer/Victory/ReturnHome/OnPressedExitToMainMenu" index="1"]
 dont_save_game_before_change = true
@@ -95,6 +96,7 @@ dont_save_game_before_change = true
 control = NodePath("..")
 
 [node name="OnActivateAudio" parent="Audio" index="0"]
+type = 1
 audio = SubResource("Resource_2tw8f")
 
 [node name="OnShowAudio" parent="Audio" index="2"]

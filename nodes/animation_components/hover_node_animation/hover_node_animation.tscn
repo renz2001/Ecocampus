@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://7r374ti84blj"]
+[gd_scene load_steps=5 format=3 uid="uid://7r374ti84blj"]
 
 [ext_resource type="Script" path="res://nodes/animation_components/hover_node_animation/hover_node_animation.gd" id="1_gbk0o"]
 [ext_resource type="PackedScene" uid="uid://c341gagax5vvu" path="res://addons/macchi's_node_components/nodes/components/lerp_components/vector_2_property_lerp_component/vector_2_property_lerp_component.tscn" id="2_0u4m4"]
@@ -8,23 +8,17 @@
 script = ExtResource("3_8av45")
 transition_type = 4
 ease_type = 2
-duration = 0.2
+duration = 0.4
 
-[sub_resource type="Resource" id="Resource_0l5sh"]
-script = ExtResource("3_8av45")
-transition_type = 4
-ease_type = 2
-duration = 0.2
-
-[node name="HoverNodeAnimation" type="Node" node_paths=PackedStringArray("up_lerp", "down_lerp")]
+[node name="HoverNodeAnimation" type="Node" node_paths=PackedStringArray("hover_lerp")]
 script = ExtResource("1_gbk0o")
-up_lerp = NodePath("Up")
-down_lerp = NodePath("Down")
+autoplay = true
+up_offset = 100.0
+down_offset = 100.0
+hover_lerp = NodePath("HoverLerp")
 
-[node name="Up" parent="." instance=ExtResource("2_0u4m4")]
+[node name="HoverLerp" parent="." instance=ExtResource("2_0u4m4")]
+properties = PackedStringArray("position")
 interpolation = SubResource("Resource_unjsy")
-loop_interpolate_end_to_back = false
-
-[node name="Down" parent="." instance=ExtResource("2_0u4m4")]
-interpolation = SubResource("Resource_0l5sh")
-loop_interpolate_end_to_back = false
+loop_times = 10
+loop_interpolate_end_to_back = true

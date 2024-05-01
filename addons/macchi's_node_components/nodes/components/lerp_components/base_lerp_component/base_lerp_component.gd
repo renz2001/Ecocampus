@@ -47,12 +47,12 @@ func play(to: float = 1) -> void:
 			await tween.finished
 			
 	elif loop_times > 0: 
-		for i in loop_times: 
-			var tween: Tween = make_tween(to)
+		var tween: Tween = make_tween(to)
+		for i: int in loop_times: 
 			if loop_interpolate_end_to_back: 
 				tween.chain()
 				make_tween(0, tween)
-			tween.play()
+		tween.play()
 	else: 
 		make_tween(to).play() 
 

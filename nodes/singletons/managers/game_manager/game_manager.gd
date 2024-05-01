@@ -84,4 +84,5 @@ func reset_all_data() -> void:
 	GlobalData.achievements_tracker.reset()
 	SaveManager.remove_save_file("save_file_1")
 	SaveManager.current_saved_data = GameSave.new()
-	
+	GUIManager.reset()
+	state_chart.send_event("main_menu")

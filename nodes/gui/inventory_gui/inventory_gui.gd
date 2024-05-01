@@ -56,15 +56,10 @@ func update() -> void:
 	
 	var inv_items_size: int = inventory.items.size()
 	
-	printerr("children size: ", children.size())
-	
 	for i: int in children.size(): 
-		print("\ni: ", i)
 		var slot: ItemSlot = children[i]
-		printerr("items size: ", inventory.items.size())
 		if i >= inv_items_size: 
 			break
-		print("replacing: ", i)
 		slot.item = inventory.items[i]
 		#printerr(inventory.items)
 	updating = false

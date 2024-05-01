@@ -23,10 +23,6 @@ class_name ItemSlot
 			#printerr(item)
 			#printerr("")
 			item.stack.current_changed.connect(_on_item_stack_current_changed)
-		print("slot name: ", name)
-		print("slot: ", item)
-		print("item texture: ", item_texture_rect.texture)
-		print("item visible: ", item_texture_rect.visible)
 		
 @export var drag_area: MouseDragArea
 

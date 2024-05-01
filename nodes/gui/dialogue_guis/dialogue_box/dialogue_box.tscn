@@ -60,9 +60,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -163.5
-offset_top = -76.0
+offset_top = -91.0
 offset_right = 163.5
-offset_bottom = -19.0
+offset_bottom = -34.0
 grow_horizontal = 2
 text = "Tap anywhere."
 label_settings = SubResource("LabelSettings_s28p8")
@@ -71,9 +71,13 @@ vertical_alignment = 1
 
 [node name="HoverNodeAnimation" parent="TapAnywhere" index="0" node_paths=PackedStringArray("node") instance=ExtResource("2_dogx3")]
 node = NodePath("..")
-autoplay = true
-loops = 2
 is_playing = true
+
+[node name="HoverLerp" parent="TapAnywhere/HoverNodeAnimation" index="0" node_paths=PackedStringArray("node")]
+node = NodePath("../..")
+start_point = Vector2(796.5, -193)
+end_point = Vector2(796.5, 7)
+current = Vector2(796.5, -192.987)
 
 [node name="SpeakerSpritesSwitcher" parent="." index="1" node_paths=PackedStringArray("current_speaker_rect", "main_speaker_texture_rect", "secondary_speaker_texture_rect") instance=ExtResource("2_oiacn")]
 layout_mode = 1
@@ -258,3 +262,5 @@ audio = SubResource("Resource_jwwh6")
 [connection signal="toggled" from="Balloon/Buttons/Buttons/FastForward" to="." method="_on_fast_forward_toggled"]
 [connection signal="pressed" from="Balloon/Buttons/Buttons/Skip" to="." method="_on_skip_pressed"]
 [connection signal="pressed" from="Balloon/Buttons/Buttons/Cancel" to="." method="_on_cancel_pressed"]
+
+[editable path="TapAnywhere/HoverNodeAnimation"]

@@ -6,7 +6,8 @@ class_name IfQuizCompleteThenSet
 		quiz = value
 		if !is_instance_valid(quiz): 
 			return
-		quiz.victory.connect(_on_quiz_victory)
+		if !quiz.victory.is_connected(_on_quiz_victory): 
+			quiz.victory.connect(_on_quiz_victory)
 	
 	
 func _ready() -> void: 

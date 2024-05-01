@@ -8,8 +8,8 @@ func _activated() -> void:
 
 
 func _on_return_home_pressed() -> void:
-	GameManager.reset_all_data()
 	GUIManager.set_gui_active(self, false)
+	GameManager.reset_all_data()
 	
 	
 func _deactivated() -> void: 
