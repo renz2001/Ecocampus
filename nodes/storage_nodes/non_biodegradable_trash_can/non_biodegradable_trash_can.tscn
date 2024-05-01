@@ -8,6 +8,12 @@
 [node name="CollisionShape2D" parent="MouseDragDropArea" index="0"]
 position = Vector2(2.5, -195)
 
+[node name="TapHitBox" parent="CanvasLayer/Root" index="0"]
+offset_left = -157.0
+offset_top = -452.0
+offset_right = 162.0
+offset_bottom = 53.0
+
 [node name="EntitySprite" parent="Sprites" index="1"]
 position = Vector2(0, -200)
 texture = ExtResource("2_b1abr")

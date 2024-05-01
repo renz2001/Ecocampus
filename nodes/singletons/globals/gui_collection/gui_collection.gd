@@ -9,3 +9,4 @@ extends Node
 @export var alert_dialog: PackedScene
 @export var formatted_label: PackedScene
 @export var about_us_popup: PackedScene
+@export var victory_screen: PackedScene

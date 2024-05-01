@@ -22,4 +22,4 @@ script = ExtResource("2_uo3lp")
 title = "My Title"
 description = "Lorem Ipsum"
 problems = Array[ExtResource("1_llgo4")]([SubResource("Resource_o4y3a"), SubResource("Resource_noj5v")])
-passing_score_percentage = 0.0
+passing_score_percentage = 1.0

@@ -35,17 +35,14 @@ func save_game(scene_tree: SceneTree) -> void:
 	
 	
 func load_game(scene_tree: SceneTree, current_id: String) -> void: 
-	if !data.has(current_id): 
-		return
-	var data_group: Dictionary = data[current_id]
+	if data.has(current_id): 
+		var data_group: Dictionary = data[current_id]
+		for key: String in data_group.keys(): 
+			if scene_tree.current_scene.has_node(key): 
+				var follower_node: FollowerSaveComponent = scene_tree.current_scene.get_node(key)
+				var load_data: Dictionary = data_group[key]
+				follower_node.load_dict(load_data)
 	
-	
-	for key: String in data_group.keys(): 
-		if scene_tree.current_scene.has_node(key): 
-			var follower_node: FollowerSaveComponent = scene_tree.current_scene.get_node(key)
-			var load_data: Dictionary = data_group[key]
-			follower_node.load_dict(load_data)
-			
 	for key: String in data.keys(): 
 		if key == "Globals": 
 			for path: String in data[key]: 
@@ -54,7 +51,6 @@ func load_game(scene_tree: SceneTree, current_id: String) -> void:
 				var follower_node: FollowerSaveComponent = scene_tree.current_scene.get_node(path)
 				var load_data: Dictionary = data[key][path]
 				follower_node.load_dict(load_data)
-				
 				
 	for path: String in data["QueuedFree"]: 
 		if scene_tree.current_scene.has_node(path): 

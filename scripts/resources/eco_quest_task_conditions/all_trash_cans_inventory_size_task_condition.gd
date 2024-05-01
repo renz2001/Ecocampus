@@ -2,14 +2,20 @@ extends EcoQuestTaskScriptCondition
 class_name AllTrashCansInventorySizeTaskCondition
 
 
-@export var items_size: int = 10
+@export var total_stack_size: int = 10
 
 var trash_cans: Array[Node]: 
 	get: 
 		return tree.get_nodes_in_group("TrashCan")
-
-
+		
+		
 func _initialized() -> void: 
+	if !WorldEventManager.event_called.is_connected(_on_event_called): 
+		WorldEventManager.event_called.connect(_on_event_called)
+	initialized()
+	
+
+func initialized() -> void: 
 	check()
 	for can: TrashCanNode in trash_cans: 
 		if !can.inventory.items_changed.is_connected(_on_items_changed): 
@@ -25,7 +31,7 @@ func condition() -> bool:
 		return false
 	return trash_cans.all(
 		func(can: TrashCanNode): 
-			return can.inventory.items.size() == items_size
+			return can.inventory.get_total_stack() >= total_stack_size
 	)
 
 func check() -> void: 
@@ -35,5 +41,10 @@ func check() -> void:
 
 func _finished() -> void: 
 	for can: TrashCanNode in trash_cans: 
-		can.inventory.items_changed.disconnect(_on_items_changed)
+		if can.inventory.items_changed.is_connected(_on_items_changed): 
+			can.inventory.items_changed.disconnect(_on_items_changed)
 
+
+func _on_event_called(event: String, _by: Node, _args: Array) -> void: 
+	if event == "ready": 
+		initialized()

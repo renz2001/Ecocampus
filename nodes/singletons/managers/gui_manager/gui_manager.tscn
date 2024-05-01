@@ -116,6 +116,13 @@ new_value = "false"
 [node name="InstancedGUIs" parent="Root/MarginContainer/BaseControl" index="1"]
 only_one_instance = false
 
+[node name="Root" parent="Root/MarginContainer/BaseControl/InstancedGUIs/CanvasLayer" index="0"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="SettingsMenu" parent="Root/MarginContainer/BaseControl" index="2" instance=ExtResource("13_qklwl")]
 layout_mode = 1
 only_one_instance = false

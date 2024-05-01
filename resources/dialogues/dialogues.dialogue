@@ -105,7 +105,7 @@ do dialogue_response_handler.respond("start_quest")
 
 ~ library_quest_completed
 {{PlayerManager.player.data.custom_name}}: Good day teacher! I did it, the challenge is complete
-Professor Grayson: Excellent work, John! You handled the challenge responsibly and efficiently. I'm proud of you.
+Professor Grayson: Excellent work! You handled the challenge responsibly and efficiently. I'm proud of you.
 {{PlayerManager.player.data.custom_name}}: Thank you!
 Professor Grayson: Let's recall what you've learned from your journey through the Eco Quiz.
 do dialogue_response_handler.respond("start_quiz")

@@ -67,7 +67,7 @@ static func load_dict_to_object(obj: Object, dict: Dictionary) -> void:
 			#return
 	for property: String in dict.keys(): 
 		var value = dict[property]
-		print("obj: %s, property: %s" % [obj, property])
+		#print("obj: %s, property: %s" % [obj, property])
 		if value is String: 
 			#if property == "items": 
 				#print("%s is string" % value)
@@ -101,7 +101,16 @@ static func load_dict_to_object(obj: Object, dict: Dictionary) -> void:
 			for i: int in value.size(): 
 				var value_value = value[i]
 				var obj_array: Array = obj.get(property)
-				var obj_array_value = value_value[str(i)]
+				var obj_array_value = null
+				
+				if value_value.has(str(i)): 
+					obj_array_value = value_value[str(i)]
+				elif value_value.has(i): 
+					obj_array_value = value_value[i]
+				
+				if obj_array_value == null:
+					printerr("ASDASd")
+				
 				#printerr("obj array: ", obj_array)
 				if obj_array_value is Dictionary: 
 					#if property == "items": 
@@ -110,6 +119,7 @@ static func load_dict_to_object(obj: Object, dict: Dictionary) -> void:
 					if i < obj_array.size(): 
 						#printerr("obj array item: %s with %s" % [obj.get(property)[i], value_value[str(i)]])
 						load_dict_to_object(obj.get(property)[i], obj_array_value)
+					
 					# If the array does not have the item at that index. 
 					elif i >= obj_array.size(): 
 						# If the item is a SaveableResource

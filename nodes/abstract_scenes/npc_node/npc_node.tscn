@@ -36,7 +36,7 @@ _data = {
 [node name="NPCNode" instance=ExtResource("1_4vfvx")]
 interact_description = SubResource("Resource_xk11q")
 
-[node name="TapHitBox" parent="CanvasLayer" index="0"]
+[node name="TapHitBox" parent="CanvasLayer/Root" index="0"]
 mouse_default_cursor_shape = 2
 
 [node name="Idle" type="Node" parent="StateChart/Root/Enabled/Animation/Left" index="1"]

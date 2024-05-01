@@ -2,7 +2,6 @@
 extends GUI
 class_name CustomizeCharacterScreen 
 
-# FIXME: Fix CosmeticDisplayCard for not updating. 
 
 @export var cosmetics_collection: CosmeticsCollection: 
 	set(value): 

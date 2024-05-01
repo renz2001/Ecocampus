@@ -10,7 +10,14 @@ var player: PlayerNode:
 
 func _initialized() -> void: 
 	var items_amount: int = player.data.inventory.count_item_by_model(picked_up_item)
-	counter.add(items_amount)
+	if items_amount > 0:
+		counter.add(items_amount)
+	else: 
+		for item: ItemModel in PlayerManager.player_data.inventory.added_items_history: 
+			if item == picked_up_item: 
+				counter.increment()
+	
+	
 	if !player.data.inventory.items_added.is_connected(_on_items_added): 
 		player.data.inventory.items_added.connect(_on_items_added)
 

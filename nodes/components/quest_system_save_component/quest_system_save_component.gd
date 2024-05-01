@@ -16,6 +16,9 @@ func to_dict() -> Dictionary:
 			"serialized_quests": serialized_quests
 		}
 	}
+	
+	#printerr("to_dict: ", dict[str(get_path())]["quests"])
+	
 	return dict
 	
 	
@@ -30,8 +33,15 @@ func load_dict(dict: Dictionary) -> void:
 				#pass
 	for quest: Quest in quests_collection.collection: 
 		for serialized_quest: Dictionary in serialized_quests: 
-			for quest_id: String in serialized_quest.keys(): 
-				if int(quest_id) == quest.id: 
+			for quest_id in serialized_quest.keys(): 
+				
+				# FIXME: BandAid solution
+				var key_to_value = quest_id
+				
+				if quest_id is String: 
+					key_to_value = int(quest_id)
+				
+				if key_to_value == quest.id: 
 					PropertiesToSave.load_dict_to_object(quest, serialized_quest[quest_id])
 					quest.start()
 	# --The reason why this error happens is because JSON.stringify converts the int to float.  --
@@ -48,7 +58,7 @@ func load_dict(dict: Dictionary) -> void:
 		var ids: Array[int] = []
 		ids.assign(quests[key])
 		quests[key] = ids
-	
+	#printerr("load q: ", quests)
 	ExtendedQuestSystem.dict_to_quests(quests, quests_collection.collection)
 	
 	QuestsMenu.this().update()

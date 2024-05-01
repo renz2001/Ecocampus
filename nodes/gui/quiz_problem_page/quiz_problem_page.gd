@@ -13,7 +13,7 @@ signal correctly_answered
 		quiz_attempt.completed.connect(_on_quiz_completed, CONNECT_ONE_SHOT)
 		update()
 
-@export var question_label: Label
+@export var question_label: FormattedLabel
 
 @export var answers: GridContainer
 
@@ -30,7 +30,7 @@ var problem_attempt: QuizProblemAttempt:
 		if !is_instance_valid(problem_attempt): 
 			return
 		
-		question_label.text = problem_attempt.problem.question
+		question_label.input([str(quiz_attempt.problem_attempts.find(problem_attempt) + 1), problem_attempt.problem.question])
 		
 		var p_answers: Array[String] = problem_attempt.problem.get_answers()
 		answer_a.label.text = p_answers[0]

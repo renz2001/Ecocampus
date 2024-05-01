@@ -5,7 +5,7 @@ signal loaded_data(data: GameSave)
 
 signal saved_data_to_file(data: GameSave, save_file: SaveFile)
 
-signal save_file_removed( save_file: SaveFile)
+signal save_file_removed(path: String)
 
 signal save_files_edited(new_save_files: Array[SaveFile])
 
@@ -109,9 +109,12 @@ func get_non_numbered_string(val: String) -> String:
 	return res
 
 
-func remove_save_file(save_file: GameSave) -> void: 
-	save_file_removed.emit(save_file)
-	save_files_edited.emit(get_save_files())
+func remove_save_file(file_name: String) -> void: 
+	if does_save_file_name_exists(file_name): 
+		var saves_folder_dir: DirAccess = DirAccess.open(saves_folder_path)
+		saves_folder_dir.remove(file_name + ".json")
+		save_file_removed.emit(file_name)
+		save_files_edited.emit(get_save_files())
 
 
 func does_save_file_name_exists(file_name: String) -> bool: 

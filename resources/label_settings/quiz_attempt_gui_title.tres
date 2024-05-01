@@ -1,0 +1,12 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://bfng1toxthprb"]
+
+[ext_resource type="FontFile" uid="uid://dqdntixoq4bc2" path="res://fonts/Ubuntu-Medium.ttf" id="1_sckn2"]
+
+[resource]
+font = ExtResource("1_sckn2")
+font_size = 70
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 10
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(4, 8)

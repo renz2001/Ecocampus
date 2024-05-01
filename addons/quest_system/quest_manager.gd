@@ -203,9 +203,11 @@ func dict_to_quests(dict: Dictionary, quests: Array[Quest]) -> void:
 		var pool_ids: Array[int]
 		#printerr((dict[pool.name.to_lower()] as Array[int]).get_typed_builtin())
 		pool_ids.append_array(dict[pool.name.to_lower()] as Array[int])
+		
+		
+		
 		#print(pool_ids.get_typed_builtin())
 		for quest in quests: 
-			print("quest id: ", quest.id)
 			if quest.id in pool_ids:
 				pool.add_quest(quest)
 				quests.erase(quest)

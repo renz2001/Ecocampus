@@ -1,14 +1,25 @@
-[gd_scene load_steps=14 format=3 uid="uid://glnb78ju8p8o"]
+[gd_scene load_steps=17 format=3 uid="uid://glnb78ju8p8o"]
 
 [ext_resource type="PackedScene" uid="uid://3miay8g4x6j3" path="res://nodes/abstract_scenes/main_screen/main_screen.tscn" id="1_c5phn"]
 [ext_resource type="PackedScene" uid="uid://dggdvwjvdrmkh" path="res://nodes/gui/buttons/medium_wooden_button/medium_wooden_button.tscn" id="2_5xhb2"]
+[ext_resource type="Script" path="res://nodes/gui/main_menu/main_menu.gd" id="2_l406y"]
 [ext_resource type="Texture2D" uid="uid://cc8xvqqoy2ku1" path="res://assets/background/main_menu.jpg" id="2_q4bpm"]
+[ext_resource type="Script" path="res://addons/macchi's_node_components/nodes/components/print_color.gd" id="2_u3mqe"]
 [ext_resource type="FontFile" uid="uid://cp5vi568oh4jl" path="res://fonts/Ubuntu-Bold.ttf" id="3_0m0ht"]
 [ext_resource type="Texture2D" uid="uid://coxbspxk8whgw" path="res://assets/title_screen/title_no_tree.png" id="3_bxeg8"]
 [ext_resource type="Texture2D" uid="uid://b3hxtkgufbsdg" path="res://assets/buttons/play.png" id="3_m1v58"]
 [ext_resource type="Texture2D" uid="uid://b4fijb1vufwm7" path="res://assets/buttons/exit.png" id="4_cpr3a"]
 [ext_resource type="PackedScene" uid="uid://csp1aki3k6ecy" path="res://nodes/gui_components/on_pressed_components/on_pressed_play/on_pressed_play.tscn" id="5_k3spk"]
 [ext_resource type="PackedScene" uid="uid://cp41bsdgf5ftt" path="res://nodes/gui_components/on_pressed_components/on_pressed_exit/on_pressed_exit.tscn" id="6_f38ca"]
+
+[sub_resource type="Resource" id="Resource_ntkf8"]
+script = ExtResource("2_u3mqe")
+disabled = false
+color = Color(0.686275, 0.580392, 1, 1)
+owner_name_color = Color(0.988235, 0, 0.839216, 1)
+value_color = Color(1, 0, 0, 1)
+automatic_value_color = true
+use_spaces_for_node_name = false
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qt5cm"]
 atlas = ExtResource("3_bxeg8")
@@ -32,6 +43,8 @@ atlas = ExtResource("4_cpr3a")
 region = Rect2(82, 144, 1403, 511)
 
 [node name="MainMenu" instance=ExtResource("1_c5phn")]
+script = ExtResource("2_l406y")
+print_color = SubResource("Resource_ntkf8")
 
 [node name="Background" parent="Root/Background" index="0"]
 texture = ExtResource("2_q4bpm")

@@ -1,8 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://cmimwcq2i013r"]
+[gd_scene load_steps=9 format=3 uid="uid://cmimwcq2i013r"]
 
 [ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/macchi's_gui_manager/nodes/gui/gui/gui.tscn" id="1_easku"]
 [ext_resource type="Texture2D" uid="uid://bloiawg11mnph" path="res://assets/achievements/achievement_medal.png" id="2_ewh3b"]
 [ext_resource type="Script" path="res://nodes/gui/achievement_tracker_gui/achievement_tracker_gui.gd" id="2_m2pee"]
+[ext_resource type="PackedScene" uid="uid://rht72s4l6wx3" path="res://nodes/gui_components/set_pivot_offset_to_center/set_pivot_offset_to_center.tscn" id="4_d73yk"]
+[ext_resource type="PackedScene" uid="uid://c341gagax5vvu" path="res://addons/macchi's_node_components/nodes/components/lerp_components/vector_2_property_lerp_component/vector_2_property_lerp_component.tscn" id="5_ekjgi"]
+[ext_resource type="Script" path="res://addons/macchi's_node_components/scripts/arguments/tween_arguments.gd" id="6_1ru0h"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_pkij6"]
 font_size = 120
@@ -12,8 +15,15 @@ shadow_size = 30
 shadow_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(1.87, 3.28)
 
-[node name="AchievementTrackerGUI" node_paths=PackedStringArray("label") instance=ExtResource("1_easku")]
+[sub_resource type="Resource" id="Resource_bg037"]
+script = ExtResource("6_1ru0h")
+transition_type = 4
+ease_type = 2
+duration = 0.35
+
+[node name="AchievementTrackerGUI" node_paths=PackedStringArray("sclae_up_lerp", "label") instance=ExtResource("1_easku")]
 script = ExtResource("2_m2pee")
+sclae_up_lerp = NodePath("ScaleUpLerpComponent")
 label = NodePath("HBoxContainer/Label")
 inactive_on_ready = false
 
@@ -21,6 +31,7 @@ inactive_on_ready = false
 layout_mode = 0
 offset_right = 172.0
 offset_bottom = 140.0
+pivot_offset = Vector2(86, 70)
 theme_override_constants/separation = 0
 
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer" index="0"]
@@ -33,3 +44,15 @@ stretch_mode = 5
 layout_mode = 2
 text = "1"
 label_settings = SubResource("LabelSettings_pkij6")
+
+[node name="SetPivotOffsetToCenter" parent="." index="2" node_paths=PackedStringArray("control") instance=ExtResource("4_d73yk")]
+control = NodePath("..")
+
+[node name="ScaleUpLerpComponent" parent="." index="3" node_paths=PackedStringArray("node") instance=ExtResource("5_ekjgi")]
+node = NodePath("../HBoxContainer")
+properties = PackedStringArray("scale")
+start_point = Vector2(1, 1)
+end_point = Vector2(1.2, 1.2)
+interpolation = SubResource("Resource_bg037")
+loop_times = 1
+loop_interpolate_end_to_back = true

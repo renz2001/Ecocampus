@@ -30,7 +30,8 @@ var owner: Object:
 		print_color.owner = owner
 		
 var print_color: PrintColor
-var _max_items_error: Callable = func(val): print_color.out_debug_wvalue("Cannot add more items since it has reached it's maximum. The new items", val)
+var _max_items_error: Callable = func(val): print_color.out_debug_wvalue("Cannot add more items since the inventory has reached it's maximum. The new items", val)
+var added_items_history: Array[ItemModel]
 
 func _init() -> void: 
 	super._init()
@@ -50,20 +51,18 @@ func set_items(new_items: Array[ItemStack]) -> void:
 
 
 func add_items(new_items: Array[ItemStack], by: Object = null) -> void: 
-	if _is_value_too_big(new_items.size()): 
-		_max_items_error.call(new_items)
-		return
+	#if _is_value_too_big(new_items.size()): 
+		#_max_items_error.call(new_items)
+		#return
 	for item: ItemStack in new_items: 
 		add_item(item, by)
 	items_added.emit(new_items)
 
+
 func add_item(new_item_stack: ItemStack, by: Object = null) -> void: 
 	
-	# Checks if the item already exists in the inventory. 
-	if _is_value_too_big(items.size()): 
-		_max_items_error.call(new_item_stack)
-		return
-		
+	added_items_history.append(new_item_stack.model)
+	
 	for item_stack: ItemStack in items: 
 		if item_stack.is_equal_to(new_item_stack) && !item_stack.is_full(): 
 			var dupe_debug: ItemStack = ItemStack.from_item_stack(new_item_stack, self)
@@ -76,8 +75,14 @@ func add_item(new_item_stack: ItemStack, by: Object = null) -> void:
 			print_items()
 			return
 	
+	# Checks if the item already exists in the inventory. 
+	if is_full(): 
+		_max_items_error.call(new_item_stack)
+		return
+		
 	var dupe: ItemStack = ItemStack.from_item_stack(new_item_stack, self)
 	items.append(dupe)
+	
 	if is_full(): 
 		full.emit()
 	
@@ -85,6 +90,17 @@ func add_item(new_item_stack: ItemStack, by: Object = null) -> void:
 	items_changed.emit([dupe] as Array[ItemStack])
 	print_color.out_debug_wvalue("Inventory: %s added item" % by, dupe)
 	print_items()
+
+
+func get_total_stack() -> int: 
+	var stack: int = 0
+	for item: ItemStack in items: 
+		stack += int(item.stack.current)
+	return stack
+	
+
+func is_overloaded() -> bool: 
+	return items.size() == max_items
 
 
 func is_full() -> bool: 
@@ -234,7 +250,8 @@ func clone() -> Inventory:
 func _save_properties() -> PackedStringArray: 
 	return [
 		"items", 
-		"max_items"
+		"max_items",
+		"added_items_history"
 	]
 
 

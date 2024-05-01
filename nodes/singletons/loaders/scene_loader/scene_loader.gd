@@ -49,7 +49,7 @@ func _process(_delta: float) -> void:
 			#if GUIManager.transitions_manager.transitioning: 
 				#await GUIManager.transitions_manager.middle_transition.ended
 			if GUIManager.transitions_manager.transitioning: 
-				if GUIManager.transitions_manager.start_transition: 
+				if is_instance_valid(GUIManager.transitions_manager.start_transition): 
 					await GUIManager.transitions_manager.start_transition.ended
 			get_tree().change_scene_to_packed(next_scene)
 			#if GUIManager.transitions_manager.end_transition: 

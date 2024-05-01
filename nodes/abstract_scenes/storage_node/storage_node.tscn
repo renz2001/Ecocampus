@@ -1,10 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://dls07q71n33yn"]
+[gd_scene load_steps=11 format=3 uid="uid://dls07q71n33yn"]
 
 [ext_resource type="PackedScene" uid="uid://dokfordgw2kk3" path="res://nodes/abstract_scenes/non_living_entity_node/non_living_entity_node.tscn" id="1_op1yp"]
 [ext_resource type="Script" path="res://nodes/abstract_scenes/storage_node/storage_node.gd" id="2_gmyt4"]
 [ext_resource type="PackedScene" uid="uid://bdn1668ew0yo6" path="res://nodes/components/on_hovered_components/on_hovered_apply_material/on_hovered_apply_material.tscn" id="3_h05rh"]
 [ext_resource type="PackedScene" uid="uid://bvktq7qid2b8v" path="res://nodes/components/mouse_drag_drop_area/mouse_drag_drop_area.tscn" id="3_nkrf1"]
 [ext_resource type="Shader" path="res://resources/shaders/outline_inline.gdshader" id="4_stwhy"]
+[ext_resource type="PackedScene" uid="uid://7gri71kaffvv" path="res://addons/macchi's_audio_manager_and_plus/nodes/components/audio_manager_player/audio_manager_player.tscn" id="6_sjx0m"]
+[ext_resource type="Script" path="res://addons/macchi's_audio_manager_and_plus/scripts/arguments/audio_stream_player_arguments.gd" id="7_mscl8"]
+[ext_resource type="AudioStream" uid="uid://dnipkpbpk6h6n" path="res://assets/audio/ui/pickup_item.wav" id="8_qd7k1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pd2xc"]
 shader = ExtResource("4_stwhy")
@@ -14,8 +17,18 @@ shader_parameter/pattern = 0
 shader_parameter/inside = false
 shader_parameter/add_margins = true
 
-[node name="StorageNode" instance=ExtResource("1_op1yp")]
+[sub_resource type="Resource" id="Resource_lt047"]
+script = ExtResource("7_mscl8")
+sound = ExtResource("8_qd7k1")
+play_from_position = 0
+pitch_scale = 1.0
+volume_slider = 1.0
+volume_db = 0.0
+bus = &"Master"
+
+[node name="StorageNode" node_paths=PackedStringArray("drop_audio") instance=ExtResource("1_op1yp")]
 script = ExtResource("2_gmyt4")
+drop_audio = NodePath("Audio/DropAudio")
 
 [node name="MouseDragDropArea" parent="." index="0" node_paths=PackedStringArray("owner_node") instance=ExtResource("3_nkrf1")]
 collision_mask = 0
@@ -28,6 +41,9 @@ apply_to_node = NodePath("../../../../Sprites")
 
 [node name="ReadyUniqueResource" parent="Components" index="7"]
 disabled = false
+
+[node name="DropAudio" parent="Audio" index="2" instance=ExtResource("6_sjx0m")]
+audio = SubResource("Resource_lt047")
 
 [node name="EntitySprite" parent="Sprites" index="1"]
 position = Vector2(0, -92)

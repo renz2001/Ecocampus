@@ -1,10 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://d3ckyt0j2xo5s"]
+[gd_scene load_steps=5 format=3 uid="uid://d3ckyt0j2xo5s"]
 
 [ext_resource type="PackedScene" uid="uid://c0br10f55v31e" path="res://nodes/components/conditional_set_resource_property_component/conditional_set_resource_property_component.tscn" id="1_anjkc"]
 [ext_resource type="Script" path="res://nodes/components/if_quest_complete_then_set_resource/if_quest_complete_then_set_resource.gd" id="2_6rviy"]
+[ext_resource type="Script" path="res://addons/macchi's_node_components/nodes/components/print_color.gd" id="3_7h6nf"]
+
+[sub_resource type="Resource" id="Resource_lnth1"]
+script = ExtResource("3_7h6nf")
+disabled = false
+color = Color(0.972549, 0.501961, 0.494118, 1)
+owner_name_color = Color(0, 0, 1, 1)
+value_color = Color(1, 0, 0, 1)
+automatic_value_color = true
+use_spaces_for_node_name = false
 
 [node name="IfQuestCompleteThenSetResource" instance=ExtResource("1_anjkc")]
 script = ExtResource("2_6rviy")
 check_quest = null
+print_color = SubResource("Resource_lnth1")
 dont_ready_value = true
 property_or_method = "dialogue"

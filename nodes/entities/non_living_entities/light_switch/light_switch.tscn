@@ -16,6 +16,7 @@ horizontal_alignment = 0
 vertical_alignment = 0
 
 [node name="LightSwitch" node_paths=PackedStringArray("light_bulbs") instance=ExtResource("1_yhx30")]
+scale = Vector2(1.4, 1.4)
 script = ExtResource("2_sci1n")
 light_bulbs = []
 interact_description = SubResource("Resource_aopd7")
@@ -45,6 +46,9 @@ script = ExtResource("4_emtls")
 script = ExtResource("5_mygse")
 to = NodePath("../../Off")
 event = &"off"
+
+[node name="TwoPoint5DNodeSimulator" parent="Components" index="1"]
+node_base_scale = Vector2(1.4, 1.4)
 
 [node name="ShadowCircle" parent="Sprites" index="0"]
 visible = false

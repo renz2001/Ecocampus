@@ -66,3 +66,8 @@ func _on_dialogue_state_entered() -> void:
 
 func _on_map_picker_state_entered() -> void:
 	pass # Replace with function body.
+
+
+## _notification doesn't work with mobile??
+func is_close_request(what: int) -> bool: 
+	return what == NOTIFICATION_WM_CLOSE_REQUEST || what == NOTIFICATION_CRASH || what == NOTIFICATION_APPLICATION_PAUSED || what == DisplayServer.WINDOW_EVENT_CLOSE_REQUEST

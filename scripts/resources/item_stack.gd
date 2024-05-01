@@ -14,7 +14,8 @@ signal full
 		stack = PointCounter.new()
 		stack.when_maximum_stay = true
 		stack.maximum = model.maximum_stack
-		stack.starting_value = stack_starting_value
+		#stack.starting_value = 1
+		#printerr("model: %s, stack: %s" % [model, stack.current])
 		stack.maximum_hit.connect(
 			func(_val: float): 
 				full.emit()
@@ -80,9 +81,9 @@ func _to_string() -> String:
 
 func _save_properties() -> PackedStringArray: 
 	return [
-		"stack", 
+		"model", 
+		"stack"
 		#"owner", 
-		"model"
 	]
 	
 	

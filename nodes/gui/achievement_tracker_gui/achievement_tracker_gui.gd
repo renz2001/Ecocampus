@@ -1,6 +1,7 @@
 extends GUI
 class_name AchievementTrackerGUI
 
+@export var sclae_up_lerp: Vector2PropertyLerpComponent
 @export var label: Label
 
 func _ready() -> void: 
@@ -17,8 +18,10 @@ func _on_readu_unique_resource() -> void:
 	GlobalData.achievements_tracker.medals.points.current_changed.connect(_on_medals_current_changed)
 
 
-func _on_medals_current_changed(_new: float, _prev: float) -> void: 
+func _on_medals_current_changed(new: float, _prev: float) -> void: 
 	update()
+	if new > 0: 
+		sclae_up_lerp.play()
 	
 	
 func update() -> void: 

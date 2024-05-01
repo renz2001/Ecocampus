@@ -70,23 +70,28 @@ dialogue = ExtResource("9_lmtsk")
 [node name="LightBulb" parent="Entities/NonLiving" index="0" instance=ExtResource("10_sq4sl")]
 position = Vector2(1187, 123)
 scale = Vector2(0.227583, 0.227583)
+disable_after_interact = true
 
 [node name="LightSwitch" parent="Entities/NonLiving" index="1" node_paths=PackedStringArray("light_bulbs") instance=ExtResource("11_cfu07")]
 position = Vector2(1561, 353)
-scale = Vector2(0.556726, 0.556726)
+scale = Vector2(0.779416, 0.779416)
 light_bulbs = [NodePath("../LightBulb")]
+disable_after_interact = true
 
 [node name="Faucet" parent="Entities/NonLiving" index="2" instance=ExtResource("12_n4yv5")]
 position = Vector2(1064, 419)
 scale = Vector2(0.651175, 0.651175)
+disable_after_interact = true
 
 [node name="Faucet2" parent="Entities/NonLiving" index="3" instance=ExtResource("12_n4yv5")]
 position = Vector2(1159, 422)
 scale = Vector2(0.655468, 0.655468)
+disable_after_interact = true
 
 [node name="Faucet3" parent="Entities/NonLiving" index="4" instance=ExtResource("12_n4yv5")]
 position = Vector2(1333, 430)
 scale = Vector2(0.666917, 0.666917)
+disable_after_interact = true
 
 [node name="TwoPoint5DSpaceSimulator" parent="Scripts" index="0"]
 scale_size_offset = 140

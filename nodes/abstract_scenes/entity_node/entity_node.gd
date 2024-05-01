@@ -81,6 +81,8 @@ func _interact() -> void:
 func _on_interact() -> void: 
 	if disabled: 
 		return
+	if disable_after_interact: 
+		disabled = true
 	_interact()
 	if interact_audio: 
 		interact_audio_player.play()
@@ -95,6 +97,8 @@ func _on_interact() -> void:
 
 
 func show_interact_dialog(description: BaseLabelText) -> void: 
+	if disabled: 
+		return
 	var dialog: InteractDialog = InteractDialog.display(
 		InteractDialogData.new()\
 			.set_caller(

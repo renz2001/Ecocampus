@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cm6jeskbiise6"]
+[gd_scene load_steps=13 format=3 uid="uid://cm6jeskbiise6"]
 
 [ext_resource type="PackedScene" uid="uid://uumu0cyt08vn" path="res://nodes/tools/main_camera/main_camera.tscn" id="1_7i7vm"]
 [ext_resource type="Script" path="res://nodes/abstract_scenes/level_node/level_node.gd" id="1_i8rcc"]
@@ -10,15 +10,17 @@
 [ext_resource type="Script" path="res://addons/save_components_system/scripts/resources/properties_to_save.gd" id="6_hexg7"]
 [ext_resource type="PackedScene" uid="uid://dcl4q5evy7cq1" path="res://addons/save_components_system/components/king_save_component/king_save_component.tscn" id="6_tky5n"]
 [ext_resource type="PackedScene" uid="uid://bf36nvt8j4eto" path="res://addons/save_components_system/components/id_component/id_component.tscn" id="8_ncmm5"]
+[ext_resource type="PackedScene" uid="uid://nnpxfb02bn17" path="res://nodes/components/change_scene_component/change_scene_component.tscn" id="11_vp14t"]
 
 [sub_resource type="Resource" id="Resource_nryn4"]
 script = ExtResource("6_hexg7")
 properties = PackedStringArray("local_events_history")
 save_properties_as_resource_path = PackedStringArray()
 
-[node name="LevelNode" type="Node2D" node_paths=PackedStringArray("id_component")]
+[node name="LevelNode" type="Node2D" node_paths=PackedStringArray("to_map_picker", "id_component")]
 y_sort_enabled = true
 script = ExtResource("1_i8rcc")
+to_map_picker = NodePath("Scripts/ToMapPicker")
 id_component = NodePath("Scripts/IDComponent")
 
 [node name="GUIs" type="CanvasLayer" parent="."]
@@ -85,6 +87,7 @@ y_sort_enabled = true
 [node name="WorldEventHandler" parent="." instance=ExtResource("4_0l3dg")]
 
 [node name="Ready" parent="WorldEventHandler/GenericEvents" index="0" instance=ExtResource("4_g04p1")]
+only_called_once = false
 
 [node name="PickedUp" parent="WorldEventHandler/TaskEvents" index="0" instance=ExtResource("4_g04p1")]
 
@@ -112,6 +115,9 @@ id_component = NodePath("../IDComponent")
 
 [node name="IDComponent" parent="Scripts" node_paths=PackedStringArray("node") instance=ExtResource("8_ncmm5")]
 node = NodePath("../..")
+
+[node name="ToMapPicker" parent="Scripts" instance=ExtResource("11_vp14t")]
+to_scene = "res://nodes/screens/map_picker/map_picker.tscn"
 
 [editable path="WorldEventHandler"]
 [editable path="Scripts/TwoPoint5DSpaceSimulator"]

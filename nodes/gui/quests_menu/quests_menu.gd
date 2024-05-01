@@ -33,4 +33,16 @@ func update() -> void:
 		panel_container.size.y = 512
 	else: 
 		panel_container.size.y = 93
+		
+	quests_container.update()
+	
+	
+func _activated() -> void: 
+	super._activated()
+	quests_container.update()
+	
+	
+func _process(_delta: float) -> void: 
+	#print(ExtendedQuestSystem.active.quests)
+	pass
 

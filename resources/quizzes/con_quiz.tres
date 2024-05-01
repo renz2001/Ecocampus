@@ -41,8 +41,8 @@ reward_points = 1
 
 [resource]
 script = ExtResource("1_8y41a")
-title = "CON Quiz"
-description = "Clear this quiz"
+title = "Professor Cruz's Assesment"
+description = "Pass this assesment and win an achievement!"
 problems = Array[ExtResource("1_453m7")]([SubResource("Resource_0ghtb"), SubResource("Resource_2aagg"), SubResource("Resource_s2kxt"), SubResource("Resource_yvjj5"), SubResource("Resource_chh8y")])
 on_victory_unloch_achievement = ExtResource("1_ergdk")
-passing_score_percentage = 0.75
+passing_score_percentage = 1.0

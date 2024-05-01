@@ -1,19 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://lallm550hhks"]
+[gd_scene load_steps=9 format=3 uid="uid://lallm550hhks"]
 
 [ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/macchi's_gui_manager/nodes/gui/gui/gui.tscn" id="1_6udxv"]
 [ext_resource type="Script" path="res://nodes/gui/quiz_problem_page/quiz_problem_page.gd" id="2_ex2pk"]
-[ext_resource type="FontFile" uid="uid://dqdntixoq4bc2" path="res://fonts/Ubuntu-Medium.ttf" id="3_8ifg7"]
 [ext_resource type="PackedScene" uid="uid://dggdvwjvdrmkh" path="res://nodes/gui/buttons/medium_wooden_button/medium_wooden_button.tscn" id="3_adaod"]
+[ext_resource type="LabelSettings" uid="uid://bcf3wgahko2ws" path="res://resources/label_settings/quiz_problem_page_title.tres" id="4_coot8"]
+[ext_resource type="PackedScene" uid="uid://cdhkyjskyryv" path="res://nodes/gui/formatted_label/formatted_label.tscn" id="4_kjost"]
 [ext_resource type="LabelSettings" uid="uid://b4a2mbjbxcc82" path="res://resources/label_settings/quiz_problem_page_answers.tres" id="4_nryfx"]
+[ext_resource type="Script" path="res://scripts/resources/string_formatter.gd" id="5_8brkb"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_ok30j"]
-font = ExtResource("3_8ifg7")
-font_size = 45
-outline_size = 6
-outline_color = Color(0, 0, 0, 1)
-shadow_size = 10
-shadow_color = Color(0, 0, 0, 1)
-shadow_offset = Vector2(4, 8)
+[sub_resource type="Resource" id="Resource_x6s5w"]
+script = ExtResource("5_8brkb")
+format = "%s. %s"
 
 [node name="QuizProblemPage" node_paths=PackedStringArray("question_label", "answers", "answer_a", "answer_b", "answer_c", "answer_d") instance=ExtResource("1_6udxv")]
 offset_right = 1048.0
@@ -48,13 +45,15 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_type_variation = &"QuizAttemptPanel"
 
-[node name="Question" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer" index="0"]
+[node name="Question" parent="MarginContainer/VBoxContainer/PanelContainer" index="0" instance=ExtResource("4_kjost")]
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
-text = "1. This is a question. "
-label_settings = SubResource("LabelSettings_ok30j")
+text = "1. This is a Question"
+label_settings = ExtResource("4_coot8")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
+string_formatter = SubResource("Resource_x6s5w")
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer" index="1"]
 layout_mode = 2

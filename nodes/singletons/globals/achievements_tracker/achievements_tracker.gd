@@ -18,6 +18,12 @@ class_name AchievementsTracker
 			
 #@export var achievements_quests: Array[EcoQuest]
 
+@export var achievements_collection: AchievementsCollection: 
+	set(value): 
+		achievements_collection = value
+		update_victory()
+		
+		
 @export var medals: PointCounterComponent
 @export var print_color: PrintColor: 
 	set(value): 
@@ -29,7 +35,7 @@ func _ready() -> void:
 		#ExtendedQuestSystem.start_quest(quest)
 		#
 	#ExtendedQuestSystem.quest_completed.connect(_on_quest_completed)
-	pass
+	update_victory()
 	
 #func _on_quest_completed(quest: Quest) -> void: 
 	#var eco_quest: EcoQuest = quest
@@ -44,3 +50,21 @@ func unlock_cosmetic(cosmetic: Cosmetic) -> void:
 		medals.points.subtract(cosmetic.medals_required)
 		print_color.out_debug_wvalue("Unlocked cosmetic with medals", [cosmetic, debug])
 
+
+func update_victory() -> void: 
+	
+	if !is_node_ready(): 
+		await ready
+	
+	#printerr("all: ", achievements_collection.collection.all(
+		#func(item: Achievement): 
+			#printerr(item.unlocked)
+			#return item.unlocked
+	#))
+	if achievements_collection.collection.all(
+		func(item: Achievement): 
+			return item.unlocked
+	): 
+		GUIManager.add_gui(GUICollection.victory_screen.instantiate())
+	
+	

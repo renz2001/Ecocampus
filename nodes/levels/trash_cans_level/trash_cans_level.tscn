@@ -67,13 +67,16 @@ position = Vector2(-433, 670)
 position = Vector2(1218, 838)
 
 [node name="BioDegradableTrashcan" parent="Entities/NonLiving/TrashCans" index="0" instance=ExtResource("4_7mhfn")]
-position = Vector2(-312, 2)
+position = Vector2(-312, -38)
 
 [node name="NonBiodegradableTrashCan" parent="Entities/NonLiving/TrashCans" index="1" instance=ExtResource("5_4eos8")]
-position = Vector2(0, 2)
+position = Vector2(0, -38)
 
 [node name="RecyclableTrashCan" parent="Entities/NonLiving/TrashCans" index="2" instance=ExtResource("6_4jqk0")]
-position = Vector2(319, 2)
+position = Vector2(319, -38)
+
+[node name="MasterSaveComponent" parent="WorldEventHandler" index="3" node_paths=PackedStringArray("id")]
+id = NodePath("../../Scripts/IDComponent")
 
 [node name="TwoPoint5DSpaceSimulator" parent="Scripts" index="0"]
 disabled = true

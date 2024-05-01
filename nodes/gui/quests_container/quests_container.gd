@@ -14,10 +14,8 @@ class_name QuestsContainer
 
 
 func update() -> void: 
-	await get_tree().process_frame
-	for child in get_children(): 
-		child.queue_free()
-		
+	clear()
+	
 	for quest: EcoQuest in quests: 
 		if quest.invisible_in_gui || ExtendedQuestSystem.is_quest_completed(quest): 
 			continue
@@ -25,4 +23,6 @@ func update() -> void:
 		add_child(gui)
 		gui.quest = quest
 
-
+func clear() -> void: 
+	for child in get_children(): 
+		child.queue_free()

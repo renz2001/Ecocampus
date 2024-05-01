@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cxbi5gy21wbmn"]
+[gd_scene load_steps=14 format=3 uid="uid://cxbi5gy21wbmn"]
 
 [ext_resource type="PackedScene" uid="uid://dokfordgw2kk3" path="res://nodes/abstract_scenes/non_living_entity_node/non_living_entity_node.tscn" id="1_rx25i"]
 [ext_resource type="Texture2D" uid="uid://bcc84nclik45k" path="res://assets/non_living_entities/lightbulb_off.png" id="2_1cpm4"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="5_oxrtc"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="6_s7lqc"]
 [ext_resource type="Script" path="res://addons/save_components_system/scripts/resources/properties_to_save.gd" id="8_q2dlt"]
+[ext_resource type="Texture2D" uid="uid://2ryvkjruno7l" path="res://assets/non_living_entities/light.png" id="9_xvb7g"]
 
 [sub_resource type="Resource" id="Resource_ww6kv"]
 script = ExtResource("3_r7qc0")
@@ -31,10 +32,20 @@ state = 1
 data = SubResource("Resource_ww6kv")
 
 [node name="TapHitBox" parent="CanvasLayer/Root" index="0"]
+visible = false
 offset_left = -128.0
 offset_top = -131.0
 offset_right = 140.0
 offset_bottom = 141.0
+
+[node name="IfPausedEnteredSetProperty" parent="CanvasLayer/Root/TapHitBox" index="0"]
+disabled = true
+
+[node name="IfPlayingEnteredSetProperty" parent="CanvasLayer/Root/TapHitBox" index="1"]
+disabled = true
+
+[node name="IfDialogueEnteredSetProperty2" parent="CanvasLayer/Root/TapHitBox" index="2"]
+disabled = true
 
 [node name="State" type="Node" parent="StateChart/Root/Enabled" index="3"]
 script = ExtResource("4_e7jvl")
@@ -65,7 +76,7 @@ nodes = [NodePath("../../../Sprites/EntitySprite")]
 
 [node name="On" parent="Components/NodeVarietyManager" index="1" node_paths=PackedStringArray("nodes") instance=ExtResource("3_6qvu2")]
 active = true
-nodes = [NodePath("../../../Sprites/On")]
+nodes = [NodePath("../../../Sprites/On"), NodePath("../../../Sprites/Light")]
 
 [node name="MasterSaveComponent" parent="Components" index="8"]
 data = SubResource("Resource_cg4s3")
@@ -84,3 +95,9 @@ texture = ExtResource("2_1cpm4")
 position = Vector2(-2, 408)
 scale = Vector2(1.29597, 1.29597)
 texture = ExtResource("3_spmdb")
+
+[node name="Light" type="Sprite2D" parent="Sprites" index="3"]
+modulate = Color(1, 1, 0.776471, 0.572549)
+position = Vector2(43.4132, 477.546)
+scale = Vector2(21.4275, 18.3315)
+texture = ExtResource("9_xvb7g")

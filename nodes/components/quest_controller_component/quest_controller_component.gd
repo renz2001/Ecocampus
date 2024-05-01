@@ -16,6 +16,9 @@ func use() -> void:
 	match type: 
 		Type.START: 
 			ExtendedQuestSystem.start_quest(quest)
+			await get_tree().create_timer(0.8)
+			var menu: QuestsMenu = GroupNodeFetcher.get_first_node("QuestsMenu")
+			GUIManager.toggle_gui(menu)
 		Type.MARK_AS_AVAILABLE: 
 			ExtendedQuestSystem.mark_quest_as_available(quest)
 		Type.COMPLETE: 

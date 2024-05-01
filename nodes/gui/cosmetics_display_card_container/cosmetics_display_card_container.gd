@@ -57,6 +57,8 @@ func _on_cosmetic_unlocked() -> void:
 func update() -> void: 
 	if !is_node_ready(): 
 		await ready
+	if cosmetics_collection == null: 
+		return
 	clear()
 	for cosmetic: Cosmetic in cosmetics_collection.cosmetics: 
 		if cosmetic.is_default && !show_default_cosmetic: 

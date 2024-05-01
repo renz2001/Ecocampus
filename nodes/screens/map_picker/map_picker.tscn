@@ -1,8 +1,9 @@
-[gd_scene load_steps=25 format=3 uid="uid://dcjxf25vgikeb"]
+[gd_scene load_steps=27 format=3 uid="uid://dcjxf25vgikeb"]
 
 [ext_resource type="PackedScene" uid="uid://3miay8g4x6j3" path="res://nodes/abstract_scenes/main_screen/main_screen.tscn" id="1_ethfg"]
 [ext_resource type="PackedScene" uid="uid://5npqpm4ofnr" path="res://nodes/gui/map_location_button/map_location_button.tscn" id="2_5f6v8"]
 [ext_resource type="Texture2D" uid="uid://co881qitymalu" path="res://assets/map/island.png" id="2_j6xsv"]
+[ext_resource type="Script" path="res://nodes/screens/map_picker/map_picker.gd" id="2_y44ll"]
 [ext_resource type="Script" path="res://scripts/arguments/change_scene_arguments.gd" id="3_cuxqn"]
 [ext_resource type="Texture2D" uid="uid://cmyovnl4vkyxt" path="res://assets/map/icons/con_icon.png" id="4_sbxly"]
 [ext_resource type="Texture2D" uid="uid://d3qhdft6m3gyt" path="res://assets/map/icons/dit_icon.png" id="5_b4x4x"]
@@ -11,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://vy3sc4i6w3vt" path="res://assets/map/icons/library_icon.png" id="7_ssrne"]
 [ext_resource type="Texture2D" uid="uid://u3ir732fkp5j" path="res://assets/map/icons/saluysoy_icon.png" id="8_ob73h"]
 [ext_resource type="Texture2D" uid="uid://c53nvgcsjrpdg" path="res://assets/map/icons/trashcan_icon.png" id="9_t8wk1"]
+[ext_resource type="PackedScene" uid="uid://nnpxfb02bn17" path="res://nodes/components/change_scene_component/change_scene_component.tscn" id="13_o6nnp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6f7ax"]
 atlas = ExtResource("2_j6xsv")
@@ -76,7 +78,9 @@ scene = "res://nodes/levels/trash_cans_level/trash_cans_level.tscn"
 transition = ExtResource("6_u5ky5")
 middle_transition_end_condition = 0
 
-[node name="MapPicker" instance=ExtResource("1_ethfg")]
+[node name="MapPicker" node_paths=PackedStringArray("to_main_menu") instance=ExtResource("1_ethfg")]
+script = ExtResource("2_y44ll")
+to_main_menu = NodePath("ToMainMenu")
 send_event = "map_picker"
 
 [node name="ColorRect" type="ColorRect" parent="Root/Background" index="0"]
@@ -135,11 +139,18 @@ texture_normal = SubResource("AtlasTexture_ixlmw")
 change_scene = SubResource("Resource_bteyx")
 
 [node name="Library" parent="Root/CenterContainer/Island/Island" index="3" instance=ExtResource("2_5f6v8")]
-layout_mode = 0
-offset_left = 477.0
-offset_top = -115.0
-offset_right = 966.0
-offset_bottom = 374.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -182.5
+offset_top = -620.0
+offset_right = 306.5
+offset_bottom = -131.0
+grow_horizontal = 2
+grow_vertical = 2
 texture_normal = SubResource("AtlasTexture_wfi8a")
 change_scene = SubResource("Resource_vqtlx")
 
@@ -160,3 +171,6 @@ offset_right = 1127.0
 offset_bottom = 644.0
 texture_normal = SubResource("AtlasTexture_h43h3")
 change_scene = SubResource("Resource_04iki")
+
+[node name="ToMainMenu" parent="." index="1" instance=ExtResource("13_o6nnp")]
+to_scene = "res://nodes/gui/main_menu/main_menu.tscn"

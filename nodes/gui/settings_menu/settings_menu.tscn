@@ -59,16 +59,15 @@ disabled = true
 [node name="SetGameStateOnGUIActive" parent="." index="2" node_paths=PackedStringArray("gui") instance=ExtResource("7_xoj0p")]
 gui = NodePath("..")
 activated_state = "paused"
-deactivated_state = "playing"
 
-[node name="IfMainMenuEnteredSetProperty" parent="SetGameStateOnGUIActive" index="0" node_paths=PackedStringArray("node") instance=ExtResource("8_dayxy")]
+[node name="IfMainMenuEnteredSetProperty" parent="." index="3" node_paths=PackedStringArray("node") instance=ExtResource("8_dayxy")]
 property = "main_menu_state"
-node = NodePath("..")
+node = NodePath("../SetGameStateOnGUIActive")
 property_or_method = "disabled"
 
-[node name="IfMainMenuExitedSetProperty2" parent="SetGameStateOnGUIActive" index="1" node_paths=PackedStringArray("node") instance=ExtResource("8_dayxy")]
+[node name="IfMainMenuExitedSetProperty" parent="." index="4" node_paths=PackedStringArray("node") instance=ExtResource("8_dayxy")]
 property = "main_menu_state"
 state_event = 1
-node = NodePath("..")
+node = NodePath("../SetGameStateOnGUIActive")
 property_or_method = "disabled"
 new_value = "false"

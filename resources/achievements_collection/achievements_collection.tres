@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="AchievementsCollection" load_steps=12 format=3 uid="uid://c8vv063c4vva5"]
+
+[ext_resource type="Resource" uid="uid://chx7esm8qku05" path="res://resources/achievements/bio_collector.tres" id="1_lm08c"]
+[ext_resource type="Script" path="res://scripts/resources/achievements_collection.gd" id="1_pt4dc"]
+[ext_resource type="Resource" uid="uid://dvjcesc5uyvkf" path="res://resources/achievements/bio_connoisseur.tres" id="2_3qgs3"]
+[ext_resource type="Resource" uid="uid://88k0vh4c70wq" path="res://resources/achievements/conservation_master.tres" id="3_yqng8"]
+[ext_resource type="Resource" uid="uid://ccu6oqa6t4v23" path="res://resources/achievements/conversationist.tres" id="4_81s55"]
+[ext_resource type="Resource" uid="uid://ll8j3lx50l2s" path="res://resources/achievements/non_bio_collector.tres" id="5_6i8tc"]
+[ext_resource type="Resource" uid="uid://cclvpls5dt1r8" path="res://resources/achievements/non_bio_connoisseur.tres" id="6_8diuq"]
+[ext_resource type="Resource" uid="uid://c6s6bjq137y00" path="res://resources/achievements/recyclable_collector.tres" id="7_c3y5a"]
+[ext_resource type="Resource" uid="uid://dg8n283iwfrcb" path="res://resources/achievements/recyclable_connoisseur.tres" id="8_vjbcs"]
+[ext_resource type="Resource" uid="uid://dbbymv6ckahd2" path="res://resources/achievements/segregation_expert.tres" id="9_07qkw"]
+[ext_resource type="Resource" uid="uid://0w24c5562rud" path="res://resources/achievements/waste_segregator.tres" id="10_5waty"]
+
+[resource]
+script = ExtResource("1_pt4dc")
+collection = Array[Resource("res://scripts/resources/achievement.gd")]([ExtResource("1_lm08c"), ExtResource("2_3qgs3"), ExtResource("3_yqng8"), ExtResource("4_81s55"), ExtResource("5_6i8tc"), ExtResource("6_8diuq"), ExtResource("7_c3y5a"), ExtResource("8_vjbcs"), ExtResource("9_07qkw"), ExtResource("10_5waty")])

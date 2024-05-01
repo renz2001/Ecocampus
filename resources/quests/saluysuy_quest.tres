@@ -7,7 +7,7 @@
 
 [sub_resource type="Resource" id="Resource_k2bfw"]
 script = ExtResource("3_3nb0f")
-items_size = 10
+total_stack_size = 10
 maximum_points = 1
 save_as_resource_path = false
 

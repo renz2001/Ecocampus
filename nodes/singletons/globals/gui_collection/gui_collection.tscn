@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d0ipd1mqphjju"]
+[gd_scene load_steps=9 format=3 uid="uid://d0ipd1mqphjju"]
 
 [ext_resource type="Script" path="res://nodes/singletons/globals/gui_collection/gui_collection.gd" id="1_c5gfh"]
 [ext_resource type="PackedScene" uid="uid://qfyxou4gfo7f" path="res://nodes/gui/interact_dialog/interact_dialog.tscn" id="2_7v1ee"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cijbhqkas6yol" path="res://nodes/gui/cosmetic_display_card/cosmetic_display_card.tscn" id="5_in3fo"]
 [ext_resource type="PackedScene" uid="uid://cdhkyjskyryv" path="res://nodes/gui/formatted_label/formatted_label.tscn" id="6_61al7"]
 [ext_resource type="PackedScene" uid="uid://0t8xqgbn3kwl" path="res://nodes/gui/about_us_popup/about_us_popup.tscn" id="7_x4smm"]
+[ext_resource type="PackedScene" uid="uid://byt5r1lbmguas" path="res://nodes/gui/victory_screen/victory_screen.tscn" id="8_bt3u0"]
 
 [node name="GUICollection" type="Node"]
 script = ExtResource("1_c5gfh")
@@ -16,3 +17,4 @@ quiz_problem_page = ExtResource("4_t1ky3")
 cosmetic_display_card = ExtResource("5_in3fo")
 formatted_label = ExtResource("6_61al7")
 about_us_popup = ExtResource("7_x4smm")
+victory_screen = ExtResource("8_bt3u0")

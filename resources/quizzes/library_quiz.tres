@@ -41,8 +41,8 @@ reward_points = 1
 
 [resource]
 script = ExtResource("1_oiim1")
-title = "Library Quiz"
-description = "Clear this quiz"
+title = "Professor Grayson's Assesment"
+description = "Pass this assesment and win an achievement!"
 problems = Array[ExtResource("1_l1f2f")]([SubResource("Resource_mbjwl"), SubResource("Resource_kjd4i"), SubResource("Resource_bg0qu"), SubResource("Resource_enkn2"), SubResource("Resource_gxj2m")])
 on_victory_unloch_achievement = ExtResource("1_ib3vt")
 passing_score_percentage = 1.0
