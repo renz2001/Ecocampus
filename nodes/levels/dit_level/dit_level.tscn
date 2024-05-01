@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b02kmlgxwvx6d"]
+[gd_scene load_steps=16 format=3 uid="uid://b02kmlgxwvx6d"]
 
 [ext_resource type="PackedScene" uid="uid://cm6jeskbiise6" path="res://nodes/abstract_scenes/level_node/level_node.tscn" id="1_ltte7"]
 [ext_resource type="Texture2D" uid="uid://he71rk7i3shh" path="res://assets/background/camera_pictures/dit_bg.jpg" id="2_gqce5"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://c10ki4bgi4jnl" path="res://nodes/entities/enzo/enzo.tscn" id="8_q4sri"]
 [ext_resource type="Resource" uid="uid://c72x8l4r64pwc" path="res://resources/dialogue_arguments/dit_quest_completed_dialogue.tres" id="9_0sljf"]
 [ext_resource type="Resource" uid="uid://ctn5e7ndh52so" path="res://resources/dialogue_arguments/enzo_dialogue.tres" id="9_87v65"]
+[ext_resource type="PackedScene" uid="uid://cvfad21xn8iyk" path="res://nodes/components/if_quiz_complete_then_set/if_quiz_complete_then_set.tscn" id="10_ybawy"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_muct3"]
 vertices = PackedVector2Array(-83, 1187, -82, 773, 1419, 806, 1989, 1184, 1986, 733, 1847, 725, 1525, 704, 1553, 646, 1692, 674, 1845, 675, 1683, 644)
@@ -59,6 +60,13 @@ quest = ExtResource("7_60isj")
 check_quest = ExtResource("7_60isj")
 node = NodePath("..")
 new_value = ExtResource("9_0sljf")
+
+[node name="IfQuizCompleteThenSet" parent="Entities/Living/ProfessorLuna" index="10" node_paths=PackedStringArray("node") instance=ExtResource("10_ybawy")]
+quiz = ExtResource("5_5nufk")
+ready_value = "false"
+node = NodePath("..")
+property_or_method = "disabled"
+new_value = "true"
 
 [node name="Enzo" parent="Entities/Living" index="2" instance=ExtResource("8_q4sri")]
 position = Vector2(298, 755)

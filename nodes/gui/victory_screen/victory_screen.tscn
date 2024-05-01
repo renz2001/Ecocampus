@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://byt5r1lbmguas"]
+[gd_scene load_steps=15 format=3 uid="uid://byt5r1lbmguas"]
 
 [ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/macchi's_gui_manager/nodes/gui/gui/gui.tscn" id="1_ucsoh"]
 [ext_resource type="Texture2D" uid="uid://c65d3tjwd8m7c" path="res://assets/gui/victory_screen.png" id="2_6eb6r"]
 [ext_resource type="Script" path="res://nodes/gui/victory_screen/victory_screen.gd" id="2_dt4yj"]
 [ext_resource type="PackedScene" uid="uid://ba6uieidm61wl" path="res://nodes/gui/buttons/texture_button_plus/texture_button_plus.tscn" id="3_nuyqf"]
+[ext_resource type="PackedScene" uid="uid://visuur1utug0" path="res://nodes/gui/gaussian_blur/gaussian_blur.tscn" id="3_why1f"]
 [ext_resource type="Texture2D" uid="uid://ckj45i7mwxtsy" path="res://assets/gui/victory_screen_button.png" id="4_anifw"]
 [ext_resource type="PackedScene" uid="uid://bqqiiwxg42b4r" path="res://nodes/gui_components/on_pressed_components/on_pressed_exit_to_main_menu/on_pressed_exit_to_main_menu.tscn" id="6_c448r"]
 [ext_resource type="Script" path="res://addons/macchi's_audio_manager_and_plus/scripts/arguments/audio_stream_player_arguments.gd" id="7_mk6m8"]
@@ -37,7 +38,17 @@ grow_vertical = 2
 script = ExtResource("2_dt4yj")
 inactive_on_ready = false
 
-[node name="ColorRect" type="ColorRect" parent="." index="0"]
+[node name="GaussianBlur" parent="." index="0" instance=ExtResource("3_why1f")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." index="1"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -46,7 +57,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0)
 
-[node name="CenterContainer" type="CenterContainer" parent="." index="1"]
+[node name="CenterContainer" type="CenterContainer" parent="." index="2"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -77,6 +88,9 @@ texture_normal = SubResource("AtlasTexture_tgxyd")
 
 [node name="OnPressedExitToMainMenu" parent="CenterContainer/Victory/ReturnHome" index="3" instance=ExtResource("6_c448r")]
 
+[node name="ToMainMenu" parent="CenterContainer/Victory/ReturnHome/OnPressedExitToMainMenu" index="1"]
+dont_save_game_before_change = true
+
 [node name="SetPivotOffsetToCenter" parent="CenterContainer/Victory" index="1" node_paths=PackedStringArray("control") instance=ExtResource("7_x1jxp")]
 control = NodePath("..")
 
@@ -87,8 +101,10 @@ audio = SubResource("Resource_2tw8f")
 type = 1
 audio = SubResource("Resource_2tw8f")
 
-[node name="OnVisibleThenScale" parent="." index="3" node_paths=PackedStringArray("node") instance=ExtResource("9_trre1")]
+[node name="OnVisibleThenScale" parent="." index="4" node_paths=PackedStringArray("node") instance=ExtResource("9_trre1")]
 editor_play = false
 node = NodePath("../CenterContainer/Victory")
 
 [connection signal="pressed" from="CenterContainer/Victory/ReturnHome" to="." method="_on_return_home_pressed"]
+
+[editable path="CenterContainer/Victory/ReturnHome/OnPressedExitToMainMenu"]

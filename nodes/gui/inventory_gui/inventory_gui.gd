@@ -2,6 +2,8 @@
 extends GUI
 class_name InventoryGUI
 
+signal updated
+
 @export var item_slots: HBoxContainer
 @export var inventory: Inventory: 
 	set(value): 
@@ -15,6 +17,11 @@ class_name InventoryGUI
 			
 		if !inventory.items_changed.is_connected(_on_inventory_items_changed): 
 			inventory.items_changed.connect(_on_inventory_items_changed)
+
+var updating: bool
+
+static func this() -> InventoryGUI: 
+	return GameManager.get_tree().get_first_node_in_group("InventoryGUI")
 
 
 func _ready() -> void: 
@@ -36,18 +43,31 @@ func _on_inventory_items_changed(_new_items: Array[ItemStack]) -> void:
 func update() -> void: 
 	var children: Array[Node] = item_slots.get_children()
 	for i: int in children.size(): 
-		var slot: ItemSlot = children[i]
+		var _slot: ItemSlot = children[i]
 		
-		slot.item = null
+		_slot.item = null
 		
-	if inventory == null: 
+	if inventory == null || inventory.items.is_empty(): 
 		return
-		
-	for i: int in inventory.items.size(): 
-		var slot: ItemSlot = children[i]
-		slot.item = inventory.items[i]
-		#printerr(slot.item)
 	
+	if updating: 
+		return
+	updating = true
+	
+	var inv_items_size: int = inventory.items.size()
+	
+	printerr("children size: ", children.size())
+	
+	for i: int in children.size(): 
+		print("\ni: ", i)
+		var slot: ItemSlot = children[i]
+		printerr("items size: ", inventory.items.size())
+		if i >= inv_items_size: 
+			break
+		print("replacing: ", i)
+		slot.item = inventory.items[i]
+		#printerr(inventory.items)
+	updating = false
 	
 func _on_dragging_cancelled() -> void: 
 	update()
@@ -55,3 +75,4 @@ func _on_dragging_cancelled() -> void:
 	
 func _on_dropped() -> void: 
 	update()
+

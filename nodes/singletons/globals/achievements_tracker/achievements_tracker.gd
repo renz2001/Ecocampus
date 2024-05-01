@@ -68,3 +68,9 @@ func update_victory() -> void:
 		GUIManager.add_gui(GUICollection.victory_screen.instantiate())
 	
 	
+func reset() -> void: 
+	medals.points.reset()
+	
+	
+	
+	

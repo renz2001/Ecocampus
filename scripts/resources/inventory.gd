@@ -264,6 +264,6 @@ func _load_update(data) -> void:
 # Completely removes everything, from the history
 func reset() -> void: 
 	added_items_history.clear()
-	clear(null)
-	
+	items.clear()
+	printerr(items)
 	

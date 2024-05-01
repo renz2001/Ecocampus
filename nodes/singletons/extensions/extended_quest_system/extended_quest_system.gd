@@ -30,7 +30,7 @@ func dict_to_quests(dict: Dictionary, quests: Array[Quest]) -> void:
 		if !dict.has(pool.name.to_lower()): continue
 
 		# Match quest with their ids and insert them into the quest pool
-		var quest_with_id: Dictionary = {}
+		#var quest_with_id: Dictionary = {}
 		var pool_ids: Array[int] = []
 		#printerr((dict[pool.name.to_lower()] as Array[int]).get_typed_builtin())
 		var dict_pool: Array[int] = dict[pool.name.to_lower()] as Array[int]

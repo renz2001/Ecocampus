@@ -37,7 +37,6 @@ offset_left = 1.0
 offset_top = 1.0
 offset_right = 1.0
 offset_bottom = 1.0
-scale = Vector2(1e-05, 1e-05)
 mouse_filter = 1
 script = ExtResource("2_5f634")
 body = NodePath("Body")

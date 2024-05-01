@@ -90,6 +90,7 @@ func complete() -> void:
 		return
 	if is_victory: 
 		state = AttemptState.VICTORY
+		quiz.victory_counter += 1
 	else: 
 		state = AttemptState.LOST
 		

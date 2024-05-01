@@ -73,18 +73,18 @@ func _clear() -> void:
 	collision.global_position = Vector2.ZERO
 	drag_data.clear()
 	
-	dragging_ended.emit()
 	is_dragging = false
+	dragging_ended.emit()
 	
 	
 func drop_at(drag_area: MouseDragDropArea) -> void: 
 	if drag_area.can_drop(): 
 		drag_area.drop(current_controller)
-		dropped.emit()
 		_clear()
+		dropped.emit()
 	else: 
 		cancel()
-		
+	
 	
 func cancel() -> void: 
 	_clear()

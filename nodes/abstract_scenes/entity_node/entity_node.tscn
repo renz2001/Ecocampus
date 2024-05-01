@@ -28,7 +28,7 @@
 
 [sub_resource type="Resource" id="Resource_vvnq8"]
 script = ExtResource("18_pu4wv")
-properties = PackedStringArray("inventory", "data", "quiz", "dialogue", "global_position", "global_scale")
+properties = PackedStringArray("inventory", "data", "quiz", "dialogue", "global_position", "global_scale", "disabled")
 save_properties_as_resource_path = PackedStringArray()
 
 [node name="EntityNode" type="CharacterBody2D" node_paths=PackedStringArray("state_chart", "path_find", "walk", "hitbox", "node_variety_manager", "interact_audio_player", "interact_dialog_position", "dialogue_starter", "dialogue_response_handler", "call_world_event_component", "ready_unique_resource", "master_save_component", "tap_hit_box", "tap_hit_box_root") groups=["Entity"]]
@@ -75,17 +75,20 @@ theme_type_variation = &"InvisibleButton"
 
 [node name="IfPausedEnteredSetProperty" parent="CanvasLayer/Root/TapHitBox" node_paths=PackedStringArray("node") instance=ExtResource("3_dpo6a")]
 property = "paused_state"
+dont_ready_value = false
 ready_value = "true"
 node = NodePath("..")
 new_value = "false"
 
 [node name="IfPlayingEnteredSetProperty" parent="CanvasLayer/Root/TapHitBox" node_paths=PackedStringArray("node") instance=ExtResource("3_dpo6a")]
 property = "playing_state"
+dont_ready_value = false
 ready_value = "true"
 node = NodePath("..")
 
 [node name="IfDialogueEnteredSetProperty2" parent="CanvasLayer/Root/TapHitBox" node_paths=PackedStringArray("node") instance=ExtResource("3_dpo6a")]
 property = "dialogue_state"
+dont_ready_value = false
 ready_value = "true"
 node = NodePath("..")
 new_value = "false"

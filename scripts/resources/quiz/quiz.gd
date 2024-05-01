@@ -2,6 +2,7 @@
 extends Resource
 class_name Quiz
 
+signal victory
 
 @export var title: String
 @export var description: String = "Pass this assesment and win an achievement!"
@@ -10,6 +11,12 @@ class_name Quiz
 
 ## Percentage of the passing score. 
 @export_range(0, 1) var passing_score_percentage: float = 1
+
+var victory_counter: int = 0: 
+	set(value): 
+		victory_counter = value
+		victory.emit()
+
 
 var maximum_score: int: 
 	get:

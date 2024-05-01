@@ -34,10 +34,12 @@ extra_game_states = []
 title_variation = 0
 reset_when_title_variation_reached = false
 is_dialogue_game_state = true
+save_as_resource_path = false
 
 [sub_resource type="Resource" id="Resource_j1ycd"]
 script = ExtResource("18_rr6ls")
 value = "8907853222016559660"
+save_as_resource_path = false
 
 [node name="TestLevel" instance=ExtResource("1_pvguk")]
 
@@ -53,8 +55,9 @@ initial_node_to_watch = NodePath("../Entities/Living/PlayerNode")
 position = Vector2(0, -81)
 navigation_polygon = SubResource("NavigationPolygon_oe50d")
 
-[node name="MainCamera" parent="Cameras" index="0"]
+[node name="MainCamera" parent="Cameras" index="0" node_paths=PackedStringArray("follow_node")]
 position = Vector2(940, 451)
+follow_node = NodePath("../../Entities/Living/PlayerNode")
 
 [node name="Sprite2D" type="Sprite2D" parent="Background/CanvasLayer/Root/Center" index="0"]
 position = Vector2(20, 6.06982)

@@ -81,4 +81,7 @@ func reset_all_data() -> void:
 	cosmetics_collection.reset()
 	achievements_collection.reset()
 	PlayerManager.player_data.reset()
+	GlobalData.achievements_tracker.reset()
 	SaveManager.remove_save_file("save_file_1")
+	SaveManager.current_saved_data = GameSave.new()
+	

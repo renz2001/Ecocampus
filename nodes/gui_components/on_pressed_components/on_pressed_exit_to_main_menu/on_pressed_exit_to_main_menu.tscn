@@ -7,7 +7,7 @@
 [node name="OnPressedExitToMainMenu" node_paths=PackedStringArray("to_main_menu", "control") instance=ExtResource("1_oat51")]
 script = ExtResource("2_iyh8u")
 to_main_menu = NodePath("ToMainMenu")
-control = NodePath("..")
+control = NodePath("")
 
 [node name="ToMainMenu" parent="." index="1" instance=ExtResource("3_o5leq")]
 to_scene = "res://nodes/gui/main_menu/main_menu.tscn"

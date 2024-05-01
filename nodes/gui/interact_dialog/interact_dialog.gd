@@ -15,11 +15,16 @@ static func display(args: InteractDialogData) -> InteractDialog:
 	var gui: InteractDialog = GUICollection.interact_dialogue.instantiate()
 	#print(_caller)
 	gui.data = args
-	gui.global_position = gui.data.gui_position
+	
+	const limit = 300
+	if gui.data.gui_position.y <= limit: 
+		gui.global_position = Vector2(gui.data.gui_position.x, gui.data.gui_position.y + limit)
+	else: 
+		gui.global_position = gui.data.gui_position
 	
 	if gui.global_position.x < GlobalVariables.viewport_size.x / 2: 
 		gui.body.pivot_offset = gui.body.size / 2
-		gui.body.position.x *= -1
+		gui.body.position.x += 700
 	
 	if gui.data.description is LabelText: 
 		gui.data.description.set_label(gui.description_label)

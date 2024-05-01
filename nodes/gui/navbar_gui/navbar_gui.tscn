@@ -20,11 +20,13 @@ offset_left = -863.0
 offset_top = 1.0
 offset_right = -3.0
 offset_bottom = 181.0
+mouse_filter = 2
 theme_override_constants/separation = 40
 alignment = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" index="0"]
 layout_mode = 2
+mouse_filter = 2
 alignment = 2
 
 [node name="CustomizeChracterIconButton" parent="VBoxContainer/HBoxContainer" index="0" instance=ExtResource("3_q8wt1")]
@@ -32,19 +34,23 @@ layout_mode = 2
 
 [node name="IfCustomizeEnteredSetProperty3" parent="VBoxContainer/HBoxContainer/CustomizeChracterIconButton" index="3" node_paths=PackedStringArray("node") instance=ExtResource("4_etnct")]
 property = "customize_character_state"
+dont_ready_value = false
 node = NodePath("..")
 
 [node name="IfPlayingEnteredSetProperty" parent="VBoxContainer/HBoxContainer/CustomizeChracterIconButton" index="4" node_paths=PackedStringArray("node") instance=ExtResource("4_etnct")]
 property = "playing_state"
+dont_ready_value = false
 node = NodePath("..")
 
 [node name="IfMapPickerEnteredSetProperty2" parent="VBoxContainer/HBoxContainer/CustomizeChracterIconButton" index="5" node_paths=PackedStringArray("node") instance=ExtResource("4_etnct")]
 property = "map_picker_state"
+dont_ready_value = false
 node = NodePath("..")
 new_value = "false"
 
 [node name="IfDialogueEnteredSetProperty" parent="VBoxContainer/HBoxContainer/CustomizeChracterIconButton" index="7" node_paths=PackedStringArray("node") instance=ExtResource("4_etnct")]
 property = "dialogue_state"
+dont_ready_value = false
 node = NodePath("..")
 
 [node name="QuestsIconButton" parent="VBoxContainer/HBoxContainer" index="1" instance=ExtResource("3_d8ra2")]
@@ -52,11 +58,13 @@ layout_mode = 2
 
 [node name="IfPlayingEnteredSetProperty" parent="VBoxContainer/HBoxContainer/QuestsIconButton" index="4" node_paths=PackedStringArray("node") instance=ExtResource("4_etnct")]
 property = "playing_state"
+dont_ready_value = false
 node = NodePath("..")
 
 [node name="IfPlayingExitedSetProperty2" parent="VBoxContainer/HBoxContainer/QuestsIconButton" index="5" node_paths=PackedStringArray("node") instance=ExtResource("4_etnct")]
 property = "playing_state"
 state_event = 1
+dont_ready_value = false
 node = NodePath("..")
 new_value = "false"
 
@@ -68,11 +76,13 @@ layout_mode = 2
 
 [node name="IfPlayingEnteredSetProperty" parent="VBoxContainer/HBoxContainer/ToMapPickerIconButton" index="5" node_paths=PackedStringArray("node") instance=ExtResource("4_etnct")]
 property = "playing_state"
+dont_ready_value = false
 node = NodePath("..")
 
 [node name="IfPlayingExitedSetProperty2" parent="VBoxContainer/HBoxContainer/ToMapPickerIconButton" index="6" node_paths=PackedStringArray("node") instance=ExtResource("4_etnct")]
 property = "playing_state"
 state_event = 1
+dont_ready_value = false
 node = NodePath("..")
 new_value = "false"
 
@@ -84,10 +94,12 @@ layout_mode = 2
 
 [node name="IfMainMenuEnteredSetProperty" parent="VBoxContainer/HBoxContainer/InfoIconButton" index="3" node_paths=PackedStringArray("node") instance=ExtResource("4_etnct")]
 property = "main_menu_state"
+dont_ready_value = false
 node = NodePath("..")
 
 [node name="IfMainMenuExitedSetProperty" parent="VBoxContainer/HBoxContainer/InfoIconButton" index="4" node_paths=PackedStringArray("node") instance=ExtResource("4_etnct")]
 property = "main_menu_state"
 state_event = 1
+dont_ready_value = false
 node = NodePath("..")
 new_value = "false"

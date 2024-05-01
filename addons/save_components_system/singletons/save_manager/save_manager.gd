@@ -112,7 +112,8 @@ func get_non_numbered_string(val: String) -> String:
 func remove_save_file(file_name: String) -> void: 
 	if does_save_file_name_exists(file_name): 
 		var saves_folder_dir: DirAccess = DirAccess.open(saves_folder_path)
-		saves_folder_dir.remove(file_name + ".json")
+		print(saves_folder_dir.get_files())
+		printerr(saves_folder_dir.remove(file_name + ".json"))
 		save_file_removed.emit(file_name)
 		save_files_edited.emit(get_save_files())
 

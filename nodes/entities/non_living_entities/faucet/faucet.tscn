@@ -26,7 +26,7 @@ shader_parameter/add_margins = true
 
 [sub_resource type="Resource" id="Resource_uu57v"]
 script = ExtResource("7_2vhho")
-properties = PackedStringArray("inventory", "data", "quiz", "dialogue", "global_position", "global_scale", "state")
+properties = PackedStringArray("inventory", "data", "quiz", "dialogue", "global_position", "global_scale", "state", "disabled")
 save_properties_as_resource_path = PackedStringArray()
 
 [sub_resource type="Animation" id="Animation_517i3"]

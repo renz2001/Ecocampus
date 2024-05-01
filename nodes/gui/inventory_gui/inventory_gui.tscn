@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://nodes/gui/inventory_gui/inventory_gui.gd" id="2_fclw4"]
 [ext_resource type="PackedScene" uid="uid://baxha8yav8g1m" path="res://nodes/gui/item_slot/item_slot.tscn" id="3_6rg13"]
 
-[node name="InventoryGUI" node_paths=PackedStringArray("item_slots") instance=ExtResource("1_s4jvy")]
+[node name="InventoryGUI" node_paths=PackedStringArray("item_slots") groups=["InventoryGUI"] instance=ExtResource("1_s4jvy")]
 script = ExtResource("2_fclw4")
 item_slots = NodePath("ItemSlots")
 inventory = null

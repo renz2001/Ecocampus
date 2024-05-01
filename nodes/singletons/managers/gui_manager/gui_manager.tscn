@@ -57,11 +57,13 @@ mouse_default_cursor_shape = 13
 
 [node name="IfPlayingEnteredSetProperty" parent="Root/GetMousePositionArea" index="0" node_paths=PackedStringArray("node") instance=ExtResource("9_ep4ey")]
 property = "playing_state"
+dont_ready_value = false
 node = NodePath("..")
 
 [node name="IfPlayingExitedSetProperty2" parent="Root/GetMousePositionArea" index="1" node_paths=PackedStringArray("node") instance=ExtResource("9_ep4ey")]
 property = "playing_state"
 state_event = 1
+dont_ready_value = false
 node = NodePath("..")
 new_value = "false"
 
@@ -73,6 +75,7 @@ layout_mode = 1
 
 [node name="IfMapPickerEnteredSetProperty" parent="Root/MarginContainer/BaseControl/Playing/QuizAttemptScreen" index="3" node_paths=PackedStringArray("node") instance=ExtResource("9_ep4ey")]
 property = "map_picker_state"
+dont_ready_value = false
 node = NodePath("..")
 new_value = "false"
 
@@ -83,22 +86,26 @@ layout_mode = 1
 
 [node name="IfMainMenuEnteredSetProperty" parent="Root/MarginContainer/BaseControl/Playing/Components" index="0" node_paths=PackedStringArray("node") instance=ExtResource("9_ep4ey")]
 property = "main_menu_state"
+dont_ready_value = false
 node = NodePath("../..")
 new_value = "false"
 
 [node name="IfMainMenuExitedSetProperty" parent="Root/MarginContainer/BaseControl/Playing/Components" index="1" node_paths=PackedStringArray("node") instance=ExtResource("9_ep4ey")]
 property = "main_menu_state"
 state_event = 1
+dont_ready_value = false
 node = NodePath("../..")
 
 [node name="IfMapPickerEnteredSetProperty" parent="Root/MarginContainer/BaseControl/Playing/Components" index="2" node_paths=PackedStringArray("node") instance=ExtResource("9_ep4ey")]
 property = "map_picker_state"
+dont_ready_value = false
 node = NodePath("../../PlayerHUD")
 new_value = "false"
 
 [node name="IfMapPickerExitedSetProperty2" parent="Root/MarginContainer/BaseControl/Playing/Components" index="3" node_paths=PackedStringArray("node") instance=ExtResource("9_ep4ey")]
 property = "map_picker_state"
 state_event = 1
+dont_ready_value = false
 node = NodePath("../../PlayerHUD")
 
 [node name="DialogueGUIManager" parent="Root/MarginContainer/BaseControl/Playing" index="4" instance=ExtResource("3_ew5n2")]
@@ -110,6 +117,7 @@ only_one_instance = false
 
 [node name="IfMapPickerEnteredSetProperty" parent="Root/MarginContainer/BaseControl/Playing/CustomizeCharacterScreen" index="2" node_paths=PackedStringArray("node") instance=ExtResource("9_ep4ey")]
 property = "map_picker_state"
+dont_ready_value = false
 node = NodePath("..")
 new_value = "false"
 
@@ -129,6 +137,7 @@ only_one_instance = false
 
 [node name="IfMapPickerEnteredSetProperty" parent="Root/MarginContainer/BaseControl/SettingsMenu" index="3" node_paths=PackedStringArray("node") instance=ExtResource("9_ep4ey")]
 property = "map_picker_state"
+dont_ready_value = false
 node = NodePath("..")
 new_value = "false"
 
@@ -156,11 +165,13 @@ grow_horizontal = 0
 
 [node name="IfMapPickerEnteredSetProperty" parent="Root/MarginContainer/BaseControl/MarginContainer/Control/NavbarGUI" index="2" node_paths=PackedStringArray("node") instance=ExtResource("9_ep4ey")]
 property = "map_picker_state"
+dont_ready_value = true
 node = NodePath("..")
 
-[node name="IfMapPickerExitedSetProperty2" parent="Root/MarginContainer/BaseControl/MarginContainer/Control/NavbarGUI" index="3" node_paths=PackedStringArray("node") instance=ExtResource("9_ep4ey")]
+[node name="IfMapPickerExitedSetProperty" parent="Root/MarginContainer/BaseControl/MarginContainer/Control/NavbarGUI" index="3" node_paths=PackedStringArray("node") instance=ExtResource("9_ep4ey")]
 property = "map_picker_state"
 state_event = 1
+dont_ready_value = true
 node = NodePath("..")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Root/MarginContainer/BaseControl/MarginContainer/Control" index="1"]
@@ -193,6 +204,7 @@ grow_horizontal = 0
 
 [node name="IfMapPickerEnteredSetProperty" parent="Root/MarginContainer/BaseControl/MarginContainer/Control/CanvasLayer/MarginContainer/Root/QuestsMenu" index="2" node_paths=PackedStringArray("node") instance=ExtResource("9_ep4ey")]
 property = "map_picker_state"
+dont_ready_value = false
 node = NodePath("..")
 new_value = "false"
 

@@ -20,7 +20,7 @@ save_as_resource_path = false
 
 [sub_resource type="Resource" id="Resource_wi44q"]
 script = ExtResource("5_taodf")
-maximum_points = 3
+maximum_points = 4
 save_as_resource_path = false
 
 [sub_resource type="Resource" id="Resource_5qetw"]

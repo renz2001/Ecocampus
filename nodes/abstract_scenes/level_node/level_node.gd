@@ -15,7 +15,7 @@ static var entered_tree: int = 0
 
 func _enter_tree() -> void: 
 	SaveManager.loaded_data.connect(
-		func(data: GameSave): 
+		func(_data: GameSave): 
 			if GUIManager.transitions_manager.middle_transition: 
 				GUIManager.transitions_manager.middle_transition.end()
 			WorldEventManager.call_event("ready", self)

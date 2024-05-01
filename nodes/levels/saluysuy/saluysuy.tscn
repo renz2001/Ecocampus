@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c7ma84vuiqota"]
+[gd_scene load_steps=19 format=3 uid="uid://c7ma84vuiqota"]
 
 [ext_resource type="PackedScene" uid="uid://cm6jeskbiise6" path="res://nodes/abstract_scenes/level_node/level_node.tscn" id="1_pd2cb"]
 [ext_resource type="Texture2D" uid="uid://dwc1l7vhxhjkq" path="res://assets/background/camera_pictures/saluysuy_bg.jpg" id="2_k36ol"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://d3ckyt0j2xo5s" path="res://nodes/components/if_quest_complete_then_set_resource/if_quest_complete_then_set_resource.tscn" id="8_ya8kc"]
 [ext_resource type="Resource" uid="uid://b5mxyuxnxpian" path="res://resources/dialogue_arguments/viktor_dialogue.tres" id="9_lmtsk"]
 [ext_resource type="Resource" uid="uid://qqhxiyomk2ql" path="res://resources/dialogue_arguments/saluysuy_quest_completed_dialogue.tres" id="9_w4vwt"]
+[ext_resource type="PackedScene" uid="uid://cvfad21xn8iyk" path="res://nodes/components/if_quiz_complete_then_set/if_quiz_complete_then_set.tscn" id="10_8lbdv"]
 [ext_resource type="PackedScene" uid="uid://cxbi5gy21wbmn" path="res://nodes/entities/non_living_entities/light_bulb/light_bulb.tscn" id="10_sq4sl"]
 [ext_resource type="PackedScene" uid="uid://ibuaxowofiai" path="res://nodes/entities/non_living_entities/light_switch/light_switch.tscn" id="11_cfu07"]
 [ext_resource type="PackedScene" uid="uid://d1klss0cjhtw0" path="res://nodes/entities/non_living_entities/faucet/faucet.tscn" id="12_n4yv5"]
@@ -61,6 +62,12 @@ quest = ExtResource("7_bl1wb")
 check_quest = ExtResource("7_bl1wb")
 node = NodePath("..")
 new_value = ExtResource("9_w4vwt")
+
+[node name="IfQuizCompleteThenSet" parent="Entities/Living/DoctorMadrigal" index="10" node_paths=PackedStringArray("node") instance=ExtResource("10_8lbdv")]
+ready_value = "false"
+node = NodePath("..")
+property_or_method = "disabled"
+new_value = "true"
 
 [node name="Viktor" parent="Entities/Living" index="2" instance=ExtResource("8_sf3ny")]
 position = Vector2(401, 674)

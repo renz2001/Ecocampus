@@ -53,7 +53,8 @@ func empty_ownder_node_properties():
 		
 		
 func _on_dropped() -> void: 
-	empty_ownder_node_properties()
+	#empty_ownder_node_properties()
+	pass
 	
 	
 func _on_dragging_cancelled() -> void: 

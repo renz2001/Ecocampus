@@ -11,6 +11,8 @@ func _on_mouse_drag_drop_area_dropped(drag_data: Dictionary) -> void:
 	var from_inventory: Inventory = item.owner
 	inventory.take_item_from_inventory(from_inventory, item, self)
 	drop_audio.play()
+	InventoryGUI.this().update()
+	#print(InventoryGUI.this().inventory)
 
 
 func mouse_drag_can_drop_condition(drag_data: Dictionary) -> bool: 

@@ -1,9 +1,8 @@
 [gd_scene load_steps=3 format=3 uid="uid://dggdvwjvdrmkh"]
 
-[ext_resource type="PackedScene" uid="uid://ba6uieidm61wl" path="res://nodes/levels/gui/buttons/texture_button_plus/texture_button_plus.tscn" id="1_uk101"]
+[ext_resource type="PackedScene" uid="uid://ba6uieidm61wl" path="res://nodes/gui/buttons/texture_button_plus/texture_button_plus.tscn" id="1_uk101"]
 [ext_resource type="Texture2D" uid="uid://dlrcoscuxxmv5" path="res://assets/buttons/button.png" id="2_cmved"]
 
 [node name="MediumWoodenButton" instance=ExtResource("1_uk101")]
 offset_right = 110.0
-mouse_default_cursor_shape = 2
 texture_normal = ExtResource("2_cmved")

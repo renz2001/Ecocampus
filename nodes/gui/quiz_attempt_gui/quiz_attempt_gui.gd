@@ -14,6 +14,7 @@ class_name QuizAttemptGUI
 		title.text = quiz_attempt.quiz.title
 		end_title.text = quiz_attempt.quiz.title
 		description.text = quiz_attempt.quiz.description
+		
 
 @export var problem_page: QuizProblemPage
 @export var title: Label
@@ -24,8 +25,12 @@ class_name QuizAttemptGUI
 @export var wrong: Label
 @export var problem_page_router: PageRouter
 @export var again_page_router: PageRouter
+@export var if_quiz_complete_then_set:IfQuizCompleteThenSet
 
-var quiz: Quiz
+var quiz: Quiz: 
+	set(value): 
+		quiz = value
+		if_quiz_complete_then_set.quiz = quiz
 
 
 func start(q: Quiz) -> void: 
