@@ -9,6 +9,8 @@ class_name InteractDialog
 @export var description_label: FormattedLabel
 @export var ok_button: TextureButtonPlus
 
+@export var empty_button_texture: Texture2D
+
 var data: InteractDialogData
 
 static func display(args: InteractDialogData) -> InteractDialog: 
@@ -35,6 +37,12 @@ static func display(args: InteractDialogData) -> InteractDialog:
 		gui.description_label.hide()
 		
 	GUIManager.add_gui(gui)
+	
+	if !args.custom_ok_text.is_empty(): 
+		gui.ok_button.label.text = args.custom_ok_text
+		gui.ok_button.texture_normal = gui.empty_button_texture
+		
+		
 	gui.data.caller.state_chart.send_event("disabled")
 	return gui
 

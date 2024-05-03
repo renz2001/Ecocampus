@@ -75,20 +75,23 @@ theme_type_variation = &"InvisibleButton"
 
 [node name="IfPausedEnteredSetProperty" parent="CanvasLayer/Root/TapHitBox" node_paths=PackedStringArray("node") instance=ExtResource("3_dpo6a")]
 property = "paused_state"
-dont_ready_value = false
+ready_value = "true"
+node = NodePath("..")
+new_value = "false"
+
+[node name="IfDialogEnteredSetProperty" parent="CanvasLayer/Root/TapHitBox" node_paths=PackedStringArray("node") instance=ExtResource("3_dpo6a")]
+property = "dialog_state"
 ready_value = "true"
 node = NodePath("..")
 new_value = "false"
 
 [node name="IfPlayingEnteredSetProperty" parent="CanvasLayer/Root/TapHitBox" node_paths=PackedStringArray("node") instance=ExtResource("3_dpo6a")]
 property = "playing_state"
-dont_ready_value = false
 ready_value = "true"
 node = NodePath("..")
 
 [node name="IfDialogueEnteredSetProperty2" parent="CanvasLayer/Root/TapHitBox" node_paths=PackedStringArray("node") instance=ExtResource("3_dpo6a")]
 property = "dialogue_state"
-dont_ready_value = false
 ready_value = "true"
 node = NodePath("..")
 new_value = "false"

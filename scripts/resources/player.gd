@@ -23,6 +23,13 @@ signal current_cosmetic_changed
 		if inventory: 
 			inventory.owner = self
 
+# more bandaid solutions lol
+# this will be used for quests who have no way of checking if the faucets/lights have been turned off without visiting the scenes first. 
+# ^^ this ^^ problem exists when the player has turned off the faucets before they get to activate the quest. 
+var faucets_turned_off: int
+var lights_turned_off: int
+var trash_can_items: int
+
 func _init() -> void: 
 	super._init()
 	save.save_properties_as_resource_path = [
@@ -45,7 +52,10 @@ func unequip_cosmetic() -> void:
 func _save_properties() -> PackedStringArray: 
 	var arr: PackedStringArray = [
 		"current_cosmetic", 
-		"inventory"
+		"inventory", 
+		"faucets_turned_off", 
+		"lights_turned_off", 
+		"trash_can_items"
 	]
 	arr.append_array(super._save_properties())
 	

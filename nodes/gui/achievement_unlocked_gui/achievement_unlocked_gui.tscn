@@ -41,7 +41,7 @@ volume_slider = 1.0
 volume_db = 0.0
 bus = &"Master"
 
-[node name="AchievementUnlockedGUI" node_paths=PackedStringArray("title_label", "task_description_label", "youve_earned_label") instance=ExtResource("1_y7k5e")]
+[node name="AchievementUnlockedGUI" node_paths=PackedStringArray("title_label", "task_description_label", "youve_earned_label") groups=["AchievementUnlockedGUI"] instance=ExtResource("1_y7k5e")]
 script = ExtResource("2_vvx3l")
 achievement = null
 title_label = NodePath("Panel/MarginContainer/VBoxContainer/Title")

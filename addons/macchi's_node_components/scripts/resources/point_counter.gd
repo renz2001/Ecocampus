@@ -11,6 +11,8 @@ signal minimum_exceeded(value: float)
 signal maximum_hit(value: float)
 signal minimum_hit(value: float)
 
+signal is_emptied
+
 @export var starting_value: float = 1: 
 	set(value): 
 		starting_value = value
@@ -38,14 +40,7 @@ signal minimum_hit(value: float)
 var current: float = 1: 
 	set(value): 
 		var new_val: float = value
-		if value > maximum: 
-			maximum_exceeded.emit(value)
-		elif value == maximum: 
-			maximum_hit.emit(value)
-		elif value < minimum: 
-			minimum_exceeded.emit(value)
-		elif value == minimum: 
-			minimum_hit.emit(value)
+		previous = current
 			
 		if when_maximum_stay: 
 			new_val = min(value, maximum)
@@ -65,9 +60,22 @@ var current: float = 1:
 		if rounded_off: 
 			new_val = round(value)
 			
-		previous = current
 		current = new_val
+		
 		current_changed.emit(new_val, current)
+		
+		if value > maximum: 
+			maximum_exceeded.emit(value)
+		elif value == maximum: 
+			maximum_hit.emit(value)
+		elif value < minimum: 
+			minimum_exceeded.emit(value)
+		elif value == minimum: 
+			minimum_hit.emit(value)
+			
+		if new_val == 0: 
+			is_emptied.emit()
+			
 var previous: float = current
 
 
@@ -108,9 +116,7 @@ func is_minimum() -> bool:
 
 
 func is_maximum() -> bool: 
-	if current >= maximum: 
-		return true
-	return false
+	return current >= maximum
 
 
 func is_greater_than_minimum() -> bool: 
@@ -135,6 +141,10 @@ func has_exceeded_minimum() -> bool:
 
 func reset() -> void: 
 	current = starting_value
+
+
+func max_out() -> void: 
+	current = maximum
 
 
 #func load_data(data: Dictionary) -> void: 

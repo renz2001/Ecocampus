@@ -35,3 +35,6 @@ func reset() -> void:
 	is_unlocked = false
 	
 	
+
+func _to_string() -> String: 
+	return "%s: <#%s>" % [title, get_instance_id()]

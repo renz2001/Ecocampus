@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://byt5r1lbmguas"]
+[gd_scene load_steps=16 format=3 uid="uid://byt5r1lbmguas"]
 
 [ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/macchi's_gui_manager/nodes/gui/gui/gui.tscn" id="1_ucsoh"]
 [ext_resource type="Texture2D" uid="uid://c65d3tjwd8m7c" path="res://assets/gui/victory_screen.png" id="2_6eb6r"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://rht72s4l6wx3" path="res://nodes/gui_components/set_pivot_offset_to_center/set_pivot_offset_to_center.tscn" id="7_x1jxp"]
 [ext_resource type="AudioStream" uid="uid://bg0jmi11j2nv4" path="res://assets/audio/ui/achievement_popup.wav" id="8_r2eu6"]
 [ext_resource type="PackedScene" uid="uid://cnsvmjc5ytto2" path="res://nodes/components/on_visible_then_scale/on_visible_then_scale.tscn" id="9_trre1"]
+[ext_resource type="PackedScene" uid="uid://der1edoxrqxln" path="res://nodes/gui_components/set_game_state_on_gui_active/set_game_state_on_gui_active.tscn" id="12_1t27r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mel3k"]
 atlas = ExtResource("2_6eb6r")
@@ -106,6 +107,11 @@ audio = SubResource("Resource_2tw8f")
 [node name="OnVisibleThenScale" parent="." index="4" node_paths=PackedStringArray("node") instance=ExtResource("9_trre1")]
 editor_play = false
 node = NodePath("../CenterContainer/Victory")
+
+[node name="SetGameStateOnGUIActive" parent="." index="5" node_paths=PackedStringArray("gui") instance=ExtResource("12_1t27r")]
+gui = NodePath("..")
+activated_state = "paused"
+deactivated_state = "resume"
 
 [connection signal="pressed" from="CenterContainer/Victory/ReturnHome" to="." method="_on_return_home_pressed"]
 

@@ -8,6 +8,7 @@ script = ExtResource("2_rg2ac")
 autoload = "GameManager"
 property = "playing"
 state_event = 0
+dont_ready_value = false
 ready_value = "false"
 property_or_method = "visible"
 new_value = "true"

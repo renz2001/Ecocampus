@@ -5,6 +5,7 @@ class_name EcoQuest
 
 signal task_completed(task: EcoQuestTask)
 
+@export var automatically_complete_after_tasks_completed: bool
 @export var percentage_description: String
 @export var tasks: Array[EcoQuestTask]: 
 	set(value): 
@@ -13,7 +14,8 @@ signal task_completed(task: EcoQuestTask)
 			task.completed.connect(
 				func(): 
 					task_completed.emit(task)
-					update()
+					if automatically_complete_after_tasks_completed: 
+						update()
 			)
 			
 ## Optional, leave null if not wanted. Unlocks this achievement when finished 
@@ -51,17 +53,20 @@ func start() -> void:
 	
 	
 func update() -> void: 
-	var all_complete: bool = (
+	#printerr(are_tasks_all_complete())
+	if are_tasks_all_complete(): 
+		objective_completed = true
+		ExtendedQuestSystem.complete_quest(self)
+	
+	
+func are_tasks_all_complete() -> bool: 
+	return (
 		func(): 
 			return tasks.all(
 				func(task: EcoQuestTask): 
 					return task.is_completed
 			)
 	).call()
-	
-	if all_complete: 
-		objective_completed = true
-		ExtendedQuestSystem.complete_quest(self)
 	
 	
 func complete() -> void: 

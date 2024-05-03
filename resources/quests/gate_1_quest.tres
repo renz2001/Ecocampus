@@ -29,6 +29,7 @@ save_as_resource_path = false
 
 [resource]
 script = ExtResource("1_1ihav")
+automatically_complete_after_tasks_completed = null
 percentage_description = "Collect 10 Recyclables"
 tasks = Array[ExtResource("3_67lix")]([SubResource("Resource_rl054"), SubResource("Resource_ffh07")])
 on_complete_unlock_achievement = ExtResource("1_h2ang")

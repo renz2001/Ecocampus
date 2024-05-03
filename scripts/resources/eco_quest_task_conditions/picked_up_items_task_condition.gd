@@ -17,9 +17,10 @@ func _initialized() -> void:
 			if item == picked_up_item: 
 				counter.increment()
 	
-	
 	if !player.data.inventory.items_added.is_connected(_on_items_added): 
 		player.data.inventory.items_added.connect(_on_items_added)
+		
+	printerr("curcur: ", counter.current)
 
 
 func _on_items_added(items: Array[ItemStack]) -> void: 

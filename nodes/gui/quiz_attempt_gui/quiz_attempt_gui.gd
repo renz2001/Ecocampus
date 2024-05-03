@@ -25,12 +25,14 @@ class_name QuizAttemptGUI
 @export var wrong: Label
 @export var problem_page_router: PageRouter
 @export var again_page_router: PageRouter
-@export var if_quiz_complete_then_set:IfQuizCompleteThenSet
+@export var play_again_button: TextureButtonPlus
 
 var quiz: Quiz: 
 	set(value): 
 		quiz = value
-		if_quiz_complete_then_set.quiz = quiz
+		if !is_node_ready(): 
+			await ready
+		play_again_button.disabled = false
 
 
 func start(q: Quiz) -> void: 
@@ -40,6 +42,8 @@ func start(q: Quiz) -> void:
 
 func _on_quiz_attempt_completed() -> void: 
 	score.input([str(quiz_attempt.score), str(quiz_attempt.quiz.maximum_score)])
+	if quiz.has_victory(): 
+		play_again_button.disabled = true
 
 
 func _on_play_pressed() -> void: 

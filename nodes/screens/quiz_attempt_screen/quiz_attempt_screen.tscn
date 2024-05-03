@@ -118,7 +118,7 @@ audio = SubResource("Resource_k6v7v")
 
 [node name="SetGameStateOnGUIActive" parent="." index="3" node_paths=PackedStringArray("gui") instance=ExtResource("8_k4107")]
 gui = NodePath("..")
-activated_state = "paused"
+activated_state = "assesment"
 deactivated_state = "playing"
 
 [connection signal="deactivated" from="MarginContainer/Control/QuizAttemptGUI" to="." method="_on_quiz_attempt_gui_deactivated"]

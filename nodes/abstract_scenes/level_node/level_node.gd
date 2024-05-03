@@ -37,7 +37,6 @@ func _notification(what: int) -> void:
 	if GameManager.is_close_request(what): 
 		SaveManager.save_game()
 		SaveManager.save_game_to_file(true)
-		print("Is close request")
 	elif what == NOTIFICATION_WM_GO_BACK_REQUEST: 
 		to_map_picker.change()
 		

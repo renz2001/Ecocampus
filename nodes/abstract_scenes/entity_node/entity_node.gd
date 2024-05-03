@@ -2,6 +2,7 @@
 extends CharacterBody2D
 class_name EntityNode
 
+signal starting_interact
 signal interacted
 
 @export var display_interact_dialog: bool = true
@@ -88,8 +89,13 @@ func _interact() -> void:
 func _on_interact() -> void: 
 	if disabled: 
 		return
+	starting_interact.emit()
 	if disable_after_interact: 
 		disabled = true
+	if is_instance_valid(quest): 
+		quest.update()
+	if AchievementUnlockedScreen.this().visible: 
+		await AchievementUnlockedScreen.this().deactivated
 	_interact()
 	if interact_audio: 
 		interact_audio_player.play()
@@ -156,6 +162,7 @@ func _on_dialogue_response_handler_responded(value: String) -> void:
 			QuizAttemptScreen.display(quiz, data)
 		"start_quest": 
 			ExtendedQuestSystem.start_quest(quest)
+			quest.update()
 		"remove_dialogue": 
 			dialogue = null
 

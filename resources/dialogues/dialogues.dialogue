@@ -40,7 +40,7 @@ Sir Guzman: In this journey, everyone needs to play their part in preserving our
 {{PlayerManager.player.data.custom_name}}: Thanks for the warm welcome! I'm ready for the adventure.
 Sir Guzman: Fantastic! Before we dive in, let me emphasize the importance of waste collection on our campus.
 Sir Guzman: Proper waste management not only maintains the beauty of our surroundings but also plays a crucial role in our commitment to sustainability.
-Sir Guzman: Now, here's your first task: I need you to collect 10 water bottles. It's a small step, but it makes a big difference. Head to the designated areas, and let's make our campus cleaner and greener together!
+Sir Guzman: Now, here's your first task: I need you to collect 10 recyclables. It's a small step, but it makes a big difference. Head to the designated areas, and let's make our campus cleaner and greener together!
 do dialogue_response_handler.respond("start_quest")
 => END
 
@@ -64,6 +64,14 @@ Professor Cruz: If you can collect 10 pieces of this junk scattered around, it'l
 Professor Cruz: Think you're up for the challenge?
 {{PlayerManager.player.data.custom_name}}: Absolutely! I'll get right on it, Professor.
 do dialogue_response_handler.respond("start_quest")
+=> END
+
+~ con_quest_completed
+{{PlayerManager.player.data.custom_name}}: Good day teacher! I did it, the challenge is complete
+Professor Cruz: Excellent work, John! You handled the challenge responsibly and efficiently. I'm proud of you.
+{{PlayerManager.player.data.custom_name}}: Thank you!
+Professor Cruz: Let's recall what you've learned from your journey through the Eco Quiz.
+do dialogue_response_handler.respond("start_quiz")
 => END
 
 ~ dit_quest

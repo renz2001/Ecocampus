@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://gclvecuvrsiy"]
+[gd_scene load_steps=22 format=3 uid="uid://gclvecuvrsiy"]
 
 [ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/macchi's_gui_manager/nodes/gui/gui/gui.tscn" id="1_tkvea"]
 [ext_resource type="PackedScene" uid="uid://dyvkcprf58urk" path="res://addons/macchi's_gui_manager/nodes/gui/page_router_container/page_router_container.tscn" id="2_dmxuy"]
@@ -16,7 +16,6 @@
 [ext_resource type="PackedScene" uid="uid://der1edoxrqxln" path="res://nodes/gui_components/set_game_state_on_gui_active/set_game_state_on_gui_active.tscn" id="12_hwelt"]
 [ext_resource type="PackedScene" uid="uid://cdhkyjskyryv" path="res://nodes/gui/formatted_label/formatted_label.tscn" id="12_lgx71"]
 [ext_resource type="Script" path="res://scripts/resources/string_formatter.gd" id="13_t84n1"]
-[ext_resource type="PackedScene" uid="uid://cvfad21xn8iyk" path="res://nodes/components/if_quiz_complete_then_set/if_quiz_complete_then_set.tscn" id="16_2kfgu"]
 [ext_resource type="Texture2D" uid="uid://v64bqpwfhlne" path="res://assets/buttons/disabled_button.png" id="16_jq6ql"]
 
 [sub_resource type="Resource" id="Resource_p4emr"]
@@ -37,7 +36,7 @@ format = "Score: %s / %s
 font = ExtResource("8_3fasx")
 font_size = 50
 
-[node name="QuizAttemptGUI" node_paths=PackedStringArray("problem_page", "title", "end_title", "description", "score", "wrong", "problem_page_router", "again_page_router", "if_quiz_complete_then_set") instance=ExtResource("1_tkvea")]
+[node name="QuizAttemptGUI" node_paths=PackedStringArray("problem_page", "title", "end_title", "description", "score", "wrong", "problem_page_router", "again_page_router", "play_again_button") instance=ExtResource("1_tkvea")]
 script = ExtResource("2_n2cxh")
 quiz_attempt = SubResource("Resource_p4emr")
 problem_page = NodePath("Board/BoardMargin/PageRouterContainer/QuizProblemPage")
@@ -48,7 +47,7 @@ score = NodePath("Board/BoardMargin/PageRouterContainer/EndPage/MarginContainer/
 wrong = NodePath("Board/BoardMargin/PageRouterContainer/EndPage/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/Wrong")
 problem_page_router = NodePath("Board/BoardMargin/PageRouterContainer/QuizProblemPage/PageRouter")
 again_page_router = NodePath("Board/BoardMargin/PageRouterContainer/EndPage/MarginContainer/VBoxContainer/HBoxContainer/Again/PageRouter")
-if_quiz_complete_then_set = NodePath("IfQuizCompleteThenSet")
+play_again_button = NodePath("Board/BoardMargin/PageRouterContainer/EndPage/MarginContainer/VBoxContainer/HBoxContainer/Again")
 inactive_on_ready = false
 
 [node name="Board" type="TextureRect" parent="." index="0"]
@@ -243,7 +242,6 @@ label = NodePath("../../../../../FirstPage/MarginContainer/VBoxContainer/HBoxCon
 
 [node name="Label" parent="Board/BoardMargin/PageRouterContainer/EndPage/MarginContainer/VBoxContainer/HBoxContainer/Again" index="1"]
 text = "Again"
-label_settings = ExtResource("10_ofnbm")
 
 [node name="PageRouter" parent="Board/BoardMargin/PageRouterContainer/EndPage/MarginContainer/VBoxContainer/HBoxContainer/Again" index="2" node_paths=PackedStringArray("page_router_container", "button", "go_at") instance=ExtResource("7_xwpdj")]
 page_router_container = NodePath("../../../../../..")
@@ -261,18 +259,11 @@ label = NodePath("../../../../../FirstPage/MarginContainer/VBoxContainer/HBoxCon
 
 [node name="Label" parent="Board/BoardMargin/PageRouterContainer/EndPage/MarginContainer/VBoxContainer/HBoxContainer/Exit" index="1"]
 text = "Exit"
-label_settings = ExtResource("10_ofnbm")
 
 [node name="SetGameStateOnGUIActive" parent="." index="2" node_paths=PackedStringArray("gui") instance=ExtResource("12_hwelt")]
 gui = NodePath("..")
 activated_state = "assesment"
-deactivated_state = "playing"
-
-[node name="IfQuizCompleteThenSet" parent="." index="3" node_paths=PackedStringArray("node") instance=ExtResource("16_2kfgu")]
-ready_value = "false"
-node = NodePath("../Board/BoardMargin/PageRouterContainer/EndPage/MarginContainer/VBoxContainer/HBoxContainer/Again")
-property_or_method = "disabled"
-new_value = "true"
+deactivated_state = "resume"
 
 [connection signal="pressed" from="Board/BoardMargin/PageRouterContainer/FirstPage/MarginContainer/VBoxContainer/HBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Board/BoardMargin/PageRouterContainer/FirstPage/MarginContainer/VBoxContainer/HBoxContainer/Exit" to="." method="_on_exit_pressed"]

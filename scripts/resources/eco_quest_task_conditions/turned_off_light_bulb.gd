@@ -11,6 +11,9 @@ func _initialized() -> void:
 	
 func initialized() -> void: 
 	var light_bulbs: Array[Node] = tree.get_nodes_in_group("LightBulb")
+	if PlayerManager.player_data.lights_turned_off == counter.maximum: 
+		counter.max_out()
+		return
 	for bulb: LightBulb in light_bulbs: 
 		if !bulb.is_on(): 
 			counter.increment()
@@ -33,4 +36,5 @@ func _finished() -> void:
 	for bulb: LightBulb in light_bulbs: 
 		if bulb.is_on(): 
 			bulb.turned_off.disconnect(_on_bulb_turned_off)
-
+	if WorldEventManager.event_called.is_connected(_on_event_called): 
+		WorldEventManager.event_called.disconnect(_on_event_called)

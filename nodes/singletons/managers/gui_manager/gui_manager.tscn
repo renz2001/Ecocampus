@@ -30,7 +30,7 @@ use_spaces_for_node_name = false
 [sub_resource type="LabelSettings" id="LabelSettings_6cbw5"]
 font_size = 59
 
-[node name="GUIManager" node_paths=PackedStringArray("transitions_manager", "dialogue_gui_manager", "customize_character_screen", "settings_menu", "quiz_attempt_screen", "achievement_unlocked_screen", "dropdown_popup") instance=ExtResource("1_fgil1")]
+[node name="GUIManager" node_paths=PackedStringArray("transitions_manager", "dialogue_gui_manager", "customize_character_screen", "settings_menu", "quiz_attempt_screen", "achievement_unlocked_screen", "player_hud", "dropdown_popup") instance=ExtResource("1_fgil1")]
 follow_viewport_enabled = false
 script = ExtResource("2_43jm5")
 transitions_manager = NodePath("Root/TransitionsManager")
@@ -39,6 +39,7 @@ customize_character_screen = NodePath("Root/MarginContainer/BaseControl/Playing/
 settings_menu = NodePath("Root/MarginContainer/BaseControl/SettingsMenu")
 quiz_attempt_screen = NodePath("Root/MarginContainer/BaseControl/Playing/QuizAttemptScreen")
 achievement_unlocked_screen = NodePath("Root/MarginContainer/BaseControl/AchievementUnlockedScreen")
+player_hud = NodePath("Root/MarginContainer/BaseControl/Playing/PlayerHUD")
 centered_acting_container = ExtResource("4_ddkn8")
 exclusive_gui = ExtResource("5_bp7t5")
 dropdown_popup = NodePath("DropdownPopup")
@@ -60,13 +61,11 @@ mouse_default_cursor_shape = 13
 
 [node name="IfPlayingEnteredSetProperty" parent="Root/GetMousePositionArea" index="0" node_paths=PackedStringArray("node") instance=ExtResource("9_ep4ey")]
 property = "playing_state"
-dont_ready_value = false
 node = NodePath("..")
 
-[node name="IfPlayingExitedSetProperty2" parent="Root/GetMousePositionArea" index="1" node_paths=PackedStringArray("node") instance=ExtResource("9_ep4ey")]
+[node name="IfPlayingExitedSetProperty" parent="Root/GetMousePositionArea" index="1" node_paths=PackedStringArray("node") instance=ExtResource("9_ep4ey")]
 property = "playing_state"
 state_event = 1
-dont_ready_value = false
 node = NodePath("..")
 new_value = "false"
 
@@ -76,9 +75,8 @@ only_one_instance = false
 [node name="QuizAttemptScreen" parent="Root/MarginContainer/BaseControl/Playing" index="0" instance=ExtResource("8_rgdf8")]
 layout_mode = 1
 
-[node name="IfMapPickerEnteredSetProperty" parent="Root/MarginContainer/BaseControl/Playing/QuizAttemptScreen" index="3" node_paths=PackedStringArray("node") instance=ExtResource("9_ep4ey")]
-property = "map_picker_state"
-dont_ready_value = false
+[node name="IfMainScreenEnteredSetProperty" parent="Root/MarginContainer/BaseControl/Playing/QuizAttemptScreen" index="4" node_paths=PackedStringArray("node") instance=ExtResource("9_ep4ey")]
+property = "main_screen_state"
 node = NodePath("..")
 new_value = "false"
 
@@ -87,29 +85,15 @@ layout_mode = 1
 
 [node name="Components" type="Node" parent="Root/MarginContainer/BaseControl/Playing" index="2"]
 
-[node name="IfMainMenuEnteredSetProperty" parent="Root/MarginContainer/BaseControl/Playing/Components" index="0" node_paths=PackedStringArray("node") instance=ExtResource("9_ep4ey")]
-property = "main_menu_state"
-dont_ready_value = false
+[node name="IfMainScreenEnteredSetProperty" parent="Root/MarginContainer/BaseControl/Playing/Components" index="0" node_paths=PackedStringArray("node") instance=ExtResource("9_ep4ey")]
+property = "main_screen_state"
 node = NodePath("../..")
 new_value = "false"
 
-[node name="IfMainMenuExitedSetProperty" parent="Root/MarginContainer/BaseControl/Playing/Components" index="1" node_paths=PackedStringArray("node") instance=ExtResource("9_ep4ey")]
-property = "main_menu_state"
-state_event = 1
-dont_ready_value = false
+[node name="IfPlayingEnteredSetProperty" parent="Root/MarginContainer/BaseControl/Playing/Components" index="1" node_paths=PackedStringArray("node") instance=ExtResource("9_ep4ey")]
+property = "playing_state"
 node = NodePath("../..")
-
-[node name="IfMapPickerEnteredSetProperty" parent="Root/MarginContainer/BaseControl/Playing/Components" index="2" node_paths=PackedStringArray("node") instance=ExtResource("9_ep4ey")]
-property = "map_picker_state"
-dont_ready_value = false
-node = NodePath("../../PlayerHUD")
-new_value = "false"
-
-[node name="IfMapPickerExitedSetProperty2" parent="Root/MarginContainer/BaseControl/Playing/Components" index="3" node_paths=PackedStringArray("node") instance=ExtResource("9_ep4ey")]
-property = "map_picker_state"
-state_event = 1
-dont_ready_value = false
-node = NodePath("../../PlayerHUD")
+debug = true
 
 [node name="DialogueGUIManager" parent="Root/MarginContainer/BaseControl/Playing" index="4" instance=ExtResource("3_ew5n2")]
 layout_mode = 1
@@ -118,9 +102,8 @@ layout_mode = 1
 layout_mode = 1
 only_one_instance = false
 
-[node name="IfMapPickerEnteredSetProperty" parent="Root/MarginContainer/BaseControl/Playing/CustomizeCharacterScreen" index="2" node_paths=PackedStringArray("node") instance=ExtResource("9_ep4ey")]
-property = "map_picker_state"
-dont_ready_value = false
+[node name="IfMainScreenEnteredSetProperty" parent="Root/MarginContainer/BaseControl/Playing/CustomizeCharacterScreen" index="2" node_paths=PackedStringArray("node") instance=ExtResource("9_ep4ey")]
+property = "main_screen_state"
 node = NodePath("..")
 new_value = "false"
 
@@ -138,9 +121,8 @@ grow_vertical = 2
 layout_mode = 1
 only_one_instance = false
 
-[node name="IfMapPickerEnteredSetProperty" parent="Root/MarginContainer/BaseControl/SettingsMenu" index="3" node_paths=PackedStringArray("node") instance=ExtResource("9_ep4ey")]
-property = "map_picker_state"
-dont_ready_value = false
+[node name="IfMainScreenEnteredSetProperty" parent="Root/MarginContainer/BaseControl/SettingsMenu" index="3" node_paths=PackedStringArray("node") instance=ExtResource("9_ep4ey")]
+property = "main_screen_state"
 node = NodePath("..")
 new_value = "false"
 
@@ -165,17 +147,6 @@ anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 grow_horizontal = 0
-
-[node name="IfMapPickerEnteredSetProperty" parent="Root/MarginContainer/BaseControl/MarginContainer/Control/NavbarGUI" index="2" node_paths=PackedStringArray("node") instance=ExtResource("9_ep4ey")]
-property = "map_picker_state"
-dont_ready_value = true
-node = NodePath("..")
-
-[node name="IfMapPickerExitedSetProperty" parent="Root/MarginContainer/BaseControl/MarginContainer/Control/NavbarGUI" index="3" node_paths=PackedStringArray("node") instance=ExtResource("9_ep4ey")]
-property = "map_picker_state"
-state_event = 1
-dont_ready_value = true
-node = NodePath("..")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Root/MarginContainer/BaseControl/MarginContainer/Control" index="1"]
 layer = 4
@@ -205,9 +176,8 @@ offset_right = -11.0
 offset_bottom = 204.0
 grow_horizontal = 0
 
-[node name="IfMapPickerEnteredSetProperty" parent="Root/MarginContainer/BaseControl/MarginContainer/Control/CanvasLayer/MarginContainer/Root/QuestsMenu" index="2" node_paths=PackedStringArray("node") instance=ExtResource("9_ep4ey")]
-property = "map_picker_state"
-dont_ready_value = false
+[node name="IfMainScreenEnteredSetProperty" parent="Root/MarginContainer/BaseControl/MarginContainer/Control/CanvasLayer/MarginContainer/Root/QuestsMenu" index="2" node_paths=PackedStringArray("node") instance=ExtResource("9_ep4ey")]
+property = "main_screen_state"
 node = NodePath("..")
 new_value = "false"
 

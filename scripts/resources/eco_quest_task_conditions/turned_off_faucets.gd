@@ -11,6 +11,9 @@ func _initialized() -> void:
 	
 func initialized() -> void: 
 	var faucets: Array[Node] = tree.get_nodes_in_group("Faucet")
+	if PlayerManager.player_data.faucets_turned_off == maximum_points: 
+		counter.max_out()
+		return
 	for faucet: Faucet in faucets: 
 		if !faucet.is_on(): 
 			counter.increment()
@@ -33,4 +36,5 @@ func _finished() -> void:
 	for faucet: Faucet in faucets: 
 		if faucet.is_on(): 
 			faucet.turned_off.disconnect(_on_bulb_turned_off)
-
+	if WorldEventManager.event_called.is_connected(_on_event_called): 
+		WorldEventManager.event_called.disconnect(_on_event_called)

@@ -17,6 +17,12 @@ func _ready() -> void:
 	update()
 	ExtendedQuestSystem.quest_accepted.connect(_on_quest_accepted)
 	ExtendedQuestSystem.quest_completed.connect(_on_quest_completed)
+	for quest: EcoQuest in ExtendedQuestSystem.active.quests: 
+		quest.task_completed.connect(_on_task_completed)
+	
+	
+func _on_task_completed() -> void: 
+	update()
 	
 
 func _on_quest_accepted(_quest: Quest) -> void: 

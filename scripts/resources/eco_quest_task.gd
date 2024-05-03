@@ -19,8 +19,6 @@ signal completed
 		#, CONNECT_ONE_SHOT
 		#)
 
-### Callable() -> bool
-#var complete_condition: Callable 
 @export var hide_counter_in_gui: bool
 
 var is_completed: bool: 

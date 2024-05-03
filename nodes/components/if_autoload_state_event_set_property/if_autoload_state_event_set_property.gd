@@ -10,12 +10,20 @@ enum StateEvent {
 @export var property: String
 @export var state_event: StateEvent
 
+var autoload_node: Node: 
+	get: 
+		return NodeTools.get_autoload(self, autoload)
+
+var state: State: 
+	get: 
+		return autoload_node.get(property) 
 
 func _ready() -> void: 
 	super._ready()
-	var autoload_node: Node = NodeTools.get_autoload(self, autoload)
-	var state: State = autoload_node.get(property) 
-	
+	update_condition()
+	#printerr(property)
+	if debug: 
+		print_color.out_debug_wvalue("connected %s", state)
 	match state_event: 
 		StateEvent.STATE_ENTERED: 
 			state.state_entered.connect(update_condition)
@@ -24,4 +32,6 @@ func _ready() -> void:
 
 
 func _condition() -> bool: 
-	return true
+	if state_event == StateEvent.STATE_EXITED: 
+		return !state.active
+	return state.active

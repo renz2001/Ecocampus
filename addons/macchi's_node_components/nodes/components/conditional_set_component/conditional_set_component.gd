@@ -16,6 +16,13 @@ signal condition_met
 ## Checks if the condition returns the opposite instead. 
 @export var inverted: bool
 
+@export var debug: bool
+@export var print_color: PrintColor: 
+	set(value): 
+		print_color = value
+		print_color.owner = self
+		
+
 func update_condition() -> void: 
 	if disabled: 
 		return
@@ -25,6 +32,8 @@ func update_condition() -> void:
 		if one_shot: 
 			disabled = true
 		_condition_met() 
+		if debug: 
+			print_color.out_debug("condition met")
 		condition_met.emit()
 
 

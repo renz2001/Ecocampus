@@ -1,6 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://b0weuebbijrov"]
+[gd_scene load_steps=3 format=3 uid="uid://b0weuebbijrov"]
 
 [ext_resource type="Script" path="res://nodes/singletons/globals/global_shortcuts/global_shortcuts.gd" id="1_8a8g5"]
+[ext_resource type="PackedScene" uid="uid://nnpxfb02bn17" path="res://nodes/components/change_scene_component/change_scene_component.tscn" id="2_geima"]
 
-[node name="GlobalShortcuts" type="Node"]
+[node name="GlobalShortcuts" type="Node" node_paths=PackedStringArray("to_main_menu")]
 script = ExtResource("1_8a8g5")
+to_main_menu = NodePath("ToMainMenu")
+
+[node name="ToMainMenu" parent="." instance=ExtResource("2_geima")]
+to_scene = "res://nodes/gui/main_menu/main_menu.tscn"
+dont_save_game_before_change = true

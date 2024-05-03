@@ -54,24 +54,19 @@ cosmetics_collection = ExtResource("3_v3djt")
 [node name="HideScrollBar" parent="VBoxContainer/HBoxContainer/ScrollContainer" index="1" node_paths=PackedStringArray("scroll_container") instance=ExtResource("7_s24ny")]
 scroll_container = NodePath("..")
 
-[node name="SetGameStateOnGUIActive2" parent="." index="2" node_paths=PackedStringArray("gui") instance=ExtResource("8_31fep")]
+[node name="SetGameStateOnGUIActive" parent="." index="2" node_paths=PackedStringArray("gui") instance=ExtResource("8_31fep")]
 gui = NodePath("..")
 activated_state = "customize_character"
-deactivated_state = "default"
-
-[node name="SetGameStateOnGUIActive" parent="." index="3" node_paths=PackedStringArray("gui") instance=ExtResource("8_31fep")]
-gui = NodePath("..")
-activated_state = "paused"
-deactivated_state = "playing"
+deactivated_state = "resume"
 
 [connection signal="updated" from="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer" to="VBoxContainer/HBoxContainer/CosmeticSelectCard" method="_on_cosmetics_display_card_container_updated"]
-[connection signal="visibility_changed" from="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18497" to="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18497" method="_on_visibility_changed"]
-[connection signal="visibility_changed" from="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18499" to="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18499" method="_on_visibility_changed"]
-[connection signal="visibility_changed" from="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18501" to="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18501" method="_on_visibility_changed"]
-[connection signal="visibility_changed" from="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18503" to="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18503" method="_on_visibility_changed"]
-[connection signal="visibility_changed" from="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18505" to="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18505" method="_on_visibility_changed"]
-[connection signal="visibility_changed" from="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18507" to="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18507" method="_on_visibility_changed"]
-[connection signal="visibility_changed" from="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18509" to="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18509" method="_on_visibility_changed"]
-[connection signal="visibility_changed" from="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18511" to="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18511" method="_on_visibility_changed"]
-[connection signal="visibility_changed" from="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18513" to="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18513" method="_on_visibility_changed"]
-[connection signal="visibility_changed" from="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18515" to="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18515" method="_on_visibility_changed"]
+[connection signal="visibility_changed" from="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@191431" to="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@191431" method="_on_visibility_changed"]
+[connection signal="visibility_changed" from="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@191433" to="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@191433" method="_on_visibility_changed"]
+[connection signal="visibility_changed" from="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@191435" to="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@191435" method="_on_visibility_changed"]
+[connection signal="visibility_changed" from="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@191437" to="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@191437" method="_on_visibility_changed"]
+[connection signal="visibility_changed" from="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@191439" to="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@191439" method="_on_visibility_changed"]
+[connection signal="visibility_changed" from="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@191441" to="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@191441" method="_on_visibility_changed"]
+[connection signal="visibility_changed" from="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@191443" to="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@191443" method="_on_visibility_changed"]
+[connection signal="visibility_changed" from="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@191445" to="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@191445" method="_on_visibility_changed"]
+[connection signal="visibility_changed" from="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@191447" to="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@191447" method="_on_visibility_changed"]
+[connection signal="visibility_changed" from="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@191449" to="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@191449" method="_on_visibility_changed"]

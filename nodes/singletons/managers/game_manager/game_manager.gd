@@ -13,6 +13,9 @@ extends Node
 @export var assesment_state: AtomicState
 @export var customize_character_state: AtomicState
 @export var dialogue_state: AtomicState
+@export var main_screen_state: CompoundState
+@export var history_state: HistoryState
+@export var dialog_state: CompoundState
 
 @export var menu_music: AudioManagerPlayer
 @export var playing_music: AudioManagerPlayer
@@ -86,3 +89,11 @@ func reset_all_data() -> void:
 	SaveManager.current_saved_data = GameSave.new()
 	GUIManager.reset()
 	state_chart.send_event("main_menu")
+
+
+func _on_history_state_state_entered() -> void:
+	print_color.out_debug_wvalue("History state", history_state.history)
+
+
+func _on_history_state_event_received(_event: StringName) -> void:
+	print_color.out_debug_wvalue("History state", history_state.history)

@@ -29,6 +29,11 @@ var passing_score: float:
 	get: 
 		return maximum_score * passing_score_percentage
 
+
+func has_victory() -> bool: 
+	return victory_counter >= 1
+	
+
 func attempt() -> QuizAttempt: 
 	var _attempt: QuizAttempt = QuizAttempt.from_quiz(self)
 	return _attempt

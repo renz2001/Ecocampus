@@ -13,9 +13,12 @@ func _initialized() -> void:
 	if !WorldEventManager.event_called.is_connected(_on_event_called): 
 		WorldEventManager.event_called.connect(_on_event_called)
 	initialized()
-	
+
 
 func initialized() -> void: 
+	if PlayerManager.player_data.trash_can_items == 30: 
+		counter.max_out()
+		return
 	check()
 	for can: TrashCanNode in trash_cans: 
 		if !can.inventory.items_changed.is_connected(_on_items_changed): 
@@ -40,6 +43,9 @@ func check() -> void:
 
 
 func _finished() -> void: 
+	if WorldEventManager.event_called.is_connected(_on_event_called): 
+		WorldEventManager.event_called.disconnect(_on_event_called)
+	
 	for can: TrashCanNode in trash_cans: 
 		if can.inventory.items_changed.is_connected(_on_items_changed): 
 			can.inventory.items_changed.disconnect(_on_items_changed)

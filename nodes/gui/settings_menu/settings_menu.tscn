@@ -38,7 +38,8 @@ custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 texture_normal = ExtResource("4_p4eyu")
 
-[node name="OnPressedExitToMainMenu" parent="CenterContainer/VBoxContainer/ExitToMainMenu" index="3" instance=ExtResource("5_h8g62")]
+[node name="OnPressedExitToMainMenu" parent="CenterContainer/VBoxContainer/ExitToMainMenu" index="3" node_paths=PackedStringArray("control") instance=ExtResource("5_h8g62")]
+control = NodePath("..")
 
 [node name="OnPressedSetActive" parent="CenterContainer/VBoxContainer/ExitToMainMenu" index="4" node_paths=PackedStringArray("target", "control") instance=ExtResource("7_v2r36")]
 target = NodePath("../../../..")
@@ -59,6 +60,7 @@ disabled = true
 [node name="SetGameStateOnGUIActive" parent="." index="2" node_paths=PackedStringArray("gui") instance=ExtResource("7_xoj0p")]
 gui = NodePath("..")
 activated_state = "paused"
+deactivated_state = "resume"
 
 [node name="IfMainMenuEnteredSetProperty" parent="." index="3" node_paths=PackedStringArray("node") instance=ExtResource("8_dayxy")]
 property = "main_menu_state"

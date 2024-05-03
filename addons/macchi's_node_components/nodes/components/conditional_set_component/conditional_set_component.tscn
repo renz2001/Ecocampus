@@ -1,7 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://g7mchgj54c12"]
+[gd_scene load_steps=5 format=3 uid="uid://g7mchgj54c12"]
 
 [ext_resource type="Script" path="res://addons/macchi's_node_components/nodes/components/conditional_set_component/conditional_set_component.gd" id="1_8o43i"]
+[ext_resource type="Script" path="res://addons/macchi's_node_components/nodes/components/print_color.gd" id="2_ohcrt"]
+[ext_resource type="PackedScene" uid="uid://le3pltdhswul" path="res://addons/macchi's_node_components/nodes/components/ready_unique_resource/ready_unique_resource.tscn" id="3_mnj53"]
 
+[sub_resource type="Resource" id="Resource_2720d"]
+script = ExtResource("2_ohcrt")
+disabled = false
+color = Color(1, 0.439216, 0.486275, 1)
+owner_name_color = Color(0.909804, 0.596078, 1, 1)
+value_color = Color(1, 0, 0, 1)
+automatic_value_color = true
+use_spaces_for_node_name = false
 
 [node name="ConditionalSetComponent" type="Node"]
 script = ExtResource("1_8o43i")
+print_color = SubResource("Resource_2720d")
+
+[node name="ReadyUniqueResource" parent="." node_paths=PackedStringArray("node") instance=ExtResource("3_mnj53")]
+node = NodePath("..")
+resource = "print_color"

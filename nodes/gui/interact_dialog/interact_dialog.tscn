@@ -1,15 +1,21 @@
-[gd_scene load_steps=15 format=3 uid="uid://qfyxou4gfo7f"]
+[gd_scene load_steps=19 format=3 uid="uid://qfyxou4gfo7f"]
 
 [ext_resource type="PackedScene" uid="uid://hdksnn1gc6qq" path="res://addons/macchi's_gui_manager/nodes/gui/dialog_gui/dialog_gui.tscn" id="1_vqmba"]
 [ext_resource type="Script" path="res://nodes/gui/interact_dialog/interact_dialog.gd" id="2_5f634"]
 [ext_resource type="Texture2D" uid="uid://crum2o41ed4wp" path="res://assets/buttons/board.png" id="3_0ji44"]
 [ext_resource type="PackedScene" uid="uid://dggdvwjvdrmkh" path="res://nodes/gui/buttons/medium_wooden_button/medium_wooden_button.tscn" id="3_2wovi"]
+[ext_resource type="Texture2D" uid="uid://dlrcoscuxxmv5" path="res://assets/buttons/button.png" id="3_so0rb"]
 [ext_resource type="FontFile" uid="uid://bh5eyon0or827" path="res://fonts/Ubuntu-Regular.ttf" id="4_a317s"]
 [ext_resource type="PackedScene" uid="uid://cdhkyjskyryv" path="res://nodes/gui/formatted_label/formatted_label.tscn" id="4_ujr3p"]
 [ext_resource type="PackedScene" uid="uid://cnsvmjc5ytto2" path="res://nodes/components/on_visible_then_scale/on_visible_then_scale.tscn" id="5_t4yxs"]
 [ext_resource type="Script" path="res://addons/macchi's_node_components/scripts/arguments/tween_arguments.gd" id="6_hyohs"]
 [ext_resource type="Texture2D" uid="uid://do0rkrmxxseyk" path="res://assets/buttons/ok_button.png" id="6_m2xc1"]
 [ext_resource type="PackedScene" uid="uid://dh1ftkyfip0sh" path="res://nodes/gui_components/on_tap_set_active/on_tap_set_active.tscn" id="10_1lx0p"]
+[ext_resource type="FontFile" uid="uid://cp5vi568oh4jl" path="res://fonts/Ubuntu-Bold.ttf" id="10_hqlbj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sam6v"]
+atlas = ExtResource("3_so0rb")
+region = Rect2(1, 3, 767, 279)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l0aej"]
 atlas = ExtResource("3_0ji44")
@@ -25,6 +31,15 @@ shadow_offset = Vector2(-2, 4)
 [sub_resource type="AtlasTexture" id="AtlasTexture_ocl6h"]
 atlas = ExtResource("6_m2xc1")
 region = Rect2(82, 144, 1403, 511)
+
+[sub_resource type="LabelSettings" id="LabelSettings_twd2r"]
+font = ExtResource("10_hqlbj")
+font_size = 40
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 20
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(2, 4)
 
 [sub_resource type="Resource" id="Resource_x4ke4"]
 script = ExtResource("6_hyohs")
@@ -43,6 +58,7 @@ body = NodePath("Body")
 rich_description_label = NodePath("Body/MarginContainer/RichDescription")
 description_label = NodePath("Body/MarginContainer/Description")
 ok_button = NodePath("Body/OKButton")
+empty_button_texture = SubResource("AtlasTexture_sam6v")
 inactive_on_ready = false
 
 [node name="OnTapSetActive" parent="." index="0" node_paths=PackedStringArray("gui") instance=ExtResource("10_1lx0p")]
@@ -139,6 +155,11 @@ grow_vertical = 0
 texture_normal = SubResource("AtlasTexture_ocl6h")
 metadata/_edit_use_anchors_ = true
 
+[node name="Label" parent="Body/OKButton" index="1"]
+offset_top = -4.50568
+offset_bottom = -4.50568
+label_settings = SubResource("LabelSettings_twd2r")
+
 [node name="OnVisibleThenScale" parent="." index="2" node_paths=PackedStringArray("node") instance=ExtResource("5_t4yxs")]
 editor_play = false
 tween = SubResource("Resource_x4ke4")
@@ -147,3 +168,5 @@ on_hide = true
 
 [connection signal="visibility_changed" from="." to="OnVisibleThenScale" method="_on_visible"]
 [connection signal="pressed" from="Body/OKButton" to="." method="_on_medium_wooden_button_pressed"]
+
+[editable path="Body/OKButton"]

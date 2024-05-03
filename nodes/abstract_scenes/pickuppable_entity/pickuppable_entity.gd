@@ -19,4 +19,22 @@ func _ready() -> void:
 		GlobalVariables.get_enum_name(ItemEntity.Type, data.type).to_pascal_case(), 
 		inventory.items[0].model.description
 	] as Array[String]
+	
+	
+func show_interact_dialog(description: BaseLabelText) -> void: 
+	if disabled: 
+		return
+	var dialog: InteractDialog = InteractDialog.display(
+		InteractDialogData.new()\
+			.set_caller(
+				PlayerManager.player
+			)\
+			.set_gui_position(interact_dialog_position.global_position)\
+			.set_on_button_pressed(_on_interact)\
+			.set_description(description)\
+			.set_custom_ok_text("COLLECT")
+	)
+	
+	if interact_audio: 
+		dialog.ok_button.button_audio_player.disabled = true
 
