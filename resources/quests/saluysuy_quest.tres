@@ -20,6 +20,7 @@ save_as_resource_path = false
 
 [resource]
 script = ExtResource("1_3kere")
+automatically_complete_after_tasks_completed = false
 percentage_description = "Waste Disposal"
 tasks = Array[ExtResource("4_01gdq")]([SubResource("Resource_kw5r4")])
 on_complete_unlock_achievement = ExtResource("1_gucr1")

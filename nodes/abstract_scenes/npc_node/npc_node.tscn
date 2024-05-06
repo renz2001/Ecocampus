@@ -1,17 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://b8627vb83551h"]
+[gd_scene load_steps=11 format=3 uid="uid://b8627vb83551h"]
 
 [ext_resource type="PackedScene" uid="uid://cjrygqeartla8" path="res://nodes/abstract_scenes/living_entity_node/living_entity_node.tscn" id="1_4vfvx"]
+[ext_resource type="Script" path="res://nodes/abstract_scenes/npc_node/npc_node.gd" id="2_1hpoc"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/animation_player_state.gd" id="2_3l8bg"]
-[ext_resource type="Script" path="res://scripts/resources/label_text.gd" id="2_8dcrp"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="3_o4eif"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="4_5t7p8"]
-
-[sub_resource type="Resource" id="Resource_xk11q"]
-script = ExtResource("2_8dcrp")
-texts = Array[String](["Hello!"])
-with_label_settings = false
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [sub_resource type="Animation" id="Animation_rasy3"]
 resource_name = "idle_left"
@@ -34,7 +27,7 @@ _data = {
 }
 
 [node name="NPCNode" instance=ExtResource("1_4vfvx")]
-interact_description = SubResource("Resource_xk11q")
+script = ExtResource("2_1hpoc")
 
 [node name="TapHitBox" parent="CanvasLayer/Root" index="0"]
 mouse_default_cursor_shape = 2

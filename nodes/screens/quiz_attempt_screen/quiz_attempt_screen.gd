@@ -52,6 +52,7 @@ func start(q: Quiz) -> void:
 	quiz_attempt_gui.quiz_attempt.state_changed.connect(
 		_on_quiz_attempt_state_changed
 	)
+	reaction_sprites.current_tab = 0
 
 
 func _on_quiz_attempt_state_changed(state: QuizAttempt.AttemptState) -> void: 

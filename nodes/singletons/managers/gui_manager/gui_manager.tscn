@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dn0hmrfmam4bl"]
+[gd_scene load_steps=21 format=3 uid="uid://dn0hmrfmam4bl"]
 
 [ext_resource type="PackedScene" uid="uid://dup6nowsahsrg" path="res://addons/macchi's_gui_manager/nodes/singletons/gui_manager/gui_manager.tscn" id="1_fgil1"]
 [ext_resource type="Script" path="res://nodes/singletons/managers/gui_manager/gui_manager.gd" id="2_43jm5"]
@@ -17,6 +17,8 @@
 [ext_resource type="PackedScene" uid="uid://dywlc2qvwfqms" path="res://nodes/gui/settings_menu/settings_menu.tscn" id="13_qklwl"]
 [ext_resource type="PackedScene" uid="uid://cyepcbc24l4l8" path="res://nodes/screens/achievement_unlocked_screen/achievement_unlocked_screen.tscn" id="14_df8bm"]
 [ext_resource type="PackedScene" uid="uid://bvqcvxujyci1a" path="res://nodes/gui/quests_menu/quests_menu.tscn" id="15_54dqn"]
+[ext_resource type="PackedScene" uid="uid://b26qgdv0t84hx" path="res://nodes/gui/saving_label/saving_label.tscn" id="18_62bra"]
+[ext_resource type="LabelSettings" uid="uid://bfng1toxthprb" path="res://resources/label_settings/quiz_attempt_gui_title.tres" id="19_2m0kl"]
 
 [sub_resource type="Resource" id="Resource_w1cp2"]
 script = ExtResource("6_g7dor")
@@ -26,9 +28,6 @@ owner_name_color = Color(0, 0, 1, 1)
 value_color = Color(1, 0, 0, 1)
 automatic_value_color = true
 use_spaces_for_node_name = false
-
-[sub_resource type="LabelSettings" id="LabelSettings_6cbw5"]
-font_size = 59
 
 [node name="GUIManager" node_paths=PackedStringArray("transitions_manager", "dialogue_gui_manager", "customize_character_screen", "settings_menu", "quiz_attempt_screen", "achievement_unlocked_screen", "player_hud", "dropdown_popup") instance=ExtResource("1_fgil1")]
 follow_viewport_enabled = false
@@ -72,18 +71,10 @@ new_value = "false"
 [node name="Playing" parent="Root/MarginContainer/BaseControl" index="0"]
 only_one_instance = false
 
-[node name="QuizAttemptScreen" parent="Root/MarginContainer/BaseControl/Playing" index="0" instance=ExtResource("8_rgdf8")]
+[node name="PlayerHUD" parent="Root/MarginContainer/BaseControl/Playing" index="0" instance=ExtResource("9_32jpw")]
 layout_mode = 1
 
-[node name="IfMainScreenEnteredSetProperty" parent="Root/MarginContainer/BaseControl/Playing/QuizAttemptScreen" index="4" node_paths=PackedStringArray("node") instance=ExtResource("9_ep4ey")]
-property = "main_screen_state"
-node = NodePath("..")
-new_value = "false"
-
-[node name="PlayerHUD" parent="Root/MarginContainer/BaseControl/Playing" index="1" instance=ExtResource("9_32jpw")]
-layout_mode = 1
-
-[node name="Components" type="Node" parent="Root/MarginContainer/BaseControl/Playing" index="2"]
+[node name="Components" type="Node" parent="Root/MarginContainer/BaseControl/Playing" index="1"]
 
 [node name="IfMainScreenEnteredSetProperty" parent="Root/MarginContainer/BaseControl/Playing/Components" index="0" node_paths=PackedStringArray("node") instance=ExtResource("9_ep4ey")]
 property = "main_screen_state"
@@ -94,6 +85,14 @@ new_value = "false"
 property = "playing_state"
 node = NodePath("../..")
 debug = true
+
+[node name="QuizAttemptScreen" parent="Root/MarginContainer/BaseControl/Playing" index="3" instance=ExtResource("8_rgdf8")]
+layout_mode = 1
+
+[node name="IfMainScreenEnteredSetProperty" parent="Root/MarginContainer/BaseControl/Playing/QuizAttemptScreen" index="4" node_paths=PackedStringArray("node") instance=ExtResource("9_ep4ey")]
+property = "main_screen_state"
+node = NodePath("..")
+new_value = "false"
 
 [node name="DialogueGUIManager" parent="Root/MarginContainer/BaseControl/Playing" index="4" instance=ExtResource("3_ew5n2")]
 layout_mode = 1
@@ -181,6 +180,20 @@ property = "main_screen_state"
 node = NodePath("..")
 new_value = "false"
 
+[node name="SavingLabel" parent="Root/MarginContainer/BaseControl/MarginContainer/Control/CanvasLayer/MarginContainer/Root" index="1" instance=ExtResource("18_62bra")]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -162.0
+offset_top = -64.0
+offset_right = -162.0
+offset_bottom = -64.0
+grow_horizontal = 0
+grow_vertical = 0
+
 [node name="AchievementUnlockedScreen" parent="Root/MarginContainer/BaseControl" index="4" instance=ExtResource("14_df8bm")]
 layout_mode = 1
 
@@ -188,11 +201,12 @@ layout_mode = 1
 layout_mode = 1
 only_one_instance = false
 
-[node name="Label" type="Label" parent="Root" index="3"]
+[node name="Demo" type="Label" parent="Root" index="3"]
+visible = false
 layout_mode = 1
 offset_left = 78.0
 offset_top = 93.0
 offset_right = 391.0
 offset_bottom = 160.0
 text = "DEMO"
-label_settings = SubResource("LabelSettings_6cbw5")
+label_settings = ExtResource("19_2m0kl")

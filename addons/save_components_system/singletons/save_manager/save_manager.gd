@@ -67,7 +67,7 @@ func set_current_game_save_data(save_data: GameSave) -> void:
 func save_game_to_file(overwrite: bool = false) -> SaveFile: 
 	await get_tree().process_frame
 	var save_file: SaveFile = SaveFile.create_from_save_data(current_saved_data, overwrite)
-	saved_data_to_file.emit(current_saved_data, save_file.data.name)
+	saved_data_to_file.emit(current_saved_data, save_file)
 	save_files_edited.emit(get_save_files())
 	print_color.out_debug_wvalue("Saved Game to file", [current_saved_data.name, save_file.name])
 	return save_file

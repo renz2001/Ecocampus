@@ -65,7 +65,7 @@ func _on_quiz_problem_page_quiz_completed() -> void:
 
 func again() -> void: 
 	again_page_router.route()
-	
+
 
 #func _activated() -> void: 
 	#GameManager.enable_player_on_playing_entered = false

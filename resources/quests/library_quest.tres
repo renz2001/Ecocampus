@@ -35,6 +35,7 @@ save_as_resource_path = false
 
 [resource]
 script = ExtResource("1_m541f")
+automatically_complete_after_tasks_completed = false
 percentage_description = "Collect 10 Bio-degradable materials"
 tasks = Array[ExtResource("3_c2q7r")]([SubResource("Resource_t8d6g"), SubResource("Resource_8qv71")])
 on_complete_unlock_achievement = ExtResource("1_ynpgw")

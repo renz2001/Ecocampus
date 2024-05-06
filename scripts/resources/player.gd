@@ -65,4 +65,6 @@ func _save_properties() -> PackedStringArray:
 func reset() -> void: 
 	unequip_cosmetic()
 	inventory.reset()
-	
+	faucets_turned_off = 0
+	lights_turned_off = 0
+	trash_can_items = 0

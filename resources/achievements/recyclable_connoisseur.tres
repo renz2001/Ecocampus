@@ -5,5 +5,6 @@
 [resource]
 script = ExtResource("1_coocv")
 title = "Recyclable Connoisseur"
-task_description = "Completed the Recyclable Assessment given by Sir GuzmanNon-Bio Connoisseur - Completed the Non-Biodegradable "
+task_description = "Completed the Recyclable Assessment given by Sir Guzman. "
 reward_medals = 3
+save_as_resource_path = false

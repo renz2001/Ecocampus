@@ -35,6 +35,7 @@ save_as_resource_path = false
 
 [resource]
 script = ExtResource("1_ayv04")
+automatically_complete_after_tasks_completed = false
 percentage_description = "Pick up Non-Biodegradable waste"
 tasks = Array[ExtResource("2_7tm0h")]([SubResource("Resource_rhefh"), SubResource("Resource_qdfu8")])
 on_complete_unlock_achievement = ExtResource("1_csaqd")

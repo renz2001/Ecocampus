@@ -1,0 +1,64 @@
+[gd_scene load_steps=7 format=3 uid="uid://b26qgdv0t84hx"]
+
+[ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/macchi's_gui_manager/nodes/gui/gui/gui.tscn" id="1_tr6wl"]
+[ext_resource type="LabelSettings" uid="uid://bfng1toxthprb" path="res://resources/label_settings/quiz_attempt_gui_title.tres" id="2_rjpkb"]
+[ext_resource type="Script" path="res://nodes/gui/saving_label/saving_label.gd" id="2_t8lwl"]
+
+[sub_resource type="Animation" id="Animation_3yn32"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:visible_characters")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [-1]
+}
+
+[sub_resource type="Animation" id="Animation_wkat3"]
+resource_name = "default"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:visible_characters")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [6, 7, 8, 9]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bw1nq"]
+_data = {
+"RESET": SubResource("Animation_3yn32"),
+"default": SubResource("Animation_wkat3")
+}
+
+[node name="SavingLabel" instance=ExtResource("1_tr6wl")]
+script = ExtResource("2_t8lwl")
+
+[node name="Label" type="Label" parent="." index="0"]
+layout_mode = 0
+offset_left = -120.0
+offset_top = -59.0
+offset_right = 149.0
+offset_bottom = 21.0
+text = "Saving..."
+label_settings = ExtResource("2_rjpkb")
+horizontal_alignment = 1
+vertical_alignment = 1
+visible_ratio = -0.111111
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
+libraries = {
+"": SubResource("AnimationLibrary_bw1nq")
+}
+autoplay = "default"

@@ -49,13 +49,13 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="PlayerNode" parent="Entities/Living" index="0" instance=ExtResource("3_owg0m")]
-position = Vector2(775, 875)
-scale = Vector2(1.17941, 1.17941)
+position = Vector2(766, 986)
+scale = Vector2(1.2525, 1.2525)
 quiz = ExtResource("4_vwvne")
 
 [node name="ProfessorGrayson" parent="Entities/Living" index="1" instance=ExtResource("4_tw50f")]
-position = Vector2(1296, 586)
-scale = Vector2(0.886484, 0.886484)
+position = Vector2(1290, 527)
+scale = Vector2(0.799931, 0.799931)
 dialogue = ExtResource("6_vh0rf")
 quiz = ExtResource("4_vwvne")
 quest = ExtResource("7_h3337")
@@ -82,8 +82,8 @@ position = Vector2(1508, 684)
 scale = Vector2(1.03025, 1.03025)
 
 [node name="BananaPeel2" parent="Entities/NonLiving" index="1" instance=ExtResource("10_3fnls")]
-position = Vector2(504, 713)
-scale = Vector2(1.0728, 1.0728)
+position = Vector2(516, 710)
+scale = Vector2(1.06839, 1.06839)
 
 [node name="BananaPeel3" parent="Entities/NonLiving" index="2" instance=ExtResource("10_3fnls")]
 position = Vector2(437, 692)

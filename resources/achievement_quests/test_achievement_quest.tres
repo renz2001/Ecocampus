@@ -11,6 +11,7 @@ save_as_resource_path = false
 
 [resource]
 script = ExtResource("1_wkmub")
+automatically_complete_after_tasks_completed = false
 percentage_description = "Tested"
 tasks = Array[ExtResource("3_ww4hh")]([SubResource("Resource_uts7q")])
 invisible_in_gui = true

@@ -5,7 +5,7 @@ class_name Quiz
 signal victory
 
 @export var title: String
-@export var description: String = "Pass this assesment and win an achievement!"
+@export_multiline var description: String = "Pass this assesment and win an achievement!"
 @export var problems: Array[QuizProblem]
 @export var on_victory_unloch_achievement: Achievement
 

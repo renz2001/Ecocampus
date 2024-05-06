@@ -7,6 +7,5 @@ func _input(event: InputEvent) -> void:
 		GUIManager.toggle_gui(GUIManager.customize_character_screen) 
 		
 	elif event.is_action_pressed("reset_game"): 
-		to_main_menu.change()
-		GameManager.reset_all_data()
+		GlobalData.achievements_tracker.show_victory_screen()
 

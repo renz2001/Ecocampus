@@ -32,6 +32,7 @@ save_as_resource_path = false
 
 [resource]
 script = ExtResource("1_2jeuv")
+automatically_complete_after_tasks_completed = false
 percentage_description = "Turn off All lights and faucets"
 tasks = Array[ExtResource("2_0xajk")]([SubResource("Resource_1w7kg"), SubResource("Resource_5qetw")])
 on_complete_unlock_achievement = ExtResource("1_xequo")
