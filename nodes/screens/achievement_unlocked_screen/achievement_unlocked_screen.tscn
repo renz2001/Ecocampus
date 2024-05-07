@@ -22,6 +22,7 @@ achievement = null
 achievement_unlocked_gui = NodePath("CenterContainer/AchievementUnlockedGUI")
 
 [node name="OnTapSetActive" parent="." index="0" node_paths=PackedStringArray("gui") instance=ExtResource("3_fgxls")]
+visible = false
 layout_mode = 1
 gui = NodePath("..")
 
