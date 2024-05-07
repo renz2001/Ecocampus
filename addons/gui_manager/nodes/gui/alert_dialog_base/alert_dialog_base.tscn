@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://dyhp1stjx005g"]
+
+[ext_resource type="PackedScene" uid="uid://hdksnn1gc6qq" path="res://addons/gui_manager/nodes/gui/dialog_gui/dialog_gui.tscn" id="1_jv4gd"]
+[ext_resource type="Script" path="res://addons/gui_manager/nodes/gui/alert_dialog_base/alert_dialog_base.gd" id="2_2avkl"]
+
+[node name="AlertDialogBase" instance=ExtResource("1_jv4gd")]
+script = ExtResource("2_2avkl")
+inactive_on_ready = false

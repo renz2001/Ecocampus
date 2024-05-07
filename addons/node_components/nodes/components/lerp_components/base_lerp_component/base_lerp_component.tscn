@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3gxoaexalp0g"]
+
+[ext_resource type="Script" path="res://addons/node_components/nodes/components/lerp_components/base_lerp_component/base_lerp_component.gd" id="1_1ut2v"]
+
+[node name="BaseLerpComponent" type="Node" groups=["LerpComponent"]]
+script = ExtResource("1_1ut2v")

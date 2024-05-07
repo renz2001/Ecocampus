@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dokfordgw2kk3" path="res://nodes/abstract_scenes/non_living_entity_node/non_living_entity_node.tscn" id="1_rx25i"]
 [ext_resource type="Texture2D" uid="uid://bcc84nclik45k" path="res://assets/non_living_entities/lightbulb_off.png" id="2_1cpm4"]
 [ext_resource type="Script" path="res://nodes/entities/non_living_entities/light_bulb/light_bulb.gd" id="2_4g3bq"]
-[ext_resource type="PackedScene" uid="uid://dvrqbygr8xwlr" path="res://addons/macchi's_node_components/nodes/components/node_variety_manager/node_variety/node_variety.tscn" id="3_6qvu2"]
+[ext_resource type="PackedScene" uid="uid://dvrqbygr8xwlr" path="res://addons/node_components/nodes/components/node_variety_manager/node_variety/node_variety.tscn" id="3_6qvu2"]
 [ext_resource type="Script" path="res://scripts/resources/entity.gd" id="3_r7qc0"]
 [ext_resource type="Texture2D" uid="uid://bphxxvwqj0l1t" path="res://assets/non_living_entities/lightbulb_on.png" id="3_spmdb"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="4_e7jvl"]

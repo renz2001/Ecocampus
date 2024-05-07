@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2up8cal10ft5"]
+
+[ext_resource type="Script" path="res://addons/node_components/nodes/components/base_values_keeper/base_values_keeper.gd" id="1_tnihy"]
+
+[node name="BaseValuesKeeper" type="Node"]
+script = ExtResource("1_tnihy")

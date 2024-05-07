@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://blkclu0ewbpa"]
 
-[ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/macchi's_gui_manager/nodes/gui/gui/gui.tscn" id="1_40vdn"]
+[ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/gui_manager/nodes/gui/gui/gui.tscn" id="1_40vdn"]
 [ext_resource type="Script" path="res://addons/dialogue_manager's_dialogue_gui_manager/nodes/singletons/managers/base_dialogue_gui_manager/base_dialogue_gui_manager.gd" id="1_kblrj"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ghxgd"]

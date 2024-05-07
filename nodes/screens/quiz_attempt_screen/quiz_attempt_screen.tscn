@@ -1,11 +1,11 @@
 [gd_scene load_steps=11 format=3 uid="uid://cl0gfqdtf6wv3"]
 
-[ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/macchi's_gui_manager/nodes/gui/gui/gui.tscn" id="1_imule"]
+[ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/gui_manager/nodes/gui/gui/gui.tscn" id="1_imule"]
 [ext_resource type="Script" path="res://nodes/screens/quiz_attempt_screen/quiz_attempt_screen.gd" id="2_6bxe1"]
 [ext_resource type="PackedScene" uid="uid://visuur1utug0" path="res://nodes/gui/gaussian_blur/gaussian_blur.tscn" id="3_8smjl"]
 [ext_resource type="PackedScene" uid="uid://gclvecuvrsiy" path="res://nodes/gui/quiz_attempt_gui/quiz_attempt_gui.tscn" id="3_suh6i"]
-[ext_resource type="PackedScene" uid="uid://7gri71kaffvv" path="res://addons/macchi's_audio_manager_and_plus/nodes/components/audio_manager_player/audio_manager_player.tscn" id="5_le8am"]
-[ext_resource type="Script" path="res://addons/macchi's_audio_manager_and_plus/scripts/arguments/audio_stream_player_arguments.gd" id="6_pdtbx"]
+[ext_resource type="PackedScene" path="res://addons/audio_manager_and_plus/nodes/components/audio_manager_player/audio_manager_player.tscn" id="5_le8am"]
+[ext_resource type="Script" path="res://addons/audio_manager_and_plus/scripts/arguments/audio_stream_player_arguments.gd" id="6_pdtbx"]
 [ext_resource type="AudioStream" uid="uid://lf5grp2812qx" path="res://assets/audio/music/bg_assesment.ogg" id="7_lxr2a"]
 [ext_resource type="PackedScene" uid="uid://der1edoxrqxln" path="res://nodes/gui_components/set_game_state_on_gui_active/set_game_state_on_gui_active.tscn" id="8_k4107"]
 

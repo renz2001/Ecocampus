@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://ddc47quo3n5uw"]
 
 [ext_resource type="Script" path="res://nodes/components/dialogue_response_handler/dialogue_response_handler.gd" id="1_4owxi"]
-[ext_resource type="Script" path="res://addons/macchi's_node_components/nodes/components/print_color.gd" id="2_5eewx"]
+[ext_resource type="Script" path="res://addons/node_components/nodes/components/print_color.gd" id="2_5eewx"]
 
 [sub_resource type="Resource" id="Resource_3mdcr"]
 script = ExtResource("2_5eewx")

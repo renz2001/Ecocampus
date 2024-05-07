@@ -1,9 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://ctfjfa15a2myh"]
-
-[ext_resource type="PackedScene" uid="uid://dhodcu8usshwp" path="res://addons/macchi's_node_components/nodes/components/lerp_components/base_node_lerp_component/base_node_lerp_component.tscn" id="1_v6iy0"]
-[ext_resource type="Script" path="res://addons/macchi's_node_components/nodes/components/lerp_components/to_node_lerp_component/to_node_lerp_component.gd" id="2_1etlu"]
-
-
-[node name="ToNodeLerpComponent" instance=ExtResource("1_v6iy0")]
-script = ExtResource("2_1etlu")
-value_cant_be_zero = false

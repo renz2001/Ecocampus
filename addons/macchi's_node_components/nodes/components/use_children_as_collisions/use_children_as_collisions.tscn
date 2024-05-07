@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://sfqjc841c5n0"]
-
-[ext_resource type="Script" path="res://addons/macchi's_node_components/nodes/components/use_children_as_collisions/use_children_as_collisions.gd" id="1_5ftwc"]
-
-
-[node name="UseChildrenAsCollisions" type="Node"]
-script = ExtResource("1_5ftwc")

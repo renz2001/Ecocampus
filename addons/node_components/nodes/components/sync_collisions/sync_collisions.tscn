@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dn7ahvuh1f444"]
+
+[ext_resource type="Script" path="res://addons/node_components/nodes/components/sync_collisions/sync_collisions.gd" id="1_eprfn"]
+
+
+[node name="SyncCollisions" type="Node"]
+script = ExtResource("1_eprfn")

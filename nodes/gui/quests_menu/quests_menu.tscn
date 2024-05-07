@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bvqcvxujyci1a"]
 
-[ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/macchi's_gui_manager/nodes/gui/gui/gui.tscn" id="1_mmghx"]
+[ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/gui_manager/nodes/gui/gui/gui.tscn" id="1_mmghx"]
 [ext_resource type="Script" path="res://nodes/gui/quests_menu/quests_menu.gd" id="2_crym1"]
 [ext_resource type="PackedScene" uid="uid://c33ymv4k2whut" path="res://nodes/gui/quests_container/quests_container.tscn" id="2_mkdg8"]
 [ext_resource type="FontFile" uid="uid://cp5vi568oh4jl" path="res://fonts/Ubuntu-Bold.ttf" id="3_dmhab"]

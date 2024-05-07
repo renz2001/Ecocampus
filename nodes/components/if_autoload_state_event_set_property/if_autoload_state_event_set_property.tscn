@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b7d7mcq2pxeu1"]
 
-[ext_resource type="PackedScene" uid="uid://i7q2pxetima5" path="res://addons/macchi's_node_components/nodes/components/conditional_set_property_component/conditional_set_property_component.tscn" id="1_urxe6"]
+[ext_resource type="PackedScene" uid="uid://i7q2pxetima5" path="res://addons/node_components/nodes/components/conditional_set_property_component/conditional_set_property_component.tscn" id="1_urxe6"]
 [ext_resource type="Script" path="res://nodes/components/if_autoload_state_event_set_property/if_autoload_state_event_set_property.gd" id="2_rg2ac"]
 
 [node name="IfAutoloadStateEventSetProperty" instance=ExtResource("1_urxe6")]

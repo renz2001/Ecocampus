@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://c10ki4bgi4jnl"]
+[gd_scene load_steps=4 format=3 uid="uid://c10ki4bgi4jnl"]
 
 [ext_resource type="PackedScene" uid="uid://b8627vb83551h" path="res://nodes/abstract_scenes/npc_node/npc_node.tscn" id="1_rrwmv"]
+[ext_resource type="Resource" uid="uid://xuc21em8d5ue" path="res://resources/entity/enzo.tres" id="2_dm1pb"]
 [ext_resource type="Texture2D" uid="uid://dx7x7wkcwwaf0" path="res://assets/character/npc_enzo.png" id="2_kxk6m"]
 
 [node name="Enzo" instance=ExtResource("1_rrwmv")]
+data = ExtResource("2_dm1pb")
 
 [node name="TapHitBox" parent="CanvasLayer/Root" index="0"]
 offset_left = -119.0

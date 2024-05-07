@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://daxlnabqn25ah"]
 
-[ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/macchi's_gui_manager/nodes/gui/gui/gui.tscn" id="1_caolr"]
+[ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/gui_manager/nodes/gui/gui/gui.tscn" id="1_caolr"]
 [ext_resource type="Script" path="res://addons/dialogue_manager's_dialogue_gui_manager/nodes/gui/dialogue_gui/dialogue_gui.gd" id="1_omtw1"]
-[ext_resource type="PackedScene" uid="uid://7gri71kaffvv" path="res://addons/macchi's_audio_manager_and_plus/nodes/components/audio_manager_player/audio_manager_player.tscn" id="4_vnggn"]
-[ext_resource type="Script" path="res://addons/macchi's_node_components/nodes/components/print_color.gd" id="5_r5f23"]
+[ext_resource type="PackedScene" uid="uid://7gri71kaffvv" path="res://addons/audio_manager_and_plus/nodes/components/audio_manager_player/audio_manager_player.tscn" id="4_vnggn"]
+[ext_resource type="Script" path="res://addons/node_components/nodes/components/print_color.gd" id="5_r5f23"]
 
 [sub_resource type="Resource" id="Resource_05s4r"]
 script = ExtResource("5_r5f23")

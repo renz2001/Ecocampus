@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cvfad21xn8iyk"]
 
-[ext_resource type="PackedScene" uid="uid://i7q2pxetima5" path="res://addons/macchi's_node_components/nodes/components/conditional_set_property_component/conditional_set_property_component.tscn" id="1_6msob"]
+[ext_resource type="PackedScene" uid="uid://i7q2pxetima5" path="res://addons/node_components/nodes/components/conditional_set_property_component/conditional_set_property_component.tscn" id="1_6msob"]
 [ext_resource type="Script" path="res://nodes/components/if_quiz_complete_then_set/if_quiz_complete_then_set.gd" id="2_rywku"]
 
 [node name="IfQuizCompleteThenSet" instance=ExtResource("1_6msob")]

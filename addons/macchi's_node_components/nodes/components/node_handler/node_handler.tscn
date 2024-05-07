@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://djrjbsoi1t8u4"]
-
-[ext_resource type="Script" path="res://addons/macchi's_node_components/nodes/components/node_handler/node_handler.gd" id="1_px44x"]
-
-[node name="NodeHandler" type="Node"]
-script = ExtResource("1_px44x")

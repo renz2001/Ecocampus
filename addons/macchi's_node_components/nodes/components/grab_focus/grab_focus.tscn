@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dgcuthtbgko1o"]
-
-[ext_resource type="Script" path="res://addons/macchi's_node_components/nodes/components/grab_focus/grab_focus.gd" id="1_xeyum"]
-
-[node name="GrabFocus" type="Node"]
-script = ExtResource("1_xeyum")

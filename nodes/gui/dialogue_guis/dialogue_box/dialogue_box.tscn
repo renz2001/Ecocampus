@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_reponses_menu.gd" id="3_a42pw"]
 [ext_resource type="PackedScene" uid="uid://rc8fo3x7f3mp" path="res://nodes/gui/dialogue_guis/dialogue_box/guis/dialogue_box_button.tscn" id="4_yi2ws"]
 [ext_resource type="PackedScene" uid="uid://bskfvry8t4hly" path="res://nodes/gui/dialogue_box_button/dialogue_box_button.tscn" id="6_xun7r"]
-[ext_resource type="Script" path="res://addons/macchi's_audio_manager_and_plus/scripts/arguments/audio_stream_player_arguments.gd" id="7_erbwi"]
+[ext_resource type="Script" path="res://addons/audio_manager_and_plus/scripts/arguments/audio_stream_player_arguments.gd" id="7_erbwi"]
 [ext_resource type="AudioStream" uid="uid://bhxpisr7kl31f" path="res://assets/audio/ui/convo_popup.wav" id="9_xv43d"]
 [ext_resource type="AudioStream" uid="uid://ci2w6ihjkp1fv" path="res://assets/audio/ui/convo_back.wav" id="10_voiim"]
 [ext_resource type="AudioStream" uid="uid://cl3cty47ryo" path="res://assets/audio/ui/convo.wav" id="11_myst6"]

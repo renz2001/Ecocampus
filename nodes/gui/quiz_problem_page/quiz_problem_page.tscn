@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://lallm550hhks"]
 
-[ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/macchi's_gui_manager/nodes/gui/gui/gui.tscn" id="1_6udxv"]
+[ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/gui_manager/nodes/gui/gui/gui.tscn" id="1_6udxv"]
 [ext_resource type="Script" path="res://nodes/gui/quiz_problem_page/quiz_problem_page.gd" id="2_ex2pk"]
 [ext_resource type="PackedScene" uid="uid://dggdvwjvdrmkh" path="res://nodes/gui/buttons/medium_wooden_button/medium_wooden_button.tscn" id="3_adaod"]
 [ext_resource type="LabelSettings" uid="uid://bcf3wgahko2ws" path="res://resources/label_settings/quiz_problem_page_title.tres" id="4_coot8"]

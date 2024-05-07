@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c0br10f55v31e" path="res://nodes/components/conditional_set_resource_property_component/conditional_set_resource_property_component.tscn" id="1_anjkc"]
 [ext_resource type="Script" path="res://nodes/components/if_quest_complete_then_set_resource/if_quest_complete_then_set_resource.gd" id="2_6rviy"]
-[ext_resource type="Script" path="res://addons/macchi's_node_components/nodes/components/print_color.gd" id="3_7h6nf"]
+[ext_resource type="Script" path="res://addons/node_components/nodes/components/print_color.gd" id="3_7h6nf"]
 
 [sub_resource type="Resource" id="Resource_lnth1"]
 script = ExtResource("3_7h6nf")

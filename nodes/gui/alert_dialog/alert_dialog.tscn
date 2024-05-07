@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://b3o7xjwmj44nu"]
 
-[ext_resource type="PackedScene" uid="uid://dyhp1stjx005g" path="res://addons/macchi's_gui_manager/nodes/gui/alert_dialog_base/alert_dialog_base.tscn" id="1_kmsj0"]
+[ext_resource type="PackedScene" uid="uid://dyhp1stjx005g" path="res://addons/gui_manager/nodes/gui/alert_dialog_base/alert_dialog_base.tscn" id="1_kmsj0"]
 [ext_resource type="Texture2D" uid="uid://crum2o41ed4wp" path="res://assets/buttons/board.png" id="2_dune7"]
-[ext_resource type="PackedScene" uid="uid://dggdvwjvdrmkh" path="res://nodes/levels/gui/buttons/medium_wooden_button/medium_wooden_button.tscn" id="3_6p5a3"]
+[ext_resource type="PackedScene" uid="uid://dggdvwjvdrmkh" path="res://nodes/gui/buttons/medium_wooden_button/medium_wooden_button.tscn" id="3_6p5a3"]
 [ext_resource type="Texture2D" uid="uid://do0rkrmxxseyk" path="res://assets/buttons/ok_button.png" id="4_4vhar"]
 [ext_resource type="Texture2D" uid="uid://6fb0erew6hy8" path="res://assets/buttons/cancel.png" id="5_h6txn"]
 

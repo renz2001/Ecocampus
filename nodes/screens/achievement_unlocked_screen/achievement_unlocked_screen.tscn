@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://cyepcbc24l4l8"]
 
-[ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/macchi's_gui_manager/nodes/gui/gui/gui.tscn" id="1_46gjk"]
+[ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/gui_manager/nodes/gui/gui/gui.tscn" id="1_46gjk"]
 [ext_resource type="Script" path="res://nodes/screens/achievement_unlocked_screen/achievement_unlocked_screen.gd" id="2_87r6r"]
 [ext_resource type="PackedScene" uid="uid://c584i6hhgux8p" path="res://nodes/gui/achievement_unlocked_gui/achievement_unlocked_gui.tscn" id="2_utc4q"]
 [ext_resource type="PackedScene" uid="uid://dh1ftkyfip0sh" path="res://nodes/gui_components/on_tap_set_active/on_tap_set_active.tscn" id="3_fgxls"]
@@ -34,6 +34,7 @@ offset_right = 0.0
 offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="CenterContainer" type="CenterContainer" parent="." index="2"]
 layout_mode = 1

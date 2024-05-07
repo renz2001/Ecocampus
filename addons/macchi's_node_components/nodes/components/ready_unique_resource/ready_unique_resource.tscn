@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://le3pltdhswul"]
-
-[ext_resource type="Script" path="res://addons/macchi's_node_components/nodes/components/ready_unique_resource/ready_unique_resource.gd" id="1_7b2u8"]
-
-
-[node name="ReadyUniqueResource" type="Node"]
-script = ExtResource("1_7b2u8")

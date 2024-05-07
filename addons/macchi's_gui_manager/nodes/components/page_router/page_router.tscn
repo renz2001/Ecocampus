@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dj23rqjh7m1r3"]
-
-[ext_resource type="Script" path="res://addons/macchi's_gui_manager/nodes/components/page_router/page_router.gd" id="1_0bowx"]
-
-[node name="PageRouter" type="Node"]
-script = ExtResource("1_0bowx")

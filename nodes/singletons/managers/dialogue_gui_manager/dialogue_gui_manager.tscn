@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://n1ca0tqy8k26"]
 
 [ext_resource type="PackedScene" uid="uid://blkclu0ewbpa" path="res://addons/dialogue_manager's_dialogue_gui_manager/nodes/singletons/managers/base_dialogue_gui_manager/base_dialogue_gui_manager.tscn" id="1_gr8rf"]
-[ext_resource type="PackedScene" uid="uid://drqljvmqpitaj" path="res://addons/macchi's_gui_manager/nodes/gui/acting_container/acting_container.tscn" id="2_0kfrd"]
+[ext_resource type="PackedScene" uid="uid://drqljvmqpitaj" path="res://addons/gui_manager/nodes/gui/acting_container/acting_container.tscn" id="2_0kfrd"]
 [ext_resource type="PackedScene" uid="uid://blx1a7x2yt18" path="res://nodes/gui/dialogue_guis/dialogue_box/dialogue_box.tscn" id="2_n6fh7"]
 [ext_resource type="Script" path="res://nodes/singletons/managers/dialogue_gui_manager/dialogue_gui_manager.gd" id="2_xarql"]
 [ext_resource type="PackedScene" uid="uid://visuur1utug0" path="res://nodes/gui/gaussian_blur/gaussian_blur.tscn" id="4_5jmys"]

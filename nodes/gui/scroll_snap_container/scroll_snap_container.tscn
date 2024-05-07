@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://dpfy7ia3raujh"]
 
 [ext_resource type="Script" path="res://nodes/gui/scroll_snap_container/scroll_snap_container.gd" id="1_fou41"]
-[ext_resource type="PackedScene" uid="uid://dpfdm0p27l7nx" path="res://addons/macchi's_node_components/nodes/components/lerp_components/float_property_lerp_component/float_property_lerp_component.tscn" id="1_mxp2s"]
-[ext_resource type="Script" path="res://addons/macchi's_node_components/scripts/arguments/tween_arguments.gd" id="2_4e6sg"]
+[ext_resource type="PackedScene" uid="uid://dpfdm0p27l7nx" path="res://addons/node_components/nodes/components/lerp_components/float_property_lerp_component/float_property_lerp_component.tscn" id="1_mxp2s"]
+[ext_resource type="Script" path="res://addons/node_components/scripts/arguments/tween_arguments.gd" id="2_4e6sg"]
 
 [sub_resource type="Resource" id="Resource_6mppe"]
 script = ExtResource("2_4e6sg")

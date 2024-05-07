@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://da2nlvvpyaabx" path="res://nodes/gui_components/on_pressed/on_pressed.tscn" id="1_ajcjd"]
 [ext_resource type="Script" path="res://nodes/gui_components/on_pressed_components/on_pressed_scale/on_pressed_scale.gd" id="2_75njx"]
-[ext_resource type="PackedScene" uid="uid://c341gagax5vvu" path="res://addons/macchi's_node_components/nodes/components/lerp_components/vector_2_property_lerp_component/vector_2_property_lerp_component.tscn" id="3_lj1uw"]
-[ext_resource type="Script" path="res://addons/macchi's_node_components/scripts/arguments/tween_arguments.gd" id="3_vmjy1"]
+[ext_resource type="PackedScene" uid="uid://c341gagax5vvu" path="res://addons/node_components/nodes/components/lerp_components/vector_2_property_lerp_component/vector_2_property_lerp_component.tscn" id="3_lj1uw"]
+[ext_resource type="Script" path="res://addons/node_components/scripts/arguments/tween_arguments.gd" id="3_vmjy1"]
 
 [sub_resource type="Resource" id="Resource_5pxpy"]
 script = ExtResource("3_vmjy1")

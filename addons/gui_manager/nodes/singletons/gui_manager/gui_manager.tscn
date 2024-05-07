@@ -1,0 +1,75 @@
+[gd_scene load_steps=6 format=3 uid="uid://dup6nowsahsrg"]
+
+[ext_resource type="Script" path="res://addons/gui_manager/nodes/singletons/gui_manager/gui_manager.gd" id="1_2bthb"]
+[ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/gui_manager/nodes/gui/gui/gui.tscn" id="3_tx424"]
+[ext_resource type="PackedScene" uid="uid://biojbnlwffqny" path="res://addons/gui_manager/nodes/gui/dropdown_popup/dropdown_popup.tscn" id="7_44ncd"]
+[ext_resource type="Script" path="res://addons/node_components/nodes/components/print_color.gd" id="8_uggyv"]
+
+[sub_resource type="Resource" id="Resource_0sx6n"]
+script = ExtResource("8_uggyv")
+disabled = false
+color = Color(0, 0, 0, 1)
+owner_name_color = Color(0, 0, 1, 1)
+value_color = Color(1, 0, 0, 1)
+automatic_value_color = true
+use_spaces_for_node_name = false
+
+[node name="GUIManager" type="CanvasLayer" node_paths=PackedStringArray("playing", "instanced_uis")]
+layer = 2
+follow_viewport_enabled = true
+script = ExtResource("1_2bthb")
+playing = NodePath("Root/MarginContainer/BaseControl/Playing")
+instanced_uis = NodePath("Root/MarginContainer/BaseControl/InstancedGUIs/CanvasLayer/Root")
+_print_color = SubResource("Resource_0sx6n")
+
+[node name="Root" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Root"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_type_variation = &"GUIManagerMargin"
+
+[node name="BaseControl" type="Control" parent="Root/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="Playing" parent="Root/MarginContainer/BaseControl" instance=ExtResource("3_tx424")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="InstancedGUIs" parent="Root/MarginContainer/BaseControl" instance=ExtResource("3_tx424")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Root/MarginContainer/BaseControl/InstancedGUIs"]
+layer = 4
+
+[node name="Root" type="Control" parent="Root/MarginContainer/BaseControl/InstancedGUIs/CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 2
+
+[node name="DropdownPopup" parent="." instance=ExtResource("7_44ncd")]
+visible = false

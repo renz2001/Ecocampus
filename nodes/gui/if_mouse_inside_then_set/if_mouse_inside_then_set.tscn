@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://jgoipuh6kc8"]
 
-[ext_resource type="PackedScene" uid="uid://i7q2pxetima5" path="res://addons/macchi's_node_components/nodes/components/conditional_set_property_component/conditional_set_property_component.tscn" id="1_wm12p"]
+[ext_resource type="PackedScene" uid="uid://i7q2pxetima5" path="res://addons/node_components/nodes/components/conditional_set_property_component/conditional_set_property_component.tscn" id="1_wm12p"]
 [ext_resource type="Script" path="res://nodes/gui/if_mouse_inside_then_set/if_mouse_inside_then_set.gd" id="2_1752o"]
 
 [node name="IfMouseInsideThenSet" instance=ExtResource("1_wm12p")]

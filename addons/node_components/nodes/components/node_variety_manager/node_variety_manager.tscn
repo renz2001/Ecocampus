@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://tvt1avle8hon"]
+
+[ext_resource type="Script" path="res://addons/node_components/nodes/components/node_variety_manager/node_variety_manager.gd" id="1_m4kxf"]
+
+[node name="NodeVarietyManager" type="Node"]
+script = ExtResource("1_m4kxf")

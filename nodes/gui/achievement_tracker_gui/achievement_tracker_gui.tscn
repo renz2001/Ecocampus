@@ -1,11 +1,11 @@
 [gd_scene load_steps=9 format=3 uid="uid://cmimwcq2i013r"]
 
-[ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/macchi's_gui_manager/nodes/gui/gui/gui.tscn" id="1_easku"]
+[ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/gui_manager/nodes/gui/gui/gui.tscn" id="1_easku"]
 [ext_resource type="Texture2D" uid="uid://bloiawg11mnph" path="res://assets/achievements/achievement_medal.png" id="2_ewh3b"]
 [ext_resource type="Script" path="res://nodes/gui/achievement_tracker_gui/achievement_tracker_gui.gd" id="2_m2pee"]
 [ext_resource type="PackedScene" uid="uid://rht72s4l6wx3" path="res://nodes/gui_components/set_pivot_offset_to_center/set_pivot_offset_to_center.tscn" id="4_d73yk"]
-[ext_resource type="PackedScene" uid="uid://c341gagax5vvu" path="res://addons/macchi's_node_components/nodes/components/lerp_components/vector_2_property_lerp_component/vector_2_property_lerp_component.tscn" id="5_ekjgi"]
-[ext_resource type="Script" path="res://addons/macchi's_node_components/scripts/arguments/tween_arguments.gd" id="6_1ru0h"]
+[ext_resource type="PackedScene" uid="uid://c341gagax5vvu" path="res://addons/node_components/nodes/components/lerp_components/vector_2_property_lerp_component/vector_2_property_lerp_component.tscn" id="5_ekjgi"]
+[ext_resource type="Script" path="res://addons/node_components/scripts/arguments/tween_arguments.gd" id="6_1ru0h"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_pkij6"]
 font_size = 120

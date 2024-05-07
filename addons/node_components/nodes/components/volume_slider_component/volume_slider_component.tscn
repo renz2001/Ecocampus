@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dew5mnml3ha1h"]
+
+[ext_resource type="Script" path="res://addons/node_components/nodes/components/volume_slider_component/volume_slider_component.gd" id="1_x6875"]
+
+[node name="VolumeSliderComponent" type="Node" node_paths=PackedStringArray("audio_player")]
+script = ExtResource("1_x6875")
+audio_player = NodePath("")
+use_parent = true

@@ -24,7 +24,6 @@ WorldEventManager="*res://addons/world_event_manager/nodes/singletons/world_even
 QuestSystem="*res://addons/quest_system/quest_manager.gd"
 GUIManager="*res://nodes/singletons/managers/gui_manager/gui_manager.tscn"
 GUICollection="*res://nodes/singletons/globals/gui_collection/gui_collection.tscn"
-AudioManager="*res://addons/macchi's_audio_manager_and_plus/nodes/singletons/managers/audio_manager/audio_manager.tscn"
 GlobalVariables="*res://nodes/singletons/globals/global_variables.tscn"
 GroupNodeFetcher="*res://nodes/singletons/globals/group_node_fetcher/group_node_fetcher.tscn"
 GameManager="*res://nodes/singletons/managers/game_manager/game_manager.tscn"
@@ -37,6 +36,7 @@ MouseDrag="*res://nodes/singletons/controller/mouse_drag_controller/mouse_drag_c
 Mouse="*res://nodes/singletons/services/mouse/mouse.tscn"
 ExtendedQuestSystem="*res://nodes/singletons/extensions/extended_quest_system/extended_quest_system.tscn"
 GlobalsSave="*res://nodes/singletons/globals/globals_save/globals_save.tscn"
+AudioManager="*res://addons/audio_manager_and_plus/nodes/singletons/managers/audio_manager/audio_manager.tscn"
 
 [dialogue_manager]
 
@@ -53,7 +53,7 @@ window/stretch/aspect="keep_height"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/dialogue_manager\'s_dialogue_gui_manager/plugin.cfg", "res://addons/dialogue_manager/plugin.cfg", "res://addons/gdscript_datetime/plugin.cfg", "res://addons/godot_state_charts/plugin.cfg", "res://addons/macchi\'s_audio_manager_and_plus/plugin.cfg", "res://addons/macchi\'s_gui_manager/plugin.cfg", "res://addons/macchi\'s_node_components/plugin.cfg", "res://addons/quest_system/plugin.cfg", "res://addons/save_components_system/plugin.cfg", "res://addons/world_event_manager/plugin.cfg")
+enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/audio_manager_and_plus/plugin.cfg", "res://addons/dialogue_manager\'s_dialogue_gui_manager/plugin.cfg", "res://addons/dialogue_manager/plugin.cfg", "res://addons/gdscript_datetime/plugin.cfg", "res://addons/godot_state_charts/plugin.cfg", "res://addons/gui_manager/plugin.cfg", "res://addons/node_components/plugin.cfg", "res://addons/quest_system/plugin.cfg", "res://addons/save_components_system/plugin.cfg", "res://addons/world_event_manager/plugin.cfg")
 
 [file_customization]
 

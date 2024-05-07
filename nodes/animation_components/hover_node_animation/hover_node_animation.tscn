@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://7r374ti84blj"]
 
 [ext_resource type="Script" path="res://nodes/animation_components/hover_node_animation/hover_node_animation.gd" id="1_gbk0o"]
-[ext_resource type="PackedScene" uid="uid://c341gagax5vvu" path="res://addons/macchi's_node_components/nodes/components/lerp_components/vector_2_property_lerp_component/vector_2_property_lerp_component.tscn" id="2_0u4m4"]
-[ext_resource type="Script" path="res://addons/macchi's_node_components/scripts/arguments/tween_arguments.gd" id="3_8av45"]
+[ext_resource type="PackedScene" uid="uid://c341gagax5vvu" path="res://addons/node_components/nodes/components/lerp_components/vector_2_property_lerp_component/vector_2_property_lerp_component.tscn" id="2_0u4m4"]
+[ext_resource type="Script" path="res://addons/node_components/scripts/arguments/tween_arguments.gd" id="3_8av45"]
 
 [sub_resource type="Resource" id="Resource_unjsy"]
 script = ExtResource("3_8av45")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://b26qgdv0t84hx"]
 
-[ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/macchi's_gui_manager/nodes/gui/gui/gui.tscn" id="1_tr6wl"]
+[ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/gui_manager/nodes/gui/gui/gui.tscn" id="1_tr6wl"]
 [ext_resource type="LabelSettings" uid="uid://bfng1toxthprb" path="res://resources/label_settings/quiz_attempt_gui_title.tres" id="2_rjpkb"]
 [ext_resource type="Script" path="res://nodes/gui/saving_label/saving_label.gd" id="2_t8lwl"]
 

@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://biojbnlwffqny"]
+
+[ext_resource type="Script" path="res://addons/gui_manager/nodes/gui/dropdown_popup/dropdown_popup.gd" id="1_bktf6"]
+
+
+[node name="DropdownPopup" type="PopupMenu"]
+title = "DropdownPopup"
+size = Vector2i(100, 35)
+visible = true
+always_on_top = true
+script = ExtResource("1_bktf6")
+
+[connection signal="index_pressed" from="." to="." method="_on_index_pressed"]
+[connection signal="popup_hide" from="." to="." method="_on_popup_hide"]

@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://rblpu6inwiyc"]
+[gd_scene load_steps=4 format=3 uid="uid://rblpu6inwiyc"]
 
 [ext_resource type="PackedScene" uid="uid://b8627vb83551h" path="res://nodes/abstract_scenes/npc_node/npc_node.tscn" id="1_ahu1d"]
+[ext_resource type="Resource" uid="uid://dsjk4wa3r6s0k" path="res://resources/entity/bea.tres" id="2_d4oei"]
 [ext_resource type="Texture2D" uid="uid://dd025s5vvo0tr" path="res://assets/character/npc_bea.png" id="2_depai"]
 
 [node name="Bea" instance=ExtResource("1_ahu1d")]
+data = ExtResource("2_d4oei")
 
 [node name="TapHitBox" parent="CanvasLayer/Root" index="0"]
 offset_left = -123.0

@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dokfordgw2kk3" path="res://nodes/abstract_scenes/non_living_entity_node/non_living_entity_node.tscn" id="1_sa8os"]
 [ext_resource type="Script" path="res://nodes/entities/non_living_entities/faucet/faucet.gd" id="2_pi6uq"]
 [ext_resource type="Script" path="res://scripts/resources/label_text.gd" id="3_0wv2s"]
-[ext_resource type="PackedScene" uid="uid://dvrqbygr8xwlr" path="res://addons/macchi's_node_components/nodes/components/node_variety_manager/node_variety/node_variety.tscn" id="3_28xli"]
+[ext_resource type="PackedScene" uid="uid://dvrqbygr8xwlr" path="res://addons/node_components/nodes/components/node_variety_manager/node_variety/node_variety.tscn" id="3_28xli"]
 [ext_resource type="PackedScene" uid="uid://bwrfsu0cu68sk" path="res://nodes/components/apply_material_to_node/apply_material_to_node.tscn" id="3_fiocu"]
 [ext_resource type="Shader" path="res://resources/shaders/outline_inline.gdshader" id="4_r74j2"]
 [ext_resource type="Texture2D" uid="uid://cp7y8jwutmcxf" path="res://assets/environment/faucet_spritesheet.png" id="4_vyjam"]

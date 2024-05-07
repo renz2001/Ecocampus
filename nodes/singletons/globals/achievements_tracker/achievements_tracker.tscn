@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://nodes/singletons/globals/achievements_tracker/achievements_tracker.gd" id="1_y316a"]
 [ext_resource type="Resource" uid="uid://c8vv063c4vva5" path="res://resources/achievements_collection/achievements_collection.tres" id="2_25kpu"]
-[ext_resource type="Script" path="res://addons/macchi's_node_components/nodes/components/print_color.gd" id="2_v0dh4"]
-[ext_resource type="PackedScene" uid="uid://d02dwov2yojbj" path="res://addons/macchi's_node_components/nodes/components/point_counter_component/point_counter_component.tscn" id="3_02lvq"]
-[ext_resource type="Script" path="res://addons/macchi's_node_components/scripts/resources/point_counter.gd" id="4_0flqk"]
+[ext_resource type="Script" path="res://addons/node_components/nodes/components/print_color.gd" id="2_v0dh4"]
+[ext_resource type="PackedScene" uid="uid://d02dwov2yojbj" path="res://addons/node_components/nodes/components/point_counter_component/point_counter_component.tscn" id="3_02lvq"]
+[ext_resource type="Script" path="res://addons/node_components/scripts/resources/point_counter.gd" id="4_0flqk"]
 [ext_resource type="PackedScene" uid="uid://bixjjksp3dphm" path="res://addons/save_components_system/components/master_save_component/master_save_component.tscn" id="5_oj2ya"]
 [ext_resource type="Script" path="res://addons/save_components_system/scripts/resources/properties_to_save.gd" id="6_wi7ub"]
 

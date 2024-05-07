@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://nodes/singletons/loaders/scene_loader/scene_loader.gd" id="1_xsdnm"]
 [ext_resource type="PackedScene" uid="uid://4t0nh2yi1rm2" path="res://nodes/components/packed_scene_loader/packed_scene_loader.tscn" id="2_b20wm"]
-[ext_resource type="Script" path="res://addons/macchi's_node_components/nodes/components/print_color.gd" id="3_nlrs0"]
+[ext_resource type="Script" path="res://addons/node_components/nodes/components/print_color.gd" id="3_nlrs0"]
 
 [sub_resource type="Resource" id="Resource_q4uac"]
 script = ExtResource("3_nlrs0")
