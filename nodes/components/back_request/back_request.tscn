@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://g05qeulk7igr"]
+
+[ext_resource type="Script" path="res://nodes/components/back_request/back_request.gd" id="1_5dsy8"]
+
+[node name="BackRequest" type="Node" groups=["BackRequest"]]
+script = ExtResource("1_5dsy8")

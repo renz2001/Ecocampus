@@ -26,7 +26,7 @@ script = ExtResource("8_q2dlt")
 properties = PackedStringArray("inventory", "data", "quiz", "dialogue", "global_position", "global_scale", "state")
 save_properties_as_resource_path = PackedStringArray()
 
-[node name="LightBulb" groups=["LightBulb"] instance=ExtResource("1_rx25i")]
+[node name="LightBulb" groups=["LightBulb", "QuestEntity"] instance=ExtResource("1_rx25i")]
 script = ExtResource("2_4g3bq")
 state = 1
 data = SubResource("Resource_ww6kv")
@@ -41,10 +41,10 @@ offset_bottom = 141.0
 [node name="IfPausedEnteredSetProperty" parent="CanvasLayer/Root/TapHitBox" index="0"]
 disabled = true
 
-[node name="IfPlayingEnteredSetProperty" parent="CanvasLayer/Root/TapHitBox" index="1"]
+[node name="IfPlayingEnteredSetProperty" parent="CanvasLayer/Root/TapHitBox" index="2"]
 disabled = true
 
-[node name="IfDialogueEnteredSetProperty2" parent="CanvasLayer/Root/TapHitBox" index="2"]
+[node name="IfDialogueEnteredSetProperty2" parent="CanvasLayer/Root/TapHitBox" index="3"]
 disabled = true
 
 [node name="State" type="Node" parent="StateChart/Root/Enabled" index="3"]

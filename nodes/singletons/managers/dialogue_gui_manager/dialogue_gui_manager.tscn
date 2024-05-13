@@ -13,6 +13,20 @@
 script = ExtResource("2_xarql")
 current_dialogue_gui = NodePath("DialogueGUIs/ActingContainer/MarginContainer/DialogueBox")
 
+[node name="InvisibleButton" parent="." index="0" instance=ExtResource("4_kny8a")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="OnPressedNextDialogue" parent="InvisibleButton" index="0" node_paths=PackedStringArray("control") instance=ExtResource("6_wcs1h")]
+do_not_skip_when_typing = true
+control = NodePath("..")
+
 [node name="ActingContainer" parent="DialogueGUIs" index="1" node_paths=PackedStringArray("real_control") instance=ExtResource("2_0kfrd")]
 layout_mode = 2
 real_control = NodePath("MarginContainer/DialogueBox")
@@ -46,20 +60,7 @@ theme_override_constants/margin_bottom = 50
 layout_mode = 2
 acting_container = NodePath("../..")
 
-[node name="InvisibleButton" parent="DialogueGUIs/ActingContainer" index="2" instance=ExtResource("4_kny8a")]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 0.0
-offset_bottom = 0.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="OnPressedNextDialogue" parent="DialogueGUIs/ActingContainer/InvisibleButton" index="0" node_paths=PackedStringArray("control") instance=ExtResource("6_wcs1h")]
-control = NodePath("..")
-
-[node name="SetGameStateOnGUIActive" parent="." index="2" node_paths=PackedStringArray("gui") instance=ExtResource("8_nugj7")]
+[node name="SetGameStateOnGUIActive" parent="." index="3" node_paths=PackedStringArray("gui") instance=ExtResource("8_nugj7")]
 gui = NodePath("..")
 activated_state = "dialogue"
 deactivated_state = "resume"

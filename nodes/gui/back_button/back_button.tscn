@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://bc58xq17532m8"]
+
+[ext_resource type="PackedScene" uid="uid://d4mqjvr57ok1h" path="res://nodes/gui/buttons/icon_button/icon_button.tscn" id="1_luyqe"]
+[ext_resource type="Script" path="res://nodes/gui/back_button/back_button.gd" id="2_7um14"]
+[ext_resource type="Texture2D" uid="uid://b7e2o3ytg2rre" path="res://assets/icons/back_arrow.png" id="2_tj8d0"]
+
+[node name="BackButton" instance=ExtResource("1_luyqe")]
+script = ExtResource("2_7um14")
+
+[node name="CloseIcon" parent="CloseIconMargin" index="0"]
+modulate = Color(0.627451, 0.27451, 0.137255, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="." index="4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 40
+
+[node name="Icon" type="TextureRect" parent="MarginContainer" index="0"]
+modulate = Color(0.627451, 0.27451, 0.137255, 1)
+layout_mode = 2
+texture = ExtResource("2_tj8d0")
+expand_mode = 1
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="tree_exited" from="." to="." method="_on_tree_exited"]

@@ -2,8 +2,10 @@ extends Node
 
 signal load_started
 signal thread_load_loaded
-signal load_ended 
+signal load_ended(path: String)
 signal scene_entered_tree
+
+#signal current_scene_entered_tree
 
 @export var _print_color: PrintColor: 
 	set(value): 
@@ -15,32 +17,43 @@ var _next_scene_path: String
 var load_status: ResourceLoader.ThreadLoadStatus
 var load_progress: Array
 
+var is_loading: bool
 #var _loaded_scene
 #@onready var load_screen: LoadScreen = GUIManager.load_screen
 
 
-func _init() -> void: 
-	set_process.call_deferred(false)
+#func _init() -> void: 
+	#set_process.call_deferred(false)
 
 # BANDAID SOLUTION
 func _process(_delta: float) -> void: 
 	#var current_scene: Node = get_tree().current_scene
 	#load_screen.load_progress = load_progress
+	
+	#var current_scene: Node = get_tree().current_scene 
+	#if current_scene != null: 
+		#current_scene_entered_tree.emit()
+		#
+	#
+	if !is_loading: 
+		return
+		
+		
 	load_status = ResourceLoader.load_threaded_get_status(_next_scene_path, load_progress)
 	match load_status: 
 		ResourceLoader.ThreadLoadStatus.THREAD_LOAD_INVALID_RESOURCE: 
-			set_process(false)
+			is_loading = false
 			push_error("Error: Cannot load scene, resource is invalid.")
 			load_ended.emit()
 		# For loading screens with progress bars
 #			ResourceLoader.ThreadLoadStatus.THREAD_LOAD_IN_PROGRESS:
 #				load_screen.get_node("Control/ProgressBar").value = load_progress[0]
 		ResourceLoader.ThreadLoadStatus.THREAD_LOAD_FAILED:
-			set_process(false)
+			is_loading = false
 			push_error("Error: Loading failed!")
 			load_ended.emit()
 		ResourceLoader.ThreadLoadStatus.THREAD_LOAD_LOADED:
-			set_process(false)
+			is_loading = false
 			has_thread_load_loaded = true
 			thread_load_loaded.emit()
 			var next_scene: PackedScene = ResourceLoader.load_threaded_get(_next_scene_path)
@@ -58,7 +71,7 @@ func _process(_delta: float) -> void:
 			scene_entered_tree.emit()
 			#printerr(get_tree().current_scene)
 			_print_color.out_debug_wvalue("Loading scene finished", _next_scene_path)
-			load_ended.emit()
+			load_ended.emit(_next_scene_path)
 			has_thread_load_loaded = false
 			#print_orphan_nodes()
 
@@ -74,7 +87,8 @@ func load_file(args: ChangeSceneArguments) -> void:
 
 	ResourceLoader.load_threaded_request(_next_scene_path)
 	_print_color.out_debug_wvalue("Started loading scene", _next_scene_path)
-	set_process.call_deferred(true)
+	is_loading = true
+	#set_process.call_deferred(true)
 	load_started.emit()
 
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c8raw86b1ub34"]
+[gd_scene load_steps=20 format=3 uid="uid://c8raw86b1ub34"]
 
 [ext_resource type="Script" path="res://nodes/singletons/managers/game_manager/game_manager.gd" id="1_pr44q"]
 [ext_resource type="Resource" uid="uid://ohh3qdnbacsf" path="res://resources/cosmetics_collection/cosmetics_collection.tres" id="2_0lnhy"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" path="res://addons/godot_state_charts/history_state.gd" id="8_njxs2"]
 [ext_resource type="Script" path="res://addons/audio_manager_and_plus/scripts/arguments/audio_stream_player_arguments.gd" id="9_wmpeo"]
 [ext_resource type="AudioStream" uid="uid://dg7s4yqd7lmew" path="res://assets/audio/music/bg_music_menu.ogg" id="10_0ipxl"]
+[ext_resource type="PackedScene" uid="uid://ijaa6c4i2ii4" path="res://nodes/components/on_change_scene_add_to_back_history/on_change_scene_add_to_back_history.tscn" id="11_qufl1"]
 [ext_resource type="AudioStream" uid="uid://bduif8tvd6k3j" path="res://assets/itch_io/audio/music/stream_loops_2024-02-28_02.ogg" id="11_x36yc"]
 [ext_resource type="PackedScene" uid="uid://bcwkugn6v3oy7" path="res://addons/godot_state_charts/utilities/state_chart_debugger.tscn" id="15_cyhb1"]
 
@@ -31,7 +32,9 @@ sound = ExtResource("10_0ipxl")
 play_from_position = 0
 pitch_scale = 1.0
 volume_slider = 1.0
+change_db = false
 volume_db = 0.0
+change_bus = false
 bus = &"Music"
 
 [sub_resource type="Resource" id="Resource_262es"]
@@ -40,7 +43,9 @@ sound = ExtResource("11_x36yc")
 play_from_position = 0
 pitch_scale = 1.0
 volume_slider = 1.0
+change_db = false
 volume_db = 0.0
+change_bus = false
 bus = &"Music"
 
 [node name="GameManager" type="Node" node_paths=PackedStringArray("state_chart", "to_map_picker", "to_select_character", "playing_state", "paused_state", "main_menu_state", "map_picker_state", "assesment_state", "customize_character_state", "dialogue_state", "main_screen_state", "history_state", "dialog_state", "menu_music", "playing_music")]
@@ -247,6 +252,9 @@ to_scene = "res://nodes/screens/select_character_screen/select_character_screen.
 
 [node name="ToMapPicker" parent="ChangeScene" instance=ExtResource("7_b865j")]
 to_scene = "res://nodes/screens/map_picker/map_picker.tscn"
+
+[node name="OnChangeSceneAddToBackHistory" parent="ChangeScene/ToMapPicker" node_paths=PackedStringArray("change_scene") instance=ExtResource("11_qufl1")]
+change_scene = NodePath("..")
 
 [node name="Audio" type="Node" parent="."]
 

@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://cl0gfqdtf6wv3"]
+[gd_scene load_steps=12 format=3 uid="uid://cl0gfqdtf6wv3"]
 
 [ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/gui_manager/nodes/gui/gui/gui.tscn" id="1_imule"]
 [ext_resource type="Script" path="res://nodes/screens/quiz_attempt_screen/quiz_attempt_screen.gd" id="2_6bxe1"]
 [ext_resource type="PackedScene" uid="uid://visuur1utug0" path="res://nodes/gui/gaussian_blur/gaussian_blur.tscn" id="3_8smjl"]
+[ext_resource type="PackedScene" uid="uid://3w1kcvfjrr6m" path="res://nodes/gui/black_overlay/black_overlay.tscn" id="3_hycv7"]
 [ext_resource type="PackedScene" uid="uid://gclvecuvrsiy" path="res://nodes/gui/quiz_attempt_gui/quiz_attempt_gui.tscn" id="3_suh6i"]
-[ext_resource type="PackedScene" path="res://addons/audio_manager_and_plus/nodes/components/audio_manager_player/audio_manager_player.tscn" id="5_le8am"]
+[ext_resource type="PackedScene" uid="uid://7gri71kaffvv" path="res://addons/audio_manager_and_plus/nodes/components/audio_manager_player/audio_manager_player.tscn" id="5_le8am"]
 [ext_resource type="Script" path="res://addons/audio_manager_and_plus/scripts/arguments/audio_stream_player_arguments.gd" id="6_pdtbx"]
 [ext_resource type="AudioStream" uid="uid://lf5grp2812qx" path="res://assets/audio/music/bg_assesment.ogg" id="7_lxr2a"]
 [ext_resource type="PackedScene" uid="uid://der1edoxrqxln" path="res://nodes/gui_components/set_game_state_on_gui_active/set_game_state_on_gui_active.tscn" id="8_k4107"]
@@ -36,7 +37,11 @@ happy = NodePath("MarginContainer/Control/SpriteRoot/ReactionSprites/Happy")
 sad = NodePath("MarginContainer/Control/SpriteRoot/ReactionSprites/Sad")
 reaction_sprites = NodePath("MarginContainer/Control/SpriteRoot/ReactionSprites")
 
-[node name="GaussianBlur" parent="." index="0" instance=ExtResource("3_8smjl")]
+[node name="BlackOverlay" parent="." index="0" instance=ExtResource("3_hycv7")]
+layout_mode = 0
+anchors_preset = 0
+
+[node name="GaussianBlur" parent="." index="1" instance=ExtResource("3_8smjl")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -46,7 +51,7 @@ offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="." index="1"]
+[node name="MarginContainer" type="MarginContainer" parent="." index="2"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -116,7 +121,7 @@ stretch_mode = 5
 type = 1
 audio = SubResource("Resource_k6v7v")
 
-[node name="SetGameStateOnGUIActive" parent="." index="3" node_paths=PackedStringArray("gui") instance=ExtResource("8_k4107")]
+[node name="SetGameStateOnGUIActive" parent="." index="4" node_paths=PackedStringArray("gui") instance=ExtResource("8_k4107")]
 gui = NodePath("..")
 activated_state = "assesment"
 deactivated_state = "playing"

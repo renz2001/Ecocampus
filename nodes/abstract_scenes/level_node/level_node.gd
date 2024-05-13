@@ -12,8 +12,7 @@ static var entered_tree: int = 0
 #func _enter_tree() -> void: 
 	#printerr(get_children())
 
-
-func _enter_tree() -> void: 
+func _ready() -> void: 
 	SaveManager.loaded_data.connect(
 		func(_data: GameSave): 
 			if GUIManager.transitions_manager.middle_transition: 
@@ -22,6 +21,15 @@ func _enter_tree() -> void:
 	, CONNECT_ONE_SHOT
 	)
 	entered_tree += 1
+	for node: Node in get_tree().get_nodes_in_group("QuestEntity"): 
+		node.hide()
+		
+	if GameManager.faucets_show: 
+		for node: Node in get_tree().get_nodes_in_group("QuestEntity"): 
+			if !node.is_in_group("Faucet") && node.disabled: 
+				continue
+			node.show()
+		
 	GameManager.state_chart.send_event("playing")
 	if SaveManager.does_save_file_name_exists("save_file_1") && entered_tree == 1: 
 		SaveManager.set_current_game_save_from_file_name("save_file_1")
@@ -37,6 +45,6 @@ func _notification(what: int) -> void:
 	if GameManager.is_close_request(what): 
 		SaveManager.save_game()
 		SaveManager.save_game_to_file(true)
-	elif what == NOTIFICATION_WM_GO_BACK_REQUEST: 
-		to_map_picker.change()
-		
+	#elif what == NOTIFICATION_WM_GO_BACK_REQUEST: 
+		#to_map_picker.change()
+

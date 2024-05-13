@@ -1,13 +1,16 @@
-[gd_scene load_steps=9 format=3 uid="uid://ctmxelmponiux"]
+[gd_scene load_steps=12 format=3 uid="uid://ctmxelmponiux"]
 
 [ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/gui_manager/nodes/gui/gui/gui.tscn" id="1_xtv8e"]
 [ext_resource type="Script" path="res://nodes/screens/customize_character_screen/customize_character_screen.gd" id="2_o27bf"]
 [ext_resource type="PackedScene" uid="uid://bqny6jbecen3l" path="res://nodes/gui/cosmetic_select_card/cosmetic_select_card.tscn" id="3_efnlc"]
 [ext_resource type="Resource" uid="uid://ohh3qdnbacsf" path="res://resources/cosmetics_collection/cosmetics_collection.tres" id="3_v3djt"]
 [ext_resource type="PackedScene" uid="uid://bg70bh8vbivny" path="res://nodes/gui/cosmetics_display_card_container/cosmetics_display_card_container.tscn" id="4_0d1ie"]
+[ext_resource type="PackedScene" uid="uid://3w1kcvfjrr6m" path="res://nodes/gui/black_overlay/black_overlay.tscn" id="4_2nqb8"]
+[ext_resource type="PackedScene" uid="uid://visuur1utug0" path="res://nodes/gui/gaussian_blur/gaussian_blur.tscn" id="4_q7c6w"]
 [ext_resource type="Theme" uid="uid://cd55r8awc3jgy" path="res://themes/main_theme.tres" id="6_0s422"]
 [ext_resource type="PackedScene" uid="uid://csqbhpsiauwpf" path="res://nodes/gui_components/hide_scroll_bar/hide_scroll_bar.tscn" id="7_s24ny"]
 [ext_resource type="PackedScene" uid="uid://der1edoxrqxln" path="res://nodes/gui_components/set_game_state_on_gui_active/set_game_state_on_gui_active.tscn" id="8_31fep"]
+[ext_resource type="PackedScene" uid="uid://bw16onocdqpcw" path="res://nodes/components/on_visible_add_to_back_history/on_visible_add_to_back_history.tscn" id="11_qb5os"]
 
 [node name="CustomizeCharacterScreen" node_paths=PackedStringArray("cosmetic_select_card", "cosmetic_display_card_container") instance=ExtResource("1_xtv8e")]
 anchors_preset = 15
@@ -21,7 +24,20 @@ cosmetics_collection = ExtResource("3_v3djt")
 cosmetic_select_card = NodePath("VBoxContainer/HBoxContainer/CosmeticSelectCard")
 cosmetic_display_card_container = NodePath("VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." index="0"]
+[node name="BlackOverlay" parent="." index="0" instance=ExtResource("4_2nqb8")]
+layout_mode = 1
+
+[node name="GaussianBlur" parent="." index="1" instance=ExtResource("4_q7c6w")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." index="2"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -54,19 +70,22 @@ cosmetics_collection = ExtResource("3_v3djt")
 [node name="HideScrollBar" parent="VBoxContainer/HBoxContainer/ScrollContainer" index="1" node_paths=PackedStringArray("scroll_container") instance=ExtResource("7_s24ny")]
 scroll_container = NodePath("..")
 
-[node name="SetGameStateOnGUIActive" parent="." index="2" node_paths=PackedStringArray("gui") instance=ExtResource("8_31fep")]
+[node name="SetGameStateOnGUIActive" parent="." index="4" node_paths=PackedStringArray("gui") instance=ExtResource("8_31fep")]
 gui = NodePath("..")
 activated_state = "customize_character"
 deactivated_state = "resume"
 
+[node name="OnHideAddToBackHistory" parent="." index="5" node_paths=PackedStringArray("node") instance=ExtResource("11_qb5os")]
+node = NodePath("..")
+
 [connection signal="updated" from="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer" to="VBoxContainer/HBoxContainer/CosmeticSelectCard" method="_on_cosmetics_display_card_container_updated"]
-[connection signal="visibility_changed" from="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18549" to="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18549" method="_on_visibility_changed"]
-[connection signal="visibility_changed" from="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18551" to="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18551" method="_on_visibility_changed"]
-[connection signal="visibility_changed" from="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18553" to="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18553" method="_on_visibility_changed"]
-[connection signal="visibility_changed" from="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18555" to="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18555" method="_on_visibility_changed"]
-[connection signal="visibility_changed" from="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18557" to="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18557" method="_on_visibility_changed"]
-[connection signal="visibility_changed" from="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18559" to="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18559" method="_on_visibility_changed"]
-[connection signal="visibility_changed" from="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18561" to="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18561" method="_on_visibility_changed"]
-[connection signal="visibility_changed" from="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18563" to="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18563" method="_on_visibility_changed"]
-[connection signal="visibility_changed" from="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18565" to="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18565" method="_on_visibility_changed"]
-[connection signal="visibility_changed" from="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18567" to="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18567" method="_on_visibility_changed"]
+[connection signal="visibility_changed" from="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18500" to="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18500" method="_on_visibility_changed"]
+[connection signal="visibility_changed" from="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18502" to="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18502" method="_on_visibility_changed"]
+[connection signal="visibility_changed" from="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18504" to="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18504" method="_on_visibility_changed"]
+[connection signal="visibility_changed" from="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18506" to="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18506" method="_on_visibility_changed"]
+[connection signal="visibility_changed" from="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18508" to="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18508" method="_on_visibility_changed"]
+[connection signal="visibility_changed" from="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18510" to="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18510" method="_on_visibility_changed"]
+[connection signal="visibility_changed" from="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18512" to="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18512" method="_on_visibility_changed"]
+[connection signal="visibility_changed" from="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18514" to="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18514" method="_on_visibility_changed"]
+[connection signal="visibility_changed" from="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18516" to="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18516" method="_on_visibility_changed"]
+[connection signal="visibility_changed" from="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18518" to="VBoxContainer/HBoxContainer/ScrollContainer/CosmeticsDisplayCardContainer/@Control@18518" method="_on_visibility_changed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dn0hmrfmam4bl"]
+[gd_scene load_steps=22 format=3 uid="uid://dn0hmrfmam4bl"]
 
 [ext_resource type="PackedScene" uid="uid://dup6nowsahsrg" path="res://addons/gui_manager/nodes/singletons/gui_manager/gui_manager.tscn" id="1_fgil1"]
 [ext_resource type="Script" path="res://nodes/singletons/managers/gui_manager/gui_manager.gd" id="2_43jm5"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://dywlc2qvwfqms" path="res://nodes/gui/settings_menu/settings_menu.tscn" id="13_qklwl"]
 [ext_resource type="PackedScene" uid="uid://cyepcbc24l4l8" path="res://nodes/screens/achievement_unlocked_screen/achievement_unlocked_screen.tscn" id="14_df8bm"]
 [ext_resource type="PackedScene" uid="uid://bvqcvxujyci1a" path="res://nodes/gui/quests_menu/quests_menu.tscn" id="15_54dqn"]
+[ext_resource type="PackedScene" uid="uid://hvnsbucyycft" path="res://nodes/gui/alert_screen/alert_screen.tscn" id="18_0q276"]
 [ext_resource type="PackedScene" uid="uid://b26qgdv0t84hx" path="res://nodes/gui/saving_label/saving_label.tscn" id="18_62bra"]
 [ext_resource type="LabelSettings" uid="uid://bfng1toxthprb" path="res://resources/label_settings/quiz_attempt_gui_title.tres" id="19_2m0kl"]
 
@@ -145,6 +146,8 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
+offset_top = -40.0
+offset_bottom = -40.0
 grow_horizontal = 0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Root/MarginContainer/BaseControl/MarginContainer/Control" index="1"]
@@ -195,13 +198,18 @@ grow_horizontal = 0
 grow_vertical = 0
 
 [node name="AchievementUnlockedScreen" parent="Root/MarginContainer/BaseControl" index="4" instance=ExtResource("14_df8bm")]
+visible = false
 layout_mode = 1
 
-[node name="TransitionsManager" parent="Root" index="2" instance=ExtResource("10_u8sf5")]
+[node name="AlertScreen" parent="Root" index="2" instance=ExtResource("18_0q276")]
+visible = false
+layout_mode = 1
+
+[node name="TransitionsManager" parent="Root" index="3" instance=ExtResource("10_u8sf5")]
 layout_mode = 1
 only_one_instance = false
 
-[node name="Demo" type="Label" parent="Root" index="3"]
+[node name="Demo" type="Label" parent="Root" index="4"]
 visible = false
 layout_mode = 1
 offset_left = 78.0

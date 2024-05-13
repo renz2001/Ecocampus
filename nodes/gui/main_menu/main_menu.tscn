@@ -62,7 +62,7 @@ layout_mode = 2
 theme_override_constants/separation = 0
 
 [node name="Title" type="TextureRect" parent="Root/CenterContainer/VBoxContainer" index="0"]
-custom_minimum_size = Vector2(1200, 300)
+custom_minimum_size = Vector2(1600, 300)
 layout_mode = 2
 texture = SubResource("AtlasTexture_qt5cm")
 expand_mode = 1
@@ -77,9 +77,10 @@ label_settings = SubResource("LabelSettings_umtw8")
 [node name="Buttons" type="VBoxContainer" parent="Root/CenterContainer/VBoxContainer" index="2"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
+theme_override_constants/separation = 35
 
 [node name="Play" parent="Root/CenterContainer/VBoxContainer/Buttons" index="0" instance=ExtResource("2_5xhb2")]
-custom_minimum_size = Vector2(0, 100)
+custom_minimum_size = Vector2(0, 180)
 layout_mode = 2
 texture_normal = SubResource("AtlasTexture_pd6nm")
 
@@ -87,7 +88,7 @@ texture_normal = SubResource("AtlasTexture_pd6nm")
 control = NodePath("..")
 
 [node name="Exit" parent="Root/CenterContainer/VBoxContainer/Buttons" index="1" instance=ExtResource("2_5xhb2")]
-custom_minimum_size = Vector2(0, 100)
+custom_minimum_size = Vector2(0, 180)
 layout_mode = 2
 texture_normal = SubResource("AtlasTexture_ywn4y")
 

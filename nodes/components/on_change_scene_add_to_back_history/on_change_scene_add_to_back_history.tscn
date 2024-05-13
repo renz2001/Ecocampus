@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ijaa6c4i2ii4"]
+
+[ext_resource type="Script" path="res://nodes/components/on_change_scene_add_to_back_history/on_change_scene_add_to_back_history.gd" id="1_ufrdw"]
+
+[node name="OnChangeSceneAddToBackHistory" type="Node"]
+script = ExtResource("1_ufrdw")

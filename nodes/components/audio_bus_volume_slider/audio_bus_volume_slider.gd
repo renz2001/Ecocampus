@@ -7,6 +7,7 @@ signal muted_changed
 	set(val): 
 		value = val
 		AudioServer.set_bus_volume_db(audio_bus, linear_to_db(value))
+		#print_color.out_debug_wvalue("AudioBus %s: volume db is set to" % audio_bus, AudioServer.get_bus_volume_db(audio_bus))
 		
 		
 @export var mute: bool: 

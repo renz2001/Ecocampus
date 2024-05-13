@@ -21,7 +21,7 @@ func _ready() -> void:
 	pass
 	
 	
-func show_interact_dialog(description: BaseLabelText) -> void: 
+func show_interact_dialog(_description: BaseLabelText) -> void: 
 	if disabled: 
 		return
 		

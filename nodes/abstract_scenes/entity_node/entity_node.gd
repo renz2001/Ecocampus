@@ -7,6 +7,7 @@ signal interacted
 
 @export var display_interact_dialog: bool = true
 @export var wait_for_player_to_display_interact_dialog: bool = true
+@export var faucets_show: bool
 
 @export var interact_audio: AudioStreamPlayerArguments: 
 	set(value): 
@@ -87,7 +88,7 @@ func _interact() -> void:
 
 
 func _on_interact() -> void: 
-	if disabled: 
+	if disabled || !visible: 
 		return
 	starting_interact.emit()
 	if disable_after_interact: 
@@ -110,7 +111,7 @@ func _on_interact() -> void:
 
 
 func show_interact_dialog(description: BaseLabelText) -> void: 
-	if disabled: 
+	if disabled || !visible: 
 		return
 	var dialog: InteractDialog = InteractDialog.display(
 		InteractDialogData.new()\
@@ -163,6 +164,10 @@ func _on_dialogue_response_handler_responded(value: String) -> void:
 		"start_quest": 
 			ExtendedQuestSystem.start_quest(quest)
 			quest.update()
+			GameManager.show_quest_entities()
+			if faucets_show: 
+				GameManager.faucets_show = faucets_show
+			
 		"remove_dialogue": 
 			dialogue = null
 

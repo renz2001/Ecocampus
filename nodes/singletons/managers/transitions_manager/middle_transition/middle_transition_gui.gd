@@ -23,7 +23,8 @@ func _play() -> void:
 			if SceneLoader.has_thread_load_loaded: 
 				end()
 				return
-			SceneLoader.thread_load_loaded.connect(_on_scene_loader_load_ended, CONNECT_ONE_SHOT)
+			if SceneLoader.thread_load_loaded.is_connected(_on_scene_loader_load_ended): 
+				SceneLoader.thread_load_loaded.connect(_on_scene_loader_load_ended, CONNECT_ONE_SHOT)
 		EndCondition.ENTERED_TREE: 
 			# DOES NOT WORK
 			SceneLoader.scene_entered_tree.connect(

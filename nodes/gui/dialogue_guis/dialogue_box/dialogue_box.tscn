@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://blx1a7x2yt18"]
+[gd_scene load_steps=20 format=3 uid="uid://blx1a7x2yt18"]
 
 [ext_resource type="PackedScene" uid="uid://daxlnabqn25ah" path="res://addons/dialogue_manager's_dialogue_gui_manager/nodes/gui/dialogue_gui/dialogue_gui.tscn" id="1_sidoq"]
 [ext_resource type="PackedScene" uid="uid://7r374ti84blj" path="res://nodes/animation_components/hover_node_animation/hover_node_animation.tscn" id="2_dogx3"]
@@ -9,9 +9,12 @@
 [ext_resource type="PackedScene" uid="uid://rc8fo3x7f3mp" path="res://nodes/gui/dialogue_guis/dialogue_box/guis/dialogue_box_button.tscn" id="4_yi2ws"]
 [ext_resource type="PackedScene" uid="uid://bskfvry8t4hly" path="res://nodes/gui/dialogue_box_button/dialogue_box_button.tscn" id="6_xun7r"]
 [ext_resource type="Script" path="res://addons/audio_manager_and_plus/scripts/arguments/audio_stream_player_arguments.gd" id="7_erbwi"]
+[ext_resource type="PackedScene" uid="uid://bn7xar08yeuer" path="res://nodes/gui/invisible_button/invisible_button.tscn" id="8_7wvu1"]
+[ext_resource type="PackedScene" uid="uid://djvu45m1p70d8" path="res://nodes/gui_components/on_pressed_components/on_pressed_next_dialogue/on_pressed_next_dialogue.tscn" id="9_j65rk"]
 [ext_resource type="AudioStream" uid="uid://bhxpisr7kl31f" path="res://assets/audio/ui/convo_popup.wav" id="9_xv43d"]
 [ext_resource type="AudioStream" uid="uid://ci2w6ihjkp1fv" path="res://assets/audio/ui/convo_back.wav" id="10_voiim"]
 [ext_resource type="AudioStream" uid="uid://cl3cty47ryo" path="res://assets/audio/ui/convo.wav" id="11_myst6"]
+[ext_resource type="PackedScene" uid="uid://bk4jnfmvdr6ud" path="res://nodes/gui/buttons/button_plus/button_plus.tscn" id="11_udtto"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_s28p8"]
 font_size = 40
@@ -199,7 +202,20 @@ response_template = NodePath("DialogueBoxButton")
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 
-[node name="Buttons" type="MarginContainer" parent="Balloon" index="2"]
+[node name="InvisibleButton" parent="Balloon" index="2" instance=ExtResource("8_7wvu1")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="OnPressedNextDialogue" parent="Balloon/InvisibleButton" index="0" instance=ExtResource("9_j65rk")]
+do_not_skip_when_typing = true
+
+[node name="Buttons" type="MarginContainer" parent="Balloon" index="3"]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -225,7 +241,6 @@ text = "Auto-Play"
 [node name="FastForward" parent="Balloon/Buttons/Buttons" index="1" instance=ExtResource("4_yi2ws")]
 visible = false
 layout_mode = 2
-focus_neighbor_top = NodePath("../Skip")
 toggle_mode = true
 text = "Fast Forward"
 
@@ -233,12 +248,14 @@ text = "Fast Forward"
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Skip" parent="Balloon/Buttons/Buttons" index="3" instance=ExtResource("4_yi2ws")]
-visible = false
+[node name="Skip" parent="Balloon/Buttons/Buttons" index="3" instance=ExtResource("11_udtto")]
+custom_minimum_size = Vector2(300, 100)
 layout_mode = 2
-focus_neighbor_left = NodePath("../FastForward")
-text = "Skip
-"
+text = "Skip"
+
+[node name="OnPressedNextDialogue" parent="Balloon/Buttons/Buttons/Skip" index="2" node_paths=PackedStringArray("control") instance=ExtResource("9_j65rk")]
+do_not_skip_when_typing = false
+control = NodePath("..")
 
 [node name="Cancel" parent="Balloon/Buttons/Buttons" index="4" instance=ExtResource("4_yi2ws")]
 visible = false
@@ -260,7 +277,6 @@ audio = SubResource("Resource_jwwh6")
 [connection signal="response_selected" from="Balloon/Responses/ResponsesMenu" to="." method="_on_responses_menu_response_selected"]
 [connection signal="toggled" from="Balloon/Buttons/Buttons/AutoPlay" to="." method="_on_auto_play_toggled"]
 [connection signal="toggled" from="Balloon/Buttons/Buttons/FastForward" to="." method="_on_fast_forward_toggled"]
-[connection signal="pressed" from="Balloon/Buttons/Buttons/Skip" to="." method="_on_skip_pressed"]
 [connection signal="pressed" from="Balloon/Buttons/Buttons/Cancel" to="." method="_on_cancel_pressed"]
 
 [editable path="TapAnywhere/HoverNodeAnimation"]

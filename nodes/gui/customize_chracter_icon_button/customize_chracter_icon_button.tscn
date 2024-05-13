@@ -8,8 +8,9 @@
 atlas = ExtResource("3_37vcs")
 region = Rect2(0, 27, 512, 458)
 
-[node name="CustomizeChracterIconButton" instance=ExtResource("1_cavc4")]
+[node name="CustomizeChracterIconButton" node_paths=PackedStringArray("icon") instance=ExtResource("1_cavc4")]
 script = ExtResource("2_xxrfh")
+icon = NodePath("MarginContainer/Icon")
 
 [node name="MarginContainer" type="MarginContainer" parent="." index="3"]
 layout_mode = 1

@@ -2,6 +2,7 @@
 extends Node
 class_name BaseGlobalVariables
 
+const COLOR_EDITOR_LIGHT_GREEN = Color("bef5e5")
 const COLOR_EDITOR_RED = Color("ff7085")
 const COLOR_EDITOR_YELLOW = Color("fbe99f")
 const COLOR_EDITOR_GREEN = Color("42ffc2")

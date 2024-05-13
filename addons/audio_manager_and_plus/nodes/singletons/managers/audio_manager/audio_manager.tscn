@@ -37,7 +37,9 @@ bus = &"Music"
 [node name="SoundEffects" type="Node" parent="."]
 
 [node name="SoundEffectsPlayer" parent="SoundEffects" instance=ExtResource("3_1occ1")]
+bus = &"SFX"
 
 [node name="SoundEffects2D" type="Node2D" parent="."]
 
 [node name="SoundEffectsPlayer2D" parent="SoundEffects2D" instance=ExtResource("4_le8jf")]
+bus = &"SFX"

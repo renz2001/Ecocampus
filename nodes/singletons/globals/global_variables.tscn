@@ -1,5 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://4rqg2jf5ms7t"]
+[gd_scene load_steps=3 format=3 uid="uid://4rqg2jf5ms7t"]
 
 [ext_resource type="PackedScene" uid="uid://dxcgjudd2nk6r" path="res://addons/node_components/nodes/singletons/global_variables/global_variables.tscn" id="1_pjfa0"]
+[ext_resource type="Script" path="res://nodes/singletons/globals/global_variables.gd" id="2_gti1e"]
 
 [node name="GlobalVariables" instance=ExtResource("1_pjfa0")]
+script = ExtResource("2_gti1e")

@@ -10,8 +10,10 @@ class_name AudioStreamPlayerArguments
 
 @export_range(0, 1) var volume_slider: float = 1
 
+@export var change_db: bool
 @export var volume_db: float = 0
 
+@export var change_bus: bool
 @export var bus: StringName = "Master"
 
 

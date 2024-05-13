@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://c21ba0glywlxf" path="res://assets/character/professor_luna/professor_luna.png" id="2_xjy8c"]
 
 [node name="ProfessorLuna" instance=ExtResource("1_cultw")]
+faucets_show = true
 data = ExtResource("2_0camq")
 
 [node name="TapHitBox" parent="CanvasLayer/Root" index="0"]

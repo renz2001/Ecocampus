@@ -5,6 +5,4 @@
 
 [node name="AutoloadConditionSetComponent" instance=ExtResource("1_r6u3p")]
 script = ExtResource("2_kttyu")
-autoload_conditions = Array[Resource("res://addons/macchi's_node_components/scripts/arguments/autoload_condition_set_autoload_condition.gd")]([])
-ready_value = ""
-property_or_method = ""
+autoload_conditions = Array[Resource("res://addons/node_components/scripts/arguments/autoload_condition_set_autoload_condition.gd")]([])

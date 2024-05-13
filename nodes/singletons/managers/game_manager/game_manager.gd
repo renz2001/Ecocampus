@@ -30,6 +30,14 @@ var enable_player_on_playing_entered: bool = true:
 		if enable_player_on_playing_entered: 
 			PlayerManager.player.state_chart.send_event("enabled")
 
+var faucets_show: bool
+
+func show_quest_entities() -> void: 
+	for node: Node in get_tree().get_nodes_in_group("QuestEntity"): 
+		node.show()
+		await get_tree().create_timer(0.05).timeout
+		
+		
 
 func start() -> void: 
 	if SaveManager.save_files_is_empty(): 
@@ -89,6 +97,7 @@ func reset_all_data() -> void:
 	SaveManager.current_saved_data = GameSave.new()
 	GUIManager.reset()
 	state_chart.send_event("main_menu")
+	faucets_show = false
 
 
 func _on_history_state_state_entered() -> void:

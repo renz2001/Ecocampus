@@ -50,8 +50,10 @@ func play_music(args: AudioStreamPlayerArguments) -> AudioStreamPlayer:
 func _set_player(player: Node, args: AudioStreamPlayerArguments, change_name: bool = false) -> Node: 
 	player.stream = args.sound
 	player.pitch_scale = args.pitch_scale
-	player.volume_db = args.get_volume()
-	player.bus = args.bus
+	if args.change_db: 
+		player.volume_db = args.get_volume()
+	if args.change_bus: 
+		player.bus = args.bus
 	#if change_name: 
 		#player.name = args.sound.resource_name.to_camel_case()
 	player.play(args.play_from_position) 

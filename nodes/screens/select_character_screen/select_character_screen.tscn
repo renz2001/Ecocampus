@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://bow7b4s8p5vv7"]
 
 [ext_resource type="PackedScene" uid="uid://3miay8g4x6j3" path="res://nodes/abstract_scenes/main_screen/main_screen.tscn" id="1_fk4m0"]
-[ext_resource type="PackedScene" uid="uid://b6uuamc65bqup" path="res://nodes/levels/gui/select_character_display/select_character_display.tscn" id="2_f7u8v"]
+[ext_resource type="PackedScene" uid="uid://b6uuamc65bqup" path="res://nodes/gui/select_character_display/select_character_display.tscn" id="2_f7u8v"]
 [ext_resource type="Texture2D" uid="uid://cc8xvqqoy2ku1" path="res://assets/background/main_menu.jpg" id="2_ijuuk"]
-[ext_resource type="PackedScene" uid="uid://crsoi5aonrslj" path="res://nodes/levels/gui/transparent_black_color_rect/transparent_black_color_rect.tscn" id="3_ex1ip"]
-[ext_resource type="PackedScene" uid="uid://visuur1utug0" path="res://nodes/levels/gui/gaussian_blur/gaussian_blur.tscn" id="3_m5buj"]
+[ext_resource type="PackedScene" uid="uid://crsoi5aonrslj" path="res://nodes/gui/transparent_black_color_rect/transparent_black_color_rect.tscn" id="3_ex1ip"]
+[ext_resource type="PackedScene" uid="uid://visuur1utug0" path="res://nodes/gui/gaussian_blur/gaussian_blur.tscn" id="3_m5buj"]
 
 [node name="SelectCharacterScreen" instance=ExtResource("1_fk4m0")]
 
@@ -45,3 +45,6 @@ layout_mode = 2
 [node name="SelectCharacterDisplay2" parent="Root/HBoxContainer" index="1" instance=ExtResource("2_f7u8v")]
 layout_mode = 2
 gender = 1
+
+[node name="OnHideAddToBackHistory" parent="." index="1"]
+disabled = true

@@ -4,11 +4,11 @@ class_name AlertDialogConfig
 
 @export var description: String
 
-@export var yes_func: Callable
-@export var no_func: Callable
-
 @export var close_when_yes_pressed: bool = true
 @export var close_when_no_pressed: bool = true
+
+var yes_func = null
+var no_func = null
 
 func set_description(val: String) -> AlertDialogConfig: 
 	description = val

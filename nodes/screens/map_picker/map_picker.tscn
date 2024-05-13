@@ -1,9 +1,10 @@
-[gd_scene load_steps=27 format=3 uid="uid://dcjxf25vgikeb"]
+[gd_scene load_steps=30 format=3 uid="uid://dcjxf25vgikeb"]
 
 [ext_resource type="PackedScene" uid="uid://3miay8g4x6j3" path="res://nodes/abstract_scenes/main_screen/main_screen.tscn" id="1_ethfg"]
 [ext_resource type="PackedScene" uid="uid://5npqpm4ofnr" path="res://nodes/gui/map_location_button/map_location_button.tscn" id="2_5f6v8"]
 [ext_resource type="Texture2D" uid="uid://co881qitymalu" path="res://assets/map/island.png" id="2_j6xsv"]
 [ext_resource type="Script" path="res://nodes/screens/map_picker/map_picker.gd" id="2_y44ll"]
+[ext_resource type="PackedScene" uid="uid://bc58xq17532m8" path="res://nodes/gui/back_button/back_button.tscn" id="3_757xa"]
 [ext_resource type="Script" path="res://scripts/arguments/change_scene_arguments.gd" id="3_cuxqn"]
 [ext_resource type="Texture2D" uid="uid://cmyovnl4vkyxt" path="res://assets/map/icons/con_icon.png" id="4_sbxly"]
 [ext_resource type="Texture2D" uid="uid://d3qhdft6m3gyt" path="res://assets/map/icons/dit_icon.png" id="5_b4x4x"]
@@ -12,7 +13,9 @@
 [ext_resource type="Texture2D" uid="uid://vy3sc4i6w3vt" path="res://assets/map/icons/library_icon.png" id="7_ssrne"]
 [ext_resource type="Texture2D" uid="uid://u3ir732fkp5j" path="res://assets/map/icons/saluysoy_icon.png" id="8_ob73h"]
 [ext_resource type="Texture2D" uid="uid://c53nvgcsjrpdg" path="res://assets/map/icons/trashcan_icon.png" id="9_t8wk1"]
+[ext_resource type="Theme" uid="uid://cd55r8awc3jgy" path="res://themes/main_theme.tres" id="13_57mjl"]
 [ext_resource type="PackedScene" uid="uid://nnpxfb02bn17" path="res://nodes/components/change_scene_component/change_scene_component.tscn" id="13_o6nnp"]
+[ext_resource type="PackedScene" uid="uid://ijaa6c4i2ii4" path="res://nodes/components/on_change_scene_add_to_back_history/on_change_scene_add_to_back_history.tscn" id="14_n4yax"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6f7ax"]
 atlas = ExtResource("2_j6xsv")
@@ -172,5 +175,28 @@ offset_bottom = 644.0
 texture_normal = SubResource("AtlasTexture_h43h3")
 change_scene = SubResource("Resource_04iki")
 
+[node name="MarginContainer" type="MarginContainer" parent="Root" index="2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("13_57mjl")
+theme_type_variation = &"PlayerHUDMargin"
+
+[node name="Root" type="Control" parent="Root/MarginContainer" index="0"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="BackButton" parent="Root/MarginContainer/Root" index="0" instance=ExtResource("3_757xa")]
+layout_mode = 1
+offset_right = 140.0
+offset_bottom = 140.0
+
 [node name="ToMainMenu" parent="." index="1" instance=ExtResource("13_o6nnp")]
 to_scene = "res://nodes/gui/main_menu/main_menu.tscn"
+
+[node name="OnChangeSceneAddToBackHistory" parent="ToMainMenu" index="0" node_paths=PackedStringArray("change_scene") instance=ExtResource("14_n4yax")]
+change_scene = NodePath("..")

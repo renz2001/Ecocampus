@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://hvnsbucyycft"]
+
+[ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/gui_manager/nodes/gui/gui/gui.tscn" id="1_lorax"]
+[ext_resource type="PackedScene" uid="uid://b3o7xjwmj44nu" path="res://nodes/gui/alert_dialog/alert_dialog.tscn" id="2_711p1"]
+[ext_resource type="Script" path="res://nodes/gui/alert_screen/alert_screen.gd" id="2_df7eo"]
+[ext_resource type="PackedScene" uid="uid://3w1kcvfjrr6m" path="res://nodes/gui/black_overlay/black_overlay.tscn" id="2_oofjb"]
+[ext_resource type="PackedScene" uid="uid://visuur1utug0" path="res://nodes/gui/gaussian_blur/gaussian_blur.tscn" id="3_gnb35"]
+[ext_resource type="PackedScene" uid="uid://der1edoxrqxln" path="res://nodes/gui_components/set_game_state_on_gui_active/set_game_state_on_gui_active.tscn" id="6_mdvk4"]
+
+[node name="AlertScreen" groups=["AlertScreen"] instance=ExtResource("1_lorax")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("2_df7eo")
+
+[node name="BlackOverlay" parent="." index="0" instance=ExtResource("2_oofjb")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="GaussianBlur" parent="." index="1" instance=ExtResource("3_gnb35")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="." index="2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AlertDialog" parent="CenterContainer" index="0" instance=ExtResource("2_711p1")]
+layout_mode = 2
+
+[node name="SetGameStateOnGUIActive" parent="." index="4" node_paths=PackedStringArray("gui") instance=ExtResource("6_mdvk4")]
+gui = NodePath("..")
+activated_state = "paused"
+deactivated_state = "resume"

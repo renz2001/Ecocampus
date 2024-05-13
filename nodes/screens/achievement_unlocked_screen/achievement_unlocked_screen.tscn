@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://cyepcbc24l4l8"]
+[gd_scene load_steps=10 format=3 uid="uid://cyepcbc24l4l8"]
 
 [ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/gui_manager/nodes/gui/gui/gui.tscn" id="1_46gjk"]
 [ext_resource type="Script" path="res://nodes/screens/achievement_unlocked_screen/achievement_unlocked_screen.gd" id="2_87r6r"]
 [ext_resource type="PackedScene" uid="uid://c584i6hhgux8p" path="res://nodes/gui/achievement_unlocked_gui/achievement_unlocked_gui.tscn" id="2_utc4q"]
 [ext_resource type="PackedScene" uid="uid://dh1ftkyfip0sh" path="res://nodes/gui_components/on_tap_set_active/on_tap_set_active.tscn" id="3_fgxls"]
 [ext_resource type="PackedScene" uid="uid://visuur1utug0" path="res://nodes/gui/gaussian_blur/gaussian_blur.tscn" id="3_gyd4q"]
+[ext_resource type="PackedScene" uid="uid://3w1kcvfjrr6m" path="res://nodes/gui/black_overlay/black_overlay.tscn" id="4_ur5s1"]
 [ext_resource type="PackedScene" uid="uid://der1edoxrqxln" path="res://nodes/gui_components/set_game_state_on_gui_active/set_game_state_on_gui_active.tscn" id="4_y00uo"]
 [ext_resource type="PackedScene" uid="uid://cnsvmjc5ytto2" path="res://nodes/components/on_visible_then_scale/on_visible_then_scale.tscn" id="6_ga0gk"]
 [ext_resource type="PackedScene" uid="uid://rht72s4l6wx3" path="res://nodes/gui_components/set_pivot_offset_to_center/set_pivot_offset_to_center.tscn" id="7_ly5ds"]
@@ -22,11 +23,13 @@ achievement = null
 achievement_unlocked_gui = NodePath("CenterContainer/AchievementUnlockedGUI")
 
 [node name="OnTapSetActive" parent="." index="0" node_paths=PackedStringArray("gui") instance=ExtResource("3_fgxls")]
-visible = false
 layout_mode = 1
 gui = NodePath("..")
 
-[node name="GaussianBlur" parent="." index="1" instance=ExtResource("3_gyd4q")]
+[node name="BlackOverlay" parent="." index="1" instance=ExtResource("4_ur5s1")]
+layout_mode = 1
+
+[node name="GaussianBlur" parent="." index="2" instance=ExtResource("3_gyd4q")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -37,7 +40,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="CenterContainer" type="CenterContainer" parent="." index="2"]
+[node name="CenterContainer" type="CenterContainer" parent="." index="3"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -52,14 +55,14 @@ layout_mode = 2
 [node name="SetPivotOffsetToCenter" parent="CenterContainer/AchievementUnlockedGUI" index="3" node_paths=PackedStringArray("control") instance=ExtResource("7_ly5ds")]
 control = NodePath("..")
 
-[node name="SetGameStateOnGUIActive" parent="." index="4" node_paths=PackedStringArray("gui") instance=ExtResource("4_y00uo")]
+[node name="SetGameStateOnGUIActive" parent="." index="5" node_paths=PackedStringArray("gui") instance=ExtResource("4_y00uo")]
 gui = NodePath("..")
 activated_state = "achievement_unlocked"
 deactivated_state = "resume"
 
-[node name="OnVisibleThenScale" parent="." index="5" node_paths=PackedStringArray("node") instance=ExtResource("6_ga0gk")]
+[node name="OnVisibleThenScale" parent="." index="6" node_paths=PackedStringArray("node") instance=ExtResource("6_ga0gk")]
 editor_play = false
 node = NodePath("../CenterContainer/AchievementUnlockedGUI")
 
-[node name="TapCooldown" type="Timer" parent="." index="6"]
+[node name="TapCooldown" type="Timer" parent="." index="7"]
 wait_time = 0.8

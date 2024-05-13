@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://bw16onocdqpcw"]
+
+[ext_resource type="PackedScene" uid="uid://c5hllmohu7d8j" path="res://nodes/components/on_visible_do/on_visible_do.tscn" id="1_5xrok"]
+[ext_resource type="Script" path="res://nodes/components/on_visible_add_to_back_history/on_visible_add_to_back_history.gd" id="2_s8pag"]
+
+[node name="OnVisibleAddToBackHistory" instance=ExtResource("1_5xrok")]
+script = ExtResource("2_s8pag")
+add_current_scene = false

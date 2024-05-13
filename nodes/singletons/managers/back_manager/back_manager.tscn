@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://d4mhwt8v6nm73"]
+
+[ext_resource type="PackedScene" uid="uid://nnpxfb02bn17" path="res://nodes/components/change_scene_component/change_scene_component.tscn" id="1_fco30"]
+[ext_resource type="Script" path="res://nodes/singletons/managers/back_manager/back_manager.gd" id="1_wvtbf"]
+[ext_resource type="Script" path="res://addons/node_components/nodes/components/print_color.gd" id="2_bf1xn"]
+
+[sub_resource type="Resource" id="Resource_ksoqp"]
+script = ExtResource("2_bf1xn")
+disabled = false
+color = Color(0.858824, 0.905882, 1, 1)
+owner_name_color = Color(0.027451, 0.956863, 1, 1)
+value_color = Color(1, 0, 0, 1)
+automatic_value_color = true
+use_spaces_for_node_name = false
+
+[node name="BackManager" type="Node" node_paths=PackedStringArray("change_scene", "cooldown")]
+script = ExtResource("1_wvtbf")
+change_scene = NodePath("ChangeSceneComponent")
+cooldown = NodePath("Cooldown")
+print_color = SubResource("Resource_ksoqp")
+
+[node name="ChangeSceneComponent" parent="." instance=ExtResource("1_fco30")]
+
+[node name="Cooldown" type="Timer" parent="."]
+wait_time = 0.5

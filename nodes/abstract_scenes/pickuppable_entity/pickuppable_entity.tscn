@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://77dhb6ck4eyt"]
+[gd_scene load_steps=12 format=3 uid="uid://77dhb6ck4eyt"]
 
 [ext_resource type="PackedScene" uid="uid://dokfordgw2kk3" path="res://nodes/abstract_scenes/non_living_entity_node/non_living_entity_node.tscn" id="1_d4ii6"]
 [ext_resource type="Script" path="res://nodes/abstract_scenes/pickuppable_entity/pickuppable_entity.gd" id="2_a2l0a"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://addons/audio_manager_and_plus/scripts/arguments/audio_stream_player_arguments.gd" id="8_8dy0j"]
 [ext_resource type="Shader" path="res://resources/shaders/outline_inline.gdshader" id="8_cxd3f"]
 [ext_resource type="AudioStream" uid="uid://dnipkpbpk6h6n" path="res://assets/audio/ui/pickup_item.wav" id="9_kjmyf"]
+[ext_resource type="PackedScene" uid="uid://cnsvmjc5ytto2" path="res://nodes/components/on_visible_then_scale/on_visible_then_scale.tscn" id="9_rjlm8"]
 
 [sub_resource type="Resource" id="Resource_rj2ev"]
 script = ExtResource("8_8dy0j")
@@ -15,7 +16,9 @@ sound = ExtResource("9_kjmyf")
 play_from_position = 0
 pitch_scale = 1.0
 volume_slider = 1.0
+change_db = false
 volume_db = 0.0
+change_bus = false
 bus = &"Master"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ukjcl"]
@@ -26,8 +29,9 @@ shader_parameter/pattern = 0
 shader_parameter/inside = false
 shader_parameter/add_margins = true
 
-[node name="PickUppableEntity" instance=ExtResource("1_d4ii6")]
+[node name="PickUppableEntity" groups=["QuestEntity"] instance=ExtResource("1_d4ii6")]
 script = ExtResource("2_a2l0a")
+faucets_show = false
 interact_audio = SubResource("Resource_rj2ev")
 
 [node name="OnPressedApplyMaterialToNode" parent="CanvasLayer/Root/TapHitBox" index="0" node_paths=PackedStringArray("apply_to_node") instance=ExtResource("7_cgy4r")]
@@ -52,3 +56,7 @@ position = Vector2(9, -12)
 rotation = 1.67388
 scale = Vector2(0.221, 0.221)
 texture = ExtResource("6_6ar2y")
+
+[node name="OnVisibleThenScale" parent="." index="8" node_paths=PackedStringArray("node") instance=ExtResource("9_rjlm8")]
+editor_play = false
+node = NodePath("../Sprites")

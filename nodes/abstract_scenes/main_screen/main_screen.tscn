@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://3miay8g4x6j3"]
+[gd_scene load_steps=4 format=3 uid="uid://3miay8g4x6j3"]
 
 [ext_resource type="Script" path="res://nodes/abstract_scenes/main_screen/main_screen.gd" id="1_s8jdk"]
 [ext_resource type="Theme" uid="uid://cd55r8awc3jgy" path="res://themes/main_theme.tres" id="2_8me2f"]
+[ext_resource type="PackedScene" uid="uid://g05qeulk7igr" path="res://nodes/components/back_request/back_request.tscn" id="4_ho0mx"]
 
 [node name="MainScreen" type="CanvasLayer"]
 script = ExtResource("1_s8jdk")
@@ -33,3 +34,5 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="BackRequest" parent="." instance=ExtResource("4_ho0mx")]

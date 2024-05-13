@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://y6epls2k86pu"]
+[gd_scene load_steps=7 format=3 uid="uid://y6epls2k86pu"]
 
 [ext_resource type="PackedScene" uid="uid://d4mqjvr57ok1h" path="res://nodes/gui/buttons/icon_button/icon_button.tscn" id="1_gs466"]
 [ext_resource type="Script" path="res://nodes/gui/buttons/to_map_picker_icon_button/to_map_picker_icon_button.gd" id="2_eu2dj"]
 [ext_resource type="PackedScene" uid="uid://nnpxfb02bn17" path="res://nodes/components/change_scene_component/change_scene_component.tscn" id="3_uqaqc"]
 [ext_resource type="Texture2D" uid="uid://dsgb3dyeetgag" path="res://assets/icons/map_icon.png" id="4_asv5l"]
+[ext_resource type="PackedScene" uid="uid://ijaa6c4i2ii4" path="res://nodes/components/on_change_scene_add_to_back_history/on_change_scene_add_to_back_history.tscn" id="4_jxlv8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qkdcr"]
 atlas = ExtResource("4_asv5l")
@@ -15,6 +16,9 @@ to_map_picker = NodePath("ToMapPicker")
 
 [node name="ToMapPicker" parent="." index="2" instance=ExtResource("3_uqaqc")]
 to_scene = "res://nodes/screens/map_picker/map_picker.tscn"
+
+[node name="OnChangeSceneAddToBackHistory" parent="ToMapPicker" index="0" node_paths=PackedStringArray("change_scene") instance=ExtResource("4_jxlv8")]
+change_scene = NodePath("..")
 
 [node name="MarginContainer" type="MarginContainer" parent="." index="4"]
 layout_mode = 1

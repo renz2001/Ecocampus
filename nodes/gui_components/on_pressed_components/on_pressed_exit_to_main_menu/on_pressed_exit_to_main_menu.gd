@@ -5,6 +5,9 @@ class_name OnPressedExitToMainMenu
 
 
 func _on_pressed() -> void: 
-	to_main_menu.change()
+	var config: AlertDialogConfig = AlertDialogConfig.new()
+	config.description = "Exit to main menu?"
+	config.yes_func = func(): to_main_menu.change()
+	AlertDialogBase.display(config)
 	
 	

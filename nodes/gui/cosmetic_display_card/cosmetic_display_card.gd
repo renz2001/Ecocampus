@@ -39,6 +39,7 @@ class_name CosmeticDisplayCard
 
 @export var state_view: TabContainer
 @export var cosmetic_icon: TextureRect
+@export var cosmetic_icon_2: TextureRect
 @export var panel_container: PanelContainer
 @export var points_label: Label
 @export var cosmetic_name_label: Label
@@ -61,6 +62,7 @@ func update() -> void:
 		cosmetic_icon.texture = null
 		return
 	cosmetic_icon.texture = cosmetic.get_icon(player.gender)
+	cosmetic_icon_2.texture = cosmetic.get_icon(player.gender)
 	state = cosmetic.state
 	cosmetic_name_label.text = cosmetic.get_current_name(player.gender)
 	cosmetic_name_label_2.text = cosmetic.get_current_name(player.gender)

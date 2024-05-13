@@ -21,6 +21,7 @@ func _ready():
 	
 func update() -> void: 
 	label.text = AudioServer.get_bus_name(audio_bus)
+	audio_bus_volume_slider.audio_bus = audio_bus
 
 
 func _on_h_slider_drag_started() -> void:

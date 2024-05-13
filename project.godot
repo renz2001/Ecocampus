@@ -14,7 +14,8 @@ config/name="Ecocampus"
 run/main_scene="res://app.tscn"
 config/quit_on_go_back=false
 config/features=PackedStringArray("4.2", "GL Compatibility")
-boot_splash/bg_color=Color(0, 0.447059, 0.701961, 1)
+boot_splash/bg_color=Color(0.207843, 0.67451, 1, 1)
+boot_splash/image="res://assets/title_screen/title_no_tree.png"
 config/icon="res://icon.png"
 
 [autoload]
@@ -37,6 +38,7 @@ Mouse="*res://nodes/singletons/services/mouse/mouse.tscn"
 ExtendedQuestSystem="*res://nodes/singletons/extensions/extended_quest_system/extended_quest_system.tscn"
 GlobalsSave="*res://nodes/singletons/globals/globals_save/globals_save.tscn"
 AudioManager="*res://addons/audio_manager_and_plus/nodes/singletons/managers/audio_manager/audio_manager.tscn"
+BackManager="*res://nodes/singletons/managers/back_manager/back_manager.tscn"
 
 [dialogue_manager]
 
@@ -78,6 +80,11 @@ open_customize_character_screen={
 reset_game={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":93,"key_label":0,"unicode":93,"echo":false,"script":null)
+]
+}
+back={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194308,"key_label":0,"unicode":0,"echo":false,"script":null)
 ]
 }
 

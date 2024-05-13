@@ -6,9 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://c55suis7kmxsy" path="res://nodes/gui/volume_slider/volume_slider.tscn" id="3_ovwmi"]
 [ext_resource type="Texture2D" uid="uid://b4fijb1vufwm7" path="res://assets/buttons/exit.png" id="4_p4eyu"]
 [ext_resource type="PackedScene" uid="uid://bqqiiwxg42b4r" path="res://nodes/gui_components/on_pressed_components/on_pressed_exit_to_main_menu/on_pressed_exit_to_main_menu.tscn" id="5_h8g62"]
-[ext_resource type="PackedScene" uid="uid://dk3kni1sc6j0n" path="res://nodes/gui_components/on_pressed_components/on_pressed_set_active/on_pressed_set_active.tscn" id="7_v2r36"]
 [ext_resource type="PackedScene" uid="uid://der1edoxrqxln" path="res://nodes/gui_components/set_game_state_on_gui_active/set_game_state_on_gui_active.tscn" id="7_xoj0p"]
 [ext_resource type="PackedScene" uid="uid://b7d7mcq2pxeu1" path="res://nodes/components/if_autoload_state_event_set_property/if_autoload_state_event_set_property.tscn" id="8_dayxy"]
+[ext_resource type="PackedScene" uid="uid://bw16onocdqpcw" path="res://nodes/components/on_visible_add_to_back_history/on_visible_add_to_back_history.tscn" id="10_4ukv6"]
 
 [node name="SettingsMenu" instance=ExtResource("1_cbayu")]
 anchors_preset = 15
@@ -33,7 +33,16 @@ layout_mode = 2
 [node name="VolumeSlider" parent="CenterContainer/VBoxContainer" index="0" instance=ExtResource("3_ovwmi")]
 layout_mode = 2
 
-[node name="ExitToMainMenu" parent="CenterContainer/VBoxContainer" index="1" instance=ExtResource("3_f0t0v")]
+[node name="Music" parent="CenterContainer/VBoxContainer" index="1" instance=ExtResource("3_ovwmi")]
+layout_mode = 2
+audio_bus = 1
+
+[node name="SFX" parent="CenterContainer/VBoxContainer" index="2" instance=ExtResource("3_ovwmi")]
+visible = false
+layout_mode = 2
+audio_bus = 2
+
+[node name="ExitToMainMenu" parent="CenterContainer/VBoxContainer" index="3" instance=ExtResource("3_f0t0v")]
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 texture_normal = ExtResource("4_p4eyu")
@@ -41,17 +50,13 @@ texture_normal = ExtResource("4_p4eyu")
 [node name="OnPressedExitToMainMenu" parent="CenterContainer/VBoxContainer/ExitToMainMenu" index="3" node_paths=PackedStringArray("control") instance=ExtResource("5_h8g62")]
 control = NodePath("..")
 
-[node name="OnPressedSetActive" parent="CenterContainer/VBoxContainer/ExitToMainMenu" index="4" node_paths=PackedStringArray("target", "control") instance=ExtResource("7_v2r36")]
-target = NodePath("../../../..")
-control = NodePath("..")
-
-[node name="IfMainMenuEnteredSetProperty" parent="CenterContainer/VBoxContainer/ExitToMainMenu" index="5" node_paths=PackedStringArray("node") instance=ExtResource("8_dayxy")]
+[node name="IfMainMenuEnteredSetProperty" parent="CenterContainer/VBoxContainer/ExitToMainMenu" index="4" node_paths=PackedStringArray("node") instance=ExtResource("8_dayxy")]
 property = "main_menu_state"
 node = NodePath("..")
 new_value = "false"
 disabled = true
 
-[node name="IfMainMenuExitedSetProperty2" parent="CenterContainer/VBoxContainer/ExitToMainMenu" index="6" node_paths=PackedStringArray("node") instance=ExtResource("8_dayxy")]
+[node name="IfMainMenuExitedSetProperty2" parent="CenterContainer/VBoxContainer/ExitToMainMenu" index="5" node_paths=PackedStringArray("node") instance=ExtResource("8_dayxy")]
 property = "main_menu_state"
 state_event = 1
 node = NodePath("..")
@@ -73,3 +78,6 @@ state_event = 1
 node = NodePath("../SetGameStateOnGUIActive")
 property_or_method = "disabled"
 new_value = "false"
+
+[node name="OnVisibleAddToBackHistory" parent="." index="5" node_paths=PackedStringArray("node") instance=ExtResource("10_4ukv6")]
+node = NodePath("..")

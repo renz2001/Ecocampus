@@ -23,7 +23,7 @@ class_name ButtonAudioPlayer
 
 func _on_pressed() -> void: 
 	if audio.pressed: 
-		player.audio = AudioStreamPlayerArguments.new().set_sound(audio.pressed).set_volume_slider(volume_slider)
+		player.audio = AudioStreamPlayerArguments.new().set_sound(audio.pressed).set_volume_slider(volume_slider).set_bus("SFX")
 		player.play()
 	#printerr("PRESSED") 
 	
@@ -32,6 +32,6 @@ func _on_focus_entered() -> void:
 	#if get_viewport().gui_get_focus_owner() == button: 
 		#return
 	if audio.focus_entered: 
-		player.audio = AudioStreamPlayerArguments.new().set_sound(audio.focus_entered).set_volume_slider(volume_slider)
+		player.audio = AudioStreamPlayerArguments.new().set_sound(audio.focus_entered).set_volume_slider(volume_slider).set_bus("SFX")
 		player.play()
 	#printerr("FOCUS") 

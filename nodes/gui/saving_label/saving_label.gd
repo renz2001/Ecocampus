@@ -10,6 +10,6 @@ func _ready() -> void:
 	
 func _on_saved_data_to_file(_save: GameSave, _file: SaveFile) -> void: 
 	show()
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(0.5).timeout
 	hide()
 	

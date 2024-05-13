@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cijbhqkas6yol"]
+[gd_scene load_steps=17 format=3 uid="uid://cijbhqkas6yol"]
 
 [ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/gui_manager/nodes/gui/gui/gui.tscn" id="1_gd4lf"]
 [ext_resource type="Script" path="res://nodes/gui/cosmetic_display_card/cosmetic_display_card.gd" id="2_4ppon"]
@@ -6,12 +6,32 @@
 [ext_resource type="Resource" uid="uid://dpg6457rwx03a" path="res://resources/entity/player.tres" id="3_plikv"]
 [ext_resource type="Resource" uid="uid://do37so0kbmn3r" path="res://resources/cosmetics/royalty.tres" id="4_gn3vd"]
 [ext_resource type="Texture2D" uid="uid://cmph4t8mxf5qa" path="res://assets/customize_character/lock.png" id="5_euy2j"]
+[ext_resource type="Shader" path="res://resources/shaders/color_manipulator.gdshader" id="5_t1pry"]
+[ext_resource type="Shader" path="res://resources/shaders/outline_inline.gdshader" id="6_5mfs5"]
 [ext_resource type="LabelSettings" uid="uid://bhqi3s7tkv3ad" path="res://resources/label_settings/cosmetic_name_label_settings.tres" id="6_e2b4d"]
-[ext_resource type="Texture2D" uid="uid://cht5skdtape5d" path="res://assets/character/player_boy/sets/boy_as_king.png" id="6_g0j33"]
 [ext_resource type="Texture2D" uid="uid://bloiawg11mnph" path="res://assets/achievements/achievement_medal.png" id="7_svgud"]
 [ext_resource type="FontFile" uid="uid://bh5eyon0or827" path="res://fonts/Ubuntu-Regular.ttf" id="8_dpx5j"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i356o"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tdvc0"]
+shader = ExtResource("5_t1pry")
+shader_parameter/brightness = 0.0
+shader_parameter/contrast = 1.0
+shader_parameter/saturation = 0.2
+shader_parameter/redVal = 1.0
+shader_parameter/greenVal = 1.0
+shader_parameter/blueVal = 1.0
+shader_parameter/tint_color = Color(1, 1, 1, 1)
+shader_parameter/tint_effect_factor = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bfe0r"]
+shader = ExtResource("6_5mfs5")
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/width = 24.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
 
 [sub_resource type="LabelSettings" id="LabelSettings_ha0gd"]
 font = ExtResource("8_dpx5j")
@@ -21,11 +41,7 @@ font_size = 25
 font = ExtResource("8_dpx5j")
 font_size = 25
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ag6op"]
-atlas = ExtResource("6_g0j33")
-region = Rect2(381, 45, 140, 236)
-
-[node name="CosmeticDisplayCard" node_paths=PackedStringArray("state_view", "cosmetic_icon", "panel_container", "points_label", "cosmetic_name_label", "cosmetic_name_label_2") instance=ExtResource("1_gd4lf")]
+[node name="CosmeticDisplayCard" node_paths=PackedStringArray("state_view", "cosmetic_icon", "cosmetic_icon_2", "panel_container", "points_label", "cosmetic_name_label", "cosmetic_name_label_2") instance=ExtResource("1_gd4lf")]
 custom_minimum_size = Vector2(363, 0)
 anchors_preset = 15
 anchor_right = 1.0
@@ -41,6 +57,7 @@ cosmetic = ExtResource("4_gn3vd")
 state = 0
 state_view = NodePath("PanelContainer/MarginContainer/StateView")
 cosmetic_icon = NodePath("PanelContainer/MarginContainer/StateView/VBoxContainer/CosmeticIcon")
+cosmetic_icon_2 = NodePath("PanelContainer/MarginContainer/StateView/LockedState/MarginContainer/CosmeticIcon")
 panel_container = NodePath("PanelContainer")
 points_label = NodePath("PanelContainer/MarginContainer/StateView/LockedState/UnlockButton/CenterContainer/HBoxContainer/Points")
 cosmetic_name_label = NodePath("PanelContainer/MarginContainer/StateView/LockedState/CosmeticName")
@@ -72,12 +89,26 @@ alignment = 1
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/StateView/LockedState" index="0"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/margin_left = 70
-theme_override_constants/margin_top = 70
-theme_override_constants/margin_right = 70
-theme_override_constants/margin_bottom = 70
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
 
-[node name="LockSprite" type="TextureRect" parent="PanelContainer/MarginContainer/StateView/LockedState/MarginContainer" index="0"]
+[node name="CosmeticIcon" type="TextureRect" parent="PanelContainer/MarginContainer/StateView/LockedState/MarginContainer" index="0"]
+material = SubResource("ShaderMaterial_tdvc0")
+layout_mode = 2
+size_flags_vertical = 3
+stretch_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/StateView/LockedState/MarginContainer" index="1"]
+layout_mode = 2
+theme_override_constants/margin_left = 140
+theme_override_constants/margin_top = 140
+theme_override_constants/margin_right = 140
+theme_override_constants/margin_bottom = 140
+
+[node name="LockSprite" type="TextureRect" parent="PanelContainer/MarginContainer/StateView/LockedState/MarginContainer/MarginContainer" index="0"]
+material = SubResource("ShaderMaterial_bfe0r")
 layout_mode = 2
 size_flags_vertical = 3
 texture = ExtResource("5_euy2j")
@@ -86,7 +117,6 @@ stretch_mode = 5
 
 [node name="CosmeticName" type="Label" parent="PanelContainer/MarginContainer/StateView/LockedState" index="1"]
 layout_mode = 2
-text = "King"
 label_settings = ExtResource("6_e2b4d")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -138,12 +168,10 @@ layout_mode = 2
 [node name="CosmeticIcon" type="TextureRect" parent="PanelContainer/MarginContainer/StateView/VBoxContainer" index="0"]
 layout_mode = 2
 size_flags_vertical = 3
-texture = SubResource("AtlasTexture_ag6op")
 stretch_mode = 3
 
 [node name="CosmeticName" type="Label" parent="PanelContainer/MarginContainer/StateView/VBoxContainer" index="1"]
 layout_mode = 2
-text = "King"
 label_settings = ExtResource("6_e2b4d")
 horizontal_alignment = 1
 vertical_alignment = 1

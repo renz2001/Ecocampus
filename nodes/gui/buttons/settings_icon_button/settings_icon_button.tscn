@@ -8,8 +8,18 @@
 atlas = ExtResource("2_lxa3n")
 region = Rect2(13, 50, 238, 247)
 
-[node name="SettingsIconButton" instance=ExtResource("1_ijr7j")]
-texture_normal = SubResource("AtlasTexture_bv56d")
+[node name="SettingsIconButton" node_paths=PackedStringArray("icon") instance=ExtResource("1_ijr7j")]
 script = ExtResource("3_jw167")
+icon = NodePath("Icon")
+
+[node name="Icon" type="TextureRect" parent="." index="4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_bv56d")
+expand_mode = 1
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]
