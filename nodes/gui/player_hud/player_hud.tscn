@@ -65,3 +65,15 @@ dont_ready_value = true
 node = NodePath("..")
 
 [node name="AchievementTrackerGUI" parent="MarginContainer/Control" index="1" instance=ExtResource("5_ikbb1")]
+
+[node name="IfDialogueEnteredSetProperty4" parent="MarginContainer/Control/AchievementTrackerGUI" index="4" node_paths=PackedStringArray("node") instance=ExtResource("5_1rerd")]
+property = "dialogue_state"
+dont_ready_value = true
+node = NodePath("..")
+new_value = "false"
+
+[node name="IfDialogueExitedSetProperty5" parent="MarginContainer/Control/AchievementTrackerGUI" index="5" node_paths=PackedStringArray("node") instance=ExtResource("5_1rerd")]
+property = "dialogue_state"
+state_event = 1
+dont_ready_value = true
+node = NodePath("..")
