@@ -13,3 +13,7 @@ func _input(event: InputEvent) -> void:
 		var back = get_tree().get_first_node_in_group("BackRequest")
 		if back != null: 
 			back.notification(NOTIFICATION_WM_GO_BACK_REQUEST)
+	
+	elif event.is_action_pressed("skip_dialogue"): 
+		if GUIManager.dialogue_gui_manager.is_visible_in_tree(): 
+			GUIManager.dialogue_gui_manager.current_dialogue_gui.next()

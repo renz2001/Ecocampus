@@ -26,10 +26,10 @@ static func display(args: AlertDialogConfig) -> AlertDialogBase:
 	if args.no_func != null: 
 		dialog.no_button.pressed.connect(args.no_func, CONNECT_ONE_SHOT)
 	
-	if args.close_when_yes_pressed: 
+	if args.close_when_yes_pressed && !dialog.yes_button.pressed.is_connected(dialog.close): 
 		dialog.yes_button.pressed.connect(dialog.close, CONNECT_ONE_SHOT)
 		
-	if args.close_when_no_pressed: 
+	if args.close_when_no_pressed && !dialog.no_button.pressed.is_connected(dialog.close): 
 		dialog.no_button.pressed.connect(dialog.close, CONNECT_ONE_SHOT)
 		
 	return dialog
