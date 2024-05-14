@@ -4,12 +4,22 @@
 [ext_resource type="Texture2D" uid="uid://gjhweuy2clxk" path="res://assets/buttons/info_icon_button.png" id="2_4uwkt"]
 [ext_resource type="Script" path="res://nodes/gui/info_icon_button/info_icon_button.gd" id="2_g2acc"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_htiii"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_7odvx"]
 atlas = ExtResource("2_4uwkt")
 region = Rect2(27, 102, 238, 247)
 
-[node name="InfoIconButton" instance=ExtResource("1_vq6oy")]
-texture_normal = SubResource("AtlasTexture_htiii")
+[node name="InfoIconButton" node_paths=PackedStringArray("icon") instance=ExtResource("1_vq6oy")]
 script = ExtResource("2_g2acc")
+icon = NodePath("Icon")
+
+[node name="Icon" type="TextureRect" parent="." index="4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_7odvx")
+expand_mode = 1
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]

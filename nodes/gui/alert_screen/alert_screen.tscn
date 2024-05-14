@@ -18,12 +18,7 @@ size_flags_vertical = 3
 script = ExtResource("2_df7eo")
 
 [node name="BlackOverlay" parent="." index="0" instance=ExtResource("2_oofjb")]
-layout_mode = 0
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-grow_horizontal = 1
-grow_vertical = 1
+layout_mode = 1
 
 [node name="GaussianBlur" parent="." index="1" instance=ExtResource("3_gnb35")]
 layout_mode = 1

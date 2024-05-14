@@ -198,7 +198,6 @@ grow_horizontal = 0
 grow_vertical = 0
 
 [node name="AchievementUnlockedScreen" parent="Root/MarginContainer/BaseControl" index="4" instance=ExtResource("14_df8bm")]
-visible = false
 layout_mode = 1
 
 [node name="AlertScreen" parent="Root" index="2" instance=ExtResource("18_0q276")]

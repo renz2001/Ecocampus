@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://dywlc2qvwfqms"]
+[gd_scene load_steps=12 format=3 uid="uid://dywlc2qvwfqms"]
 
 [ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/gui_manager/nodes/gui/gui/gui.tscn" id="1_cbayu"]
 [ext_resource type="Script" path="res://nodes/gui/settings_menu/settings_menu.gd" id="2_wgnu1"]
+[ext_resource type="PackedScene" uid="uid://3w1kcvfjrr6m" path="res://nodes/gui/black_overlay/black_overlay.tscn" id="3_dvsx1"]
 [ext_resource type="PackedScene" uid="uid://dggdvwjvdrmkh" path="res://nodes/gui/buttons/medium_wooden_button/medium_wooden_button.tscn" id="3_f0t0v"]
 [ext_resource type="PackedScene" uid="uid://c55suis7kmxsy" path="res://nodes/gui/volume_slider/volume_slider.tscn" id="3_ovwmi"]
 [ext_resource type="Texture2D" uid="uid://b4fijb1vufwm7" path="res://assets/buttons/exit.png" id="4_p4eyu"]
+[ext_resource type="PackedScene" uid="uid://visuur1utug0" path="res://nodes/gui/gaussian_blur/gaussian_blur.tscn" id="4_ycdp2"]
 [ext_resource type="PackedScene" uid="uid://bqqiiwxg42b4r" path="res://nodes/gui_components/on_pressed_components/on_pressed_exit_to_main_menu/on_pressed_exit_to_main_menu.tscn" id="5_h8g62"]
 [ext_resource type="PackedScene" uid="uid://der1edoxrqxln" path="res://nodes/gui_components/set_game_state_on_gui_active/set_game_state_on_gui_active.tscn" id="7_xoj0p"]
 [ext_resource type="PackedScene" uid="uid://b7d7mcq2pxeu1" path="res://nodes/components/if_autoload_state_event_set_property/if_autoload_state_event_set_property.tscn" id="8_dayxy"]
@@ -18,7 +20,20 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_wgnu1")
 
-[node name="CenterContainer" type="CenterContainer" parent="." index="0"]
+[node name="BlackOverlay" parent="." index="0" instance=ExtResource("3_dvsx1")]
+layout_mode = 1
+
+[node name="GaussianBlur" parent="." index="1" instance=ExtResource("4_ycdp2")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="." index="2"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -47,7 +62,8 @@ custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 texture_normal = ExtResource("4_p4eyu")
 
-[node name="OnPressedExitToMainMenu" parent="CenterContainer/VBoxContainer/ExitToMainMenu" index="3" node_paths=PackedStringArray("control") instance=ExtResource("5_h8g62")]
+[node name="OnPressedExitToMainMenu" parent="CenterContainer/VBoxContainer/ExitToMainMenu" index="3" node_paths=PackedStringArray("gui", "control") instance=ExtResource("5_h8g62")]
+gui = NodePath("../../../..")
 control = NodePath("..")
 
 [node name="IfMainMenuEnteredSetProperty" parent="CenterContainer/VBoxContainer/ExitToMainMenu" index="4" node_paths=PackedStringArray("node") instance=ExtResource("8_dayxy")]
@@ -62,22 +78,22 @@ state_event = 1
 node = NodePath("..")
 disabled = true
 
-[node name="SetGameStateOnGUIActive" parent="." index="2" node_paths=PackedStringArray("gui") instance=ExtResource("7_xoj0p")]
+[node name="SetGameStateOnGUIActive" parent="." index="4" node_paths=PackedStringArray("gui") instance=ExtResource("7_xoj0p")]
 gui = NodePath("..")
 activated_state = "paused"
 deactivated_state = "resume"
 
-[node name="IfMainMenuEnteredSetProperty" parent="." index="3" node_paths=PackedStringArray("node") instance=ExtResource("8_dayxy")]
+[node name="IfMainMenuEnteredSetProperty" parent="." index="5" node_paths=PackedStringArray("node") instance=ExtResource("8_dayxy")]
 property = "main_menu_state"
 node = NodePath("../SetGameStateOnGUIActive")
 property_or_method = "disabled"
 
-[node name="IfMainMenuExitedSetProperty" parent="." index="4" node_paths=PackedStringArray("node") instance=ExtResource("8_dayxy")]
+[node name="IfMainMenuExitedSetProperty" parent="." index="6" node_paths=PackedStringArray("node") instance=ExtResource("8_dayxy")]
 property = "main_menu_state"
 state_event = 1
 node = NodePath("../SetGameStateOnGUIActive")
 property_or_method = "disabled"
 new_value = "false"
 
-[node name="OnVisibleAddToBackHistory" parent="." index="5" node_paths=PackedStringArray("node") instance=ExtResource("10_4ukv6")]
+[node name="OnVisibleAddToBackHistory" parent="." index="7" node_paths=PackedStringArray("node") instance=ExtResource("10_4ukv6")]
 node = NodePath("..")

@@ -15,7 +15,7 @@ with_label_settings = false
 horizontal_alignment = 0
 vertical_alignment = 0
 
-[node name="LightSwitch" node_paths=PackedStringArray("light_bulbs") instance=ExtResource("1_yhx30")]
+[node name="LightSwitch" node_paths=PackedStringArray("light_bulbs") groups=["LightSwitch"] instance=ExtResource("1_yhx30")]
 scale = Vector2(1.4, 1.4)
 script = ExtResource("2_sci1n")
 light_bulbs = []

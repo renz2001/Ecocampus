@@ -25,7 +25,9 @@ sound = ExtResource("11_myst6")
 play_from_position = 0
 pitch_scale = 1.0
 volume_slider = 1.0
+change_db = false
 volume_db = 0.0
+change_bus = false
 bus = &"Master"
 
 [sub_resource type="Resource" id="Resource_jxgm7"]
@@ -34,7 +36,9 @@ sound = ExtResource("9_xv43d")
 play_from_position = 0
 pitch_scale = 1.0
 volume_slider = 1.0
+change_db = false
 volume_db = 18.0
+change_bus = false
 bus = &"Master"
 
 [sub_resource type="Resource" id="Resource_jwwh6"]
@@ -43,7 +47,9 @@ sound = ExtResource("10_voiim")
 play_from_position = 0
 pitch_scale = 1.0
 volume_slider = 1.0
+change_db = false
 volume_db = 1.0
+change_bus = false
 bus = &"Master"
 
 [node name="DialogueBox" node_paths=PackedStringArray("character_label", "responses_menu", "dialogue_label", "speaker_sprites_switcher") instance=ExtResource("1_sidoq")]
@@ -57,6 +63,7 @@ dialogue_label = NodePath("Balloon/Dialogue/VBoxContainer/DialogueLabel")
 speaker_sprites_switcher = NodePath("SpeakerSpritesSwitcher")
 
 [node name="TapAnywhere" type="Label" parent="." index="0"]
+visible = false
 modulate = Color(1, 1, 1, 0.54902)
 layout_mode = 1
 anchors_preset = 5
@@ -212,8 +219,9 @@ offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="OnPressedNextDialogue" parent="Balloon/InvisibleButton" index="0" instance=ExtResource("9_j65rk")]
+[node name="OnPressedNextDialogue" parent="Balloon/InvisibleButton" index="0" node_paths=PackedStringArray("control") instance=ExtResource("9_j65rk")]
 do_not_skip_when_typing = true
+control = NodePath("..")
 
 [node name="Buttons" type="MarginContainer" parent="Balloon" index="3"]
 layout_mode = 1
@@ -249,6 +257,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Skip" parent="Balloon/Buttons/Buttons" index="3" instance=ExtResource("11_udtto")]
+visible = false
 custom_minimum_size = Vector2(300, 100)
 layout_mode = 2
 text = "Skip"

@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://y2iscrkvsonm"]
+[gd_scene load_steps=7 format=3 uid="uid://y2iscrkvsonm"]
 
 [ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/gui_manager/nodes/gui/gui/gui.tscn" id="1_jq4ma"]
 [ext_resource type="Script" path="res://nodes/gui/player_hud/player_hud.gd" id="2_3hk1a"]
 [ext_resource type="PackedScene" uid="uid://53yheb41dh24" path="res://nodes/gui/inventory_gui/inventory_gui.tscn" id="2_j6f2o"]
 [ext_resource type="Theme" uid="uid://cd55r8awc3jgy" path="res://themes/main_theme.tres" id="3_qlj7p"]
+[ext_resource type="PackedScene" uid="uid://b7d7mcq2pxeu1" path="res://nodes/components/if_autoload_state_event_set_property/if_autoload_state_event_set_property.tscn" id="5_1rerd"]
 [ext_resource type="PackedScene" uid="uid://cmimwcq2i013r" path="res://nodes/gui/achievement_tracker_gui/achievement_tracker_gui.tscn" id="5_ikbb1"]
 
 [node name="PlayerHUD" node_paths=PackedStringArray("inventory_gui") instance=ExtResource("1_jq4ma")]
@@ -39,5 +40,28 @@ anchor_bottom = 1.0
 offset_top = -145.0
 offset_bottom = -145.0
 grow_vertical = 0
+
+[node name="IfCustomizeEnteredSetProperty3" parent="MarginContainer/Control/InventoryGUI" index="2" node_paths=PackedStringArray("node") instance=ExtResource("5_1rerd")]
+property = "customize_character_state"
+dont_ready_value = true
+node = NodePath("..")
+new_value = "false"
+
+[node name="IfCustomizeExitedSetProperty4" parent="MarginContainer/Control/InventoryGUI" index="3" node_paths=PackedStringArray("node") instance=ExtResource("5_1rerd")]
+property = "customize_character_state"
+dont_ready_value = true
+node = NodePath("..")
+
+[node name="IfDialogueEnteredSetProperty4" parent="MarginContainer/Control/InventoryGUI" index="4" node_paths=PackedStringArray("node") instance=ExtResource("5_1rerd")]
+property = "dialogue_state"
+dont_ready_value = true
+node = NodePath("..")
+new_value = "false"
+
+[node name="IfDialogueExitedSetProperty5" parent="MarginContainer/Control/InventoryGUI" index="5" node_paths=PackedStringArray("node") instance=ExtResource("5_1rerd")]
+property = "dialogue_state"
+state_event = 1
+dont_ready_value = true
+node = NodePath("..")
 
 [node name="AchievementTrackerGUI" parent="MarginContainer/Control" index="1" instance=ExtResource("5_ikbb1")]

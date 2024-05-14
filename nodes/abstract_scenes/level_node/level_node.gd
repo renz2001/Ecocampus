@@ -21,12 +21,20 @@ func _ready() -> void:
 	, CONNECT_ONE_SHOT
 	)
 	entered_tree += 1
-	for node: Node in get_tree().get_nodes_in_group("QuestEntity"): 
+	
+	var show_nodes: Array[Node] = get_tree().get_nodes_in_group("Faucet")
+	show_nodes.append_array(get_tree().get_nodes_in_group("LightBulb"))
+	show_nodes.append_array(get_tree().get_nodes_in_group("LightSwitch"))
+	
+	var hide_nodes: Array[Node] = get_tree().get_nodes_in_group("QuestEntity")
+	hide_nodes.append_array(show_nodes)
+	
+	for node: Node in hide_nodes: 
 		node.hide()
 		
 	if GameManager.faucets_show: 
-		for node: Node in get_tree().get_nodes_in_group("QuestEntity"): 
-			if !node.is_in_group("Faucet") && node.disabled: 
+		for node: Node in show_nodes: 
+			if node.disabled: 
 				continue
 			node.show()
 		
