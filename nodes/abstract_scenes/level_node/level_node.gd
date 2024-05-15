@@ -7,7 +7,6 @@ static var entered_tree: int = 0
 @export var id_component: IDComponent
 #@export var quests_collection: QuestsCollection
 
-# TODO: Implement task condition script for segregating all trash. 
 
 #func _enter_tree() -> void: 
 	#printerr(get_children())

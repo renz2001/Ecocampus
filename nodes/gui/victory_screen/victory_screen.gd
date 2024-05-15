@@ -3,8 +3,8 @@ extends GUI
 class_name VictoryScreen
 
 
-func _activated() -> void: 
-	super._activated()
+#func _activated() -> void: 
+	#super._activated()
 
 
 func _on_return_home_pressed() -> void:

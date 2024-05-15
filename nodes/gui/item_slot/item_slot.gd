@@ -46,7 +46,6 @@ func set_display_visible(val: bool) -> void:
 	#printerr(self)
 	#printerr(stack_label.visible)
 
-# FIXME: Drag and dropping succesfully to a trash can, causes all the items to disappear
 func update() -> void: 
 	if !is_node_ready(): 
 		await ready
@@ -61,7 +60,6 @@ func update() -> void:
 	item_texture_rect.texture = item.model.item_icon
 	
 	if item.stack.current > 1: 
-		# FIXME: Stack label doesn't show even if it says show. 
 		stack_label.input([str(item.stack.current)])
 		stack_label.show()
 	else: 
