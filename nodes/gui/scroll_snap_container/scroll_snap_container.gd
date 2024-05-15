@@ -38,6 +38,8 @@ enum ScrollDirection {
 				scroll_horizontal_lerp.end_point = snap_size.x * current_snap_index
 				if current_snap_index == get_scroll_children_size() - 1: 
 					scroll_horizontal_lerp.end_point = get_h_scroll_bar().max_value
+				elif current_snap_index == 0: 
+					scroll_horizontal_lerp.end_point = 0
 				scroll_horizontal_lerp.play()
 				
 			ScrollDirection.VERTICAL: 

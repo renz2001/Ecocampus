@@ -83,6 +83,8 @@ func is_unlocked() -> bool:
 
 
 func reset() -> void: 
+	if is_default: 
+		return
 	state = CosmeticState.LOCKED
 	
 	
