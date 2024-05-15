@@ -24,8 +24,8 @@ func update() -> void:
 	else: 
 		text = "Equip"
 	
-	printerr(player.current_cosmetic.name)
-	printerr(player.is_equipped())
+	#printerr(player.current_cosmetic.name)
+	#printerr(player.is_equipped())
 	if !player.current_cosmetic.is_default && player.is_equipped(): 
 		disabled = false
 	elif cosmetic.is_default: 

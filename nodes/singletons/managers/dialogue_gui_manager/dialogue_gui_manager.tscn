@@ -72,4 +72,4 @@ acting_container = NodePath("../..")
 [node name="SetGameStateOnGUIActive" parent="." index="5" node_paths=PackedStringArray("gui") instance=ExtResource("8_nugj7")]
 gui = NodePath("..")
 activated_state = "dialogue"
-deactivated_state = "resume"
+deactivated_state = "playing"

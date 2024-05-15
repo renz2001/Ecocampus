@@ -14,7 +14,7 @@ func _ready() -> void:
 
 func to_dict() -> Dictionary: 
 	var dict: Dictionary
-	printerr("save: ", master_save_component.to_dict())
+	#printerr("save: ", master_save_component.to_dict())
 	return master_save_component.to_dict()
 
 
