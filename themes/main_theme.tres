@@ -2,22 +2,11 @@
 
 [ext_resource type="StyleBox" uid="uid://dwn5sekhug4fj" path="res://resources/styleboxes/dialogue_box_balloon.tres" id="1_fyakv"]
 [ext_resource type="StyleBox" uid="uid://gulw7ttuvjw1" path="res://resources/styleboxes/default_stylebox.tres" id="1_mamat"]
+[ext_resource type="StyleBox" uid="uid://wr08jtfx75us" path="res://resources/styleboxes/disabled_default.tres" id="1_qr6tc"]
 [ext_resource type="FontFile" uid="uid://bh5eyon0or827" path="res://fonts/Ubuntu-Regular.ttf" id="2_hew1c"]
 [ext_resource type="FontFile" uid="uid://dqdntixoq4bc2" path="res://fonts/Ubuntu-Medium.ttf" id="3_16t82"]
 [ext_resource type="FontFile" uid="uid://cp5vi568oh4jl" path="res://fonts/Ubuntu-Bold.ttf" id="3_tsh4s"]
 [ext_resource type="Texture2D" uid="uid://c566rhfwrcqe3" path="res://assets/gui/grabber.png" id="6_i48ey"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nmue4"]
-bg_color = Color(0.160784, 0.301961, 0.172549, 0.788235)
-border_width_left = 8
-border_width_top = 8
-border_width_right = 8
-border_width_bottom = 8
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xil5t"]
 bg_color = Color(0.0980392, 0.2, 0.105882, 1)
@@ -105,7 +94,7 @@ corner_radius_bottom_left = 30
 [resource]
 default_font = ExtResource("2_hew1c")
 default_font_size = 50
-Button/styles/disabled = SubResource("StyleBoxFlat_nmue4")
+Button/styles/disabled = ExtResource("1_qr6tc")
 Button/styles/focus = ExtResource("1_mamat")
 Button/styles/hover = SubResource("StyleBoxFlat_xil5t")
 Button/styles/normal = ExtResource("1_mamat")
@@ -125,6 +114,7 @@ DialogueText/fonts/normal_font = ExtResource("2_hew1c")
 EquipCosmeticButton/base_type = &"Button"
 EquipCosmeticButton/font_sizes/font_size = 25
 EquipCosmeticButton/fonts/font = ExtResource("3_16t82")
+EquipCosmeticButton/styles/disabled = ExtResource("1_qr6tc")
 GUIManagerMargin/base_type = &"MarginContainer"
 GUIManagerMargin/constants/margin_bottom = 0
 GUIManagerMargin/constants/margin_left = 0
