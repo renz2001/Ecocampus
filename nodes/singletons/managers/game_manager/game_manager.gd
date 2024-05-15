@@ -54,8 +54,9 @@ func is_paused() -> bool:
 	return paused_state.active
 
 
-func _on_playing_state_entered() -> void:
-	playing_music.play()
+func _on_playing_state_entered() -> void: 
+	if AudioManager.music_player.stream != null && AudioManager.music_player.stream.resource_path != playing_music.audio.get_sound_path(): 
+		playing_music.play()
 	if enable_player_on_playing_entered: 
 		if PlayerManager.player: 
 			PlayerManager.player.state_chart.send_event("enabled")

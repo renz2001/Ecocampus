@@ -63,10 +63,10 @@ inactive_on_ready = false
 
 [node name="OnTapSetActive" parent="." index="0" node_paths=PackedStringArray("gui") instance=ExtResource("10_1lx0p")]
 layout_mode = 1
-offset_left = -1305.0
-offset_top = -963.0
-offset_right = 615.0
-offset_bottom = 378.0
+offset_left = -2072.0
+offset_top = -1508.0
+offset_right = 1718.0
+offset_bottom = 1139.0
 gui = NodePath("..")
 
 [node name="Body" type="TextureRect" parent="." index="1"]

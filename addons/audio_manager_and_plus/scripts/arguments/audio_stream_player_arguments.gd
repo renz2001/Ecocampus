@@ -51,3 +51,12 @@ func get_volume() -> float:
 	if volume_db > 0: 
 		return volume_db
 	return linear_to_db(volume_slider)
+
+
+func is_same_file(value: AudioStreamPlayerArguments) -> bool: 
+	return value.get_sound_path() == get_sound_path()
+	
+	
+func get_sound_path() -> String: 
+	return sound.resource_path
+	
