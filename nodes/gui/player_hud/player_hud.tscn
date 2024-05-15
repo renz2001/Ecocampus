@@ -49,6 +49,7 @@ new_value = "false"
 
 [node name="IfCustomizeExitedSetProperty4" parent="MarginContainer/Control/InventoryGUI" index="3" node_paths=PackedStringArray("node") instance=ExtResource("5_1rerd")]
 property = "customize_character_state"
+state_event = 1
 dont_ready_value = true
 node = NodePath("..")
 

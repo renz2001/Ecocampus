@@ -72,10 +72,19 @@ new_value = "false"
 [node name="Playing" parent="Root/MarginContainer/BaseControl" index="0"]
 only_one_instance = false
 
-[node name="PlayerHUD" parent="Root/MarginContainer/BaseControl/Playing" index="0" instance=ExtResource("9_32jpw")]
+[node name="CustomizeCharacterScreen" parent="Root/MarginContainer/BaseControl/Playing" index="0" instance=ExtResource("11_xm22g")]
+layout_mode = 1
+only_one_instance = false
+
+[node name="IfMainScreenEnteredSetProperty" parent="Root/MarginContainer/BaseControl/Playing/CustomizeCharacterScreen" index="2" node_paths=PackedStringArray("node") instance=ExtResource("9_ep4ey")]
+property = "main_screen_state"
+node = NodePath("..")
+new_value = "false"
+
+[node name="PlayerHUD" parent="Root/MarginContainer/BaseControl/Playing" index="1" instance=ExtResource("9_32jpw")]
 layout_mode = 1
 
-[node name="Components" type="Node" parent="Root/MarginContainer/BaseControl/Playing" index="1"]
+[node name="Components" type="Node" parent="Root/MarginContainer/BaseControl/Playing" index="2"]
 
 [node name="IfMainScreenEnteredSetProperty" parent="Root/MarginContainer/BaseControl/Playing/Components" index="0" node_paths=PackedStringArray("node") instance=ExtResource("9_ep4ey")]
 property = "main_screen_state"
@@ -87,7 +96,8 @@ property = "playing_state"
 node = NodePath("../..")
 debug = true
 
-[node name="QuizAttemptScreen" parent="Root/MarginContainer/BaseControl/Playing" index="3" instance=ExtResource("8_rgdf8")]
+[node name="QuizAttemptScreen" parent="Root/MarginContainer/BaseControl/Playing" index="4" instance=ExtResource("8_rgdf8")]
+visible = false
 layout_mode = 1
 
 [node name="IfMainScreenEnteredSetProperty" parent="Root/MarginContainer/BaseControl/Playing/QuizAttemptScreen" index="4" node_paths=PackedStringArray("node") instance=ExtResource("9_ep4ey")]
@@ -95,17 +105,9 @@ property = "main_screen_state"
 node = NodePath("..")
 new_value = "false"
 
-[node name="DialogueGUIManager" parent="Root/MarginContainer/BaseControl/Playing" index="4" instance=ExtResource("3_ew5n2")]
+[node name="DialogueGUIManager" parent="Root/MarginContainer/BaseControl/Playing" index="5" instance=ExtResource("3_ew5n2")]
+visible = false
 layout_mode = 1
-
-[node name="CustomizeCharacterScreen" parent="Root/MarginContainer/BaseControl/Playing" index="5" instance=ExtResource("11_xm22g")]
-layout_mode = 1
-only_one_instance = false
-
-[node name="IfMainScreenEnteredSetProperty" parent="Root/MarginContainer/BaseControl/Playing/CustomizeCharacterScreen" index="2" node_paths=PackedStringArray("node") instance=ExtResource("9_ep4ey")]
-property = "main_screen_state"
-node = NodePath("..")
-new_value = "false"
 
 [node name="InstancedGUIs" parent="Root/MarginContainer/BaseControl" index="1"]
 only_one_instance = false
@@ -118,6 +120,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="SettingsMenu" parent="Root/MarginContainer/BaseControl" index="2" instance=ExtResource("13_qklwl")]
+visible = false
 layout_mode = 1
 only_one_instance = false
 
@@ -198,7 +201,9 @@ grow_horizontal = 0
 grow_vertical = 0
 
 [node name="AchievementUnlockedScreen" parent="Root/MarginContainer/BaseControl" index="4" instance=ExtResource("14_df8bm")]
+visible = false
 layout_mode = 1
+metadata/_edit_lock_ = true
 
 [node name="AlertScreen" parent="Root" index="2" instance=ExtResource("18_0q276")]
 visible = false
@@ -207,6 +212,8 @@ layout_mode = 1
 [node name="TransitionsManager" parent="Root" index="3" instance=ExtResource("10_u8sf5")]
 layout_mode = 1
 only_one_instance = false
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="Demo" type="Label" parent="Root" index="4"]
 visible = false

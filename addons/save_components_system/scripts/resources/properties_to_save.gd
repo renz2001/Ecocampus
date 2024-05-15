@@ -99,16 +99,24 @@ static func load_dict_to_object(obj: Object, dict: Dictionary) -> void:
 				#pass
 			#print(obj)
 			for i: int in value.size(): 
+				
+				# Supposed to be a dictionary
 				var value_value = value[i]
 				var obj_array: Array = obj.get(property)
 				var obj_array_value = null
 				
-				if value_value.has(str(i)): 
-					obj_array_value = value_value[str(i)]
-				elif value_value.has(i): 
-					obj_array_value = value_value[i]
-				
+				# Supposed to check for the index
+				if value_value is Dictionary: 
+					if value_value.has(str(i)): 
+						obj_array_value = value_value[str(i)]
+					elif value_value.has(i): 
+						obj_array_value = value_value[i]
+				else: 
+					obj_array_value = value_value
+					
+				#printerr(value_value)
 				if obj_array_value == null:
+					#print(value_value)
 					printerr("ASDASd")
 				
 				#printerr("obj array: ", obj_array)
@@ -135,8 +143,9 @@ static func load_dict_to_object(obj: Object, dict: Dictionary) -> void:
 				else: 
 					if i > obj_array.size(): 
 						obj_array.append(obj_array_value)
-					else: 
-						obj_array[i] = value_value
+					elif obj_array.size() != 0: 
+						#printerr(obj_array.size())
+						obj_array[i] = obj_array_value
 		else: 
 			#print(obj.get(property))
 			#if property == "items": 

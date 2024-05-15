@@ -17,3 +17,6 @@ func _input(event: InputEvent) -> void:
 	elif event.is_action_pressed("skip_dialogue"): 
 		if GUIManager.dialogue_gui_manager.is_visible_in_tree(): 
 			GUIManager.dialogue_gui_manager.current_dialogue_gui.next()
+
+	elif event.is_action_pressed("god_mode"): 
+		GlobalData.achievements_tracker.medals.points.add(999)
