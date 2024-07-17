@@ -70,4 +70,3 @@ func _on_dragging_cancelled() -> void:
 	
 func _on_dropped() -> void: 
 	update()
-

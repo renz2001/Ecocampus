@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bsqxg1dqg12rf"]
+
+[ext_resource type="PackedScene" uid="uid://ba6uieidm61wl" path="res://nodes/gui/buttons/texture_button_plus/texture_button_plus.tscn" id="1_i6nmn"]
+
+[node name="TransparentItemSlot" instance=ExtResource("1_i6nmn")]

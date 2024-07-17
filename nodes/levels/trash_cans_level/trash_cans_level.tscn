@@ -1,19 +1,14 @@
-[gd_scene load_steps=13 format=3 uid="uid://bc1txwrwrlhfu"]
+[gd_scene load_steps=11 format=3 uid="uid://bc1txwrwrlhfu"]
 
 [ext_resource type="PackedScene" uid="uid://cm6jeskbiise6" path="res://nodes/abstract_scenes/level_node/level_node.tscn" id="1_4fkii"]
 [ext_resource type="Texture2D" uid="uid://cgvwt0653vaxn" path="res://assets/background/camera_pictures/trash_can_bg.jpg" id="2_jlb62"]
 [ext_resource type="PackedScene" uid="uid://ci8jg3d2e7j5p" path="res://nodes/components/player_sprite_display/player_sprite_display.tscn" id="2_xrh1o"]
-[ext_resource type="Texture2D" uid="uid://dqshq874l3ic5" path="res://assets/character/player_boy/boy.png" id="3_briwm"]
 [ext_resource type="PackedScene" uid="uid://ceslx0shjft6" path="res://nodes/storage_nodes/bio_degradable_trash_can/bio_degradable_trash_can.tscn" id="4_7mhfn"]
 [ext_resource type="PackedScene" uid="uid://cdt5mavsgfwcl" path="res://nodes/storage_nodes/non_biodegradable_trash_can/non_biodegradable_trash_can.tscn" id="5_4eos8"]
 [ext_resource type="PackedScene" uid="uid://caddtr3fd88mk" path="res://nodes/gui/trash_can_info_dialog/trash_can_info_dialog.tscn" id="5_qmskb"]
 [ext_resource type="PackedScene" uid="uid://dtqoxulajxxhx" path="res://nodes/storage_nodes/recyclable_trash_can/recyclable_trash_can.tscn" id="6_4jqk0"]
 [ext_resource type="PackedScene" uid="uid://8qsjsyglmgq4" path="res://nodes/entities/player_node/player_node.tscn" id="6_ma7va"]
 [ext_resource type="Script" path="res://addons/save_components_system/scripts/resources/id.gd" id="7_w83j3"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8oaj7"]
-atlas = ExtResource("3_briwm")
-region = Rect2(381, 52, 140, 229)
 
 [sub_resource type="Resource" id="Resource_7dr80"]
 script = ExtResource("7_w83j3")
@@ -44,7 +39,6 @@ trash_cans = [NodePath("../../../Entities/NonLiving/TrashCans/BioDegradableTrash
 [node name="PlayerSpriteDisplay" parent="Environment" index="0" instance=ExtResource("2_xrh1o")]
 position = Vector2(266, 585)
 scale = Vector2(3.42857, 3.42857)
-texture = SubResource("AtlasTexture_8oaj7")
 flip_h = true
 
 [node name="MainCamera" parent="Cameras" index="0" node_paths=PackedStringArray("follow_node")]

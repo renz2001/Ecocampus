@@ -63,4 +63,3 @@ func _notification(what: int) -> void:
 		SaveManager.save_game_to_file(true)
 	#elif what == NOTIFICATION_WM_GO_BACK_REQUEST: 
 		#to_map_picker.change()
-

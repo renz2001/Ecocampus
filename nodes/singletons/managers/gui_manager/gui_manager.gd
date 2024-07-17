@@ -10,7 +10,7 @@ extends BaseGUIManager
 @export var achievement_unlocked_screen: AchievementUnlockedScreen
 
 @export var player_hud: PlayerHUD
-
+@export var item_obtained_screen: ItemObtainedScreen
 
 func reset() -> void: 
 	GUIManager.set_gui_active(quiz_attempt_screen, false)

@@ -15,5 +15,3 @@ func _on_visible() -> void:
 		BackManager.add(owner.scene_file_path)
 		return
 	BackManager.add(node)
-
-

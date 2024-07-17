@@ -24,4 +24,3 @@ func update() -> void:
 	title_label.text = achievement.title
 	task_description_label.text = achievement.task_description
 	youve_earned_label.input([str(achievement.reward_medals)])
-

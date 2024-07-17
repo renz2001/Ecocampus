@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dn0hmrfmam4bl"]
+[gd_scene load_steps=23 format=3 uid="uid://dn0hmrfmam4bl"]
 
 [ext_resource type="PackedScene" uid="uid://dup6nowsahsrg" path="res://addons/gui_manager/nodes/singletons/gui_manager/gui_manager.tscn" id="1_fgil1"]
 [ext_resource type="Script" path="res://nodes/singletons/managers/gui_manager/gui_manager.gd" id="2_43jm5"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://bvqcvxujyci1a" path="res://nodes/gui/quests_menu/quests_menu.tscn" id="15_54dqn"]
 [ext_resource type="PackedScene" uid="uid://hvnsbucyycft" path="res://nodes/gui/alert_screen/alert_screen.tscn" id="18_0q276"]
 [ext_resource type="PackedScene" uid="uid://b26qgdv0t84hx" path="res://nodes/gui/saving_label/saving_label.tscn" id="18_62bra"]
+[ext_resource type="PackedScene" uid="uid://ckoeormi67l3p" path="res://nodes/gui/item_obtained_screen/item_obtained_screen.tscn" id="18_tnw5h"]
 [ext_resource type="LabelSettings" uid="uid://bfng1toxthprb" path="res://resources/label_settings/quiz_attempt_gui_title.tres" id="19_2m0kl"]
 
 [sub_resource type="Resource" id="Resource_w1cp2"]
@@ -30,7 +31,7 @@ value_color = Color(1, 0, 0, 1)
 automatic_value_color = true
 use_spaces_for_node_name = false
 
-[node name="GUIManager" node_paths=PackedStringArray("transitions_manager", "dialogue_gui_manager", "customize_character_screen", "settings_menu", "quiz_attempt_screen", "achievement_unlocked_screen", "player_hud", "dropdown_popup") instance=ExtResource("1_fgil1")]
+[node name="GUIManager" node_paths=PackedStringArray("transitions_manager", "dialogue_gui_manager", "customize_character_screen", "settings_menu", "quiz_attempt_screen", "achievement_unlocked_screen", "player_hud", "item_obtained_screen", "dropdown_popup") instance=ExtResource("1_fgil1")]
 follow_viewport_enabled = false
 script = ExtResource("2_43jm5")
 transitions_manager = NodePath("Root/TransitionsManager")
@@ -40,6 +41,7 @@ settings_menu = NodePath("Root/MarginContainer/BaseControl/SettingsMenu")
 quiz_attempt_screen = NodePath("Root/MarginContainer/BaseControl/Playing/QuizAttemptScreen")
 achievement_unlocked_screen = NodePath("Root/MarginContainer/BaseControl/AchievementUnlockedScreen")
 player_hud = NodePath("Root/MarginContainer/BaseControl/Playing/PlayerHUD")
+item_obtained_screen = NodePath("Root/MarginContainer/BaseControl/ItemObtainedScreen")
 centered_acting_container = ExtResource("4_ddkn8")
 exclusive_gui = ExtResource("5_bp7t5")
 dropdown_popup = NodePath("DropdownPopup")
@@ -202,6 +204,9 @@ grow_vertical = 0
 layout_mode = 1
 metadata/_edit_lock_ = true
 
+[node name="ItemObtainedScreen" parent="Root/MarginContainer/BaseControl" index="5" instance=ExtResource("18_tnw5h")]
+layout_mode = 1
+
 [node name="AlertScreen" parent="Root" index="2" instance=ExtResource("18_0q276")]
 visible = false
 layout_mode = 1
@@ -221,3 +226,6 @@ offset_right = 391.0
 offset_bottom = 160.0
 text = "DEMO"
 label_settings = ExtResource("19_2m0kl")
+
+[node name="DropdownPopup" parent="." index="1"]
+unfocusable = true

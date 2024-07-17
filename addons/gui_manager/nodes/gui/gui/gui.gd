@@ -107,4 +107,3 @@ func _on_visibility_changed() -> void:
 		on_show_audio.play()
 	elif !is_visible_in_tree() && _initialized: 
 		on_hide_audio.play()
-

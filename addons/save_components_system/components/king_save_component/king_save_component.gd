@@ -51,4 +51,3 @@ func to_dict() -> Dictionary:
 		#var follower_save: FollowerSaveComponent = get_tree().current_scene.get_node(path)
 		#
 		#follower_save.load_data()
-

@@ -7,7 +7,6 @@
 random_pitch = 1.2
 streams_count = 1
 stream_0/stream = ExtResource("1_2dsn3")
-stream_0/weight = 1.0
 
 [resource]
 script = ExtResource("2_c27yw")

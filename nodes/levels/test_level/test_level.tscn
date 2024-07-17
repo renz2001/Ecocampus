@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c8ts62hakxdh3"]
+[gd_scene load_steps=22 format=3 uid="uid://c8ts62hakxdh3"]
 
 [ext_resource type="PackedScene" uid="uid://cm6jeskbiise6" path="res://nodes/abstract_scenes/level_node/level_node.tscn" id="1_pvguk"]
 [ext_resource type="Texture2D" uid="uid://bb8wuo25lx7ap" path="res://assets/background/camera_pictures/gate_1.jpg" id="2_bj4v3"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://8qsjsyglmgq4" path="res://nodes/entities/player_node/player_node.tscn" id="3_uej4m"]
 [ext_resource type="PackedScene" uid="uid://kswh3ivlg5yv" path="res://nodes/entities/test_npc/test_npc.tscn" id="5_qgg4j"]
 [ext_resource type="Resource" uid="uid://byaj1bas2wkaw" path="res://resources/dialogues/dialogues.dialogue" id="6_ja6bt"]
+[ext_resource type="Script" path="res://scripts/resources/entity.gd" id="7_fy6jw"]
 [ext_resource type="Resource" uid="uid://dpg6457rwx03a" path="res://resources/entity/player.tres" id="7_xkvai"]
 [ext_resource type="Script" path="res://addons/dialogue_manager's_dialogue_gui_manager/scripts/arguments/dialogue_arguments.gd" id="8_gx0oq"]
 [ext_resource type="Resource" uid="uid://dcuvl2mko4mon" path="res://resources/quizzes/gate_1_quiz.tres" id="10_at6cv"]
@@ -28,7 +29,7 @@ source_geometry_group_name = &"navigation_polygon_source_group"
 script = ExtResource("8_gx0oq")
 dialogue_gui = 0
 dialogue_resource = ExtResource("6_ja6bt")
-main_speakers = Array[Resource("res://scripts/resources/entity.gd")]([ExtResource("7_xkvai")])
+main_speakers = Array[ExtResource("7_fy6jw")]([ExtResource("7_xkvai")])
 title = "test_quiz"
 extra_game_states = []
 title_variation = 0

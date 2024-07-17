@@ -1,9 +1,10 @@
-[gd_resource type="Resource" script_class="Player" load_steps=11 format=3 uid="uid://dpg6457rwx03a"]
+[gd_resource type="Resource" script_class="Player" load_steps=12 format=3 uid="uid://dpg6457rwx03a"]
 
 [ext_resource type="Script" path="res://scripts/resources/player.gd" id="1_0t738"]
 [ext_resource type="Resource" uid="uid://ccu36slooej8y" path="res://resources/cosmetics/default.tres" id="1_oxe6g"]
 [ext_resource type="Texture2D" uid="uid://cwomglc1im0b1" path="res://assets/character/player_girl/speaker_sprite.png" id="2_l62bc"]
 [ext_resource type="Script" path="res://scripts/resources/inventory.gd" id="3_8s41h"]
+[ext_resource type="Script" path="res://scripts/resources/item_stack.gd" id="3_h22ir"]
 [ext_resource type="Texture2D" uid="uid://b6s8up1g0ajmb" path="res://assets/character/player_boy/speaker_sprite.png" id="4_bho86"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ll24c"]
@@ -16,7 +17,7 @@ region = Rect2(1541, 1041, 1279, 1439)
 
 [sub_resource type="Resource" id="Resource_vcmjm"]
 script = ExtResource("3_8s41h")
-items = Array[Resource("res://scripts/resources/item_stack.gd")]([])
+items = Array[ExtResource("3_h22ir")]([])
 max_items = 6
 save_as_resource_path = false
 

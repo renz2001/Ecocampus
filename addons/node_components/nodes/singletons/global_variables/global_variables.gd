@@ -71,4 +71,3 @@ func get_direction_vector(dir: BaseGlobalEnums.Directions) -> Vector2:
 		BaseGlobalEnums.Directions.NEUTRAL: 
 			return Vector2.ZERO
 	return Vector2.ZERO
-

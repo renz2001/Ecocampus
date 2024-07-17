@@ -125,4 +125,3 @@ func play_sound_effect(args: AudioStreamPlayerArguments, position: Vector2 = Vec
 	#range()
 	#args.set_pitch_scale(new_pitch)
 	#play_sound(args, position)
-

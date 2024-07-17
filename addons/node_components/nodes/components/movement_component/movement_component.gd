@@ -65,4 +65,3 @@ func set_velocity(velocity: Vector2) -> void:
 	node.move_and_slide()
 	if velocity == Vector2.ZERO: 
 		stopped.emit()
-

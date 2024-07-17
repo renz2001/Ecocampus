@@ -60,5 +60,3 @@ func _close() -> void:
 	queue_free()
 	if GameManager.is_playing(): 
 		data.caller.state_chart.send_event("enabled")
-
-

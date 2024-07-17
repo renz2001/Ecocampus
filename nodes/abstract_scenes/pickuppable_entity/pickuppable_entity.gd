@@ -1,8 +1,6 @@
 extends EntityNode
 class_name PickuppableEntity
 
-# TODO: Implement entity being queued free if it is queued free from previous save. 
-
 func _ready() -> void: 
 	super._ready() 
 	interact_description = RichLabelText.new()
@@ -37,4 +35,3 @@ func show_interact_dialog(description: BaseLabelText) -> void:
 	
 	if interact_audio: 
 		dialog.ok_button.button_audio_player.disabled = true
-

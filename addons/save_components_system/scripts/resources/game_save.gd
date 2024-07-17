@@ -75,4 +75,3 @@ func to_json() -> JSON:
 func is_empty() -> bool: 
 	return data.is_empty()
 	
-

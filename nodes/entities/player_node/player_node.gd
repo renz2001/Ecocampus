@@ -89,10 +89,3 @@ func _on_gender_changed() -> void:
 
 func _on_path_find_movement_component_finished_navigation() -> void: 
 	state_chart.send_event("idle")
-
-
-
-
-
-
-

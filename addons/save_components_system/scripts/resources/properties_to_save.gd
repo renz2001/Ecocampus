@@ -153,4 +153,3 @@ static func load_dict_to_object(obj: Object, dict: Dictionary) -> void:
 			#print("obj: %s, property: %s" % [obj, property])
 			obj.set(property, value)
 			#printerr(obj.get(property))
-

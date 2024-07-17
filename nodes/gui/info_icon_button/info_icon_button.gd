@@ -21,4 +21,3 @@ func _on_visibility_changed() -> void:
 func update() -> void: 
 	icon.visible = !about_us.is_visible_in_tree()
 	close_icon.visible = about_us.is_visible_in_tree()
-

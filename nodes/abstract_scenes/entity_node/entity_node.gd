@@ -175,4 +175,3 @@ func _on_dialogue_response_handler_responded(value: String) -> void:
 func _on_ready_unique_resource_resource_ready() -> void:
 	if inventory: 
 		inventory.owner = self
-

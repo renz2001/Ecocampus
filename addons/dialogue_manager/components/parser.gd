@@ -41,9 +41,9 @@ var TOKEN_DEFINITIONS: Dictionary = {
 	DialogueConstants.TOKEN_OPERATOR: RegEx.create_from_string("^(\\+|\\-|\\*|/|%)"),
 	DialogueConstants.TOKEN_COMMA: RegEx.create_from_string("^,"),
 	DialogueConstants.TOKEN_DOT: RegEx.create_from_string("^\\."),
-	DialogueConstants.TOKEN_STRING: RegEx.create_from_string("^(\".*?\"|\'.*?\')"),
+	DialogueConstants.TOKEN_STRING: RegEx.create_from_string("^&?(\".*?\"|\'.*?\')"),
 	DialogueConstants.TOKEN_NOT: RegEx.create_from_string("^(not( |$)|!)"),
-	DialogueConstants.TOKEN_AND_OR: RegEx.create_from_string("^(and|or)( |$)"),
+	DialogueConstants.TOKEN_AND_OR: RegEx.create_from_string("^(and|or|&&|\\|\\|)( |$)"),
 	DialogueConstants.TOKEN_VARIABLE: RegEx.create_from_string("^[a-zA-Z_][a-zA-Z_0-9]*"),
 	DialogueConstants.TOKEN_COMMENT: RegEx.create_from_string("^#.*"),
 	DialogueConstants.TOKEN_CONDITION: RegEx.create_from_string("^(if|elif|else)"),
@@ -1525,17 +1525,28 @@ func build_token_tree(tokens: Array[Dictionary], line_type: String, expected_clo
 			DialogueConstants.TOKEN_ASSIGNMENT, \
 			DialogueConstants.TOKEN_OPERATOR, \
 			DialogueConstants.TOKEN_AND_OR, \
-			DialogueConstants.TOKEN_VARIABLE: \
+			DialogueConstants.TOKEN_VARIABLE:
+				var value = token.value.strip_edges()
+				if value == "&&":
+					value = "and"
+				elif value == "||":
+					value = "or"
 				tree.append({
 					type = token.type,
-					value = token.value.strip_edges()
+					value = value
 				})
 
 			DialogueConstants.TOKEN_STRING:
-				tree.append({
-					type = token.type,
-					value = token.value.substr(1, token.value.length() - 2)
-				})
+				if token.value.begins_with("&"):
+					tree.append({
+						type = token.type,
+						value = StringName(token.value.substr(2, token.value.length() - 3))
+					})
+				else:
+					tree.append({
+						type = token.type,
+						value = token.value.substr(1, token.value.length() - 2)
+					})
 
 			DialogueConstants.TOKEN_CONDITION:
 				return [build_token_tree_error(DialogueConstants.ERR_UNEXPECTED_CONDITION, token.index), token]
