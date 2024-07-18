@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://do60bu0cxb3yo"]
+
+[ext_resource type="Script" path="res://nodes/gui/transparent_item_slots_container/tool_item_slots_container.gd" id="1_e3fxd"]
+[ext_resource type="PackedScene" uid="uid://bsqxg1dqg12rf" path="res://nodes/gui/transparent_item_slot/transparent_item_slot.tscn" id="2_0wgom"]
+
+[node name="ToolItemSlotsContainer" type="HBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_e3fxd")
+item_slot_scene = ExtResource("2_0wgom")

@@ -3,6 +3,15 @@
 [ext_resource type="PackedScene" uid="uid://ba6uieidm61wl" path="res://nodes/gui/buttons/texture_button_plus/texture_button_plus.tscn" id="1_i6nmn"]
 [ext_resource type="Script" path="res://nodes/gui/item_slot/item_slot.gd" id="1_tinjg"]
 
-[node name="TransparentItemSlot" instance=ExtResource("1_i6nmn")]
+[node name="TransparentItemSlot" node_paths=PackedStringArray("item_texture_rect") instance=ExtResource("1_i6nmn")]
 script = ExtResource("1_tinjg")
+item_texture_rect = NodePath("TextureRect")
 item = null
+
+[node name="TextureRect" type="TextureRect" parent="." index="3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

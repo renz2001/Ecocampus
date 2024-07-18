@@ -21,8 +21,8 @@ enum OverrideCosmeticState {
 				cosmetic.unlocked.disconnect(_on_cosmetic_unlocked)
 			
 		cosmetics_collection = value
-			
-			
+		
+		
 		if cosmetics_collection: 
 			for cosmetic: Cosmetic in cosmetics_collection.cosmetics: 
 				cosmetic.unlocked.connect(_on_cosmetic_unlocked)

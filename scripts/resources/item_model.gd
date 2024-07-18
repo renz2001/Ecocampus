@@ -5,7 +5,8 @@ class_name ItemModel
 enum Type {
 	NON_BIODEGRADABLE, 
 	BIODEGRADABLE, 
-	RECYCLABLE
+	RECYCLABLE, 
+	TOOL
 }
 
 @export var name: StringName
@@ -23,5 +24,9 @@ func to_item_stack() -> ItemStack:
 	var item: ItemStack = ItemStack.new() 
 	item.model = self
 	return item
+	
+	
+func is_tool() -> bool: 
+	return type == Type.TOOL
 	
 	

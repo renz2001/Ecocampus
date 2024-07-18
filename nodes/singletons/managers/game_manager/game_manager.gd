@@ -1,5 +1,7 @@
 extends Node
 
+#Reason why the state tree is weird is because I had to implement the history state. 
+
 @export var cosmetics_collection: CosmeticsCollection
 @export var achievements_collection: AchievementsCollection
 

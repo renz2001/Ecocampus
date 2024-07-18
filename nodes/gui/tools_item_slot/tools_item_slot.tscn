@@ -1,22 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://c5l5cc2j18bt6"]
+[gd_scene load_steps=5 format=3 uid="uid://c5l5cc2j18bt6"]
 
 [ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/gui_manager/nodes/gui/gui/gui.tscn" id="1_fmwrd"]
 [ext_resource type="Script" path="res://nodes/gui/tools_item_slot/tools_item_slot.gd" id="2_8mhln"]
 [ext_resource type="PackedScene" uid="uid://d4mqjvr57ok1h" path="res://nodes/gui/buttons/icon_button/icon_button.tscn" id="2_sura1"]
+[ext_resource type="PackedScene" uid="uid://do60bu0cxb3yo" path="res://nodes/gui/transparent_item_slots_container/tool_item_slots_container.tscn" id="3_e2f3d"]
 
 [node name="ToolsItemSlot" node_paths=PackedStringArray("icon_button", "items_container", "panel_clip") instance=ExtResource("1_fmwrd")]
 script = ExtResource("2_8mhln")
 inventory = null
 animation = null
 icon_button = NodePath("IconButton")
-items_container = NodePath("PanelClip/PanelContainer/Items")
+items_container = NodePath("")
 panel_clip = NodePath("PanelClip")
 animation_duration = 0.5
 
 [node name="PanelClip" type="ColorRect" parent="." index="0"]
 clip_children = 1
 layout_mode = 0
-offset_left = 76.0
+offset_left = 89.0
 offset_right = 104.0
 offset_bottom = 138.0
 mouse_filter = 2
@@ -28,16 +29,16 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -16.0
-offset_top = -66.0
-offset_bottom = 67.0
+offset_left = -116.0
+offset_top = -67.0
+offset_right = -42.0
+offset_bottom = 66.0
 grow_horizontal = 0
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Items" type="HBoxContainer" parent="PanelClip/PanelContainer" index="0"]
+[node name="ToolItemSlotsContainer" parent="PanelClip/PanelContainer" index="0" instance=ExtResource("3_e2f3d")]
 layout_mode = 2
-mouse_filter = 2
 alignment = 2
 
 [node name="IconButton" parent="." index="1" instance=ExtResource("2_sura1")]

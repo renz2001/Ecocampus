@@ -70,3 +70,7 @@ func _on_dragging_cancelled() -> void:
 	
 func _on_dropped() -> void: 
 	update()
+
+
+func _get_items() -> Array[ItemStack]: 
+	return inventory.get_items_by_type(ItemModel.Type.TOOL, true)

@@ -40,6 +40,15 @@ func _init() -> void:
 	print_color.owner_name_color = Color("93ffb5")
 	print_color.color = Color("b4ff00")
 
+## type == Item.Type
+func get_items_by_type(type, inversed: bool = false) -> Array[ItemStack]: 
+	return items.filter(
+		func(item): 
+			if inversed: 
+				return item.type != type
+			return item.type == type
+	)
+
 
 func set_items(new_items: Array[ItemStack]) -> void: 
 	if _is_value_too_big(new_items.size()): 

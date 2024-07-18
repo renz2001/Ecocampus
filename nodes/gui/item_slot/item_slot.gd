@@ -52,18 +52,20 @@ func update() -> void:
 		
 	if item == null: 
 		item_texture_rect.texture = null
-		stack_label.hide()
+		if stack_label: 
+			stack_label.hide()
 		drag_area.disabled = true
 		return
 		
 	drag_area.disabled = false
 	item_texture_rect.texture = item.model.item_icon
 	
-	if item.stack.current > 1: 
-		stack_label.input([str(item.stack.current)])
-		stack_label.show()
-	else: 
-		stack_label.hide()
+	if stack_label: 
+		if item.stack.current > 1: 
+			stack_label.input([str(item.stack.current)])
+			stack_label.show()
+		else: 
+			stack_label.hide()
 
 	if MouseDrag.is_dragging && MouseDrag.drag_data.has("item") && MouseDrag.drag_data["item"] == item: 
 		#printerr("%s with %s is hidden with dragging" % [self, item])
