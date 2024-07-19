@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://y2iscrkvsonm"]
+[gd_scene load_steps=8 format=3 uid="uid://y2iscrkvsonm"]
 
 [ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/gui_manager/nodes/gui/gui/gui.tscn" id="1_jq4ma"]
 [ext_resource type="Script" path="res://nodes/gui/player_hud/player_hud.gd" id="2_3hk1a"]
@@ -6,6 +6,7 @@
 [ext_resource type="Theme" uid="uid://cd55r8awc3jgy" path="res://themes/main_theme.tres" id="3_qlj7p"]
 [ext_resource type="PackedScene" uid="uid://b7d7mcq2pxeu1" path="res://nodes/components/if_autoload_state_event_set_property/if_autoload_state_event_set_property.tscn" id="5_1rerd"]
 [ext_resource type="PackedScene" uid="uid://cmimwcq2i013r" path="res://nodes/gui/achievement_tracker_gui/achievement_tracker_gui.tscn" id="5_ikbb1"]
+[ext_resource type="PackedScene" uid="uid://c5l5cc2j18bt6" path="res://nodes/gui/tools_item_slot/tools_item_slot.tscn" id="7_evgpl"]
 
 [node name="PlayerHUD" node_paths=PackedStringArray("inventory_gui") instance=ExtResource("1_jq4ma")]
 anchors_preset = 15
@@ -74,6 +75,45 @@ node = NodePath("..")
 new_value = "false"
 
 [node name="IfDialogueExitedSetProperty5" parent="MarginContainer/Control/AchievementTrackerGUI" index="5" node_paths=PackedStringArray("node") instance=ExtResource("5_1rerd")]
+property = "dialogue_state"
+state_event = 1
+dont_ready_value = true
+node = NodePath("..")
+
+[node name="ToolsItemSlot" parent="MarginContainer/Control" index="2" instance=ExtResource("7_evgpl")]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -137.0
+offset_top = -141.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 0
+grow_vertical = 0
+inactive_on_ready = false
+
+[node name="IfCustomizeEnteredSetProperty3" parent="MarginContainer/Control/ToolsItemSlot" index="3" node_paths=PackedStringArray("node") instance=ExtResource("5_1rerd")]
+property = "customize_character_state"
+dont_ready_value = true
+node = NodePath("..")
+new_value = "false"
+
+[node name="IfCustomizeExitedSetProperty4" parent="MarginContainer/Control/ToolsItemSlot" index="4" node_paths=PackedStringArray("node") instance=ExtResource("5_1rerd")]
+property = "customize_character_state"
+state_event = 1
+dont_ready_value = true
+node = NodePath("..")
+
+[node name="IfDialogueEnteredSetProperty4" parent="MarginContainer/Control/ToolsItemSlot" index="5" node_paths=PackedStringArray("node") instance=ExtResource("5_1rerd")]
+property = "dialogue_state"
+dont_ready_value = true
+node = NodePath("..")
+new_value = "false"
+
+[node name="IfDialogueExitedSetProperty5" parent="MarginContainer/Control/ToolsItemSlot" index="6" node_paths=PackedStringArray("node") instance=ExtResource("5_1rerd")]
 property = "dialogue_state"
 state_event = 1
 dont_ready_value = true

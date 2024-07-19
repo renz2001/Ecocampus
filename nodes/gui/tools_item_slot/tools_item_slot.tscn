@@ -1,18 +1,28 @@
-[gd_scene load_steps=5 format=3 uid="uid://c5l5cc2j18bt6"]
+[gd_scene load_steps=7 format=3 uid="uid://c5l5cc2j18bt6"]
 
 [ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/gui_manager/nodes/gui/gui/gui.tscn" id="1_fmwrd"]
 [ext_resource type="Script" path="res://nodes/gui/tools_item_slot/tools_item_slot.gd" id="2_8mhln"]
 [ext_resource type="PackedScene" uid="uid://d4mqjvr57ok1h" path="res://nodes/gui/buttons/icon_button/icon_button.tscn" id="2_sura1"]
 [ext_resource type="PackedScene" uid="uid://do60bu0cxb3yo" path="res://nodes/gui/transparent_item_slots_container/tool_item_slots_container.tscn" id="3_e2f3d"]
+[ext_resource type="Script" path="res://addons/node_components/scripts/arguments/tween_arguments.gd" id="3_plq88"]
+
+[sub_resource type="Resource" id="Resource_f23wa"]
+script = ExtResource("3_plq88")
+transition_type = 4
+ease_type = 2
+duration = 0.4
 
 [node name="ToolsItemSlot" node_paths=PackedStringArray("icon_button", "items_container", "panel_clip") instance=ExtResource("1_fmwrd")]
+offset_right = 137.0
+offset_bottom = 141.0
 script = ExtResource("2_8mhln")
 inventory = null
-animation = null
+animation = SubResource("Resource_f23wa")
 icon_button = NodePath("IconButton")
-items_container = NodePath("")
+items_container = NodePath("PanelClip/PanelContainer/ToolItemSlotsContainer")
 panel_clip = NodePath("PanelClip")
 animation_duration = 0.5
+inactive_on_ready = false
 
 [node name="PanelClip" type="ColorRect" parent="." index="0"]
 clip_children = 1
@@ -47,4 +57,4 @@ offset_right = 140.0
 offset_bottom = 140.0
 toggle_mode = true
 
-[connection signal="pressed" from="IconButton" to="." method="_on_icon_button_pressed"]
+[connection signal="toggled" from="IconButton" to="." method="_on_icon_button_toggled"]

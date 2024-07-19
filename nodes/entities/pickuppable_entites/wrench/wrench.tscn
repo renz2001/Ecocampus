@@ -1,0 +1,47 @@
+[gd_scene load_steps=10 format=3 uid="uid://c6eimuf5pb0bu"]
+
+[ext_resource type="PackedScene" uid="uid://77dhb6ck4eyt" path="res://nodes/abstract_scenes/pickuppable_entity/pickuppable_entity.tscn" id="1_86pje"]
+[ext_resource type="Script" path="res://scripts/resources/item_stack.gd" id="2_x04dr"]
+[ext_resource type="Resource" uid="uid://bcj0juvp1ey76" path="res://resources/items/wrench.tres" id="3_yo260"]
+[ext_resource type="Script" path="res://scripts/resources/inventory.gd" id="4_lo0fl"]
+[ext_resource type="Script" path="res://scripts/resources/item_entity.gd" id="5_4r6pu"]
+[ext_resource type="Texture2D" uid="uid://dqcxpqm3nbr8" path="res://assets/collect_item/wrench.png" id="6_6ruoo"]
+
+[sub_resource type="Resource" id="Resource_a5uil"]
+script = ExtResource("2_x04dr")
+model = ExtResource("3_yo260")
+stack_starting_value = 1.0
+save_as_resource_path = false
+
+[sub_resource type="Resource" id="Resource_xy2k3"]
+script = ExtResource("4_lo0fl")
+items = Array[ExtResource("2_x04dr")]([SubResource("Resource_a5uil")])
+max_items = -1
+save_as_resource_path = false
+
+[sub_resource type="Resource" id="Resource_t2ck1"]
+script = ExtResource("5_4r6pu")
+type = 3
+environmental_impact = ""
+custom_name = ""
+name = "Wrench"
+gender = 0
+facing_left = false
+group = "Entity"
+save_as_resource_path = false
+
+[node name="Wrench" instance=ExtResource("1_86pje")]
+inventory = SubResource("Resource_xy2k3")
+data = SubResource("Resource_t2ck1")
+
+[node name="TapHitBox" parent="CanvasLayer/Root" index="0"]
+offset_left = -62.0
+offset_top = -42.0
+offset_right = 84.0
+offset_bottom = 22.0
+
+[node name="EntitySprite" parent="Sprites" index="1"]
+position = Vector2(14.3454, -5.7637)
+rotation = 0.523598
+scale = Vector2(0.0429617, 0.0431778)
+texture = ExtResource("6_6ruoo")

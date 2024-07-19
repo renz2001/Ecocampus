@@ -22,4 +22,3 @@ func update() -> void:
 func clear() -> void: 
 	for node: Node in get_children(): 
 		node.queue_free()
-	

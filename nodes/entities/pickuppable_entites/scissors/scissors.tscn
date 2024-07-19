@@ -1,0 +1,46 @@
+[gd_scene load_steps=10 format=3 uid="uid://kkd8hvyl12ks"]
+
+[ext_resource type="PackedScene" uid="uid://77dhb6ck4eyt" path="res://nodes/abstract_scenes/pickuppable_entity/pickuppable_entity.tscn" id="1_bxc60"]
+[ext_resource type="Script" path="res://scripts/resources/item_stack.gd" id="2_l8e7t"]
+[ext_resource type="Script" path="res://scripts/resources/item_entity.gd" id="2_tdc6p"]
+[ext_resource type="Texture2D" uid="uid://2yieg5eovtlk" path="res://assets/collect_item/scissors.png" id="3_jhaub"]
+[ext_resource type="Resource" uid="uid://bhpm0w4yit8bj" path="res://resources/items/scissors.tres" id="3_v0d4y"]
+[ext_resource type="Script" path="res://scripts/resources/inventory.gd" id="4_rnn8j"]
+
+[sub_resource type="Resource" id="Resource_ga5yl"]
+script = ExtResource("2_l8e7t")
+model = ExtResource("3_v0d4y")
+stack_starting_value = 1.0
+save_as_resource_path = false
+
+[sub_resource type="Resource" id="Resource_wxcq7"]
+script = ExtResource("4_rnn8j")
+items = Array[ExtResource("2_l8e7t")]([SubResource("Resource_ga5yl")])
+max_items = -1
+save_as_resource_path = false
+
+[sub_resource type="Resource" id="Resource_dr5ko"]
+script = ExtResource("2_tdc6p")
+type = 3
+environmental_impact = ""
+custom_name = ""
+name = "Scissors"
+gender = 0
+facing_left = false
+group = "Entity"
+save_as_resource_path = false
+
+[node name="Scissors" instance=ExtResource("1_bxc60")]
+inventory = SubResource("Resource_wxcq7")
+data = SubResource("Resource_dr5ko")
+
+[node name="TapHitBox" parent="CanvasLayer/Root" index="0"]
+offset_left = -58.0
+offset_top = -39.0
+offset_right = 75.0
+offset_bottom = 15.0
+
+[node name="EntitySprite" parent="Sprites" index="1"]
+rotation = 1.309
+scale = Vector2(0.0524646, 0.0524646)
+texture = ExtResource("3_jhaub")

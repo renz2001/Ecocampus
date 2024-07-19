@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cf858o4ytbp0u"]
+[gd_scene load_steps=20 format=3 uid="uid://cf858o4ytbp0u"]
 
 [ext_resource type="PackedScene" uid="uid://cm6jeskbiise6" path="res://nodes/abstract_scenes/level_node/level_node.tscn" id="1_ycc0e"]
 [ext_resource type="Texture2D" uid="uid://bb8wuo25lx7ap" path="res://assets/background/camera_pictures/gate_1.jpg" id="2_83yqh"]
@@ -15,6 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://do3f5g0eamejc" path="res://nodes/entities/pickuppable_entites/aluminum_soda_can/aluminum_soda_can.tscn" id="10_r6ehk"]
 [ext_resource type="PackedScene" uid="uid://d3ckyt0j2xo5s" path="res://nodes/components/if_quest_complete_then_set_resource/if_quest_complete_then_set_resource.tscn" id="10_yj2nn"]
 [ext_resource type="Resource" uid="uid://8paemw7vsbca" path="res://resources/dialogue_arguments/bea_dialogue.tres" id="11_j3obv"]
+[ext_resource type="PackedScene" uid="uid://bpnm5mqq6wldv" path="res://nodes/entities/pickuppable_entites/ladder/ladder.tscn" id="13_cwkpp"]
+[ext_resource type="PackedScene" uid="uid://c6eimuf5pb0bu" path="res://nodes/entities/pickuppable_entites/wrench/wrench.tscn" id="16_fsu7j"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_qt44p"]
 vertices = PackedVector2Array(364, 576, 363, 576, 587, 573, 153, 608, 151, 608, 1341, 580, 1324, 546, 1516, 538, 572, 618, -40, 1071, -40, 662, 1965, 615, 1971, 1070, 1305, 601, 663, 633, 1188, 614, 1189, 614)
@@ -76,43 +78,51 @@ position = Vector2(1302, 663)
 scale = Vector2(0.659454, 0.659454)
 dialogue = ExtResource("11_j3obv")
 
-[node name="PlasticBottle2" parent="Entities/NonLiving" index="0" instance=ExtResource("9_b0mka")]
+[node name="Wrench" parent="Entities/NonLiving" index="0" instance=ExtResource("16_fsu7j")]
+position = Vector2(999, 714)
+scale = Vector2(0.740235, 0.740235)
+
+[node name="Ladder" parent="Entities/NonLiving" index="1" instance=ExtResource("13_cwkpp")]
+position = Vector2(837, 714)
+scale = Vector2(0.740235, 0.740235)
+
+[node name="PlasticBottle2" parent="Entities/NonLiving" index="2" instance=ExtResource("9_b0mka")]
 position = Vector2(289, 668)
 scale = Vector2(0.667374, 0.667374)
 
-[node name="PlasticBottle3" parent="Entities/NonLiving" index="1" instance=ExtResource("9_b0mka")]
+[node name="PlasticBottle3" parent="Entities/NonLiving" index="3" instance=ExtResource("9_b0mka")]
 position = Vector2(302, 690)
 scale = Vector2(0.70222, 0.70222)
 
-[node name="PlasticBottle4" parent="Entities/NonLiving" index="2" instance=ExtResource("9_b0mka")]
+[node name="PlasticBottle4" parent="Entities/NonLiving" index="4" instance=ExtResource("9_b0mka")]
 position = Vector2(335, 685)
 scale = Vector2(0.694301, 0.694301)
 
-[node name="PlasticBottle5" parent="Entities/NonLiving" index="3" instance=ExtResource("9_b0mka")]
+[node name="PlasticBottle5" parent="Entities/NonLiving" index="5" instance=ExtResource("9_b0mka")]
 position = Vector2(1239, 713)
 scale = Vector2(0.738651, 0.738651)
 
-[node name="PlasticBottle6" parent="Entities/NonLiving" index="4" instance=ExtResource("9_b0mka")]
+[node name="PlasticBottle6" parent="Entities/NonLiving" index="6" instance=ExtResource("9_b0mka")]
 position = Vector2(1509, 637)
 scale = Vector2(0.618272, 0.618272)
 
-[node name="AluminumSodaCan" parent="Entities/NonLiving" index="5" instance=ExtResource("10_r6ehk")]
+[node name="AluminumSodaCan" parent="Entities/NonLiving" index="7" instance=ExtResource("10_r6ehk")]
 position = Vector2(1213, 618)
 scale = Vector2(0.588177, 0.588177)
 
-[node name="AluminumSodaCan2" parent="Entities/NonLiving" index="6" instance=ExtResource("10_r6ehk")]
+[node name="AluminumSodaCan2" parent="Entities/NonLiving" index="8" instance=ExtResource("10_r6ehk")]
 position = Vector2(1185, 613)
 scale = Vector2(0.580257, 0.580257)
 
-[node name="AluminumSodaCan3" parent="Entities/NonLiving" index="7" instance=ExtResource("10_r6ehk")]
+[node name="AluminumSodaCan3" parent="Entities/NonLiving" index="9" instance=ExtResource("10_r6ehk")]
 position = Vector2(1186, 726)
 scale = Vector2(0.759242, 0.759242)
 
-[node name="AluminumSodaCan4" parent="Entities/NonLiving" index="8" instance=ExtResource("10_r6ehk")]
+[node name="AluminumSodaCan4" parent="Entities/NonLiving" index="10" instance=ExtResource("10_r6ehk")]
 position = Vector2(623, 674)
 scale = Vector2(0.676877, 0.676877)
 
-[node name="AluminumSodaCan5" parent="Entities/NonLiving" index="9" instance=ExtResource("10_r6ehk")]
+[node name="AluminumSodaCan5" parent="Entities/NonLiving" index="11" instance=ExtResource("10_r6ehk")]
 position = Vector2(678, 689)
 scale = Vector2(0.700636, 0.700636)
 

@@ -10,6 +10,8 @@ static var entered_tree: int = 0
 
 #func _enter_tree() -> void: 
 	#printerr(get_children())
+	
+	
 
 func _ready() -> void: 
 	SaveManager.loaded_data.connect(
@@ -21,15 +23,15 @@ func _ready() -> void:
 	)
 	entered_tree += 1
 	
-	var show_nodes: Array[Node] = get_tree().get_nodes_in_group("Faucet")
-	show_nodes.append_array(get_tree().get_nodes_in_group("LightBulb"))
-	show_nodes.append_array(get_tree().get_nodes_in_group("LightSwitch"))
-	
-	var hide_nodes: Array[Node] = get_tree().get_nodes_in_group("QuestEntity")
-	hide_nodes.append_array(show_nodes)
-	
-	for node: Node in hide_nodes: 
-		node.hide()
+	#var show_nodes: Array[Node] = get_tree().get_nodes_in_group("Faucet")
+	#show_nodes.append_array(get_tree().get_nodes_in_group("LightBulb"))
+	#show_nodes.append_array(get_tree().get_nodes_in_group("LightSwitch"))
+	#
+	#var hide_nodes: Array[Node] = get_tree().get_nodes_in_group("QuestEntity")
+	#hide_nodes.append_array(show_nodes)
+	#
+	#for node: Node in hide_nodes: 
+		#node.hide()
 		
 		
 	GameManager.state_chart.send_event("playing")
@@ -40,18 +42,18 @@ func _ready() -> void:
 		SaveManager.load_current_game_save(str(id_component.data.value))
 	GlobalData.achievements_tracker.update_victory()
 	
-	await get_tree().process_frame
+	#await get_tree().process_frame
 	
 	#printerr("show: ", GameManager.faucets_show)
-	if GameManager.faucets_show: 
-		for node: Node in show_nodes: 
-			#printerr(node)
-			#printerr(node.disabled)
-			if node.disabled: 
-				continue
-			node.show()
-			if node.get("state"): 
-				node.set("state", GlobalEnums.OnState.ON)
+	#if GameManager.faucets_show: 
+		#for node: Node in show_nodes: 
+			##printerr(node)
+			##printerr(node.disabled)
+			#if node.disabled: 
+				#continue
+			#node.show()
+			#if node.get("state"): 
+				#node.set("state", GlobalEnums.OnState.ON)
 				#printerr("State: ", node.state)
 			#printerr("shown: ", node.visible)
 	#quests_collection.start_quests()

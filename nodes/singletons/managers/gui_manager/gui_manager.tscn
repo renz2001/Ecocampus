@@ -75,6 +75,7 @@ new_value = "false"
 only_one_instance = false
 
 [node name="CustomizeCharacterScreen" parent="Root/MarginContainer/BaseControl/Playing" index="0" instance=ExtResource("11_xm22g")]
+visible = false
 layout_mode = 1
 only_one_instance = false
 
@@ -108,6 +109,7 @@ node = NodePath("..")
 new_value = "false"
 
 [node name="DialogueGUIManager" parent="Root/MarginContainer/BaseControl/Playing" index="5" instance=ExtResource("3_ew5n2")]
+visible = false
 layout_mode = 1
 
 [node name="InstancedGUIs" parent="Root/MarginContainer/BaseControl" index="1"]
@@ -121,6 +123,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="SettingsMenu" parent="Root/MarginContainer/BaseControl" index="2" instance=ExtResource("13_qklwl")]
+visible = false
 layout_mode = 1
 only_one_instance = false
 
@@ -201,10 +204,12 @@ grow_horizontal = 0
 grow_vertical = 0
 
 [node name="AchievementUnlockedScreen" parent="Root/MarginContainer/BaseControl" index="4" instance=ExtResource("14_df8bm")]
+visible = false
 layout_mode = 1
 metadata/_edit_lock_ = true
 
 [node name="ItemObtainedScreen" parent="Root/MarginContainer/BaseControl" index="5" instance=ExtResource("18_tnw5h")]
+visible = false
 layout_mode = 1
 
 [node name="AlertScreen" parent="Root" index="2" instance=ExtResource("18_0q276")]

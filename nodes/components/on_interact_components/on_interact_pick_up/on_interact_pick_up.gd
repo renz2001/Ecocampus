@@ -22,4 +22,3 @@ func _on_items_added(items: Array[ItemStack]) -> void:
 	call_world_event_component.event_call = event_call
 	call_world_event_component.node = entity
 	call_world_event_component.play()
-

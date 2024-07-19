@@ -1,9 +1,26 @@
-[gd_scene load_steps=5 format=3 uid="uid://bdqtk8yfaqarh"]
+[gd_scene load_steps=8 format=3 uid="uid://bdqtk8yfaqarh"]
 
 [ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/gui_manager/nodes/gui/gui/gui.tscn" id="1_8wlcw"]
 [ext_resource type="Script" path="res://nodes/gui/item_obtained_gui/item_obtained_gui.gd" id="2_sy4lm"]
 [ext_resource type="LabelSettings" uid="uid://bcf3wgahko2ws" path="res://resources/label_settings/quiz_problem_page_title.tres" id="3_n0oug"]
 [ext_resource type="PackedScene" uid="uid://dggdvwjvdrmkh" path="res://nodes/gui/buttons/medium_wooden_button/medium_wooden_button.tscn" id="4_qlsw8"]
+[ext_resource type="Texture2D" uid="uid://do0rkrmxxseyk" path="res://assets/buttons/ok_button.png" id="5_e05oa"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qxrud"]
+bg_color = Color(0.0862745, 0.0862745, 0.0862745, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 0.843137, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kl168"]
+atlas = ExtResource("5_e05oa")
+region = Rect2(82, 144, 1403, 511)
 
 [node name="ItemObtainedGUI" node_paths=PackedStringArray("item_icon", "item_name_label") instance=ExtResource("1_8wlcw")]
 script = ExtResource("2_sy4lm")
@@ -17,6 +34,7 @@ offset_left = -247.0
 offset_top = -165.0
 offset_right = 254.0
 offset_bottom = 163.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_qxrud")
 
 [node name="CenterContainer" type="CenterContainer" parent="Body" index="0"]
 layout_mode = 2
@@ -53,3 +71,4 @@ offset_left = -127.0
 offset_top = 106.0
 offset_right = 126.0
 offset_bottom = 201.0
+texture_normal = SubResource("AtlasTexture_kl168")

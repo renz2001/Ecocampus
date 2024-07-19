@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemModel" load_steps=3 format=3 uid="uid://dr85s1yotsosj"]
+
+[ext_resource type="Script" path="res://scripts/resources/item_model.gd" id="1_gnsn0"]
+[ext_resource type="Texture2D" uid="uid://dgoa0fri1otcg" path="res://assets/collect_item/ladder_tool.png" id="1_rrfmo"]
+
+[resource]
+script = ExtResource("1_gnsn0")
+name = &"Ladder"
+description = ""
+item_icon = ExtResource("1_rrfmo")
+type = 3
+maximum_stack = 1

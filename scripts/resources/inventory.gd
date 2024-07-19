@@ -40,7 +40,7 @@ func _init() -> void:
 	print_color.owner_name_color = Color("93ffb5")
 	print_color.color = Color("b4ff00")
 
-## type == Item.Type
+## type == ItemModel.Type
 func get_items_by_type(type, inversed: bool = false) -> Array[ItemStack]: 
 	return items.filter(
 		func(item): 
@@ -48,6 +48,10 @@ func get_items_by_type(type, inversed: bool = false) -> Array[ItemStack]:
 				return item.type != type
 			return item.type == type
 	)
+	
+	
+func get_tool_items() -> Array[ItemStack]: 
+	return get_items_by_type(ItemModel.Type.TOOL)
 
 
 func set_items(new_items: Array[ItemStack]) -> void: 
@@ -129,7 +133,7 @@ func take_inventory(inventory: Inventory, by: Object = null) -> void:
 		print_color.out_debug_wvalue("Inventory: Cannot take items from itself", inventory)
 		return
 	var taken_items: Array[ItemStack] = inventory.clear(by)
-	#print(taken_items)
+	printerr(taken_items)
 	add_items(taken_items, by)
 	items_taken_from_inventory.emit(owner, taken_items)
 
@@ -158,7 +162,6 @@ func remove_items(new_items: Array[ItemStack], by: Object = null) -> Array[ItemS
 
 func remove_item(new_item: ItemStack, by: Object = null) -> ItemStack: 
 	#var _item = items.pop_at(items.find(new_item))
-	
 	var index: int = find_item_by_model(new_item.model, true)
 	
 	if index <= -1: 
@@ -214,6 +217,9 @@ func count_item_by_model(model: ItemModel) -> int:
 
 
 func find_item_by_model(model: ItemModel, item_not_full: bool = false) -> int: 
+	printerr(model)
+	printerr("size: ", items.size())
+	# FIXME
 	for i: int in items.size(): 
 		var item: ItemStack = items[i]
 		if item.model == model: 

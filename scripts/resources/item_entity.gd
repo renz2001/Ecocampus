@@ -5,7 +5,8 @@ class_name ItemEntity
 enum Type {
 	RECYCLABLE, 
 	BIODEGRADABLE, 
-	NON_BIODEGRADABLE
+	NON_BIODEGRADABLE, 
+	TOOL
 }
 
 @export var type: Type

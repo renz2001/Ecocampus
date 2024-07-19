@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemModel" load_steps=3 format=3 uid="uid://bcj0juvp1ey76"]
+
+[ext_resource type="Script" path="res://scripts/resources/item_model.gd" id="1_5veav"]
+[ext_resource type="Texture2D" uid="uid://dqcxpqm3nbr8" path="res://assets/collect_item/wrench.png" id="1_w4mwq"]
+
+[resource]
+script = ExtResource("1_5veav")
+name = &"Wrench"
+description = ""
+item_icon = ExtResource("1_w4mwq")
+type = 3
+maximum_stack = 1
