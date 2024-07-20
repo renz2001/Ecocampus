@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cmimwcq2i013r" path="res://nodes/gui/achievement_tracker_gui/achievement_tracker_gui.tscn" id="5_ikbb1"]
 [ext_resource type="PackedScene" uid="uid://c5l5cc2j18bt6" path="res://nodes/gui/tools_item_slot/tools_item_slot.tscn" id="7_evgpl"]
 
-[node name="PlayerHUD" node_paths=PackedStringArray("inventory_gui") instance=ExtResource("1_jq4ma")]
+[node name="PlayerHUD" node_paths=PackedStringArray("inventory_gui", "tools_item_slot") instance=ExtResource("1_jq4ma")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -16,6 +16,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_3hk1a")
 inventory_gui = NodePath("MarginContainer/Control/InventoryGUI")
+tools_item_slot = NodePath("MarginContainer/Control/ToolsItemSlot")
 inactive_on_ready = false
 
 [node name="MarginContainer" type="MarginContainer" parent="." index="0"]
@@ -93,7 +94,6 @@ offset_right = 0.0
 offset_bottom = 0.0
 grow_horizontal = 0
 grow_vertical = 0
-inactive_on_ready = false
 
 [node name="IfCustomizeEnteredSetProperty3" parent="MarginContainer/Control/ToolsItemSlot" index="3" node_paths=PackedStringArray("node") instance=ExtResource("5_1rerd")]
 property = "customize_character_state"

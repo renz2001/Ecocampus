@@ -7,13 +7,20 @@ class_name ItemSlot
 
 @export var item: ItemStack: 
 	set(value): 
-		if item != null && item.stack.current_changed.is_connected(_on_item_stack_current_changed): 
+		item = value
+		# FIXME: res://nodes/gui/item_slot/item_slot.gd:27 - Invalid access to property or key 'current_changed' on a base object of type 'Nil'.
+		if item == null: 
+			return
+			
+		if item.stack == null: 
+			return
+			
+		if item.stack.current_changed.is_connected(_on_item_stack_current_changed): 
 			#print(self)
 			#print(item)
 			#print("")
 			item.stack.current_changed.disconnect(_on_item_stack_current_changed)
 		
-		item = value
 		if !is_node_ready(): 
 			await ready
 		update()

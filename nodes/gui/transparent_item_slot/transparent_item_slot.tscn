@@ -1,26 +1,39 @@
-[gd_scene load_steps=4 format=3 uid="uid://bsqxg1dqg12rf"]
+[gd_scene load_steps=6 format=3 uid="uid://bsqxg1dqg12rf"]
 
 [ext_resource type="PackedScene" uid="uid://ba6uieidm61wl" path="res://nodes/gui/buttons/texture_button_plus/texture_button_plus.tscn" id="1_i6nmn"]
 [ext_resource type="Script" path="res://nodes/gui/item_slot/item_slot.gd" id="1_tinjg"]
 [ext_resource type="PackedScene" uid="uid://d1joew0to5eeh" path="res://nodes/components/mouse_drag_area/mouse_drag_area.tscn" id="3_18brk"]
+[ext_resource type="Resource" uid="uid://c71lpwjte15je" path="res://resources/test_item_stack.tres" id="3_hksnb"]
+[ext_resource type="Texture2D" uid="uid://dqcxpqm3nbr8" path="res://assets/collect_item/wrench.png" id="5_c3snl"]
 
-[node name="TransparentItemSlot" node_paths=PackedStringArray("item_texture_rect") instance=ExtResource("1_i6nmn")]
+[node name="TransparentItemSlot" node_paths=PackedStringArray("item_texture_rect", "drag_area") instance=ExtResource("1_i6nmn")]
+custom_minimum_size = Vector2(140, 0)
 script = ExtResource("1_tinjg")
-item_texture_rect = NodePath("ItemTexture")
-item = null
+item_texture_rect = NodePath("ItemContainer/ItemTexture")
+item = ExtResource("3_hksnb")
+drag_area = NodePath("MouseDragArea")
 
-[node name="ItemTexture" type="TextureRect" parent="." index="3"]
+[node name="MouseDragArea" parent="." index="3" node_paths=PackedStringArray("control", "owner_node") instance=ExtResource("3_18brk")]
+type = 0
+control = NodePath("..")
+disabled = false
+owner_node = NodePath("..")
+drag_data_properties = Array[String](["item"])
+
+[node name="ItemContainer" type="MarginContainer" parent="." index="4"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
 
-[node name="MouseDragArea" parent="." index="4" node_paths=PackedStringArray("drag_node", "control", "owner_node") instance=ExtResource("3_18brk")]
-drag_node = NodePath("../ItemTexture")
-type = 0
-control = NodePath("..")
-disabled = true
-owner_node = NodePath("..")
-drag_data_properties = Array[String](["item"])
+[node name="ItemTexture" type="TextureRect" parent="ItemContainer" index="0"]
+layout_mode = 2
+texture = ExtResource("5_c3snl")
+expand_mode = 1
+stretch_mode = 5

@@ -4,6 +4,12 @@ class_name ItemStack
 
 signal full
 
+@export_storage var stack: PointCounter: 
+	get: 
+		if !stack: 
+			stack = PointCounter.new()
+		return stack
+
 @export var model: ItemModel: 
 	set(value): 
 		model = value
@@ -11,7 +17,6 @@ signal full
 		if model == null: 
 			return
 			
-		stack = PointCounter.new()
 		stack.when_maximum_stay = true
 		stack.maximum = model.maximum_stack
 		#stack.starting_value = 1
@@ -26,8 +31,6 @@ signal full
 	set(value): 
 		stack_starting_value = value
 		stack.starting_value = stack_starting_value
-
-var stack: PointCounter
 
 var owner: Inventory
 

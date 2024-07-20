@@ -47,20 +47,22 @@ func update() -> void:
 		
 		_slot.item = null
 		
-	if inventory == null || inventory.items.is_empty(): 
+	var items: Array[ItemStack] = _get_items()
+		
+	if inventory == null || items.is_empty(): 
 		return
 	
 	if updating: 
 		return
 	updating = true
 	
-	var inv_items_size: int = inventory.items.size()
+	var inv_items_size: int = items.size()
 	
 	for i: int in children.size(): 
 		var slot: ItemSlot = children[i]
 		if i >= inv_items_size: 
 			break
-		slot.item = inventory.items[i]
+		slot.item = items[i]
 		#printerr(inventory.items)
 	updating = false
 	
@@ -73,4 +75,6 @@ func _on_dropped() -> void:
 
 
 func _get_items() -> Array[ItemStack]: 
+	if !inventory:
+		return []
 	return inventory.get_items_by_type(ItemModel.Type.TOOL, true)

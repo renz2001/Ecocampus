@@ -45,8 +45,8 @@ func get_items_by_type(type, inversed: bool = false) -> Array[ItemStack]:
 	return items.filter(
 		func(item): 
 			if inversed: 
-				return item.type != type
-			return item.type == type
+				return item.model.type != type
+			return item.model.type == type
 	)
 	
 	
@@ -133,7 +133,7 @@ func take_inventory(inventory: Inventory, by: Object = null) -> void:
 		print_color.out_debug_wvalue("Inventory: Cannot take items from itself", inventory)
 		return
 	var taken_items: Array[ItemStack] = inventory.clear(by)
-	printerr(taken_items)
+	#printerr(taken_items)
 	add_items(taken_items, by)
 	items_taken_from_inventory.emit(owner, taken_items)
 
@@ -163,7 +163,7 @@ func remove_items(new_items: Array[ItemStack], by: Object = null) -> Array[ItemS
 func remove_item(new_item: ItemStack, by: Object = null) -> ItemStack: 
 	#var _item = items.pop_at(items.find(new_item))
 	var index: int = find_item_by_model(new_item.model, true)
-	
+	#printerr("res: ", index)
 	if index <= -1: 
 		print_color.out_debug_wvalue("Inventory: Item does not exist", new_item)
 		return null
@@ -215,15 +215,18 @@ func count_item_by_model(model: ItemModel) -> int:
 			count += int(item_stack.stack.current)
 	return count
 
-
+	# Purpose of item not full is so that the 
 func find_item_by_model(model: ItemModel, item_not_full: bool = false) -> int: 
-	printerr(model)
-	printerr("size: ", items.size())
+	#printerr("size: ", items.size())
 	# FIXME
 	for i: int in items.size(): 
 		var item: ItemStack = items[i]
+		#printerr("item: ", item.model)
+		#printerr("model: ", model)
+		#printerr("cond: ", item.model == model)
+		#printerr(i)
 		if item.model == model: 
-			if item_not_full: 
+			if item_not_full && item.model.maximum_stack > 1: 
 				if !item.is_full(): 
 					return i
 			else: 

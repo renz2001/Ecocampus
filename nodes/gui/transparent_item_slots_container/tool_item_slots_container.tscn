@@ -6,5 +6,6 @@
 [node name="ToolItemSlotsContainer" type="HBoxContainer"]
 offset_right = 40.0
 offset_bottom = 40.0
+alignment = 1
 script = ExtResource("1_e3fxd")
 item_slot_scene = ExtResource("2_0wgom")

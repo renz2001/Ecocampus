@@ -12,49 +12,65 @@ transition_type = 4
 ease_type = 2
 duration = 0.4
 
-[node name="ToolsItemSlot" node_paths=PackedStringArray("icon_button", "items_container", "panel_clip") instance=ExtResource("1_fmwrd")]
+[node name="ToolsItemSlot" node_paths=PackedStringArray("icon_button", "items_container", "hbox", "tools_panel_clip") instance=ExtResource("1_fmwrd")]
 offset_right = 137.0
 offset_bottom = 141.0
 script = ExtResource("2_8mhln")
 inventory = null
 animation = SubResource("Resource_f23wa")
 icon_button = NodePath("IconButton")
-items_container = NodePath("PanelClip/PanelContainer/ToolItemSlotsContainer")
-panel_clip = NodePath("PanelClip")
+items_container = NodePath("ToolsPanelClip/HBoxContainer/ToolItemSlotsContainer")
+hbox = NodePath("ToolsPanelClip/HBoxContainer")
+tools_panel_clip = NodePath("ToolsPanelClip")
 animation_duration = 0.5
 inactive_on_ready = false
 
-[node name="PanelClip" type="ColorRect" parent="." index="0"]
-clip_children = 1
+[node name="ToolsPanelClip" type="Panel" parent="." index="0"]
+clip_contents = true
 layout_mode = 0
-offset_left = 89.0
-offset_right = 104.0
-offset_bottom = 138.0
+offset_left = 63.0
+offset_top = 4.0
+offset_right = 72.0
+offset_bottom = 137.0
 mouse_filter = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="PanelClip" index="0"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ToolsPanelClip" index="0"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -116.0
-offset_top = -67.0
-offset_right = -42.0
-offset_bottom = 66.0
+offset_left = -70.0
+offset_top = -66.5
+offset_right = 4.0
+offset_bottom = 66.5
 grow_horizontal = 0
 grow_vertical = 2
-mouse_filter = 2
+alignment = 2
 
-[node name="ToolItemSlotsContainer" parent="PanelClip/PanelContainer" index="0" instance=ExtResource("3_e2f3d")]
+[node name="ToolItemSlotsContainer" parent="ToolsPanelClip/HBoxContainer" index="0" instance=ExtResource("3_e2f3d")]
 layout_mode = 2
 alignment = 2
 
-[node name="IconButton" parent="." index="1" instance=ExtResource("2_sura1")]
+[node name="ReferenceRect" type="ReferenceRect" parent="ToolsPanelClip/HBoxContainer" index="1"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+
+[node name="PanelClip" type="ColorRect" parent="." index="1"]
+visible = false
+clip_children = 1
+layout_mode = 0
+offset_left = -493.0
+offset_right = 104.0
+offset_bottom = 138.0
+mouse_filter = 2
+
+[node name="IconButton" parent="." index="2" instance=ExtResource("2_sura1")]
 layout_mode = 0
 offset_right = 140.0
 offset_bottom = 140.0
 toggle_mode = true
 
+[connection signal="resized" from="ToolsPanelClip/HBoxContainer" to="." method="_on_h_box_container_resized"]
 [connection signal="toggled" from="IconButton" to="." method="_on_icon_button_toggled"]

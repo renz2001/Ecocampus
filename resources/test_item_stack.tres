@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemStack" load_steps=3 format=3 uid="uid://c71lpwjte15je"]
+
+[ext_resource type="Script" path="res://scripts/resources/item_stack.gd" id="1_e5x8e"]
+[ext_resource type="Resource" uid="uid://bcj0juvp1ey76" path="res://resources/items/wrench.tres" id="1_jhq6t"]
+
+[resource]
+script = ExtResource("1_e5x8e")
+model = ExtResource("1_jhq6t")
+stack_starting_value = 1.0
+save_as_resource_path = false

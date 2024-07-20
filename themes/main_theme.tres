@@ -139,6 +139,7 @@ MarginContainer/constants/margin_bottom = 20
 MarginContainer/constants/margin_left = 20
 MarginContainer/constants/margin_right = 20
 MarginContainer/constants/margin_top = 20
+Panel/styles/panel = ExtResource("1_mamat")
 PanelContainer/styles/panel = ExtResource("1_mamat")
 PlayerHUDMargin/base_type = &"MarginContainer"
 PlayerHUDMargin/constants/margin_bottom = 30
