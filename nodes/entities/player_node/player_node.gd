@@ -16,6 +16,7 @@ class_name PlayerNode
 @export var move_to_tap: MoveToTapPathFindMovement
 @export var mouse_position: MousePositionComponent
 @export var cosmetic_equipper_component: CosmeticEquipperComponent
+@export var path_find_movement_component: PathFindMovementComponent
 
 var is_move_to_position: bool
 var move_to_position: Vector2

@@ -1,0 +1,20 @@
+[gd_scene load_steps=6 format=3 uid="uid://bsegdr16m7bl6"]
+
+[ext_resource type="PackedScene" uid="uid://dokfordgw2kk3" path="res://nodes/abstract_scenes/non_living_entity_node/non_living_entity_node.tscn" id="1_olrtp"]
+[ext_resource type="PackedScene" uid="uid://bvktq7qid2b8v" path="res://nodes/components/mouse_drag_drop_area/mouse_drag_drop_area.tscn" id="2_ooafw"]
+[ext_resource type="Script" path="res://nodes/abstract_scenes/interactable_entity_node/interactable_entity_node.gd" id="2_op4os"]
+[ext_resource type="Script" path="res://scripts/resources/item_model.gd" id="3_42del"]
+[ext_resource type="PackedScene" uid="uid://7gri71kaffvv" path="res://addons/audio_manager_and_plus/nodes/components/audio_manager_player/audio_manager_player.tscn" id="3_vdget"]
+
+[node name="InteractableEntityNode" node_paths=PackedStringArray("drop_audio") instance=ExtResource("1_olrtp")]
+script = ExtResource("2_op4os")
+drop_audio = NodePath("Audio/DropAudio")
+allowed_items = Array[ExtResource("3_42del")]([])
+
+[node name="MouseDragDropArea" parent="." index="0" node_paths=PackedStringArray("owner_node") instance=ExtResource("2_ooafw")]
+owner_node = NodePath("..")
+
+[node name="DropAudio" parent="Audio" index="2" instance=ExtResource("3_vdget")]
+
+[connection signal="dropped" from="MouseDragDropArea" to="." method="_on_mouse_drag_drop_area_dropped"]
+[connection signal="finished_navigation" from="Components/Movement/PathFindMovementComponent" to="." method="_on_finished_navigation"]

@@ -49,7 +49,8 @@ func _ready() -> void:
 
 func set_display_visible(val: bool) -> void: 
 	item_texture_rect.visible = val
-	stack_label.visible = val
+	if stack_label: 
+		stack_label.visible = val
 	#printerr(self)
 	#printerr(stack_label.visible)
 

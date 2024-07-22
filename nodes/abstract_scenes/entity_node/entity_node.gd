@@ -5,6 +5,21 @@ class_name EntityNode
 signal starting_interact
 signal interacted
 
+
+@export var lock_size: bool: 
+	set(value): 
+		lock_size = value
+		if !is_node_ready(): 
+			await ready
+		two_point_5d_node_simulator.disabled = lock_size
+		
+@export var node_variety_index: int: 
+	set(value): 
+		node_variety_index = value
+		if !is_node_ready(): 
+			await ready
+		node_variety_manager.index = node_variety_index
+		
 @export var display_interact_dialog: bool = true
 @export var wait_for_player_to_display_interact_dialog: bool = true
 @export var faucets_show: bool
@@ -57,6 +72,8 @@ signal interacted
 @export var master_save_component: MasterSaveComponent
 @export var tap_hit_box: Button
 @export var tap_hit_box_root: Control
+@export var default_entity_sprite: Sprite2D
+@export var two_point_5d_node_simulator: TwoPoint5DNodeSimulator
 
 func _ready() -> void: 
 	#GameManager.playing_state.state_entered.connect(_on_playing_state_entered)

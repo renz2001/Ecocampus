@@ -10,6 +10,8 @@ signal items_set(new_items: Array[ItemStack])
 signal items_added(new_items: Array[ItemStack])
 signal item_added(new_item: ItemStack)
 
+signal obtained_new_item(new_item: ItemModel)
+
 signal items_taken_from_inventory(by: Node, new_items: Array[ItemStack])
 
 signal items_removed(new_items: Array[ItemStack])
@@ -100,6 +102,9 @@ func add_item(new_item_stack: ItemStack, by: Object = null) -> void:
 		full.emit()
 	
 	item_added.emit(dupe)
+	if is_new_item(new_item_stack.model): 
+		obtained_new_item.emit(new_item_stack.model)
+		
 	items_changed.emit([dupe] as Array[ItemStack])
 	print_color.out_debug_wvalue("Inventory: %s added item" % by, dupe)
 	print_items()
@@ -263,6 +268,12 @@ func clone() -> Inventory:
 	inventory.print_color.disabled = false
 	
 	return inventory
+	
+	
+func is_new_item(item: ItemModel) -> bool: 
+	if added_items_history.count(item) == 1: 
+		return true 
+	return false
 	
 	
 func _save_properties() -> PackedStringArray: 

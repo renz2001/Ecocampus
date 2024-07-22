@@ -39,3 +39,8 @@ grow_vertical = 2
 
 [node name="ItemObtainedGUI" parent="CenterContainer" index="0" instance=ExtResource("2_ihkuu")]
 layout_mode = 2
+
+[node name="OnPressedSetActive" parent="CenterContainer/ItemObtainedGUI/OkButton" index="3" node_paths=PackedStringArray("target")]
+target = NodePath("../../../..")
+
+[editable path="CenterContainer/ItemObtainedGUI"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bpnm5mqq6wldv"]
+[gd_scene load_steps=14 format=3 uid="uid://bpnm5mqq6wldv"]
 
 [ext_resource type="PackedScene" uid="uid://77dhb6ck4eyt" path="res://nodes/abstract_scenes/pickuppable_entity/pickuppable_entity.tscn" id="1_137eb"]
 [ext_resource type="Script" path="res://scripts/resources/item_stack.gd" id="2_an8jn"]
@@ -6,6 +6,8 @@
 [ext_resource type="Resource" uid="uid://dr85s1yotsosj" path="res://resources/items/ladder.tres" id="3_tx6kw"]
 [ext_resource type="Script" path="res://scripts/resources/inventory.gd" id="4_qns47"]
 [ext_resource type="Texture2D" uid="uid://dgoa0fri1otcg" path="res://assets/collect_item/ladder_tool.png" id="6_dkl1u"]
+[ext_resource type="Script" path="res://scripts/resources/string_formatter.gd" id="6_ms8t5"]
+[ext_resource type="Script" path="res://scripts/resources/rich_label_text.gd" id="7_t0vio"]
 
 [sub_resource type="Resource" id="Resource_mrwef"]
 script = ExtResource("2_an8jn")
@@ -30,18 +32,36 @@ facing_left = false
 group = "Entity"
 save_as_resource_path = false
 
+[sub_resource type="Resource" id="Resource_wiail"]
+script = ExtResource("6_ms8t5")
+format = "[outline_size=4][outline_color=BLACK][b][font_size=38]%s[/font_size][/b]
+[font_size=28][b]Type:[/b] %s[/font_size]
+[font_size=28][b]Environmental Impact:[/b] %s[/font_size]"
+
+[sub_resource type="Resource" id="Resource_b2sb6"]
+script = ExtResource("7_t0vio")
+format = SubResource("Resource_wiail")
+texts = Array[String]([])
+
 [node name="Ladder" instance=ExtResource("1_137eb")]
 inventory = SubResource("Resource_2sri4")
 data = SubResource("Resource_t1qve")
+interact_description = SubResource("Resource_b2sb6")
 
 [node name="TapHitBox" parent="CanvasLayer/Root" index="0"]
-offset_left = -63.0
-offset_top = -161.0
-offset_right = 68.0
-offset_bottom = 17.0
+anchors_preset = -1
+anchor_left = 0.0
+offset_left = -77.0
+offset_top = -505.0
+offset_right = 61.0
+offset_bottom = 40.0
+
+[node name="ShadowCircle" parent="Sprites" index="0"]
+position = Vector2(2, 9)
+scale = Vector2(0.299282, 0.218253)
 
 [node name="EntitySprite" parent="Sprites" index="1"]
-position = Vector2(7, -69)
-rotation = 0.0
-scale = Vector2(0.0628063, 0.0628063)
+position = Vector2(-10, -228)
+rotation = 0.192217
+scale = Vector2(0.171764, 0.171764)
 texture = ExtResource("6_dkl1u")

@@ -22,6 +22,10 @@ signal current_cosmetic_changed
 		inventory = value
 		if inventory: 
 			inventory.owner = self
+			inventory.obtained_new_item.connect(_on_obtained_new_item)
+		else:
+			inventory.obtained_new_item.disconnect(_on_obtained_new_item)
+
 
 # more bandaid solutions lol
 # this will be used for quests who have no way of checking if the faucets/lights have been turned off without visiting the scenes first. 
@@ -35,6 +39,10 @@ func _init() -> void:
 	save.save_properties_as_resource_path = [
 		"current_cosmetic"
 	]
+
+
+func _on_obtained_new_item(item: ItemModel) -> void: 
+	ItemObtainedScreen.display(item)
 
 
 func is_equipped() -> bool: 

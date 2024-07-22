@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c6eimuf5pb0bu"]
+[gd_scene load_steps=14 format=3 uid="uid://c6eimuf5pb0bu"]
 
 [ext_resource type="PackedScene" uid="uid://77dhb6ck4eyt" path="res://nodes/abstract_scenes/pickuppable_entity/pickuppable_entity.tscn" id="1_86pje"]
 [ext_resource type="Script" path="res://scripts/resources/item_stack.gd" id="2_x04dr"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" path="res://scripts/resources/inventory.gd" id="4_lo0fl"]
 [ext_resource type="Script" path="res://scripts/resources/item_entity.gd" id="5_4r6pu"]
 [ext_resource type="Texture2D" uid="uid://dqcxpqm3nbr8" path="res://assets/collect_item/wrench.png" id="6_6ruoo"]
+[ext_resource type="Script" path="res://scripts/resources/string_formatter.gd" id="6_gq0kw"]
+[ext_resource type="Script" path="res://scripts/resources/rich_label_text.gd" id="7_lspr4"]
 
 [sub_resource type="Resource" id="Resource_a5uil"]
 script = ExtResource("2_x04dr")
@@ -30,9 +32,21 @@ facing_left = false
 group = "Entity"
 save_as_resource_path = false
 
+[sub_resource type="Resource" id="Resource_xr7nn"]
+script = ExtResource("6_gq0kw")
+format = "[outline_size=4][outline_color=BLACK][b][font_size=38]%s[/font_size][/b]
+[font_size=28][b]Type:[/b] %s[/font_size]
+[font_size=28][b]Environmental Impact:[/b] %s[/font_size]"
+
+[sub_resource type="Resource" id="Resource_wgph2"]
+script = ExtResource("7_lspr4")
+format = SubResource("Resource_xr7nn")
+texts = Array[String]([])
+
 [node name="Wrench" instance=ExtResource("1_86pje")]
 inventory = SubResource("Resource_xy2k3")
 data = SubResource("Resource_t2ck1")
+interact_description = SubResource("Resource_wgph2")
 
 [node name="TapHitBox" parent="CanvasLayer/Root" index="0"]
 offset_left = -62.0
@@ -40,8 +54,12 @@ offset_top = -42.0
 offset_right = 84.0
 offset_bottom = 22.0
 
+[node name="ShadowCircle" parent="Sprites" index="0"]
+position = Vector2(-4, 2)
+scale = Vector2(0.265764, 0.19381)
+
 [node name="EntitySprite" parent="Sprites" index="1"]
-position = Vector2(14.3454, -5.7637)
+position = Vector2(3.8147e-06, -9)
 rotation = 0.523598
-scale = Vector2(0.0429617, 0.0431778)
+scale = Vector2(0.050176, 0.0504284)
 texture = ExtResource("6_6ruoo")

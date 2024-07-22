@@ -18,6 +18,7 @@ signal changed_target
 var line: Line2D
 var _is_setup: bool = false
 
+
 func _ready() -> void: 
 	if Engine.is_editor_hint(): 
 		return
@@ -90,4 +91,3 @@ func _get_configuration_warnings() -> PackedStringArray:
 	if !is_instance_valid(navigation_agent): 
 		warnings.append("Must add navigation agent.")
 	return warnings
-

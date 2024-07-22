@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dqx1n417lyw35"]
+[gd_scene load_steps=15 format=3 uid="uid://dqx1n417lyw35"]
 
 [ext_resource type="PackedScene" uid="uid://77dhb6ck4eyt" path="res://nodes/abstract_scenes/pickuppable_entity/pickuppable_entity.tscn" id="1_7uoco"]
 [ext_resource type="Resource" uid="uid://byvmcgi6p0hdv" path="res://resources/items/plastic_bottle.tres" id="3_k0hy6"]
@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://dkeyopffes5gg" path="res://assets/collect_item/plastic_bottle.png" id="5_3glef"]
 [ext_resource type="Script" path="res://scripts/resources/inventory.gd" id="5_cmigy"]
 [ext_resource type="Script" path="res://scripts/resources/item_entity.gd" id="5_g3ne4"]
+[ext_resource type="Script" path="res://scripts/resources/string_formatter.gd" id="6_leqdm"]
+[ext_resource type="Script" path="res://scripts/resources/rich_label_text.gd" id="7_8kp8y"]
+[ext_resource type="PackedScene" uid="uid://dvrqbygr8xwlr" path="res://addons/node_components/nodes/components/node_variety_manager/node_variety/node_variety.tscn" id="8_5cskn"]
 
 [sub_resource type="Resource" id="Resource_p634p"]
 script = ExtResource("4_xf5db")
@@ -30,9 +33,21 @@ facing_left = false
 group = "Entity"
 save_as_resource_path = false
 
+[sub_resource type="Resource" id="Resource_l7v8f"]
+script = ExtResource("6_leqdm")
+format = "[outline_size=4][outline_color=BLACK][b][font_size=38]%s[/font_size][/b]
+[font_size=28][b]Type:[/b] %s[/font_size]
+[font_size=28][b]Environmental Impact:[/b] %s[/font_size]"
+
+[sub_resource type="Resource" id="Resource_7cfcq"]
+script = ExtResource("7_8kp8y")
+format = SubResource("Resource_l7v8f")
+texts = Array[String]([])
+
 [node name="PlasticBottle" instance=ExtResource("1_7uoco")]
 inventory = SubResource("Resource_beh1a")
 data = SubResource("Resource_8fjol")
+interact_description = SubResource("Resource_7cfcq")
 
 [node name="TapHitBox" parent="CanvasLayer/Root" index="0"]
 offset_left = -66.0
@@ -40,7 +55,52 @@ offset_top = -68.0
 offset_right = 75.0
 offset_bottom = 29.0
 
+[node name="NodeVarietyManager" parent="Components" index="2"]
+variety_name = "Standing"
+
+[node name="Standing" parent="Components/NodeVarietyManager" index="0" node_paths=PackedStringArray("nodes") instance=ExtResource("8_5cskn")]
+active = true
+nodes = [NodePath("../../../Sprites/Standing")]
+
+[node name="Left" parent="Components/NodeVarietyManager" index="1" node_paths=PackedStringArray("nodes") instance=ExtResource("8_5cskn")]
+nodes = [NodePath("../../../Sprites/Left")]
+
+[node name="Right" parent="Components/NodeVarietyManager" index="2" node_paths=PackedStringArray("nodes") instance=ExtResource("8_5cskn")]
+nodes = [NodePath("../../../Sprites/Right")]
+
 [node name="EntitySprite" parent="Sprites" index="1"]
+visible = false
 position = Vector2(6, -19)
 scale = Vector2(0.439974, 0.439974)
 texture = ExtResource("5_3glef")
+
+[node name="Standing" type="Node2D" parent="Sprites" index="2"]
+
+[node name="EntitySprite" type="Sprite2D" parent="Sprites/Standing" index="0"]
+use_parent_material = true
+position = Vector2(1, -55)
+rotation = 0.0184014
+scale = Vector2(0.439974, 0.439974)
+texture = ExtResource("5_3glef")
+
+[node name="Left" type="Node2D" parent="Sprites" index="3"]
+visible = false
+
+[node name="EntitySprite" type="Sprite2D" parent="Sprites/Left" index="0"]
+use_parent_material = true
+position = Vector2(-16, -17)
+rotation = -1.60423
+scale = Vector2(0.439974, 0.439974)
+texture = ExtResource("5_3glef")
+
+[node name="Right" type="Node2D" parent="Sprites" index="4"]
+visible = false
+
+[node name="EntitySprite" type="Sprite2D" parent="Sprites/Right" index="0"]
+use_parent_material = true
+position = Vector2(6, -19)
+rotation = 1.67388
+scale = Vector2(0.439974, 0.439974)
+texture = ExtResource("5_3glef")
+
+[connection signal="finished_navigation" from="Components/Movement/PathFindMovementComponent" to="." method="_on_finished_navigation"]

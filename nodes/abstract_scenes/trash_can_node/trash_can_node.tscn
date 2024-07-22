@@ -1,13 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://b60walfcy1mey"]
+[gd_scene load_steps=8 format=3 uid="uid://b60walfcy1mey"]
 
 [ext_resource type="PackedScene" uid="uid://dls07q71n33yn" path="res://nodes/abstract_scenes/storage_node/storage_node.tscn" id="1_wm5wv"]
 [ext_resource type="Script" path="res://nodes/abstract_scenes/trash_can_node/trash_can_node.gd" id="2_0imu6"]
 [ext_resource type="Script" path="res://scripts/resources/inventory.gd" id="3_gifhl"]
+[ext_resource type="Script" path="res://scripts/resources/item_stack.gd" id="3_soqlk"]
 [ext_resource type="Texture2D" uid="uid://ng63gntckj62" path="res://assets/trash.png" id="3_tyo2g"]
 
 [sub_resource type="Resource" id="Resource_0ednp"]
 script = ExtResource("3_gifhl")
-items = Array[Resource("res://scripts/resources/item_stack.gd")]([])
+items = Array[ExtResource("3_soqlk")]([])
 max_items = -1
 save_as_resource_path = false
 

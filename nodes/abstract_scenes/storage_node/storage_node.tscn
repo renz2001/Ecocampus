@@ -23,7 +23,9 @@ sound = ExtResource("8_qd7k1")
 play_from_position = 0
 pitch_scale = 1.0
 volume_slider = 1.0
+change_db = false
 volume_db = 0.0
+change_bus = false
 bus = &"Master"
 
 [node name="StorageNode" node_paths=PackedStringArray("drop_audio") instance=ExtResource("1_op1yp")]
@@ -33,7 +35,6 @@ drop_audio = NodePath("Audio/DropAudio")
 [node name="MouseDragDropArea" parent="." index="0" node_paths=PackedStringArray("owner_node") instance=ExtResource("3_nkrf1")]
 collision_mask = 0
 owner_node = NodePath("..")
-can_drop_condition_method = "mouse_drag_can_drop_condition"
 
 [node name="OnHoveredApplyMaterial" parent="CanvasLayer/Root/TapHitBox" index="0" node_paths=PackedStringArray("apply_to_node") instance=ExtResource("3_h05rh")]
 material = SubResource("ShaderMaterial_pd2xc")
@@ -50,3 +51,4 @@ position = Vector2(0, -92)
 scale = Vector2(0.252664, 0.252664)
 
 [connection signal="dropped" from="MouseDragDropArea" to="." method="_on_mouse_drag_drop_area_dropped"]
+[connection signal="finished_navigation" from="Components/Movement/PathFindMovementComponent" to="." method="_on_finished_navigation"]

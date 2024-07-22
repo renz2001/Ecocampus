@@ -1,0 +1,73 @@
+[gd_scene load_steps=11 format=3 uid="uid://dmg4fk4dmpkr7"]
+
+[ext_resource type="PackedScene" uid="uid://bsegdr16m7bl6" path="res://nodes/abstract_scenes/interactable_entity_node/interactable_entity_node.tscn" id="1_kbnbx"]
+[ext_resource type="Script" path="res://nodes/entities/non_living_entities/ladder_placement_area/ladder_placement_area.gd" id="2_7fp0i"]
+[ext_resource type="Texture2D" uid="uid://dgoa0fri1otcg" path="res://assets/collect_item/ladder_tool.png" id="3_hwcn5"]
+[ext_resource type="Script" path="res://scripts/resources/item_model.gd" id="3_lwdv1"]
+[ext_resource type="Resource" uid="uid://dr85s1yotsosj" path="res://resources/items/ladder.tres" id="4_fe7vi"]
+[ext_resource type="Script" path="res://scripts/resources/item_stack.gd" id="5_vgmex"]
+[ext_resource type="Script" path="res://scripts/resources/inventory.gd" id="6_84eyk"]
+
+[sub_resource type="Resource" id="Resource_tmb4w"]
+script = ExtResource("6_84eyk")
+items = Array[ExtResource("5_vgmex")]([])
+max_items = -1
+save_as_resource_path = false
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_i7upx"]
+vertices = PackedVector2Array(82.6328, -25.2734, -156.008, 57.9688, -314.109, -558.047, -80.3828, -558.969)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(95, -19, -163, 71, -327, -568, -73, -569)])
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_khlem"]
+size = Vector2(699, 991)
+
+[node name="LadderPlacementArea" node_paths=PackedStringArray("items_accesible_when_climbed", "ground_marker", "top_marker") instance=ExtResource("1_kbnbx")]
+script = ExtResource("2_7fp0i")
+items_accesible_when_climbed = []
+ground_marker = NodePath("Positions/Ground")
+top_marker = NodePath("Positions/Top")
+allowed_items = Array[ExtResource("3_lwdv1")]([ExtResource("4_fe7vi")])
+inventory = SubResource("Resource_tmb4w")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." index="0"]
+navigation_polygon = SubResource("NavigationPolygon_i7upx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MouseDragDropArea" index="0"]
+position = Vector2(-148, -372)
+shape = SubResource("RectangleShape2D_khlem")
+
+[node name="TapHitBox" parent="CanvasLayer/Root" index="0"]
+offset_left = -235.0
+offset_top = -623.0
+offset_right = 108.0
+offset_bottom = 80.0
+
+[node name="IfPausedEnteredSetProperty" parent="CanvasLayer/Root/TapHitBox" index="0"]
+disabled = true
+
+[node name="IfDialogEnteredSetProperty" parent="CanvasLayer/Root/TapHitBox" index="1"]
+disabled = true
+
+[node name="IfPlayingEnteredSetProperty" parent="CanvasLayer/Root/TapHitBox" index="2"]
+disabled = true
+
+[node name="IfDialogueEnteredSetProperty2" parent="CanvasLayer/Root/TapHitBox" index="3"]
+disabled = true
+
+[node name="Sprites" parent="." index="7"]
+position = Vector2(-73, -264)
+
+[node name="EntitySprite" parent="Sprites" index="1"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_hwcn5")
+
+[node name="Positions" type="Node2D" parent="." index="10"]
+
+[node name="Ground" type="Marker2D" parent="Positions" index="0"]
+position = Vector2(90, 45)
+
+[node name="Top" type="Marker2D" parent="Positions" index="1"]
+position = Vector2(-98, -555)
+
+[connection signal="item_accepted" from="." to="." method="_on_item_accepted"]

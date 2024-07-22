@@ -1,7 +1,7 @@
-[gd_scene load_steps=19 format=3 uid="uid://c7ma84vuiqota"]
+[gd_scene load_steps=24 format=3 uid="uid://c7ma84vuiqota"]
 
 [ext_resource type="PackedScene" uid="uid://cm6jeskbiise6" path="res://nodes/abstract_scenes/level_node/level_node.tscn" id="1_pd2cb"]
-[ext_resource type="Texture2D" uid="uid://dwc1l7vhxhjkq" path="res://assets/background/camera_pictures/saluysuy_bg.jpg" id="2_k36ol"]
+[ext_resource type="Texture2D" uid="uid://ct3r6uwit37uu" path="res://assets/background/drawn_camera_pictures/saluysoy.png" id="2_8yu3v"]
 [ext_resource type="PackedScene" uid="uid://8qsjsyglmgq4" path="res://nodes/entities/player_node/player_node.tscn" id="3_q43q1"]
 [ext_resource type="PackedScene" uid="uid://b4y18pa38y6gc" path="res://nodes/entities/doctor_madrigal/doctor_madrigal.tscn" id="4_17uen"]
 [ext_resource type="Resource" uid="uid://b10nkin0kyph2" path="res://resources/quizzes/saluysuy_quiz.tres" id="5_a5prq"]
@@ -16,12 +16,26 @@
 [ext_resource type="PackedScene" uid="uid://cxbi5gy21wbmn" path="res://nodes/entities/non_living_entities/light_bulb/light_bulb.tscn" id="10_sq4sl"]
 [ext_resource type="PackedScene" uid="uid://ibuaxowofiai" path="res://nodes/entities/non_living_entities/light_switch/light_switch.tscn" id="11_cfu07"]
 [ext_resource type="PackedScene" uid="uid://d1klss0cjhtw0" path="res://nodes/entities/non_living_entities/faucet/faucet.tscn" id="12_n4yv5"]
+[ext_resource type="PackedScene" uid="uid://bpnm5mqq6wldv" path="res://nodes/entities/pickuppable_entites/ladder/ladder.tscn" id="16_xb0mg"]
+[ext_resource type="Script" path="res://scripts/resources/string_formatter.gd" id="17_o4j3b"]
+[ext_resource type="Script" path="res://scripts/resources/rich_label_text.gd" id="18_ebn58"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_jhrwx"]
-vertices = PackedVector2Array(738, 582, 737, 581, 820, 578, 2042, 1156, -112, 1165, -117, 761, -26, 802, 357, 645, 637, 609, 639, 609, 912, 522, 957, 537, 946, 555, 844, 526, 2020, 523, 2034, 523, 1923, 633, 1818, 740, 1458, 652, 1395, 671)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6), PackedInt32Array(3, 4, 6, 7, 8, 9), PackedInt32Array(3, 9, 0), PackedInt32Array(10, 11, 12, 13), PackedInt32Array(3, 2, 13, 12), PackedInt32Array(14, 15, 3, 16), PackedInt32Array(17, 16, 3), PackedInt32Array(18, 17, 3, 19), PackedInt32Array(3, 12, 19)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(814.137, 568.424, 837.915, 517.469, 911.516, 511.808, 971.529, 533.322, 962.47, 549.174, 1395.02, 661.274, 1458.43, 642.024, 1815.11, 729.213, 1915.88, 626.172, 2015.53, 514.072, 2043.83, 512.94, 2052.89, 1166.29, -122.29, 1176.48, -127.952, 746.198, -26.0433, 791.49, 355.548, 636.363, 636.363, 598.996, 734.874, 571.821)])
+vertices = PackedVector2Array(760.977, 563.063, 943.102, 547.813, 936.109, 580.75, 744.07, 631.859, 1390.2, 720.758, 1390.2, 720.75, 1618.26, 781.5, 2043.25, 1156.33, -112.422, 1166.43, -117.82, 755.242, 55.9063, 737.969, 1226.84, 677.656, 238.422, 698.289, 503.961, 661.023, 1780.75, 732.641, 2057.29, 774.008, 503.953, 661.008)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6), PackedInt32Array(7, 8, 9, 10), PackedInt32Array(11, 4, 6, 7, 10, 12, 13, 3), PackedInt32Array(14, 15, 7, 6), PackedInt32Array(12, 16, 13), PackedInt32Array(3, 2, 11)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(752.992, 553.704, 955.676, 536.719, 947.75, 574.085, 1229.7, 668.068, 1392.75, 711.096, 1618.08, 771.109, 1780, 722.419, 2067.61, 765.447, 2052.89, 1166.29, -122.29, 1176.48, -127.952, 746.198, 54.3513, 728.081, 236.654, 688.449, 502.749, 651.083, 736.007, 622.775)])
 source_geometry_group_name = &"navigation_polygon_source_group"
+
+[sub_resource type="Resource" id="Resource_b5u4e"]
+script = ExtResource("17_o4j3b")
+format = "[outline_size=4][outline_color=BLACK][b][font_size=38]%s[/font_size][/b]
+[font_size=28][b]Type:[/b] %s[/font_size]
+[font_size=28][b]Environmental Impact:[/b] %s[/font_size]"
+
+[sub_resource type="Resource" id="Resource_ls57b"]
+script = ExtResource("18_ebn58")
+format = SubResource("Resource_b5u4e")
+texts = Array[String]([])
 
 [sub_resource type="Resource" id="Resource_jo488"]
 script = ExtResource("5_tf1g0")
@@ -39,21 +53,21 @@ navigation_polygon = SubResource("NavigationPolygon_jhrwx")
 follow_node = NodePath("../../Entities/Living/PlayerNode")
 
 [node name="TextureRect" type="TextureRect" parent="Background/CanvasLayer" index="1"]
-offset_left = -309.0
-offset_top = -344.0
-offset_right = 2230.0
-offset_bottom = 1082.0
-texture = ExtResource("2_k36ol")
+offset_left = -315.0
+offset_top = -440.0
+offset_right = 2239.0
+offset_bottom = 1006.0
+texture = ExtResource("2_8yu3v")
 expand_mode = 1
 stretch_mode = 5
 
 [node name="PlayerNode" parent="Entities/Living" index="0" instance=ExtResource("3_q43q1")]
 position = Vector2(1053, 870)
-scale = Vector2(1.16395, 1.16395)
+scale = Vector2(1.38741, 1.38741)
 
 [node name="DoctorMadrigal" parent="Entities/Living" index="1" instance=ExtResource("4_17uen")]
-position = Vector2(728, 572)
-scale = Vector2(0.870127, 0.870127)
+position = Vector2(851, 567)
+scale = Vector2(0.97877, 0.97877)
 dialogue = ExtResource("5_vdd73")
 quiz = ExtResource("5_a5prq")
 quest = ExtResource("7_bl1wb")
@@ -70,47 +84,56 @@ property_or_method = "disabled"
 new_value = "true"
 
 [node name="Viktor" parent="Entities/Living" index="2" instance=ExtResource("8_sf3ny")]
-position = Vector2(401, 674)
-scale = Vector2(1.01609, 1.01609)
+position = Vector2(465, 670)
+scale = Vector2(1.1892, 1.1892)
 dialogue = ExtResource("9_lmtsk")
 
 [node name="LightBulb" parent="Entities/NonLiving" index="0" instance=ExtResource("10_sq4sl")]
-position = Vector2(1187, 123)
-scale = Vector2(0.227583, 0.227583)
+position = Vector2(1317, -105)
+rotation = 3.1324
+scale = Vector2(-0.394146, -0.394146)
 disable_after_interact = true
 
 [node name="LightSwitch" parent="Entities/NonLiving" index="1" node_paths=PackedStringArray("light_bulbs") instance=ExtResource("11_cfu07")]
-position = Vector2(1561, 353)
-scale = Vector2(0.779416, 0.779416)
+position = Vector2(1831, 171)
+scale = Vector2(0.237622, 0.237622)
 light_bulbs = [NodePath("../LightBulb")]
 disable_after_interact = true
 
 [node name="Faucet" parent="Entities/NonLiving" index="2" instance=ExtResource("12_n4yv5")]
-position = Vector2(1064, 419)
-scale = Vector2(0.651175, 0.651175)
+position = Vector2(1112, 362)
+scale = Vector2(0.637584, 0.637584)
+lock_size = true
 disable_after_interact = true
 
 [node name="Faucet2" parent="Entities/NonLiving" index="3" instance=ExtResource("12_n4yv5")]
-position = Vector2(1159, 422)
-scale = Vector2(0.655468, 0.655468)
+position = Vector2(1267, 370)
+scale = Vector2(0.70909, 0.70909)
+lock_size = true
 disable_after_interact = true
 
 [node name="Faucet3" parent="Entities/NonLiving" index="4" instance=ExtResource("12_n4yv5")]
-position = Vector2(1333, 430)
-scale = Vector2(0.666917, 0.666917)
+position = Vector2(1554, 389)
+scale = Vector2(0.952211, 0.952211)
+lock_size = true
 disable_after_interact = true
+
+[node name="Ladder" parent="Entities/NonLiving" index="5" instance=ExtResource("16_xb0mg")]
+position = Vector2(230, 702)
+scale = Vector2(1.25458, 1.25458)
+interact_description = SubResource("Resource_ls57b")
 
 [node name="TwoPoint5DSpaceSimulator" parent="Scripts" index="0"]
 scale_size_offset = 140
 
 [node name="BasePoint" parent="Scripts/TwoPoint5DSpaceSimulator" index="0"]
-position = Vector2(975, 866)
+position = Vector2(1033, 825)
 
 [node name="MinimumDistance" parent="Scripts/TwoPoint5DSpaceSimulator/BasePoint" index="0"]
-position = Vector2(0, -4)
+position = Vector2(8, -75)
 
 [node name="MaximumDistance" parent="Scripts/TwoPoint5DSpaceSimulator/BasePoint" index="1"]
-position = Vector2(-140, -495)
+position = Vector2(-125, -472)
 
 [node name="IDComponent" parent="Scripts" index="2"]
 data = SubResource("Resource_jo488")

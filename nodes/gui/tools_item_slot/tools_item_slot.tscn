@@ -12,7 +12,7 @@ transition_type = 4
 ease_type = 2
 duration = 0.4
 
-[node name="ToolsItemSlot" node_paths=PackedStringArray("icon_button", "items_container", "hbox", "tools_panel_clip") instance=ExtResource("1_fmwrd")]
+[node name="ToolsItemSlot" node_paths=PackedStringArray("icon_button", "items_container", "hbox", "tools_panel_clip", "cooldown") instance=ExtResource("1_fmwrd")]
 offset_right = 137.0
 offset_bottom = 141.0
 script = ExtResource("2_8mhln")
@@ -22,7 +22,7 @@ icon_button = NodePath("IconButton")
 items_container = NodePath("ToolsPanelClip/HBoxContainer/ToolItemSlotsContainer")
 hbox = NodePath("ToolsPanelClip/HBoxContainer")
 tools_panel_clip = NodePath("ToolsPanelClip")
-animation_duration = 0.5
+cooldown = NodePath("Cooldown")
 inactive_on_ready = false
 
 [node name="ToolsPanelClip" type="Panel" parent="." index="0"]
@@ -57,20 +57,14 @@ alignment = 2
 custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
 
-[node name="PanelClip" type="ColorRect" parent="." index="1"]
-visible = false
-clip_children = 1
-layout_mode = 0
-offset_left = -493.0
-offset_right = 104.0
-offset_bottom = 138.0
-mouse_filter = 2
-
-[node name="IconButton" parent="." index="2" instance=ExtResource("2_sura1")]
+[node name="IconButton" parent="." index="1" instance=ExtResource("2_sura1")]
 layout_mode = 0
 offset_right = 140.0
 offset_bottom = 140.0
 toggle_mode = true
+
+[node name="Cooldown" type="Timer" parent="." index="2"]
+one_shot = true
 
 [connection signal="resized" from="ToolsPanelClip/HBoxContainer" to="." method="_on_h_box_container_resized"]
 [connection signal="toggled" from="IconButton" to="." method="_on_icon_button_toggled"]

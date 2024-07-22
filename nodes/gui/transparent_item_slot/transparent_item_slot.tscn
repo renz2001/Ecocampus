@@ -13,7 +13,8 @@ item_texture_rect = NodePath("ItemContainer/ItemTexture")
 item = ExtResource("3_hksnb")
 drag_area = NodePath("MouseDragArea")
 
-[node name="MouseDragArea" parent="." index="3" node_paths=PackedStringArray("control", "owner_node") instance=ExtResource("3_18brk")]
+[node name="MouseDragArea" parent="." index="3" node_paths=PackedStringArray("drag_node", "control", "owner_node") instance=ExtResource("3_18brk")]
+drag_node = NodePath("../ItemContainer/ItemTexture")
 type = 0
 control = NodePath("..")
 disabled = false

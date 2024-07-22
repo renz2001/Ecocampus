@@ -20,7 +20,6 @@ class_name TwoPoint5DNodeSimulator
 
 @export var node_base_scale: Vector2
 
-
 var weight: float: 
 	get: 
 		return node.global_position.y

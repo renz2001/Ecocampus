@@ -7,7 +7,7 @@ signal dropped(drag_data: Dictionary)
 
 @export var texture_node: CanvasItem
 
-@export var can_drop_condition_method: String
+@export var can_drop_condition_method: String = "mouse_drag_can_drop_condition"
 
 func drop(controller: MouseDragArea) -> void: 
 	
