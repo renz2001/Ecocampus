@@ -1,6 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://dqx1n417lyw35"]
+[gd_scene load_steps=16 format=3 uid="uid://dqx1n417lyw35"]
 
 [ext_resource type="PackedScene" uid="uid://77dhb6ck4eyt" path="res://nodes/abstract_scenes/pickuppable_entity/pickuppable_entity.tscn" id="1_7uoco"]
+[ext_resource type="Resource" uid="uid://dqnawmf4l2y2c" path="res://resources/quests/gate_1_quest.tres" id="2_86gkm"]
 [ext_resource type="Resource" uid="uid://byvmcgi6p0hdv" path="res://resources/items/plastic_bottle.tres" id="3_k0hy6"]
 [ext_resource type="Script" path="res://scripts/resources/item_stack.gd" id="4_xf5db"]
 [ext_resource type="Texture2D" uid="uid://dkeyopffes5gg" path="res://assets/collect_item/plastic_bottle.png" id="5_3glef"]
@@ -33,21 +34,22 @@ facing_left = false
 group = "Entity"
 save_as_resource_path = false
 
-[sub_resource type="Resource" id="Resource_l7v8f"]
+[sub_resource type="Resource" id="Resource_k6yi2"]
 script = ExtResource("6_leqdm")
 format = "[outline_size=4][outline_color=BLACK][b][font_size=38]%s[/font_size][/b]
 [font_size=28][b]Type:[/b] %s[/font_size]
 [font_size=28][b]Environmental Impact:[/b] %s[/font_size]"
 
-[sub_resource type="Resource" id="Resource_7cfcq"]
+[sub_resource type="Resource" id="Resource_wckx4"]
 script = ExtResource("7_8kp8y")
-format = SubResource("Resource_l7v8f")
+format = SubResource("Resource_k6yi2")
 texts = Array[String]([])
 
 [node name="PlasticBottle" instance=ExtResource("1_7uoco")]
+need_quest_before_enabled = ExtResource("2_86gkm")
 inventory = SubResource("Resource_beh1a")
 data = SubResource("Resource_8fjol")
-interact_description = SubResource("Resource_7cfcq")
+interact_description = SubResource("Resource_wckx4")
 
 [node name="TapHitBox" parent="CanvasLayer/Root" index="0"]
 offset_left = -66.0

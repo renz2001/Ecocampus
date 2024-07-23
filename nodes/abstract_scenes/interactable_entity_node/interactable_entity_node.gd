@@ -4,6 +4,7 @@ class_name InteractableEntityNode
 
 @export var drop_audio: AudioManagerPlayer
 @export var allowed_items: Array[ItemModel] = []
+@export var dont_take_item: bool
 
 signal item_rejected(item_stack: ItemStack)
 signal item_accepted(item_stack: ItemStack)
@@ -12,7 +13,8 @@ signal item_accepted(item_stack: ItemStack)
 func _on_mouse_drag_drop_area_dropped(drag_data: Dictionary) -> void:
 	var item: ItemStack = drag_data["item"]
 	var from_inventory: Inventory = item.owner
-	inventory.take_item_from_inventory(from_inventory, item, self)
+	if !dont_take_item: 
+		inventory.take_item_from_inventory(from_inventory, item, self)
 	drop_audio.play()
 	InventoryGUI.this().update()
 

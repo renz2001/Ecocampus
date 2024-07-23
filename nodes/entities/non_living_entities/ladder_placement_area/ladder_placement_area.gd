@@ -15,7 +15,7 @@ func _ready() -> void:
 	set_physics_process(false)
 
 
-func _on_item_accepted(item_stack: ItemStack) -> void:
+func _on_item_accepted(_item_stack: ItemStack) -> void:
 	default_entity_sprite.show()
 	tap_hit_box.show()
 
@@ -40,7 +40,7 @@ func move_to(target: Node2D) -> void:
 	set_physics_process(true)
 	
 	
-func _physics_process(delta: float) -> void: 
+func _physics_process(_delta: float) -> void: 
 	if Engine.is_editor_hint(): 
 		return
 	var result: bool = PlayerManager.player.path_find_movement_component.move()

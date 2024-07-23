@@ -32,21 +32,21 @@ facing_left = false
 group = "Entity"
 save_as_resource_path = false
 
-[sub_resource type="Resource" id="Resource_wiail"]
+[sub_resource type="Resource" id="Resource_21kry"]
 script = ExtResource("6_ms8t5")
 format = "[outline_size=4][outline_color=BLACK][b][font_size=38]%s[/font_size][/b]
 [font_size=28][b]Type:[/b] %s[/font_size]
 [font_size=28][b]Environmental Impact:[/b] %s[/font_size]"
 
-[sub_resource type="Resource" id="Resource_b2sb6"]
+[sub_resource type="Resource" id="Resource_ca3ok"]
 script = ExtResource("7_t0vio")
-format = SubResource("Resource_wiail")
+format = SubResource("Resource_21kry")
 texts = Array[String]([])
 
 [node name="Ladder" instance=ExtResource("1_137eb")]
 inventory = SubResource("Resource_2sri4")
 data = SubResource("Resource_t1qve")
-interact_description = SubResource("Resource_b2sb6")
+interact_description = SubResource("Resource_ca3ok")
 
 [node name="TapHitBox" parent="CanvasLayer/Root" index="0"]
 anchors_preset = -1

@@ -2,6 +2,8 @@
 extends EntityNode
 class_name PickuppableEntity
 
+@export var need_quest_before_enabled: EcoQuest
+
 func _ready() -> void: 
 	super._ready() 
 	interact_description = RichLabelText.new()
@@ -18,6 +20,16 @@ func _ready() -> void:
 		GlobalVariables.get_enum_name(ItemEntity.Type, data.type).to_pascal_case(), 
 		inventory.items[0].model.description
 	] as Array[String]
+	
+	ExtendedQuestSystem.quest_completed.connect(
+		func(_quest: Quest):
+			if _quest.id == need_quest_before_enabled.id: 
+				disabled = false
+	, CONNECT_ONE_SHOT
+	)
+	
+	if need_quest_before_enabled: 
+		disabled = true
 	
 	
 func show_interact_dialog(description: BaseLabelText) -> void: 

@@ -6,6 +6,9 @@ const DialogueSettings = preload("../settings.gd")
 const DialogueManagerParseResult = preload("./parse_result.gd")
 
 
+signal file_content_changed(path: String, new_content: String)
+
+
 # Keeps track of errors and dependencies.
 # {
 # 	<dialogue file path> = {
@@ -61,6 +64,11 @@ func add_file(path: String, parse_results: DialogueManagerParseResult = null) ->
 ## Get the file paths in the cache.
 func get_files() -> PackedStringArray:
 	return _cache.keys()
+
+
+## Check if a file is known to the cache.
+func has_file(path: String) -> bool:
+	return _cache.has(path)
 
 
 ## Remember any errors in a dialogue file.

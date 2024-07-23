@@ -55,7 +55,12 @@ signal interacted
 @export var quiz: Quiz
 @export var quest: EcoQuest
 @export var disable_after_interact: bool
-@export var disabled: bool
+@export var disabled: bool: 
+	set(value): 
+		disabled = value
+		if !is_node_ready(): 
+			await ready
+		tap_hit_box.visible = !disabled
 
 @export_group("Dependencies")
 @export var state_chart: StateChart

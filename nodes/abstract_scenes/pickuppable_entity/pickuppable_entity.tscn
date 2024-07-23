@@ -1,9 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://77dhb6ck4eyt"]
+[gd_scene load_steps=16 format=3 uid="uid://77dhb6ck4eyt"]
 
 [ext_resource type="PackedScene" uid="uid://dokfordgw2kk3" path="res://nodes/abstract_scenes/non_living_entity_node/non_living_entity_node.tscn" id="1_d4ii6"]
 [ext_resource type="Script" path="res://nodes/abstract_scenes/pickuppable_entity/pickuppable_entity.gd" id="2_a2l0a"]
 [ext_resource type="PackedScene" uid="uid://b6yh5ahr4kpcw" path="res://nodes/components/on_interact_components/on_interact_pick_up/on_interact_pick_up.tscn" id="3_u3rje"]
+[ext_resource type="Script" path="res://scripts/resources/string_formatter.gd" id="5_hjcei"]
 [ext_resource type="Texture2D" uid="uid://bd1l0lam720ha" path="res://placeholder_assets/plastic_bottle_trash.png" id="6_6ar2y"]
+[ext_resource type="Script" path="res://scripts/resources/rich_label_text.gd" id="6_np3jd"]
 [ext_resource type="PackedScene" uid="uid://c4gnwuhmu4msa" path="res://nodes/gui_components/on_pressed_components/on_pressed_apply_material_to_node/on_pressed_apply_material_to_node.tscn" id="7_cgy4r"]
 [ext_resource type="Script" path="res://addons/audio_manager_and_plus/scripts/arguments/audio_stream_player_arguments.gd" id="8_8dy0j"]
 [ext_resource type="Shader" path="res://resources/shaders/outline_inline.gdshader" id="8_cxd3f"]
@@ -21,6 +23,17 @@ volume_db = 0.0
 change_bus = false
 bus = &"Master"
 
+[sub_resource type="Resource" id="Resource_6arno"]
+script = ExtResource("5_hjcei")
+format = "[outline_size=4][outline_color=BLACK][b][font_size=38]%s[/font_size][/b]
+[font_size=28][b]Type:[/b] %s[/font_size]
+[font_size=28][b]Environmental Impact:[/b] %s[/font_size]"
+
+[sub_resource type="Resource" id="Resource_7ndgr"]
+script = ExtResource("6_np3jd")
+format = SubResource("Resource_6arno")
+texts = Array[String]([])
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ukjcl"]
 shader = ExtResource("8_cxd3f")
 shader_parameter/color = Color(1, 1, 1, 1)
@@ -31,8 +44,9 @@ shader_parameter/add_margins = true
 
 [node name="PickUppableEntity" groups=["QuestEntity"] instance=ExtResource("1_d4ii6")]
 script = ExtResource("2_a2l0a")
-faucets_show = false
+need_quest_before_enabled = null
 interact_audio = SubResource("Resource_rj2ev")
+interact_description = SubResource("Resource_7ndgr")
 
 [node name="OnPressedApplyMaterialToNode" parent="CanvasLayer/Root/TapHitBox" index="0" node_paths=PackedStringArray("apply_to_node") instance=ExtResource("7_cgy4r")]
 material = SubResource("ShaderMaterial_ukjcl")

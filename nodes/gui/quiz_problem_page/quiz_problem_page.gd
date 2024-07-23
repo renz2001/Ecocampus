@@ -67,4 +67,3 @@ func update() -> void:
 	
 func _on_quiz_completed() -> void: 
 	quiz_completed.emit()
-

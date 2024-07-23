@@ -231,18 +231,3 @@ func serialize_quests(pool: String) -> Dictionary:
 		quest_dictionary[quests.id] = quest_data
 
 	return quest_dictionary
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

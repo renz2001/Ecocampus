@@ -195,3 +195,5 @@ Viktor: Non-biodegradables. These are materials that don't break down easily, li
 Viktor: No problem! Happy sorting!
 => END
 
+~ faucet_broken
+{{PlayerManager.player.data.custom_name}}: The faucet is broken and still leaking. I'll need some tools to fix it.

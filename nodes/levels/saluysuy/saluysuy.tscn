@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://c7ma84vuiqota"]
+[gd_scene load_steps=25 format=3 uid="uid://c7ma84vuiqota"]
 
 [ext_resource type="PackedScene" uid="uid://cm6jeskbiise6" path="res://nodes/abstract_scenes/level_node/level_node.tscn" id="1_pd2cb"]
 [ext_resource type="Texture2D" uid="uid://ct3r6uwit37uu" path="res://assets/background/drawn_camera_pictures/saluysoy.png" id="2_8yu3v"]
@@ -16,25 +16,26 @@
 [ext_resource type="PackedScene" uid="uid://cxbi5gy21wbmn" path="res://nodes/entities/non_living_entities/light_bulb/light_bulb.tscn" id="10_sq4sl"]
 [ext_resource type="PackedScene" uid="uid://ibuaxowofiai" path="res://nodes/entities/non_living_entities/light_switch/light_switch.tscn" id="11_cfu07"]
 [ext_resource type="PackedScene" uid="uid://d1klss0cjhtw0" path="res://nodes/entities/non_living_entities/faucet/faucet.tscn" id="12_n4yv5"]
+[ext_resource type="PackedScene" uid="uid://nb7ksv35wpbh" path="res://nodes/tools/use_tool_to_enable_entity/use_tool_to_enable_entity.tscn" id="16_jyrv2"]
 [ext_resource type="PackedScene" uid="uid://bpnm5mqq6wldv" path="res://nodes/entities/pickuppable_entites/ladder/ladder.tscn" id="16_xb0mg"]
 [ext_resource type="Script" path="res://scripts/resources/string_formatter.gd" id="17_o4j3b"]
 [ext_resource type="Script" path="res://scripts/resources/rich_label_text.gd" id="18_ebn58"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_jhrwx"]
-vertices = PackedVector2Array(760.977, 563.063, 943.102, 547.813, 936.109, 580.75, 744.07, 631.859, 1390.2, 720.758, 1390.2, 720.75, 1618.26, 781.5, 2043.25, 1156.33, -112.422, 1166.43, -117.82, 755.242, 55.9063, 737.969, 1226.84, 677.656, 238.422, 698.289, 503.961, 661.023, 1780.75, 732.641, 2057.29, 774.008, 503.953, 661.008)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6), PackedInt32Array(7, 8, 9, 10), PackedInt32Array(11, 4, 6, 7, 10, 12, 13, 3), PackedInt32Array(14, 15, 7, 6), PackedInt32Array(12, 16, 13), PackedInt32Array(3, 2, 11)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(752.992, 553.704, 955.676, 536.719, 947.75, 574.085, 1229.7, 668.068, 1392.75, 711.096, 1618.08, 771.109, 1780, 722.419, 2067.61, 765.447, 2052.89, 1166.29, -122.29, 1176.48, -127.952, 746.198, 54.3513, 728.081, 236.654, 688.449, 502.749, 651.083, 736.007, 622.775)])
+vertices = PackedVector2Array(1802, 953.023, 667.578, 542.938, 658.063, 508.648, 791.508, 505.039, 1110.69, 611.438, -107.617, 957.969, -97.2891, 679.188, 48.7969, 648.828, 258.672, 614.859, 1223.32, 581.258, 1398.73, 668.172, 1563.09, 645.5, 1802, 699.969, 1476.11, 685.5, 1393.74, 615.352)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(0, 5, 6, 7, 8), PackedInt32Array(0, 8, 1), PackedInt32Array(0, 4, 9, 10), PackedInt32Array(11, 12, 0, 13), PackedInt32Array(9, 14, 10), PackedInt32Array(0, 10, 13)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(793, 495, 1111, 601, 1223, 571, 1403, 607, 1408, 660, 1475, 675, 1562, 635, 1812, 692, 1812, 963, -118, 968, -107, 671, 47, 639, 257, 605, 655, 535, 645, 499)])
 source_geometry_group_name = &"navigation_polygon_source_group"
 
-[sub_resource type="Resource" id="Resource_b5u4e"]
+[sub_resource type="Resource" id="Resource_y7dog"]
 script = ExtResource("17_o4j3b")
 format = "[outline_size=4][outline_color=BLACK][b][font_size=38]%s[/font_size][/b]
 [font_size=28][b]Type:[/b] %s[/font_size]
 [font_size=28][b]Environmental Impact:[/b] %s[/font_size]"
 
-[sub_resource type="Resource" id="Resource_ls57b"]
+[sub_resource type="Resource" id="Resource_iggrj"]
 script = ExtResource("18_ebn58")
-format = SubResource("Resource_b5u4e")
+format = SubResource("Resource_y7dog")
 texts = Array[String]([])
 
 [sub_resource type="Resource" id="Resource_jo488"]
@@ -45,8 +46,7 @@ save_as_resource_path = false
 [node name="Saluysuy" instance=ExtResource("1_pd2cb")]
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="NavigationRegion" index="0"]
-position = Vector2(110, 43)
-scale = Vector2(0.883144, 0.883144)
+position = Vector2(110, 231)
 navigation_polygon = SubResource("NavigationPolygon_jhrwx")
 
 [node name="MainCamera" parent="Cameras" index="0" node_paths=PackedStringArray("follow_node")]
@@ -54,20 +54,20 @@ follow_node = NodePath("../../Entities/Living/PlayerNode")
 
 [node name="TextureRect" type="TextureRect" parent="Background/CanvasLayer" index="1"]
 offset_left = -315.0
-offset_top = -440.0
+offset_top = -253.0
 offset_right = 2239.0
-offset_bottom = 1006.0
+offset_bottom = 1193.0
 texture = ExtResource("2_8yu3v")
 expand_mode = 1
 stretch_mode = 5
 
 [node name="PlayerNode" parent="Entities/Living" index="0" instance=ExtResource("3_q43q1")]
-position = Vector2(1053, 870)
+position = Vector2(1053, 1060)
 scale = Vector2(1.38741, 1.38741)
 
 [node name="DoctorMadrigal" parent="Entities/Living" index="1" instance=ExtResource("4_17uen")]
-position = Vector2(851, 567)
-scale = Vector2(0.97877, 0.97877)
+position = Vector2(851, 757)
+scale = Vector2(1.08909, 1.08909)
 dialogue = ExtResource("5_vdd73")
 quiz = ExtResource("5_a5prq")
 quest = ExtResource("7_bl1wb")
@@ -84,50 +84,64 @@ property_or_method = "disabled"
 new_value = "true"
 
 [node name="Viktor" parent="Entities/Living" index="2" instance=ExtResource("8_sf3ny")]
-position = Vector2(465, 670)
-scale = Vector2(1.1892, 1.1892)
+position = Vector2(465, 860)
+scale = Vector2(1.29953, 1.29953)
 dialogue = ExtResource("9_lmtsk")
 
 [node name="LightBulb" parent="Entities/NonLiving" index="0" instance=ExtResource("10_sq4sl")]
-position = Vector2(1317, -105)
+position = Vector2(1317, 82)
 rotation = 3.1324
-scale = Vector2(-0.394146, -0.394146)
+scale = Vector2(-0.289952, -0.289952)
 disable_after_interact = true
 
 [node name="LightSwitch" parent="Entities/NonLiving" index="1" node_paths=PackedStringArray("light_bulbs") instance=ExtResource("11_cfu07")]
-position = Vector2(1831, 171)
-scale = Vector2(0.237622, 0.237622)
+position = Vector2(1831, 358)
+scale = Vector2(0.383495, 0.383495)
 light_bulbs = [NodePath("../LightBulb")]
 disable_after_interact = true
 
 [node name="Faucet" parent="Entities/NonLiving" index="2" instance=ExtResource("12_n4yv5")]
-position = Vector2(1112, 362)
+position = Vector2(1112, 549)
 scale = Vector2(0.637584, 0.637584)
 lock_size = true
 disable_after_interact = true
 
+[node name="UseToolToEnableEntity" parent="Entities/NonLiving/Faucet" index="10" node_paths=PackedStringArray("entity_to_enable") instance=ExtResource("16_jyrv2")]
+position = Vector2(-7.84204, -25.0947)
+rotation = -3.14159
+scale = Vector2(0.631455, 0.631455)
+entity_to_enable = NodePath("..")
+
 [node name="Faucet2" parent="Entities/NonLiving" index="3" instance=ExtResource("12_n4yv5")]
-position = Vector2(1267, 370)
+position = Vector2(1267, 557)
 scale = Vector2(0.70909, 0.70909)
 lock_size = true
 disable_after_interact = true
 
+[node name="UseToolToEnableEntity" parent="Entities/NonLiving/Faucet2" index="10" node_paths=PackedStringArray("entity_to_enable") instance=ExtResource("16_jyrv2")]
+scale = Vector2(0.680488, 0.680488)
+entity_to_enable = NodePath("..")
+
 [node name="Faucet3" parent="Entities/NonLiving" index="4" instance=ExtResource("12_n4yv5")]
-position = Vector2(1554, 389)
+position = Vector2(1554, 576)
 scale = Vector2(0.952211, 0.952211)
 lock_size = true
 disable_after_interact = true
 
+[node name="UseToolToEnableEntity" parent="Entities/NonLiving/Faucet3" index="10" node_paths=PackedStringArray("entity_to_enable") instance=ExtResource("16_jyrv2")]
+scale = Vector2(0.719305, 0.719305)
+entity_to_enable = NodePath("..")
+
 [node name="Ladder" parent="Entities/NonLiving" index="5" instance=ExtResource("16_xb0mg")]
-position = Vector2(230, 702)
-scale = Vector2(1.25458, 1.25458)
-interact_description = SubResource("Resource_ls57b")
+position = Vector2(230, 889)
+scale = Vector2(1.35877, 1.35877)
+interact_description = SubResource("Resource_iggrj")
 
 [node name="TwoPoint5DSpaceSimulator" parent="Scripts" index="0"]
 scale_size_offset = 140
 
 [node name="BasePoint" parent="Scripts/TwoPoint5DSpaceSimulator" index="0"]
-position = Vector2(1033, 825)
+position = Vector2(1022, 961)
 
 [node name="MinimumDistance" parent="Scripts/TwoPoint5DSpaceSimulator/BasePoint" index="0"]
 position = Vector2(8, -75)
