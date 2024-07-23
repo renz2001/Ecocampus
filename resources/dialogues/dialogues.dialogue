@@ -32,8 +32,8 @@ TestNPC: TEST!
 => END
 
 ~ gate_1_quest
-{{PlayerManager.player.data.custom_name}}: Good morning, Sir Guzman!
-Sir Guzman: Good morning! Welcome to Cavite State University.
+{{PlayerManager.player.data.custom_name}}: Good morning, Sir Guzman! 
+Sir Guzman: [do dialogue_response_handler.respond("sad_expression", false)] Good morning! Welcome to Cavite State University. 
 Sir Guzman: Here in the university, the Pollution Control Office diligently enforces CvSU Environmental Policies.
 Sir Guzman: These policies contribute to making the university a sustainable and eco-friendly haven.
 Sir Guzman: In this journey, everyone needs to play their part in preserving our environment and ensuring a vibrant campus life. So, gear up for a fulfilling adventure!

@@ -6,9 +6,9 @@
 
 [sub_resource type="Resource" id="Resource_8tfuf"]
 script = ExtResource("1_inpls")
-question = "What department diligently enforces CvSU Environmental Policies?"
-correct_answer = "Pollution Control Office"
-wrong_answers = Array[String](["Security Office", "Campus Beautification Team", "Student Affairs Office"])
+question = "What is the university policy regarding garbage?"
+correct_answer = "Garbage in - Garbage out"
+wrong_answers = Array[String](["Waste management policy", "Recycling policy", "Clean campus initiative"])
 reward_points = 1
 
 [sub_resource type="Resource" id="Resource_2rn6j"]

@@ -80,4 +80,3 @@ func _save_properties() -> PackedStringArray:
 
 func _to_string() -> String: 
 	return "%s: <Entity#%s>(custom_name:%s)" % [name, get_instance_id(), custom_name]
-

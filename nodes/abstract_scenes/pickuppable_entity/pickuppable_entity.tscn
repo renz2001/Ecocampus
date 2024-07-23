@@ -23,15 +23,15 @@ volume_db = 0.0
 change_bus = false
 bus = &"Master"
 
-[sub_resource type="Resource" id="Resource_6arno"]
+[sub_resource type="Resource" id="Resource_4r2pi"]
 script = ExtResource("5_hjcei")
 format = "[outline_size=4][outline_color=BLACK][b][font_size=38]%s[/font_size][/b]
 [font_size=28][b]Type:[/b] %s[/font_size]
 [font_size=28][b]Environmental Impact:[/b] %s[/font_size]"
 
-[sub_resource type="Resource" id="Resource_7ndgr"]
+[sub_resource type="Resource" id="Resource_t3gx3"]
 script = ExtResource("6_np3jd")
-format = SubResource("Resource_6arno")
+format = SubResource("Resource_4r2pi")
 texts = Array[String]([])
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ukjcl"]
@@ -46,7 +46,7 @@ shader_parameter/add_margins = true
 script = ExtResource("2_a2l0a")
 need_quest_before_enabled = null
 interact_audio = SubResource("Resource_rj2ev")
-interact_description = SubResource("Resource_7ndgr")
+interact_description = SubResource("Resource_t3gx3")
 
 [node name="OnPressedApplyMaterialToNode" parent="CanvasLayer/Root/TapHitBox" index="0" node_paths=PackedStringArray("apply_to_node") instance=ExtResource("7_cgy4r")]
 material = SubResource("ShaderMaterial_ukjcl")

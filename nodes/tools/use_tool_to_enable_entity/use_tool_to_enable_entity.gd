@@ -1,3 +1,4 @@
+@tool
 extends InteractableEntityNode
 class_name UseToolToEnableEntity
 

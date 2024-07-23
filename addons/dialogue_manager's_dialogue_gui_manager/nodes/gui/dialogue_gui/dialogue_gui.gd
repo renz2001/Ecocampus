@@ -40,6 +40,8 @@ var resource: DialogueResource
 ## See if we are waiting for the player
 var is_waiting_for_input: bool = false
 
+var is_emoting: bool 
+
 ## See if we are running a long mutation and should hide the balloon
 ## Only set this in DialogueGUIManager
 var will_hide_balloon: bool = false: 
@@ -64,7 +66,8 @@ var dialogue_line: DialogueLine:
 		dialogue_label.finished_typing.connect(
 			func(): 
 				await get_tree().create_timer(0.7).timeout
-				speaker_sprites_switcher.set_current_speaker_rect_texture(speaker_sprites_switcher.get_speaker_idle_sprite(dialogue_line.character))
+				if !is_emoting: 
+					speaker_sprites_switcher.set_current_speaker_rect_texture(speaker_sprites_switcher.get_speaker_idle_sprite(dialogue_line.character))
 		, CONNECT_ONE_SHOT
 		)
 		
@@ -77,15 +80,18 @@ var dialogue_line: DialogueLine:
 		else: 
 			speaker_sprites_switcher.speaker = SpeakerSpritesSwitcher.Speaker.SECONDARY
 		
-		speaker_sprites_switcher.set_current_speaker_rect_texture(speaker_sprites_switcher.get_speaker_idle_sprite(dialogue_line.character))
+		if !is_emoting: 
+			speaker_sprites_switcher.set_current_speaker_rect_texture(speaker_sprites_switcher.get_speaker_idle_sprite(dialogue_line.character))
 		
+		# Flips sprite
 		if !speaker_sprites_switcher.is_main_speaker(dialogue_line.character): 
 			var speaker: Entity = speaker_sprites_switcher.get_speaker(dialogue_line.character)
 			speaker_sprites_switcher.current_speaker_rect.flip_h = !speaker.facing_left
 		
 		get_tree().create_timer(0.1).timeout.connect(
 			func(): 
-				speaker_sprites_switcher.set_current_speaker_rect_texture(speaker_sprites_switcher.get_speaker_talk_sprite(dialogue_line.character))
+				if !is_emoting: 
+					speaker_sprites_switcher.set_current_speaker_rect_texture(speaker_sprites_switcher.get_speaker_talk_sprite(dialogue_line.character))
 		)
 		
 		next_dialogue_line.text = dialogue_text_preset % next_dialogue_line.text
@@ -254,3 +260,13 @@ func speed_up_line(line: DialogueLine, multiplier: float) -> void:
 func _on_dialogue_label_spoke(letter: String, _letter_index: int, _speed: float) -> void:
 	if is_visible_in_tree(): 
 		typing_audio.play()
+
+
+func set_sprite_to_sad() -> void: 
+	is_emoting = true
+	speaker_sprites_switcher.set_current_speaker_rect_texture(speaker_sprites_switcher.get_speaker_sad_sprite(dialogue_line.character))
+	
+	
+func set_sprite_to_idle() -> void: 
+	is_emoting = false
+	speaker_sprites_switcher.set_current_speaker_rect_texture(speaker_sprites_switcher.get_speaker_idle_sprite(dialogue_line.character))

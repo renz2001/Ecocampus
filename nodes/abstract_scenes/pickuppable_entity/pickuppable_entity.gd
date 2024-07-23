@@ -21,7 +21,7 @@ func _ready() -> void:
 		inventory.items[0].model.description
 	] as Array[String]
 	
-	ExtendedQuestSystem.quest_completed.connect(
+	ExtendedQuestSystem.new_available_quest.connect(
 		func(_quest: Quest):
 			if _quest.id == need_quest_before_enabled.id: 
 				disabled = false

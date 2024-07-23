@@ -50,6 +50,13 @@ func get_speaker_talk_sprite(entity_name: String) -> Texture2D:
 	return null
 	
 	
+func get_speaker_sad_sprite(entity_name: String) -> Texture2D: 
+	var entity: NPCEntity = get_speaker(entity_name)
+	if entity != null: 
+		return entity.sad_sprite
+	return null
+	
+	
 func is_main_speaker(entity_name: String) -> bool: 
 	for entity: Entity in main_speakers: 
 		if entity.custom_name.to_lower() == entity_name.to_lower(): 
@@ -59,4 +66,3 @@ func is_main_speaker(entity_name: String) -> bool:
 
 func set_current_speaker_rect_texture(texture: Texture2D) -> void: 
 	current_speaker_rect.texture = texture
-

@@ -36,6 +36,7 @@ signal interacted
 		on_interact_call_world_event = value
 		if !is_node_ready(): 
 			await ready
+		await get_tree().physics_frame
 		call_world_event_component.event_call = on_interact_call_world_event
 
 @export var inventory: Inventory: 
@@ -60,7 +61,7 @@ signal interacted
 		disabled = value
 		if !is_node_ready(): 
 			await ready
-		tap_hit_box.visible = !disabled
+		disable_tap_hit_box(disabled)
 
 @export_group("Dependencies")
 @export var state_chart: StateChart
@@ -184,6 +185,7 @@ func _on_dialogue_response_handler_responded(value: String) -> void:
 		"start_quiz": 
 			QuizAttemptScreen.display(quiz, data)
 		"start_quest": 
+			ExtendedQuestSystem.mark_quest_as_available(quest)
 			ExtendedQuestSystem.start_quest(quest)
 			quest.update()
 			GameManager.show_quest_entities()
@@ -192,8 +194,22 @@ func _on_dialogue_response_handler_responded(value: String) -> void:
 			
 		"remove_dialogue": 
 			dialogue = null
+		"sad_expression": 
+			GUIManager.dialogue_gui_manager.current_dialogue_gui.set_sprite_to_sad()
+		"idle_expression": 
+			GUIManager.dialogue_gui_manager.current_dialogue_gui.set_sprite_to_idle() 
+
 
 
 func _on_ready_unique_resource_resource_ready() -> void:
 	if inventory: 
 		inventory.owner = self
+
+
+func disable_tap_hit_box(value: bool) -> void: 
+	tap_hit_box.visible = !value 
+	for component: Node in tap_hit_box.get_children(): 
+		if component.has_method("disabled"): 
+			component.disabled = value
+	
+	

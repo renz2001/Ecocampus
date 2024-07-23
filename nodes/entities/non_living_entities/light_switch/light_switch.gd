@@ -1,3 +1,4 @@
+@tool
 extends EntityNode
 class_name LightSwitch
 
