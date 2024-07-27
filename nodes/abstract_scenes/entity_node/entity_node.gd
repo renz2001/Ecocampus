@@ -53,15 +53,28 @@ signal interacted
 		if !is_node_ready(): 
 			await ready
 		dialogue_starter.dialogue = dialogue
+		
+@export var dialogue_if_disabled: DialogueArguments
+
 @export var quiz: Quiz
 @export var quest: EcoQuest
 @export var disable_after_interact: bool
+@export var disable_tap_hit_box_if_disabled: bool = true: 
+	set(value): 
+		disable_tap_hit_box_if_disabled = value
+		if !is_node_ready(): 
+			await ready
+		if disabled && !disable_tap_hit_box_if_disabled: 
+			disable_tap_hit_box(false)
+		
+		
 @export var disabled: bool: 
 	set(value): 
 		disabled = value
 		if !is_node_ready(): 
 			await ready
-		disable_tap_hit_box(disabled)
+		if disable_tap_hit_box_if_disabled: 
+			disable_tap_hit_box(disabled)
 
 @export_group("Dependencies")
 @export var state_chart: StateChart
@@ -80,6 +93,7 @@ signal interacted
 @export var tap_hit_box_root: Control
 @export var default_entity_sprite: Sprite2D
 @export var two_point_5d_node_simulator: TwoPoint5DNodeSimulator
+@export var dialogue_starter_for_disabled: DialogueStarter
 
 func _ready() -> void: 
 	#GameManager.playing_state.state_entered.connect(_on_playing_state_entered)

@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://b02kmlgxwvx6d"]
 
 [ext_resource type="PackedScene" uid="uid://cm6jeskbiise6" path="res://nodes/abstract_scenes/level_node/level_node.tscn" id="1_ltte7"]
-[ext_resource type="Texture2D" uid="uid://he71rk7i3shh" path="res://assets/background/camera_pictures/dit_bg.jpg" id="2_gqce5"]
+[ext_resource type="Texture2D" uid="uid://cgjwluuyul150" path="res://assets/background/drawn_camera_pictures/dit.png" id="2_q5xsq"]
 [ext_resource type="PackedScene" uid="uid://8qsjsyglmgq4" path="res://nodes/entities/player_node/player_node.tscn" id="3_ne317"]
 [ext_resource type="PackedScene" uid="uid://dabell1f8jfje" path="res://nodes/entities/professor_luna/professor_luna.tscn" id="4_6jlch"]
 [ext_resource type="Resource" uid="uid://bs140e2e1mtpo" path="res://resources/dialogue_arguments/dit_quest_dialogue.tres" id="5_2ypcq"]
@@ -41,7 +41,7 @@ offset_top = -368.0
 offset_right = 2069.0
 offset_bottom = 1199.0
 scale = Vector2(0.927969, 0.927969)
-texture = ExtResource("2_gqce5")
+texture = ExtResource("2_q5xsq")
 expand_mode = 1
 stretch_mode = 5
 

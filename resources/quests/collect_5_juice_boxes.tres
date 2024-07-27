@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="EcoQuest" load_steps=7 format=3 uid="uid://dssjoomyx6k2y"]
+
+[ext_resource type="Script" path="res://scripts/resources/eco_quest.gd" id="1_dphro"]
+[ext_resource type="Script" path="res://scripts/resources/eco_quest_task.gd" id="2_ph21e"]
+[ext_resource type="Resource" uid="uid://dla73tgx4t3cn" path="res://resources/items/juice_box.tres" id="3_qtip6"]
+[ext_resource type="Script" path="res://scripts/resources/eco_quest_task_conditions/picked_up_items_task_condition.gd" id="4_1u4j2"]
+
+[sub_resource type="Resource" id="Resource_roggl"]
+script = ExtResource("4_1u4j2")
+picked_up_item = ExtResource("3_qtip6")
+maximum_points = 5
+save_as_resource_path = false
+
+[sub_resource type="Resource" id="Resource_p4lb1"]
+script = ExtResource("2_ph21e")
+description = "Collect 5 Juice Boxes"
+condition = SubResource("Resource_roggl")
+hide_counter_in_gui = false
+save_as_resource_path = false
+
+[resource]
+script = ExtResource("1_dphro")
+automatically_complete_after_tasks_completed = false
+percentage_description = "Collect 5 Juice Boxes"
+tasks = Array[ExtResource("2_ph21e")]([SubResource("Resource_p4lb1")])
+invisible_in_gui = false
+id = 0
+quest_name = ""
+quest_description = ""
+quest_objective = ""

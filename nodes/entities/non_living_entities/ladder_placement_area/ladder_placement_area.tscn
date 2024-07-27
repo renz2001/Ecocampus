@@ -15,9 +15,9 @@ max_items = -1
 save_as_resource_path = false
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_i7upx"]
-vertices = PackedVector2Array(82.6328, -25.2734, -156.008, 57.9688, -314.109, -558.047, -80.3828, -558.969)
+vertices = PackedVector2Array(19.4609, -36.7578, -45.5313, -28.8203, -144.008, -428.203, -87.6094, -429.227)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(95, -19, -163, 71, -327, -568, -73, -569)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(32.1639, -28.2401, -53.1163, -17.817, -156.717, -437.985, -80.0042, -439.387)])
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_khlem"]
 size = Vector2(699, 991)
@@ -28,6 +28,7 @@ items_accesible_when_climbed = []
 ground_marker = NodePath("Positions/Ground")
 top_marker = NodePath("Positions/Top")
 allowed_items = Array[ExtResource("3_lwdv1")]([ExtResource("4_fe7vi")])
+dont_take_item = false
 inventory = SubResource("Resource_tmb4w")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." index="0"]
@@ -59,7 +60,8 @@ disabled = true
 position = Vector2(-73, -264)
 
 [node name="EntitySprite" parent="Sprites" index="1"]
-scale = Vector2(0.2, 0.2)
+position = Vector2(10, 47)
+scale = Vector2(0.16, 0.16)
 texture = ExtResource("3_hwcn5")
 
 [node name="Positions" type="Node2D" parent="." index="10"]

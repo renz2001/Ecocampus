@@ -226,3 +226,10 @@ Viktor: No problem! Happy sorting!
 
 ~ faucet_broken
 {{PlayerManager.player.data.custom_name}}: The faucet is broken and still leaking. I'll need some tools to fix it.
+=> END
+
+~ need_ladder
+{{PlayerManager.player.data.custom_name}}: It seems the trash is stuck up there. I'll need to find something to help me reach higher places.
+
+~ tied_plastic_bags
+{{PlayerManager.player.data.custom_name}}: It looks like the trash is tangled up in the tree. I need a tool to cut the rope.
