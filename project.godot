@@ -43,6 +43,7 @@ BackManager="*res://nodes/singletons/managers/back_manager/back_manager.tscn"
 [dialogue_manager]
 
 general/states=["PlayerManager", "GUIManager"]
+general/wrap_lines=true
 
 [display]
 

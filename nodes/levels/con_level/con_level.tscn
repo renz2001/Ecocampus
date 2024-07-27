@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bi3j4clefo8l"]
+[gd_scene load_steps=40 format=3 uid="uid://bi3j4clefo8l"]
 
 [ext_resource type="PackedScene" uid="uid://cm6jeskbiise6" path="res://nodes/abstract_scenes/level_node/level_node.tscn" id="1_fiqww"]
 [ext_resource type="Texture2D" uid="uid://dwio4j5yvarq1" path="res://assets/background/camera_pictures/con_bg.jpg" id="2_eiuxd"]
@@ -15,12 +15,124 @@
 [ext_resource type="Resource" uid="uid://b16iiqk50ukca" path="res://resources/dialogue_arguments/con_quest_dialogue_completed.tres" id="9_y73nn"]
 [ext_resource type="PackedScene" uid="uid://bpsxhkc4aak0g" path="res://nodes/entities/pickuppable_entites/plastic_bag/plastic_bag.tscn" id="10_cgcwh"]
 [ext_resource type="PackedScene" uid="uid://de0t0vj8vdxfw" path="res://nodes/entities/pickuppable_entites/juice_box/juice_box.tscn" id="11_sa5jh"]
+[ext_resource type="Script" path="res://scripts/resources/string_formatter.gd" id="14_mwyy7"]
+[ext_resource type="Script" path="res://scripts/resources/rich_label_text.gd" id="15_11lx5"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_6kqic"]
 vertices = PackedVector2Array(1463, 700, 1454, 681, 1625, 682, 2006, 1177, -123, 1177, -123, 723, 459, 728, 517, 708, 756, 701, 1136, 700, 2004, 681)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 3), PackedInt32Array(3, 6, 7, 8, 9, 0), PackedInt32Array(10, 3, 2)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-134.27, 712.747, 456.516, 718.342, 516.938, 698.201, 756.385, 691.488, 1135.7, 690.369, 1447.87, 690.369, 1440.04, 671.348, 1624.66, 672.466, 2014.04, 671.348, 2017.4, 1187.17, -133.151, 1188.29)])
 source_geometry_group_name = &"navigation_polygon_source_group"
+
+[sub_resource type="Resource" id="Resource_vcy5u"]
+script = ExtResource("14_mwyy7")
+format = "[outline_size=4][outline_color=BLACK][b][font_size=38]%s[/font_size][/b]
+[font_size=28][b]Type:[/b] %s[/font_size]
+[font_size=28][b]Environmental Impact:[/b] %s[/font_size]"
+
+[sub_resource type="Resource" id="Resource_7nbim"]
+script = ExtResource("15_11lx5")
+format = SubResource("Resource_vcy5u")
+texts = Array[String]([])
+
+[sub_resource type="Resource" id="Resource_5iauq"]
+script = ExtResource("14_mwyy7")
+format = "[outline_size=4][outline_color=BLACK][b][font_size=38]%s[/font_size][/b]
+[font_size=28][b]Type:[/b] %s[/font_size]
+[font_size=28][b]Environmental Impact:[/b] %s[/font_size]"
+
+[sub_resource type="Resource" id="Resource_ew6l3"]
+script = ExtResource("15_11lx5")
+format = SubResource("Resource_5iauq")
+texts = Array[String]([])
+
+[sub_resource type="Resource" id="Resource_uaubw"]
+script = ExtResource("14_mwyy7")
+format = "[outline_size=4][outline_color=BLACK][b][font_size=38]%s[/font_size][/b]
+[font_size=28][b]Type:[/b] %s[/font_size]
+[font_size=28][b]Environmental Impact:[/b] %s[/font_size]"
+
+[sub_resource type="Resource" id="Resource_o37yy"]
+script = ExtResource("15_11lx5")
+format = SubResource("Resource_uaubw")
+texts = Array[String]([])
+
+[sub_resource type="Resource" id="Resource_21ymj"]
+script = ExtResource("14_mwyy7")
+format = "[outline_size=4][outline_color=BLACK][b][font_size=38]%s[/font_size][/b]
+[font_size=28][b]Type:[/b] %s[/font_size]
+[font_size=28][b]Environmental Impact:[/b] %s[/font_size]"
+
+[sub_resource type="Resource" id="Resource_dseb8"]
+script = ExtResource("15_11lx5")
+format = SubResource("Resource_21ymj")
+texts = Array[String]([])
+
+[sub_resource type="Resource" id="Resource_3bu47"]
+script = ExtResource("14_mwyy7")
+format = "[outline_size=4][outline_color=BLACK][b][font_size=38]%s[/font_size][/b]
+[font_size=28][b]Type:[/b] %s[/font_size]
+[font_size=28][b]Environmental Impact:[/b] %s[/font_size]"
+
+[sub_resource type="Resource" id="Resource_w8gxr"]
+script = ExtResource("15_11lx5")
+format = SubResource("Resource_3bu47")
+texts = Array[String]([])
+
+[sub_resource type="Resource" id="Resource_eopj4"]
+script = ExtResource("14_mwyy7")
+format = "[outline_size=4][outline_color=BLACK][b][font_size=38]%s[/font_size][/b]
+[font_size=28][b]Type:[/b] %s[/font_size]
+[font_size=28][b]Environmental Impact:[/b] %s[/font_size]"
+
+[sub_resource type="Resource" id="Resource_ep7vr"]
+script = ExtResource("15_11lx5")
+format = SubResource("Resource_eopj4")
+texts = Array[String]([])
+
+[sub_resource type="Resource" id="Resource_nu7p6"]
+script = ExtResource("14_mwyy7")
+format = "[outline_size=4][outline_color=BLACK][b][font_size=38]%s[/font_size][/b]
+[font_size=28][b]Type:[/b] %s[/font_size]
+[font_size=28][b]Environmental Impact:[/b] %s[/font_size]"
+
+[sub_resource type="Resource" id="Resource_tepen"]
+script = ExtResource("15_11lx5")
+format = SubResource("Resource_nu7p6")
+texts = Array[String]([])
+
+[sub_resource type="Resource" id="Resource_a62se"]
+script = ExtResource("14_mwyy7")
+format = "[outline_size=4][outline_color=BLACK][b][font_size=38]%s[/font_size][/b]
+[font_size=28][b]Type:[/b] %s[/font_size]
+[font_size=28][b]Environmental Impact:[/b] %s[/font_size]"
+
+[sub_resource type="Resource" id="Resource_smr13"]
+script = ExtResource("15_11lx5")
+format = SubResource("Resource_a62se")
+texts = Array[String]([])
+
+[sub_resource type="Resource" id="Resource_pxvxy"]
+script = ExtResource("14_mwyy7")
+format = "[outline_size=4][outline_color=BLACK][b][font_size=38]%s[/font_size][/b]
+[font_size=28][b]Type:[/b] %s[/font_size]
+[font_size=28][b]Environmental Impact:[/b] %s[/font_size]"
+
+[sub_resource type="Resource" id="Resource_u75wx"]
+script = ExtResource("15_11lx5")
+format = SubResource("Resource_pxvxy")
+texts = Array[String]([])
+
+[sub_resource type="Resource" id="Resource_oufl6"]
+script = ExtResource("14_mwyy7")
+format = "[outline_size=4][outline_color=BLACK][b][font_size=38]%s[/font_size][/b]
+[font_size=28][b]Type:[/b] %s[/font_size]
+[font_size=28][b]Environmental Impact:[/b] %s[/font_size]"
+
+[sub_resource type="Resource" id="Resource_b6hk8"]
+script = ExtResource("15_11lx5")
+format = SubResource("Resource_oufl6")
+texts = Array[String]([])
 
 [sub_resource type="Resource" id="Resource_sq2wg"]
 script = ExtResource("8_jaiqu")
@@ -77,42 +189,52 @@ dialogue = ExtResource("9_2ri8o")
 [node name="PlasticBag" parent="Entities/NonLiving" index="0" instance=ExtResource("10_cgcwh")]
 position = Vector2(1847, 737)
 scale = Vector2(0.764545, 0.764545)
+interact_description = SubResource("Resource_7nbim")
 
 [node name="PlasticBag2" parent="Entities/NonLiving" index="1" instance=ExtResource("10_cgcwh")]
 position = Vector2(134, 740)
 scale = Vector2(0.776938, 0.776938)
+interact_description = SubResource("Resource_ew6l3")
 
 [node name="PlasticBag3" parent="Entities/NonLiving" index="2" instance=ExtResource("10_cgcwh")]
 position = Vector2(1569, 681)
 scale = Vector2(0.533221, 0.533221)
+interact_description = SubResource("Resource_o37yy")
 
 [node name="PlasticBag4" parent="Entities/NonLiving" index="3" instance=ExtResource("10_cgcwh")]
 position = Vector2(92, 753)
 scale = Vector2(0.830638, 0.830638)
+interact_description = SubResource("Resource_dseb8")
 
 [node name="PlasticBag5" parent="Entities/NonLiving" index="4" instance=ExtResource("10_cgcwh")]
 position = Vector2(225, 764)
 scale = Vector2(0.876076, 0.876076)
+interact_description = SubResource("Resource_w8gxr")
 
 [node name="JuiceBox" parent="Entities/NonLiving" index="5" instance=ExtResource("11_sa5jh")]
 position = Vector2(628, 719)
 scale = Vector2(0.690191, 0.690191)
+interact_description = SubResource("Resource_ep7vr")
 
 [node name="JuiceBox2" parent="Entities/NonLiving" index="6" instance=ExtResource("11_sa5jh")]
 position = Vector2(561, 734)
 scale = Vector2(0.752153, 0.752153)
+interact_description = SubResource("Resource_tepen")
 
 [node name="JuiceBox3" parent="Entities/NonLiving" index="7" instance=ExtResource("11_sa5jh")]
 position = Vector2(650, 731)
 scale = Vector2(0.739761, 0.739761)
+interact_description = SubResource("Resource_smr13")
 
 [node name="JuiceBox4" parent="Entities/NonLiving" index="8" instance=ExtResource("11_sa5jh")]
 position = Vector2(1479, 731)
 scale = Vector2(0.739761, 0.739761)
+interact_description = SubResource("Resource_u75wx")
 
 [node name="JuiceBox5" parent="Entities/NonLiving" index="9" instance=ExtResource("11_sa5jh")]
 position = Vector2(1721, 839)
 scale = Vector2(1.18589, 1.18589)
+interact_description = SubResource("Resource_b6hk8")
 
 [node name="IDComponent" parent="Scripts" index="2"]
 data = SubResource("Resource_sq2wg")

@@ -32,15 +32,28 @@ TestNPC: TEST!
 => END
 
 ~ gate_1_quest
-{{PlayerManager.player.data.custom_name}}: Good morning, Sir Guzman! 
-Sir Guzman: [do dialogue_response_handler.respond("sad_expression", false)] Good morning! Welcome to Cavite State University. 
-Sir Guzman: Here in the university, the Pollution Control Office diligently enforces CvSU Environmental Policies.
-Sir Guzman: These policies contribute to making the university a sustainable and eco-friendly haven.
-Sir Guzman: In this journey, everyone needs to play their part in preserving our environment and ensuring a vibrant campus life. So, gear up for a fulfilling adventure!
-{{PlayerManager.player.data.custom_name}}: Thanks for the warm welcome! I'm ready for the adventure.
-Sir Guzman: Fantastic! Before we dive in, let me emphasize the importance of waste collection on our campus.
-Sir Guzman: Proper waste management not only maintains the beauty of our surroundings but also plays a crucial role in our commitment to sustainability.
-Sir Guzman: Now, here's your first task: I need you to collect 10 recyclables. It's a small step, but it makes a big difference. Head to the designated areas, and let's make our campus cleaner and greener together!
+#{{PlayerManager.player.data.custom_name}}: Good morning, Sir Guzman! 
+#Sir Guzman: Good morning! Welcome to Cavite State University. 
+#Sir Guzman: Here in the university, the Pollution Control Office diligently enforces CvSU Environmental Policies.
+#Sir Guzman: These policies contribute to making the university a sustainable and eco-friendly haven.
+#Sir Guzman: In this journey, everyone needs to play their part in preserving our environment and ensuring a vibrant campus life. So, gear up for a fulfilling adventure!
+#{{PlayerManager.player.data.custom_name}}: Thanks for the warm welcome! I'm ready for the adventure.
+#Sir Guzman: Fantastic! Before we dive in, let me emphasize the importance of waste collection on our campus.
+#Sir Guzman: Proper waste management not only maintains the beauty of our surroundings but also plays a crucial role in our commitment to sustainability.
+#Sir Guzman: Now, here's your first task: I need you to collect 10 recyclables. It's a small step, but it makes a big difference. Head to the designated areas, and let's make our campus cleaner and greener together!
+
+{{PlayerManager.player.data.custom_name}}: Hi Sir Guard what happen to you?
+Sir Guzman: [do dialogue_response_handler.respond("sad_expression", false)]Hello, I need your help. Can you help me?
+{{PlayerManager.player.data.custom_name}}: Of course, what is it?
+Sir Guzman: [do dialogue_response_handler.respond("idle_expression", false)] I am monitoring the students entering our school for security purposes. However, I have noticed some [b]recyclable waste material[/b] around the area. 
+Sir Guzman: Could you please pick it up to ensure our school remains clean and
+welcoming?
+Sir Guzman: Remember, [b]Proper waste management[/b] not only maintains the beauty of our surroundings but also [b]plays a crucial role in our commitment to sustainability[/b]. 
+Sir Guzman: By [b]recycling[/b], we contribute to environmental sustainability by minimizing pollution and greenhouse gas emissions associated with manufacturing processes. 
+{{PlayerManager.player.data.custom_name}}: I’m very excited to do this. 
+Sir Guzman: Thank you, this is a very challenging task. Please think carefully about it. Good luck. 
+Sir Guzman: Because there are [b]disobedient students[/b] who just throw their trash anywhere, such as on elevated places and in corners. 
+Sir Guzman: Don’t forget to comeback to me after you collected all recyclable waste material.
 do dialogue_response_handler.respond("start_quest")
 => END
 
@@ -55,16 +68,18 @@ do dialogue_response_handler.respond("start_quiz")
 
 ~ con_quest
 {{PlayerManager.player.data.custom_name}}: Good day, Professor!
-Professor Cruz: Good day! Welcome to the College of Nursing.
-Professor Cruz: You know, here at Cavite State University, we're all about learning and keeping things tidy.
-Professor Cruz: But lately, we've got a bit of a problem with trash piling up around campus.
+ProfessorCruz: Good day! Welcome to the College of Nursing. 
+ProfessorCruz: You know, here at [b]Cavite State University[/b], we're all about learning andkeeping things tidy. 
+ProfessorCruz: Lately, we've been facing an issue with plastic waste piling up around campus, despite the [b]campus-wide ban on plastic[/b]. 
 {{PlayerManager.player.data.custom_name}}: I see. How can I help?
-Professor Cruz: Glad you're on board! So, here's the deal: I need your help picking up non-biodegradable waste. You know, stuff like PLASTIC BAGS and CUPS that don't break down easily.
-Professor Cruz: If you can collect 10 pieces of this junk scattered around, it'll make a huge difference to our school's vibe.
-Professor Cruz: Think you're up for the challenge?
+ProfessorCruz: Glad you're on board! So, here's the deal: I need your help picking up non- biodegradable waste. You know, stuff like [b]PLASTIC BAGS[/b] and [b]JUICEBOX[/b] that don't break down easily. 
+ProfessorCruz: If you can collect [b]10 pieces[/b] of this junk scattered around, it'll make a huge difference to our school's vibe. 
+ProfessorCruz: Think you're up for the challenge?
 {{PlayerManager.player.data.custom_name}}: Absolutely! I'll get right on it, Professor.
+
 do dialogue_response_handler.respond("start_quest")
 => END
+
 
 ~ con_quest_completed
 {{PlayerManager.player.data.custom_name}}: Good day teacher! I did it, the challenge is complete
@@ -76,14 +91,12 @@ do dialogue_response_handler.respond("start_quiz")
 
 ~ dit_quest
 {{PlayerManager.player.data.custom_name}}: Good day teacher!
-Professor Luna: Good day my dear student.
-Professor Luna: I want to talk about something very important “CONSERVATION”.
-{{PlayerManager.player.data.custom_name}}: Conservation? Like protecting the environment?
-Professor Luna: Exactly. And i have a special challenge for you. You see, our school is trying to be more environmentally friendly, and one way we can do that is by conserving water and electricity.
+Luna: Good day my dear student. Luna: I want to talk about something very important [b]“CONSERVATION”[/b]. 
+{{PlayerManager.player.data.custom_name}}: Conservation? Like protecting theenvironment?
+Luna: Exactly. And i have a special challenge for you. You see, our school is tryingtobe more environmentally friendly, and one way we can do that is by [b]conservingwater[/b] and [b]electricity[/b]. 
 {{PlayerManager.player.data.custom_name}}: How can i help with that?
-Professor Luna: I'm glad you asked. I've noticed that many students forget to turn off the faucets after using them and leave the lights on even in the middle of the day in certain areas of the school. So, I want you to help me by identifying those areas and reminding everyone to turn off the faucets and lights when they're not in use.
-{{PlayerManager.player.data.custom_name}}: That sounds like great idea! I’m in. Im excited to take on this challenge and help make our school more eco-friendly.
-Professor Luna: I knew i could count on you, get back to me when you're done. Remember, safety first. Take your time and be careful. 
+Luna: I'm glad you asked. I've noticed that [b]many students forget to turn off thefaucets after using them[/b] and [b]leave the lights on[/b] even in the middle of theday in certain areas of the school. So, I want you to help me by identifying thoseareas and reminding everyone to turn off the faucets and lights when they're not inuse. 
+{{PlayerManager.player.data.custom_name}}: That sounds like great idea! I’min. Imexcited to take on this challenge and help make our school more eco-friendly. Luna: I knew i could count on you, get back to me when you're done. Remember, safety first. Take your time and be careful. 
 do dialogue_response_handler.respond("start_quest")
 => END
 
@@ -98,16 +111,17 @@ do dialogue_response_handler.respond("start_quiz")
 => END
 
 ~ library_quest
-Professor Grayson:  Good morning, Ready for another day of environmental studies?
-{{PlayerManager.player.data.custom_name}}: Good morning, Professor Grayson! Absolutely, I'm excited to learn more.
-Professor Grayson: Fantastic! Before we dive into today's task, let's discuss how to identify biodegradable items. It's important to know what to look for when seeking out environmentally friendly products.
-Professor Grayson: First, keep an eye out for certifications like the "compostable" label. This indicates that the item is designed to break down quickly and safely in composting facilities.
-Professor Grayson: Second, look for materials like PLA (polylactic acid) or plant-based plastics. These materials are derived from renewable resources and are known to biodegrade under the right conditions.
-Professor Grayson: Lastly, consider the item's natural properties. Organic materials like paper, wood, and certain food scraps (such as fruit peels) are biodegradable by nature and break down over time.
-Professor Grayson: Now that you know what to look for, I have a task for you. I want you to take a stroll around our campus and find two biodegradable items. 
-{{PlayerManager.player.data.custom_name}}: Sure thing, Professor Grayson. I'll keep those tips in mind as I explore the campus.
-Professor Grayson: Apply what you've learned about identifying biodegradable materials, and see what you can find. If you can collect 10 pieces of this junk scattered around, it'll make a huge difference to our school's
-Professor Grayson: Remember, identifying biodegradable items is essential for reducing our environmental impact. Your commitment to environmental awareness is commendable. Carry on, and let's strive for a more sustainable future together.
+Sir Grayson: Good morning, Ready for another day of environmental studies?
+{{PlayerManager.player.data.custom_name}}: Good morning, Teacher! Absolutely, I'm excited to learn more. 
+Sir Grayson: Fantastic! Before we dive into today's task, let's discuss how to identify
+[b]biodegradable materials[/b]. It's important to know what to look for when seekingout environmentally friendly products. 
+Sir Grayson: First, keep an eye out for certifications like the [b]"compostable"[/b] label. This indicates that the item is designed to break down quickly and safely in composting facilities. 
+Sir Grayson: Second, look for materials like [b]PLA[/b] (polylactic acid) or plant-basedplastics. These materials are derived from renewable resources and are known tobiodegrade under the right conditions.
+Sir Grayson: Lastly, consider the item's natural properties. Organic materials like paper, wood, and certain food scraps (such as fruit peels) are biodegradable by nature andbreak down over time. 
+Sir Grayson: Now that you know what to look for, I have a task for you. I want you totake a stroll around our campus and find two biodegradable items. 
+{{PlayerManager.player.data.custom_name}}: Sure thing, Teacher. I'll keep thosetipsin mind as I explore the campus. 
+Sir Grayson: Apply what you've learned about identifying biodegradable materials, andsee what you can find. If you can collect 10 pieces of this junk scattered around, it'll make a huge difference to our school's. 
+Sir Grayson: Remember, identifying biodegradable items is essential for reducing our environmental impact. Your commitment to environmental awareness is commendable. Carry on, and let's strive for a more sustainable future together.
 do dialogue_response_handler.respond("start_quest")
 => END
 
@@ -121,15 +135,15 @@ do dialogue_response_handler.respond("start_quiz")
 
 ~ saluysuy_quest
 {{PlayerManager.player.data.custom_name}}: Good day teacher!
-Doctor Madrigal: Good day my dear student.
-Doctor Madrigal: Just the person i was looking for.
-Doctor Madrigal: I have challenge for you. As you know, our school is committed to sustainability, and one area where we can improve is waste disposal. 
+Doctor Madrigal: Good day my dear student. 
+Doctor Madrigal: Just the person i was looking for. 
+Doctor Madrigal: I have challenge for you. As you know, our school is committed to sustainability, and one area where we can improve is [b]waste disposal[/b]. 
 {{PlayerManager.player.data.custom_name}}: Waste disposal? How can i help with that?
-Doctor Madrigal: Im glad you asked. I want you to lead an initiative to properly sort waste into designated bins for recyclable, biodegradable and non-biodegradable, but not everyone knows which items go where.
-{{PlayerManager.player.data.custom_name}}: That sounds like a great idea! I’ll make sure to educate everyone on the proper sorting of waste. 
-Doctor Madrigal: And don’t forget to lead by example. Make sure you’re sorting your own waste properly too.
-{{PlayerManager.player.data.custom_name}}: Of course! I’ll do my best to set a good example for everyone else.
-Doctor Madrigal: I have faith in you. I’m confident we can make our school a cleaner and more sustainable place.
+Doctor Madrigal: Im glad you asked. I want you to lead an initiative to [b]properly sort wasteinto designated bins[/b] for recyclable, biodegradable and non-biodegradable, but not
+everyone knows which items go where. {{PlayerManager.player.data.custom_name}}: That sounds like a great idea! I’ll makesure to educate everyone on the proper sorting of waste. 
+Doctor Madrigal: And don’t forget to lead by example. Make sure you’re sorting your ownwaste properly too. 
+{{PlayerManager.player.data.custom_name}}: Of course! I’ll do my best to set a goodexample for everyone else. 
+Doctor Madrigal: I have faith in you. I’m confident we can make our school a cleaner andmore sustainable place. 
 {{PlayerManager.player.data.custom_name}}: Thanks, teacher. I won’t let you down.
 do dialogue_response_handler.respond("start_quest")
 => END
@@ -145,21 +159,21 @@ do dialogue_response_handler.respond("start_quiz")
 => END
 
 ~ bea
-Bea: Hey, ever wonder how to tell if something’s recyclable?
-{{PlayerManager.player.data.custom_name}}: Definitely! It’s kind of confusing.
-Bea: Well if it is Cans and Plastic. Cans are made of aluminum, which can be melted down and reused to make a new cans, saving energy and resources.
-Bea: Plastic, on the other hand, can be recycled into various products, reducing the need for new plastic production and cutting down on pollution.
-{{PlayerManager.player.data.custom_name}}: Wow, i didn’t know that! Thanks for the information.
-Bea: No problem! it’s all about giving theses materials a second life and helping the environment. Keep up the good work! and help our campus green!
+Bea: Did you know that [b]recyclable materials[/b] are items that can be processedand reused to create new products? Common recyclable materials include paper, cardboard, plastic, glass, and aluminum or metal. 
+Bea: By [b]recycling[/b], we contribute to environmental sustainability by minimizingpollution and greenhouse gas emissions associated with manufacturing processes. 
+Bea: If you're looking for something that can help you reach recyclable waste
+materials in [b]high places[/b], there's something useful at the [b]aluysuy location[/b]. 
+Bea:But remember, you need to dispose of the trash properly because it can cause serious environmental issues, and our school has a [b]“Garbage in - Garbage out”[/b] policy. {{PlayerManager.player.data.custom_name}}: Awesome! Thanks for providing mewith the information I needed to know. I appreciate it very much. Thank you. 
+Bea: Glad I could help.
 => END
 
 ~ enzo
-Enzo: Hey, ever wonder how you can conserve power and water around campus?
+Enzo: Hey, ever wonder how you can [b]conserve energy[/b] and [b]water[/b] aroundcampus?
 {{PlayerManager.player.data.custom_name}}: Yeah, I'd love some tips!
-Enzo: Simple things like turning off lights when you leave a room and making sure faucets aren't dripping can make a big difference. It's all about being mindful of your energy and water usage.
-{{PlayerManager.player.data.custom_name}}: That makes sense. Every little bit helps, right?
-Enzo: Exactly! Small actions add up to big savings for both the environment and your wallet. Take note we have 2 location that have a faucets make sure to double check that.
-{{PlayerManager.player.data.custom_name}}: Thanks for the reminder!
+Enzo: Simple things like [b]turning off lights[/b] when you leave a roomand [b]making sure faucets aren't dripping[/b] can make a big difference. It's all about being mindful of your energy and water usage. 
+{{PlayerManager.player.data.custom_name}}: That makes sense, but the some faucets isn’t working properly. I can’t turn it off.
+Enzo: Oh. You can fix the faucets using the [b]wrench[/b]. It is usually located under washing area. 
+{{PlayerManager.player.data.custom_name}}: Thanks for the information!
 Enzo: No problem! Happy conserving!
 => END
 
@@ -173,25 +187,40 @@ Zilong: While the paper portion may be biodegradable, but the plastic and foil a
 Zilong: No problem! Help our school to clean and green.
 => END
 
+~ zilong_ask_juice_boxes
+Zilong: Hey, do you have [b]five juice boxes[/b] that I could have?
+{{PlayerManager.player.data.custom_name}}: What do you need themfor?
+Zilong: It's for my school project. [b]The juice boxes[/b] will be perfect for it. Zilong: By simply recycling, I can make a significant contribution to environmental
+preservation. Zilong: because [b]it reduces the need for new raw materials, preserves natural
+resources[/b], and [b]minimizes habitat destruction[/b]. Zilong: It also decreases the amount of waste that ends up in landfills, which helpslower pollution and greenhouse gas emissions. {{PlayerManager.player.data.custom_name}}: Ah, I see. Thank you for the
+information. I'll bring you those three juice boxes you requested as soon as I havethem. Zilong: No problem! Help our school to clean and green.
+do dialogue_response_handler.respond("start_quest")
+=> END
+
+~ zilong_received_juice_boxes
+{{PlayerManager.player.data.custom_name}}: Here’s the three juice box
+Zilong: Excellent! you really helped me a lot. Zilong: Consider these scissors a 
+=> END
+
 ~ annie
-Annie: Hey, ever wonder how to identify biodegradable items?
-{{PlayerManager.player.data.custom_name}}: Yeah, I'm not sure what to look for.
-Annie: Well, biodegradable items are made from natural materials that can break down over time in the environment, like banana peels made from organic matter and coffee cups lined with compostable materials.
-{{PlayerManager.player.data.custom_name}}: Ah, so if it's made from natural stuff, it's probably biodegradable.
-Annie: Exactly! By recognizing these materials, you can compost them instead of sending them to landfills, helping to return nutrients to the soil.
+Annie: Hey, ever wonder how to identify [b]biodegradable materials[/b]?
+{{PlayerManager.player.data.custom_name}}: Yeah, I'm not sure what to look for. 
+Annie: Well, biodegradable items are [b]made from natural materials[/b] that canbreak down over time in the environment, like [b]banana peels[/b] made from organic matter and [b]coffee cups[/b] lined with compostable materials. 
+{{PlayerManager.player.data.custom_name}}: Ah, so if it's made fromnatural stuff,
+it's probably biodegradable. Annie: Exactly! By recognizing these materials, you can compost them instead of sending them to landfills, helping to return nutrients to the soil. 
 {{PlayerManager.player.data.custom_name}}: Got it, thanks for the info!
-Annie:  Keep up the good work! and help our campus clean and green!
+Annie: Keep up the good work! and help our campus clean and green!
 => END
 
 ~ viktor
-Viktor: Hey there! Ready to learn about waste segregation?
+Viktor: Hey there! Ready to learn about [b]waste segregation[/b]?
 {{PlayerManager.player.data.custom_name}}: Sure, lay it on me!
-Viktor: Alright, it's pretty simple. First off, we've got recyclables. That includes stuff like paper, plastic, and cans. They're materials that can be turned into new products.
-{{PlayerManager.player.data.custom_name}}: Got it, recyclables.
-Viktor: Next up, we've got biodegradables. These are organic materials that break down naturally, like food scraps and yard waste.
-{{PlayerManager.player.data.custom_name}}: Okay, biodegradables. What about the last category?
-Viktor: Non-biodegradables. These are materials that don't break down easily, like plastics, metals, and certain types of glass.
-{{PlayerManager.player.data.custom_name}}: Gotcha, so recyclables, biodegradables, and non-biodegradables. Thanks for the info!
+Viktor: Alright, it's pretty simple. First off, we've got [b]recyclables[/b]. That includesstuff like paper, plastic, and cans. They're materials that can be turned into newproducts. 
+{{PlayerManager.player.data.custom_name}}: Got it, [b]recyclables[/b]. Viktor: Next up, we've got [b]biodegradables[/b]. These are organic materials that break down naturally, like food scraps and yard waste. {{PlayerManager.player.data.custom_name}}: Okay, [b]biodegradable[/b]. What
+about the last category?
+Viktor: [b]Non-biodegradables[/b]. These are materials that don't break down easily, like plastics, metals, and certain types of glass. 
+{{PlayerManager.player.data.custom_name}}: Gotcha, so [b]recyclables, biodegradables[/b], and [b]non-biodegradables[/b]. Thanks for the info!
+Viktor: But remember, you need to dispose of the trash properly because it can cause serious environmental issues, and our school has a [b]“Garbage in - Garbageout”[/b] policy. 
 Viktor: No problem! Happy sorting!
 => END
 
