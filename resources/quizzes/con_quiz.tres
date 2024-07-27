@@ -27,9 +27,9 @@ reward_points = 1
 
 [sub_resource type="Resource" id="Resource_yvjj5"]
 script = ExtResource("1_453m7")
-question = "What problem does Professor Cruz mention the university is facing?"
-correct_answer = "Trash piling up around campus"
-wrong_answers = Array[String](["Lack of resources", "Excessive noise pollution", "Overcrowded classrooms"])
+question = "How does plastic ban policy helps in environmental protection?"
+correct_answer = "It reduce greenhouse gas emissions"
+wrong_answers = Array[String](["It increases the use of single-use plastics.", "It supports the use of non-biodegradable materials.", "It makes plastics more affordable."])
 reward_points = 1
 
 [sub_resource type="Resource" id="Resource_chh8y"]
