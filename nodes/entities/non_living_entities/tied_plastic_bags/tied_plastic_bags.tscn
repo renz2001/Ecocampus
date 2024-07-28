@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dvlegvn1qhnrf"]
+[gd_scene load_steps=12 format=3 uid="uid://dvlegvn1qhnrf"]
 
 [ext_resource type="PackedScene" uid="uid://bsegdr16m7bl6" path="res://nodes/abstract_scenes/interactable_entity_node/interactable_entity_node.tscn" id="1_thqxv"]
 [ext_resource type="Script" path="res://nodes/entities/non_living_entities/tied_plastic_bags/tied_plastic_bags.gd" id="2_uqgr1"]
@@ -22,12 +22,19 @@ reset_when_title_variation_reached = false
 is_dialogue_game_state = true
 save_as_resource_path = false
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4shqg"]
+size = Vector2(113, 64)
+
 [node name="TiedPlasticBags" node_paths=PackedStringArray("unlock_entities") instance=ExtResource("1_thqxv")]
 script = ExtResource("2_uqgr1")
 unlock_entities = []
 allowed_items = Array[ExtResource("3_1xxkn")]([ExtResource("4_rjea6")])
-dont_take_item = false
+dont_take_item = true
 dialogue = SubResource("Resource_8kh8v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MouseDragDropArea" index="0"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_4shqg")
 
 [node name="DialogueStarter" parent="Components" index="4"]
 dialogue = SubResource("Resource_8kh8v")

@@ -1,9 +1,9 @@
 [gd_scene load_steps=11 format=3 uid="uid://bc1txwrwrlhfu"]
 
 [ext_resource type="PackedScene" uid="uid://cm6jeskbiise6" path="res://nodes/abstract_scenes/level_node/level_node.tscn" id="1_4fkii"]
-[ext_resource type="Texture2D" uid="uid://cgvwt0653vaxn" path="res://assets/background/camera_pictures/trash_can_bg.jpg" id="2_jlb62"]
 [ext_resource type="PackedScene" uid="uid://ci8jg3d2e7j5p" path="res://nodes/components/player_sprite_display/player_sprite_display.tscn" id="2_xrh1o"]
 [ext_resource type="PackedScene" uid="uid://ceslx0shjft6" path="res://nodes/storage_nodes/bio_degradable_trash_can/bio_degradable_trash_can.tscn" id="4_7mhfn"]
+[ext_resource type="Texture2D" uid="uid://bpe1l60j6nkr4" path="res://assets/background/drawn_camera_pictures/trash_cans_bg.png" id="4_862hi"]
 [ext_resource type="PackedScene" uid="uid://cdt5mavsgfwcl" path="res://nodes/storage_nodes/non_biodegradable_trash_can/non_biodegradable_trash_can.tscn" id="5_4eos8"]
 [ext_resource type="PackedScene" uid="uid://caddtr3fd88mk" path="res://nodes/gui/trash_can_info_dialog/trash_can_info_dialog.tscn" id="5_qmskb"]
 [ext_resource type="PackedScene" uid="uid://dtqoxulajxxhx" path="res://nodes/storage_nodes/recyclable_trash_can/recyclable_trash_can.tscn" id="6_4jqk0"]
@@ -48,10 +48,10 @@ follow_node = NodePath("../../Entities/Living/PlayerNode")
 [node name="TextureRect" type="TextureRect" parent="Background/CanvasLayer" index="1"]
 offset_left = 6.00002
 offset_top = -482.0
-offset_right = 2188.0
-offset_bottom = 1700.0
+offset_right = 2182.0
+offset_bottom = 1835.0
 scale = Vector2(0.878849, 0.878849)
-texture = ExtResource("2_jlb62")
+texture = ExtResource("4_862hi")
 expand_mode = 1
 stretch_mode = 5
 
@@ -59,7 +59,8 @@ stretch_mode = 5
 position = Vector2(-433, 670)
 
 [node name="TrashCans" type="Node2D" parent="Entities/NonLiving" index="0"]
-position = Vector2(1218, 838)
+position = Vector2(1546, 872)
+scale = Vector2(0.7, 0.7)
 
 [node name="BioDegradableTrashcan" parent="Entities/NonLiving/TrashCans" index="0" instance=ExtResource("4_7mhfn")]
 position = Vector2(-312, -38)

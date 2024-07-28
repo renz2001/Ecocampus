@@ -20,6 +20,7 @@ signal task_completed(task: EcoQuestTask)
 			
 ## Optional, leave null if not wanted. Unlocks this achievement when finished 
 @export var on_complete_unlock_achievement: Achievement
+@export var on_complete_get_new_item: ItemStack
 @export var invisible_in_gui: bool
 
 var percentage_description_format: StringFormatter
@@ -70,8 +71,15 @@ func are_tasks_all_complete() -> bool:
 	
 	
 func complete() -> void: 
-	on_complete_unlock_achievement.unlock()
-	on_complete_unlock_achievement.display()
+	if on_complete_unlock_achievement: 
+		on_complete_unlock_achievement.unlock()
+		on_complete_unlock_achievement.display()
+		#await GUIManager.get_tree().physics_frame
+		#await DialogueManager.dialogue_ended
+		
+func give_item_to_player() -> void: 
+	if on_complete_get_new_item: 
+		PlayerManager.player.data.inventory.add_item(on_complete_get_new_item)
 	
 	
 func _to_string() -> String: 

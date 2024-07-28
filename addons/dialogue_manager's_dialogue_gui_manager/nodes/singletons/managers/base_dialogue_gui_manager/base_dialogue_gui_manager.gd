@@ -182,10 +182,3 @@ func _on_mutated(_mutation: Dictionary) -> void:
 			#will_hide_balloon = false
 			#current_dialogue_gui.hide()
 	#)
-
-
-
-
-
-
-

@@ -163,7 +163,8 @@ Bea: Did you know that [b]recyclable materials[/b] are items that can be process
 Bea: By [b]recycling[/b], we contribute to environmental sustainability by minimizingpollution and greenhouse gas emissions associated with manufacturing processes. 
 Bea: If you're looking for something that can help you reach recyclable waste
 materials in [b]high places[/b], there's something useful at the [b]aluysuy location[/b]. 
-Bea:But remember, you need to dispose of the trash properly because it can cause serious environmental issues, and our school has a [b]“Garbage in - Garbage out”[/b] policy. {{PlayerManager.player.data.custom_name}}: Awesome! Thanks for providing mewith the information I needed to know. I appreciate it very much. Thank you. 
+Bea: But remember, you need to dispose of the trash properly because it can cause serious environmental issues, and our school has a [b]“Garbage in - Garbage out”[/b] policy. 
+{{PlayerManager.player.data.custom_name}}: Awesome! Thanks for providing mewith the information I needed to know. I appreciate it very much. Thank you. 
 Bea: Glad I could help.
 => END
 
@@ -189,25 +190,28 @@ Zilong: No problem! Help our school to clean and green.
 
 ~ zilong_ask_juice_boxes
 Zilong: Hey, do you have [b]five juice boxes[/b] that I could have?
-{{PlayerManager.player.data.custom_name}}: What do you need themfor?
-Zilong: It's for my school project. [b]The juice boxes[/b] will be perfect for it. Zilong: By simply recycling, I can make a significant contribution to environmental
-preservation. Zilong: because [b]it reduces the need for new raw materials, preserves natural
-resources[/b], and [b]minimizes habitat destruction[/b]. Zilong: It also decreases the amount of waste that ends up in landfills, which helpslower pollution and greenhouse gas emissions. {{PlayerManager.player.data.custom_name}}: Ah, I see. Thank you for the
-information. I'll bring you those three juice boxes you requested as soon as I havethem. Zilong: No problem! Help our school to clean and green.
+{{PlayerManager.player.data.custom_name}}: What do you need them for?
+Zilong: It's for my school project. [b]The juice boxes[/b] will be perfect for it. 
+Zilong: By simply recycling, I can make a significant contribution to environmental preservation. 
+Zilong: because [b]it reduces the need for new raw materials, preserves natural resources[/b], and [b]minimizes habitat destruction[/b]. 
+Zilong: It also decreases the amount of waste that ends up in landfills, which helps lower pollution and greenhouse gas emissions. 
+{{PlayerManager.player.data.custom_name}}: Ah, I see. Thank you for the information. I'll bring you those three juice boxes you requested as soon as I have them. 
+Zilong: No problem! Help our school to clean and green.
 do dialogue_response_handler.respond("start_quest")
 => END
 
 ~ zilong_received_juice_boxes
 {{PlayerManager.player.data.custom_name}}: Here’s the three juice box
-Zilong: Excellent! you really helped me a lot. Zilong: Consider these scissors a 
+Zilong: Excellent! you really helped me a lot. 
+Zilong: Consider these scissors a token of my gratitude.
 => END
 
 ~ annie
 Annie: Hey, ever wonder how to identify [b]biodegradable materials[/b]?
 {{PlayerManager.player.data.custom_name}}: Yeah, I'm not sure what to look for. 
 Annie: Well, biodegradable items are [b]made from natural materials[/b] that canbreak down over time in the environment, like [b]banana peels[/b] made from organic matter and [b]coffee cups[/b] lined with compostable materials. 
-{{PlayerManager.player.data.custom_name}}: Ah, so if it's made fromnatural stuff,
-it's probably biodegradable. Annie: Exactly! By recognizing these materials, you can compost them instead of sending them to landfills, helping to return nutrients to the soil. 
+{{PlayerManager.player.data.custom_name}}: Ah, so if it's made from natural stuff, it's probably biodegradable. 
+Annie: Exactly! By recognizing these materials, you can compost them instead of sending them to landfills, helping to return nutrients to the soil. 
 {{PlayerManager.player.data.custom_name}}: Got it, thanks for the info!
 Annie: Keep up the good work! and help our campus clean and green!
 => END
@@ -215,9 +219,10 @@ Annie: Keep up the good work! and help our campus clean and green!
 ~ viktor
 Viktor: Hey there! Ready to learn about [b]waste segregation[/b]?
 {{PlayerManager.player.data.custom_name}}: Sure, lay it on me!
-Viktor: Alright, it's pretty simple. First off, we've got [b]recyclables[/b]. That includesstuff like paper, plastic, and cans. They're materials that can be turned into newproducts. 
-{{PlayerManager.player.data.custom_name}}: Got it, [b]recyclables[/b]. Viktor: Next up, we've got [b]biodegradables[/b]. These are organic materials that break down naturally, like food scraps and yard waste. {{PlayerManager.player.data.custom_name}}: Okay, [b]biodegradable[/b]. What
-about the last category?
+Viktor: Alright, it's pretty simple. First off, we've got [b]recyclables[/b]. That includes stuff like paper, plastic, and cans. They're materials that can be turned into new products. 
+{{PlayerManager.player.data.custom_name}}: Got it, [b]recyclables[/b]. 
+Viktor: Next up, we've got [b]biodegradables[/b]. These are organic materials that break down naturally, like food scraps and yard waste. 
+{{PlayerManager.player.data.custom_name}}: Okay, [b]biodegradable[/b]. What about the last category?
 Viktor: [b]Non-biodegradables[/b]. These are materials that don't break down easily, like plastics, metals, and certain types of glass. 
 {{PlayerManager.player.data.custom_name}}: Gotcha, so [b]recyclables, biodegradables[/b], and [b]non-biodegradables[/b]. Thanks for the info!
 Viktor: But remember, you need to dispose of the trash properly because it can cause serious environmental issues, and our school has a [b]“Garbage in - Garbageout”[/b] policy. 

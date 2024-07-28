@@ -11,6 +11,7 @@ save_as_resource_path = false
 
 [resource]
 script = ExtResource("1_lirxy")
+automatically_complete_after_tasks_completed = false
 percentage_description = "Pick Trash"
 tasks = Array[ExtResource("3_wt2xu")]([SubResource("Resource_0oxb7")])
 invisible_in_gui = false

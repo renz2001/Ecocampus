@@ -141,6 +141,12 @@ func _on_interact() -> void:
 		if quiz != null: 
 			QuizAttemptScreen.display(quiz, data)
 	dialogue_starter.start()
+	
+	if quest.on_complete_get_new_item:
+		if dialogue:  
+			await DialogueManager.dialogue_ended
+		quest.give_item_to_player()
+		
 	call_world_event_component.play()
 	interacted.emit()
 	if disable_after_interact: 

@@ -61,7 +61,6 @@ func complete_quest(quest: Quest) -> Quest:
 func mark_quest_as_available(quest: Quest) -> void:
 	if available.is_quest_inside(quest) or completed.is_quest_inside(quest) or active.is_quest_inside(quest):
 		return
-
 	available.add_quest(quest)
 	new_available_quest.emit(quest)
 

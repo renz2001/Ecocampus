@@ -29,15 +29,15 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(
 outlines = Array[PackedVector2Array]([PackedVector2Array(-49.5237, 1082.14, -50.5773, 654.344, 150, 598, 363, 566, 601, 563, 585, 610, 664, 623, 1188, 604, 1302, 591, 1328, 576, 1309, 537, 1518, 528, 1975, 607, 1982, 1080)])
 source_geometry_group_name = &"navigation_polygon_source_group"
 
-[sub_resource type="Resource" id="Resource_hrv3v"]
+[sub_resource type="Resource" id="Resource_pf3tu"]
 script = ExtResource("14_ljr3y")
 format = "[outline_size=4][outline_color=BLACK][b][font_size=38]%s[/font_size][/b]
 [font_size=28][b]Type:[/b] %s[/font_size]
 [font_size=28][b]Environmental Impact:[/b] %s[/font_size]"
 
-[sub_resource type="Resource" id="Resource_bb1o4"]
+[sub_resource type="Resource" id="Resource_pwrxw"]
 script = ExtResource("15_35wlr")
-format = SubResource("Resource_hrv3v")
+format = SubResource("Resource_pf3tu")
 texts = Array[String]([])
 
 [sub_resource type="Resource" id="Resource_yms6q"]
@@ -52,103 +52,103 @@ reset_when_title_variation_reached = false
 is_dialogue_game_state = true
 save_as_resource_path = false
 
-[sub_resource type="Resource" id="Resource_80t0s"]
+[sub_resource type="Resource" id="Resource_tvt6u"]
 script = ExtResource("14_ljr3y")
 format = "[outline_size=4][outline_color=BLACK][b][font_size=38]%s[/font_size][/b]
 [font_size=28][b]Type:[/b] %s[/font_size]
 [font_size=28][b]Environmental Impact:[/b] %s[/font_size]"
 
-[sub_resource type="Resource" id="Resource_50t3l"]
+[sub_resource type="Resource" id="Resource_ckaro"]
 script = ExtResource("15_35wlr")
-format = SubResource("Resource_80t0s")
+format = SubResource("Resource_tvt6u")
 texts = Array[String]([])
 
-[sub_resource type="Resource" id="Resource_uex0u"]
+[sub_resource type="Resource" id="Resource_xw5na"]
 script = ExtResource("14_ljr3y")
 format = "[outline_size=4][outline_color=BLACK][b][font_size=38]%s[/font_size][/b]
 [font_size=28][b]Type:[/b] %s[/font_size]
 [font_size=28][b]Environmental Impact:[/b] %s[/font_size]"
 
-[sub_resource type="Resource" id="Resource_1mnor"]
+[sub_resource type="Resource" id="Resource_s03u0"]
 script = ExtResource("15_35wlr")
-format = SubResource("Resource_uex0u")
+format = SubResource("Resource_xw5na")
 texts = Array[String]([])
 
-[sub_resource type="Resource" id="Resource_ixl5f"]
+[sub_resource type="Resource" id="Resource_dlxsy"]
 script = ExtResource("14_ljr3y")
 format = "[outline_size=4][outline_color=BLACK][b][font_size=38]%s[/font_size][/b]
 [font_size=28][b]Type:[/b] %s[/font_size]
 [font_size=28][b]Environmental Impact:[/b] %s[/font_size]"
 
-[sub_resource type="Resource" id="Resource_e58cc"]
+[sub_resource type="Resource" id="Resource_nbfar"]
 script = ExtResource("15_35wlr")
-format = SubResource("Resource_ixl5f")
+format = SubResource("Resource_dlxsy")
 texts = Array[String]([])
 
-[sub_resource type="Resource" id="Resource_0k6cv"]
+[sub_resource type="Resource" id="Resource_kle0v"]
 script = ExtResource("14_ljr3y")
 format = "[outline_size=4][outline_color=BLACK][b][font_size=38]%s[/font_size][/b]
 [font_size=28][b]Type:[/b] %s[/font_size]
 [font_size=28][b]Environmental Impact:[/b] %s[/font_size]"
 
-[sub_resource type="Resource" id="Resource_f56k4"]
+[sub_resource type="Resource" id="Resource_1ditw"]
 script = ExtResource("15_35wlr")
-format = SubResource("Resource_0k6cv")
+format = SubResource("Resource_kle0v")
 texts = Array[String]([])
 
-[sub_resource type="Resource" id="Resource_6b7b6"]
+[sub_resource type="Resource" id="Resource_rq0ba"]
 script = ExtResource("14_ljr3y")
 format = "[outline_size=4][outline_color=BLACK][b][font_size=38]%s[/font_size][/b]
 [font_size=28][b]Type:[/b] %s[/font_size]
 [font_size=28][b]Environmental Impact:[/b] %s[/font_size]"
 
-[sub_resource type="Resource" id="Resource_ygcw7"]
+[sub_resource type="Resource" id="Resource_lnt42"]
 script = ExtResource("15_35wlr")
-format = SubResource("Resource_6b7b6")
+format = SubResource("Resource_rq0ba")
 texts = Array[String]([])
 
-[sub_resource type="Resource" id="Resource_3h1lr"]
+[sub_resource type="Resource" id="Resource_63l3w"]
 script = ExtResource("14_ljr3y")
 format = "[outline_size=4][outline_color=BLACK][b][font_size=38]%s[/font_size][/b]
 [font_size=28][b]Type:[/b] %s[/font_size]
 [font_size=28][b]Environmental Impact:[/b] %s[/font_size]"
 
-[sub_resource type="Resource" id="Resource_leukp"]
+[sub_resource type="Resource" id="Resource_n2lpx"]
 script = ExtResource("15_35wlr")
-format = SubResource("Resource_3h1lr")
+format = SubResource("Resource_63l3w")
 texts = Array[String]([])
 
-[sub_resource type="Resource" id="Resource_i0wms"]
+[sub_resource type="Resource" id="Resource_dkjmb"]
 script = ExtResource("14_ljr3y")
 format = "[outline_size=4][outline_color=BLACK][b][font_size=38]%s[/font_size][/b]
 [font_size=28][b]Type:[/b] %s[/font_size]
 [font_size=28][b]Environmental Impact:[/b] %s[/font_size]"
 
-[sub_resource type="Resource" id="Resource_8uhcp"]
+[sub_resource type="Resource" id="Resource_jkw3b"]
 script = ExtResource("15_35wlr")
-format = SubResource("Resource_i0wms")
+format = SubResource("Resource_dkjmb")
 texts = Array[String]([])
 
-[sub_resource type="Resource" id="Resource_oh7f1"]
+[sub_resource type="Resource" id="Resource_6xhps"]
 script = ExtResource("14_ljr3y")
 format = "[outline_size=4][outline_color=BLACK][b][font_size=38]%s[/font_size][/b]
 [font_size=28][b]Type:[/b] %s[/font_size]
 [font_size=28][b]Environmental Impact:[/b] %s[/font_size]"
 
-[sub_resource type="Resource" id="Resource_uehkk"]
+[sub_resource type="Resource" id="Resource_g3pjo"]
 script = ExtResource("15_35wlr")
-format = SubResource("Resource_oh7f1")
+format = SubResource("Resource_6xhps")
 texts = Array[String]([])
 
-[sub_resource type="Resource" id="Resource_yl3o8"]
+[sub_resource type="Resource" id="Resource_bh86p"]
 script = ExtResource("14_ljr3y")
 format = "[outline_size=4][outline_color=BLACK][b][font_size=38]%s[/font_size][/b]
 [font_size=28][b]Type:[/b] %s[/font_size]
 [font_size=28][b]Environmental Impact:[/b] %s[/font_size]"
 
-[sub_resource type="Resource" id="Resource_4sjoq"]
+[sub_resource type="Resource" id="Resource_u0pde"]
 script = ExtResource("15_35wlr")
-format = SubResource("Resource_yl3o8")
+format = SubResource("Resource_bh86p")
 texts = Array[String]([])
 
 [sub_resource type="Resource" id="Resource_1uyd6"]
@@ -212,7 +212,7 @@ position = Vector2(148, 356)
 scale = Vector2(0.418696, 0.418696)
 lock_size = true
 node_variety_index = 1
-interact_description = SubResource("Resource_bb1o4")
+interact_description = SubResource("Resource_pwrxw")
 dialogue_if_disabled = SubResource("Resource_yms6q")
 disable_tap_hit_box_if_disabled = false
 
@@ -221,53 +221,53 @@ position = Vector2(125, 366)
 scale = Vector2(0.434535, 0.434535)
 lock_size = true
 node_variety_index = 1
-interact_description = SubResource("Resource_50t3l")
+interact_description = SubResource("Resource_ckaro")
 disable_tap_hit_box_if_disabled = false
 
 [node name="AluminumSodaCan4" parent="Entities/NonLiving/OnRoof" index="2" instance=ExtResource("10_r6ehk")]
 position = Vector2(66, 352)
 scale = Vector2(0.41236, 0.41236)
 lock_size = true
-interact_description = SubResource("Resource_1mnor")
+interact_description = SubResource("Resource_s03u0")
 disable_tap_hit_box_if_disabled = false
 
 [node name="AluminumSodaCan5" parent="Entities/NonLiving/OnRoof" index="3" instance=ExtResource("10_r6ehk")]
 position = Vector2(95, 346)
 scale = Vector2(0.402856, 0.402856)
 lock_size = true
-interact_description = SubResource("Resource_e58cc")
+interact_description = SubResource("Resource_nbfar")
 disable_tap_hit_box_if_disabled = false
 
 [node name="PlasticBottle4" parent="Entities/NonLiving" index="1" instance=ExtResource("9_b0mka")]
 position = Vector2(64, 609)
 scale = Vector2(0.573921, 0.573921)
-interact_description = SubResource("Resource_f56k4")
+interact_description = SubResource("Resource_1ditw")
 
 [node name="PlasticBottle5" parent="Entities/NonLiving" index="2" instance=ExtResource("9_b0mka")]
 position = Vector2(671, 605)
 scale = Vector2(0.567586, 0.567586)
-interact_description = SubResource("Resource_ygcw7")
+interact_description = SubResource("Resource_lnt42")
 
 [node name="PlasticBottle6" parent="Entities/NonLiving" index="3" instance=ExtResource("9_b0mka")]
 position = Vector2(1314, 862)
 scale = Vector2(0.974657, 0.974657)
 node_variety_index = 3
-interact_description = SubResource("Resource_leukp")
+interact_description = SubResource("Resource_n2lpx")
 
 [node name="AluminumSodaCan" parent="Entities/NonLiving" index="4" instance=ExtResource("10_r6ehk")]
 position = Vector2(1787, 715)
 scale = Vector2(0.741819, 0.741819)
-interact_description = SubResource("Resource_8uhcp")
+interact_description = SubResource("Resource_jkw3b")
 
 [node name="AluminumSodaCan2" parent="Entities/NonLiving" index="5" instance=ExtResource("10_r6ehk")]
 position = Vector2(1826, 697)
 scale = Vector2(0.713308, 0.713308)
-interact_description = SubResource("Resource_uehkk")
+interact_description = SubResource("Resource_g3pjo")
 
 [node name="AluminumSodaCan3" parent="Entities/NonLiving" index="6" instance=ExtResource("10_r6ehk")]
 position = Vector2(1186, 726)
 scale = Vector2(0.759242, 0.759242)
-interact_description = SubResource("Resource_4sjoq")
+interact_description = SubResource("Resource_u0pde")
 
 [node name="LadderPlacementArea" parent="Entities/NonLiving" index="7" instance=ExtResource("17_e4pbc")]
 position = Vector2(230, 643)
