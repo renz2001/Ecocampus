@@ -5,6 +5,7 @@ class_name UseToolToEnableEntity
 
 @export var entity_to_enable: EntityNode
 
+
 func _ready() -> void: 
 	entity_to_enable.disabled = true
 	

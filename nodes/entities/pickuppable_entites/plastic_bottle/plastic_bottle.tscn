@@ -34,22 +34,22 @@ facing_left = false
 group = "Entity"
 save_as_resource_path = false
 
-[sub_resource type="Resource" id="Resource_6in4j"]
+[sub_resource type="Resource" id="Resource_cbpjl"]
 script = ExtResource("6_leqdm")
 format = "[outline_size=4][outline_color=BLACK][b][font_size=38]%s[/font_size][/b]
 [font_size=28][b]Type:[/b] %s[/font_size]
 [font_size=28][b]Environmental Impact:[/b] %s[/font_size]"
 
-[sub_resource type="Resource" id="Resource_es18l"]
+[sub_resource type="Resource" id="Resource_ncp66"]
 script = ExtResource("7_8kp8y")
-format = SubResource("Resource_6in4j")
+format = SubResource("Resource_cbpjl")
 texts = Array[String]([])
 
 [node name="PlasticBottle" instance=ExtResource("1_7uoco")]
 need_quest_before_enabled = ExtResource("2_86gkm")
 inventory = SubResource("Resource_beh1a")
 data = SubResource("Resource_8fjol")
-interact_description = SubResource("Resource_es18l")
+interact_description = SubResource("Resource_ncp66")
 
 [node name="TapHitBox" parent="CanvasLayer/Root" index="0"]
 offset_left = -66.0

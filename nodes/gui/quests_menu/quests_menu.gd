@@ -51,4 +51,3 @@ func _activated() -> void:
 func _process(_delta: float) -> void: 
 	#print(ExtendedQuestSystem.active.quests)
 	pass
-

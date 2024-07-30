@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://nb7ksv35wpbh"]
+[gd_scene load_steps=17 format=3 uid="uid://nb7ksv35wpbh"]
 
 [ext_resource type="PackedScene" uid="uid://bsegdr16m7bl6" path="res://nodes/abstract_scenes/interactable_entity_node/interactable_entity_node.tscn" id="1_8b6or"]
 [ext_resource type="Script" path="res://nodes/tools/use_tool_to_enable_entity/use_tool_to_enable_entity.gd" id="2_id8t6"]
@@ -10,6 +10,8 @@
 [ext_resource type="Resource" uid="uid://dpg6457rwx03a" path="res://resources/entity/player.tres" id="5_s2nc6"]
 [ext_resource type="Script" path="res://addons/dialogue_manager's_dialogue_gui_manager/scripts/arguments/dialogue_arguments.gd" id="6_icfmm"]
 [ext_resource type="Script" path="res://scripts/resources/inventory.gd" id="6_r1tvy"]
+[ext_resource type="Script" path="res://addons/audio_manager_and_plus/scripts/arguments/audio_stream_player_arguments.gd" id="11_7gjmh"]
+[ext_resource type="AudioStream" uid="uid://bdmxgn648a8f1" path="res://assets/audio/wrench.wav" id="12_mu4yp"]
 
 [sub_resource type="Resource" id="Resource_dij1w"]
 script = ExtResource("6_r1tvy")
@@ -32,6 +34,17 @@ save_as_resource_path = false
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1pqme"]
 size = Vector2(188, 214)
 
+[sub_resource type="Resource" id="Resource_pc4fr"]
+script = ExtResource("11_7gjmh")
+sound = ExtResource("12_mu4yp")
+play_from_position = 0
+pitch_scale = 1.0
+volume_slider = 1.0
+change_db = false
+volume_db = 0.0
+change_bus = false
+bus = &"Master"
+
 [node name="UseToolToEnableEntity" instance=ExtResource("1_8b6or")]
 script = ExtResource("2_id8t6")
 allowed_items = Array[ExtResource("3_easi1")]([ExtResource("4_johpn")])
@@ -48,6 +61,12 @@ offset_left = -94.0
 offset_top = -111.0
 offset_right = 94.0
 offset_bottom = 105.0
+
+[node name="DialogueStarter" parent="Components" index="4"]
+dialogue = SubResource("Resource_xocsp")
+
+[node name="DropAudio" parent="Audio" index="2"]
+audio = SubResource("Resource_pc4fr")
 
 [connection signal="item_accepted" from="." to="." method="_on_item_accepted"]
 [connection signal="item_rejected" from="." to="." method="_on_item_rejected"]

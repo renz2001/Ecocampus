@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dvlegvn1qhnrf"]
+[gd_scene load_steps=15 format=3 uid="uid://dvlegvn1qhnrf"]
 
 [ext_resource type="PackedScene" uid="uid://bsegdr16m7bl6" path="res://nodes/abstract_scenes/interactable_entity_node/interactable_entity_node.tscn" id="1_thqxv"]
 [ext_resource type="Script" path="res://nodes/entities/non_living_entities/tied_plastic_bags/tied_plastic_bags.gd" id="2_uqgr1"]
@@ -9,6 +9,8 @@
 [ext_resource type="Script" path="res://scripts/resources/entity.gd" id="6_2sbfr"]
 [ext_resource type="Resource" uid="uid://dpg6457rwx03a" path="res://resources/entity/player.tres" id="7_6j4tf"]
 [ext_resource type="Script" path="res://addons/dialogue_manager's_dialogue_gui_manager/scripts/arguments/dialogue_arguments.gd" id="8_l2uqk"]
+[ext_resource type="Script" path="res://addons/audio_manager_and_plus/scripts/arguments/audio_stream_player_arguments.gd" id="9_qpwo4"]
+[ext_resource type="AudioStream" uid="uid://dk1l7axtyjvqp" path="res://assets/audio/scissors_snip.wav" id="10_gaggc"]
 
 [sub_resource type="Resource" id="Resource_8kh8v"]
 script = ExtResource("8_l2uqk")
@@ -25,6 +27,17 @@ save_as_resource_path = false
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4shqg"]
 size = Vector2(113, 64)
 
+[sub_resource type="Resource" id="Resource_dsadb"]
+script = ExtResource("9_qpwo4")
+sound = ExtResource("10_gaggc")
+play_from_position = 0
+pitch_scale = 1.0
+volume_slider = 1.0
+change_db = false
+volume_db = 0.0
+change_bus = false
+bus = &"Master"
+
 [node name="TiedPlasticBags" node_paths=PackedStringArray("unlock_entities") instance=ExtResource("1_thqxv")]
 script = ExtResource("2_uqgr1")
 unlock_entities = []
@@ -36,8 +49,17 @@ dialogue = SubResource("Resource_8kh8v")
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_4shqg")
 
+[node name="TapHitBox" parent="CanvasLayer/Root" index="0"]
+offset_left = -50.0
+offset_top = -30.0
+offset_right = 54.0
+offset_bottom = 28.0
+
 [node name="DialogueStarter" parent="Components" index="4"]
 dialogue = SubResource("Resource_8kh8v")
+
+[node name="DropAudio" parent="Audio" index="2"]
+audio = SubResource("Resource_dsadb")
 
 [node name="ShadowCircle" parent="Sprites" index="0"]
 visible = false

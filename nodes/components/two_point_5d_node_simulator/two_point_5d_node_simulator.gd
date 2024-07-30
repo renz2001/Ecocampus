@@ -18,12 +18,24 @@ class_name TwoPoint5DNodeSimulator
 @export var space_simulator: TwoPoint5DSpaceSimulator
 @export var disabled: bool
 
+@export var use_custom_position: bool
+@export var custom_position: Vector2
+
 @export var node_base_scale: Vector2
 
 var weight: float: 
 	get: 
 		return node.global_position.y
 
+
+func _enter_tree() -> void:
+	set_process(false)
+	
+	
+func _ready() -> void: 
+	await get_tree().physics_frame
+	set_process(true)
+	
 
 func _process(_delta: float) -> void: 
 	if disabled || !node || !node.is_node_ready(): 
@@ -35,10 +47,15 @@ func _process(_delta: float) -> void:
 	
 	var space_scale: float = 0
 	
+	var position: Vector2 = node.global_position
+	
+	if use_custom_position: 
+		position = custom_position
+	
 	if !Engine.is_editor_hint(): 
-		space_scale = space_simulator.get_space_scale(node.global_position, movement.base_values.values.speed)
+		space_scale = space_simulator.get_space_scale(position, movement.base_values.values.speed)
 	else: 
-		space_scale = space_simulator.get_space_scale(node.global_position, movement.speed)
+		space_scale = space_simulator.get_space_scale(position, movement.speed)
 		
 	var new_scale = Vector2(node_base_scale.y * space_scale, node_base_scale.y * space_scale)
 	

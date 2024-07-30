@@ -75,6 +75,20 @@ signal interacted
 			await ready
 		if disable_tap_hit_box_if_disabled: 
 			disable_tap_hit_box(disabled)
+			
+@export var use_custom_position: bool: 
+	set(value): 
+		use_custom_position = value
+		if !is_node_ready(): 
+			await ready
+		two_point_5d_node_simulator.use_custom_position = use_custom_position
+		
+@export var custom_position: Vector2: 
+	set(value): 
+		custom_position = value
+		if !is_node_ready(): 
+			await ready
+		two_point_5d_node_simulator.custom_position = custom_position
 
 @export_group("Dependencies")
 @export var state_chart: StateChart
@@ -94,6 +108,7 @@ signal interacted
 @export var default_entity_sprite: Sprite2D
 @export var two_point_5d_node_simulator: TwoPoint5DNodeSimulator
 @export var dialogue_starter_for_disabled: DialogueStarter
+@export var animation_player: AnimationPlayer
 
 func _ready() -> void: 
 	#GameManager.playing_state.state_entered.connect(_on_playing_state_entered)
@@ -126,12 +141,22 @@ func _interact() -> void:
 
 func _on_interact() -> void: 
 	if disabled || !visible: 
+		if dialogue_if_disabled: 
+			dialogue_starter_for_disabled.dialogue = dialogue_if_disabled
+			dialogue_starter_for_disabled.start()
 		return
 	starting_interact.emit()
 	if disable_after_interact: 
 		disabled = true
 	if is_instance_valid(quest): 
-		quest.update()
+		if dialogue: 
+			DialogueManager.dialogue_ended.connect(
+				func(_resource): 
+					quest.update()
+			, CONNECT_ONE_SHOT
+			)
+		else: 
+			quest.update()
 	if AchievementUnlockedScreen.this().visible: 
 		await AchievementUnlockedScreen.this().deactivated
 	_interact()
@@ -141,12 +166,11 @@ func _on_interact() -> void:
 		if quiz != null: 
 			QuizAttemptScreen.display(quiz, data)
 	dialogue_starter.start()
-	
-	if quest.on_complete_get_new_item:
-		if dialogue:  
-			await DialogueManager.dialogue_ended
-		quest.give_item_to_player()
-		
+	#if quest: 
+		#if quest.on_complete_get_new_item:
+			#if dialogue:  
+				#await DialogueManager.dialogue_ended
+			#quest.give_item_to_player()
 	call_world_event_component.play()
 	interacted.emit()
 	if disable_after_interact: 
@@ -208,7 +232,7 @@ func _on_dialogue_response_handler_responded(value: String) -> void:
 			ExtendedQuestSystem.mark_quest_as_available(quest)
 			ExtendedQuestSystem.start_quest(quest)
 			quest.update()
-			GameManager.show_quest_entities()
+			#GameManager.show_quest_entities()
 			if faucets_show: 
 				GameManager.faucets_show = faucets_show
 			

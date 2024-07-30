@@ -26,4 +26,3 @@ func update() -> void:
 	percentage_label.input([quest.percentage_description, quest.completed_percentage.to_string(), "100%"])
 	
 	
-

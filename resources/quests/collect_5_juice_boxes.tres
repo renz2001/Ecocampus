@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EcoQuest" load_steps=10 format=3 uid="uid://dssjoomyx6k2y"]
+[gd_resource type="Resource" script_class="EcoQuest" load_steps=11 format=3 uid="uid://dssjoomyx6k2y"]
 
 [ext_resource type="Script" path="res://scripts/resources/eco_quest.gd" id="1_dphro"]
 [ext_resource type="Resource" uid="uid://bhpm0w4yit8bj" path="res://resources/items/scissors.tres" id="1_ofut5"]
@@ -10,6 +10,12 @@
 [sub_resource type="Resource" id="Resource_bk3w0"]
 script = ExtResource("2_pbjl8")
 model = ExtResource("1_ofut5")
+stack_starting_value = 1.0
+save_as_resource_path = false
+
+[sub_resource type="Resource" id="Resource_us23y"]
+script = ExtResource("2_pbjl8")
+model = ExtResource("3_qtip6")
 stack_starting_value = 1.0
 save_as_resource_path = false
 
@@ -33,6 +39,7 @@ percentage_description = "Collect 5 Juice Boxes"
 tasks = Array[ExtResource("2_ph21e")]([SubResource("Resource_p4lb1")])
 on_complete_get_new_item = SubResource("Resource_bk3w0")
 invisible_in_gui = false
+take_items = Array[ExtResource("2_pbjl8")]([SubResource("Resource_us23y")])
 id = 7
 quest_name = ""
 quest_description = ""

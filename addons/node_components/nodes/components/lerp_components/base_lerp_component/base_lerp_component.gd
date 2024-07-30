@@ -123,5 +123,3 @@ func _get_configuration_warnings() -> PackedStringArray:
 	if interpolation && interpolation.duration <= 0: 
 		warnings.append("interpolation duration cannot be 0.")
 	return warnings
-
-

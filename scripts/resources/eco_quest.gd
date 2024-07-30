@@ -22,6 +22,7 @@ signal task_completed(task: EcoQuestTask)
 @export var on_complete_unlock_achievement: Achievement
 @export var on_complete_get_new_item: ItemStack
 @export var invisible_in_gui: bool
+@export var take_items: Array[ItemStack]
 
 var percentage_description_format: StringFormatter
 
@@ -74,8 +75,11 @@ func complete() -> void:
 	if on_complete_unlock_achievement: 
 		on_complete_unlock_achievement.unlock()
 		on_complete_unlock_achievement.display()
-		#await GUIManager.get_tree().physics_frame
-		#await DialogueManager.dialogue_ended
+	if on_complete_get_new_item: 
+		give_item_to_player()
+	if !take_items.is_empty(): 
+		PlayerManager.player.inventory.remove_items(take_items, self)
+		
 		
 func give_item_to_player() -> void: 
 	if on_complete_get_new_item: 

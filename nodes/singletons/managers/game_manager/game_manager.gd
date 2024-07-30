@@ -39,7 +39,6 @@ func show_quest_entities() -> void:
 		node.show()
 		await get_tree().create_timer(0.05).timeout
 		
-		
 
 func start() -> void: 
 	if SaveManager.save_files_is_empty(): 

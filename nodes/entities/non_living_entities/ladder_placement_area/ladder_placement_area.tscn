@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dmg4fk4dmpkr7"]
+[gd_scene load_steps=14 format=3 uid="uid://dmg4fk4dmpkr7"]
 
 [ext_resource type="PackedScene" uid="uid://bsegdr16m7bl6" path="res://nodes/abstract_scenes/interactable_entity_node/interactable_entity_node.tscn" id="1_kbnbx"]
 [ext_resource type="Script" path="res://nodes/entities/non_living_entities/ladder_placement_area/ladder_placement_area.gd" id="2_7fp0i"]
@@ -7,6 +7,8 @@
 [ext_resource type="Resource" uid="uid://dr85s1yotsosj" path="res://resources/items/ladder.tres" id="4_fe7vi"]
 [ext_resource type="Script" path="res://scripts/resources/item_stack.gd" id="5_vgmex"]
 [ext_resource type="Script" path="res://scripts/resources/inventory.gd" id="6_84eyk"]
+[ext_resource type="Script" path="res://addons/audio_manager_and_plus/scripts/arguments/audio_stream_player_arguments.gd" id="7_q7fp5"]
+[ext_resource type="AudioStream" uid="uid://ddxg37qtf4rtb" path="res://assets/audio/place_object.wav" id="8_cmk3n"]
 
 [sub_resource type="Resource" id="Resource_tmb4w"]
 script = ExtResource("6_84eyk")
@@ -21,6 +23,17 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(32.1639, -28.2401, -53.
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_khlem"]
 size = Vector2(699, 991)
+
+[sub_resource type="Resource" id="Resource_rhma2"]
+script = ExtResource("7_q7fp5")
+sound = ExtResource("8_cmk3n")
+play_from_position = 0
+pitch_scale = 1.0
+volume_slider = 1.0
+change_db = false
+volume_db = 0.0
+change_bus = false
+bus = &"SFX"
 
 [node name="LadderPlacementArea" node_paths=PackedStringArray("items_accesible_when_climbed", "ground_marker", "top_marker") instance=ExtResource("1_kbnbx")]
 script = ExtResource("2_7fp0i")
@@ -56,6 +69,9 @@ disabled = true
 [node name="IfDialogueEnteredSetProperty2" parent="CanvasLayer/Root/TapHitBox" index="3"]
 disabled = true
 
+[node name="DropAudio" parent="Audio" index="2"]
+audio = SubResource("Resource_rhma2")
+
 [node name="Sprites" parent="." index="7"]
 position = Vector2(-73, -264)
 
@@ -67,9 +83,9 @@ texture = ExtResource("3_hwcn5")
 [node name="Positions" type="Node2D" parent="." index="10"]
 
 [node name="Ground" type="Marker2D" parent="Positions" index="0"]
-position = Vector2(90, 45)
+position = Vector2(5, 1)
 
 [node name="Top" type="Marker2D" parent="Positions" index="1"]
-position = Vector2(-98, -555)
+position = Vector2(-99, -395)
 
 [connection signal="item_accepted" from="." to="." method="_on_item_accepted"]
