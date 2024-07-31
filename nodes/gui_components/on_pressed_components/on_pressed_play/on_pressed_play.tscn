@@ -3,5 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://da2nlvvpyaabx" path="res://nodes/gui_components/on_pressed/on_pressed.tscn" id="1_1edvn"]
 [ext_resource type="Script" path="res://nodes/gui_components/on_pressed_components/on_pressed_play/on_pressed_play.gd" id="2_cki8o"]
 
-[node name="OnPressedPlay" instance=ExtResource("1_1edvn")]
+[node name="OnPressedPlay" node_paths=PackedStringArray("control") instance=ExtResource("1_1edvn")]
 script = ExtResource("2_cki8o")
+control = NodePath("")

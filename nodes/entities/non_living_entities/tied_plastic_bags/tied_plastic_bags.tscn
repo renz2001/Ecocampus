@@ -1,16 +1,24 @@
-[gd_scene load_steps=15 format=3 uid="uid://dvlegvn1qhnrf"]
+[gd_scene load_steps=17 format=3 uid="uid://dvlegvn1qhnrf"]
 
 [ext_resource type="PackedScene" uid="uid://bsegdr16m7bl6" path="res://nodes/abstract_scenes/interactable_entity_node/interactable_entity_node.tscn" id="1_thqxv"]
 [ext_resource type="Script" path="res://nodes/entities/non_living_entities/tied_plastic_bags/tied_plastic_bags.gd" id="2_uqgr1"]
 [ext_resource type="Script" path="res://scripts/resources/item_model.gd" id="3_1xxkn"]
 [ext_resource type="Texture2D" uid="uid://idvht42lawfa" path="res://assets/collect_item/plastic_tied_stroke.png" id="3_cw37u"]
 [ext_resource type="Resource" uid="uid://bhpm0w4yit8bj" path="res://resources/items/scissors.tres" id="4_rjea6"]
+[ext_resource type="Script" path="res://scripts/resources/label_text.gd" id="5_fabi7"]
 [ext_resource type="Resource" uid="uid://byaj1bas2wkaw" path="res://resources/dialogues/dialogues.dialogue" id="5_p227o"]
 [ext_resource type="Script" path="res://scripts/resources/entity.gd" id="6_2sbfr"]
 [ext_resource type="Resource" uid="uid://dpg6457rwx03a" path="res://resources/entity/player.tres" id="7_6j4tf"]
 [ext_resource type="Script" path="res://addons/dialogue_manager's_dialogue_gui_manager/scripts/arguments/dialogue_arguments.gd" id="8_l2uqk"]
 [ext_resource type="Script" path="res://addons/audio_manager_and_plus/scripts/arguments/audio_stream_player_arguments.gd" id="9_qpwo4"]
 [ext_resource type="AudioStream" uid="uid://dk1l7axtyjvqp" path="res://assets/audio/scissors_snip.wav" id="10_gaggc"]
+
+[sub_resource type="Resource" id="Resource_7hcbq"]
+script = ExtResource("5_fabi7")
+texts = Array[String](["Tied Plastic Bags"])
+with_label_settings = false
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [sub_resource type="Resource" id="Resource_8kh8v"]
 script = ExtResource("8_l2uqk")
@@ -43,6 +51,7 @@ script = ExtResource("2_uqgr1")
 unlock_entities = []
 allowed_items = Array[ExtResource("3_1xxkn")]([ExtResource("4_rjea6")])
 dont_take_item = true
+interact_description = SubResource("Resource_7hcbq")
 dialogue = SubResource("Resource_8kh8v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MouseDragDropArea" index="0"]

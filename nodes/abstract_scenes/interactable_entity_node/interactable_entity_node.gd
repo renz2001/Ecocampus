@@ -2,12 +2,15 @@
 extends EntityNode
 class_name InteractableEntityNode
 
+
+signal item_rejected(item_stack: ItemStack)
+signal item_accepted(item_stack: ItemStack)
+
 @export var drop_audio: AudioManagerPlayer
 @export var allowed_items: Array[ItemModel] = []
 @export var dont_take_item: bool
 
-signal item_rejected(item_stack: ItemStack)
-signal item_accepted(item_stack: ItemStack)
+var is_item_accepted: bool
 
 
 func _on_mouse_drag_drop_area_dropped(drag_data: Dictionary) -> void:
@@ -27,6 +30,7 @@ func mouse_drag_can_drop_condition(drag_data: Dictionary) -> bool:
 	
 	if result: 
 		item_accepted.emit(item)
+		is_item_accepted = true
 	else: 
 		item_rejected.emit(item)
 	return result

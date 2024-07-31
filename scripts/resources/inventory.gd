@@ -1,3 +1,4 @@
+@tool
 extends SaveableResource
 class_name Inventory
 

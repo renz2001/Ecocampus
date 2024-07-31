@@ -18,7 +18,7 @@ region = Rect2(1541, 1041, 1279, 1439)
 [sub_resource type="Resource" id="Resource_vcmjm"]
 script = ExtResource("3_8s41h")
 items = Array[ExtResource("3_h22ir")]([])
-max_items = 6
+max_items = 8
 save_as_resource_path = false
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k4np1"]

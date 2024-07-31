@@ -20,3 +20,8 @@ func _input(event: InputEvent) -> void:
 
 	elif event.is_action_pressed("god_mode"): 
 		GlobalData.achievements_tracker.medals.points.add(999)
+	
+	elif event.is_action_pressed("deactivate_cutscene"): 
+		GUIManager.set_gui_active(VideoCutscenePlayer.this(), false)
+		
+		

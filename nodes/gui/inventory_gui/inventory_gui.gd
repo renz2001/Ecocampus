@@ -37,6 +37,8 @@ func _on_player_instanced() -> void:
 	
 	
 func _on_inventory_items_changed(_new_items: Array[ItemStack]) -> void: 
+	#await get_tree().physics_frame
+	#print(PlayerManager.player.data.inventory)
 	update()
 
 
@@ -44,7 +46,6 @@ func update() -> void:
 	var children: Array[Node] = item_slots.get_children()
 	for i: int in children.size(): 
 		var _slot: ItemSlot = children[i]
-		
 		_slot.item = null
 		
 	var items: Array[ItemStack] = _get_items()
@@ -52,9 +53,9 @@ func update() -> void:
 	if inventory == null || items.is_empty(): 
 		return
 	
-	if updating: 
-		return
-	updating = true
+	#if updating: 
+		#return
+	#updating = true
 	
 	var inv_items_size: int = items.size()
 	
@@ -64,7 +65,7 @@ func update() -> void:
 			break
 		slot.item = items[i]
 		#printerr(inventory.items)
-	updating = false
+	#updating = false
 	
 func _on_dragging_cancelled() -> void: 
 	update()

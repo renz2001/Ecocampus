@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dn0hmrfmam4bl"]
+[gd_scene load_steps=24 format=3 uid="uid://dn0hmrfmam4bl"]
 
 [ext_resource type="PackedScene" uid="uid://dup6nowsahsrg" path="res://addons/gui_manager/nodes/singletons/gui_manager/gui_manager.tscn" id="1_fgil1"]
 [ext_resource type="Script" path="res://nodes/singletons/managers/gui_manager/gui_manager.gd" id="2_43jm5"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cter0vorqb1lu" path="res://addons/gui_manager/nodes/gui/centered_acting_container/centered_acting_container.tscn" id="4_ddkn8"]
 [ext_resource type="PackedScene" uid="uid://b2oeadjalbr07" path="res://addons/gui_manager/nodes/gui/exclusive_gui/exclusive_gui.tscn" id="5_bp7t5"]
 [ext_resource type="Script" path="res://addons/node_components/nodes/components/print_color.gd" id="6_g7dor"]
+[ext_resource type="PackedScene" uid="uid://c8rw1leee5u7c" path="res://nodes/gui/video_cutscene_player/video_cutscene_player.tscn" id="7_1qpxk"]
 [ext_resource type="PackedScene" uid="uid://ct4dxtwfgplwg" path="res://nodes/gui/get_mouse_position_area/get_mouse_position_area.tscn" id="7_56sdt"]
 [ext_resource type="PackedScene" uid="uid://cl0gfqdtf6wv3" path="res://nodes/screens/quiz_attempt_screen/quiz_attempt_screen.tscn" id="8_rgdf8"]
 [ext_resource type="PackedScene" uid="uid://y2iscrkvsonm" path="res://nodes/gui/player_hud/player_hud.tscn" id="9_32jpw"]
@@ -75,7 +76,6 @@ new_value = "false"
 only_one_instance = false
 
 [node name="CustomizeCharacterScreen" parent="Root/MarginContainer/BaseControl/Playing" index="0" instance=ExtResource("11_xm22g")]
-visible = false
 layout_mode = 1
 only_one_instance = false
 
@@ -109,7 +109,6 @@ node = NodePath("..")
 new_value = "false"
 
 [node name="DialogueGUIManager" parent="Root/MarginContainer/BaseControl/Playing" index="5" instance=ExtResource("3_ew5n2")]
-visible = false
 layout_mode = 1
 
 [node name="InstancedGUIs" parent="Root/MarginContainer/BaseControl" index="1"]
@@ -123,7 +122,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="SettingsMenu" parent="Root/MarginContainer/BaseControl" index="2" instance=ExtResource("13_qklwl")]
-visible = false
 layout_mode = 1
 only_one_instance = false
 
@@ -204,25 +202,26 @@ grow_horizontal = 0
 grow_vertical = 0
 
 [node name="AchievementUnlockedScreen" parent="Root/MarginContainer/BaseControl" index="4" instance=ExtResource("14_df8bm")]
-visible = false
 layout_mode = 1
 metadata/_edit_lock_ = true
 
 [node name="ItemObtainedScreen" parent="Root/MarginContainer/BaseControl" index="5" instance=ExtResource("18_tnw5h")]
-visible = false
 layout_mode = 1
 
 [node name="AlertScreen" parent="Root" index="2" instance=ExtResource("18_0q276")]
 visible = false
 layout_mode = 1
 
-[node name="TransitionsManager" parent="Root" index="3" instance=ExtResource("10_u8sf5")]
+[node name="VideoCutscenePlayer" parent="Root" index="3" instance=ExtResource("7_1qpxk")]
+layout_mode = 1
+
+[node name="TransitionsManager" parent="Root" index="4" instance=ExtResource("10_u8sf5")]
 layout_mode = 1
 only_one_instance = false
 metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
-[node name="Demo" type="Label" parent="Root" index="4"]
+[node name="Demo" type="Label" parent="Root" index="5"]
 visible = false
 layout_mode = 1
 offset_left = 78.0

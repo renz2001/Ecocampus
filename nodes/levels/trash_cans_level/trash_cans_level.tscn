@@ -43,6 +43,7 @@ texture = null
 flip_h = true
 
 [node name="MainCamera" parent="Cameras" index="0" node_paths=PackedStringArray("follow_node")]
+position = Vector2(0, 0)
 follow_node = NodePath("../../Entities/Living/PlayerNode")
 
 [node name="TextureRect" type="TextureRect" parent="Background/CanvasLayer" index="1"]
@@ -64,12 +65,15 @@ scale = Vector2(0.7, 0.7)
 
 [node name="BioDegradableTrashcan" parent="Entities/NonLiving/TrashCans" index="0" instance=ExtResource("4_7mhfn")]
 position = Vector2(-312, -38)
+goal_stack = 10.0
 
 [node name="NonBiodegradableTrashCan" parent="Entities/NonLiving/TrashCans" index="1" instance=ExtResource("5_4eos8")]
 position = Vector2(0, -38)
+goal_stack = 5.0
 
 [node name="RecyclableTrashCan" parent="Entities/NonLiving/TrashCans" index="2" instance=ExtResource("6_4jqk0")]
 position = Vector2(319, -38)
+goal_stack = 10.0
 
 [node name="MasterSaveComponent" parent="WorldEventHandler" index="3" node_paths=PackedStringArray("id")]
 id = NodePath("../../Scripts/IDComponent")

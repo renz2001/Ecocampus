@@ -75,16 +75,18 @@ func complete() -> void:
 	if on_complete_unlock_achievement: 
 		on_complete_unlock_achievement.unlock()
 		on_complete_unlock_achievement.display()
-	if on_complete_get_new_item: 
-		give_item_to_player()
-	if !take_items.is_empty(): 
-		PlayerManager.player.inventory.remove_items(take_items, self)
 		
 		
 func give_item_to_player() -> void: 
+	if !objective_completed: 
+		return
+	if !ExtendedQuestSystem.is_quest_completed(self): 
+		return
+		
 	if on_complete_get_new_item: 
 		PlayerManager.player.data.inventory.add_item(on_complete_get_new_item)
-	
+	if !take_items.is_empty(): 
+		PlayerManager.player.data.inventory.remove_items(take_items, self)
 	
 func _to_string() -> String: 
 	return "%s: <EcoQuest#%s>" % [percentage_description, get_instance_id()]

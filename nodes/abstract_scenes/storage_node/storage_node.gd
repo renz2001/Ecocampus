@@ -2,6 +2,7 @@ extends EntityNode
 class_name StorageNode
 
 @export var drop_audio: AudioManagerPlayer
+@export var goal_stack: float = 10
 
 signal item_rejected(item_stack: ItemStack)
 signal item_accepted(item_stack: ItemStack)
@@ -15,8 +16,8 @@ func _on_mouse_drag_drop_area_dropped(drag_data: Dictionary) -> void:
 	#printerr(inventory.get_total_stack())
 	
 	# If this storage node's inventory has a total stack of 10, then it will add to the player data the +10
-	if inventory.get_total_stack() == 10: 
-		PlayerManager.player_data.trash_can_items += 10
+	if inventory.get_total_stack() == goal_stack: 
+		PlayerManager.player_data.trash_can_items += goal_stack
 	#print(InventoryGUI.this().inventory)
 
 

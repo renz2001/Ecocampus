@@ -18,7 +18,9 @@ class_name PlayerNode
 @export var cosmetic_equipper_component: CosmeticEquipperComponent
 @export var path_find_movement_component: PathFindMovementComponent
 
+## Should it be able to move to that position?
 var is_move_to_position: bool
+## Only purpose for this is for when the player interacts an object and he has to move to that position
 var move_to_position: Vector2
 
 func _ready() -> void: 
@@ -30,7 +32,6 @@ func _ready() -> void:
 
 func _on_idle_state_entered() -> void:
 	path_find.stop()
-	
 	
 	
 func _on_walk_state_entered() -> void: 

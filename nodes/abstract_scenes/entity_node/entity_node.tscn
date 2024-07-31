@@ -28,7 +28,7 @@
 
 [sub_resource type="Resource" id="Resource_vvnq8"]
 script = ExtResource("18_pu4wv")
-properties = PackedStringArray("inventory", "data", "quiz", "dialogue", "global_position", "global_scale", "disabled", "visible")
+properties = PackedStringArray("inventory", "data", "quiz", "dialogue", "global_position", "global_scale", "disabled", "visible", "node_variety_index")
 save_properties_as_resource_path = PackedStringArray()
 
 [node name="EntityNode" type="CharacterBody2D" node_paths=PackedStringArray("state_chart", "path_find", "walk", "hitbox", "node_variety_manager", "interact_audio_player", "interact_dialog_position", "dialogue_starter", "dialogue_response_handler", "call_world_event_component", "ready_unique_resource", "master_save_component", "tap_hit_box", "tap_hit_box_root", "default_entity_sprite", "two_point_5d_node_simulator", "dialogue_starter_for_disabled") groups=["Entity"]]

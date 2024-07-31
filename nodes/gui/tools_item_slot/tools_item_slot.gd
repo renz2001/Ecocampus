@@ -49,6 +49,9 @@ func _on_icon_button_toggled(toggled_on: bool) -> void:
 	if inventory.get_tool_items().is_empty(): 
 		toggled_on = false
 		icon_button.set_pressed(false)
+		_close()
+		return
+		
 	if toggled_on: 
 		_expand()
 	else: 

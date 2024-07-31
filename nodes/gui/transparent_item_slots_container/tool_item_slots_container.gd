@@ -47,11 +47,19 @@ func update() -> void:
 	if !inventory: 
 		return
 		
-	for item: ItemStack in inventory.get_items_by_type(ItemModel.Type.TOOL): 
+	var items: Array[ItemStack] = inventory.get_items_by_type(ItemModel.Type.TOOL)
+	for i: int in items.size(): 
+		var item: ItemStack = items[i]
 		var item_slot: ItemSlot = item_slot_scene.instantiate()
 		add_child(item_slot)
 		item_slot.item = item
-	
+		if i == 0 && items.size() != 1: 
+			item_slot.border_state = TransparentItemSlot.BorderState.RIGHT
+		elif i == items.size() - 1: 
+			item_slot.border_state = TransparentItemSlot.BorderState.LEFT
+		else: 
+			item_slot.border_state = TransparentItemSlot.BorderState.BOTH
+			
 	
 func clear() -> void: 
 	for node: Node in get_children(): 

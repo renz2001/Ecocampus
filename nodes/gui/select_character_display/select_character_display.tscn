@@ -64,6 +64,7 @@ use_parent_material = true
 layout_mode = 2
 texture = SubResource("AtlasTexture_0sor3")
 stretch_mode = 3
+metadata/_tab_index = 0
 
 [node name="Female" type="TextureRect" parent="VBoxContainer/SpritesSwitcher"]
 use_parent_material = true
@@ -71,6 +72,7 @@ layout_mode = 2
 texture = SubResource("AtlasTexture_mcx0f")
 stretch_mode = 5
 flip_h = true
+metadata/_tab_index = 1
 
 [node name="GenderLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2

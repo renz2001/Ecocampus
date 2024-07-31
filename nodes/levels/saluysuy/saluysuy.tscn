@@ -27,15 +27,15 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32
 outlines = Array[PackedVector2Array]([PackedVector2Array(793, 495, 1111, 601, 1223, 571, 1403, 607, 1408, 660, 1475, 675, 1562, 635, 1812, 692, 1812, 963, -118, 968, -107, 671, 47, 639, 257, 605, 655, 535, 645, 499)])
 source_geometry_group_name = &"navigation_polygon_source_group"
 
-[sub_resource type="Resource" id="Resource_gsrre"]
+[sub_resource type="Resource" id="Resource_mjx5y"]
 script = ExtResource("17_o4j3b")
 format = "[outline_size=4][outline_color=BLACK][b][font_size=38]%s[/font_size][/b]
 [font_size=28][b]Type:[/b] %s[/font_size]
 [font_size=28][b]Environmental Impact:[/b] %s[/font_size]"
 
-[sub_resource type="Resource" id="Resource_p8j1s"]
+[sub_resource type="Resource" id="Resource_a1n3b"]
 script = ExtResource("18_ebn58")
-format = SubResource("Resource_gsrre")
+format = SubResource("Resource_mjx5y")
 texts = Array[String]([])
 
 [sub_resource type="Resource" id="Resource_jo488"]
@@ -138,7 +138,7 @@ entity_to_enable = NodePath("..")
 [node name="Ladder" parent="Entities/NonLiving" index="5" instance=ExtResource("16_xb0mg")]
 position = Vector2(230, 889)
 scale = Vector2(1.35877, 1.35877)
-interact_description = SubResource("Resource_p8j1s")
+interact_description = SubResource("Resource_a1n3b")
 
 [node name="TwoPoint5DSpaceSimulator" parent="Scripts" index="0"]
 scale_size_offset = 140

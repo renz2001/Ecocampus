@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dmg4fk4dmpkr7"]
+[gd_scene load_steps=17 format=3 uid="uid://dmg4fk4dmpkr7"]
 
 [ext_resource type="PackedScene" uid="uid://bsegdr16m7bl6" path="res://nodes/abstract_scenes/interactable_entity_node/interactable_entity_node.tscn" id="1_kbnbx"]
 [ext_resource type="Script" path="res://nodes/entities/non_living_entities/ladder_placement_area/ladder_placement_area.gd" id="2_7fp0i"]
@@ -7,8 +7,10 @@
 [ext_resource type="Resource" uid="uid://dr85s1yotsosj" path="res://resources/items/ladder.tres" id="4_fe7vi"]
 [ext_resource type="Script" path="res://scripts/resources/item_stack.gd" id="5_vgmex"]
 [ext_resource type="Script" path="res://scripts/resources/inventory.gd" id="6_84eyk"]
+[ext_resource type="Script" path="res://scripts/resources/label_text.gd" id="7_nyyme"]
 [ext_resource type="Script" path="res://addons/audio_manager_and_plus/scripts/arguments/audio_stream_player_arguments.gd" id="7_q7fp5"]
 [ext_resource type="AudioStream" uid="uid://ddxg37qtf4rtb" path="res://assets/audio/place_object.wav" id="8_cmk3n"]
+[ext_resource type="Script" path="res://addons/save_components_system/scripts/resources/properties_to_save.gd" id="8_fwj2a"]
 
 [sub_resource type="Resource" id="Resource_tmb4w"]
 script = ExtResource("6_84eyk")
@@ -16,13 +18,20 @@ items = Array[ExtResource("5_vgmex")]([])
 max_items = -1
 save_as_resource_path = false
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_i7upx"]
-vertices = PackedVector2Array(19.4609, -36.7578, -45.5313, -28.8203, -144.008, -428.203, -87.6094, -429.227)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(32.1639, -28.2401, -53.1163, -17.817, -156.717, -437.985, -80.0042, -439.387)])
+[sub_resource type="Resource" id="Resource_jlujb"]
+script = ExtResource("7_nyyme")
+texts = Array[String](["Climb up ladder?"])
+with_label_settings = false
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_khlem"]
 size = Vector2(699, 991)
+
+[sub_resource type="Resource" id="Resource_pmymm"]
+script = ExtResource("8_fwj2a")
+properties = PackedStringArray("inventory", "data", "quiz", "dialogue", "global_position", "global_scale", "disabled", "visible", "node_variety_index", "on_ladder", "is_item_accepted", "has_ladder")
+save_properties_as_resource_path = PackedStringArray()
 
 [sub_resource type="Resource" id="Resource_rhma2"]
 script = ExtResource("7_q7fp5")
@@ -41,21 +50,19 @@ items_accesible_when_climbed = []
 ground_marker = NodePath("Positions/Ground")
 top_marker = NodePath("Positions/Top")
 allowed_items = Array[ExtResource("3_lwdv1")]([ExtResource("4_fe7vi")])
-dont_take_item = false
 inventory = SubResource("Resource_tmb4w")
-
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." index="0"]
-navigation_polygon = SubResource("NavigationPolygon_i7upx")
+interact_description = SubResource("Resource_jlujb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MouseDragDropArea" index="0"]
 position = Vector2(-148, -372)
 shape = SubResource("RectangleShape2D_khlem")
 
 [node name="TapHitBox" parent="CanvasLayer/Root" index="0"]
-offset_left = -235.0
-offset_top = -623.0
-offset_right = 108.0
-offset_bottom = 80.0
+offset_left = -169.0
+offset_top = -446.0
+offset_right = -75.0
+offset_bottom = 33.9999
+rotation = -0.258697
 
 [node name="IfPausedEnteredSetProperty" parent="CanvasLayer/Root/TapHitBox" index="0"]
 disabled = true
@@ -69,10 +76,13 @@ disabled = true
 [node name="IfDialogueEnteredSetProperty2" parent="CanvasLayer/Root/TapHitBox" index="3"]
 disabled = true
 
+[node name="MasterSaveComponent" parent="Components" index="8"]
+data = SubResource("Resource_pmymm")
+
 [node name="DropAudio" parent="Audio" index="2"]
 audio = SubResource("Resource_rhma2")
 
-[node name="Sprites" parent="." index="7"]
+[node name="Sprites" parent="." index="6"]
 position = Vector2(-73, -264)
 
 [node name="EntitySprite" parent="Sprites" index="1"]
@@ -80,12 +90,12 @@ position = Vector2(10, 47)
 scale = Vector2(0.16, 0.16)
 texture = ExtResource("3_hwcn5")
 
-[node name="Positions" type="Node2D" parent="." index="10"]
+[node name="Positions" type="Node2D" parent="." index="9"]
 
 [node name="Ground" type="Marker2D" parent="Positions" index="0"]
-position = Vector2(5, 1)
+position = Vector2(12, 0)
 
 [node name="Top" type="Marker2D" parent="Positions" index="1"]
-position = Vector2(-99, -395)
+position = Vector2(-92, -395)
 
 [connection signal="item_accepted" from="." to="." method="_on_item_accepted"]

@@ -44,7 +44,7 @@ func to_dict(from_object: Object) -> Dictionary:
 			data[property] = []
 			for i in value.size(): 
 				var item = value[i]
-				if item is SaveableResource: 
+				if is_instance_valid(item) && item is SaveableResource: 
 					data[property].append({
 						i: item.to_dict()
 					})

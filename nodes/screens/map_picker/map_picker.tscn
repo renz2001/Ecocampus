@@ -12,7 +12,7 @@
 [ext_resource type="Resource" uid="uid://bmfktr33c6caq" path="res://nodes/transitions/fade_transition/fade_transition.tres" id="6_u5ky5"]
 [ext_resource type="Texture2D" uid="uid://vy3sc4i6w3vt" path="res://assets/map/icons/library_icon.png" id="7_ssrne"]
 [ext_resource type="Texture2D" uid="uid://u3ir732fkp5j" path="res://assets/map/icons/saluysoy_icon.png" id="8_ob73h"]
-[ext_resource type="Texture2D" uid="uid://c53nvgcsjrpdg" path="res://assets/map/icons/trashcan_icon.png" id="9_t8wk1"]
+[ext_resource type="Texture2D" uid="uid://cggxhw5r5bok5" path="res://assets/map/icons/trash_house_icon.png" id="12_7pfev"]
 [ext_resource type="Theme" uid="uid://cd55r8awc3jgy" path="res://themes/main_theme.tres" id="13_57mjl"]
 [ext_resource type="PackedScene" uid="uid://nnpxfb02bn17" path="res://nodes/components/change_scene_component/change_scene_component.tscn" id="13_o6nnp"]
 [ext_resource type="PackedScene" uid="uid://ijaa6c4i2ii4" path="res://nodes/components/on_change_scene_add_to_back_history/on_change_scene_add_to_back_history.tscn" id="14_n4yax"]
@@ -72,8 +72,8 @@ transition = ExtResource("6_u5ky5")
 middle_transition_end_condition = 0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h43h3"]
-atlas = ExtResource("9_t8wk1")
-region = Rect2(1130, 871, 808, 666)
+atlas = ExtResource("12_7pfev")
+region = Rect2(239, 113, 1678, 1676)
 
 [sub_resource type="Resource" id="Resource_04iki"]
 script = ExtResource("3_cuxqn")

@@ -38,6 +38,7 @@ func _ready() -> void:
 	
 
 func _process(_delta: float) -> void: 
+	#printerr(node)
 	if disabled || !node || !node.is_node_ready(): 
 		return
 	if !is_instance_valid(space_simulator): 
@@ -59,6 +60,7 @@ func _process(_delta: float) -> void:
 		
 	var new_scale = Vector2(node_base_scale.y * space_scale, node_base_scale.y * space_scale)
 	
+	#printerr(new_scale)
 	node.scale = new_scale
 	
 	#printerr(node.global_position.x)

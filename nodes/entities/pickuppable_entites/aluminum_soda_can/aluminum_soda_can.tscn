@@ -33,22 +33,22 @@ facing_left = false
 group = "Entity"
 save_as_resource_path = false
 
-[sub_resource type="Resource" id="Resource_uxyd0"]
+[sub_resource type="Resource" id="Resource_57boe"]
 script = ExtResource("7_oeaei")
 format = "[outline_size=4][outline_color=BLACK][b][font_size=38]%s[/font_size][/b]
 [font_size=28][b]Type:[/b] %s[/font_size]
 [font_size=28][b]Environmental Impact:[/b] %s[/font_size]"
 
-[sub_resource type="Resource" id="Resource_phlry"]
+[sub_resource type="Resource" id="Resource_nk4xf"]
 script = ExtResource("8_34651")
-format = SubResource("Resource_uxyd0")
+format = SubResource("Resource_57boe")
 texts = Array[String]([])
 
 [node name="AluminumSodaCan" instance=ExtResource("1_o54ta")]
 need_quest_before_enabled = ExtResource("2_srr5w")
 inventory = SubResource("Resource_abia7")
 data = SubResource("Resource_jl451")
-interact_description = SubResource("Resource_phlry")
+interact_description = SubResource("Resource_nk4xf")
 
 [node name="TapHitBox" parent="CanvasLayer/Root" index="0"]
 offset_left = -67.0

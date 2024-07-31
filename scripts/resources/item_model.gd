@@ -11,7 +11,7 @@ enum Type {
 
 @export var name: StringName
 @export_multiline var description: String
-@export var item_icon: CompressedTexture2D
+@export var item_icon: Texture2D
 @export var type: Type
 
 @export var maximum_stack: int = 12

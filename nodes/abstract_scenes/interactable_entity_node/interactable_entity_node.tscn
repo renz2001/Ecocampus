@@ -10,6 +10,7 @@
 script = ExtResource("2_op4os")
 drop_audio = NodePath("Audio/DropAudio")
 allowed_items = Array[ExtResource("3_42del")]([])
+dont_take_item = false
 
 [node name="MouseDragDropArea" parent="." index="0" node_paths=PackedStringArray("owner_node") instance=ExtResource("2_ooafw")]
 owner_node = NodePath("..")

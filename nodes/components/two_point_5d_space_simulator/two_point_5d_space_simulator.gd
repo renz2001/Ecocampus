@@ -55,6 +55,8 @@ func get_space_scale(global_position: Vector2, speed: float) -> float:
 		return minimum_percent
 	elif percent == 0: 
 		return 0.1
+		
+	#printerr(percent)
 	return percent
 
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://nb7ksv35wpbh"]
+[gd_scene load_steps=19 format=3 uid="uid://nb7ksv35wpbh"]
 
 [ext_resource type="PackedScene" uid="uid://bsegdr16m7bl6" path="res://nodes/abstract_scenes/interactable_entity_node/interactable_entity_node.tscn" id="1_8b6or"]
 [ext_resource type="Script" path="res://nodes/tools/use_tool_to_enable_entity/use_tool_to_enable_entity.gd" id="2_id8t6"]
@@ -10,6 +10,7 @@
 [ext_resource type="Resource" uid="uid://dpg6457rwx03a" path="res://resources/entity/player.tres" id="5_s2nc6"]
 [ext_resource type="Script" path="res://addons/dialogue_manager's_dialogue_gui_manager/scripts/arguments/dialogue_arguments.gd" id="6_icfmm"]
 [ext_resource type="Script" path="res://scripts/resources/inventory.gd" id="6_r1tvy"]
+[ext_resource type="Script" path="res://scripts/resources/label_text.gd" id="7_x6dcb"]
 [ext_resource type="Script" path="res://addons/audio_manager_and_plus/scripts/arguments/audio_stream_player_arguments.gd" id="11_7gjmh"]
 [ext_resource type="AudioStream" uid="uid://bdmxgn648a8f1" path="res://assets/audio/wrench.wav" id="12_mu4yp"]
 
@@ -18,6 +19,13 @@ script = ExtResource("6_r1tvy")
 items = Array[ExtResource("5_btj7j")]([])
 max_items = -1
 save_as_resource_path = false
+
+[sub_resource type="Resource" id="Resource_r1pdv"]
+script = ExtResource("7_x6dcb")
+texts = Array[String](["Faucet"])
+with_label_settings = false
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [sub_resource type="Resource" id="Resource_xocsp"]
 script = ExtResource("6_icfmm")
@@ -50,6 +58,7 @@ script = ExtResource("2_id8t6")
 allowed_items = Array[ExtResource("3_easi1")]([ExtResource("4_johpn")])
 dont_take_item = true
 inventory = SubResource("Resource_dij1w")
+interact_description = SubResource("Resource_r1pdv")
 dialogue = SubResource("Resource_xocsp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MouseDragDropArea" index="0"]

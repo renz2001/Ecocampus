@@ -1,40 +1,90 @@
-[gd_scene load_steps=6 format=3 uid="uid://bsqxg1dqg12rf"]
+[gd_scene load_steps=9 format=3 uid="uid://bsqxg1dqg12rf"]
 
 [ext_resource type="PackedScene" uid="uid://ba6uieidm61wl" path="res://nodes/gui/buttons/texture_button_plus/texture_button_plus.tscn" id="1_i6nmn"]
-[ext_resource type="Script" path="res://nodes/gui/item_slot/item_slot.gd" id="1_tinjg"]
+[ext_resource type="Script" path="res://nodes/gui/transparent_item_slot/transparent_item_slot.gd" id="2_v4q2h"]
 [ext_resource type="PackedScene" uid="uid://d1joew0to5eeh" path="res://nodes/components/mouse_drag_area/mouse_drag_area.tscn" id="3_18brk"]
-[ext_resource type="Resource" uid="uid://c71lpwjte15je" path="res://resources/test_item_stack.tres" id="3_hksnb"]
+[ext_resource type="Resource" uid="uid://bhpm0w4yit8bj" path="res://resources/items/scissors.tres" id="3_f0qr4"]
+[ext_resource type="Script" path="res://scripts/resources/item_stack.gd" id="4_3ex44"]
 [ext_resource type="Texture2D" uid="uid://dqcxpqm3nbr8" path="res://assets/collect_item/wrench.png" id="5_c3snl"]
+[ext_resource type="Texture2D" uid="uid://2yieg5eovtlk" path="res://assets/collect_item/scissors.png" id="7_0hoer"]
 
-[node name="TransparentItemSlot" node_paths=PackedStringArray("item_texture_rect", "drag_area") instance=ExtResource("1_i6nmn")]
-custom_minimum_size = Vector2(140, 0)
-script = ExtResource("1_tinjg")
-item_texture_rect = NodePath("ItemContainer/ItemTexture")
-item = ExtResource("3_hksnb")
+[sub_resource type="Resource" id="Resource_r8lgw"]
+script = ExtResource("4_3ex44")
+model = ExtResource("3_f0qr4")
+stack_starting_value = 1.0
+save_as_resource_path = false
+
+[node name="TransparentItemSlot" node_paths=PackedStringArray("left_border", "right_border", "item_texture_rect", "drag_area") instance=ExtResource("1_i6nmn")]
+custom_minimum_size = Vector2(140, 140)
+offset_right = 140.0
+script = ExtResource("2_v4q2h")
+border_state = 0
+left_border = NodePath("HBoxContainer/Left")
+right_border = NodePath("HBoxContainer/Right")
+item_texture_rect = NodePath("HBoxContainer/ItemContainer/ItemTexture")
+item = SubResource("Resource_r8lgw")
 drag_area = NodePath("MouseDragArea")
 
 [node name="MouseDragArea" parent="." index="3" node_paths=PackedStringArray("drag_node", "control", "owner_node") instance=ExtResource("3_18brk")]
-drag_node = NodePath("../ItemContainer/ItemTexture")
+drag_node = NodePath("../HBoxContainer/ItemContainer/ItemTexture")
 type = 0
 control = NodePath("..")
 disabled = false
 owner_node = NodePath("..")
 drag_data_properties = Array[String](["item"])
 
-[node name="ItemContainer" type="MarginContainer" parent="." index="4"]
+[node name="HBoxContainer" type="HBoxContainer" parent="." index="4"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Left" type="MarginContainer" parent="HBoxContainer" index="0"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer/Left" index="0"]
+custom_minimum_size = Vector2(2, 0)
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ItemTexture2" type="TextureRect" parent="HBoxContainer" index="1"]
+visible = false
+layout_mode = 2
+texture = ExtResource("5_c3snl")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ItemContainer" type="MarginContainer" parent="HBoxContainer" index="2"]
+custom_minimum_size = Vector2(140, 140)
+layout_mode = 2
+size_flags_horizontal = 6
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="ItemTexture" type="TextureRect" parent="ItemContainer" index="0"]
+[node name="ItemTexture" type="TextureRect" parent="HBoxContainer/ItemContainer" index="0"]
 layout_mode = 2
-texture = ExtResource("5_c3snl")
+texture = ExtResource("7_0hoer")
 expand_mode = 1
 stretch_mode = 5
+
+[node name="Right" type="MarginContainer" parent="HBoxContainer" index="3"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer/Right" index="0"]
+custom_minimum_size = Vector2(2, 0)
+layout_mode = 2
+color = Color(0, 0, 0, 1)

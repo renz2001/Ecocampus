@@ -18,8 +18,12 @@ class_name SelectCharacterDisplay
 @export var sprites_switcher: TabContainer
 @export var gender_label: Label
 @export var to_map_picker: ChangeSceneComponent
+#@export_file("*.ogv") var cutscene_path: String
 
 
 func _on_on_control_tapped() -> void:
 	player_data.gender = gender
 	to_map_picker.change()
+	#var stream: VideoStreamTheora = VideoStreamTheora.new()
+	#stream.file = cutscene_path
+	VideoCutscenePlayer.play_absolute()

@@ -16,7 +16,7 @@ save_as_resource_path = false
 [sub_resource type="Resource" id="Resource_us23y"]
 script = ExtResource("2_pbjl8")
 model = ExtResource("3_qtip6")
-stack_starting_value = 1.0
+stack_starting_value = 5.0
 save_as_resource_path = false
 
 [sub_resource type="Resource" id="Resource_roggl"]

@@ -22,14 +22,20 @@ func _ready() -> void:
 	] as Array[String]
 	
 	if need_quest_before_enabled: 
-		ExtendedQuestSystem.new_available_quest.connect(
-			func(_quest: Quest):
-				if _quest.id == need_quest_before_enabled.id: 
-					disabled = false
-		, CONNECT_ONE_SHOT
-		)
-		disabled = true
+		if ExtendedQuestSystem.is_quest_active(quest): 
+			disabled = false
+		else: 
+			disabled = true
+			ExtendedQuestSystem.new_available_quest.connect(
+				_on_new_available_quest
+			)
 	
+	
+func _on_new_available_quest(_quest: Quest) -> void: 
+	if _quest.id == need_quest_before_enabled.id: 
+		disabled = false
+		ExtendedQuestSystem.new_available_quest.disconnect(_on_new_available_quest)
+
 	
 func show_interact_dialog(description: BaseLabelText) -> void: 
 	if disabled: 

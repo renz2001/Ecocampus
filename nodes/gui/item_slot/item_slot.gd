@@ -9,6 +9,8 @@ class_name ItemSlot
 	set(value): 
 		item = value
 		# FIXME: res://nodes/gui/item_slot/item_slot.gd:27 - Invalid access to property or key 'current_changed' on a base object of type 'Nil'.
+		
+		update()
 		if item == null: 
 			return
 			
@@ -20,10 +22,6 @@ class_name ItemSlot
 			#print(item)
 			#print("")
 			item.stack.current_changed.disconnect(_on_item_stack_current_changed)
-		
-		if !is_node_ready(): 
-			await ready
-		update()
 		
 		if item: 
 			#printerr(self)

@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://bdqtk8yfaqarh"]
+[gd_scene load_steps=11 format=3 uid="uid://bdqtk8yfaqarh"]
 
 [ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/gui_manager/nodes/gui/gui/gui.tscn" id="1_8wlcw"]
 [ext_resource type="Script" path="res://nodes/gui/item_obtained_gui/item_obtained_gui.gd" id="2_sy4lm"]
+[ext_resource type="Texture2D" uid="uid://bubeyxkl5ibmp" path="res://assets/sun_rays.png" id="3_hn0yd"]
 [ext_resource type="LabelSettings" uid="uid://bcf3wgahko2ws" path="res://resources/label_settings/quiz_problem_page_title.tres" id="3_n0oug"]
 [ext_resource type="PackedScene" uid="uid://dggdvwjvdrmkh" path="res://nodes/gui/buttons/medium_wooden_button/medium_wooden_button.tscn" id="4_qlsw8"]
 [ext_resource type="Texture2D" uid="uid://do0rkrmxxseyk" path="res://assets/buttons/ok_button.png" id="5_e05oa"]
@@ -27,8 +28,8 @@ region = Rect2(82, 144, 1403, 511)
 [node name="ItemObtainedGUI" node_paths=PackedStringArray("item_icon", "item_name_label") instance=ExtResource("1_8wlcw")]
 script = ExtResource("2_sy4lm")
 item = null
-item_icon = NodePath("Body/CenterContainer/VBoxContainer/ItemIcon")
-item_name_label = NodePath("Body/CenterContainer/VBoxContainer/ItemName")
+item_icon = NodePath("Body/CenterContainer/MarginContainer/VBoxContainer/ItemIcon")
+item_name_label = NodePath("Body/CenterContainer/MarginContainer/VBoxContainer/ItemName")
 inactive_on_ready = false
 
 [node name="Body" type="PanelContainer" parent="." index="0"]
@@ -42,16 +43,29 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_qxrud")
 [node name="CenterContainer" type="CenterContainer" parent="Body" index="0"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Body/CenterContainer" index="0"]
+[node name="MarginContainer" type="MarginContainer" parent="Body/CenterContainer" index="0"]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="SunRays" type="TextureRect" parent="Body/CenterContainer/MarginContainer" index="0"]
+layout_mode = 2
+texture = ExtResource("3_hn0yd")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Body/CenterContainer/MarginContainer" index="1"]
 layout_mode = 2
 
-[node name="ItemIcon" type="TextureRect" parent="Body/CenterContainer/VBoxContainer" index="0"]
+[node name="ItemIcon" type="TextureRect" parent="Body/CenterContainer/MarginContainer/VBoxContainer" index="0"]
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 expand_mode = 1
 stretch_mode = 5
 
-[node name="ItemName" type="Label" parent="Body/CenterContainer/VBoxContainer" index="1"]
+[node name="ItemName" type="Label" parent="Body/CenterContainer/MarginContainer/VBoxContainer" index="1"]
 layout_mode = 2
 text = "ItemName"
 

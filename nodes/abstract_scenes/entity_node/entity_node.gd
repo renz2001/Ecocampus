@@ -24,6 +24,9 @@ signal interacted
 @export var wait_for_player_to_display_interact_dialog: bool = true
 @export var faucets_show: bool
 
+## IF true, player can move to this position
+@export var player_is_move_to_position: bool = true
+
 @export var interact_audio: AudioStreamPlayerArguments: 
 	set(value): 
 		interact_audio = value
@@ -71,6 +74,9 @@ signal interacted
 @export var disabled: bool: 
 	set(value): 
 		disabled = value
+		#printerr(get_path())
+		#printerr(disabled)
+		#printerr("\n")
 		if !is_node_ready(): 
 			await ready
 		if disable_tap_hit_box_if_disabled: 
@@ -152,11 +158,10 @@ func _on_interact() -> void:
 		if dialogue: 
 			DialogueManager.dialogue_ended.connect(
 				func(_resource): 
-					quest.update()
+					quest.give_item_to_player()
 			, CONNECT_ONE_SHOT
 			)
-		else: 
-			quest.update()
+		quest.update()
 	if AchievementUnlockedScreen.this().visible: 
 		await AchievementUnlockedScreen.this().deactivated
 	_interact()
@@ -197,12 +202,23 @@ func show_interact_dialog(description: BaseLabelText) -> void:
 func _on_tap_hit_box_pressed() -> void:
 	if !PlayerManager.player: 
 		return
-	PlayerManager.player.is_move_to_position = true
-	PlayerManager.player.move_to_position = global_position
-	PlayerManager.player.move_to_position.y += 40 * scale.y
+		
+	if player_is_move_to_position: 
+		PlayerManager.player.is_move_to_position = true
+		PlayerManager.player.move_to_position = global_position
+		PlayerManager.player.move_to_position.y += 40 * scale.y
 	
-	PlayerManager.player.move()
-	if display_interact_dialog: 
+		if !disabled: 
+			PlayerManager.player.move()
+	
+	#printerr(get_path())
+	#printerr(disabled)
+	#printerr("\n")
+	if disabled: 
+		_on_interact()
+		if player_is_move_to_position: 
+			PlayerManager.player.is_move_to_position = false
+	elif display_interact_dialog: 
 		if wait_for_player_to_display_interact_dialog: 
 			if !PlayerManager.player.path_find.changed_target.is_connected(_on_changed_target): 
 				PlayerManager.player.path_find.changed_target.connect(_on_changed_target, CONNECT_ONE_SHOT)
@@ -221,7 +237,8 @@ func _on_changed_target() -> void:
 
 func _on_finished_navigation() -> void: 
 	show_interact_dialog(interact_description)
-	PlayerManager.player.is_move_to_position = false
+	if player_is_move_to_position: 
+		PlayerManager.player.is_move_to_position = false
 
 
 func _on_dialogue_response_handler_responded(value: String) -> void: 
@@ -240,8 +257,10 @@ func _on_dialogue_response_handler_responded(value: String) -> void:
 			dialogue = null
 		"sad_expression": 
 			GUIManager.dialogue_gui_manager.current_dialogue_gui.set_sprite_to_sad()
+			node_variety_index = 1
 		"idle_expression": 
 			GUIManager.dialogue_gui_manager.current_dialogue_gui.set_sprite_to_idle() 
+			node_variety_index = 0
 
 
 

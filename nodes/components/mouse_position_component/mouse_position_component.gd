@@ -16,4 +16,3 @@ func get_position_direction_relative_to(node_global_position: Vector2) -> Array[
 		directions[1] = BaseGlobalEnums.Directions.DOWN
 		
 	return directions
-

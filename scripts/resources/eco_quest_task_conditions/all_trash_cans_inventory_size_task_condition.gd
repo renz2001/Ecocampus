@@ -16,7 +16,7 @@ func _initialized() -> void:
 
 
 func initialized() -> void: 
-	if PlayerManager.player_data.trash_can_items == 30: 
+	if PlayerManager.player_data.trash_can_items == 25: 
 		counter.max_out()
 		return
 	check()
@@ -34,7 +34,7 @@ func condition() -> bool:
 		return false
 	return trash_cans.all(
 		func(can: TrashCanNode): 
-			return can.inventory.get_total_stack() >= total_stack_size
+			return can.inventory.get_total_stack() >= can.goal_stack
 	)
 
 func check() -> void: 

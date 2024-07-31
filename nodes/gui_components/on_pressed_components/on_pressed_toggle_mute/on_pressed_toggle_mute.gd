@@ -8,4 +8,3 @@ class_name OnPressedToggleMute
 func _on_pressed() -> void: 
 	audio_bus_volume_slider.audio_bus = audio_bus
 	audio_bus_volume_slider.toggle_mute()
-
