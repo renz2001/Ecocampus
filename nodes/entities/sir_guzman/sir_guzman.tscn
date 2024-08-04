@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cdmdfj5nfysk5"]
+[gd_scene load_steps=7 format=3 uid="uid://cdmdfj5nfysk5"]
 
 [ext_resource type="PackedScene" uid="uid://b8627vb83551h" path="res://nodes/abstract_scenes/npc_node/npc_node.tscn" id="1_l8i7v"]
 [ext_resource type="Texture2D" uid="uid://dk8lr7ojnn1gt" path="res://assets/character/sir_guzman/sir_guzman.png" id="2_ast4u"]
 [ext_resource type="Resource" uid="uid://bl4aif8jgye1x" path="res://resources/entity/sir_guzman.tres" id="2_t6ug5"]
+[ext_resource type="Resource" uid="uid://bvfdawon4ukh2" path="res://resources/dialogue_arguments/gate_1_guard_quest_dialogue.tres" id="3_mk6ub"]
 [ext_resource type="PackedScene" uid="uid://dvrqbygr8xwlr" path="res://addons/node_components/nodes/components/node_variety_manager/node_variety/node_variety.tscn" id="3_rc333"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i5k4q"]
@@ -10,6 +11,7 @@ size = Vector2(77, 37)
 
 [node name="SirGuzman" instance=ExtResource("1_l8i7v")]
 data = ExtResource("2_t6ug5")
+dialogue = ExtResource("3_mk6ub")
 
 [node name="TapHitBox" parent="CanvasLayer/Root" index="0"]
 anchors_preset = 7
@@ -40,11 +42,18 @@ grow_vertical = 2
 position = Vector2(-1.5, -8.5)
 shape = SubResource("RectangleShape2D_i5k4q")
 
+[node name="NodeVarietyManager" parent="Components" index="2"]
+variety_name = "Default"
+
 [node name="Default" parent="Components/NodeVarietyManager" index="0" node_paths=PackedStringArray("nodes") instance=ExtResource("3_rc333")]
+active = true
 nodes = [NodePath("../../../Sprites/EntitySprite")]
 
 [node name="Cry" parent="Components/NodeVarietyManager" index="1" node_paths=PackedStringArray("nodes") instance=ExtResource("3_rc333")]
 nodes = [NodePath("../../../Sprites/Cry")]
+
+[node name="DialogueStarter" parent="Components" index="4"]
+dialogue = ExtResource("3_mk6ub")
 
 [node name="ShadowCircle" parent="Sprites" index="0"]
 position = Vector2(-3.8, 0.200012)
@@ -56,6 +65,7 @@ texture = ExtResource("2_ast4u")
 hframes = 3
 
 [node name="Cry" type="Node2D" parent="Sprites" index="2"]
+visible = false
 
 [node name="EntitySprite" type="Sprite2D" parent="Sprites/Cry" index="0"]
 use_parent_material = true

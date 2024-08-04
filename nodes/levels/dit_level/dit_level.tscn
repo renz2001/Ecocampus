@@ -26,6 +26,7 @@ value = "8275758077038195350"
 save_as_resource_path = false
 
 [node name="DIT" instance=ExtResource("1_ltte7")]
+metadata/_edit_horizontal_guides_ = [-369.0]
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="NavigationRegion" index="0"]
 position = Vector2(83, -25)
@@ -33,6 +34,7 @@ scale = Vector2(0.924106, 0.924106)
 navigation_polygon = SubResource("NavigationPolygon_muct3")
 
 [node name="MainCamera" parent="Cameras" index="0" node_paths=PackedStringArray("follow_node")]
+limit_top = -369
 follow_node = NodePath("../../Entities/Living/PlayerNode")
 
 [node name="TextureRect" type="TextureRect" parent="Background/CanvasLayer" index="1"]

@@ -11,17 +11,24 @@ class_name PlayerNode
 			node_variety_manager.index = 1
 		else: 
 			node_variety_manager.index = 0
-		
+			
+@export var animate_y_direction_move: bool = true
+
+
 @export_group("Dependencies")
 @export var move_to_tap: MoveToTapPathFindMovement
 @export var mouse_position: MousePositionComponent
 @export var cosmetic_equipper_component: CosmeticEquipperComponent
 @export var path_find_movement_component: PathFindMovementComponent
+@export var y_direction_variety: NodeVarietyManager
+@export var walk_state: State
 
 ## Should it be able to move to that position?
 var is_move_to_position: bool
+
 ## Only purpose for this is for when the player interacts an object and he has to move to that position
 var move_to_position: Vector2
+var is_animation_only: bool
 
 func _ready() -> void: 
 	super._ready()
@@ -32,13 +39,17 @@ func _ready() -> void:
 
 func _on_idle_state_entered() -> void:
 	path_find.stop()
+	y_direction_variety.index = 0
 	
 	
 func _on_walk_state_entered() -> void: 
+	if is_animation_only: 
+		return
+		
 	if is_move_to_position: 
 		move_to_tap.move_at(move_to_position)
-		return
-	move_to_tap.move()
+	else: 
+		move_to_tap.move()
 
 
 #func _on_can_tap_state_input(event: InputEvent) -> void:
@@ -91,3 +102,11 @@ func _on_gender_changed() -> void:
 
 func _on_path_find_movement_component_finished_navigation() -> void: 
 	state_chart.send_event("idle")
+
+
+func _on_walk_state_processing(delta: float) -> void:
+	if animate_y_direction_move: 
+		if walk.direction.y > 0: 
+			y_direction_variety.index = 0
+		elif walk.direction.y < 0: 
+			y_direction_variety.index = 1

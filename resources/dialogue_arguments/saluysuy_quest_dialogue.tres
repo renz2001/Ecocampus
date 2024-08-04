@@ -1,14 +1,15 @@
-[gd_resource type="Resource" script_class="DialogueArguments" load_steps=4 format=3 uid="uid://doui5wjwiq177"]
+[gd_resource type="Resource" script_class="DialogueArguments" load_steps=5 format=3 uid="uid://doui5wjwiq177"]
 
 [ext_resource type="Resource" uid="uid://byaj1bas2wkaw" path="res://resources/dialogues/dialogues.dialogue" id="1_yn5gl"]
 [ext_resource type="Resource" uid="uid://dpg6457rwx03a" path="res://resources/entity/player.tres" id="2_ar6q7"]
+[ext_resource type="Script" path="res://scripts/resources/entity.gd" id="2_rtiak"]
 [ext_resource type="Script" path="res://addons/dialogue_manager's_dialogue_gui_manager/scripts/arguments/dialogue_arguments.gd" id="3_725jh"]
 
 [resource]
 script = ExtResource("3_725jh")
 dialogue_gui = 0
 dialogue_resource = ExtResource("1_yn5gl")
-main_speakers = Array[Resource("res://scripts/resources/entity.gd")]([ExtResource("2_ar6q7")])
+main_speakers = Array[ExtResource("2_rtiak")]([ExtResource("2_ar6q7")])
 title = "saluysuy_quest"
 extra_game_states = []
 title_variation = 0

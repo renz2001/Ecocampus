@@ -38,3 +38,9 @@ func mouse_drag_can_drop_condition(drag_data: Dictionary) -> bool:
 	
 func _mouse_drag_can_drop_condition(_drag_data: Dictionary) -> bool: 
 	return true
+
+
+func _process(delta: float) -> void: 
+	super._process(delta)
+	
+	

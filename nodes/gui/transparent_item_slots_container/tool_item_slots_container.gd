@@ -42,6 +42,9 @@ func _on_dropped() -> void:
 func update() -> void: 
 	if !is_node_ready(): 
 		await ready
+		
+	await get_tree().process_frame
+	
 	clear() 
 	
 	if !inventory: 
@@ -59,8 +62,8 @@ func update() -> void:
 			item_slot.border_state = TransparentItemSlot.BorderState.LEFT
 		else: 
 			item_slot.border_state = TransparentItemSlot.BorderState.BOTH
-			
+	
 	
 func clear() -> void: 
 	for node: Node in get_children(): 
-		node.queue_free()
+		node.queue_free.call_deferred()

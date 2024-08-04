@@ -8,6 +8,7 @@
 [sub_resource type="Resource" id="Resource_xalqb"]
 script = ExtResource("3_t6au1")
 properties = PackedStringArray("speed", "direction", "previous_direction")
+save_properties_as_resource_path = PackedStringArray()
 
 [node name="MovementComponent" type="Node" node_paths=PackedStringArray("base_values")]
 script = ExtResource("1_84g7f")

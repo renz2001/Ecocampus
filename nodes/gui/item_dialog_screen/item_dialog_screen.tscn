@@ -1,0 +1,171 @@
+[gd_scene load_steps=21 format=3 uid="uid://mqbboxghdjnc"]
+
+[ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/gui_manager/nodes/gui/gui/gui.tscn" id="1_ch755"]
+[ext_resource type="Script" path="res://nodes/gui/item_dialog_screen/item_dialog_screen.gd" id="2_0f1m1"]
+[ext_resource type="Resource" uid="uid://kpvce7pwuyya" path="res://resources/interact_description/pickuppable_entity_interact_description.tres" id="3_f3gfw"]
+[ext_resource type="Texture2D" uid="uid://crum2o41ed4wp" path="res://assets/buttons/board.png" id="3_ltbdh"]
+[ext_resource type="PackedScene" uid="uid://cdhkyjskyryv" path="res://nodes/gui/formatted_label/formatted_label.tscn" id="4_cggda"]
+[ext_resource type="PackedScene" uid="uid://3w1kcvfjrr6m" path="res://nodes/gui/black_overlay/black_overlay.tscn" id="4_saj5l"]
+[ext_resource type="PackedScene" uid="uid://visuur1utug0" path="res://nodes/gui/gaussian_blur/gaussian_blur.tscn" id="5_kk4wd"]
+[ext_resource type="FontFile" uid="uid://bh5eyon0or827" path="res://fonts/Ubuntu-Regular.ttf" id="5_ve8if"]
+[ext_resource type="PackedScene" uid="uid://dggdvwjvdrmkh" path="res://nodes/gui/buttons/medium_wooden_button/medium_wooden_button.tscn" id="6_4obxt"]
+[ext_resource type="Texture2D" uid="uid://do0rkrmxxseyk" path="res://assets/buttons/ok_button.png" id="7_7ojk4"]
+[ext_resource type="FontFile" uid="uid://cp5vi568oh4jl" path="res://fonts/Ubuntu-Bold.ttf" id="8_plb86"]
+[ext_resource type="Script" path="res://addons/node_components/scripts/arguments/tween_arguments.gd" id="9_juo13"]
+[ext_resource type="PackedScene" uid="uid://dh1ftkyfip0sh" path="res://nodes/gui_components/on_tap_set_active/on_tap_set_active.tscn" id="10_pkfkf"]
+[ext_resource type="PackedScene" uid="uid://dk3kni1sc6j0n" path="res://nodes/gui_components/on_pressed_components/on_pressed_set_active/on_pressed_set_active.tscn" id="11_3hs0w"]
+[ext_resource type="PackedScene" uid="uid://der1edoxrqxln" path="res://nodes/gui_components/set_game_state_on_gui_active/set_game_state_on_gui_active.tscn" id="15_y4xga"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eyoqc"]
+atlas = ExtResource("3_ltbdh")
+region = Rect2(6, 27, 537, 396)
+
+[sub_resource type="LabelSettings" id="LabelSettings_tr3tc"]
+font = ExtResource("5_ve8if")
+font_size = 40
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(-2, 4)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gx2u4"]
+atlas = ExtResource("7_7ojk4")
+region = Rect2(82, 144, 1403, 511)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ybtm4"]
+font = ExtResource("8_plb86")
+font_size = 40
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 20
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(2, 4)
+
+[sub_resource type="Resource" id="Resource_gs5t3"]
+script = ExtResource("9_juo13")
+transition_type = 7
+ease_type = 0
+duration = 0.1
+
+[node name="ItemDialogScreen" node_paths=PackedStringArray("description_label", "rich_description_label") groups=["ItemDialogScreen"] instance=ExtResource("1_ch755")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+script = ExtResource("2_0f1m1")
+rich_text_description_format = ExtResource("3_f3gfw")
+description_label = NodePath("CenterContainer/Body/MarginContainer/Description")
+rich_description_label = NodePath("CenterContainer/Body/MarginContainer/RichDescription")
+
+[node name="BlackOverlay" parent="." index="0" instance=ExtResource("4_saj5l")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="GaussianBlur" parent="." index="1" instance=ExtResource("5_kk4wd")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="OnTapSetActive" parent="." index="2" instance=ExtResource("10_pkfkf")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="." index="3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Body" type="TextureRect" parent="CenterContainer" index="0"]
+custom_minimum_size = Vector2(700, 550)
+layout_mode = 2
+texture = SubResource("AtlasTexture_eyoqc")
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/Body" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 65
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer/Body/MarginContainer" index="0"]
+layout_mode = 2
+theme_type_variation = &"TransparentBlackPanelContainer"
+
+[node name="Description" parent="CenterContainer/Body/MarginContainer" index="1" instance=ExtResource("4_cggda")]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+text = "Description
+"
+label_settings = SubResource("LabelSettings_tr3tc")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="RichDescription" type="RichTextLabel" parent="CenterContainer/Body/MarginContainer" index="2"]
+visible = false
+layout_mode = 2
+bbcode_enabled = true
+text = "[b][font_size=25]%s[/font_size][/b]\\n
+[font_size=20][b]Type:[/b] %s[/font_size]\\n
+[font_size=20][b]Environmental Impact:[/b] %s[/font_size]"
+
+[node name="OKButton" parent="CenterContainer/Body" index="1" instance=ExtResource("6_4obxt")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -135.0
+offset_top = -98.0
+offset_right = 135.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = SubResource("AtlasTexture_gx2u4")
+
+[node name="Label" parent="CenterContainer/Body/OKButton" index="1"]
+offset_left = -210.683
+offset_top = -39.0316
+offset_right = -210.683
+offset_bottom = -39.0316
+label_settings = SubResource("LabelSettings_ybtm4")
+
+[node name="OnPressedScale" parent="CenterContainer/Body/OKButton" index="2"]
+tween = SubResource("Resource_gs5t3")
+
+[node name="OnPressedSetActive" parent="CenterContainer/Body/OKButton" index="3" node_paths=PackedStringArray("target", "control") instance=ExtResource("11_3hs0w")]
+target = NodePath("../../../..")
+control = NodePath("..")
+
+[node name="SetGameStateOnGUIActive" parent="." index="5" node_paths=PackedStringArray("gui") instance=ExtResource("15_y4xga")]
+gui = NodePath("..")
+activated_state = "achievement_unlocked"
+deactivated_state = "resume"
+
+[editable path="CenterContainer/Body/OKButton"]

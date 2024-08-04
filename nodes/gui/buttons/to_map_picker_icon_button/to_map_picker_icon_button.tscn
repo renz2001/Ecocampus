@@ -10,7 +10,7 @@
 atlas = ExtResource("4_asv5l")
 region = Rect2(64, 26, 354, 466)
 
-[node name="ToMapPickerIconButton" node_paths=PackedStringArray("to_map_picker") instance=ExtResource("1_gs466")]
+[node name="ToMapPickerIconButton" node_paths=PackedStringArray("to_map_picker") groups=["ToMapPickerIconButton"] instance=ExtResource("1_gs466")]
 script = ExtResource("2_eu2dj")
 to_map_picker = NodePath("ToMapPicker")
 

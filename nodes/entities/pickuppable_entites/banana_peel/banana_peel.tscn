@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bm3t8igvjt658"]
+[gd_scene load_steps=14 format=3 uid="uid://bm3t8igvjt658"]
 
 [ext_resource type="PackedScene" uid="uid://77dhb6ck4eyt" path="res://nodes/abstract_scenes/pickuppable_entity/pickuppable_entity.tscn" id="1_35r7o"]
 [ext_resource type="Resource" uid="uid://c2ms3lvdy84n5" path="res://resources/items/banana_peel.tres" id="2_evcxx"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" path="res://scripts/resources/inventory.gd" id="4_p0mbv"]
 [ext_resource type="Script" path="res://scripts/resources/item_entity.gd" id="5_aaypy"]
 [ext_resource type="Texture2D" uid="uid://cjn8l7lvhkm7s" path="res://assets/collect_item/banana_peel.png" id="6_k6hhx"]
+[ext_resource type="Script" path="res://scripts/resources/string_formatter.gd" id="6_l8x74"]
+[ext_resource type="Script" path="res://scripts/resources/rich_label_text.gd" id="7_obvx4"]
 
 [sub_resource type="Resource" id="Resource_vymub"]
 script = ExtResource("3_5csbt")
@@ -30,9 +32,21 @@ facing_left = false
 group = "Entity"
 save_as_resource_path = false
 
+[sub_resource type="Resource" id="Resource_hq1c4"]
+script = ExtResource("6_l8x74")
+format = "[outline_size=4][outline_color=BLACK][b][font_size=38]%s[/font_size][/b]
+[font_size=28][b]Type:[/b] %s[/font_size]
+[font_size=28][b]Environmental Impact:[/b] %s[/font_size]"
+
+[sub_resource type="Resource" id="Resource_ebfq3"]
+script = ExtResource("7_obvx4")
+format = SubResource("Resource_hq1c4")
+texts = Array[String]([])
+
 [node name="BananaPeel" instance=ExtResource("1_35r7o")]
 inventory = SubResource("Resource_quoql")
 data = SubResource("Resource_n1fg8")
+interact_description = SubResource("Resource_ebfq3")
 
 [node name="TapHitBox" parent="CanvasLayer/Root" index="0"]
 offset_left = -66.0

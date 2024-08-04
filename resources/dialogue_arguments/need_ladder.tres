@@ -15,4 +15,4 @@ extra_game_states = []
 title_variation = 0
 reset_when_title_variation_reached = false
 is_dialogue_game_state = true
-save_as_resource_path = false
+save_as_resource_path = true

@@ -15,9 +15,9 @@ func _ready() -> void:
 		return
 		
 	if !duplicate_from_method.is_empty(): 
-		printerr(owner)
-		printerr(node)
-		printerr(resource)
+		#printerr(owner)
+		#printerr(node)
+		#printerr(resource)
 		node.set(resource, Callable(node.get(resource), duplicate_from_method).call())
 	else: 
 		node.set(resource, node.get(resource).duplicate(true))

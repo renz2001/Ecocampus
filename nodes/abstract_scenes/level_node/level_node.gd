@@ -6,7 +6,12 @@ static var entered_tree: int = 0
 @export var to_map_picker: ChangeSceneComponent
 @export var id_component: IDComponent
 #@export var quests_collection: QuestsCollection
-
+@export var disable_player_tap_navigation: bool = false: 
+	set(value): 
+		disable_player_tap_navigation = value
+		if !is_node_ready(): 
+			await ready
+		GetMousePositionArea.this().visible = !disable_player_tap_navigation
 
 #func _enter_tree() -> void: 
 	#printerr(get_children())

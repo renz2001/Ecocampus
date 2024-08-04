@@ -16,6 +16,8 @@ signal turned_off
 		else: 
 			node_variety_manager.index = 0
 			turned_off.emit()
+			
+		printerr(state)
 
 
 func _interact() -> void: 

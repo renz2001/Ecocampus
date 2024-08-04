@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://8qsjsyglmgq4"]
+[gd_scene load_steps=33 format=3 uid="uid://8qsjsyglmgq4"]
 
 [ext_resource type="PackedScene" uid="uid://cjrygqeartla8" path="res://nodes/abstract_scenes/living_entity_node/living_entity_node.tscn" id="1_hoap6"]
 [ext_resource type="Script" path="res://nodes/entities/player_node/player_node.gd" id="2_6c1ia"]
@@ -12,9 +12,15 @@
 [ext_resource type="PackedScene" uid="uid://sf310cfhr818" path="res://nodes/components/mouse_position_component/mouse_position_component.tscn" id="8_t7gk8"]
 [ext_resource type="PackedScene" uid="uid://dop4lslntrlgb" path="res://nodes/components/cosmetic_equipper_component/cosmetic_equipper_component.tscn" id="10_qtam7"]
 [ext_resource type="Script" path="res://addons/save_components_system/scripts/resources/id.gd" id="13_6oemm"]
+[ext_resource type="PackedScene" uid="uid://tvt1avle8hon" path="res://addons/node_components/nodes/components/node_variety_manager/node_variety_manager.tscn" id="13_f8uoc"]
 [ext_resource type="Script" path="res://addons/save_components_system/scripts/resources/properties_to_save.gd" id="13_rwu47"]
 [ext_resource type="Texture2D" uid="uid://dqshq874l3ic5" path="res://assets/character/player_boy/boy.png" id="13_xn5bl"]
+[ext_resource type="PackedScene" uid="uid://7gri71kaffvv" path="res://addons/audio_manager_and_plus/nodes/components/audio_manager_player/audio_manager_player.tscn" id="14_bfp86"]
+[ext_resource type="Script" path="res://addons/audio_manager_and_plus/scripts/arguments/audio_stream_player_arguments.gd" id="15_5ymw4"]
 [ext_resource type="Texture2D" uid="uid://cn233vrb5i466" path="res://assets/character/player_girl/girl.png" id="15_54xdd"]
+[ext_resource type="AudioStream" uid="uid://imfh5hadc6wg" path="res://assets/audio/footstep_1.ogg" id="16_ywo8c"]
+[ext_resource type="AudioStream" uid="uid://cglsc3tvto7dt" path="res://assets/audio/footstep_2.ogg" id="17_dea2a"]
+[ext_resource type="AudioStream" uid="uid://cdnime7rl11iv" path="res://assets/audio/footstep_3.ogg" id="18_qgo0p"]
 
 [sub_resource type="Resource" id="Resource_rljr6"]
 script = ExtResource("13_rwu47")
@@ -26,6 +32,23 @@ script = ExtResource("13_6oemm")
 value = "6519512559362500665"
 save_as_resource_path = false
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_f3ody"]
+streams_count = 3
+stream_0/stream = ExtResource("16_ywo8c")
+stream_1/stream = ExtResource("17_dea2a")
+stream_2/stream = ExtResource("18_qgo0p")
+
+[sub_resource type="Resource" id="Resource_g63mp"]
+script = ExtResource("15_5ymw4")
+sound = SubResource("AudioStreamRandomizer_f3ody")
+play_from_position = 0
+pitch_scale = 1.0
+volume_slider = 0.3
+change_db = false
+volume_db = 0.0
+change_bus = true
+bus = &"SFX"
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dvdpg"]
 size = Vector2(18, 21)
 
@@ -34,7 +57,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprites/Girl/GirlDefault:frame")
+tracks/0/path = NodePath("Sprites/Girl/Down/GirlDefault:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -46,7 +69,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprites/Boy/BoyDefault:frame")
+tracks/1/path = NodePath("Sprites/Boy/Down/BoyDefault:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -58,7 +81,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprites/Boy/BoyDefault:flip_h")
+tracks/2/path = NodePath("Sprites/Boy/Down/BoyDefault:flip_h")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -70,10 +93,58 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Sprites/Girl/GirlDefault:flip_h")
+tracks/3/path = NodePath("Sprites/Girl/Down/GirlDefault:flip_h")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprites/Boy/Up/BoyDefault:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprites/Girl/Up/GirlDefault:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Sprites/Girl/Up/GirlDefault:flip_h")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Sprites/Boy/Up/BoyDefault:flip_h")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -86,7 +157,7 @@ length = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprites/Girl/GirlDefault:frame")
+tracks/0/path = NodePath("Sprites/Girl/Down/GirlDefault:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -98,7 +169,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprites/Boy/BoyDefault:frame")
+tracks/1/path = NodePath("Sprites/Boy/Down/BoyDefault:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -110,7 +181,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprites/Boy/BoyDefault:flip_h")
+tracks/2/path = NodePath("Sprites/Boy/Down/BoyDefault:flip_h")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -122,7 +193,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Sprites/Girl/GirlDefault:flip_h")
+tracks/3/path = NodePath("Sprites/Girl/Down/GirlDefault:flip_h")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -138,7 +209,7 @@ length = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprites/Girl/GirlDefault:frame")
+tracks/0/path = NodePath("Sprites/Girl/Down/GirlDefault:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -150,7 +221,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprites/Boy/BoyDefault:frame")
+tracks/1/path = NodePath("Sprites/Boy/Down/BoyDefault:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -162,7 +233,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprites/Boy/BoyDefault:flip_h")
+tracks/2/path = NodePath("Sprites/Boy/Down/BoyDefault:flip_h")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -174,7 +245,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Sprites/Girl/GirlDefault:flip_h")
+tracks/3/path = NodePath("Sprites/Girl/Down/GirlDefault:flip_h")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -191,7 +262,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprites/Girl/GirlDefault:frame")
+tracks/0/path = NodePath("Sprites/Girl/Down/GirlDefault:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -203,7 +274,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprites/Boy/BoyDefault:frame")
+tracks/1/path = NodePath("Sprites/Boy/Down/BoyDefault:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -215,7 +286,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprites/Boy/BoyDefault:flip_h")
+tracks/2/path = NodePath("Sprites/Boy/Down/BoyDefault:flip_h")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -227,7 +298,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Sprites/Girl/GirlDefault:flip_h")
+tracks/3/path = NodePath("Sprites/Girl/Down/GirlDefault:flip_h")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -236,15 +307,80 @@ tracks/3/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprites/Boy/Up/BoyDefault:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [4, 3, 4, 5]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprites/Girl/Up/GirlDefault:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [4, 3, 4, 5]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Sprites/Girl/Up/GirlDefault:flip_h")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Sprites/Boy/Up/BoyDefault:flip_h")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "method"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Audio/FootSteps")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"play"
+}, {
+"args": [],
+"method": &"play"
+}]
+}
 
-[sub_resource type="Animation" id="Animation_1p6li"]
+[sub_resource type="Animation" id="Animation_kkt17"]
 resource_name = "walk_right"
 length = 0.4
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprites/Girl/GirlDefault:frame")
+tracks/0/path = NodePath("Sprites/Girl/Down/GirlDefault:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -256,7 +392,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprites/Boy/BoyDefault:frame")
+tracks/1/path = NodePath("Sprites/Boy/Down/BoyDefault:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -268,7 +404,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprites/Boy/BoyDefault:flip_h")
+tracks/2/path = NodePath("Sprites/Boy/Down/BoyDefault:flip_h")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -280,7 +416,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Sprites/Girl/GirlDefault:flip_h")
+tracks/3/path = NodePath("Sprites/Girl/Down/GirlDefault:flip_h")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -288,6 +424,71 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprites/Boy/Up/BoyDefault:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [4, 3, 4, 5]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprites/Girl/Up/GirlDefault:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [4, 3, 4, 5]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Sprites/Girl/Up/GirlDefault:flip_h")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Sprites/Boy/Up/BoyDefault:flip_h")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/8/type = "method"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Audio/FootSteps")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"play"
+}, {
+"args": [],
+"method": &"play"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tyrug"]
@@ -296,10 +497,10 @@ _data = {
 "idle_left": SubResource("Animation_cfboo"),
 "idle_right": SubResource("Animation_4qspc"),
 "walk_left": SubResource("Animation_qm3ug"),
-"walk_right": SubResource("Animation_1p6li")
+"walk_right": SubResource("Animation_kkt17")
 }
 
-[node name="PlayerNode" node_paths=PackedStringArray("move_to_tap", "mouse_position", "cosmetic_equipper_component", "path_find_movement_component", "animation_player") groups=["Player"] instance=ExtResource("1_hoap6")]
+[node name="PlayerNode" node_paths=PackedStringArray("move_to_tap", "mouse_position", "cosmetic_equipper_component", "path_find_movement_component", "y_direction_variety", "walk_state", "animation_player") groups=["Player"] instance=ExtResource("1_hoap6")]
 scale = Vector2(0.9, 0.9)
 collision_layer = 2
 collision_mask = 16
@@ -309,6 +510,8 @@ move_to_tap = NodePath("Components/Movement/MoveToTapPathFindMovement")
 mouse_position = NodePath("Components/Movement/MousePositionComponent")
 cosmetic_equipper_component = NodePath("CosmeticEquipperComponent")
 path_find_movement_component = NodePath("Components/Movement/PathFindMovementComponent")
+y_direction_variety = NodePath("Components/YDirectionVariety")
+walk_state = NodePath("StateChart/Root/Enabled/Mobility/Walk")
 data = ExtResource("4_qvtbh")
 animation_player = NodePath("AnimationPlayer")
 
@@ -369,7 +572,7 @@ event = &"walk"
 [node name="Walk" type="Node" parent="StateChart/Root/Enabled/Mobility" index="1"]
 script = ExtResource("6_ae0yd")
 
-[node name="Idle" type="Node" parent="StateChart/Root/Enabled/Mobility/Walk" index="0"]
+[node name="OnIdle" type="Node" parent="StateChart/Root/Enabled/Mobility/Walk" index="0"]
 script = ExtResource("4_3xned")
 to = NodePath("../../Idle")
 event = &"idle"
@@ -424,32 +627,63 @@ data = SubResource("Resource_rljr6")
 [node name="IDComponent" parent="Components" index="9"]
 data = SubResource("Resource_22bs7")
 
+[node name="YDirectionVariety" parent="Components" index="11" instance=ExtResource("13_f8uoc")]
+variety_name = "Down"
+
+[node name="Down" parent="Components/YDirectionVariety" index="0" node_paths=PackedStringArray("nodes") instance=ExtResource("6_kb0jf")]
+active = true
+nodes = [NodePath("../../../Sprites/Boy/Down"), NodePath("../../../Sprites/Girl/Down")]
+
+[node name="Up" parent="Components/YDirectionVariety" index="1" node_paths=PackedStringArray("nodes") instance=ExtResource("6_kb0jf")]
+nodes = [NodePath("../../../Sprites/Girl/Up"), NodePath("../../../Sprites/Boy/Up")]
+
+[node name="FootSteps" parent="Audio" index="0" instance=ExtResource("14_bfp86")]
+audio = SubResource("Resource_g63mp")
+
 [node name="Sprites" parent="." index="5"]
 scale = Vector2(1.5, 1.5)
 
 [node name="Boy" type="Node2D" parent="Sprites" index="1"]
 visible = false
 
-[node name="BoyDefault" type="Sprite2D" parent="Sprites/Boy" index="0"]
+[node name="Down" type="Node2D" parent="Sprites/Boy" index="0"]
+
+[node name="BoyDefault" type="Sprite2D" parent="Sprites/Boy/Down" index="0"]
 position = Vector2(0, -119)
+texture = ExtResource("13_xn5bl")
+hframes = 6
+
+[node name="Up" type="Node2D" parent="Sprites/Boy" index="1"]
+visible = false
+
+[node name="BoyDefault" type="Sprite2D" parent="Sprites/Boy/Up" index="0"]
+position = Vector2(2.96296, -114.815)
 texture = ExtResource("13_xn5bl")
 hframes = 6
 
 [node name="Girl" type="Node2D" parent="Sprites" index="2"]
 
-[node name="GirlDefault" type="Sprite2D" parent="Sprites/Girl" index="0"]
+[node name="Up" type="Node2D" parent="Sprites/Girl" index="0"]
+visible = false
+
+[node name="GirlDefault" type="Sprite2D" parent="Sprites/Girl/Up" index="0"]
+position = Vector2(4.44444, -117.037)
+texture = ExtResource("15_54xdd")
+hframes = 6
+frame = 1
+
+[node name="Down" type="Node2D" parent="Sprites/Girl" index="1"]
+
+[node name="GirlDefault" type="Sprite2D" parent="Sprites/Girl/Down" index="0"]
 position = Vector2(0, -119)
 texture = ExtResource("15_54xdd")
 hframes = 6
 frame = 1
 
-[node name="NavigationAgent2D" parent="." index="6"]
-debug_enabled = true
-
 [node name="CosmeticEquipperComponent" parent="." index="7" node_paths=PackedStringArray("male_sprite_node", "female_sprite_node") instance=ExtResource("10_qtam7")]
 player = ExtResource("4_qvtbh")
-male_sprite_node = NodePath("../Sprites/Boy/BoyDefault")
-female_sprite_node = NodePath("../Sprites/Girl/GirlDefault")
+male_sprite_node = NodePath("../Sprites/Boy/Down/BoyDefault")
+female_sprite_node = NodePath("../Sprites/Girl/Down/GirlDefault")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="8"]
 position = Vector2(1, -3)
@@ -462,6 +696,7 @@ libraries = {
 
 [connection signal="state_entered" from="StateChart/Root/Enabled/Mobility/Idle" to="." method="_on_idle_state_entered"]
 [connection signal="state_entered" from="StateChart/Root/Enabled/Mobility/Walk" to="." method="_on_walk_state_entered"]
+[connection signal="state_processing" from="StateChart/Root/Enabled/Mobility/Walk" to="." method="_on_walk_state_processing"]
 [connection signal="state_entered" from="StateChart/Root/Enabled/TapState/CanTap" to="." method="_on_can_tap_state_entered"]
 [connection signal="state_exited" from="StateChart/Root/Enabled/TapState/CanTap" to="." method="_on_can_tap_state_exited"]
 [connection signal="finished_navigation" from="Components/Movement/PathFindMovementComponent" to="." method="_on_path_find_movement_component_finished_navigation"]

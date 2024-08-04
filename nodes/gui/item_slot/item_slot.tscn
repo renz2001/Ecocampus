@@ -74,3 +74,5 @@ control = NodePath("..")
 disabled = true
 owner_node = NodePath("..")
 drag_data_properties = Array[String](["item"])
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

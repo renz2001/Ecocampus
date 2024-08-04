@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://btdi5qg3uxjd6"]
+
+[ext_resource type="Script" path="res://nodes/components/offset_camera_if_node_reach_y/offset_camera_if_node_reach_y.gd" id="1_uddmf"]
+[ext_resource type="Script" path="res://addons/node_components/scripts/arguments/tween_arguments.gd" id="2_ni0vt"]
+
+[sub_resource type="Resource" id="Resource_k81ab"]
+script = ExtResource("2_ni0vt")
+transition_type = 4
+ease_type = 2
+duration = 0.2
+
+[node name="OffsetCameraIfNodeReachY" type="Node"]
+script = ExtResource("1_uddmf")
+camera_offset_default = null
+camera_offset_transition = SubResource("Resource_k81ab")

@@ -34,9 +34,14 @@ func _physics_process(_delta: float) -> void:
 		return
 	if !follow_node: 
 		return
-	var new: Vector2 = Tween.interpolate_value(node.global_position, following_node.global_position - node.global_position, weight * smoothing.duration, smoothing.duration, smoothing.transition_type, smoothing.ease_type) - offset
-	node.global_position = new
+	#var new: Vector2 = get_new_position_after_offset()
+	node.global_position = get_new_position_after_offset()
 
+
+func get_new_position_after_offset() -> Vector2: 
+	#return Tween.interpolate_value(node.global_position, following_node.global_position - node.global_position, weight * smoothing.duration, smoothing.duration, smoothing.transition_type, smoothing.ease_type) - offset
+	return following_node.global_position + offset
+	
 
 func back_to_position() -> void: 
 	node.global_position = base_values.values.global_position

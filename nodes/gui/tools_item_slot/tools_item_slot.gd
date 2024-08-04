@@ -17,6 +17,7 @@ class_name ToolsItemSlot
 @export var tools_panel_clip: Panel
 @export var cooldown: Timer
 
+var orig_pos: Vector2 = Vector2(63, 4)
 
 func _expand() -> void: 
 	#printerr("before: ", tools_panel_clip.position.x)
@@ -30,7 +31,7 @@ func _expand() -> void:
 func _close() -> void: 
 	var tween: Tween = animation.create_tween(get_tree()).set_parallel(true)
 	tween.tween_property(tools_panel_clip, "size:x", 0, animation.duration)
-	tween.tween_property(tools_panel_clip, "position:x", tools_panel_clip.position.x + get_tween_length(), animation.duration)
+	tween.tween_property(tools_panel_clip, "position:x", orig_pos.x, animation.duration)
 	#printerr("close: ", tools_panel_clip.position.x + get_tween_length())
 	tween.play()
 	
@@ -47,7 +48,7 @@ func _on_icon_button_toggled(toggled_on: bool) -> void:
 	cooldown.start()
 	
 	if inventory.get_tool_items().is_empty(): 
-		toggled_on = false
+		#toggled_on = false
 		icon_button.set_pressed(false)
 		_close()
 		return
@@ -64,6 +65,11 @@ func _on_h_box_container_resized() -> void:
 	
 func _update_length() -> void: 
 	if !icon_button.button_pressed: 
+		return
+		
+	if inventory.get_tool_items().is_empty(): 
+		icon_button.set_pressed(false)
+		_close()
 		return
 		
 		

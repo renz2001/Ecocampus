@@ -66,6 +66,15 @@ func set_items(new_items: Array[ItemStack]) -> void:
 	items_changed.emit(new_items)
 
 
+func item_was_in_history(item: ItemModel) -> bool: 
+	return added_items_history.any(
+		func(i: ItemModel): 
+			if i == item: 
+				return true
+			return false
+	)
+
+
 func add_items(new_items: Array[ItemStack], by: Object = null) -> void: 
 	#if _is_value_too_big(new_items.size()): 
 		#_max_items_error.call(new_items)

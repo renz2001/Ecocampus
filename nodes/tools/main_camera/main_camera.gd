@@ -11,8 +11,7 @@ class_name MainCamera
 		
 		
 @export var follow_node_component: FollowNodeComponent
-
+@export var zoom_offset: Vector2
 
 func _process(_delta: float) -> void: 
-	zoom = Vector2(GlobalVariables.expanded_viewport_percentage.x, GlobalVariables.expanded_viewport_percentage.x)
-
+	zoom = Vector2(GlobalVariables.expanded_viewport_percentage.x, GlobalVariables.expanded_viewport_percentage.x) + zoom_offset

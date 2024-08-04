@@ -12,26 +12,15 @@
 [ext_resource type="AudioStream" uid="uid://dnipkpbpk6h6n" path="res://assets/audio/ui/pickup_item.wav" id="9_kjmyf"]
 [ext_resource type="PackedScene" uid="uid://cnsvmjc5ytto2" path="res://nodes/components/on_visible_then_scale/on_visible_then_scale.tscn" id="9_rjlm8"]
 
-[sub_resource type="Resource" id="Resource_rj2ev"]
-script = ExtResource("8_8dy0j")
-sound = ExtResource("9_kjmyf")
-play_from_position = 0
-pitch_scale = 1.0
-volume_slider = 1.0
-change_db = false
-volume_db = 0.0
-change_bus = false
-bus = &"Master"
-
-[sub_resource type="Resource" id="Resource_4r2pi"]
+[sub_resource type="Resource" id="Resource_sh1ev"]
 script = ExtResource("5_hjcei")
 format = "[outline_size=4][outline_color=BLACK][b][font_size=38]%s[/font_size][/b]
 [font_size=28][b]Type:[/b] %s[/font_size]
 [font_size=28][b]Environmental Impact:[/b] %s[/font_size]"
 
-[sub_resource type="Resource" id="Resource_t3gx3"]
+[sub_resource type="Resource" id="Resource_su8km"]
 script = ExtResource("6_np3jd")
-format = SubResource("Resource_4r2pi")
+format = SubResource("Resource_sh1ev")
 texts = Array[String]([])
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ukjcl"]
@@ -42,11 +31,22 @@ shader_parameter/pattern = 0
 shader_parameter/inside = false
 shader_parameter/add_margins = true
 
+[sub_resource type="Resource" id="Resource_eq6f0"]
+script = ExtResource("8_8dy0j")
+sound = ExtResource("9_kjmyf")
+play_from_position = 0
+pitch_scale = 1.0
+volume_slider = 1.0
+change_db = false
+volume_db = 0.0
+change_bus = true
+bus = &"SFX"
+
 [node name="PickUppableEntity" groups=["QuestEntity"] instance=ExtResource("1_d4ii6")]
 script = ExtResource("2_a2l0a")
 need_quest_before_enabled = null
-interact_audio = SubResource("Resource_rj2ev")
-interact_description = SubResource("Resource_t3gx3")
+only_display_interact_dialog_once = true
+interact_description = SubResource("Resource_su8km")
 
 [node name="OnPressedApplyMaterialToNode" parent="CanvasLayer/Root/TapHitBox" index="0" node_paths=PackedStringArray("apply_to_node") instance=ExtResource("7_cgy4r")]
 material = SubResource("ShaderMaterial_ukjcl")
@@ -60,7 +60,7 @@ duplicate_from_method = "clone"
 disabled = false
 
 [node name="InteractAudio" parent="Audio" index="1"]
-audio = SubResource("Resource_rj2ev")
+audio = SubResource("Resource_eq6f0")
 
 [node name="ShadowCircle" parent="Sprites" index="0"]
 scale = Vector2(0.229, 0.167)

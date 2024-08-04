@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="RichLabelText" load_steps=4 format=3 uid="uid://kpvce7pwuyya"]
+
+[ext_resource type="Script" path="res://scripts/resources/string_formatter.gd" id="1_txdcc"]
+[ext_resource type="Script" path="res://scripts/resources/rich_label_text.gd" id="2_xct6q"]
+
+[sub_resource type="Resource" id="Resource_qfg2e"]
+script = ExtResource("1_txdcc")
+format = "[outline_size=4][outline_color=BLACK][b][font_size=38]%s[/font_size][/b]
+[font_size=28][b]Type:[/b] %s[/font_size]
+[font_size=28][b]Environmental Impact:[/b] %s[/font_size]"
+
+[resource]
+script = ExtResource("2_xct6q")
+format = SubResource("Resource_qfg2e")
+texts = Array[String]([])

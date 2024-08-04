@@ -153,7 +153,6 @@ offset_bottom = 0.0
 grow_horizontal = 0
 grow_vertical = 0
 texture_normal = SubResource("AtlasTexture_ocl6h")
-metadata/_edit_use_anchors_ = true
 
 [node name="Label" parent="Body/OKButton" index="1"]
 offset_top = -4.50568

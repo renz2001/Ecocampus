@@ -1,16 +1,13 @@
-[gd_scene load_steps=19 format=3 uid="uid://nb7ksv35wpbh"]
+[gd_scene load_steps=15 format=3 uid="uid://nb7ksv35wpbh"]
 
 [ext_resource type="PackedScene" uid="uid://bsegdr16m7bl6" path="res://nodes/abstract_scenes/interactable_entity_node/interactable_entity_node.tscn" id="1_8b6or"]
 [ext_resource type="Script" path="res://nodes/tools/use_tool_to_enable_entity/use_tool_to_enable_entity.gd" id="2_id8t6"]
 [ext_resource type="Script" path="res://scripts/resources/item_model.gd" id="3_easi1"]
-[ext_resource type="Resource" uid="uid://byaj1bas2wkaw" path="res://resources/dialogues/dialogues.dialogue" id="3_k5wt8"]
-[ext_resource type="Script" path="res://scripts/resources/entity.gd" id="4_614j2"]
 [ext_resource type="Resource" uid="uid://bcj0juvp1ey76" path="res://resources/items/wrench.tres" id="4_johpn"]
 [ext_resource type="Script" path="res://scripts/resources/item_stack.gd" id="5_btj7j"]
-[ext_resource type="Resource" uid="uid://dpg6457rwx03a" path="res://resources/entity/player.tres" id="5_s2nc6"]
-[ext_resource type="Script" path="res://addons/dialogue_manager's_dialogue_gui_manager/scripts/arguments/dialogue_arguments.gd" id="6_icfmm"]
 [ext_resource type="Script" path="res://scripts/resources/inventory.gd" id="6_r1tvy"]
 [ext_resource type="Script" path="res://scripts/resources/label_text.gd" id="7_x6dcb"]
+[ext_resource type="Resource" uid="uid://vdok8gg4ls46" path="res://resources/dialogue_arguments/faucet_broken_dialogue.tres" id="8_wprc3"]
 [ext_resource type="Script" path="res://addons/audio_manager_and_plus/scripts/arguments/audio_stream_player_arguments.gd" id="11_7gjmh"]
 [ext_resource type="AudioStream" uid="uid://bdmxgn648a8f1" path="res://assets/audio/wrench.wav" id="12_mu4yp"]
 
@@ -26,18 +23,6 @@ texts = Array[String](["Faucet"])
 with_label_settings = false
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[sub_resource type="Resource" id="Resource_xocsp"]
-script = ExtResource("6_icfmm")
-dialogue_gui = 0
-dialogue_resource = ExtResource("3_k5wt8")
-main_speakers = Array[ExtResource("4_614j2")]([ExtResource("5_s2nc6")])
-title = "faucet_broken"
-extra_game_states = []
-title_variation = 0
-reset_when_title_variation_reached = false
-is_dialogue_game_state = true
-save_as_resource_path = false
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1pqme"]
 size = Vector2(188, 214)
@@ -59,7 +44,7 @@ allowed_items = Array[ExtResource("3_easi1")]([ExtResource("4_johpn")])
 dont_take_item = true
 inventory = SubResource("Resource_dij1w")
 interact_description = SubResource("Resource_r1pdv")
-dialogue = SubResource("Resource_xocsp")
+dialogue = ExtResource("8_wprc3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MouseDragDropArea" index="0"]
 position = Vector2(1, -3)
@@ -72,7 +57,7 @@ offset_right = 94.0
 offset_bottom = 105.0
 
 [node name="DialogueStarter" parent="Components" index="4"]
-dialogue = SubResource("Resource_xocsp")
+dialogue = ExtResource("8_wprc3")
 
 [node name="DropAudio" parent="Audio" index="2"]
 audio = SubResource("Resource_pc4fr")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dn0hmrfmam4bl"]
+[gd_scene load_steps=25 format=3 uid="uid://dn0hmrfmam4bl"]
 
 [ext_resource type="PackedScene" uid="uid://dup6nowsahsrg" path="res://addons/gui_manager/nodes/singletons/gui_manager/gui_manager.tscn" id="1_fgil1"]
 [ext_resource type="Script" path="res://nodes/singletons/managers/gui_manager/gui_manager.gd" id="2_43jm5"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://b26qgdv0t84hx" path="res://nodes/gui/saving_label/saving_label.tscn" id="18_62bra"]
 [ext_resource type="PackedScene" uid="uid://ckoeormi67l3p" path="res://nodes/gui/item_obtained_screen/item_obtained_screen.tscn" id="18_tnw5h"]
 [ext_resource type="LabelSettings" uid="uid://bfng1toxthprb" path="res://resources/label_settings/quiz_attempt_gui_title.tres" id="19_2m0kl"]
+[ext_resource type="PackedScene" uid="uid://mqbboxghdjnc" path="res://nodes/gui/item_dialog_screen/item_dialog_screen.tscn" id="19_n8jiq"]
 
 [sub_resource type="Resource" id="Resource_w1cp2"]
 script = ExtResource("6_g7dor")
@@ -206,6 +207,9 @@ layout_mode = 1
 metadata/_edit_lock_ = true
 
 [node name="ItemObtainedScreen" parent="Root/MarginContainer/BaseControl" index="5" instance=ExtResource("18_tnw5h")]
+layout_mode = 1
+
+[node name="ItemDialogScreen" parent="Root/MarginContainer/BaseControl" index="6" instance=ExtResource("19_n8jiq")]
 layout_mode = 1
 
 [node name="AlertScreen" parent="Root" index="2" instance=ExtResource("18_0q276")]

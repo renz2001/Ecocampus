@@ -1,19 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://c5l5cc2j18bt6"]
+[gd_scene load_steps=8 format=3 uid="uid://c5l5cc2j18bt6"]
 
 [ext_resource type="PackedScene" uid="uid://j2jy5p1ojh58" path="res://addons/gui_manager/nodes/gui/gui/gui.tscn" id="1_fmwrd"]
 [ext_resource type="Script" path="res://nodes/gui/tools_item_slot/tools_item_slot.gd" id="2_8mhln"]
 [ext_resource type="PackedScene" uid="uid://d4mqjvr57ok1h" path="res://nodes/gui/buttons/icon_button/icon_button.tscn" id="2_sura1"]
 [ext_resource type="PackedScene" uid="uid://do60bu0cxb3yo" path="res://nodes/gui/transparent_item_slots_container/tool_item_slots_container.tscn" id="3_e2f3d"]
-[ext_resource type="Script" path="res://scripts/resources/item_stack.gd" id="3_kibmq"]
 [ext_resource type="Script" path="res://addons/node_components/scripts/arguments/tween_arguments.gd" id="3_plq88"]
-[ext_resource type="Script" path="res://scripts/resources/inventory.gd" id="5_qwywb"]
 [ext_resource type="Texture2D" uid="uid://vvwriacp5vdx" path="res://assets/icons/tools_slot.png" id="6_mopxv"]
-
-[sub_resource type="Resource" id="Resource_3gg4y"]
-script = ExtResource("5_qwywb")
-items = Array[ExtResource("3_kibmq")]([])
-max_items = -1
-save_as_resource_path = false
 
 [sub_resource type="Resource" id="Resource_f23wa"]
 script = ExtResource("3_plq88")
@@ -25,7 +17,7 @@ duration = 0.4
 offset_right = 137.0
 offset_bottom = 141.0
 script = ExtResource("2_8mhln")
-inventory = SubResource("Resource_3gg4y")
+inventory = null
 animation = SubResource("Resource_f23wa")
 icon_button = NodePath("IconButton")
 items_container = NodePath("ToolsPanelClip/HBoxContainer/ToolItemSlotsContainer")
@@ -63,7 +55,6 @@ alignment = 2
 [node name="ToolItemSlotsContainer" parent="ToolsPanelClip/HBoxContainer" index="0" instance=ExtResource("3_e2f3d")]
 layout_mode = 2
 alignment = 2
-inventory = SubResource("Resource_3gg4y")
 
 [node name="ReferenceRect" type="ReferenceRect" parent="ToolsPanelClip/HBoxContainer" index="1"]
 custom_minimum_size = Vector2(70, 0)

@@ -62,26 +62,43 @@ func move_up() -> void:
 	
 	GetMousePositionArea.this().visible = false
 	
-	tween.tween_property(player, "global_position", ground_marker.global_position,  duration)
+	# For things that are not on the ladder
+	for node: Node in get_tree().get_nodes_in_group("LadderDisable"): 
+		node.disabled = true
+	
+	tween.tween_property(player, "global_position", ground_marker.global_position,  0.1)
 	tween.chain()
+	player.z_index = 1
 	tween.step_finished.connect(
 		func(idx: int): 
 			player.lock_size = true
-			player.z_index = 1
+			
+			player.is_animation_only = true
+			player.state_chart.send_event("idle")
+			player.state_chart.send_event("walk")
+			player.animation_player.play("walk_left")
+			ToMapPickerIconButton.this().visible = false
+			
+			player.animate_y_direction_move = false
+			player.y_direction_variety.index = 1
+			
 	, CONNECT_ONE_SHOT
 	)
 	tween.tween_property(player, "global_position", top_marker.global_position,  0.7)
 	tween.finished.connect(
 		func(): 
+			player.is_animation_only = false
+			player.state_chart.send_event("idle")
 			player.animation_player.play("idle_left")
 			disable_items(false)
 			player_is_move_to_position = false
-			player.is_move_to_position = false
-			wait_for_player_to_display_interact_dialog = false
+			player.is_move_to_position = true
+			wait_for_player_to_come = false
+			player.y_direction_variety.index = 0
+			
 	, CONNECT_ONE_SHOT
 	)
 	tween.play()
-	player.animation_player.play("walk_left")
 	on_ladder = true
 	
 	
@@ -93,8 +110,14 @@ func move_down() -> void:
 	tween.tween_property(player, "global_position", ground_marker.global_position,  duration)
 	#tween.chain()
 	#tween.tween_property(player, "global_position", top_marker.global_position,  duration)
+	player.animate_y_direction_move = false
+	player.y_direction_variety.index = 0
+	
 	tween.finished.connect(
 		func(): 
+			player.animate_y_direction_move = true
+			player.is_animation_only = false
+			player.state_chart.send_event("idle")
 			player.animation_player.play("idle_right")
 			player.lock_size = false
 			disable_items(true)
@@ -104,11 +127,26 @@ func move_down() -> void:
 			#player.is_move_to_position = false
 			player_is_move_to_position = true
 			player.is_move_to_position = false
-			wait_for_player_to_display_interact_dialog = true
+			wait_for_player_to_come = true
+			#printerr("ASDSADASDASd")
+			for node: Node in get_tree().get_nodes_in_group("LadderDisable"): 
+				if node.get("need_quest_before_enabled") != null && node.need_quest_before_enabled: 
+					if ExtendedQuestSystem.is_quest_active(node.need_quest_before_enabled): 
+						node.disabled = false
+				elif node is NPCNode: 
+					node.disabled = false
+			ToMapPickerIconButton.this().visible = true
+				
 	, CONNECT_ONE_SHOT
 	)
-	tween.play()
+	player.is_animation_only = true
+	player.state_chart.send_event("enabled")
+	player.state_chart.send_event("idle")
+	player.state_chart.send_event("walk")
 	player.animation_player.play("walk_right")
+	
+	tween.play()
+	
 	on_ladder = false
 	
 	
@@ -132,5 +170,17 @@ func move_to(target: Node2D) -> void:
 	#var result: bool = PlayerManager.player.path_find_movement_component.move()
 	#if result == false: 
 		#set_physics_process(false)
+	
+func _process(delta: float) -> void: 
+	super._process(delta)
+	
+	if Engine.is_editor_hint(): 
+		return
+	
+	if on_ladder: 
+		GetMousePositionArea.this().visible = false
+	else: 
+		GetMousePositionArea.this().visible = true
+	
 	
 	

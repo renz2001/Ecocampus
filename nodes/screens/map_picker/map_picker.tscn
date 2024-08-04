@@ -1,11 +1,11 @@
-[gd_scene load_steps=30 format=3 uid="uid://dcjxf25vgikeb"]
+[gd_scene load_steps=32 format=3 uid="uid://dcjxf25vgikeb"]
 
 [ext_resource type="PackedScene" uid="uid://3miay8g4x6j3" path="res://nodes/abstract_scenes/main_screen/main_screen.tscn" id="1_ethfg"]
 [ext_resource type="PackedScene" uid="uid://5npqpm4ofnr" path="res://nodes/gui/map_location_button/map_location_button.tscn" id="2_5f6v8"]
-[ext_resource type="Texture2D" uid="uid://co881qitymalu" path="res://assets/map/island.png" id="2_j6xsv"]
 [ext_resource type="Script" path="res://nodes/screens/map_picker/map_picker.gd" id="2_y44ll"]
 [ext_resource type="PackedScene" uid="uid://bc58xq17532m8" path="res://nodes/gui/back_button/back_button.tscn" id="3_757xa"]
 [ext_resource type="Script" path="res://scripts/arguments/change_scene_arguments.gd" id="3_cuxqn"]
+[ext_resource type="Texture2D" uid="uid://c3pcgmyo6ns2d" path="res://assets/map/island_2.png" id="3_p5pnp"]
 [ext_resource type="Texture2D" uid="uid://cmyovnl4vkyxt" path="res://assets/map/icons/con_icon.png" id="4_sbxly"]
 [ext_resource type="Texture2D" uid="uid://d3qhdft6m3gyt" path="res://assets/map/icons/dit_icon.png" id="5_b4x4x"]
 [ext_resource type="Texture2D" uid="uid://feqbcawgbj0t" path="res://assets/map/icons/gate_icon.png" id="6_2jbm6"]
@@ -13,12 +13,13 @@
 [ext_resource type="Texture2D" uid="uid://vy3sc4i6w3vt" path="res://assets/map/icons/library_icon.png" id="7_ssrne"]
 [ext_resource type="Texture2D" uid="uid://u3ir732fkp5j" path="res://assets/map/icons/saluysoy_icon.png" id="8_ob73h"]
 [ext_resource type="Texture2D" uid="uid://cggxhw5r5bok5" path="res://assets/map/icons/trash_house_icon.png" id="12_7pfev"]
+[ext_resource type="Texture2D" uid="uid://11cybx8yiyk4" path="res://assets/map/tiny_island.png" id="12_o7ylp"]
 [ext_resource type="Theme" uid="uid://cd55r8awc3jgy" path="res://themes/main_theme.tres" id="13_57mjl"]
 [ext_resource type="PackedScene" uid="uid://nnpxfb02bn17" path="res://nodes/components/change_scene_component/change_scene_component.tscn" id="13_o6nnp"]
 [ext_resource type="PackedScene" uid="uid://ijaa6c4i2ii4" path="res://nodes/components/on_change_scene_add_to_back_history/on_change_scene_add_to_back_history.tscn" id="14_n4yax"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6f7ax"]
-atlas = ExtResource("2_j6xsv")
+atlas = ExtResource("3_p5pnp")
 region = Rect2(329, 45, 1301, 942)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s445c"]
@@ -71,6 +72,10 @@ scene = "res://nodes/levels/saluysuy/saluysuy.tscn"
 transition = ExtResource("6_u5ky5")
 middle_transition_end_condition = 0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_76hmo"]
+atlas = ExtResource("12_o7ylp")
+region = Rect2(3, 0, 354, 256)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_h43h3"]
 atlas = ExtResource("12_7pfev")
 region = Rect2(239, 113, 1678, 1676)
@@ -108,9 +113,9 @@ layout_mode = 2
 
 [node name="Island" type="TextureRect" parent="Root/CenterContainer/Island" index="0"]
 layout_mode = 0
-offset_left = -665.0
+offset_left = -776.0
 offset_top = -477.0
-offset_right = 648.0
+offset_right = 537.0
 offset_bottom = 465.0
 texture = SubResource("AtlasTexture_6f7ax")
 
@@ -166,12 +171,34 @@ offset_bottom = 432.0
 texture_normal = SubResource("AtlasTexture_twbk7")
 change_scene = SubResource("Resource_lmf8a")
 
-[node name="Trashcan" parent="Root/CenterContainer/Island/Island" index="5" instance=ExtResource("2_5f6v8")]
-layout_mode = 0
-offset_left = 894.0
-offset_top = 411.0
-offset_right = 1127.0
-offset_bottom = 644.0
+[node name="TinyIsland" type="TextureRect" parent="Root/CenterContainer/Island" index="1"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 511.0
+offset_top = 219.0
+offset_right = 865.0
+offset_bottom = 475.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = SubResource("AtlasTexture_76hmo")
+
+[node name="Trashcan" parent="Root/CenterContainer/Island/TinyIsland" index="0" instance=ExtResource("2_5f6v8")]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -297.0
+offset_top = -351.0
+offset_right = -64.0
+offset_bottom = -118.0
+grow_horizontal = 0
+grow_vertical = 0
 texture_normal = SubResource("AtlasTexture_h43h3")
 change_scene = SubResource("Resource_04iki")
 

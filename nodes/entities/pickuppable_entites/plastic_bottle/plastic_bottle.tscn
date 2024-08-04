@@ -2,58 +2,58 @@
 
 [ext_resource type="PackedScene" uid="uid://77dhb6ck4eyt" path="res://nodes/abstract_scenes/pickuppable_entity/pickuppable_entity.tscn" id="1_7uoco"]
 [ext_resource type="Resource" uid="uid://dqnawmf4l2y2c" path="res://resources/quests/gate_1_quest.tres" id="2_86gkm"]
-[ext_resource type="Resource" uid="uid://byvmcgi6p0hdv" path="res://resources/items/plastic_bottle.tres" id="3_k0hy6"]
-[ext_resource type="Script" path="res://scripts/resources/item_stack.gd" id="4_xf5db"]
+[ext_resource type="Script" path="res://scripts/resources/item_stack.gd" id="3_5sj3u"]
+[ext_resource type="Resource" uid="uid://byvmcgi6p0hdv" path="res://resources/items/plastic_bottle.tres" id="4_70nx0"]
+[ext_resource type="Script" path="res://scripts/resources/inventory.gd" id="4_x6bqs"]
 [ext_resource type="Texture2D" uid="uid://dkeyopffes5gg" path="res://assets/collect_item/plastic_bottle.png" id="5_3glef"]
-[ext_resource type="Script" path="res://scripts/resources/inventory.gd" id="5_cmigy"]
-[ext_resource type="Script" path="res://scripts/resources/item_entity.gd" id="5_g3ne4"]
-[ext_resource type="Script" path="res://scripts/resources/string_formatter.gd" id="6_leqdm"]
-[ext_resource type="Script" path="res://scripts/resources/rich_label_text.gd" id="7_8kp8y"]
+[ext_resource type="Script" path="res://scripts/resources/item_entity.gd" id="5_g8a1q"]
+[ext_resource type="Script" path="res://scripts/resources/string_formatter.gd" id="5_pqgrh"]
+[ext_resource type="Script" path="res://scripts/resources/rich_label_text.gd" id="6_mfuc7"]
 [ext_resource type="PackedScene" uid="uid://dvrqbygr8xwlr" path="res://addons/node_components/nodes/components/node_variety_manager/node_variety/node_variety.tscn" id="8_5cskn"]
 
-[sub_resource type="Resource" id="Resource_p634p"]
-script = ExtResource("4_xf5db")
-model = ExtResource("3_k0hy6")
+[sub_resource type="Resource" id="Resource_3dt2s"]
+script = ExtResource("3_5sj3u")
+model = ExtResource("4_70nx0")
 stack_starting_value = 1.0
 save_as_resource_path = false
 
-[sub_resource type="Resource" id="Resource_beh1a"]
-script = ExtResource("5_cmigy")
-items = Array[ExtResource("4_xf5db")]([SubResource("Resource_p634p")])
+[sub_resource type="Resource" id="Resource_kb7nb"]
+script = ExtResource("4_x6bqs")
+items = Array[ExtResource("3_5sj3u")]([SubResource("Resource_3dt2s")])
 max_items = -1
 save_as_resource_path = false
 
-[sub_resource type="Resource" id="Resource_8fjol"]
-script = ExtResource("5_g3ne4")
+[sub_resource type="Resource" id="Resource_ecyg8"]
+script = ExtResource("5_g8a1q")
 type = 0
 environmental_impact = ""
 custom_name = ""
-name = "Plastic Bag"
+name = "Plastic Bottle"
 gender = 0
 facing_left = false
 group = "Entity"
 save_as_resource_path = false
 
-[sub_resource type="Resource" id="Resource_cbpjl"]
-script = ExtResource("6_leqdm")
+[sub_resource type="Resource" id="Resource_jnc2f"]
+script = ExtResource("5_pqgrh")
 format = "[outline_size=4][outline_color=BLACK][b][font_size=38]%s[/font_size][/b]
 [font_size=28][b]Type:[/b] %s[/font_size]
 [font_size=28][b]Environmental Impact:[/b] %s[/font_size]"
 
-[sub_resource type="Resource" id="Resource_ncp66"]
-script = ExtResource("7_8kp8y")
-format = SubResource("Resource_cbpjl")
+[sub_resource type="Resource" id="Resource_ahawh"]
+script = ExtResource("6_mfuc7")
+format = SubResource("Resource_jnc2f")
 texts = Array[String]([])
 
 [node name="PlasticBottle" instance=ExtResource("1_7uoco")]
 need_quest_before_enabled = ExtResource("2_86gkm")
-inventory = SubResource("Resource_beh1a")
-data = SubResource("Resource_8fjol")
-interact_description = SubResource("Resource_ncp66")
+inventory = SubResource("Resource_kb7nb")
+data = SubResource("Resource_ecyg8")
+interact_description = SubResource("Resource_ahawh")
 
 [node name="TapHitBox" parent="CanvasLayer/Root" index="0"]
 offset_left = -66.0
-offset_top = -68.0
+offset_top = -122.0
 offset_right = 75.0
 offset_bottom = 29.0
 

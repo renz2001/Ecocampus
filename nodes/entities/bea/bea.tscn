@@ -1,17 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://rblpu6inwiyc"]
+[gd_scene load_steps=5 format=3 uid="uid://rblpu6inwiyc"]
 
 [ext_resource type="PackedScene" uid="uid://b8627vb83551h" path="res://nodes/abstract_scenes/npc_node/npc_node.tscn" id="1_ahu1d"]
 [ext_resource type="Resource" uid="uid://dsjk4wa3r6s0k" path="res://resources/entity/bea.tres" id="2_d4oei"]
 [ext_resource type="Texture2D" uid="uid://dd025s5vvo0tr" path="res://assets/character/npc_bea.png" id="2_depai"]
+[ext_resource type="Resource" uid="uid://8paemw7vsbca" path="res://resources/dialogue_arguments/bea_dialogue.tres" id="3_1xe0o"]
 
 [node name="Bea" instance=ExtResource("1_ahu1d")]
 data = ExtResource("2_d4oei")
+dialogue = ExtResource("3_1xe0o")
 
 [node name="TapHitBox" parent="CanvasLayer/Root" index="0"]
 offset_left = -123.0
 offset_top = -334.0
 offset_right = 107.0
 offset_bottom = 43.0
+
+[node name="DialogueStarter" parent="Components" index="4"]
+dialogue = ExtResource("3_1xe0o")
 
 [node name="EntitySprite" parent="Sprites" index="1"]
 position = Vector2(-4, -154)

@@ -68,6 +68,10 @@ folder_colors={
 "res://resources/": "teal"
 }
 
+[global_group]
+
+LadderDisable=""
+
 [input]
 
 tap={

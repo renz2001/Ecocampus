@@ -18,10 +18,14 @@ signal interacted
 		node_variety_index = value
 		if !is_node_ready(): 
 			await ready
+		printerr(self)
+		printerr(node_variety_index)
 		node_variety_manager.index = node_variety_index
 		
 @export var display_interact_dialog: bool = true
-@export var wait_for_player_to_display_interact_dialog: bool = true
+@export var wait_for_player_to_come: bool = true
+@export var only_display_interact_dialog_once: bool = false
+
 @export var faucets_show: bool
 
 ## IF true, player can move to this position
@@ -32,7 +36,8 @@ signal interacted
 		interact_audio = value
 		if !is_node_ready(): 
 			await ready
-		interact_audio_player.audio = interact_audio
+		if interact_audio: 
+			interact_audio_player.audio = interact_audio
 		
 @export var on_interact_call_world_event: WorldEventCall: 
 	set(value): 
@@ -116,6 +121,8 @@ signal interacted
 @export var dialogue_starter_for_disabled: DialogueStarter
 @export var animation_player: AnimationPlayer
 
+#var interacted_count: int = 0
+
 func _ready() -> void: 
 	#GameManager.playing_state.state_entered.connect(_on_playing_state_entered)
 	pass
@@ -151,6 +158,7 @@ func _on_interact() -> void:
 			dialogue_starter_for_disabled.dialogue = dialogue_if_disabled
 			dialogue_starter_for_disabled.start()
 		return
+	#interacted_count += 1
 	starting_interact.emit()
 	if disable_after_interact: 
 		disabled = true
@@ -165,7 +173,7 @@ func _on_interact() -> void:
 	if AchievementUnlockedScreen.this().visible: 
 		await AchievementUnlockedScreen.this().deactivated
 	_interact()
-	if interact_audio: 
+	if interact_audio_player: 
 		interact_audio_player.play()
 	if dialogue == null: 
 		if quiz != null: 
@@ -185,6 +193,14 @@ func _on_interact() -> void:
 func show_interact_dialog(description: BaseLabelText) -> void: 
 	if disabled || !visible: 
 		return
+	#if interacted_count > 1: 
+		#return
+		
+	if inventory && !inventory.items.is_empty(): 
+		if PlayerManager.player.data.inventory.item_was_in_history(inventory.items[0].model): 
+			_on_interact()
+			return
+		
 	var dialog: InteractDialog = InteractDialog.display(
 		InteractDialogData.new()\
 			.set_caller(
@@ -218,16 +234,18 @@ func _on_tap_hit_box_pressed() -> void:
 		_on_interact()
 		if player_is_move_to_position: 
 			PlayerManager.player.is_move_to_position = false
-	elif display_interact_dialog: 
-		if wait_for_player_to_display_interact_dialog: 
-			if !PlayerManager.player.path_find.changed_target.is_connected(_on_changed_target): 
-				PlayerManager.player.path_find.changed_target.connect(_on_changed_target, CONNECT_ONE_SHOT)
-			if !PlayerManager.player.path_find.finished_navigation.is_connected(_on_finished_navigation): 
-				PlayerManager.player.path_find.finished_navigation.connect(_on_finished_navigation, CONNECT_ONE_SHOT)
-		else: 
-			show_interact_dialog(interact_description)
+	elif wait_for_player_to_come: 
+		if !PlayerManager.player.path_find.changed_target.is_connected(_on_changed_target): 
+			PlayerManager.player.path_find.changed_target.connect(_on_changed_target, CONNECT_ONE_SHOT)
+		if !PlayerManager.player.path_find.finished_navigation.is_connected(_on_finished_navigation): 
+			PlayerManager.player.path_find.finished_navigation.connect(_on_finished_navigation, CONNECT_ONE_SHOT)
+	#else: 
+		#show_interact_dialog(interact_description)
 	else: 
-		_on_interact()
+		if display_interact_dialog: 
+			show_interact_dialog(interact_description)
+		else: 
+			_on_interact()
 
 
 func _on_changed_target() -> void: 
@@ -236,7 +254,11 @@ func _on_changed_target() -> void:
 
 
 func _on_finished_navigation() -> void: 
-	show_interact_dialog(interact_description)
+	if display_interact_dialog: 
+		show_interact_dialog(interact_description)
+	else: 
+		_on_interact()
+		
 	if player_is_move_to_position: 
 		PlayerManager.player.is_move_to_position = false
 

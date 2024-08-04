@@ -95,5 +95,11 @@ func _on_dropped() -> void:
 	
 func clear() -> void: 
 	item = null
-	
+
+
+func _on_pressed() -> void: 
+	if !item: 
+		return
+	ItemDialogScreen.this().display(item.model)
+	pass
 	

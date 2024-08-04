@@ -10,4 +10,3 @@ func set_label(label: RichTextLabel) -> void:
 			label.text = format.input(texts)
 		else: 
 			label.text = texts[0]
-

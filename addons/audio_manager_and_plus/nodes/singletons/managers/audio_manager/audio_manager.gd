@@ -77,6 +77,7 @@ func play_sound_effect(args: AudioStreamPlayerArguments, position: Vector2 = Vec
 		@warning_ignore("confusable_local_declaration")
 		var audio_stream_player: AudioStreamPlayer2D = AudioStreamPlayer2D.new()
 		sound_effects_2d.add_child(audio_stream_player)
+		audio_stream_player.volume_db = args.get_volume()
 		_set_player(audio_stream_player, args, true).finished.connect(
 			func(): 
 				audio_stream_player.queue_free()
@@ -87,6 +88,7 @@ func play_sound_effect(args: AudioStreamPlayerArguments, position: Vector2 = Vec
 		
 	var audio_stream_player: AudioStreamPlayer = AudioStreamPlayer.new()
 	sound_effects.add_child(audio_stream_player)
+	audio_stream_player.volume_db = args.get_volume()
 	_set_player(audio_stream_player, args, true).finished.connect(
 		func(): 
 			audio_stream_player.queue_free()

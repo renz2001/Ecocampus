@@ -12,7 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://ddxg37qtf4rtb" path="res://assets/audio/place_object.wav" id="8_cmk3n"]
 [ext_resource type="Script" path="res://addons/save_components_system/scripts/resources/properties_to_save.gd" id="8_fwj2a"]
 
-[sub_resource type="Resource" id="Resource_tmb4w"]
+[sub_resource type="Resource" id="Resource_6sce4"]
 script = ExtResource("6_84eyk")
 items = Array[ExtResource("5_vgmex")]([])
 max_items = -1
@@ -50,7 +50,7 @@ items_accesible_when_climbed = []
 ground_marker = NodePath("Positions/Ground")
 top_marker = NodePath("Positions/Top")
 allowed_items = Array[ExtResource("3_lwdv1")]([ExtResource("4_fe7vi")])
-inventory = SubResource("Resource_tmb4w")
+inventory = SubResource("Resource_6sce4")
 interact_description = SubResource("Resource_jlujb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MouseDragDropArea" index="0"]
@@ -93,7 +93,7 @@ texture = ExtResource("3_hwcn5")
 [node name="Positions" type="Node2D" parent="." index="9"]
 
 [node name="Ground" type="Marker2D" parent="Positions" index="0"]
-position = Vector2(12, 0)
+position = Vector2(12, 3)
 
 [node name="Top" type="Marker2D" parent="Positions" index="1"]
 position = Vector2(-92, -395)

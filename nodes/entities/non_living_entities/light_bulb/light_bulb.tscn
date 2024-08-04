@@ -23,16 +23,16 @@ save_as_resource_path = false
 
 [sub_resource type="Resource" id="Resource_cg4s3"]
 script = ExtResource("8_q2dlt")
-properties = PackedStringArray("inventory", "data", "quiz", "dialogue", "global_position", "global_scale", "state", "visible")
+properties = PackedStringArray("inventory", "data", "quiz", "dialogue", "global_position", "global_scale", "state", "visible", "disabled")
 save_properties_as_resource_path = PackedStringArray()
 
 [node name="LightBulb" groups=["LightBulb"] instance=ExtResource("1_rx25i")]
 script = ExtResource("2_4g3bq")
 state = 1
 data = SubResource("Resource_ww6kv")
+disable_after_interact = true
 
 [node name="TapHitBox" parent="CanvasLayer/Root" index="0"]
-visible = false
 offset_left = -128.0
 offset_top = -131.0
 offset_right = 140.0

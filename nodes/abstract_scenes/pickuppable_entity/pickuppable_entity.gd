@@ -38,8 +38,13 @@ func _on_new_available_quest(_quest: Quest) -> void:
 
 	
 func show_interact_dialog(description: BaseLabelText) -> void: 
-	if disabled: 
+	if disabled || !visible: 
 		return
+		
+	if PlayerManager.player.data.inventory.item_was_in_history(inventory.items[0].model): 
+		_on_interact()
+		return
+		
 	var dialog: InteractDialog = InteractDialog.display(
 		InteractDialogData.new()\
 			.set_caller(
