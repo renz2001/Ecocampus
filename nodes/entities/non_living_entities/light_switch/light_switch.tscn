@@ -21,6 +21,9 @@ script = ExtResource("2_sci1n")
 light_bulbs = []
 interact_description = SubResource("Resource_aopd7")
 
+[node name="Root" parent="CanvasLayer" index="0"]
+scale = Vector2(1.4, 1.4)
+
 [node name="TapHitBox" parent="CanvasLayer/Root" index="0"]
 offset_left = -96.0
 offset_top = -108.0
@@ -54,5 +57,6 @@ node_base_scale = Vector2(1.4, 1.4)
 visible = false
 
 [node name="EntitySprite" parent="Sprites" index="1"]
+visible = false
 scale = Vector2(0.0284332, 0.0284332)
 texture = ExtResource("2_phfc8")

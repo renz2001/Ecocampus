@@ -12,11 +12,12 @@ extends NodeComponent
 
 @export var camera_offset_transition: TweenArguments
 #@export var map_top_limit: int
+@export var disabled: bool
 
 var reached: bool
 
 func _process(delta: float) -> void: 
-	if Engine.is_editor_hint(): 
+	if Engine.is_editor_hint() || disabled: 
 		return
 		
 	if !is_node_ready(): 

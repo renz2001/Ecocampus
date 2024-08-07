@@ -18,8 +18,6 @@ signal interacted
 		node_variety_index = value
 		if !is_node_ready(): 
 			await ready
-		printerr(self)
-		printerr(node_variety_index)
 		node_variety_manager.index = node_variety_index
 		
 @export var display_interact_dialog: bool = true

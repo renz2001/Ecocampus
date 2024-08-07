@@ -25,7 +25,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1pqme"]
-size = Vector2(188, 214)
+size = Vector2(276, 320)
 
 [sub_resource type="Resource" id="Resource_pc4fr"]
 script = ExtResource("11_7gjmh")
@@ -61,6 +61,9 @@ dialogue = ExtResource("8_wprc3")
 
 [node name="DropAudio" parent="Audio" index="2"]
 audio = SubResource("Resource_pc4fr")
+
+[node name="ShadowCircle" parent="Sprites" index="0"]
+visible = false
 
 [connection signal="item_accepted" from="." to="." method="_on_item_accepted"]
 [connection signal="item_rejected" from="." to="." method="_on_item_rejected"]
